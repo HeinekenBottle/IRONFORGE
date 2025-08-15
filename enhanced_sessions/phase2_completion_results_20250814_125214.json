@@ -1,0 +1,158 @@
+{
+  "processing_date": "2025-08-14T12:52:14.525994",
+  "target_sessions": 24,
+  "processed_sessions": [
+    {
+      "session": "ASIA_Lvl-1_2025_08_05.json",
+      "htf_carryover_strength": 0.9268128667921633,
+      "energy_density": 0.8813357727686223,
+      "liquidity_events_count": 11
+    },
+    {
+      "session": "ASIA_Lvl-1_2025_08_06.json",
+      "htf_carryover_strength": 0.927198660410564,
+      "energy_density": 0.8397722781060354,
+      "liquidity_events_count": 15
+    },
+    {
+      "session": "ASIA_Lvl-1_2025_08_07.json",
+      "htf_carryover_strength": 0.8739913505387945,
+      "energy_density": 0.8867277963161592,
+      "liquidity_events_count": 10
+    },
+    {
+      "session": "LONDON_Lvl-1_2025_08_05.json",
+      "htf_carryover_strength": 0.9631487433927546,
+      "energy_density": 0.8460125549345234,
+      "liquidity_events_count": 14
+    },
+    {
+      "session": "LONDON_Lvl-1_2025_08_06.json",
+      "htf_carryover_strength": 0.8826977574914038,
+      "energy_density": 0.8712094634674707,
+      "liquidity_events_count": 10
+    },
+    {
+      "session": "LONDON_Lvl-1_2025_08_07.json",
+      "htf_carryover_strength": 0.9884373036913647,
+      "energy_density": 0.8574621805356933,
+      "liquidity_events_count": 16
+    },
+    {
+      "session": "LUNCH_Lvl-1_2025_08_04.json",
+      "htf_carryover_strength": 0.9289395891095137,
+      "energy_density": 0.846226428515571,
+      "liquidity_events_count": 11
+    },
+    {
+      "session": "LUNCH_Lvl-1_2025_08_05.json",
+      "htf_carryover_strength": 0.9122495144948118,
+      "energy_density": 0.8802685502582988,
+      "liquidity_events_count": 16
+    },
+    {
+      "session": "LUNCH_Lvl-1_2025_08_06.json",
+      "htf_carryover_strength": 0.8146737184625313,
+      "energy_density": 0.8678448583384286,
+      "liquidity_events_count": 16
+    },
+    {
+      "session": "MIDNIGHT_Lvl-1_2025_07_25.json",
+      "htf_carryover_strength": 0.9187510203291274,
+      "energy_density": 0.8307325478967192,
+      "liquidity_events_count": 11
+    },
+    {
+      "session": "MIDNIGHT_Lvl-1_2025_08_05.json",
+      "htf_carryover_strength": 0.797648003487393,
+      "energy_density": 0.8473862390685805,
+      "liquidity_events_count": 12
+    },
+    {
+      "session": "MIDNIGHT_Lvl-1_2025_08_06.json",
+      "htf_carryover_strength": 0.9205626615411128,
+      "energy_density": 0.8613553886839099,
+      "liquidity_events_count": 10
+    },
+    {
+      "session": "MIDNIGHT_Lvl-1_2025_08_07.json",
+      "htf_carryover_strength": 0.8141461333455839,
+      "energy_density": 0.83,
+      "liquidity_events_count": 10
+    },
+    {
+      "session": "NYAM_Lvl-1_2025_08_06.json",
+      "htf_carryover_strength": 0.9818980065136828,
+      "energy_density": 0.95,
+      "liquidity_events_count": 17
+    },
+    {
+      "session": "NYAM_Lvl-1_2025_08_07_FRESH.json",
+      "htf_carryover_strength": 0.9604348735609698,
+      "energy_density": 0.9233115841491409,
+      "liquidity_events_count": 10
+    },
+    {
+      "session": "NYPM_Lvl-1_2025_08_06.json",
+      "htf_carryover_strength": 0.9092451662610905,
+      "energy_density": 0.8498966393550934,
+      "liquidity_events_count": 10
+    },
+    {
+      "session": "NY_AM_Lvl-1_2025_07_24.json",
+      "htf_carryover_strength": 0.99,
+      "energy_density": 0.8487073496779884,
+      "liquidity_events_count": 11
+    },
+    {
+      "session": "NY_AM_Lvl-1_2025_08_04.json",
+      "htf_carryover_strength": 0.99,
+      "energy_density": 0.9207030842416615,
+      "liquidity_events_count": 15
+    },
+    {
+      "session": "NY_AM_Lvl-1_2025_08_05.json",
+      "htf_carryover_strength": 0.99,
+      "energy_density": 0.95,
+      "liquidity_events_count": 16
+    },
+    {
+      "session": "NY_PM_Lvl-1_2025_08_04.json",
+      "htf_carryover_strength": 0.9842292065422326,
+      "energy_density": 0.8619115661340085,
+      "liquidity_events_count": 17
+    },
+    {
+      "session": "NY_PM_Lvl-1_2025_08_05.json",
+      "htf_carryover_strength": 0.916906084386348,
+      "energy_density": 0.926061932795494,
+      "liquidity_events_count": 11
+    },
+    {
+      "session": "PREMARKET_Lvl-1_2025_08_05.json",
+      "htf_carryover_strength": 0.9743383189963547,
+      "energy_density": 0.8997479582036649,
+      "liquidity_events_count": 13
+    },
+    {
+      "session": "PREMARKET_Lvl-1_2025_08_06.json",
+      "htf_carryover_strength": 0.8403301719854175,
+      "energy_density": 0.8942019130505228,
+      "liquidity_events_count": 10
+    },
+    {
+      "session": "PREMARKET_Lvl-1_2025_08_07.json",
+      "htf_carryover_strength": 0.8799835298805391,
+      "energy_density": 0.8746327635813302,
+      "liquidity_events_count": 11
+    }
+  ],
+  "failed_sessions": [],
+  "enhancement_statistics": {
+    "sessions_processed_this_run": 24,
+    "total_enhanced_sessions": 57,
+    "tgat_ready_sessions": 57,
+    "coverage_percentage": 100.0,
+    "phase2_complete": true
+  }
+}

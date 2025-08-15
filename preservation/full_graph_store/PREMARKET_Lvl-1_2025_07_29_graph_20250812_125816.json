@@ -1,0 +1,203 @@
+{
+  "nodes": {
+    "1m": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "5m": [],
+    "15m": [],
+    "1h": [
+      19,
+      20
+    ],
+    "D": [],
+    "W": []
+  },
+  "rich_node_features": [
+    "RichNodeFeature(time_minutes=0.0, daily_phase_sin=0.9659258262890683, daily_phase_cos=-0.25881904510252085, session_position=0.0, time_to_close=149.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.23599, price_delta_1m=0.008339279567794889, price_delta_5m=0.0008127512857738187, price_delta_15m=0.012126278029078189, volatility_window=0.028932584003566048, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=0, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '07:00:00', 'price_level': 23599.0, 'movement_type': 'open'})",
+    "RichNodeFeature(time_minutes=300.0, daily_phase_sin=1.2246467991473532e-16, daily_phase_cos=-1.0, session_position=2.0134228187919465, time_to_close=0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.236135, price_delta_1m=-4.868201324957459e-05, price_delta_5m=0.00019583462366416825, price_delta_15m=0.005427353457362825, volatility_window=0.04313878676978683, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=1, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '12:00:00', 'price_level': 23613.5, 'movement_type': 'session_high'})",
+    "RichNodeFeature(time_minutes=330.0, daily_phase_sin=-0.13052619222005132, daily_phase_cos=-0.9914448613738105, session_position=2.214765100671141, time_to_close=0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.235725, price_delta_1m=-0.0009907539145378123, price_delta_5m=0.0058914706212056765, price_delta_15m=0.0045921320676353475, volatility_window=0.02622983711113297, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=2, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '12:30:00', 'price_level': 23572.5, 'movement_type': 'session_low'})",
+    "RichNodeFeature(time_minutes=149.0, daily_phase_sin=0.6122172800344493, daily_phase_cos=-0.7906895737438434, session_position=1.0, time_to_close=0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.235955, price_delta_1m=0.010054228587707827, price_delta_5m=-0.010531249723230381, price_delta_15m=-0.015247805708164138, volatility_window=0.023495129881619364, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=3, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '09:29:00', 'price_level': 23595.5, 'movement_type': 'close'})",
+    "RichNodeFeature(time_minutes=0.0, daily_phase_sin=0.9659258262890683, daily_phase_cos=-0.25881904510252085, session_position=0.0, time_to_close=149.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.23599, price_delta_1m=0.001964606391771758, price_delta_5m=-0.03022153222095161, price_delta_15m=0.010629755242046268, volatility_window=0.024282840096064073, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=0, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '07:00:00', 'price_level': 23599.0, 'movement_type': 'open'})",
+    "RichNodeFeature(time_minutes=300.0, daily_phase_sin=1.2246467991473532e-16, daily_phase_cos=-1.0, session_position=2.0134228187919465, time_to_close=0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.236135, price_delta_1m=-0.002443389372360124, price_delta_5m=0.009037318069803985, price_delta_15m=-0.007193698329035567, volatility_window=0.011379954164523597, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=1, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '12:00:00', 'price_level': 23613.5, 'movement_type': 'session_high'})",
+    "RichNodeFeature(time_minutes=330.0, daily_phase_sin=-0.13052619222005132, daily_phase_cos=-0.9914448613738105, session_position=2.214765100671141, time_to_close=0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.235725, price_delta_1m=-0.003702935225699985, price_delta_5m=0.017380517831895884, price_delta_15m=0.007383602832509148, volatility_window=0.043560898112317635, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=2, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '12:30:00', 'price_level': 23572.5, 'movement_type': 'session_low'})",
+    "RichNodeFeature(time_minutes=149.0, daily_phase_sin=0.6122172800344493, daily_phase_cos=-0.7906895737438434, session_position=1.0, time_to_close=0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.235955, price_delta_1m=0.0032402072309479163, price_delta_5m=-0.0030992728916036656, price_delta_15m=0.0042533314472329685, volatility_window=0.014735028234315082, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=3, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '09:29:00', 'price_level': 23595.5, 'movement_type': 'close'})",
+    "RichNodeFeature(time_minutes=1.0, daily_phase_sin=0.964787323828813, daily_phase_cos=-0.2630312144579746, session_position=0.006711409395973154, time_to_close=148.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.2360675, price_delta_1m=-0.003508016765388461, price_delta_5m=-0.008842936130507292, price_delta_15m=0.012177976817813496, volatility_window=0.04580289430489356, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=4, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '07:01:00', 'price': 23606.75, 'action': 'break', 'context': 'Expansion phase lower initiated from opening'})",
+    "RichNodeFeature(time_minutes=2.0, daily_phase_sin=0.963630453208623, daily_phase_cos=-0.26723837607825685, session_position=0.013422818791946308, time_to_close=147.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.2360275, price_delta_1m=0.01091208145977809, price_delta_5m=-0.009309916344961172, price_delta_15m=0.007010961780170348, volatility_window=0.02778568533332639, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=4, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '07:02:00', 'price': 23602.75, 'action': 'touch', 'context': 'Pre-market First Presentation FVG premium high created'})",
+    "RichNodeFeature(time_minutes=40.0, daily_phase_sin=0.90630778703665, daily_phase_cos=-0.42261826174069933, session_position=0.2684563758389262, time_to_close=109.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.235785, price_delta_1m=0.005442474065940426, price_delta_5m=0.0016517004194528952, price_delta_15m=-0.011889782014019742, volatility_window=0.04031746728756427, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=4, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '07:40:00', 'price': 23578.5, 'action': 'touch', 'context': 'Reversal point during expansion lower'})",
+    "RichNodeFeature(time_minutes=61.0, daily_phase_sin=0.8638355052043958, daily_phase_cos=-0.5037739770455262, session_position=0.40939597315436244, time_to_close=88.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.23601875, price_delta_1m=-0.0058969787552826, price_delta_5m=-0.000666279019937418, price_delta_15m=0.002836314144182516, volatility_window=0.03136015035613004, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=4, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '08:01:00', 'price': 23601.875, 'action': 'touch', 'context': 'Pre-market First Presentation FVG balanced'})",
+    "RichNodeFeature(time_minutes=67.0, daily_phase_sin=0.8503522249955631, daily_phase_cos=-0.5262139236518693, session_position=0.44966442953020136, time_to_close=82.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.236135, price_delta_1m=0.02651501930950225, price_delta_5m=0.003372426744042857, price_delta_15m=0.007347098145758238, volatility_window=0.013624839760047022, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=4, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '08:07:00', 'price': 23613.5, 'action': 'touch', 'context': 'Pre-market session high created'})",
+    "RichNodeFeature(time_minutes=71.0, daily_phase_sin=0.8410390129643925, daily_phase_cos=-0.5409744713679938, session_position=0.47651006711409394, time_to_close=78.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.23602125, price_delta_1m=-0.0031812551998945185, price_delta_5m=0.0067660957047607296, price_delta_15m=0.0008088827059171093, volatility_window=0.010590483845748642, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=4, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '08:11:00', 'price': 23602.125, 'action': 'delivery', 'context': 'Pre-market First Presentation FVG redelivered'})",
+    "RichNodeFeature(time_minutes=84.0, daily_phase_sin=0.8090169943749475, daily_phase_cos=-0.587785252292473, session_position=0.5637583892617449, time_to_close=65.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.2360175, price_delta_1m=0.00948770125044356, price_delta_5m=0.010738677000840371, price_delta_15m=-0.005540705693497952, volatility_window=0.03751393631514543, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=4, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '08:24:00', 'price': 23601.75, 'action': 'delivery', 'context': 'Pre-market First Presentation FVG redelivered again'})",
+    "RichNodeFeature(time_minutes=115.0, daily_phase_sin=0.7223639620597557, daily_phase_cos=-0.6915130557822693, session_position=0.7718120805369127, time_to_close=34.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.235825, price_delta_1m=-0.006327106959586065, price_delta_5m=0.003473236484884046, price_delta_15m=-0.014186490386032825, volatility_window=0.03892625910540161, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=4, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '08:55:00', 'price': 23582.5, 'action': 'sweep', 'context': 'London session high taken out between sessions'})",
+    "RichNodeFeature(time_minutes=117.0, daily_phase_sin=0.7163019434246545, daily_phase_cos=-0.69779045984168, session_position=0.785234899328859, time_to_close=32.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.235725, price_delta_1m=0.0017944435277725582, price_delta_5m=0.00339432656150553, price_delta_15m=-0.011110237596604814, volatility_window=0.014675719881519984, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=4, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '08:57:00', 'price': 23572.5, 'action': 'touch', 'context': \"Pre-market session low created, redelivers previous day's London FVG\"})",
+    "RichNodeFeature(time_minutes=144.0, daily_phase_sin=0.6293203910498377, daily_phase_cos=-0.7771459614569707, session_position=0.9664429530201343, time_to_close=5.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.23599, price_delta_1m=0.003221779085418818, price_delta_5m=0.005134626746415266, price_delta_15m=0.002816510532370168, volatility_window=0.012656618292947557, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=4, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '09:24:00', 'price': 23599.0, 'action': 'touch', 'context': 'Touches London opening price during expansion'})",
+    "RichNodeFeature(time_minutes=149.0, daily_phase_sin=0.6122172800344493, daily_phase_cos=-0.7906895737438434, session_position=1.0, time_to_close=0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.23602, price_delta_1m=0.014482029479931659, price_delta_5m=0.009549825890181714, price_delta_15m=-0.008674257597048056, volatility_window=0.04194713723587154, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=4, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '09:29:00', 'price': 23602.0, 'action': 'delivery', 'context': 'Final redelivery of Pre-market First Presentation FVG at close'})",
+    "RichNodeFeature(time_minutes=1.0, daily_phase_sin=0.964787323828813, daily_phase_cos=-0.2630312144579746, session_position=0.006711409395973154, time_to_close=148.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.0, price_delta_1m=0.00850590960065428, price_delta_5m=0.007607509289984068, price_delta_15m=-0.017280243447197367, volatility_window=0.022084832832454274, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=5, timeframe_source=3, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '07:01:00', 'event_type': 'heuristic_cascade_initiation', 'confidence': 2, 'trigger_source': 'Price Movement'})",
+    "RichNodeFeature(time_minutes=99.0, daily_phase_sin=0.7688418320734597, daily_phase_cos=-0.6394390019805846, session_position=0.6644295302013423, time_to_close=50.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1753743600, day_of_week=1, month_phase=0.9354838709677419, normalized_price=0.0, price_delta_1m=0.007246665875286324, price_delta_5m=0.009097723940445094, price_delta_15m=-0.0032158224646399187, volatility_window=0.03064481065320805, energy_state=0.0745, contamination_coefficient=0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=5, timeframe_source=3, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'timestamp': '08:39:00', 'event_type': 'heuristic_cascade_initiation', 'confidence': 3, 'trigger_source': 'Phase Transition'})"
+  ],
+  "edges": {
+    "temporal": [
+      {
+        "source": 0,
+        "target": 4,
+        "feature_idx": 0
+      },
+      {
+        "source": 4,
+        "target": 8,
+        "feature_idx": 1
+      },
+      {
+        "source": 8,
+        "target": 9,
+        "feature_idx": 2
+      },
+      {
+        "source": 9,
+        "target": 10,
+        "feature_idx": 3
+      },
+      {
+        "source": 10,
+        "target": 11,
+        "feature_idx": 4
+      },
+      {
+        "source": 11,
+        "target": 12,
+        "feature_idx": 5
+      },
+      {
+        "source": 12,
+        "target": 13,
+        "feature_idx": 6
+      },
+      {
+        "source": 13,
+        "target": 14,
+        "feature_idx": 7
+      },
+      {
+        "source": 14,
+        "target": 15,
+        "feature_idx": 8
+      },
+      {
+        "source": 15,
+        "target": 16,
+        "feature_idx": 9
+      },
+      {
+        "source": 16,
+        "target": 17,
+        "feature_idx": 10
+      },
+      {
+        "source": 17,
+        "target": 3,
+        "feature_idx": 11
+      },
+      {
+        "source": 3,
+        "target": 7,
+        "feature_idx": 12
+      },
+      {
+        "source": 7,
+        "target": 18,
+        "feature_idx": 13
+      },
+      {
+        "source": 18,
+        "target": 1,
+        "feature_idx": 14
+      },
+      {
+        "source": 1,
+        "target": 5,
+        "feature_idx": 15
+      },
+      {
+        "source": 5,
+        "target": 2,
+        "feature_idx": 16
+      },
+      {
+        "source": 2,
+        "target": 6,
+        "feature_idx": 17
+      },
+      {
+        "source": 19,
+        "target": 20,
+        "feature_idx": 18
+      }
+    ],
+    "scale": [],
+    "cascade": [],
+    "pd_array": [],
+    "cross_tf_confluence": [],
+    "temporal_echo": [
+      {
+        "source": 0,
+        "target": 19,
+        "feature_idx": 19
+      },
+      {
+        "source": 4,
+        "target": 19,
+        "feature_idx": 20
+      },
+      {
+        "source": 8,
+        "target": 19,
+        "feature_idx": 21
+      },
+      {
+        "source": 9,
+        "target": 19,
+        "feature_idx": 22
+      },
+      {
+        "source": 13,
+        "target": 20,
+        "feature_idx": 23
+      },
+      {
+        "source": 14,
+        "target": 20,
+        "feature_idx": 24
+      },
+      {
+        "source": 15,
+        "target": 20,
+        "feature_idx": 25
+      },
+      {
+        "source": 16,
+        "target": 20,
+        "feature_idx": 26
+      }
+    ],
+    "discovered": []
+  },
+  "rich_edge_features": [
+    

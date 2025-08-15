@@ -1,0 +1,800 @@
+{
+  "session_metadata": {
+    "session_type": "london",
+    "session_date": "2025-07-30",
+    "session_start": "02:00:00",
+    "session_end": "04:59:00",
+    "session_duration": 179,
+    "transcription_source": "live_market_data",
+    "data_completeness": "complete_session",
+    "timezone": "ET",
+    "session_status": "completed"
+  },
+  "session_fpfvg": {
+    "fpfvg_present": false,
+    "fpfvg_formation": {
+      "formation_time": "00:00:00",
+      "premium_high": 0.0,
+      "discount_low": 0.0,
+      "gap_size": 0.0,
+      "interactions": []
+    }
+  },
+  "price_movements": [
+    {
+      "timestamp": "02:00:00",
+      "price_level": 23503.25,
+      "movement_type": "open"
+    },
+    {
+      "timestamp": "12:00:00",
+      "price_level": 23512.5,
+      "movement_type": "session_high"
+    },
+    {
+      "timestamp": "12:30:00",
+      "price_level": 23462.25,
+      "movement_type": "session_low"
+    },
+    {
+      "timestamp": "04:59:00",
+      "price_level": 23482.5,
+      "movement_type": "close"
+    },
+    {
+      "timestamp": "02:00:00",
+      "price_level": 23503.25,
+      "movement_type": "open"
+    },
+    {
+      "timestamp": "12:00:00",
+      "price_level": 23512.5,
+      "movement_type": "session_high"
+    },
+    {
+      "timestamp": "12:30:00",
+      "price_level": 23462.25,
+      "movement_type": "session_low"
+    },
+    {
+      "timestamp": "04:59:00",
+      "price_level": 23482.5,
+      "movement_type": "close"
+    },
+    {
+      "timestamp": "02:06:00",
+      "price": 23503.75,
+      "action": "touch",
+      "context": "London first presentation FPFVG premium high created"
+    },
+    {
+      "timestamp": "02:12:00",
+      "price": 23504.25,
+      "action": "break",
+      "context": "Expansion lower initiated"
+    },
+    {
+      "timestamp": "02:14:00",
+      "price": 23502.125,
+      "action": "delivery",
+      "context": "Midnight FPFVG redelivered"
+    },
+    {
+      "timestamp": "02:17:00",
+      "price": 23505.625,
+      "action": "delivery",
+      "context": "Three-day pre-market FPFVG redelivered"
+    },
+    {
+      "timestamp": "02:19:00",
+      "price": 23498.5,
+      "action": "touch",
+      "context": "Expansion lower ends, reversal point"
+    },
+    {
+      "timestamp": "02:22:00",
+      "price": 23503.5,
+      "action": "delivery",
+      "context": "London FPFVG redelivered"
+    },
+    {
+      "timestamp": "02:27:00",
+      "price": 23510.5,
+      "action": "touch",
+      "context": "Expansion higher ends, reversal point"
+    },
+    {
+      "timestamp": "02:38:00",
+      "price": 23501.75,
+      "action": "delivery",
+      "context": "Today's Midnight Opening Range FPFVG redelivered"
+    },
+    {
+      "timestamp": "03:00:00",
+      "price": 23502.5,
+      "action": "delivery",
+      "context": "Midnight Opening Range FPFVG redelivered during retracement"
+    },
+    {
+      "timestamp": "03:09:00",
+      "price": 23479.0,
+      "action": "touch",
+      "context": "Three-day lunch FPFVG rebalanced, three-day PM FPFVG redelivered"
+    },
+    {
+      "timestamp": "03:20:00",
+      "price": 23474.0,
+      "action": "touch",
+      "context": "Expansion lower ends, reversal point"
+    },
+    {
+      "timestamp": "03:36:00",
+      "price": 23503.25,
+      "action": "delivery",
+      "context": "London FPFVG redelivered during expansion higher"
+    },
+    {
+      "timestamp": "04:04:00",
+      "price": 23512.5,
+      "action": "touch",
+      "context": "London session high created, reversal point"
+    },
+    {
+      "timestamp": "04:21:00",
+      "price": 23479.5,
+      "action": "delivery",
+      "context": "Three-day lunch and PM session FPFVGs redelivered"
+    },
+    {
+      "timestamp": "04:33:00",
+      "price": 23462.25,
+      "action": "sweep",
+      "context": "London session low created, Asia session low taken, multiple rebalances"
+    },
+    {
+      "timestamp": "04:46:00",
+      "price": 23489.25,
+      "action": "touch",
+      "context": "Expansion higher ends"
+    }
+  ],
+  "session_liquidity_events": [
+    {
+      "timestamp": "02:00:00",
+      "event_type": "interaction",
+      "liquidity_type": "internal",
+      "target_level": "session_open",
+      "magnitude": "medium",
+      "context": "generated_from_open"
+    },
+    {
+      "timestamp": "12:00:00",
+      "event_type": "rebalance",
+      "liquidity_type": "internal",
+      "target_level": "session_session_high",
+      "magnitude": "low",
+      "context": "generated_from_session_high"
+    },
+    {
+      "timestamp": "12:30:00",
+      "event_type": "redelivery",
+      "liquidity_type": "internal",
+      "target_level": "session_session_low",
+      "magnitude": "low",
+      "context": "generated_from_session_low"
+    },
+    {
+      "timestamp": "04:59:00",
+      "event_type": "interaction",
+      "liquidity_type": "internal",
+      "target_level": "session_close",
+      "magnitude": "medium",
+      "context": "generated_from_close"
+    },
+    {
+      "timestamp": "02:00:00",
+      "event_type": "interaction",
+      "liquidity_type": "internal",
+      "target_level": "session_open",
+      "magnitude": "medium",
+      "context": "generated_from_open"
+    },
+    {
+      "timestamp": "12:00:00",
+      "event_type": "rebalance",
+      "liquidity_type": "internal",
+      "target_level": "session_session_high",
+      "magnitude": "low",
+      "context": "generated_from_session_high"
+    },
+    {
+      "timestamp": "12:30:00",
+      "event_type": "redelivery",
+      "liquidity_type": "internal",
+      "target_level": "session_session_low",
+      "magnitude": "low",
+      "context": "generated_from_session_low"
+    },
+    {
+      "timestamp": "04:59:00",
+      "event_type": "interaction",
+      "liquidity_type": "internal",
+      "target_level": "session_close",
+      "magnitude": "medium",
+      "context": "generated_from_close"
+    },
+    {
+      "timestamp": "02:06:00",
+      "event_type": "rebalance",
+      "liquidity_type": "fpfvg",
+      "target_level": "session_london first presentation fpfvg premium high created",
+      "magnitude": "low",
+      "context": "generated_from_london first presentation fpfvg premium high created"
+    },
+    {
+      "timestamp": "02:12:00",
+      "event_type": "rebalance",
+      "liquidity_type": "internal",
+      "target_level": "session_expansion lower initiated",
+      "magnitude": "low",
+      "context": "generated_from_expansion lower initiated"
+    },
+    {
+      "timestamp": "02:14:00",
+      "event_type": "interaction",
+      "liquidity_type": "fpfvg",
+      "target_level": "session_midnight fpfvg redelivered",
+      "magnitude": "high",
+      "context": "generated_from_midnight fpfvg redelivered"
+    },
+    {
+      "timestamp": "02:17:00",
+      "event_type": "interaction",
+      "liquidity_type": "fpfvg",
+      "target_level": "session_three-day pre-market fpfvg redelivered",
+      "magnitude": "high",
+      "context": "generated_from_three-day pre-market fpfvg redelivered"
+    },
+    {
+      "timestamp": "02:19:00",
+      "event_type": "rebalance",
+      "liquidity_type": "internal",
+      "target_level": "session_expansion lower ends, reversal point",
+      "magnitude": "low",
+      "context": "generated_from_expansion lower ends, reversal point"
+    },
+    {
+      "timestamp": "02:22:00",
+      "event_type": "interaction",
+      "liquidity_type": "fpfvg",
+      "target_level": "session_london fpfvg redelivered",
+      "magnitude": "high",
+      "context": "generated_from_london fpfvg redelivered"
+    },
+    {
+      "timestamp": "02:27:00",
+      "event_type": "rebalance",
+      "liquidity_type": "internal",
+      "target_level": "session_expansion higher ends, reversal point",
+      "magnitude": "low",
+      "context": "generated_from_expansion higher ends, reversal point"
+    },
+    {
+      "timestamp": "02:38:00",
+      "event_type": "interaction",
+      "liquidity_type": "fpfvg",
+      "target_level": "session_today's midnight opening range fpfvg redelivered",
+      "magnitude": "high",
+      "context": "generated_from_today's midnight opening range fpfvg redelivered"
+    },
+    {
+      "timestamp": "03:00:00",
+      "event_type": "redelivery",
+      "liquidity_type": "fpfvg",
+      "target_level": "session_midnight opening range fpfvg redelivered during retracement",
+      "magnitude": "medium",
+      "context": "generated_from_midnight opening range fpfvg redelivered during retracement"
+    },
+    {
+      "timestamp": "03:09:00",
+      "event_type": "interaction",
+      "liquidity_type": "fpfvg",
+      "target_level": "session_three-day lunch fpfvg rebalanced, three-day pm fpfvg redelivered",
+      "magnitude": "high",
+      "context": "generated_from_three-day lunch fpfvg rebalanced, three-day pm fpfvg redelivered"
+    },
+    {
+      "timestamp": "03:20:00",
+      "event_type": "rebalance",
+      "liquidity_type": "internal",
+      "target_level": "session_expansion lower ends, reversal point",
+      "magnitude": "low",
+      "context": "generated_from_expansion lower ends, reversal point"
+    },
+    {
+      "timestamp": "03:36:00",
+      "event_type": "rebalance",
+      "liquidity_type": "fpfvg",
+      "target_level": "session_london fpfvg redelivered during expansion higher",
+      "magnitude": "medium",
+      "context": "generated_from_london fpfvg redelivered during expansion higher"
+    },
+    {
+      "timestamp": "04:04:00",
+      "event_type": "rebalance",
+      "liquidity_type": "internal",
+      "target_level": "session_london session high created, reversal point",
+      "magnitude": "low",
+      "context": "generated_from_london session high created, reversal point"
+    },
+    {
+      "timestamp": "04:21:00",
+      "event_type": "interaction",
+      "liquidity_type": "fpfvg",
+      "target_level": "session_three-day lunch and pm session fpfvgs redelivered",
+      "magnitude": "high",
+      "context": "generated_from_three-day lunch and pm session fpfvgs redelivered"
+    },
+    {
+      "timestamp": "04:33:00",
+      "event_type": "redelivery",
+      "liquidity_type": "internal",
+      "target_level": "session_london session low created, asia session low taken, multiple rebalances",
+      "magnitude": "low",
+      "context": "generated_from_london session low created, asia session low taken, multiple rebalances"
+    },
+    {
+      "timestamp": "04:46:00",
+      "event_type": "rebalance",
+      "liquidity_type": "internal",
+      "target_level": "session_expansion higher ends",
+      "magnitude": "low",
+      "context": "generated_from_expansion higher ends"
+    }
+  ],
+  "energy_state": {
+    "energy_density": 0.928,
+    "total_accumulated": 89.5,
+    "energy_rate": 30.0,
+    "energy_source": "standardization_estimation",
+    "session_duration": 179,
+    "expansion_phases": 6,
+    "retracement_phases": 5,
+    "consolidation_phases": 4,
+    "phase_transitions": 19,
+    "session_status": "complete"
+  },
+  "contamination_analysis": {
+    "htf_contamination": {
+      "immediate_cross_session_interaction": false,
+      "htf_carryover_strength": 0.79,
+      "cross_session_inheritance": 0.3
+    },
+    "cross_session_inheritance": {
+      "energy_carryover_coefficient": 0.3
+    }
+  },
+  "phase_transitions": [
+    {
+      "phase_type": "consolidation",
+      "start_time": "02:00:00",
+      "end_time": "02:11:00",
+      "high": 23507.25,
+      "low": 23501.0,
+      "description": "Initial consolidation between previous day's PM FPFVG and today's Midnight FPFVG"
+    },
+    {
+      "phase_type": "expansion",
+      "start_time": "02:12:00",
+      "end_time": "02:19:00",
+      "high": 23504.25,
+      "low": 23498.5,
+      "description": "Expansion lower with FPFVG redeliveries"
+    },
+    {
+      "phase_type": "expansion",
+      "start_time": "02:19:00",
+      "end_time": "02:27:00",
+      "high": 23510.5,
+      "low": 23498.5,
+      "description": "Expansion higher with London FPFVG redelivery"
+    },
+    {
+      "phase_type": "expansion",
+      "start_time": "02:27:00",
+      "end_time": "02:38:00",
+      "high": 23510.5,
+      "low": 23501.75,
+      "description": "Expansion lower redelivering Midnight FPFVG"
+    },
+    {
+      "phase_type": "expansion",
+      "start_time": "03:00:00",
+      "end_time": "03:10:00",
+      "high": 23502.5,
+      "low": 23477.5,
+      "description": "Major expansion lower with historical gap rebalances"
+    },
+    {
+      "phase_type": "consolidation",
+      "start_time": "03:10:00",
+      "end_time": "03:18:00",
+      "high": 23487.25,
+      "low": 23476.75,
+      "description": "Consolidation after major expansion"
+    },
+    {
+      "phase_type": "expansion",
+      "start_time": "03:18:00",
+      "end_time": "03:20:00",
+      "high": 23484.25,
+      "low": 23474.0,
+      "description": "Brief expansion lower"
+    },
+    {
+      "phase_type": "expansion",
+      "start_time": "03:20:00",
+      "end_time": "03:36:00",
+      "high": 23503.25,
+      "low": 23474.0,
+      "description": "Expansion higher with London FPFVG redelivery"
+    },
+    {
+      "phase_type": "consolidation",
+      "start_time": "03:36:00",
+      "end_time": "03:59:00",
+      "high": 23508.25,
+      "low": 23493.25,
+      "description": "Consolidation before final moves"
+    },
+    {
+      "phase_type": "expansion",
+      "start_time": "03:59:00",
+      "end_time": "04:04:00",
+      "high": 23512.5,
+      "low": 23498.25,
+      "description": "Expansion higher to session high"
+    },
+    {
+      "phase_type": "expansion",
+      "start_time": "04:04:00",
+      "end_time": "04:21:00",
+      "high": 23512.5,
+      "low": 23479.5,
+      "description": "Major expansion lower with historical gap redeliveries"
+    },
+    {
+      "phase_type": "consolidation",
+      "start_time": "04:21:00",
+      "end_time": "04:32:00",
+      "high": 23488.0,
+      "low": 23477.0,
+      "description": "Consolidation before final drop"
+    },
+    {
+      "phase_type": "expansion",
+      "start_time": "04:32:00",
+      "end_time": "04:33:00",
+      "high": 23486.75,
+      "low": 23462.25,
+      "description": "Final expansion to session low with Asia low sweep"
+    },
+    {
+      "phase_type": "expansion",
+      "start_time": "04:33:00",
+      "end_time": "04:46:00",
+      "high": 23489.25,
+      "low": 23462.25,
+      "description": "Expansion higher from session low"
+    },
+    {
+      "phase_type": "consolidation",
+      "start_time": "04:46:00",
+      "end_time": "04:59:00",
+      "high": 23489.25,
+      "low": 23477.0,
+      "description": "Final consolidation to session close"
+    }
+  ],
+  "structures_identified": {
+    "fair_value_gaps": [
+      {
+        "id": "london_fpfvg_2025_07_30",
+        "formation_time": "02:06:00",
+        "type": "first_presentation",
+        "premium_high": 23503.75,
+        "discount_low": 23503.25,
+        "size_points": 0.5,
+        "formation_context": "London first presentation FPFVG during initial consolidation",
+        "delivery_status": "delivered",
+        "delivery_time": "02:22:00"
+      }
+    ],
+    "session_levels": [
+      {
+        "type": "session_high",
+        "level": 23512.5,
+        "formation_time": "04:04:00",
+        "touches": [
+          "04:04:00"
+        ],
+        "holds": true,
+        "context": "London session high with immediate reversal"
+      },
+      {
+        "type": "session_low",
+        "level": 23462.25,
+        "formation_time": "04:33:00",
+        "touches": [
+          "04:33:00"
+        ],
+        "holds": true,
+        "context": "London session low sweeping Asia session low with multiple rebalances"
+      }
+    ]
+  },
+  "level_interactions": [
+    {
+      "timestamp": "02:14:00",
+      "level": 23502.125,
+      "level_origin": "midnight_fpfvg",
+      "interaction_type": "bounce",
+      "result": "held"
+    },
+    {
+      "timestamp": "02:17:00",
+      "level": 23505.625,
+      "level_origin": "three_day_premarket_fpfvg",
+      "interaction_type": "bounce",
+      "result": "held"
+    },
+    {
+      "timestamp": "02:22:00",
+      "level": 23503.5,
+      "level_origin": "london_fpfvg",
+      "interaction_type": "bounce",
+      "result": "held"
+    },
+    {
+      "timestamp": "04:33:00",
+      "level": 23465.25,
+      "level_origin": "asia_session_low",
+      "interaction_type": "sweep",
+      "result": "broken"
+    }
+  ],
+  "consolidation_expansion_raw": {
+    "consolidation_periods": [
+      {
+        "start": "02:00:00",
+        "end": "02:11:00",
+        "range_high": 23507.25,
+        "range_low": 23501.0,
+        "touches_high": 1,
+        "touches_low": 1
+      },
+      {
+        "start": "03:10:00",
+        "end": "03:18:00",
+        "range_high": 23487.25,
+        "range_low": 23476.75,
+        "touches_high": 1,
+        "touches_low": 1
+      },
+      {
+        "start": "03:36:00",
+        "end": "03:59:00",
+        "range_high": 23508.25,
+        "range_low": 23493.25,
+        "touches_high": 1,
+        "touches_low": 2
+      },
+      {
+        "start": "04:21:00",
+        "end": "04:32:00",
+        "range_high": 23488.0,
+        "range_low": 23477.0,
+        "touches_high": 1,
+        "touches_low": 1
+      },
+      {
+        "start": "04:46:00",
+        "end": "04:59:00",
+        "range_high": 23489.25,
+        "range_low": 23477.0,
+        "touches_high": 1,
+        "touches_low": 2
+      }
+    ],
+    "expansion_periods": [
+      {
+        "start": "02:12:00",
+        "end": "02:19:00",
+        "direction": "down",
+        "start_price": 23504.25,
+        "end_price": 23498.5,
+        "total_distance": 5.75
+      },
+      {
+        "start": "02:19:00",
+        "end": "02:27:00",
+        "direction": "up",
+        "start_price": 23498.5,
+        "end_price": 23510.5,
+        "total_distance": 12.0
+      },
+      {
+        "start": "03:00:00",
+        "end": "03:10:00",
+        "direction": "down",
+        "start_price": 23502.5,
+        "end_price": 23477.5,
+        "total_distance": 25.0
+      },
+      {
+        "start": "03:20:00",
+        "end": "03:36:00",
+        "direction": "up",
+        "start_price": 23474.0,
+        "end_price": 23503.25,
+        "total_distance": 29.25
+      },
+      {
+        "start": "03:59:00",
+        "end": "04:04:00",
+        "direction": "up",
+        "start_price": 23498.25,
+        "end_price": 23512.5,
+        "total_distance": 14.25
+      },
+      {
+        "start": "04:04:00",
+        "end": "04:21:00",
+        "direction": "down",
+        "start_price": 23512.5,
+        "end_price": 23479.5,
+        "total_distance": 33.0
+      },
+      {
+        "start": "04:32:00",
+        "end": "04:33:00",
+        "direction": "down",
+        "start_price": 23486.75,
+        "end_price": 23462.25,
+        "total_distance": 24.5
+      },
+      {
+        "start": "04:33:00",
+        "end": "04:46:00",
+        "direction": "up",
+        "start_price": 23462.25,
+        "end_price": 23489.25,
+        "total_distance": 27.0
+      }
+    ]
+  },
+  "fpfvg_observations": {
+    "session_fpfvg_created": true,
+    "previous_fpfvg_interactions": [
+      {
+        "gap_origin": "midnight_session",
+        "interaction_time": "02:14:00",
+        "interaction_type": "complete_fill",
+        "price_entered": 23502.125,
+        "result": "respected"
+      },
+      {
+        "gap_origin": "three_day_premarket",
+        "interaction_time": "02:17:00",
+        "interaction_type": "complete_fill",
+        "price_entered": 23505.625,
+        "result": "respected"
+      },
+      {
+        "gap_origin": "three_day_lunch",
+        "interaction_time": "03:09:00",
+        "interaction_type": "rebalance",
+        "price_entered": 23479.0,
+        "result": "respected"
+      },
+      {
+        "gap_origin": "three_day_pm",
+        "interaction_time": "03:09:00",
+        "interaction_type": "complete_fill",
+        "price_entered": 23477.25,
+        "result": "respected"
+      }
+    ]
+  },
+  "behavioral_observations": {
+    "session_type_observed": "volatile",
+    "directional_attempts": [
+      {
+        "time": "02:12:00",
+        "direction": "down",
+        "outcome": "successful"
+      },
+      {
+        "time": "02:19:00",
+        "direction": "up",
+        "outcome": "successful"
+      },
+      {
+        "time": "02:27:00",
+        "direction": "down",
+        "outcome": "successful"
+      },
+      {
+        "time": "03:20:00",
+        "direction": "up",
+        "outcome": "successful"
+      },
+      {
+        "time": "04:04:00",
+        "direction": "down",
+        "outcome": "successful"
+      },
+      {
+        "time": "04:33:00",
+        "direction": "up",
+        "outcome": "successful"
+      }
+    ],
+    "institutional_activity": "extremely_high_activity_with_major_liquidity_sweep_and_gap_rebalances",
+    "session_completion": "complete"
+  },
+  "micro_timing_analysis": {
+    "cascade_events": [
+      {
+        "timestamp": "02:12:00",
+        "event_type": "heuristic_cascade_initiation",
+        "confidence": 3,
+        "trigger_source": "Phase Transition"
+      },
+      {
+        "timestamp": "03:18:00",
+        "event_type": "heuristic_cascade_initiation",
+        "confidence": 3,
+        "trigger_source": "Phase Transition"
+      },
+      {
+        "timestamp": "03:59:00",
+        "event_type": "heuristic_cascade_initiation",
+        "confidence": 3,
+        "trigger_source": "Phase Transition"
+      },
+      {
+        "timestamp": "04:32:00",
+        "event_type": "heuristic_cascade_initiation",
+        "confidence": 3,
+        "trigger_source": "Phase Transition"
+      }
+    ]
+  },
+  "processing_metadata": {
+    "original_file": "/Users/jack/grok-claude-automation/data/sessions/level_1/LONDON_Lvl-1_2025_07_30.json",
+    "standardization_date": "2025-08-07T19:29:57.235962",
+    "conversion_type": "legacy_schema_converted",
+    "schema_version": "target_v1.0",
+    "data_recovery": {
+      "recovery_date": "2025-08-07T19:45:57.335165",
+      "corrections_applied": [
+        "Recovered 24 price movements",
+        "Added recovered price movements"
+      ],
+      "recovery_source": "backup_file_recovery"
+    }
+  },
+  "phase2_enhancement": {
+    "enhancement_date": "2025-08-14T12:15:27.250837",
+    "enhancement_version": "phase2_v1.0",
+    "features_enhanced": [
+      "htf_carryover_strength",
+      "energy_density",
+      "session_liquidity_events"
+    ],
+    "authenticity_method": "market_derived_calculations",
+    "pre_enhancement_score": 0.0,
+    "post_enhancement_score": 100.0
+  }
+}

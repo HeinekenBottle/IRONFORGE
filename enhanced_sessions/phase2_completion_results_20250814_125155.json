@@ -1,0 +1,110 @@
+{
+  "processing_date": "2025-08-14T12:51:55.175967",
+  "target_sessions": 24,
+  "processed_sessions": [],
+  "failed_sessions": [
+    {
+      "session": "ASIA_Lvl-1_2025_08_05.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "ASIA_Lvl-1_2025_08_06.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "ASIA_Lvl-1_2025_08_07.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "LONDON_Lvl-1_2025_08_05.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "LONDON_Lvl-1_2025_08_06.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "LONDON_Lvl-1_2025_08_07.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "LUNCH_Lvl-1_2025_08_04.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "LUNCH_Lvl-1_2025_08_05.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "LUNCH_Lvl-1_2025_08_06.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "MIDNIGHT_Lvl-1_2025_07_25.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "MIDNIGHT_Lvl-1_2025_08_05.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "MIDNIGHT_Lvl-1_2025_08_06.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "MIDNIGHT_Lvl-1_2025_08_07.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "NYAM_Lvl-1_2025_08_06.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "NYAM_Lvl-1_2025_08_07_FRESH.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "NYPM_Lvl-1_2025_08_06.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "NY_AM_Lvl-1_2025_07_24.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "NY_AM_Lvl-1_2025_08_04.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "NY_AM_Lvl-1_2025_08_05.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "NY_PM_Lvl-1_2025_08_04.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "NY_PM_Lvl-1_2025_08_05.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "PREMARKET_Lvl-1_2025_08_05.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "PREMARKET_Lvl-1_2025_08_06.json",
+      "error": "Source file not found"
+    },
+    {
+      "session": "PREMARKET_Lvl-1_2025_08_07.json",
+      "error": "Source file not found"
+    }
+  ],
+  "enhancement_statistics": {
+    "sessions_processed_this_run": 0,
+    "total_enhanced_sessions": 33,
+    "tgat_ready_sessions": 57,
+    "coverage_percentage": 57.89473684210527,
+    "phase2_complete": false
+  }
+}

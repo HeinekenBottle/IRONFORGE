@@ -1,0 +1,359 @@
+{
+  "standardization_stats": {
+    "sessions_processed": 57,
+    "movements_processed": 1287,
+    "fields_standardized": 300,
+    "validation_errors": []
+  },
+  "validation_results": {
+    "total_sessions": 57,
+    "valid_sessions": 57,
+    "total_movements": 1287,
+    "invalid_movements": [],
+    "validation_passed": true
+  },
+  "session_results": [
+    {
+      "session": "enhanced_rel_ASIA_Lvl-1_2025_08_05.json",
+      "movements_total": 35,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_PREMARKET_Lvl-1_2025_07_30.json",
+      "movements_total": 22,
+      "fields_standardized": 14,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_LONDON_Lvl-1_2025_07_30.json",
+      "movements_total": 24,
+      "fields_standardized": 16,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_NY_PM_Lvl-1_2025_08_05.json",
+      "movements_total": 54,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_NY_PM_Lvl-1_2025_08_04.json",
+      "movements_total": 22,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_LUNCH_Lvl-1_2025_08_06.json",
+      "movements_total": 26,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_MIDNIGHT_Lvl-1_2025_08_05.json",
+      "movements_total": 15,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_PREASIA_Lvl-1_2025_07_30.json",
+      "movements_total": 8,
+      "fields_standardized": 4,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_LONDON_Lvl-1_2025_07_31.json",
+      "movements_total": 21,
+      "fields_standardized": 13,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_NYPM_Lvl-1_2025_08_06.json",
+      "movements_total": 37,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_PREMARKET_Lvl-1_2025_07_31.json",
+      "movements_total": 19,
+      "fields_standardized": 11,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_PREMARKET_Lvl-1_2025_08_05.json",
+      "movements_total": 35,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_LONDON_Lvl-1_2025_08_05.json",
+      "movements_total": 36,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_LUNCH_Lvl-1_2025_07_24.json",
+      "movements_total": 10,
+      "fields_standardized": 2,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_MIDNIGHT_Lvl-1_2025_07_31.json",
+      "movements_total": 14,
+      "fields_standardized": 6,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_NY_PM_Lvl-1_2025_07_30.json",
+      "movements_total": 34,
+      "fields_standardized": 26,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_NY_AM_Lvl-1_2025_07_29.json",
+      "movements_total": 32,
+      "fields_standardized": 24,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_ASIA_Lvl-1_2025_07_30.json",
+      "movements_total": 13,
+      "fields_standardized": 9,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_LUNCH_Lvl-1_2025_07_28.json",
+      "movements_total": 14,
+      "fields_standardized": 6,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_NY_AM_Lvl-1_2025_07_25.json",
+      "movements_total": 12,
+      "fields_standardized": 4,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_NY_AM_Lvl-1_2025_07_24.json",
+      "movements_total": 11,
+      "fields_standardized": 3,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_LUNCH_Lvl-1_2025_07_29.json",
+      "movements_total": 18,
+      "fields_standardized": 10,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_NY_AM_Lvl-1_2025_07_28.json",
+      "movements_total": 19,
+      "fields_standardized": 11,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_MIDNIGHT_Lvl-1_2025_07_30.json",
+      "movements_total": 12,
+      "fields_standardized": 4,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_LUNCH_Lvl-1_2025_07_25.json",
+      "movements_total": 13,
+      "fields_standardized": 5,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_LUNCH_Lvl-1_2025_07_30.json",
+      "movements_total": 16,
+      "fields_standardized": 8,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_MIDNIGHT_Lvl-1_2025_07_25.json",
+      "movements_total": 11,
+      "fields_standardized": 3,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_LONDON_Lvl-1_2025_08_07.json",
+      "movements_total": 39,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_PREMARKET_Lvl-1_2025_08_07.json",
+      "movements_total": 19,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_MIDNIGHT_Lvl-1_2025_07_29.json",
+      "movements_total": 14,
+      "fields_standardized": 6,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_NY_AM_Lvl-1_2025_07_31.json",
+      "movements_total": 19,
+      "fields_standardized": 15,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_NY_PM_Lvl-1_2025_07_28.json",
+      "movements_total": 16,
+      "fields_standardized": 12,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_ASIA_Lvl-1_2025_07_24.json",
+      "movements_total": 11,
+      "fields_standardized": 3,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_NY_AM_Lvl-1_2025_07_30.json",
+      "movements_total": 20,
+      "fields_standardized": 12,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_NY_PM_Lvl-1_2025_07_29.json",
+      "movements_total": 30,
+      "fields_standardized": 22,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_MIDNIGHT_Lvl-1_2025_07_28.json",
+      "movements_total": 12,
+      "fields_standardized": 4,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_PREMARKET_Lvl-1_2025_08_06.json",
+      "movements_total": 23,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_ASIA_Lvl-1_2025_07_29.json",
+      "movements_total": 16,
+      "fields_standardized": 8,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_LONDON_Lvl-1_2025_08_06.json",
+      "movements_total": 21,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_MIDNIGHT_Lvl-1_2025_07_24.json",
+      "movements_total": 10,
+      "fields_standardized": 2,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_NY_AM_Lvl-1_2025_08_04.json",
+      "movements_total": 82,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_ASIA_Lvl-1_2025_08_07.json",
+      "movements_total": 40,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_PREMARKET_Lvl-1_2025_07_28.json",
+      "movements_total": 15,
+      "fields_standardized": 7,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_NYAM_Lvl-1_2025_08_06.json",
+      "movements_total": 44,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_LONDON_Lvl-1_2025_07_28.json",
+      "movements_total": 15,
+      "fields_standardized": 7,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_LUNCH_Lvl-1_2025_08_05.json",
+      "movements_total": 25,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_MIDNIGHT_Lvl-1_2025_08_06.json",
+      "movements_total": 12,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_PREMARKET_Lvl-1_2025_07_24.json",
+      "movements_total": 10,
+      "fields_standardized": 2,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_NYAM_Lvl-1_2025_08_07_FRESH.json",
+      "movements_total": 52,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_LONDON_Lvl-1_2025_07_24.json",
+      "movements_total": 10,
+      "fields_standardized": 2,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_LONDON_Lvl-1_2025_07_25.json",
+      "movements_total": 12,
+      "fields_standardized": 4,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_PREMARKET_Lvl-1_2025_07_25.json",
+      "movements_total": 12,
+      "fields_standardized": 4,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_MIDNIGHT_Lvl-1_2025_08_07.json",
+      "movements_total": 10,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_LUNCH_Lvl-1_2025_08_04.json",
+      "movements_total": 32,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_PREMARKET_Lvl-1_2025_07_29.json",
+      "movements_total": 19,
+      "fields_standardized": 11,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_ASIA_Lvl-1_2025_08_06.json",
+      "movements_total": 16,
+      "fields_standardized": 0,
+      "success": true
+    },
+    {
+      "session": "enhanced_rel_NY_AM_Lvl-1_2025_08_05.json",
+      "movements_total": 48,
+      "fields_standardized": 0,
+      "success": true
+    }
+  ]
+}

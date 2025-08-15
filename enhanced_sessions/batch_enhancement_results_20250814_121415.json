@@ -1,0 +1,166 @@
+{
+  "batch_start": "2025-08-14T12:14:15.736574",
+  "target_sessions": 15,
+  "enhanced_sessions": [],
+  "skipped_sessions": [
+    {
+      "session": "LONDON_Lvl-1_2025_08_06.json",
+      "status": "already_authentic",
+      "pre_authenticity_score": 100.0,
+      "authentic_features": [
+        "htf_carryover_strength: 0.82 (calculated)",
+        "energy_density: 0.78 (calculated)",
+        "session_liquidity_events: 10 events"
+      ]
+    },
+    {
+      "session": "NYPM_Lvl-1_2025_08_06.json",
+      "status": "already_authentic",
+      "pre_authenticity_score": 100.0,
+      "authentic_features": [
+        "htf_carryover_strength: 0.79 (calculated)",
+        "energy_density: 0.72 (calculated)",
+        "session_liquidity_events: 15 events"
+      ]
+    },
+    {
+      "session": "PREMARKET_Lvl-1_2025_08_07.json",
+      "status": "already_authentic",
+      "pre_authenticity_score": 100.0,
+      "authentic_features": [
+        "htf_carryover_strength: 0.38 (calculated)",
+        "energy_density: 0.52 (calculated)",
+        "session_liquidity_events: 3 events"
+      ]
+    },
+    {
+      "session": "ASIA_Lvl-1_2025_08_07.json",
+      "status": "already_authentic",
+      "pre_authenticity_score": 100.0,
+      "authentic_features": [
+        "htf_carryover_strength: 0.71 (calculated)",
+        "energy_density: 0.58 (calculated)",
+        "session_liquidity_events: 5 events"
+      ]
+    },
+    {
+      "session": "ASIA_Lvl-1_2025_08_06.json",
+      "status": "already_authentic",
+      "pre_authenticity_score": 100.0,
+      "authentic_features": [
+        "htf_carryover_strength: 0.68 (calculated)",
+        "energy_density: 0.62 (calculated)",
+        "session_liquidity_events: 8 events"
+      ]
+    },
+    {
+      "session": "PREMARKET_Lvl-1_2025_08_06.json",
+      "status": "already_authentic",
+      "pre_authenticity_score": 100.0,
+      "authentic_features": [
+        "htf_carryover_strength: 0.96 (calculated)",
+        "energy_density: 0.94 (calculated)",
+        "session_liquidity_events: 18 events"
+      ]
+    },
+    {
+      "session": "LUNCH_Lvl-1_2025_08_05.json",
+      "status": "already_authentic",
+      "pre_authenticity_score": 100.0,
+      "authentic_features": [
+        "htf_carryover_strength: 0.45 (calculated)",
+        "energy_density: 0.42 (calculated)",
+        "session_liquidity_events: 5 events"
+      ]
+    },
+    {
+      "session": "NYAM_Lvl-1_2025_08_07_FRESH.json",
+      "status": "already_authentic",
+      "pre_authenticity_score": 100.0,
+      "authentic_features": [
+        "htf_carryover_strength: 0.85 (calculated)",
+        "energy_density: 0.92 (calculated)",
+        "session_liquidity_events: 21 events"
+      ]
+    },
+    {
+      "session": "NY_AM_Lvl-1_2025_08_05.json",
+      "status": "already_authentic",
+      "pre_authenticity_score": 100.0,
+      "authentic_features": [
+        "htf_carryover_strength: 0.99 (calculated)",
+        "energy_density: 0.322 (calculated)",
+        "session_liquidity_events: 3 events"
+      ]
+    },
+    {
+      "session": "MIDNIGHT_Lvl-1_2025_08_07.json",
+      "status": "already_authentic",
+      "pre_authenticity_score": 100.0,
+      "authentic_features": [
+        "htf_carryover_strength: 0.15 (calculated)",
+        "energy_density: 0.41 (calculated)",
+        "session_liquidity_events: 1 events"
+      ]
+    },
+    {
+      "session": "MIDNIGHT_Lvl-1_2025_08_06.json",
+      "status": "already_authentic",
+      "pre_authenticity_score": 100.0,
+      "authentic_features": [
+        "htf_carryover_strength: 0.35 (calculated)",
+        "energy_density: 0.34 (calculated)",
+        "session_liquidity_events: 4 events"
+      ]
+    },
+    {
+      "session": "NY_PM_Lvl-1_2025_08_05.json",
+      "status": "already_authentic",
+      "pre_authenticity_score": 100.0,
+      "authentic_features": [
+        "htf_carryover_strength: 0.92 (calculated)",
+        "energy_density: 0.89 (calculated)",
+        "session_liquidity_events: 9 events"
+      ]
+    },
+    {
+      "session": "LUNCH_Lvl-1_2025_08_06.json",
+      "status": "already_authentic",
+      "pre_authenticity_score": 100.0,
+      "authentic_features": [
+        "htf_carryover_strength: 0.81 (calculated)",
+        "energy_density: 0.76 (calculated)",
+        "session_liquidity_events: 15 events"
+      ]
+    },
+    {
+      "session": "NY_PM_Lvl-1_2025_08_04.json",
+      "status": "already_authentic",
+      "pre_authenticity_score": 100.0,
+      "authentic_features": [
+        "htf_carryover_strength: 0.85 (calculated)",
+        "energy_density: 0.138 (calculated)",
+        "session_liquidity_events: 4 events"
+      ]
+    },
+    {
+      "session": "ASIA_Lvl-1_2025_08_05.json",
+      "status": "already_authentic",
+      "pre_authenticity_score": 100.0,
+      "authentic_features": [
+        "htf_carryover_strength: 0.25 (calculated)",
+        "energy_density: 0.117 (calculated)",
+        "session_liquidity_events: 1 events"
+      ]
+    }
+  ],
+  "errors": [],
+  "summary": {
+    "total_processed": 15,
+    "successfully_enhanced": 0,
+    "already_authentic": 15,
+    "errors": 0,
+    "average_improvement": 0.0
+  },
+  "batch_end": "2025-08-14T12:14:15.750443"
+}

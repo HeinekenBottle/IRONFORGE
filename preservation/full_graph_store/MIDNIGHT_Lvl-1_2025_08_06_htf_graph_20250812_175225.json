@@ -1,0 +1,1767 @@
+{
+  "nodes": {
+    "1m": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "5m": [
+      12,
+      13,
+      14
+    ],
+    "15m": [
+      15
+    ],
+    "1h": [
+      16
+    ],
+    "D": [
+      17
+    ],
+    "W": []
+  },
+  "rich_node_features": [
+    "RichNodeFeature(time_minutes=0.0, daily_phase_sin=0.0, daily_phase_cos=1.0, session_position=0.0, time_to_close=29.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1754434800, day_of_week=2, month_phase=0.1935483870967742, normalized_price=0.231665, price_delta_1m=0.0, price_delta_5m=0.0, price_delta_15m=0.0, volatility_window=0.0, energy_state=0.5, contamination_coefficient=0.0, fisher_regime=0, session_character=0, cross_tf_confluence=0.1, event_type_id=0, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=1.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'id': 0, 'timestamp': '00:00:00', 'price_level': 23166.5, 'open': 23166.5, 'high': 23166.5, 'low': 23166.5, 'close': 23166.5, 'event_type': 'session_level', 'context': '', 'contamination_risk': False, 'meta': {'coverage': 1, 'source': '1m_movement'}})",
+    "RichNodeFeature(time_minutes=1.0, daily_phase_sin=0.004363309284746571, daily_phase_cos=0.9999904807207345, session_position=0.034482758620689655, time_to_close=28.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1754434800, day_of_week=2, month_phase=0.1935483870967742, normalized_price=0.2317, price_delta_1m=0.0, price_delta_5m=0.0, price_delta_15m=0.0, volatility_window=0.0, energy_state=0.5, contamination_coefficient=0.0, fisher_regime=0, session_character=0, cross_tf_confluence=0.1, event_type_id=0, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=1.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'id': 1, 'timestamp': '00:01:00', 'price_level': 23170.0, 'open': 23170.0, 'high': 23170.0, 'low': 23170.0, 'close': 23170.0, 'event_type': 'session_level', 'context': '', 'contamination_risk': False, 'meta': {'coverage': 1, 'source': '1m_movement'}})",
+    "RichNodeFeature(time_minutes=3.0, daily_phase_sin=0.01308959557134444, daily_phase_cos=0.999914327574007, session_position=0.10344827586206896, time_to_close=26.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1754434800, day_of_week=2, month_phase=0.1935483870967742, normalized_price=0.23173, price_delta_1m=0.0, price_delta_5m=0.0, price_delta_15m=0.0, volatility_window=0.0, energy_state=0.5, contamination_coefficient=0.0, fisher_regime=0, session_character=0, cross_tf_confluence=0.1, event_type_id=0, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=1.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'id': 2, 'timestamp': '00:03:00', 'price_level': 23173.0, 'open': 23173.0, 'high': 23173.0, 'low': 23173.0, 'close': 23173.0, 'event_type': 'session_level', 'context': '', 'contamination_risk': False, 'meta': {'coverage': 1, 'source': '1m_movement'}})",
+    "RichNodeFeature(time_minutes=3.0, daily_phase_sin=0.01308959557134444, daily_phase_cos=0.999914327574007, session_position=0.10344827586206896, time_to_close=26.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1754434800, day_of_week=2, month_phase=0.1935483870967742, normalized_price=0.23167, price_delta_1m=0.0, price_delta_5m=0.0, price_delta_15m=0.0, volatility_window=0.0, energy_state=0.5, contamination_coefficient=0.0, fisher_regime=0, session_character=0, cross_tf_confluence=0.1, event_type_id=0, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=1.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'id': 3, 'timestamp': '00:03:00', 'price_level': 23167.0, 'open': 23167.0, 'high': 23167.0, 'low': 23167.0, 'close': 23167.0, 'event_type': 'session_level', 'context': '', 'contamination_risk': False, 'meta': {'coverage': 1, 'source': '1m_movement'}})",
+    "RichNodeFeature(time_minutes=7.0, daily_phase_sin=0.03053851320982266, daily_phase_cos=0.9995335908367129, session_position=0.2413793103448276, time_to_close=22.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1754434800, day_of_week=2, month_phase=0.1935483870967742, normalized_price=0.231735, price_delta_1m=0.0, price_delta_5m=0.0, price_delta_15m=0.0, volatility_window=0.0, energy_state=0.5, contamination_coefficient=0.0, fisher_regime=0, session_character=0, cross_tf_confluence=0.1, event_type_id=0, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=1.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'id': 4, 'timestamp': '00:07:00', 'price_level': 23173.5, 'open': 23173.5, 'high': 23173.5, 'low': 23173.5, 'close': 23173.5, 'event_type': 'session_level', 'context': '', 'contamination_risk': False, 'meta': {'coverage': 1, 'source': '1m_movement'}})",
+    "RichNodeFeature(time_minutes=10.0, daily_phase_sin=0.043619387365336, daily_phase_cos=0.9990482215818578, session_position=0.3448275862068966, time_to_close=19.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1754434800, day_of_week=2, month_phase=0.1935483870967742, normalized_price=0.23172, price_delta_1m=0.0, price_delta_5m=0.0, price_delta_15m=0.0, volatility_window=0.0, energy_state=0.5, contamination_coefficient=0.0, fisher_regime=0, session_character=0, cross_tf_confluence=0.1, event_type_id=0, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=1.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'id': 5, 'timestamp': '00:10:00', 'price_level': 23172.0, 'open': 23172.0, 'high': 23172.0, 'low': 23172.0, 'close': 23172.0, 'event_type': 'session_level', 'context': '', 'contamination_risk': False, 'meta': {'coverage': 1, 'source': '1m_movement'}})",
+    "RichNodeFeature(time_minutes=10.0, daily_phase_sin=0.043619387365336, daily_phase_cos=0.9990482215818578, session_position=0.3448275862068966, time_to_close=19.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1754434800, day_of_week=2, month_phase=0.1935483870967742, normalized_price=0.231715, price_delta_1m=0.0, price_delta_5m=0.0, price_delta_15m=0.0, volatility_window=0.0, energy_state=0.5, contamination_coefficient=0.0, fisher_regime=0, session_character=0, cross_tf_confluence=0.1, event_type_id=0, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=1.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'id': 6, 'timestamp': '00:10:00', 'price_level': 23171.5, 'open': 23171.5, 'high': 23171.5, 'low': 23171.5, 'close': 23171.5, 'event_type': 'session_level', 'context': '', 'contamination_risk': False, 'meta': {'coverage': 1, 'source': '1m_movement'}})",
+    "RichNodeFeature(time_minutes=18.0, daily_phase_sin=0.07845909572784494, daily_phase_cos=0.996917333733128, session_position=0.6206896551724138, time_to_close=11.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1754434800, day_of_week=2, month_phase=0.1935483870967742, normalized_price=0.231625, price_delta_1m=0.0, price_delta_5m=0.0, price_delta_15m=0.0, volatility_window=0.0, energy_state=0.5, contamination_coefficient=0.0, fisher_regime=0, session_character=0, cross_tf_confluence=0.1, event_type_id=0, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=1.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'id': 7, 'timestamp': '00:18:00', 'price_level': 23162.5, 'open': 23162.5, 'high': 23162.5, 'low': 23162.5, 'close': 23162.5, 'event_type': 'session_level', 'context': '', 'contamination_risk': False, 'meta': {'coverage': 1, 'source': '1m_movement'}})",
+    "RichNodeFeature(time_minutes=20.0, daily_phase_sin=0.08715574274765817, daily_phase_cos=0.9961946980917455, session_position=0.6896551724137931, time_to_close=9.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1754434800, day_of_week=2, month_phase=0.1935483870967742, normalized_price=0.2317225, price_delta_1m=0.0, price_delta_5m=0.0, price_delta_15m=0.0, volatility_window=0.0, energy_state=0.5, contamination_coefficient=0.0, fisher_regime=0, session_character=0, cross_tf_confluence=0.1, event_type_id=0, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=1.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'id': 8, 'timestamp': '00:20:00', 'price_level': 23172.25, 'open': 23172.25, 'high': 23172.25, 'low': 23172.25, 'close': 23172.25, 'event_type': 'session_level', 'context': '', 'contamination_risk': False, 'meta': {'coverage': 1, 'source': '1m_movement'}})",
+    "RichNodeFeature(time_minutes=26.0, daily_phase_sin=0.11320321376790672, daily_phase_cos=0.9935718556765875, session_position=0.896551724137931, time_to_close=3.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1754434800, day_of_week=2, month_phase=0.1935483870967742, normalized_price=0.2316025, price_delta_1m=0.0, price_delta_5m=0.0, price_delta_15m=0.0, volatility_window=0.0, energy_state=0.5, contamination_coefficient=0.0, fisher_regime=0, session_character=0, cross_tf_confluence=0.1, event_type_id=0, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=1.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'id': 9, 'timestamp': '00:26:00', 'price_level': 23160.25, 'open': 23160.25, 'high': 23160.25, 'low': 23160.25, 'close': 23160.25, 'event_type': 'session_level', 'context': '', 'contamination_risk': False, 'meta': {'coverage': 1, 'source': '1m_movement'}})",
+    "RichNodeFeature(time_minutes=29.0, daily_phase_sin=0.12619896913582976, daily_phase_cos=0.992004949679715, session_position=1.0, time_to_close=0, weekend_proximity=0.42857142857142855, absolute_timestamp=1754434800, day_of_week=2, month_phase=0.1935483870967742, normalized_price=0.2316725, price_delta_1m=0.0, price_delta_5m=0.0, price_delta_15m=0.0, volatility_window=0.0, energy_state=0.5, contamination_coefficient=0.0, fisher_regime=0, session_character=0, cross_tf_confluence=0.1, event_type_id=0, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=1.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'id': 10, 'timestamp': '00:29:00', 'price_level': 23167.25, 'open': 23167.25, 'high': 23167.25, 'low': 23167.25, 'close': 23167.25, 'event_type': 'session_level', 'context': '', 'contamination_risk': False, 'meta': {'coverage': 1, 'source': '1m_movement'}})",
+    "RichNodeFeature(time_minutes=29.0, daily_phase_sin=0.12619896913582976, daily_phase_cos=0.992004949679715, session_position=1.0, time_to_close=0, weekend_proximity=0.42857142857142855, absolute_timestamp=1754434800, day_of_week=2, month_phase=0.1935483870967742, normalized_price=0.2316625, price_delta_1m=0.0, price_delta_5m=0.0, price_delta_15m=0.0, volatility_window=0.0, energy_state=0.5, contamination_coefficient=0.0, fisher_regime=0, session_character=0, cross_tf_confluence=0.1, event_type_id=0, timeframe_source=0, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=1.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'id': 11, 'timestamp': '00:29:00', 'price_level': 23166.25, 'open': 23166.25, 'high': 23166.25, 'low': 23166.25, 'close': 23166.25, 'event_type': 'session_level', 'context': '', 'contamination_risk': False, 'meta': {'coverage': 1, 'source': '1m_movement'}})",
+    "RichNodeFeature(time_minutes=0.0, daily_phase_sin=0.0, daily_phase_cos=1.0, session_position=0.0, time_to_close=29.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1754434800, day_of_week=2, month_phase=0.1935483870967742, normalized_price=0.231735, price_delta_1m=0.00030216044719746184, price_delta_5m=0.00030216044719746184, price_delta_15m=0.00030216044719746184, volatility_window=0.00030206917384080956, energy_state=0.5, contamination_coefficient=0.0, fisher_regime=0, session_character=0, cross_tf_confluence=0.5, event_type_id=1, timeframe_source=1, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=2.1576369560057823e-05, structural_importance=0.25, raw_json={'id': 0, 'timestamp': '00:00:00', 'open': 23166.5, 'high': 23173.5, 'low': 23166.5, 'close': 23173.5, 'timeframe': '5m', 'source_movements': 5, 'pd_array': {'type': 'swing_high', 'level': 23173.0}, 'liquidity_sweep': False, 'fpfvg': None, 'meta': {'coverage': 5, 'period_minutes': 5, 'price_range': 7.0}})",
+    "RichNodeFeature(time_minutes=10.0, daily_phase_sin=0.043619387365336, daily_phase_cos=0.9990482215818578, session_position=0.3448275862068966, time_to_close=19.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1754434800, day_of_week=2, month_phase=0.1935483870967742, normalized_price=0.2316025, price_delta_1m=-0.0005070775073364405, price_delta_5m=-0.0005070775073364405, price_delta_15m=-0.0005070775073364405, volatility_window=0.0005181291220949688, energy_state=0.5, contamination_coefficient=0.0, fisher_regime=0, session_character=0, cross_tf_confluence=0.5, event_type_id=1, timeframe_source=1, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=9.714921039280664e-05, structural_importance=0.5, raw_json={'id': 1, 'timestamp': '00:10:00', 'open': 23172.0, 'high': 23172.25, 'low': 23160.25, 'close': 23160.25, 'timeframe': '5m', 'source_movements': 5, 'pd_array': {'type': 'swing_low', 'level': 23162.5}, 'liquidity_sweep': True, 'fpfvg': None, 'meta': {'coverage': 5, 'period_minutes': 5, 'price_range': 12.0}})",
+    "RichNodeFeature(time_minutes=29.0, daily_phase_sin=0.12619896913582976, daily_phase_cos=0.992004949679715, session_position=1.0, time_to_close=0, weekend_proximity=0.42857142857142855, absolute_timestamp=1754434800, day_of_week=2, month_phase=0.1935483870967742, normalized_price=0.2316625, price_delta_1m=-4.316438075300262e-05, price_delta_5m=-4.316438075300262e-05, price_delta_15m=-4.316438075300262e-05, volatility_window=4.3166243997194194e-05, energy_state=0.5, contamination_coefficient=0.0, fisher_regime=0, session_character=0, cross_tf_confluence=0.2, event_type_id=1, timeframe_source=1, liquidity_type=0, fpfvg_gap_size=0.0, fpfvg_interaction_count=0, first_presentation_flag=0.0, pd_array_strength=0.0, structural_importance=0.0, raw_json={'id': 2, 'timestamp': '00:29:00', 'open': 23167.25, 'high': 23167.25, 'low': 23166.25, 'close': 23166.25, 'timeframe': '5m', 'source_movements': 2, 'pd_array': None, 'liquidity_sweep': False, 'fpfvg': None, 'meta': {'coverage': 2, 'period_minutes': 5, 'price_range': 1.0}})",
+    "RichNodeFeature(time_minutes=0.0, daily_phase_sin=0.0, daily_phase_cos=1.0, session_position=0.0, time_to_close=29.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1754434800, day_of_week=2, month_phase=0.1935483870967742, normalized_price=0.2316625, price_delta_1m=-1.0791444542766495e-05, price_delta_5m=-1.0791444542766495e-05, price_delta_15m=-1.0791444542766495e-05, volatility_window=0.0005719527329628231, energy_state=0.5, contamination_coefficient=0.0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=1, timeframe_source=2, liquidity_type=0, fpfvg_gap_size=23173.5, fpfvg_interaction_count=1, first_presentation_flag=0.0, pd_array_strength=0.0002913721469810608, structural_importance=2.4, raw_json={'id': 0, 'timestamp': '00:00:00', 'open': 23166.5, 'high': 23173.5, 'low': 23160.25, 'close': 23166.25, 'timeframe': '15m', 'source_movements': 12, 'pd_array': {'type': 'swing_high', 'level': 23173.0}, 'liquidity_sweep': False, 'fpfvg': {'gap': True, 'level': 23173.5}, 'meta': {'coverage': 12, 'period_minutes': 15, 'price_range': 13.25}})",
+    "RichNodeFeature(time_minutes=0.0, daily_phase_sin=0.0, daily_phase_cos=1.0, session_position=0.0, time_to_close=29.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1754434800, day_of_week=2, month_phase=0.1935483870967742, normalized_price=0.2316625, price_delta_1m=-1.0791444542766495e-05, price_delta_5m=-1.0791444542766495e-05, price_delta_15m=-1.0791444542766495e-05, volatility_window=0.0005719527329628231, energy_state=0.5, contamination_coefficient=0.0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=1, timeframe_source=3, liquidity_type=0, fpfvg_gap_size=23173.5, fpfvg_interaction_count=1, first_presentation_flag=0.0, pd_array_strength=0.0002913721469810608, structural_importance=2.4, raw_json={'id': 0, 'timestamp': '00:00:00', 'open': 23166.5, 'high': 23173.5, 'low': 23160.25, 'close': 23166.25, 'timeframe': '60m', 'source_movements': 12, 'pd_array': {'type': 'swing_high', 'level': 23173.0}, 'liquidity_sweep': False, 'fpfvg': {'gap': True, 'level': 23173.5}, 'meta': {'coverage': 12, 'period_minutes': 60, 'price_range': 13.25}})",
+    "RichNodeFeature(time_minutes=0.0, daily_phase_sin=0.0, daily_phase_cos=1.0, session_position=0.0, time_to_close=29.0, weekend_proximity=0.42857142857142855, absolute_timestamp=1754434800, day_of_week=2, month_phase=0.1935483870967742, normalized_price=0.2316625, price_delta_1m=-1.0791444542766495e-05, price_delta_5m=-1.0791444542766495e-05, price_delta_15m=-1.0791444542766495e-05, volatility_window=0.0005719527329628231, energy_state=0.5, contamination_coefficient=0.0, fisher_regime=0, session_character=0, cross_tf_confluence=1.0, event_type_id=1, timeframe_source=4, liquidity_type=0, fpfvg_gap_size=23173.5, fpfvg_interaction_count=1, first_presentation_flag=0.0, pd_array_strength=0.0002913721469810608, structural_importance=2.4, raw_json={'id': 0, 'timestamp': '00:00:00', 'open': 23166.5, 'high': 23173.5, 'low': 23160.25, 'close': 23166.25, 'timeframe': '1440m', 'source_movements': 12, 'pd_array': {'type': 'swing_high', 'level': 23173.0}, 'liquidity_sweep': False, 'fpfvg': {'gap': True, 'level': 23173.5}, 'meta': {'coverage': 12, 'period_minutes': 1440, 'price_range': 13.25}})"
+  ],
+  "edges": {
+    "temporal": [
+      {
+        "source": 0,
+        "target": 1,
+        "feature_idx": 0
+      },
+      {
+        "source": 1,
+        "target": 2,
+        "feature_idx": 1
+      },
+      {
+        "source": 2,
+        "target": 3,
+        "feature_idx": 2
+      },
+      {
+        "source": 3,
+        "target": 4,
+        "feature_idx": 3
+      },
+      {
+        "source": 4,
+        "target": 5,
+        "feature_idx": 4
+      },
+      {
+        "source": 5,
+        "target": 6,
+        "feature_idx": 5
+      },
+      {
+        "source": 6,
+        "target": 7,
+        "feature_idx": 6
+      },
+      {
+        "source": 7,
+        "target": 8,
+        "feature_idx": 7
+      },
+      {
+        "source": 8,
+        "target": 9,
+        "feature_idx": 8
+      },
+      {
+        "source": 9,
+        "target": 10,
+        "feature_idx": 9
+      },
+      {
+        "source": 10,
+        "target": 11,
+        "feature_idx": 10
+      },
+      {
+        "source": 12,
+        "target": 13,
+        "feature_idx": 11
+      },
+      {
+        "source": 13,
+        "target": 14,
+        "feature_idx": 12
+      }
+    ],
+    "scale": [
+      {
+        "source": 0,
+        "target": 12,
+        "feature_idx": 13
+      },
+      {
+        "source": 0,
+        "target": 13,
+        "feature_idx": 14
+      },
+      {
+        "source": 0,
+        "target": 14,
+        "feature_idx": 15
+      },
+      {
+        "source": 1,
+        "target": 12,
+        "feature_idx": 16
+      },
+      {
+        "source": 1,
+        "target": 13,
+        "feature_idx": 17
+      },
+      {
+        "source": 1,
+        "target": 14,
+        "feature_idx": 18
+      },
+      {
+        "source": 2,
+        "target": 12,
+        "feature_idx": 19
+      },
+      {
+        "source": 2,
+        "target": 13,
+        "feature_idx": 20
+      },
+      {
+        "source": 2,
+        "target": 14,
+        "feature_idx": 21
+      },
+      {
+        "source": 3,
+        "target": 12,
+        "feature_idx": 22
+      },
+      {
+        "source": 3,
+        "target": 13,
+        "feature_idx": 23
+      },
+      {
+        "source": 3,
+        "target": 14,
+        "feature_idx": 24
+      },
+      {
+        "source": 4,
+        "target": 12,
+        "feature_idx": 25
+      },
+      {
+        "source": 4,
+        "target": 13,
+        "feature_idx": 26
+      },
+      {
+        "source": 4,
+        "target": 14,
+        "feature_idx": 27
+      },
+      {
+        "source": 5,
+        "target": 12,
+        "feature_idx": 28
+      },
+      {
+        "source": 5,
+        "target": 13,
+        "feature_idx": 29
+      },
+      {
+        "source": 5,
+        "target": 14,
+        "feature_idx": 30
+      },
+      {
+        "source": 6,
+        "target": 12,
+        "feature_idx": 31
+      },
+      {
+        "source": 6,
+        "target": 13,
+        "feature_idx": 32
+      },
+      {
+        "source": 6,
+        "target": 14,
+        "feature_idx": 33
+      },
+      {
+        "source": 7,
+        "target": 12,
+        "feature_idx": 34
+      },
+      {
+        "source": 7,
+        "target": 13,
+        "feature_idx": 35
+      },
+      {
+        "source": 7,
+        "target": 14,
+        "feature_idx": 36
+      },
+      {
+        "source": 8,
+        "target": 12,
+        "feature_idx": 37
+      },
+      {
+        "source": 8,
+        "target": 13,
+        "feature_idx": 38
+      },
+      {
+        "source": 8,
+        "target": 14,
+        "feature_idx": 39
+      },
+      {
+        "source": 9,
+        "target": 12,
+        "feature_idx": 40
+      },
+      {
+        "source": 9,
+        "target": 13,
+        "feature_idx": 41
+      },
+      {
+        "source": 9,
+        "target": 14,
+        "feature_idx": 42
+      },
+      {
+        "source": 10,
+        "target": 12,
+        "feature_idx": 43
+      },
+      {
+        "source": 10,
+        "target": 13,
+        "feature_idx": 44
+      },
+      {
+        "source": 10,
+        "target": 14,
+        "feature_idx": 45
+      },
+      {
+        "source": 11,
+        "target": 12,
+        "feature_idx": 46
+      },
+      {
+        "source": 11,
+        "target": 13,
+        "feature_idx": 47
+      },
+      {
+        "source": 11,
+        "target": 14,
+        "feature_idx": 48
+      },
+      {
+        "source": 12,
+        "target": 15,
+        "feature_idx": 49
+      },
+      {
+        "source": 13,
+        "target": 15,
+        "feature_idx": 50
+      },
+      {
+        "source": 14,
+        "target": 15,
+        "feature_idx": 51
+      },
+      {
+        "source": 15,
+        "target": 16,
+        "feature_idx": 52
+      },
+      {
+        "source": 16,
+        "target": 17,
+        "feature_idx": 53
+      },
+      {
+        "source": 0,
+        "target": 12,
+        "feature_idx": 54,
+        "tf_source": "1m",
+        "tf_target": "5m",
+        "coverage": 5,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": null,
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 1,
+        "target": 12,
+        "feature_idx": 55,
+        "tf_source": "1m",
+        "tf_target": "5m",
+        "coverage": 5,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": null,
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 2,
+        "target": 12,
+        "feature_idx": 56,
+        "tf_source": "1m",
+        "tf_target": "5m",
+        "coverage": 5,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": null,
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 3,
+        "target": 12,
+        "feature_idx": 57,
+        "tf_source": "1m",
+        "tf_target": "5m",
+        "coverage": 5,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": null,
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 4,
+        "target": 12,
+        "feature_idx": 58,
+        "tf_source": "1m",
+        "tf_target": "5m",
+        "coverage": 5,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": null,
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 5,
+        "target": 13,
+        "feature_idx": 59,
+        "tf_source": "1m",
+        "tf_target": "5m",
+        "coverage": 5,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_low",
+            "level": 23162.5
+          },
+          "fpfvg": null,
+          "liquidity_sweep": true
+        }
+      },
+      {
+        "source": 6,
+        "target": 13,
+        "feature_idx": 60,
+        "tf_source": "1m",
+        "tf_target": "5m",
+        "coverage": 5,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_low",
+            "level": 23162.5
+          },
+          "fpfvg": null,
+          "liquidity_sweep": true
+        }
+      },
+      {
+        "source": 7,
+        "target": 12,
+        "feature_idx": 61,
+        "tf_source": "1m",
+        "tf_target": "5m",
+        "coverage": 5,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": null,
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 8,
+        "target": 12,
+        "feature_idx": 62,
+        "tf_source": "1m",
+        "tf_target": "5m",
+        "coverage": 5,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": null,
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 9,
+        "target": 12,
+        "feature_idx": 63,
+        "tf_source": "1m",
+        "tf_target": "5m",
+        "coverage": 5,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": null,
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 10,
+        "target": 14,
+        "feature_idx": 64,
+        "tf_source": "1m",
+        "tf_target": "5m",
+        "coverage": 2,
+        "parent_metadata": {
+          "pd_array": null,
+          "fpfvg": null,
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 11,
+        "target": 14,
+        "feature_idx": 65,
+        "tf_source": "1m",
+        "tf_target": "5m",
+        "coverage": 2,
+        "parent_metadata": {
+          "pd_array": null,
+          "fpfvg": null,
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 0,
+        "target": 15,
+        "feature_idx": 66,
+        "tf_source": "1m",
+        "tf_target": "15m",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 1,
+        "target": 15,
+        "feature_idx": 67,
+        "tf_source": "1m",
+        "tf_target": "15m",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 2,
+        "target": 15,
+        "feature_idx": 68,
+        "tf_source": "1m",
+        "tf_target": "15m",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 3,
+        "target": 15,
+        "feature_idx": 69,
+        "tf_source": "1m",
+        "tf_target": "15m",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 4,
+        "target": 15,
+        "feature_idx": 70,
+        "tf_source": "1m",
+        "tf_target": "15m",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 5,
+        "target": 15,
+        "feature_idx": 71,
+        "tf_source": "1m",
+        "tf_target": "15m",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 6,
+        "target": 15,
+        "feature_idx": 72,
+        "tf_source": "1m",
+        "tf_target": "15m",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 7,
+        "target": 15,
+        "feature_idx": 73,
+        "tf_source": "1m",
+        "tf_target": "15m",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 8,
+        "target": 15,
+        "feature_idx": 74,
+        "tf_source": "1m",
+        "tf_target": "15m",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 9,
+        "target": 15,
+        "feature_idx": 75,
+        "tf_source": "1m",
+        "tf_target": "15m",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 10,
+        "target": 15,
+        "feature_idx": 76,
+        "tf_source": "1m",
+        "tf_target": "15m",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 11,
+        "target": 15,
+        "feature_idx": 77,
+        "tf_source": "1m",
+        "tf_target": "15m",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 0,
+        "target": 16,
+        "feature_idx": 78,
+        "tf_source": "1m",
+        "tf_target": "1h",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 1,
+        "target": 16,
+        "feature_idx": 79,
+        "tf_source": "1m",
+        "tf_target": "1h",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 2,
+        "target": 16,
+        "feature_idx": 80,
+        "tf_source": "1m",
+        "tf_target": "1h",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 3,
+        "target": 16,
+        "feature_idx": 81,
+        "tf_source": "1m",
+        "tf_target": "1h",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 4,
+        "target": 16,
+        "feature_idx": 82,
+        "tf_source": "1m",
+        "tf_target": "1h",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 5,
+        "target": 16,
+        "feature_idx": 83,
+        "tf_source": "1m",
+        "tf_target": "1h",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 6,
+        "target": 16,
+        "feature_idx": 84,
+        "tf_source": "1m",
+        "tf_target": "1h",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 7,
+        "target": 16,
+        "feature_idx": 85,
+        "tf_source": "1m",
+        "tf_target": "1h",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 8,
+        "target": 16,
+        "feature_idx": 86,
+        "tf_source": "1m",
+        "tf_target": "1h",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 9,
+        "target": 16,
+        "feature_idx": 87,
+        "tf_source": "1m",
+        "tf_target": "1h",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 10,
+        "target": 16,
+        "feature_idx": 88,
+        "tf_source": "1m",
+        "tf_target": "1h",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 11,
+        "target": 16,
+        "feature_idx": 89,
+        "tf_source": "1m",
+        "tf_target": "1h",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 0,
+        "target": 17,
+        "feature_idx": 90,
+        "tf_source": "1m",
+        "tf_target": "D",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 1,
+        "target": 17,
+        "feature_idx": 91,
+        "tf_source": "1m",
+        "tf_target": "D",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 2,
+        "target": 17,
+        "feature_idx": 92,
+        "tf_source": "1m",
+        "tf_target": "D",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 3,
+        "target": 17,
+        "feature_idx": 93,
+        "tf_source": "1m",
+        "tf_target": "D",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 4,
+        "target": 17,
+        "feature_idx": 94,
+        "tf_source": "1m",
+        "tf_target": "D",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 5,
+        "target": 17,
+        "feature_idx": 95,
+        "tf_source": "1m",
+        "tf_target": "D",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 6,
+        "target": 17,
+        "feature_idx": 96,
+        "tf_source": "1m",
+        "tf_target": "D",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 7,
+        "target": 17,
+        "feature_idx": 97,
+        "tf_source": "1m",
+        "tf_target": "D",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 8,
+        "target": 17,
+        "feature_idx": 98,
+        "tf_source": "1m",
+        "tf_target": "D",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 9,
+        "target": 17,
+        "feature_idx": 99,
+        "tf_source": "1m",
+        "tf_target": "D",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 10,
+        "target": 17,
+        "feature_idx": 100,
+        "tf_source": "1m",
+        "tf_target": "D",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      },
+      {
+        "source": 11,
+        "target": 17,
+        "feature_idx": 101,
+        "tf_source": "1m",
+        "tf_target": "D",
+        "coverage": 12,
+        "parent_metadata": {
+          "pd_array": {
+            "type": "swing_high",
+            "level": 23173.0
+          },
+          "fpfvg": {
+            "gap": true,
+            "level": 23173.5
+          },
+          "liquidity_sweep": false
+        }
+      }
+    ],
+    "cascade": [],
+    "pd_array": [],
+    "cross_tf_confluence": [
+      {
+        "source": 0,
+        "target": 12,
+        "feature_idx": 102
+      },
+      {
+        "source": 0,
+        "target": 13,
+        "feature_idx": 103
+      },
+      {
+        "source": 0,
+        "target": 14,
+        "feature_idx": 104
+      },
+      {
+        "source": 0,
+        "target": 15,
+        "feature_idx": 105
+      },
+      {
+        "source": 0,
+        "target": 16,
+        "feature_idx": 106
+      },
+      {
+        "source": 0,
+        "target": 17,
+        "feature_idx": 107
+      },
+      {
+        "source": 1,
+        "target": 12,
+        "feature_idx": 108
+      },
+      {
+        "source": 1,
+        "target": 13,
+        "feature_idx": 109
+      },
+      {
+        "source": 1,
+        "target": 14,
+        "feature_idx": 110
+      },
+      {
+        "source": 1,
+        "target": 15,
+        "feature_idx": 111
+      },
+      {
+        "source": 1,
+        "target": 16,
+        "feature_idx": 112
+      },
+      {
+        "source": 1,
+        "target": 17,
+        "feature_idx": 113
+      },
+      {
+        "source": 2,
+        "target": 12,
+        "feature_idx": 114
+      },
+      {
+        "source": 2,
+        "target": 13,
+        "feature_idx": 115
+      },
+      {
+        "source": 2,
+        "target": 14,
+        "feature_idx": 116
+      },
+      {
+        "source": 2,
+        "target": 15,
+        "feature_idx": 117
+      },
+      {
+        "source": 2,
+        "target": 16,
+        "feature_idx": 118
+      },
+      {
+        "source": 2,
+        "target": 17,
+        "feature_idx": 119
+      },
+      {
+        "source": 3,
+        "target": 12,
+        "feature_idx": 120
+      },
+      {
+        "source": 3,
+        "target": 13,
+        "feature_idx": 121
+      },
+      {
+        "source": 3,
+        "target": 14,
+        "feature_idx": 122
+      },
+      {
+        "source": 3,
+        "target": 15,
+        "feature_idx": 123
+      },
+      {
+        "source": 3,
+        "target": 16,
+        "feature_idx": 124
+      },
+      {
+        "source": 3,
+        "target": 17,
+        "feature_idx": 125
+      },
+      {
+        "source": 4,
+        "target": 12,
+        "feature_idx": 126
+      },
+      {
+        "source": 4,
+        "target": 13,
+        "feature_idx": 127
+      },
+      {
+        "source": 4,
+        "target": 14,
+        "feature_idx": 128
+      },
+      {
+        "source": 4,
+        "target": 15,
+        "feature_idx": 129
+      },
+      {
+        "source": 4,
+        "target": 16,
+        "feature_idx": 130
+      },
+      {
+        "source": 4,
+        "target": 17,
+        "feature_idx": 131
+      },
+      {
+        "source": 5,
+        "target": 12,
+        "feature_idx": 132
+      },
+      {
+        "source": 5,
+        "target": 13,
+        "feature_idx": 133
+      },
+      {
+        "source": 5,
+        "target": 14,
+        "feature_idx": 134
+      },
+      {
+        "source": 5,
+        "target": 15,
+        "feature_idx": 135
+      },
+      {
+        "source": 5,
+        "target": 16,
+        "feature_idx": 136
+      },
+      {
+        "source": 5,
+        "target": 17,
+        "feature_idx": 137
+      },
+      {
+        "source": 6,
+        "target": 12,
+        "feature_idx": 138
+      },
+      {
+        "source": 6,
+        "target": 13,
+        "feature_idx": 139
+      },
+      {
+        "source": 6,
+        "target": 14,
+        "feature_idx": 140
+      },
+      {
+        "source": 6,
+        "target": 15,
+        "feature_idx": 141
+      },
+      {
+        "source": 6,
+        "target": 16,
+        "feature_idx": 142
+      },
+      {
+        "source": 6,
+        "target": 17,
+        "feature_idx": 143
+      },
+      {
+        "source": 7,
+        "target": 12,
+        "feature_idx": 144
+      },
+      {
+        "source": 7,
+        "target": 13,
+        "feature_idx": 145
+      },
+      {
+        "source": 7,
+        "target": 14,
+        "feature_idx": 146
+      },
+      {
+        "source": 7,
+        "target": 15,
+        "feature_idx": 147
+      },
+      {
+        "source": 7,
+        "target": 16,
+        "feature_idx": 148
+      },
+      {
+        "source": 7,
+        "target": 17,
+        "feature_idx": 149
+      },
+      {
+        "source": 8,
+        "target": 12,
+        "feature_idx": 150
+      },
+      {
+        "source": 8,
+        "target": 13,
+        "feature_idx": 151
+      },
+      {
+        "source": 8,
+        "target": 14,
+        "feature_idx": 152
+      },
+      {
+        "source": 8,
+        "target": 15,
+        "feature_idx": 153
+      },
+      {
+        "source": 8,
+        "target": 16,
+        "feature_idx": 154
+      },
+      {
+        "source": 8,
+        "target": 17,
+        "feature_idx": 155
+      },
+      {
+        "source": 9,
+        "target": 12,
+        "feature_idx": 156
+      },
+      {
+        "source": 9,
+        "target": 13,
+        "feature_idx": 157
+      },
+      {
+        "source": 9,
+        "target": 14,
+        "feature_idx": 158
+      },
+      {
+        "source": 9,
+        "target": 15,
+        "feature_idx": 159
+      },
+      {
+        "source": 9,
+        "target": 16,
+        "feature_idx": 160
+      },
+      {
+        "source": 9,
+        "target": 17,
+        "feature_idx": 161
+      },
+      {
+        "source": 10,
+        "target": 12,
+        "feature_idx": 162
+      },
+      {
+        "source": 10,
+        "target": 13,
+        "feature_idx": 163
+      },
+      {
+        "source": 10,
+        "target": 14,
+        "feature_idx": 164
+      },
+      {
+        "source": 10,
+        "target": 15,
+        "feature_idx": 165
+      },
+      {
+        "source": 10,
+        "target": 16,
+        "feature_idx": 166
+      },
+      {
+        "source": 10,
+        "target": 17,
+        "feature_idx": 167
+      },
+      {
+        "source": 11,
+        "target": 12,
+        "feature_idx": 168
+      },
+      {
+        "source": 11,
+        "target": 13,
+        "feature_idx": 169
+      },
+      {
+        "source": 11,
+        "target": 14,
+        "feature_idx": 170
+      },
+      {
+        "source": 11,
+        "target": 15,
+        "feature_idx": 171
+      },
+      {
+        "source": 11,
+        "target": 16,
+        "feature_idx": 172
+      },
+      {
+        "source": 11,
+        "target": 17,
+        "feature_idx": 173
+      },
+      {
+        "source": 12,
+        "target": 15,
+        "feature_idx": 174
+      },
+      {
+        "source": 12,
+        "target": 16,
+        "feature_idx": 175
+      },
+      {
+        "source": 12,
+        "target": 17,
+        "feature_idx": 176
+      },
+      {
+        "source": 13,
+        "target": 15,
+        "feature_idx": 177
+      },
+      {
+        "source": 13,
+        "target": 16,
+        "feature_idx": 178
+      },
+      {
+        "source": 13,
+        "target": 17,
+        "feature_idx": 179
+      },
+      {
+        "source": 14,
+        "target": 15,
+        "feature_idx": 180
+      },
+      {
+        "source": 14,
+        "target": 16,
+        "feature_idx": 181
+      },
+      {
+        "source": 14,
+        "target": 17,
+        "feature_idx": 182
+      },
+      {
+        "source": 15,
+        "target": 16,
+        "feature_idx": 183
+      },
+      {
+        "source": 15,
+        "target": 17,
+        "feature_idx": 184
+      },
+      {
+        "source": 16,
+        "target": 17,
+        "feature_idx": 185
+      }
+    ],
+    "temporal_echo": [
+      {
+        "source": 0,
+        "target": 12,
+        "feature_idx": 186
+      },
+      {
+        "source": 0,
+        "target": 15,
+        "feature_idx": 187
+      },
+      {
+        "source": 0,
+        "target": 16,
+        "feature_idx": 188
+      },
+      {
+        "source": 0,
+        "target": 17,
+        "feature_idx": 189
+      },
+      {
+        "source": 1,
+        "target": 12,
+        "feature_idx": 190
+      },
+      {
+        "source": 1,
+        "target": 15,
+        "feature_idx": 191
+      },
+      {
+        "source": 1,
+        "target": 16,
+        "feature_idx": 192
+      },
+      {
+        "source": 1,
+        "target": 17,
+        "feature_idx": 193
+      },
+      {
+        "source": 2,
+        "target": 12,
+        "feature_idx": 194
+      },
+      {
+        "source": 2,
+        "target": 15,
+        "feature_idx": 195
+      },
+      {
+        "source": 2,
+        "target": 16,
+        "feature_idx": 196
+      },
+      {
+        "source": 2,
+        "target": 17,
+        "feature_idx": 197
+      },
+      {
+        "source": 3,
+        "target": 12,
+        "feature_idx": 198
+      },
+      {
+        "source": 3,
+        "target": 15,
+        "feature_idx": 199
+      },
+      {
+        "source": 3,
+        "target": 16,
+        "feature_idx": 200
+      },
+      {
+        "source": 3,
+        "target": 17,
+        "feature_idx": 201
+      },
+      {
+        "source": 4,
+        "target": 13,
+        "feature_idx": 202
+      },
+      {
+        "source": 5,
+        "target": 13,
+        "feature_idx": 203
+      },
+      {
+        "source": 6,
+        "target": 13,
+        "feature_idx": 204
+      },
+      {
+        "source": 9,
+        "target": 14,
+        "feature_idx": 205
+      },
+      {
+        "source": 10,
+        "target": 14,
+        "feature_idx": 206
+      },
+      {
+        "source": 11,
+        "target": 14,
+        "feature_idx": 207
+      },
+      {
+        "source": 12,
+        "target": 15,
+        "feature_idx": 208
+      },
+      {
+        "source": 12,
+        "target": 16,
+        "feature_idx": 209
+      },
+      {
+        "source": 12,
+        "target": 17,
+        "feature_idx": 210
+      },
+      {
+        "source": 15,
+        "target": 16,
+        "feature_idx": 211
+      },
+      {
+        "source": 15,
+        "target": 17,
+        "feature_idx": 212
+      },
+      {
+        "source": 16,
+        "target": 17,
+        "feature_idx": 213
+      }
+    ],
+    "discovered": []
+  },
+  "rich_edge_features": [
+    

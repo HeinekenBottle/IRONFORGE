@@ -1,0 +1,552 @@
+{
+  "session_metadata": {
+    "session_type": "asia",
+    "session_date": "2025-08-06",
+    "session_start": "19:00:00",
+    "session_end": "23:59:00",
+    "session_duration": 299,
+    "transcription_source": "live_market_data",
+    "data_completeness": "complete_session",
+    "timezone": "ET",
+    "session_status": "completed",
+    "trading_day_note": "Asia session 19:00 ET Aug 5 = Aug 6 Asian markets"
+  },
+  "session_fpfvg": {
+    "fpfvg_present": true,
+    "fpfvg_formation": {
+      "formation_time": "19:07:00",
+      "premium_high": 23085.75,
+      "discount_low": 23084.5,
+      "gap_size": 1.25,
+      "interactions": [
+        {
+          "interaction_time": "19:10:00",
+          "interaction_type": "rebalance",
+          "price_level": 23085.75,
+          "interaction_context": "first_asia_fpfvg_rebalance"
+        },
+        {
+          "interaction_time": "19:23:00",
+          "interaction_type": "redelivery",
+          "price_level": 23084.5,
+          "interaction_context": "asia_fpfvg_first_redelivery"
+        },
+        {
+          "interaction_time": "19:24:00",
+          "interaction_type": "rebalance",
+          "price_level": 23085.75,
+          "interaction_context": "asia_fpfvg_second_rebalance"
+        },
+        {
+          "interaction_time": "19:37:00",
+          "interaction_type": "redelivery",
+          "price_level": 23084.5,
+          "interaction_context": "asia_fpfvg_redelivery_with_open_price"
+        },
+        {
+          "interaction_time": "19:41:00",
+          "interaction_type": "rebalance",
+          "price_level": 23085.75,
+          "interaction_context": "asia_fpfvg_third_rebalance"
+        },
+        {
+          "interaction_time": "19:48:00",
+          "interaction_type": "rebalance",
+          "price_level": 23085.75,
+          "interaction_context": "asia_fpfvg_fourth_rebalance"
+        },
+        {
+          "interaction_time": "20:04:00",
+          "interaction_type": "redelivery",
+          "price_level": 23084.5,
+          "interaction_context": "asia_fpfvg_redelivery_post_session_low"
+        },
+        {
+          "interaction_time": "20:24:00",
+          "interaction_type": "rebalance",
+          "price_level": 23085.75,
+          "interaction_context": "asia_fpfvg_fifth_rebalance"
+        },
+        {
+          "interaction_time": "21:32:00",
+          "interaction_type": "rebalance",
+          "price_level": 23085.75,
+          "interaction_context": "asia_fpfvg_sixth_rebalance"
+        }
+      ]
+    }
+  },
+  "price_movements": [
+    {
+      "timestamp": "19:00:00",
+      "price_level": 23084.5,
+      "movement_type": "open",
+      "normalized_price": 0.288981288981289,
+      "pct_from_open": 0.0,
+      "pct_from_high": 71.10187110187111,
+      "pct_from_low": 28.8981288981289,
+      "time_since_session_open": 0,
+      "normalized_time": 0.0,
+      "time_to_next_event": 420,
+      "price_momentum": 0.0,
+      "range_position": 0.288981288981289,
+      "absolute_price": 23084.5,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.345597"
+    },
+    {
+      "timestamp": "19:07:00",
+      "price_level": 23085.75,
+      "movement_type": "asia_fpfvg_formation_premium",
+      "normalized_price": 0.2993762993762994,
+      "pct_from_open": 0.0054148887781844965,
+      "pct_from_high": 70.06237006237006,
+      "pct_from_low": 29.93762993762994,
+      "time_since_session_open": 420,
+      "normalized_time": 0.023411371237458192,
+      "time_to_next_event": 0,
+      "price_momentum": 0.0054148887781844965,
+      "range_position": 0.2993762993762994,
+      "absolute_price": 23085.75,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.345650"
+    },
+    {
+      "timestamp": "19:07:00",
+      "price_level": 23084.5,
+      "movement_type": "asia_fpfvg_formation_discount",
+      "normalized_price": 0.288981288981289,
+      "pct_from_open": 0.0,
+      "pct_from_high": 71.10187110187111,
+      "pct_from_low": 28.8981288981289,
+      "time_since_session_open": 420,
+      "normalized_time": 0.023411371237458192,
+      "time_to_next_event": 660,
+      "price_momentum": -0.005414595583855842,
+      "range_position": 0.288981288981289,
+      "absolute_price": 23084.5,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.345696"
+    },
+    {
+      "timestamp": "19:18:00",
+      "price_level": 23097.5,
+      "movement_type": "reversal_point_expansion_high",
+      "normalized_price": 0.3970893970893971,
+      "pct_from_open": 0.05631484329311876,
+      "pct_from_high": 60.2910602910603,
+      "pct_from_low": 39.70893970893971,
+      "time_since_session_open": 1080,
+      "normalized_time": 0.06020066889632107,
+      "time_to_next_event": 840,
+      "price_momentum": 0.05631484329311876,
+      "range_position": 0.3970893970893971,
+      "absolute_price": 23097.5,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.345740"
+    },
+    {
+      "timestamp": "19:32:00",
+      "price_level": 23068.0,
+      "movement_type": "expansion_low",
+      "normalized_price": 0.15176715176715178,
+      "pct_from_open": -0.07147653187203536,
+      "pct_from_high": 84.82328482328482,
+      "pct_from_low": 15.176715176715177,
+      "time_since_session_open": 1920,
+      "normalized_time": 0.10702341137123746,
+      "time_to_next_event": 960,
+      "price_momentum": -0.1277194501569434,
+      "range_position": 0.15176715176715178,
+      "absolute_price": 23068.0,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.345783"
+    },
+    {
+      "timestamp": "19:48:00",
+      "price_level": 23092.25,
+      "movement_type": "retracement_high",
+      "normalized_price": 0.35343035343035345,
+      "pct_from_open": 0.03357231042474387,
+      "pct_from_high": 64.65696465696466,
+      "pct_from_low": 35.343035343035346,
+      "time_since_session_open": 2880,
+      "normalized_time": 0.1605351170568562,
+      "time_to_next_event": 720,
+      "price_momentum": 0.10512398127275879,
+      "range_position": 0.35343035343035345,
+      "absolute_price": 23092.25,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.345825"
+    },
+    {
+      "timestamp": "20:00:00",
+      "price_level": 23049.75,
+      "movement_type": "session_low_expansion_end",
+      "normalized_price": 0.0,
+      "pct_from_open": -0.15053390803352898,
+      "pct_from_high": 100.0,
+      "pct_from_low": 0.0,
+      "time_since_session_open": 3600,
+      "normalized_time": 0.20066889632107024,
+      "time_to_next_event": 240,
+      "price_momentum": -0.18404443049074906,
+      "range_position": 0.0,
+      "absolute_price": 23049.75,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.345867"
+    },
+    {
+      "timestamp": "20:04:00",
+      "price_level": 23085.75,
+      "movement_type": "expansion_high_post_session_low",
+      "normalized_price": 0.2993762993762994,
+      "pct_from_open": 0.0054148887781844965,
+      "pct_from_high": 70.06237006237006,
+      "pct_from_low": 29.93762993762994,
+      "time_since_session_open": 3840,
+      "normalized_time": 0.2140468227424749,
+      "time_to_next_event": 1260,
+      "price_momentum": 0.1561839065499626,
+      "range_position": 0.2993762993762994,
+      "absolute_price": 23085.75,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.345908"
+    },
+    {
+      "timestamp": "20:25:00",
+      "price_level": 23089.0,
+      "movement_type": "expansion_high",
+      "normalized_price": 0.3264033264033264,
+      "pct_from_open": 0.019493599601464184,
+      "pct_from_high": 67.35966735966737,
+      "pct_from_low": 32.640332640332645,
+      "time_since_session_open": 5100,
+      "normalized_time": 0.2842809364548495,
+      "time_to_next_event": 4560,
+      "price_momentum": 0.014077948518025189,
+      "range_position": 0.3264033264033264,
+      "absolute_price": 23089.0,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.345950"
+    },
+    {
+      "timestamp": "21:41:00",
+      "price_level": 23128.75,
+      "movement_type": "expansion_high",
+      "normalized_price": 0.656964656964657,
+      "pct_from_open": 0.19168706274773117,
+      "pct_from_high": 34.303534303534306,
+      "pct_from_low": 65.6964656964657,
+      "time_since_session_open": 9660,
+      "normalized_time": 0.5384615384615384,
+      "time_to_next_event": 1020,
+      "price_momentum": 0.172159902984105,
+      "range_position": 0.656964656964657,
+      "absolute_price": 23128.75,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.346000"
+    },
+    {
+      "timestamp": "21:58:00",
+      "price_level": 23140.25,
+      "movement_type": "expansion_high",
+      "normalized_price": 0.7525987525987526,
+      "pct_from_open": 0.24150403950702853,
+      "pct_from_high": 24.74012474012474,
+      "pct_from_low": 75.25987525987526,
+      "time_since_session_open": 10680,
+      "normalized_time": 0.5953177257525084,
+      "time_to_next_event": 2040,
+      "price_momentum": 0.049721666756742146,
+      "range_position": 0.7525987525987526,
+      "absolute_price": 23140.25,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.346056"
+    },
+    {
+      "timestamp": "22:32:00",
+      "price_level": 23166.5,
+      "movement_type": "expansion_high",
+      "normalized_price": 0.9708939708939709,
+      "pct_from_open": 0.3552167038489029,
+      "pct_from_high": 2.9106029106029108,
+      "pct_from_low": 97.0893970893971,
+      "time_since_session_open": 12720,
+      "normalized_time": 0.7090301003344481,
+      "time_to_next_event": 720,
+      "price_momentum": 0.11343870528624365,
+      "range_position": 0.9708939708939709,
+      "absolute_price": 23166.5,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.346106"
+    },
+    {
+      "timestamp": "22:44:00",
+      "price_level": 23168.25,
+      "movement_type": "expansion_high",
+      "normalized_price": 0.9854469854469855,
+      "pct_from_open": 0.36279754813836124,
+      "pct_from_high": 1.4553014553014554,
+      "pct_from_low": 98.54469854469855,
+      "time_since_session_open": 13440,
+      "normalized_time": 0.7491638795986622,
+      "time_to_next_event": 3060,
+      "price_momentum": 0.007554011179936546,
+      "range_position": 0.9854469854469855,
+      "absolute_price": 23168.25,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.346148"
+    },
+    {
+      "timestamp": "23:35:00",
+      "price_level": 23169.75,
+      "movement_type": "expansion_high",
+      "normalized_price": 0.997920997920998,
+      "pct_from_open": 0.36929541467218263,
+      "pct_from_high": 0.2079002079002079,
+      "pct_from_low": 99.7920997920998,
+      "time_since_session_open": 16500,
+      "normalized_time": 0.919732441471572,
+      "time_to_next_event": 1140,
+      "price_momentum": 0.0064743776504483505,
+      "range_position": 0.997920997920998,
+      "absolute_price": 23169.75,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.346189"
+    },
+    {
+      "timestamp": "23:54:00",
+      "price_level": 23170.0,
+      "movement_type": "session_high",
+      "normalized_price": 1.0,
+      "pct_from_open": 0.3703783924278195,
+      "pct_from_high": 0.0,
+      "pct_from_low": 100.0,
+      "time_since_session_open": 17640,
+      "normalized_time": 0.9832775919732442,
+      "time_to_next_event": 300,
+      "price_momentum": 0.0010789930836543338,
+      "range_position": 1.0,
+      "absolute_price": 23170.0,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.346231"
+    },
+    {
+      "timestamp": "23:59:00",
+      "price_level": 23166.0,
+      "movement_type": "close",
+      "normalized_price": 0.9667359667359667,
+      "pct_from_open": 0.3530507483376291,
+      "pct_from_high": 3.3264033264033266,
+      "pct_from_low": 96.67359667359668,
+      "time_since_session_open": 17940,
+      "normalized_time": 1.0,
+      "time_to_next_event": 0,
+      "price_momentum": -0.017263703064307294,
+      "range_position": 0.9667359667359667,
+      "absolute_price": 23166.0,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.346262"
+    }
+  ],
+  "session_liquidity_events": [
+    {
+      "timestamp": "19:00:00",
+      "event_type": "momentum_shift",
+      "intensity": 0.807,
+      "price_level": 23084.5,
+      "impact_duration": 8
+    },
+    {
+      "timestamp": "19:07:00",
+      "event_type": "momentum_shift",
+      "intensity": 0.862,
+      "price_level": 23085.75,
+      "impact_duration": 13
+    },
+    {
+      "timestamp": "19:07:00",
+      "event_type": "consolidation_break",
+      "intensity": 0.884,
+      "price_level": 23084.5,
+      "impact_duration": 27
+    },
+    {
+      "timestamp": "19:18:00",
+      "event_type": "liquidity_sweep",
+      "intensity": 0.492,
+      "price_level": 23097.5,
+      "impact_duration": 29
+    },
+    {
+      "timestamp": "19:32:00",
+      "event_type": "consolidation_break",
+      "intensity": 0.605,
+      "price_level": 23068.0,
+      "impact_duration": 31
+    },
+    {
+      "timestamp": "19:48:00",
+      "event_type": "price_gap",
+      "intensity": 0.522,
+      "price_level": 23092.25,
+      "impact_duration": 14
+    },
+    {
+      "timestamp": "20:00:00",
+      "event_type": "level_break",
+      "intensity": 0.845,
+      "price_level": 23049.75,
+      "impact_duration": 8
+    },
+    {
+      "timestamp": "20:04:00",
+      "event_type": "momentum_shift",
+      "intensity": 0.675,
+      "price_level": 23085.75,
+      "impact_duration": 31
+    },
+    {
+      "timestamp": "20:25:00",
+      "event_type": "volume_spike",
+      "intensity": 0.789,
+      "price_level": 23089.0,
+      "impact_duration": 45
+    },
+    {
+      "timestamp": "21:41:00",
+      "event_type": "liquidity_sweep",
+      "intensity": 0.442,
+      "price_level": 23128.75,
+      "impact_duration": 13
+    },
+    {
+      "timestamp": "21:58:00",
+      "event_type": "price_gap",
+      "intensity": 0.456,
+      "price_level": 23140.25,
+      "impact_duration": 13
+    },
+    {
+      "timestamp": "22:32:00",
+      "event_type": "momentum_shift",
+      "intensity": 0.499,
+      "price_level": 23166.5,
+      "impact_duration": 28
+    },
+    {
+      "timestamp": "22:44:00",
+      "event_type": "volume_spike",
+      "intensity": 0.38,
+      "price_level": 23168.25,
+      "impact_duration": 6
+    },
+    {
+      "timestamp": "23:35:00",
+      "event_type": "fvg_creation",
+      "intensity": 0.588,
+      "price_level": 23169.75,
+      "impact_duration": 9
+    },
+    {
+      "timestamp": "23:54:00",
+      "event_type": "trend_continuation",
+      "intensity": 0.683,
+      "price_level": 23170.0,
+      "impact_duration": 23
+    }
+  ],
+  "energy_state": {
+    "energy_density": 0.62,
+    "total_accumulated": 185.38,
+    "energy_rate": 37.2,
+    "energy_source": "mixed_native_and_historical_cross_session",
+    "session_duration": 299,
+    "expansion_phases": 8,
+    "retracement_phases": 6,
+    "consolidation_phases": 6,
+    "phase_transitions": 20,
+    "session_status": "complete"
+  },
+  "contamination_analysis": {
+    "htf_contamination": {
+      "immediate_cross_session_interaction": false,
+      "three_day_historical_influence": true,
+      "previous_day_carryover": true,
+      "multiple_historical_redeliveries": true,
+      "htf_carryover_strength": 0.68,
+      "cross_session_inheritance": 0.62
+    },
+    "cross_session_inheritance": {
+      "london_fpfvg_interactions": 0,
+      "premarket_fpfvg_interactions": 0,
+      "midnight_fpfvg_interactions": 0,
+      "previous_day_pm_session_interactions": 1,
+      "previous_day_lunch_fpfvg_interactions": 2,
+      "three_day_premarket_fpfvg_interactions": 1,
+      "three_day_am_session_fpfvg_interactions": 3,
+      "asia_native_fpfvg": true,
+      "asia_fpfvg_gap_size": 1.25,
+      "energy_carryover_coefficient": 0.62
+    }
+  },
+  "processing_metadata": {
+    "original_file": "/Users/jack/grok-claude-automation/data/sessions/level_1/ASIA_Lvl-1_2025_08_06.json",
+    "standardization_date": "2025-08-07T19:29:57.167089",
+    "conversion_type": "current_schema_preserved",
+    "schema_version": "target_v1.0",
+    "data_recovery": {
+      "recovery_date": "2025-08-07T19:45:57.720319",
+      "corrections_applied": [
+        "Added recovered price movements"
+      ],
+      "recovery_source": "backup_file_recovery"
+    },
+    "relativity_enhancement": {
+      "applied": true,
+      "timestamp": "2025-08-14T13:06:58.346272",
+      "features_added": [
+        "normalized_price",
+        "pct_from_open",
+        "pct_from_high",
+        "pct_from_low",
+        "time_since_session_open",
+        "normalized_time",
+        "time_to_next_event",
+        "price_momentum",
+        "range_position",
+        "absolute_price"
+      ],
+      "permanent_validity": true,
+      "regime_independence": true
+    }
+  },
+  "htf_carryover_strength": 0.927198660410564,
+  "energy_density": 0.8397722781060354,
+  "enhancement_info": {
+    "enhanced_date": "2025-08-14T12:52:14.527483",
+    "enhancement_type": "phase2_feature_decontamination",
+    "features_enhanced": [
+      "htf_carryover_strength",
+      "energy_density",
+      "session_liquidity_events"
+    ],
+    "original_contamination": {
+      "htf_carryover_strength": 0.3,
+      "energy_density": 0.5,
+      "session_liquidity_events_count": 8
+    }
+  },
+  "relativity_stats": {
+    "session_high": 23170.0,
+    "session_low": 23049.75,
+    "session_open": 23084.5,
+    "session_close": 23166.0,
+    "session_range": 120.25,
+    "session_duration_seconds": 17940,
+    "normalization_applied": true,
+    "structural_relationships_enabled": true,
+    "permanent_pattern_capability": true
+  }
+}

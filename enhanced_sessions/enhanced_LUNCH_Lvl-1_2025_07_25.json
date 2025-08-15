@@ -1,0 +1,687 @@
+{
+  "session_metadata": {
+    "session_type": "lunch",
+    "session_date": "2025-07-25",
+    "session_start": "12:00:00",
+    "session_end": "12:59:00",
+    "session_duration": 59,
+    "transcription_source": "live_market_data",
+    "data_completeness": "complete_session",
+    "timezone": "ET",
+    "session_status": "completed"
+  },
+  "session_fpfvg": {
+    "fpfvg_present": false,
+    "fpfvg_formation": {
+      "formation_time": "00:00:00",
+      "premium_high": 0.0,
+      "discount_low": 0.0,
+      "gap_size": 0.0,
+      "interactions": []
+    }
+  },
+  "price_movements": [
+    {
+      "timestamp": "12:00:00",
+      "price_level": 23421.0,
+      "movement_type": "open"
+    },
+    {
+      "timestamp": "12:00:00",
+      "price_level": 23476.0,
+      "movement_type": "session_high"
+    },
+    {
+      "timestamp": "12:30:00",
+      "price_level": 23416.0,
+      "movement_type": "session_low"
+    },
+    {
+      "timestamp": "12:59:00",
+      "price_level": 23450.5,
+      "movement_type": "close"
+    },
+    {
+      "timestamp": "12:00:00",
+      "price_level": 23421.0,
+      "movement_type": "open"
+    },
+    {
+      "timestamp": "12:00:00",
+      "price_level": 23476.0,
+      "movement_type": "session_high"
+    },
+    {
+      "timestamp": "12:30:00",
+      "price_level": 23416.0,
+      "movement_type": "session_low"
+    },
+    {
+      "timestamp": "12:59:00",
+      "price_level": 23450.5,
+      "movement_type": "close"
+    },
+    {
+      "timestamp": "12:01:00",
+      "price": 23416.0,
+      "action": "touch",
+      "context": "lunch_session_low_formation"
+    },
+    {
+      "timestamp": "12:07:00",
+      "price": 23426.5,
+      "action": "touch",
+      "context": "Lunch_FPFVG_formation_premium_high"
+    },
+    {
+      "timestamp": "12:08:00",
+      "price": 23429.25,
+      "action": "break",
+      "context": "NY_AM_session_high_taken_out"
+    },
+    {
+      "timestamp": "12:13:00",
+      "price": 23441.75,
+      "action": "break",
+      "context": "Asia_session_FVG_taken_out"
+    },
+    {
+      "timestamp": "12:31:00",
+      "price": 23476.0,
+      "action": "touch",
+      "context": "lunch_session_high_formation"
+    }
+  ],
+  "session_liquidity_events": [
+    {
+      "timestamp": "12:00:00",
+      "event_type": "interaction",
+      "liquidity_type": "internal",
+      "target_level": "session_open",
+      "magnitude": "medium",
+      "context": "generated_from_open"
+    },
+    {
+      "timestamp": "12:00:00",
+      "event_type": "rebalance",
+      "liquidity_type": "internal",
+      "target_level": "session_session_high",
+      "magnitude": "low",
+      "context": "generated_from_session_high"
+    },
+    {
+      "timestamp": "12:30:00",
+      "event_type": "redelivery",
+      "liquidity_type": "internal",
+      "target_level": "session_session_low",
+      "magnitude": "low",
+      "context": "generated_from_session_low"
+    },
+    {
+      "timestamp": "12:59:00",
+      "event_type": "interaction",
+      "liquidity_type": "internal",
+      "target_level": "session_close",
+      "magnitude": "medium",
+      "context": "generated_from_close"
+    },
+    {
+      "timestamp": "12:00:00",
+      "event_type": "interaction",
+      "liquidity_type": "internal",
+      "target_level": "session_open",
+      "magnitude": "medium",
+      "context": "generated_from_open"
+    },
+    {
+      "timestamp": "12:00:00",
+      "event_type": "rebalance",
+      "liquidity_type": "internal",
+      "target_level": "session_session_high",
+      "magnitude": "low",
+      "context": "generated_from_session_high"
+    },
+    {
+      "timestamp": "12:30:00",
+      "event_type": "redelivery",
+      "liquidity_type": "internal",
+      "target_level": "session_session_low",
+      "magnitude": "low",
+      "context": "generated_from_session_low"
+    },
+    {
+      "timestamp": "12:59:00",
+      "event_type": "interaction",
+      "liquidity_type": "internal",
+      "target_level": "session_close",
+      "magnitude": "medium",
+      "context": "generated_from_close"
+    },
+    {
+      "timestamp": "12:01:00",
+      "event_type": "redelivery",
+      "liquidity_type": "internal",
+      "target_level": "session_lunch_session_low_formation",
+      "magnitude": "low",
+      "context": "generated_from_lunch_session_low_formation"
+    },
+    {
+      "timestamp": "12:07:00",
+      "event_type": "rebalance",
+      "liquidity_type": "fpfvg",
+      "target_level": "session_lunch_fpfvg_formation_premium_high",
+      "magnitude": "low",
+      "context": "generated_from_lunch_fpfvg_formation_premium_high"
+    },
+    {
+      "timestamp": "12:08:00",
+      "event_type": "rebalance",
+      "liquidity_type": "internal",
+      "target_level": "session_ny_am_session_high_taken_out",
+      "magnitude": "low",
+      "context": "generated_from_ny_am_session_high_taken_out"
+    },
+    {
+      "timestamp": "12:13:00",
+      "event_type": "interaction",
+      "liquidity_type": "internal",
+      "target_level": "session_asia_session_fvg_taken_out",
+      "magnitude": "medium",
+      "context": "generated_from_asia_session_fvg_taken_out"
+    },
+    {
+      "timestamp": "12:31:00",
+      "event_type": "rebalance",
+      "liquidity_type": "internal",
+      "target_level": "session_lunch_session_high_formation",
+      "magnitude": "low",
+      "context": "generated_from_lunch_session_high_formation"
+    }
+  ],
+  "energy_state": {
+    "energy_density": 0.88,
+    "total_accumulated": 29.5,
+    "energy_rate": 30.0,
+    "energy_source": "standardization_estimation",
+    "session_duration": 59,
+    "expansion_phases": 3,
+    "retracement_phases": 2,
+    "consolidation_phases": 1,
+    "phase_transitions": 8,
+    "session_status": "complete"
+  },
+  "contamination_analysis": {
+    "htf_contamination": {
+      "immediate_cross_session_interaction": false,
+      "htf_carryover_strength": 0.69,
+      "cross_session_inheritance": 0.3
+    },
+    "cross_session_inheritance": {
+      "energy_carryover_coefficient": 0.3
+    }
+  },
+  "phase_transitions": [
+    {
+      "phase_type": "expansion",
+      "start_time": "12:01:00",
+      "end_time": "12:16:00",
+      "high": 23449.0,
+      "low": 23416.0,
+      "description": "opening_expansion_taking_NY_AM_high_and_Asia_FVG"
+    },
+    {
+      "phase_type": "expansion",
+      "start_time": "12:16:00",
+      "end_time": "12:21:00",
+      "high": 23449.0,
+      "low": 23436.25,
+      "description": "retracement_phase_from_expansion_high"
+    },
+    {
+      "phase_type": "expansion",
+      "start_time": "12:21:00",
+      "end_time": "12:31:00",
+      "high": 23476.0,
+      "low": 23436.25,
+      "description": "major_expansion_creating_session_high"
+    },
+    {
+      "phase_type": "expansion",
+      "start_time": "12:31:00",
+      "end_time": "12:50:00",
+      "high": 23476.0,
+      "low": 23446.0,
+      "description": "retracement_phase_from_session_high"
+    },
+    {
+      "phase_type": "expansion",
+      "start_time": "12:50:00",
+      "end_time": "12:54:00",
+      "high": 23460.5,
+      "low": 23446.0,
+      "description": "small_expansion_phase_before_close"
+    },
+    {
+      "phase_type": "consolidation",
+      "start_time": "12:54:00",
+      "end_time": "12:59:00",
+      "high": 23460.5,
+      "low": 23450.25,
+      "description": "session_closing_consolidation"
+    }
+  ],
+  "structures_identified": {
+    "fair_value_gaps": [
+      {
+        "id": "lunch_fpfvg_2025_07_25",
+        "formation_time": "12:07:00",
+        "type": "first_presentation",
+        "premium_high": 23426.5,
+        "discount_low": 23424.75,
+        "size_points": 1.75,
+        "formation_context": "lunch_session_opening_expansion",
+        "delivery_status": "undelivered",
+        "delivery_time": "pending"
+      }
+    ],
+    "session_levels": [
+      {
+        "type": "session_high",
+        "level": 23476.0,
+        "formation_time": "12:31:00",
+        "touches": [
+          "12:31:00"
+        ],
+        "holds": true,
+        "context": "major_expansion_session_high_formation"
+      },
+      {
+        "type": "session_low",
+        "level": 23416.0,
+        "formation_time": "12:01:00",
+        "touches": [
+          "12:01:00"
+        ],
+        "holds": true,
+        "context": "lunch_opening_low_formation"
+      }
+    ]
+  },
+  "level_interactions": [
+    {
+      "timestamp": "12:08:00",
+      "level": 23429.25,
+      "level_origin": "NY_AM_Session_High",
+      "interaction_type": "break",
+      "result": "broken"
+    },
+    {
+      "timestamp": "12:13:00",
+      "level": 23441.75,
+      "level_origin": "Asia_Session_FVG",
+      "interaction_type": "break",
+      "result": "delivered"
+    }
+  ],
+  "micro_timing_analysis": {
+    "cascade_events": [
+      {
+        "timestamp": "12:01:00",
+        "event_type": "expansion_phase",
+        "price_level": 23416.0,
+        "magnitude": 33.0,
+        "duration_minutes": 15.0
+      },
+      {
+        "timestamp": "12:21:00",
+        "event_type": "major_expansion",
+        "price_level": 23436.25,
+        "magnitude": 39.75,
+        "duration_minutes": 10.0
+      },
+      {
+        "timestamp": "12:31:00",
+        "event_type": "retracement_phase",
+        "price_level": 23476.0,
+        "magnitude": 30.0,
+        "duration_minutes": 19.0
+      },
+      {
+        "timestamp": "12:50:00",
+        "event_type": "expansion_phase",
+        "price_level": 23446.0,
+        "magnitude": 14.5,
+        "duration_minutes": 4.0
+      }
+    ],
+    "phase_transitions": [
+      {
+        "from_phase": "consolidation",
+        "to_phase": "expansion",
+        "transition_time": "12:01:00",
+        "trigger_event": "lunch_opening_momentum"
+      },
+      {
+        "from_phase": "expansion",
+        "to_phase": "expansion",
+        "transition_time": "12:16:00",
+        "trigger_event": "momentum_pause"
+      },
+      {
+        "from_phase": "expansion",
+        "to_phase": "expansion",
+        "transition_time": "12:21:00",
+        "trigger_event": "renewed_momentum"
+      },
+      {
+        "from_phase": "expansion",
+        "to_phase": "expansion",
+        "transition_time": "12:31:00",
+        "trigger_event": "session_high_reversal"
+      },
+      {
+        "from_phase": "expansion",
+        "to_phase": "expansion",
+        "transition_time": "12:50:00",
+        "trigger_event": "final_push_momentum"
+      }
+    ],
+    "level_interactions": [
+      {
+        "level_type": "liquidity_zone",
+        "price_level": 23429.25,
+        "interaction_time": "12:08:00",
+        "interaction_type": "break",
+        "significance": "high"
+      },
+      {
+        "level_type": "fvg",
+        "price_level": 23441.75,
+        "interaction_time": "12:13:00",
+        "interaction_type": "delivery",
+        "significance": "high"
+      }
+    ],
+    "timing_metrics": {
+      "total_cascade_events": 4,
+      "average_phase_duration_minutes": 12.0,
+      "consolidation_percentage": 8.5,
+      "expansion_percentage": 91.5
+    }
+  },
+  "consolidation_expansion_raw": {
+    "consolidation_periods": [
+      {
+        "start": "12:54:00",
+        "end": "12:59:00",
+        "range_high": 23460.5,
+        "range_low": 23450.25,
+        "touches_high": 1,
+        "touches_low": 1
+      }
+    ],
+    "expansion_periods": [
+      {
+        "start": "12:01:00",
+        "end": "12:16:00",
+        "direction": "up",
+        "start_price": 23416.0,
+        "end_price": 23449.0,
+        "total_distance": 33.0
+      },
+      {
+        "start": "12:16:00",
+        "end": "12:21:00",
+        "direction": "down",
+        "start_price": 23449.0,
+        "end_price": 23436.25,
+        "total_distance": 12.75
+      },
+      {
+        "start": "12:21:00",
+        "end": "12:31:00",
+        "direction": "up",
+        "start_price": 23436.25,
+        "end_price": 23476.0,
+        "total_distance": 39.75
+      },
+      {
+        "start": "12:31:00",
+        "end": "12:50:00",
+        "direction": "down",
+        "start_price": 23476.0,
+        "end_price": 23446.0,
+        "total_distance": 30.0
+      },
+      {
+        "start": "12:50:00",
+        "end": "12:54:00",
+        "direction": "up",
+        "start_price": 23446.0,
+        "end_price": 23460.5,
+        "total_distance": 14.5
+      }
+    ]
+  },
+  "fpfvg_observations": {
+    "session_fpfvg_created": true,
+    "previous_fpfvg_interactions": [
+      {
+        "gap_origin": "Asia_Session",
+        "interaction_time": "12:13:00",
+        "interaction_type": "complete_fill",
+        "price_entered": 23441.75,
+        "result": "respected"
+      }
+    ]
+  },
+  "news_context": {
+    "news_impacted": false,
+    "news_events": []
+  },
+  "liquidity_analysis": {
+    "untaken_liquidity": [
+      {
+        "level": 23476.0,
+        "side": "sell",
+        "significance": "high",
+        "time_identified": "12:31:00"
+      },
+      {
+        "level": 23416.0,
+        "side": "buy",
+        "significance": "medium",
+        "time_identified": "12:01:00"
+      }
+    ],
+    "liquidity_sweeps": [
+      {
+        "timestamp": "12:08:00",
+        "swept_level": 23429.25,
+        "sweep_magnitude": 33.0,
+        "follow_through": true
+      }
+    ]
+  },
+  "fvg_analysis": {
+    "fair_value_gaps": [
+      {
+        "gap_id": "lunch_fpfvg_2025_07_25",
+        "top": 23426.5,
+        "bottom": 23424.75,
+        "created_time": "12:07:00",
+        "gap_type": "bullish",
+        "status": "open"
+      }
+    ]
+  },
+  "behavioral_observations": {
+    "session_type_observed": "trending",
+    "directional_attempts": [
+      {
+        "time": "12:01:00",
+        "direction": "up",
+        "outcome": "successful"
+      },
+      {
+        "time": "12:21:00",
+        "direction": "up",
+        "outcome": "successful"
+      },
+      {
+        "time": "12:50:00",
+        "direction": "up",
+        "outcome": "partial"
+      }
+    ],
+    "institutional_activity": "strong_upward_institutional_bias_with_liquidity_targeting",
+    "session_completion": "complete"
+  },
+  "enhanced_data": {
+    "grok_enhanced_calculations": {
+      "unit_a_foundation": {
+        "foundation_calculations": {},
+        "hybrid_volume": {
+          "alpha_t": 0.9493,
+          "v_synthetic": 128.6555763586972,
+          "v_traditional": 150.0,
+          "v_hybrid": 148.9178,
+          "q_t": 0.84,
+          "r_t": 0.3
+        },
+        "time_dilation_base": {
+          "gamma_base": 1.6009,
+          "alpha_grad_scaled": 0.4405,
+          "volume_factor": 0.241,
+          "h_score": 0.3968
+        },
+        "parameters_validated": {
+          "all_within_bounds": true,
+          "beta_HTF": 0.35,
+          "sigma_HTF": 50.0,
+          "alpha_grad": 0.5,
+          "d_htf": 10.0
+        },
+        "unit_status": "complete",
+        "processing_time_ms": 150
+      },
+      "unit_b_energy_structure": {
+        "energy_structure_calculations": {
+          "alpha_t": 0.9493,
+          "gamma_base": 1.6009,
+          "d_htf": 10.0
+        },
+        "energy_accumulation": {
+          "energy_rate": 1.6194,
+          "total_accumulated": 95.55,
+          "accumulation_phase": "Strong Upward Bias",
+          "efficiency_factor": 0.8097
+        },
+        "gradient_dynamics": {
+          "intensity_coefficient": 1.5197,
+          "direction_factor": 1.2,
+          "stability_index": 0.9327,
+          "momentum_transfer": 1.2158
+        },
+        "structural_integrity": 1.0,
+        "unit_status": "complete",
+        "processing_time_ms": 160
+      },
+      "unit_c_advanced_dynamics": {
+        "advanced_dynamics": {},
+        "temporal_momentum": {
+          "momentum_strength": 1.29624873,
+          "momentum_direction": "Strong Upward Bias",
+          "decay_coefficient": 0.435413,
+          "persistence_factor": 0.75985
+        },
+        "consolidation_analysis": {
+          "consolidation_strength": 0.96635,
+          "breakout_probability": 0.03365,
+          "consolidation_duration": 60,
+          "stability_rating": 0.901312
+        },
+        "frequency_analysis": {
+          "dominant_freq": 0.6079,
+          "harmonic_strength": 0.72948,
+          "frequency_stability": 0.83943
+        },
+        "unit_status": "complete",
+        "processing_time_ms": 170
+      },
+      "unit_d_integration_validation": {
+        "integration_validation": {
+          "cross_validation_score": 0.95,
+          "alignment_factor": 1.0
+        },
+        "validation_results": {
+          "integration_score": 1.2883,
+          "consistency_check": true,
+          "convergence_achieved": true,
+          "error_margins": {
+            "alpha_t": 0.0,
+            "gamma_base": 0.0,
+            "energy_rate": 0.01,
+            "momentum_strength": 0.005,
+            "structural_integrity": 0.0
+          }
+        },
+        "system_integration": {
+          "units_synchronized": true,
+          "cross_validation_passed": true,
+          "final_confidence": 1.0,
+          "recommendations": [
+            "Leverage the strong upward bias for trading decisions.",
+            "Monitor liquidity sweeps and FVG interactions closely."
+          ]
+        },
+        "quality_metrics": {
+          "overall_accuracy": 1.1442,
+          "computational_efficiency": 0.949,
+          "data_consistency": 0.96,
+          "reliability_score": 1.0
+        },
+        "unit_status": "complete",
+        "processing_time_ms": 180
+      }
+    },
+    "pipeline_metadata": {
+      "total_processing_time_ms": 288266,
+      "individual_unit_times": {
+        "unit_a": 24969,
+        "unit_b": 106667,
+        "unit_c": 76002,
+        "unit_d": 80627
+      },
+      "pipeline_status": "complete",
+      "equations_processed": 78,
+      "timestamp": "2025-07-29 01:41:07"
+    }
+  },
+  "processing_metadata": {
+    "original_file": "/Users/jack/grok-claude-automation/data/sessions/level_1/LUNCH_Lvl-1_2025_07_25.json",
+    "standardization_date": "2025-08-07T19:29:57.237530",
+    "conversion_type": "legacy_schema_converted",
+    "schema_version": "target_v1.0",
+    "data_recovery": {
+      "recovery_date": "2025-08-07T19:45:57.216946",
+      "corrections_applied": [
+        "Recovered 13 price movements",
+        "Added recovered price movements"
+      ],
+      "recovery_source": "backup_file_recovery"
+    }
+  },
+  "phase2_enhancement": {
+    "enhancement_date": "2025-08-14T12:15:27.216689",
+    "enhancement_version": "phase2_v1.0",
+    "features_enhanced": [
+      "htf_carryover_strength",
+      "energy_density",
+      "session_liquidity_events"
+    ],
+    "authenticity_method": "market_derived_calculations",
+    "pre_enhancement_score": 0.0,
+    "post_enhancement_score": 100.0
+  }
+}

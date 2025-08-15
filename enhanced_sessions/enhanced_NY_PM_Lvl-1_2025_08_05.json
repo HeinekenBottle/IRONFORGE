@@ -1,0 +1,445 @@
+{
+  "session_metadata": {
+    "session_type": "ny_pm",
+    "session_date": "2025-08-05",
+    "session_start": "13:30:00",
+    "session_end": "16:09:00",
+    "session_duration": 159,
+    "transcription_source": "live_market_data",
+    "data_completeness": "complete_session",
+    "timezone": "ET",
+    "session_status": "completed"
+  },
+  "session_fpfvg": {
+    "fpfvg_present": true,
+    "fpfvg_formation": {
+      "formation_time": "13:31:00",
+      "premium_high": 23208.75,
+      "discount_low": 23208.0,
+      "gap_size": 0.75,
+      "interactions": [
+        {
+          "interaction_time": "13:33:00",
+          "interaction_type": "rebalance",
+          "price_level": 23208.75,
+          "interaction_context": "pm_fpfvg_rebalance_during_consolidation"
+        },
+        {
+          "interaction_time": "14:30:00",
+          "interaction_type": "rebalance",
+          "price_level": 23153.75,
+          "interaction_context": "pm_fpfvg_rebalance_with_lunch_fpfvg_simultaneous"
+        }
+      ]
+    }
+  },
+  "price_movements": [
+    {
+      "timestamp": "13:30:00",
+      "price_level": 23210.75,
+      "movement_type": "open"
+    },
+    {
+      "timestamp": "13:31:00",
+      "price_level": 23208.75,
+      "movement_type": "pm_fpfvg_formation_premium"
+    },
+    {
+      "timestamp": "13:31:00",
+      "price_level": 23208.0,
+      "movement_type": "pm_fpfvg_formation_discount"
+    },
+    {
+      "timestamp": "13:30:00",
+      "price_level": 23214.5,
+      "movement_type": "consolidation_start_high"
+    },
+    {
+      "timestamp": "13:35:00",
+      "price_level": 23201.0,
+      "movement_type": "consolidation_end_low"
+    },
+    {
+      "timestamp": "13:33:00",
+      "price_level": 23208.75,
+      "movement_type": "pm_fpfvg_rebalance"
+    },
+    {
+      "timestamp": "13:35:00",
+      "price_level": 23201.25,
+      "movement_type": "expansion_start_higher"
+    },
+    {
+      "timestamp": "13:39:00",
+      "price_level": 23223.0,
+      "movement_type": "expansion_high"
+    },
+    {
+      "timestamp": "13:40:00",
+      "price_level": 23223.0,
+      "movement_type": "consolidation_start_high"
+    },
+    {
+      "timestamp": "13:44:00",
+      "price_level": 23213.5,
+      "movement_type": "consolidation_end_low"
+    },
+    {
+      "timestamp": "13:45:00",
+      "price_level": 23215.75,
+      "movement_type": "expansion_start_higher"
+    },
+    {
+      "timestamp": "13:46:00",
+      "price_level": 23225.25,
+      "movement_type": "lunch_session_high_takeout"
+    },
+    {
+      "timestamp": "13:47:00",
+      "price_level": 23237.25,
+      "movement_type": "expansion_high"
+    },
+    {
+      "timestamp": "13:47:00",
+      "price_level": 23237.25,
+      "movement_type": "retracement_start"
+    },
+    {
+      "timestamp": "13:51:00",
+      "price_level": 23229.0,
+      "movement_type": "retracement_low"
+    },
+    {
+      "timestamp": "13:51:00",
+      "price_level": 23229.0,
+      "movement_type": "expansion_start_higher"
+    },
+    {
+      "timestamp": "13:58:00",
+      "price_level": 23252.0,
+      "movement_type": "session_high_reversal_point"
+    },
+    {
+      "timestamp": "13:59:00",
+      "price_level": 23252.0,
+      "movement_type": "expansion_start_lower"
+    },
+    {
+      "timestamp": "14:02:00",
+      "price_level": 23229.5,
+      "movement_type": "expansion_low"
+    },
+    {
+      "timestamp": "14:03:00",
+      "price_level": 23249.0,
+      "movement_type": "consolidation_start_high"
+    },
+    {
+      "timestamp": "14:08:00",
+      "price_level": 23232.0,
+      "movement_type": "consolidation_end_low"
+    },
+    {
+      "timestamp": "14:09:00",
+      "price_level": 23248.25,
+      "movement_type": "expansion_start_lower"
+    },
+    {
+      "timestamp": "14:30:00",
+      "price_level": 23153.75,
+      "movement_type": "expansion_low_pm_lunch_fpfvg_rebalance"
+    },
+    {
+      "timestamp": "14:30:00",
+      "price_level": 23153.75,
+      "movement_type": "retracement_start"
+    },
+    {
+      "timestamp": "14:32:00",
+      "price_level": 23195.25,
+      "movement_type": "retracement_high"
+    },
+    {
+      "timestamp": "14:32:00",
+      "price_level": 23195.25,
+      "movement_type": "expansion_start_lower"
+    },
+    {
+      "timestamp": "14:35:00",
+      "price_level": 23162.25,
+      "movement_type": "expansion_low"
+    },
+    {
+      "timestamp": "14:37:00",
+      "price_level": 23173.0,
+      "movement_type": "consolidation_start_high"
+    },
+    {
+      "timestamp": "14:45:00",
+      "price_level": 23148.25,
+      "movement_type": "consolidation_end_low"
+    },
+    {
+      "timestamp": "14:46:00",
+      "price_level": 23173.0,
+      "movement_type": "expansion_start_lower"
+    },
+    {
+      "timestamp": "14:48:00",
+      "price_level": 23131.75,
+      "movement_type": "expansion_low_previous_day_am_fpfvg_redelivery"
+    },
+    {
+      "timestamp": "14:48:00",
+      "price_level": 23131.75,
+      "movement_type": "retracement_start"
+    },
+    {
+      "timestamp": "14:50:00",
+      "price_level": 23157.75,
+      "movement_type": "retracement_high"
+    },
+    {
+      "timestamp": "14:50:00",
+      "price_level": 23157.75,
+      "movement_type": "expansion_start_lower"
+    },
+    {
+      "timestamp": "14:53:00",
+      "price_level": 23115.0,
+      "movement_type": "session_low_expansion_end"
+    },
+    {
+      "timestamp": "14:53:00",
+      "price_level": 23115.0,
+      "movement_type": "retracement_start"
+    },
+    {
+      "timestamp": "15:00:00",
+      "price_level": 23157.25,
+      "movement_type": "retracement_high"
+    },
+    {
+      "timestamp": "15:01:00",
+      "price_level": 23161.25,
+      "movement_type": "consolidation_start_high"
+    },
+    {
+      "timestamp": "15:19:00",
+      "price_level": 23137.25,
+      "movement_type": "consolidation_end_low"
+    },
+    {
+      "timestamp": "15:21:00",
+      "price_level": 23158.25,
+      "movement_type": "retracement_start"
+    },
+    {
+      "timestamp": "15:24:00",
+      "price_level": 23169.5,
+      "movement_type": "retracement_high_lunch_fpfvg_redelivery"
+    },
+    {
+      "timestamp": "15:24:00",
+      "price_level": 23169.5,
+      "movement_type": "expansion_start_lower"
+    },
+    {
+      "timestamp": "15:25:00",
+      "price_level": 23145.0,
+      "movement_type": "expansion_low_previous_day_am_fpfvg_redelivery"
+    },
+    {
+      "timestamp": "15:25:00",
+      "price_level": 23145.0,
+      "movement_type": "retracement_start"
+    },
+    {
+      "timestamp": "15:30:00",
+      "price_level": 23178.75,
+      "movement_type": "retracement_high"
+    },
+    {
+      "timestamp": "15:30:00",
+      "price_level": 23178.75,
+      "movement_type": "expansion_start_lower"
+    },
+    {
+      "timestamp": "15:47:00",
+      "price_level": 23129.5,
+      "movement_type": "expansion_low_previous_day_am_fpfvg_redelivery"
+    },
+    {
+      "timestamp": "15:47:00",
+      "price_level": 23129.5,
+      "movement_type": "retracement_start"
+    },
+    {
+      "timestamp": "15:50:00",
+      "price_level": 23162.5,
+      "movement_type": "retracement_high"
+    },
+    {
+      "timestamp": "15:50:00",
+      "price_level": 23162.5,
+      "movement_type": "expansion_start_lower"
+    },
+    {
+      "timestamp": "15:59:00",
+      "price_level": 23121.25,
+      "movement_type": "expansion_low"
+    },
+    {
+      "timestamp": "16:00:00",
+      "price_level": 23149.75,
+      "movement_type": "consolidation_start_high"
+    },
+    {
+      "timestamp": "16:09:00",
+      "price_level": 23126.75,
+      "movement_type": "consolidation_end_low"
+    },
+    {
+      "timestamp": "16:09:00",
+      "price_level": 23146.25,
+      "movement_type": "close"
+    }
+  ],
+  "session_liquidity_events": [
+    {
+      "timestamp": "13:30:00",
+      "event_type": "price_gap",
+      "intensity": 0.926,
+      "price_level": 23210.75,
+      "impact_duration": 13
+    },
+    {
+      "timestamp": "13:31:00",
+      "event_type": "momentum_shift",
+      "intensity": 0.93,
+      "price_level": 23208.75,
+      "impact_duration": 26
+    },
+    {
+      "timestamp": "13:31:00",
+      "event_type": "fvg_creation",
+      "intensity": 0.467,
+      "price_level": 23208.0,
+      "impact_duration": 26
+    },
+    {
+      "timestamp": "13:30:00",
+      "event_type": "volume_spike",
+      "intensity": 0.771,
+      "price_level": 23214.5,
+      "impact_duration": 21
+    },
+    {
+      "timestamp": "13:35:00",
+      "event_type": "price_gap",
+      "intensity": 0.819,
+      "price_level": 23201.0,
+      "impact_duration": 6
+    },
+    {
+      "timestamp": "13:33:00",
+      "event_type": "fvg_creation",
+      "intensity": 0.501,
+      "price_level": 23208.75,
+      "impact_duration": 28
+    },
+    {
+      "timestamp": "13:35:00",
+      "event_type": "fvg_creation",
+      "intensity": 0.466,
+      "price_level": 23201.25,
+      "impact_duration": 13
+    },
+    {
+      "timestamp": "13:39:00",
+      "event_type": "support_test",
+      "intensity": 0.388,
+      "price_level": 23223.0,
+      "impact_duration": 44
+    },
+    {
+      "timestamp": "13:40:00",
+      "event_type": "fvg_creation",
+      "intensity": 0.724,
+      "price_level": 23223.0,
+      "impact_duration": 42
+    },
+    {
+      "timestamp": "13:44:00",
+      "event_type": "price_gap",
+      "intensity": 0.562,
+      "price_level": 23213.5,
+      "impact_duration": 7
+    },
+    {
+      "timestamp": "13:45:00",
+      "event_type": "liquidity_sweep",
+      "intensity": 0.417,
+      "price_level": 23215.75,
+      "impact_duration": 5
+    }
+  ],
+  "energy_state": {
+    "energy_density": 0.89,
+    "total_accumulated": 141.51,
+    "energy_rate": 53.4,
+    "energy_source": "extreme_cross_session_interaction",
+    "session_duration": 159,
+    "expansion_phases": 10,
+    "retracement_phases": 7,
+    "consolidation_phases": 4,
+    "phase_transitions": 21,
+    "session_status": "complete"
+  },
+  "contamination_analysis": {
+    "htf_contamination": {
+      "immediate_cross_session_interaction": true,
+      "lunch_session_influence": true,
+      "previous_day_carryover": true,
+      "multiple_simultaneous_redeliveries": true,
+      "htf_carryover_strength": 0.92,
+      "cross_session_inheritance": 0.89
+    },
+    "cross_session_inheritance": {
+      "london_fpfvg_interactions": 0,
+      "premarket_fpfvg_interactions": 0,
+      "midnight_fpfvg_interactions": 0,
+      "asia_fpfvg_interactions": 0,
+      "nyam_fpfvg_interactions": 0,
+      "lunch_fpfvg_interactions": 2,
+      "lunch_session_high_takeout": true,
+      "lunch_session_low_takeout": true,
+      "previous_day_am_fpfvg_interactions": 3,
+      "pm_native_fpfvg": true,
+      "pm_fpfvg_gap_size": 0.75,
+      "energy_carryover_coefficient": 0.89
+    }
+  },
+  "processing_metadata": {
+    "original_file": "/Users/jack/grok-claude-automation/data/sessions/level_1/NYPM_Lvl-1_2025_08_05_COMPLETE.json",
+    "standardization_date": "2025-08-07T19:29:57.175121",
+    "conversion_type": "current_schema_preserved",
+    "schema_version": "target_v1.0"
+  },
+  "htf_carryover_strength": 0.916906084386348,
+  "energy_density": 0.926061932795494,
+  "enhancement_info": {
+    "enhanced_date": "2025-08-14T12:52:14.550279",
+    "enhancement_type": "phase2_feature_decontamination",
+    "features_enhanced": [
+      "htf_carryover_strength",
+      "energy_density",
+      "session_liquidity_events"
+    ],
+    "original_contamination": {
+      "htf_carryover_strength": 0.3,
+      "energy_density": 0.5,
+      "session_liquidity_events_count": 9
+    }
+  }
+}

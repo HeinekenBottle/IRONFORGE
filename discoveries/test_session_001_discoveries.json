@@ -1,0 +1,91 @@
+{
+  "session_id": "test_session_001",
+  "total_discoveries": 5,
+  "discoveries": [
+    {
+      "edge_id": "test_session_001_0_1_0",
+      "source_idx": 0,
+      "target_idx": 1,
+      "edge_type": "test_type_0",
+      "confidence_score": 0.5,
+      "attention_weight": 0.3,
+      "discovery_epoch": 0,
+      "validation_status": "pending",
+      "permanence_score": 0.4,
+      "economic_significance": 0.6,
+      "discovery_metadata": {
+        "test_session": "test_001",
+        "test_data": 0
+      },
+      "timestamp": "2025-08-12T11:21:39.648768"
+    },
+    {
+      "edge_id": "test_session_001_1_2_1",
+      "source_idx": 1,
+      "target_idx": 2,
+      "edge_type": "test_type_1",
+      "confidence_score": 0.6,
+      "attention_weight": 0.4,
+      "discovery_epoch": 1,
+      "validation_status": "pending",
+      "permanence_score": 0.45,
+      "economic_significance": 0.6799999999999999,
+      "discovery_metadata": {
+        "test_session": "test_001",
+        "test_data": 1
+      },
+      "timestamp": "2025-08-12T11:21:39.648789"
+    },
+    {
+      "edge_id": "test_session_001_2_3_2",
+      "source_idx": 2,
+      "target_idx": 3,
+      "edge_type": "test_type_0",
+      "confidence_score": 0.7,
+      "attention_weight": 0.5,
+      "discovery_epoch": 2,
+      "validation_status": "pending",
+      "permanence_score": 0.5,
+      "economic_significance": 0.76,
+      "discovery_metadata": {
+        "test_session": "test_001",
+        "test_data": 2
+      },
+      "timestamp": "2025-08-12T11:21:39.648801"
+    },
+    {
+      "edge_id": "test_session_001_3_4_3",
+      "source_idx": 3,
+      "target_idx": 4,
+      "edge_type": "test_type_1",
+      "confidence_score": 0.8,
+      "attention_weight": 0.6000000000000001,
+      "discovery_epoch": 3,
+      "validation_status": "pending",
+      "permanence_score": 0.55,
+      "economic_significance": 0.84,
+      "discovery_metadata": {
+        "test_session": "test_001",
+        "test_data": 3
+      },
+      "timestamp": "2025-08-12T11:21:39.648806"
+    },
+    {
+      "edge_id": "test_session_001_4_0_4",
+      "source_idx": 4,
+      "target_idx": 0,
+      "edge_type": "test_type_0",
+      "confidence_score": 0.9,
+      "attention_weight": 0.7,
+      "discovery_epoch": 4,
+      "validation_status": "pending",
+      "permanence_score": 0.6000000000000001,
+      "economic_significance": 0.9199999999999999,
+      "discovery_metadata": {
+        "test_session": "test_001",
+        "test_data": 4
+      },
+      "timestamp": "2025-08-12T11:21:39.648811"
+    }
+  ]
+}

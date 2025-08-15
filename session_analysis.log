@@ -1,0 +1,1204 @@
+2025-08-14 21:42:36,748 - INFO - 🚀 Starting comprehensive session analysis...
+2025-08-14 21:42:36,748 - INFO - Found 57 session files
+2025-08-14 21:42:36,748 - INFO - Processing 1/57: enhanced_rel_ASIA_Lvl-1_2025_08_05.json
+2025-08-14 21:42:36,749 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:36,749 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:36,752 - INFO - 📊 Edge scorers updated: ['temporal_resonance', 'semantic_weight', 'causality_score', 'hierarchy_distance', 'permanence_score']
+2025-08-14 21:42:36,752 - INFO - ✅ Edge scorers loaded successfully
+2025-08-14 21:42:36,764 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:36,766 - INFO - ✅ Rich graph built: 46 nodes, 46 rich features
+2025-08-14 21:42:36,766 - INFO - ✅ Session metadata preserved: ASIA (19:00:00 - 23:59:00)
+2025-08-14 21:42:36,768 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 21:42:36,768 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:36,768 - INFO -    Features for TGAT training: 24 (filtered from 45)
+2025-08-14 21:42:36,773 - INFO - ✅ Completed enhanced_rel_ASIA_Lvl-1_2025_08_05.json in 0.02s
+2025-08-14 21:42:36,774 - INFO - Processing 2/57: enhanced_rel_PREMARKET_Lvl-1_2025_07_30.json
+2025-08-14 21:42:36,775 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:36,775 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:36,778 - WARNING - ⚠️ Event at 08:07:00 lacks relativity features - using basic calculations
+2025-08-14 21:42:36,790 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:36,793 - INFO - ✅ Rich graph built: 51 nodes, 51 rich features
+2025-08-14 21:42:36,793 - INFO - ✅ Session metadata preserved: PREMARKET (07:00:00 - 09:29:00)
+2025-08-14 21:42:36,794 - INFO - 🔍 TASK 4: Detected 18 constant features (variance=0)
+2025-08-14 21:42:36,794 - INFO -    Constant features: ['liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:36,794 - INFO -    Features for TGAT training: 27 (filtered from 45)
+2025-08-14 21:42:36,798 - INFO - ✅ Completed enhanced_rel_PREMARKET_Lvl-1_2025_07_30.json in 0.02s
+2025-08-14 21:42:36,799 - INFO - Processing 3/57: enhanced_rel_LONDON_Lvl-1_2025_07_30.json
+2025-08-14 21:42:36,799 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:36,799 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:36,801 - WARNING - ⚠️ Event at 03:59:00 lacks relativity features - using basic calculations
+2025-08-14 21:42:36,813 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:36,815 - INFO - ✅ Rich graph built: 52 nodes, 52 rich features
+2025-08-14 21:42:36,815 - INFO - ✅ Session metadata preserved: LONDON (02:00:00 - 04:59:00)
+2025-08-14 21:42:36,816 - INFO - 🔍 TASK 4: Detected 19 constant features (variance=0)
+2025-08-14 21:42:36,816 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:36,816 - INFO -    Features for TGAT training: 26 (filtered from 45)
+2025-08-14 21:42:36,913 - INFO - ✅ Completed enhanced_rel_LONDON_Lvl-1_2025_07_30.json in 0.11s
+2025-08-14 21:42:36,913 - INFO - Processing 4/57: enhanced_rel_NY_PM_Lvl-1_2025_08_05.json
+2025-08-14 21:42:36,914 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:36,914 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:36,929 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:36,934 - INFO - ✅ Rich graph built: 65 nodes, 65 rich features
+2025-08-14 21:42:36,934 - INFO - ✅ Session metadata preserved: NY_PM (13:30:00 - 16:09:00)
+2025-08-14 21:42:36,935 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 21:42:36,935 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:36,935 - INFO -    Features for TGAT training: 24 (filtered from 45)
+2025-08-14 21:42:36,938 - INFO - ✅ Completed enhanced_rel_NY_PM_Lvl-1_2025_08_05.json in 0.03s
+2025-08-14 21:42:36,939 - INFO - Processing 5/57: enhanced_rel_NY_PM_Lvl-1_2025_08_04.json
+2025-08-14 21:42:36,939 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:36,939 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:36,947 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:36,949 - INFO - ✅ Rich graph built: 39 nodes, 39 rich features
+2025-08-14 21:42:36,949 - INFO - ✅ Session metadata preserved: NY_PM (13:30:00 - 16:09:00)
+2025-08-14 21:42:36,952 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 21:42:36,952 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:36,953 - INFO -    Features for TGAT training: 24 (filtered from 45)
+2025-08-14 21:42:36,957 - INFO - ✅ Completed enhanced_rel_NY_PM_Lvl-1_2025_08_04.json in 0.02s
+2025-08-14 21:42:36,957 - INFO - Processing 6/57: enhanced_rel_LUNCH_Lvl-1_2025_08_06.json
+2025-08-14 21:42:36,960 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:36,960 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:36,971 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:36,973 - INFO - ✅ Rich graph built: 42 nodes, 42 rich features
+2025-08-14 21:42:36,973 - INFO - ✅ Session metadata preserved: LUNCH (12:00:00 - 12:59:00)
+2025-08-14 21:42:36,974 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 21:42:36,974 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:36,974 - INFO -    Features for TGAT training: 24 (filtered from 45)
+2025-08-14 21:42:36,976 - INFO - ✅ Completed enhanced_rel_LUNCH_Lvl-1_2025_08_06.json in 0.02s
+2025-08-14 21:42:36,976 - INFO - Processing 7/57: enhanced_rel_MIDNIGHT_Lvl-1_2025_08_05.json
+2025-08-14 21:42:36,977 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:36,977 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:36,981 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:36,982 - INFO - ✅ Rich graph built: 27 nodes, 27 rich features
+2025-08-14 21:42:36,983 - INFO - ✅ Session metadata preserved: MIDNIGHT (00:00:00 - 00:29:00)
+2025-08-14 21:42:36,985 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 21:42:36,986 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:36,986 - INFO -    Features for TGAT training: 24 (filtered from 45)
+2025-08-14 21:42:36,989 - INFO - ✅ Completed enhanced_rel_MIDNIGHT_Lvl-1_2025_08_05.json in 0.01s
+2025-08-14 21:42:36,989 - INFO - Processing 8/57: enhanced_rel_PREASIA_Lvl-1_2025_07_30.json
+2025-08-14 21:42:36,991 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:36,991 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:36,995 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:36,997 - INFO - ✅ Rich graph built: 16 nodes, 16 rich features
+2025-08-14 21:42:36,997 - INFO - ✅ Session metadata preserved: PREASIA (16:59:00 - 18:15:00)
+2025-08-14 21:42:36,998 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 21:42:36,998 - INFO -    Constant features: ['expansion_phase_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'event_type', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:36,998 - INFO -    Features for TGAT training: 24 (filtered from 45)
+2025-08-14 21:42:37,000 - INFO - ✅ Completed enhanced_rel_PREASIA_Lvl-1_2025_07_30.json in 0.01s
+2025-08-14 21:42:37,000 - INFO - Processing 9/57: enhanced_rel_LONDON_Lvl-1_2025_07_31.json
+2025-08-14 21:42:37,001 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,001 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,010 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,012 - INFO - ✅ Rich graph built: 42 nodes, 42 rich features
+2025-08-14 21:42:37,012 - INFO - ✅ Session metadata preserved: LONDON (02:00:00 - 04:59:00)
+2025-08-14 21:42:37,013 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 21:42:37,013 - INFO -    Constant features: ['expansion_phase_flag', 'consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,013 - INFO -    Features for TGAT training: 25 (filtered from 45)
+2025-08-14 21:42:37,017 - INFO - ✅ Completed enhanced_rel_LONDON_Lvl-1_2025_07_31.json in 0.02s
+2025-08-14 21:42:37,017 - INFO - Processing 10/57: enhanced_rel_NYPM_Lvl-1_2025_08_06.json
+2025-08-14 21:42:37,018 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,019 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,031 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,034 - INFO - ✅ Rich graph built: 47 nodes, 47 rich features
+2025-08-14 21:42:37,035 - INFO - ✅ Session metadata preserved: NY_PM (13:30:00 - 16:09:00)
+2025-08-14 21:42:37,035 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 21:42:37,035 - INFO -    Constant features: ['fvg_redelivery_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:37,036 - INFO -    Features for TGAT training: 23 (filtered from 45)
+2025-08-14 21:42:37,038 - INFO - ✅ Completed enhanced_rel_NYPM_Lvl-1_2025_08_06.json in 0.02s
+2025-08-14 21:42:37,038 - INFO - Processing 11/57: enhanced_rel_PREMARKET_Lvl-1_2025_07_31.json
+2025-08-14 21:42:37,039 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,039 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,047 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,049 - INFO - ✅ Rich graph built: 38 nodes, 38 rich features
+2025-08-14 21:42:37,050 - INFO - ✅ Session metadata preserved: PREMARKET (07:00:00 - 09:29:00)
+2025-08-14 21:42:37,050 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 21:42:37,050 - INFO -    Constant features: ['expansion_phase_flag', 'consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,051 - INFO -    Features for TGAT training: 25 (filtered from 45)
+2025-08-14 21:42:37,055 - INFO - ✅ Completed enhanced_rel_PREMARKET_Lvl-1_2025_07_31.json in 0.02s
+2025-08-14 21:42:37,056 - INFO - Processing 12/57: enhanced_rel_PREMARKET_Lvl-1_2025_08_05.json
+2025-08-14 21:42:37,058 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,058 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,071 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,074 - INFO - ✅ Rich graph built: 48 nodes, 48 rich features
+2025-08-14 21:42:37,074 - INFO - ✅ Session metadata preserved: PREMARKET (07:00:00 - 09:29:00)
+2025-08-14 21:42:37,075 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 21:42:37,075 - INFO -    Constant features: ['fvg_redelivery_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:37,075 - INFO -    Features for TGAT training: 23 (filtered from 45)
+2025-08-14 21:42:37,078 - INFO - ✅ Completed enhanced_rel_PREMARKET_Lvl-1_2025_08_05.json in 0.02s
+2025-08-14 21:42:37,078 - INFO - Processing 13/57: enhanced_rel_LONDON_Lvl-1_2025_08_05.json
+2025-08-14 21:42:37,079 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,079 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,093 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,096 - INFO - ✅ Rich graph built: 50 nodes, 50 rich features
+2025-08-14 21:42:37,096 - INFO - ✅ Session metadata preserved: LONDON (02:00:00 - 04:59:00)
+2025-08-14 21:42:37,098 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 21:42:37,099 - INFO -    Constant features: ['fvg_redelivery_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:37,099 - INFO -    Features for TGAT training: 23 (filtered from 45)
+2025-08-14 21:42:37,102 - INFO - ✅ Completed enhanced_rel_LONDON_Lvl-1_2025_08_05.json in 0.02s
+2025-08-14 21:42:37,102 - INFO - Processing 14/57: enhanced_rel_LUNCH_Lvl-1_2025_07_24.json
+2025-08-14 21:42:37,103 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,103 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,106 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,107 - INFO - ✅ Rich graph built: 20 nodes, 20 rich features
+2025-08-14 21:42:37,107 - INFO - ✅ Session metadata preserved: LUNCH (12:00:00 - 12:59:00)
+2025-08-14 21:42:37,108 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 21:42:37,108 - INFO -    Constant features: ['expansion_phase_flag', 'consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,108 - INFO -    Features for TGAT training: 25 (filtered from 45)
+2025-08-14 21:42:37,110 - INFO - ✅ Completed enhanced_rel_LUNCH_Lvl-1_2025_07_24.json in 0.01s
+2025-08-14 21:42:37,110 - INFO - Processing 15/57: enhanced_rel_MIDNIGHT_Lvl-1_2025_07_31.json
+2025-08-14 21:42:37,111 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,111 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,115 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,116 - INFO - ✅ Rich graph built: 27 nodes, 27 rich features
+2025-08-14 21:42:37,116 - INFO - ✅ Session metadata preserved: MIDNIGHT (00:00:00 - 00:29:00)
+2025-08-14 21:42:37,119 - INFO - 🔍 TASK 4: Detected 19 constant features (variance=0)
+2025-08-14 21:42:37,119 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,119 - INFO -    Features for TGAT training: 26 (filtered from 45)
+2025-08-14 21:42:37,122 - INFO - ✅ Completed enhanced_rel_MIDNIGHT_Lvl-1_2025_07_31.json in 0.01s
+2025-08-14 21:42:37,122 - INFO - Processing 16/57: enhanced_rel_NY_PM_Lvl-1_2025_07_30.json
+2025-08-14 21:42:37,124 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,125 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,156 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,160 - INFO - ✅ Rich graph built: 74 nodes, 74 rich features
+2025-08-14 21:42:37,160 - INFO - ✅ Session metadata preserved: NY_PM (13:30:00 - 16:09:00)
+2025-08-14 21:42:37,163 - INFO - 🔍 TASK 4: Detected 17 constant features (variance=0)
+2025-08-14 21:42:37,163 - INFO -    Constant features: ['pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,164 - INFO -    Features for TGAT training: 28 (filtered from 45)
+2025-08-14 21:42:37,172 - INFO - ✅ Completed enhanced_rel_NY_PM_Lvl-1_2025_07_30.json in 0.05s
+2025-08-14 21:42:37,172 - INFO - Processing 17/57: enhanced_rel_NY_AM_Lvl-1_2025_07_29.json
+2025-08-14 21:42:37,174 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,174 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,202 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,205 - INFO - ✅ Rich graph built: 66 nodes, 66 rich features
+2025-08-14 21:42:37,205 - INFO - ✅ Session metadata preserved: NY_AM (09:30:00 - 11:59:00)
+2025-08-14 21:42:37,206 - INFO - 🔍 TASK 4: Detected 19 constant features (variance=0)
+2025-08-14 21:42:37,206 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,206 - INFO -    Features for TGAT training: 26 (filtered from 45)
+2025-08-14 21:42:37,218 - INFO - ✅ Completed enhanced_rel_NY_AM_Lvl-1_2025_07_29.json in 0.05s
+2025-08-14 21:42:37,218 - INFO - Processing 18/57: enhanced_rel_ASIA_Lvl-1_2025_07_30.json
+2025-08-14 21:42:37,219 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,219 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,225 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,226 - INFO - ✅ Rich graph built: 26 nodes, 26 rich features
+2025-08-14 21:42:37,226 - INFO - ✅ Session metadata preserved: ASIA (19:00:00 - 23:59:00)
+2025-08-14 21:42:37,227 - INFO - 🔍 TASK 4: Detected 19 constant features (variance=0)
+2025-08-14 21:42:37,227 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,227 - INFO -    Features for TGAT training: 26 (filtered from 45)
+2025-08-14 21:42:37,231 - INFO - ✅ Completed enhanced_rel_ASIA_Lvl-1_2025_07_30.json in 0.01s
+2025-08-14 21:42:37,232 - INFO - Processing 19/57: enhanced_rel_LUNCH_Lvl-1_2025_07_28.json
+2025-08-14 21:42:37,233 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,233 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,239 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,241 - INFO - ✅ Rich graph built: 26 nodes, 26 rich features
+2025-08-14 21:42:37,242 - INFO - ✅ Session metadata preserved: LUNCH (12:00:00 - 12:59:00)
+2025-08-14 21:42:37,244 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 21:42:37,245 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,246 - INFO -    Features for TGAT training: 25 (filtered from 45)
+2025-08-14 21:42:37,249 - INFO - ✅ Completed enhanced_rel_LUNCH_Lvl-1_2025_07_28.json in 0.02s
+2025-08-14 21:42:37,249 - INFO - Processing 20/57: enhanced_rel_NY_AM_Lvl-1_2025_07_25.json
+2025-08-14 21:42:37,251 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,251 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,252 - WARNING - ⚠️ Event at 11:21:00 lacks relativity features - using basic calculations
+2025-08-14 21:42:37,252 - WARNING - ⚠️ Event at 11:45:00 lacks relativity features - using basic calculations
+2025-08-14 21:42:37,258 - INFO - ✅ Created 4 structural context edges across archetype relationships
+2025-08-14 21:42:37,259 - INFO - ✅ Rich graph built: 29 nodes, 29 rich features
+2025-08-14 21:42:37,259 - INFO - ✅ Session metadata preserved: NY_AM (09:30:00 - 11:59:00)
+2025-08-14 21:42:37,260 - INFO - 🔍 TASK 4: Detected 18 constant features (variance=0)
+2025-08-14 21:42:37,260 - INFO -    Constant features: ['liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,260 - INFO -    Features for TGAT training: 27 (filtered from 45)
+2025-08-14 21:42:37,262 - INFO - ✅ Completed enhanced_rel_NY_AM_Lvl-1_2025_07_25.json in 0.01s
+2025-08-14 21:42:37,263 - INFO - Processing 21/57: enhanced_rel_NY_AM_Lvl-1_2025_07_24.json
+2025-08-14 21:42:37,263 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,263 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,267 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,270 - INFO - ✅ Rich graph built: 22 nodes, 22 rich features
+2025-08-14 21:42:37,270 - INFO - ✅ Session metadata preserved: NY_AM (09:30:00 - 11:59:00)
+2025-08-14 21:42:37,271 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 21:42:37,271 - INFO -    Constant features: ['fvg_redelivery_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:37,272 - INFO -    Features for TGAT training: 23 (filtered from 45)
+2025-08-14 21:42:37,274 - INFO - ✅ Completed enhanced_rel_NY_AM_Lvl-1_2025_07_24.json in 0.01s
+2025-08-14 21:42:37,275 - INFO - Processing 22/57: enhanced_rel_LUNCH_Lvl-1_2025_07_29.json
+2025-08-14 21:42:37,276 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,277 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,288 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,290 - INFO - ✅ Rich graph built: 37 nodes, 37 rich features
+2025-08-14 21:42:37,290 - INFO - ✅ Session metadata preserved: LUNCH (12:00:00 - 12:59:00)
+2025-08-14 21:42:37,291 - INFO - 🔍 TASK 4: Detected 18 constant features (variance=0)
+2025-08-14 21:42:37,291 - INFO -    Constant features: ['liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,291 - INFO -    Features for TGAT training: 27 (filtered from 45)
+2025-08-14 21:42:37,294 - INFO - ✅ Completed enhanced_rel_LUNCH_Lvl-1_2025_07_29.json in 0.02s
+2025-08-14 21:42:37,294 - INFO - Processing 23/57: enhanced_rel_NY_AM_Lvl-1_2025_07_28.json
+2025-08-14 21:42:37,295 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,295 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,296 - WARNING - ⚠️ Event at 11:16:00 lacks relativity features - using basic calculations
+2025-08-14 21:42:37,302 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,305 - INFO - ✅ Rich graph built: 34 nodes, 34 rich features
+2025-08-14 21:42:37,305 - INFO - ✅ Session metadata preserved: NY_AM (09:30:00 - 11:59:00)
+2025-08-14 21:42:37,307 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 21:42:37,307 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,307 - INFO -    Features for TGAT training: 25 (filtered from 45)
+2025-08-14 21:42:37,311 - INFO - ✅ Completed enhanced_rel_NY_AM_Lvl-1_2025_07_28.json in 0.02s
+2025-08-14 21:42:37,311 - INFO - Processing 24/57: enhanced_rel_MIDNIGHT_Lvl-1_2025_07_30.json
+2025-08-14 21:42:37,313 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,313 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,318 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,319 - INFO - ✅ Rich graph built: 24 nodes, 24 rich features
+2025-08-14 21:42:37,319 - INFO - ✅ Session metadata preserved: MIDNIGHT (00:00:00 - 00:29:00)
+2025-08-14 21:42:37,320 - INFO - 🔍 TASK 4: Detected 19 constant features (variance=0)
+2025-08-14 21:42:37,320 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,320 - INFO -    Features for TGAT training: 26 (filtered from 45)
+2025-08-14 21:42:37,321 - INFO - ✅ Completed enhanced_rel_MIDNIGHT_Lvl-1_2025_07_30.json in 0.01s
+2025-08-14 21:42:37,322 - INFO - Processing 25/57: enhanced_rel_LUNCH_Lvl-1_2025_07_25.json
+2025-08-14 21:42:37,322 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,322 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,324 - WARNING - ⚠️ Event at 12:21:00 lacks relativity features - using basic calculations
+2025-08-14 21:42:37,324 - WARNING - ⚠️ Event at 12:50:00 lacks relativity features - using basic calculations
+2025-08-14 21:42:37,329 - INFO - ✅ Created 2 structural context edges across archetype relationships
+2025-08-14 21:42:37,331 - INFO - ✅ Rich graph built: 30 nodes, 30 rich features
+2025-08-14 21:42:37,331 - INFO - ✅ Session metadata preserved: LUNCH (12:00:00 - 12:59:00)
+2025-08-14 21:42:37,331 - INFO - 🔍 TASK 4: Detected 19 constant features (variance=0)
+2025-08-14 21:42:37,332 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,332 - INFO -    Features for TGAT training: 26 (filtered from 45)
+2025-08-14 21:42:37,334 - INFO - ✅ Completed enhanced_rel_LUNCH_Lvl-1_2025_07_25.json in 0.01s
+2025-08-14 21:42:37,335 - INFO - Processing 26/57: enhanced_rel_LUNCH_Lvl-1_2025_07_30.json
+2025-08-14 21:42:37,337 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,337 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,347 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,349 - INFO - ✅ Rich graph built: 33 nodes, 33 rich features
+2025-08-14 21:42:37,349 - INFO - ✅ Session metadata preserved: LUNCH (12:00:00 - 12:59:00)
+2025-08-14 21:42:37,350 - INFO - 🔍 TASK 4: Detected 18 constant features (variance=0)
+2025-08-14 21:42:37,350 - INFO -    Constant features: ['liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,350 - INFO -    Features for TGAT training: 27 (filtered from 45)
+2025-08-14 21:42:37,352 - INFO - ✅ Completed enhanced_rel_LUNCH_Lvl-1_2025_07_30.json in 0.02s
+2025-08-14 21:42:37,353 - INFO - Processing 27/57: enhanced_rel_MIDNIGHT_Lvl-1_2025_07_25.json
+2025-08-14 21:42:37,353 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,353 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,354 - WARNING - ⚠️ Event at 00:13:00 lacks relativity features - using basic calculations
+2025-08-14 21:42:37,357 - INFO - ✅ Created 2 structural context edges across archetype relationships
+2025-08-14 21:42:37,359 - INFO - ✅ Rich graph built: 24 nodes, 24 rich features
+2025-08-14 21:42:37,359 - INFO - ✅ Session metadata preserved: MIDNIGHT (00:00:00 - 00:29:00)
+2025-08-14 21:42:37,359 - INFO - 🔍 TASK 4: Detected 19 constant features (variance=0)
+2025-08-14 21:42:37,359 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,360 - INFO -    Features for TGAT training: 26 (filtered from 45)
+2025-08-14 21:42:37,361 - INFO - ✅ Completed enhanced_rel_MIDNIGHT_Lvl-1_2025_07_25.json in 0.01s
+2025-08-14 21:42:37,361 - INFO - Processing 28/57: enhanced_rel_LONDON_Lvl-1_2025_08_07.json
+2025-08-14 21:42:37,362 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,362 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,377 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,381 - INFO - ✅ Rich graph built: 55 nodes, 55 rich features
+2025-08-14 21:42:37,381 - INFO - ✅ Session metadata preserved: LONDON (02:00:00 - 04:59:00)
+2025-08-14 21:42:37,383 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 21:42:37,383 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:37,383 - INFO -    Features for TGAT training: 24 (filtered from 45)
+2025-08-14 21:42:37,386 - INFO - ✅ Completed enhanced_rel_LONDON_Lvl-1_2025_08_07.json in 0.03s
+2025-08-14 21:42:37,386 - INFO - Processing 29/57: enhanced_rel_PREMARKET_Lvl-1_2025_08_07.json
+2025-08-14 21:42:37,387 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,387 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,393 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,394 - INFO - ✅ Rich graph built: 30 nodes, 30 rich features
+2025-08-14 21:42:37,394 - INFO - ✅ Session metadata preserved: PREMARKET (07:00:00 - 09:29:00)
+2025-08-14 21:42:37,395 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 21:42:37,395 - INFO -    Constant features: ['fvg_redelivery_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:37,395 - INFO -    Features for TGAT training: 23 (filtered from 45)
+2025-08-14 21:42:37,397 - INFO - ✅ Completed enhanced_rel_PREMARKET_Lvl-1_2025_08_07.json in 0.01s
+2025-08-14 21:42:37,397 - INFO - Processing 30/57: enhanced_rel_MIDNIGHT_Lvl-1_2025_07_29.json
+2025-08-14 21:42:37,398 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,398 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,404 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,406 - INFO - ✅ Rich graph built: 28 nodes, 28 rich features
+2025-08-14 21:42:37,406 - INFO - ✅ Session metadata preserved: MIDNIGHT (00:00:00 - 00:29:00)
+2025-08-14 21:42:37,408 - INFO - 🔍 TASK 4: Detected 19 constant features (variance=0)
+2025-08-14 21:42:37,409 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,409 - INFO -    Features for TGAT training: 26 (filtered from 45)
+2025-08-14 21:42:37,412 - INFO - ✅ Completed enhanced_rel_MIDNIGHT_Lvl-1_2025_07_29.json in 0.01s
+2025-08-14 21:42:37,412 - INFO - Processing 31/57: enhanced_rel_NY_AM_Lvl-1_2025_07_31.json
+2025-08-14 21:42:37,414 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,414 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,424 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,426 - INFO - ✅ Rich graph built: 37 nodes, 37 rich features
+2025-08-14 21:42:37,426 - INFO - ✅ Session metadata preserved: NY_AM (09:30:00 - 11:59:00)
+2025-08-14 21:42:37,427 - INFO - 🔍 TASK 4: Detected 19 constant features (variance=0)
+2025-08-14 21:42:37,427 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,427 - INFO -    Features for TGAT training: 26 (filtered from 45)
+2025-08-14 21:42:37,430 - INFO - ✅ Completed enhanced_rel_NY_AM_Lvl-1_2025_07_31.json in 0.02s
+2025-08-14 21:42:37,430 - INFO - Processing 32/57: enhanced_rel_NY_PM_Lvl-1_2025_07_28.json
+2025-08-14 21:42:37,430 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,431 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,438 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,441 - INFO - ✅ Rich graph built: 32 nodes, 32 rich features
+2025-08-14 21:42:37,442 - INFO - ✅ Session metadata preserved: NY_PM (13:30:00 - 16:09:00)
+2025-08-14 21:42:37,443 - INFO - 🔍 TASK 4: Detected 18 constant features (variance=0)
+2025-08-14 21:42:37,443 - INFO -    Constant features: ['liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,443 - INFO -    Features for TGAT training: 27 (filtered from 45)
+2025-08-14 21:42:37,446 - INFO - ✅ Completed enhanced_rel_NY_PM_Lvl-1_2025_07_28.json in 0.02s
+2025-08-14 21:42:37,447 - INFO - Processing 33/57: enhanced_rel_ASIA_Lvl-1_2025_07_24.json
+2025-08-14 21:42:37,448 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,449 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,452 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,454 - INFO - ✅ Rich graph built: 22 nodes, 22 rich features
+2025-08-14 21:42:37,454 - INFO - ✅ Session metadata preserved: ASIA (19:00:00 - 23:59:00)
+2025-08-14 21:42:37,454 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 21:42:37,454 - INFO -    Constant features: ['expansion_phase_flag', 'consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,454 - INFO -    Features for TGAT training: 25 (filtered from 45)
+2025-08-14 21:42:37,456 - INFO - ✅ Completed enhanced_rel_ASIA_Lvl-1_2025_07_24.json in 0.01s
+2025-08-14 21:42:37,456 - INFO - Processing 34/57: enhanced_rel_NY_AM_Lvl-1_2025_07_30.json
+2025-08-14 21:42:37,456 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,457 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,458 - WARNING - ⚠️ Event at 09:43:00 lacks relativity features - using basic calculations
+2025-08-14 21:42:37,458 - WARNING - ⚠️ Event at 10:50:00 lacks relativity features - using basic calculations
+2025-08-14 21:42:37,467 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,470 - INFO - ✅ Rich graph built: 43 nodes, 43 rich features
+2025-08-14 21:42:37,471 - INFO - ✅ Session metadata preserved: NY_AM (09:30:00 - 11:59:00)
+2025-08-14 21:42:37,472 - INFO - 🔍 TASK 4: Detected 19 constant features (variance=0)
+2025-08-14 21:42:37,473 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,473 - INFO -    Features for TGAT training: 26 (filtered from 45)
+2025-08-14 21:42:37,479 - INFO - ✅ Completed enhanced_rel_NY_AM_Lvl-1_2025_07_30.json in 0.02s
+2025-08-14 21:42:37,479 - INFO - Processing 35/57: enhanced_rel_NY_PM_Lvl-1_2025_07_29.json
+2025-08-14 21:42:37,481 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,481 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,499 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,504 - INFO - ✅ Rich graph built: 61 nodes, 61 rich features
+2025-08-14 21:42:37,504 - INFO - ✅ Session metadata preserved: NY_PM (13:30:00 - 16:09:00)
+2025-08-14 21:42:37,507 - INFO - 🔍 TASK 4: Detected 18 constant features (variance=0)
+2025-08-14 21:42:37,507 - INFO -    Constant features: ['liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,508 - INFO -    Features for TGAT training: 27 (filtered from 45)
+2025-08-14 21:42:37,516 - INFO - ✅ Completed enhanced_rel_NY_PM_Lvl-1_2025_07_29.json in 0.04s
+2025-08-14 21:42:37,516 - INFO - Processing 36/57: enhanced_rel_MIDNIGHT_Lvl-1_2025_07_28.json
+2025-08-14 21:42:37,518 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,518 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,522 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,523 - INFO - ✅ Rich graph built: 24 nodes, 24 rich features
+2025-08-14 21:42:37,523 - INFO - ✅ Session metadata preserved: MIDNIGHT (00:00:00 - 00:29:00)
+2025-08-14 21:42:37,523 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 21:42:37,523 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,523 - INFO -    Features for TGAT training: 25 (filtered from 45)
+2025-08-14 21:42:37,525 - INFO - ✅ Completed enhanced_rel_MIDNIGHT_Lvl-1_2025_07_28.json in 0.01s
+2025-08-14 21:42:37,525 - INFO - Processing 37/57: enhanced_rel_PREMARKET_Lvl-1_2025_08_06.json
+2025-08-14 21:42:37,526 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,526 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,532 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,536 - INFO - ✅ Rich graph built: 33 nodes, 33 rich features
+2025-08-14 21:42:37,536 - INFO - ✅ Session metadata preserved: PREMARKET (07:00:00 - 09:29:00)
+2025-08-14 21:42:37,537 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 21:42:37,538 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:37,538 - INFO -    Features for TGAT training: 24 (filtered from 45)
+2025-08-14 21:42:37,542 - INFO - ✅ Completed enhanced_rel_PREMARKET_Lvl-1_2025_08_06.json in 0.02s
+2025-08-14 21:42:37,542 - INFO - Processing 38/57: enhanced_rel_ASIA_Lvl-1_2025_07_29.json
+2025-08-14 21:42:37,543 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,543 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,545 - WARNING - ⚠️ Event at 21:13:00 lacks relativity features - using basic calculations
+2025-08-14 21:42:37,550 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,551 - INFO - ✅ Rich graph built: 31 nodes, 31 rich features
+2025-08-14 21:42:37,552 - INFO - ✅ Session metadata preserved: ASIA (19:00:00 - 23:59:00)
+2025-08-14 21:42:37,552 - INFO - 🔍 TASK 4: Detected 19 constant features (variance=0)
+2025-08-14 21:42:37,552 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,552 - INFO -    Features for TGAT training: 26 (filtered from 45)
+2025-08-14 21:42:37,554 - INFO - ✅ Completed enhanced_rel_ASIA_Lvl-1_2025_07_29.json in 0.01s
+2025-08-14 21:42:37,554 - INFO - Processing 39/57: enhanced_rel_LONDON_Lvl-1_2025_08_06.json
+2025-08-14 21:42:37,555 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,555 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,559 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,561 - INFO - ✅ Rich graph built: 31 nodes, 31 rich features
+2025-08-14 21:42:37,561 - INFO - ✅ Session metadata preserved: LONDON (02:00:00 - 04:59:00)
+2025-08-14 21:42:37,562 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 21:42:37,562 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:37,562 - INFO -    Features for TGAT training: 24 (filtered from 45)
+2025-08-14 21:42:37,564 - INFO - ✅ Completed enhanced_rel_LONDON_Lvl-1_2025_08_06.json in 0.01s
+2025-08-14 21:42:37,564 - INFO - Processing 40/57: enhanced_rel_MIDNIGHT_Lvl-1_2025_07_24.json
+2025-08-14 21:42:37,564 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,565 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,570 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,571 - INFO - ✅ Rich graph built: 20 nodes, 20 rich features
+2025-08-14 21:42:37,572 - INFO - ✅ Session metadata preserved: MIDNIGHT (00:00:00 - 00:29:00)
+2025-08-14 21:42:37,573 - INFO - 🔍 TASK 4: Detected 19 constant features (variance=0)
+2025-08-14 21:42:37,573 - INFO -    Constant features: ['expansion_phase_flag', 'consolidation_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,574 - INFO -    Features for TGAT training: 26 (filtered from 45)
+2025-08-14 21:42:37,576 - INFO - ✅ Completed enhanced_rel_MIDNIGHT_Lvl-1_2025_07_24.json in 0.01s
+2025-08-14 21:42:37,576 - INFO - Processing 41/57: enhanced_rel_NY_AM_Lvl-1_2025_08_04.json
+2025-08-14 21:42:37,578 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,578 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,604 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,611 - INFO - ✅ Rich graph built: 97 nodes, 97 rich features
+2025-08-14 21:42:37,612 - INFO - ✅ Session metadata preserved: NY_AM (09:30:00 - 11:59:00)
+2025-08-14 21:42:37,614 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 21:42:37,615 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:37,615 - INFO -    Features for TGAT training: 24 (filtered from 45)
+2025-08-14 21:42:37,621 - INFO - ✅ Completed enhanced_rel_NY_AM_Lvl-1_2025_08_04.json in 0.04s
+2025-08-14 21:42:37,621 - INFO - Processing 42/57: enhanced_rel_ASIA_Lvl-1_2025_08_07.json
+2025-08-14 21:42:37,623 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,623 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,633 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,637 - INFO - ✅ Rich graph built: 50 nodes, 50 rich features
+2025-08-14 21:42:37,638 - INFO - ✅ Session metadata preserved: ASIA (19:00:00 - 23:59:00)
+2025-08-14 21:42:37,639 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 21:42:37,640 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:37,640 - INFO -    Features for TGAT training: 24 (filtered from 45)
+2025-08-14 21:42:37,644 - INFO - ✅ Completed enhanced_rel_ASIA_Lvl-1_2025_08_07.json in 0.02s
+2025-08-14 21:42:37,645 - INFO - Processing 43/57: enhanced_rel_PREMARKET_Lvl-1_2025_07_28.json
+2025-08-14 21:42:37,646 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,647 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,652 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,654 - INFO - ✅ Rich graph built: 28 nodes, 28 rich features
+2025-08-14 21:42:37,654 - INFO - ✅ Session metadata preserved: PREMARKET (07:00:00 - 09:29:00)
+2025-08-14 21:42:37,654 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 21:42:37,654 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,655 - INFO -    Features for TGAT training: 25 (filtered from 45)
+2025-08-14 21:42:37,656 - INFO - ✅ Completed enhanced_rel_PREMARKET_Lvl-1_2025_07_28.json in 0.01s
+2025-08-14 21:42:37,656 - INFO - Processing 44/57: enhanced_rel_NYAM_Lvl-1_2025_08_06.json
+2025-08-14 21:42:37,657 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,657 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,672 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,677 - INFO - ✅ Rich graph built: 61 nodes, 61 rich features
+2025-08-14 21:42:37,677 - INFO - ✅ Session metadata preserved: NY_AM (09:30:00 - 11:59:00)
+2025-08-14 21:42:37,679 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 21:42:37,680 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:37,680 - INFO -    Features for TGAT training: 24 (filtered from 45)
+2025-08-14 21:42:37,686 - INFO - ✅ Completed enhanced_rel_NYAM_Lvl-1_2025_08_06.json in 0.03s
+2025-08-14 21:42:37,687 - INFO - Processing 45/57: enhanced_rel_LONDON_Lvl-1_2025_07_28.json
+2025-08-14 21:42:37,687 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,688 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,692 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,694 - INFO - ✅ Rich graph built: 29 nodes, 29 rich features
+2025-08-14 21:42:37,695 - INFO - ✅ Session metadata preserved: LONDON (02:00:00 - 04:59:00)
+2025-08-14 21:42:37,695 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 21:42:37,696 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,696 - INFO -    Features for TGAT training: 25 (filtered from 45)
+2025-08-14 21:42:37,698 - INFO - ✅ Completed enhanced_rel_LONDON_Lvl-1_2025_07_28.json in 0.01s
+2025-08-14 21:42:37,698 - INFO - Processing 46/57: enhanced_rel_LUNCH_Lvl-1_2025_08_05.json
+2025-08-14 21:42:37,699 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,699 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,712 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,715 - INFO - ✅ Rich graph built: 41 nodes, 41 rich features
+2025-08-14 21:42:37,715 - INFO - ✅ Session metadata preserved: LUNCH (12:00:00 - 12:59:00)
+2025-08-14 21:42:37,716 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 21:42:37,717 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:37,717 - INFO -    Features for TGAT training: 24 (filtered from 45)
+2025-08-14 21:42:37,719 - INFO - ✅ Completed enhanced_rel_LUNCH_Lvl-1_2025_08_05.json in 0.02s
+2025-08-14 21:42:37,719 - INFO - Processing 47/57: enhanced_rel_MIDNIGHT_Lvl-1_2025_08_06.json
+2025-08-14 21:42:37,720 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,720 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,723 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,724 - INFO - ✅ Rich graph built: 22 nodes, 22 rich features
+2025-08-14 21:42:37,724 - INFO - ✅ Session metadata preserved: MIDNIGHT (00:00:00 - 00:29:00)
+2025-08-14 21:42:37,725 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 21:42:37,725 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:37,725 - INFO -    Features for TGAT training: 24 (filtered from 45)
+2025-08-14 21:42:37,726 - INFO - ✅ Completed enhanced_rel_MIDNIGHT_Lvl-1_2025_08_06.json in 0.01s
+2025-08-14 21:42:37,726 - INFO - Processing 48/57: enhanced_rel_PREMARKET_Lvl-1_2025_07_24.json
+2025-08-14 21:42:37,727 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,727 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,730 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,731 - INFO - ✅ Rich graph built: 20 nodes, 20 rich features
+2025-08-14 21:42:37,731 - INFO - ✅ Session metadata preserved: PREMARKET (07:00:00 - 09:29:00)
+2025-08-14 21:42:37,732 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 21:42:37,732 - INFO -    Constant features: ['expansion_phase_flag', 'consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,732 - INFO -    Features for TGAT training: 24 (filtered from 45)
+2025-08-14 21:42:37,733 - INFO - ✅ Completed enhanced_rel_PREMARKET_Lvl-1_2025_07_24.json in 0.01s
+2025-08-14 21:42:37,734 - INFO - Processing 49/57: enhanced_rel_NYAM_Lvl-1_2025_08_07_FRESH.json
+2025-08-14 21:42:37,735 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,736 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,754 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,762 - INFO - ✅ Rich graph built: 62 nodes, 62 rich features
+2025-08-14 21:42:37,763 - INFO - ✅ Session metadata preserved: NY_AM (09:30:00 - 11:59:00)
+2025-08-14 21:42:37,765 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 21:42:37,765 - INFO -    Constant features: ['fvg_redelivery_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:37,765 - INFO -    Features for TGAT training: 23 (filtered from 45)
+2025-08-14 21:42:37,778 - INFO - ✅ Completed enhanced_rel_NYAM_Lvl-1_2025_08_07_FRESH.json in 0.04s
+2025-08-14 21:42:37,779 - INFO - Processing 50/57: enhanced_rel_LONDON_Lvl-1_2025_07_24.json
+2025-08-14 21:42:37,781 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,781 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,785 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,786 - INFO - ✅ Rich graph built: 20 nodes, 20 rich features
+2025-08-14 21:42:37,786 - INFO - ✅ Session metadata preserved: LONDON (02:00:00 - 04:59:00)
+2025-08-14 21:42:37,787 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 21:42:37,787 - INFO -    Constant features: ['expansion_phase_flag', 'consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,787 - INFO -    Features for TGAT training: 24 (filtered from 45)
+2025-08-14 21:42:37,788 - INFO - ✅ Completed enhanced_rel_LONDON_Lvl-1_2025_07_24.json in 0.01s
+2025-08-14 21:42:37,788 - INFO - Processing 51/57: enhanced_rel_LONDON_Lvl-1_2025_07_25.json
+2025-08-14 21:42:37,789 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,789 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,790 - WARNING - ⚠️ Event at 02:34:00 lacks relativity features - using basic calculations
+2025-08-14 21:42:37,790 - WARNING - ⚠️ Event at 03:08:00 lacks relativity features - using basic calculations
+2025-08-14 21:42:37,791 - WARNING - ⚠️ Event at 04:10:00 lacks relativity features - using basic calculations
+2025-08-14 21:42:37,795 - INFO - ✅ Created 2 structural context edges across archetype relationships
+2025-08-14 21:42:37,797 - INFO - ✅ Rich graph built: 29 nodes, 29 rich features
+2025-08-14 21:42:37,797 - INFO - ✅ Session metadata preserved: LONDON (02:00:00 - 04:59:00)
+2025-08-14 21:42:37,797 - INFO - 🔍 TASK 4: Detected 19 constant features (variance=0)
+2025-08-14 21:42:37,797 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,798 - INFO -    Features for TGAT training: 26 (filtered from 45)
+2025-08-14 21:42:37,800 - INFO - ✅ Completed enhanced_rel_LONDON_Lvl-1_2025_07_25.json in 0.01s
+2025-08-14 21:42:37,800 - INFO - Processing 52/57: enhanced_rel_PREMARKET_Lvl-1_2025_07_25.json
+2025-08-14 21:42:37,801 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,801 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,804 - WARNING - ⚠️ Event at 07:43:00 lacks relativity features - using basic calculations
+2025-08-14 21:42:37,804 - WARNING - ⚠️ Event at 08:16:00 lacks relativity features - using basic calculations
+2025-08-14 21:42:37,810 - INFO - ✅ Created 4 structural context edges across archetype relationships
+2025-08-14 21:42:37,813 - INFO - ✅ Rich graph built: 28 nodes, 28 rich features
+2025-08-14 21:42:37,813 - INFO - ✅ Session metadata preserved: PREMARKET (07:00:00 - 09:29:00)
+2025-08-14 21:42:37,814 - INFO - 🔍 TASK 4: Detected 19 constant features (variance=0)
+2025-08-14 21:42:37,815 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,815 - INFO -    Features for TGAT training: 26 (filtered from 45)
+2025-08-14 21:42:37,817 - INFO - ✅ Completed enhanced_rel_PREMARKET_Lvl-1_2025_07_25.json in 0.02s
+2025-08-14 21:42:37,818 - INFO - Processing 53/57: enhanced_rel_MIDNIGHT_Lvl-1_2025_08_07.json
+2025-08-14 21:42:37,818 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,818 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,821 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,822 - INFO - ✅ Rich graph built: 20 nodes, 20 rich features
+2025-08-14 21:42:37,822 - INFO - ✅ Session metadata preserved: MIDNIGHT (00:00:00 - 00:29:00)
+2025-08-14 21:42:37,822 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 21:42:37,823 - INFO -    Constant features: ['fvg_redelivery_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:37,823 - INFO -    Features for TGAT training: 23 (filtered from 45)
+2025-08-14 21:42:37,824 - INFO - ✅ Completed enhanced_rel_MIDNIGHT_Lvl-1_2025_08_07.json in 0.01s
+2025-08-14 21:42:37,824 - INFO - Processing 54/57: enhanced_rel_LUNCH_Lvl-1_2025_08_04.json
+2025-08-14 21:42:37,825 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,825 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,832 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,834 - INFO - ✅ Rich graph built: 43 nodes, 43 rich features
+2025-08-14 21:42:37,834 - INFO - ✅ Session metadata preserved: LUNCH (12:00:00 - 12:59:00)
+2025-08-14 21:42:37,837 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 21:42:37,838 - INFO -    Constant features: ['fvg_redelivery_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:37,838 - INFO -    Features for TGAT training: 23 (filtered from 45)
+2025-08-14 21:42:37,843 - INFO - ✅ Completed enhanced_rel_LUNCH_Lvl-1_2025_08_04.json in 0.02s
+2025-08-14 21:42:37,843 - INFO - Processing 55/57: enhanced_rel_PREMARKET_Lvl-1_2025_07_29.json
+2025-08-14 21:42:37,845 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,845 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,848 - WARNING - ⚠️ Event at 08:39:00 lacks relativity features - using basic calculations
+2025-08-14 21:42:37,854 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,855 - INFO - ✅ Rich graph built: 37 nodes, 37 rich features
+2025-08-14 21:42:37,856 - INFO - ✅ Session metadata preserved: PREMARKET (07:00:00 - 09:29:00)
+2025-08-14 21:42:37,856 - INFO - 🔍 TASK 4: Detected 19 constant features (variance=0)
+2025-08-14 21:42:37,856 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 21:42:37,856 - INFO -    Features for TGAT training: 26 (filtered from 45)
+2025-08-14 21:42:37,858 - INFO - ✅ Completed enhanced_rel_PREMARKET_Lvl-1_2025_07_29.json in 0.01s
+2025-08-14 21:42:37,858 - INFO - Processing 56/57: enhanced_rel_ASIA_Lvl-1_2025_08_06.json
+2025-08-14 21:42:37,860 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,860 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,865 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,867 - INFO - ✅ Rich graph built: 31 nodes, 31 rich features
+2025-08-14 21:42:37,868 - INFO - ✅ Session metadata preserved: ASIA (19:00:00 - 23:59:00)
+2025-08-14 21:42:37,870 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 21:42:37,870 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:37,870 - INFO -    Features for TGAT training: 24 (filtered from 45)
+2025-08-14 21:42:37,873 - INFO - ✅ Completed enhanced_rel_ASIA_Lvl-1_2025_08_06.json in 0.01s
+2025-08-14 21:42:37,874 - INFO - Processing 57/57: enhanced_rel_NY_AM_Lvl-1_2025_08_05.json
+2025-08-14 21:42:37,876 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 21:42:37,876 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 21:42:37,894 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 21:42:37,897 - INFO - ✅ Rich graph built: 64 nodes, 64 rich features
+2025-08-14 21:42:37,898 - INFO - ✅ Session metadata preserved: NY_AM (09:30:00 - 11:59:00)
+2025-08-14 21:42:37,899 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 21:42:37,899 - INFO -    Constant features: ['fvg_redelivery_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 21:42:37,899 - INFO -    Features for TGAT training: 23 (filtered from 45)
+2025-08-14 21:42:37,908 - INFO - ✅ Completed enhanced_rel_NY_AM_Lvl-1_2025_08_05.json in 0.03s
+2025-08-14 21:42:37,908 - INFO - 🎯 Analysis complete: 57/57 sessions processed
+2025-08-14 21:42:37,908 - INFO - ⏱️ Total time: 1.13s, Average: 0.02s/session
+2025-08-14 21:42:37,909 - INFO - 📊 Generating visualizations...
+2025-08-14 21:42:45,234 - INFO - 📊 Visualizations saved to visualizations/ directory
+2025-08-14 21:42:45,234 - INFO - 📋 Summary CSV saved to results/session_patterns_summary.csv
+2025-08-14 21:42:45,235 - INFO - 📝 Generating analysis reports...
+2025-08-14 21:42:45,236 - INFO - 📝 Comprehensive report saved to reports/comprehensive_analysis_report.txt
+2025-08-14 21:42:45,368 - INFO - ✅ Complete analysis finished!
+2025-08-14 21:42:45,368 - INFO - 📊 Check visualizations/ for graphs
+2025-08-14 21:42:45,368 - INFO - 📝 Check reports/ for detailed analysis
+2025-08-14 21:42:45,368 - INFO - 📋 Check results/ for raw data and CSV summary
+2025-08-14 22:22:48,073 - INFO - 🚀 Starting comprehensive session analysis...
+2025-08-14 22:22:48,074 - INFO - Found 57 session files
+2025-08-14 22:22:48,074 - INFO - Processing 1/57: enhanced_rel_ASIA_Lvl-1_2025_08_05.json
+2025-08-14 22:22:48,075 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,075 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,078 - INFO - 📊 Edge scorers updated: ['temporal_resonance', 'semantic_weight', 'causality_score', 'hierarchy_distance', 'permanence_score']
+2025-08-14 22:22:48,078 - INFO - ✅ Edge scorers loaded successfully
+2025-08-14 22:22:48,089 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,092 - INFO - ✅ Rich graph built: 46 nodes, 46 rich features
+2025-08-14 22:22:48,092 - INFO - ✅ Session metadata preserved: ASIA (19:00:00 - 23:59:00)
+2025-08-14 22:22:48,093 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 22:22:48,093 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:48,094 - INFO -    Features for TGAT training: 26 (filtered from 47)
+2025-08-14 22:22:48,097 - INFO - ✅ Completed enhanced_rel_ASIA_Lvl-1_2025_08_05.json in 0.02s
+2025-08-14 22:22:48,097 - INFO - Processing 2/57: enhanced_rel_PREMARKET_Lvl-1_2025_07_30.json
+2025-08-14 22:22:48,099 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,099 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,103 - WARNING - ⚠️ Event at 08:07:00 lacks relativity features - using basic calculations
+2025-08-14 22:22:48,115 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,118 - INFO - ✅ Rich graph built: 51 nodes, 51 rich features
+2025-08-14 22:22:48,118 - INFO - ✅ Session metadata preserved: PREMARKET (07:00:00 - 09:29:00)
+2025-08-14 22:22:48,118 - INFO - 🔍 TASK 4: Detected 18 constant features (variance=0)
+2025-08-14 22:22:48,119 - INFO -    Constant features: ['liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,119 - INFO -    Features for TGAT training: 29 (filtered from 47)
+2025-08-14 22:22:48,123 - INFO - ✅ Completed enhanced_rel_PREMARKET_Lvl-1_2025_07_30.json in 0.03s
+2025-08-14 22:22:48,124 - INFO - Processing 3/57: enhanced_rel_LONDON_Lvl-1_2025_07_30.json
+2025-08-14 22:22:48,124 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,124 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,127 - WARNING - ⚠️ Event at 03:59:00 lacks relativity features - using basic calculations
+2025-08-14 22:22:48,138 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,141 - INFO - ✅ Rich graph built: 52 nodes, 52 rich features
+2025-08-14 22:22:48,141 - INFO - ✅ Session metadata preserved: LONDON (02:00:00 - 04:59:00)
+2025-08-14 22:22:48,142 - INFO - 🔍 TASK 4: Detected 19 constant features (variance=0)
+2025-08-14 22:22:48,142 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,142 - INFO -    Features for TGAT training: 28 (filtered from 47)
+2025-08-14 22:22:48,238 - INFO - ✅ Completed enhanced_rel_LONDON_Lvl-1_2025_07_30.json in 0.11s
+2025-08-14 22:22:48,238 - INFO - Processing 4/57: enhanced_rel_NY_PM_Lvl-1_2025_08_05.json
+2025-08-14 22:22:48,238 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,239 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,253 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,258 - INFO - ✅ Rich graph built: 65 nodes, 65 rich features
+2025-08-14 22:22:48,259 - INFO - ✅ Session metadata preserved: NY_PM (13:30:00 - 16:09:00)
+2025-08-14 22:22:48,260 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 22:22:48,260 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:48,260 - INFO -    Features for TGAT training: 26 (filtered from 47)
+2025-08-14 22:22:48,263 - INFO - ✅ Completed enhanced_rel_NY_PM_Lvl-1_2025_08_05.json in 0.03s
+2025-08-14 22:22:48,263 - INFO - Processing 5/57: enhanced_rel_NY_PM_Lvl-1_2025_08_04.json
+2025-08-14 22:22:48,264 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,264 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,271 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,273 - INFO - ✅ Rich graph built: 39 nodes, 39 rich features
+2025-08-14 22:22:48,273 - INFO - ✅ Session metadata preserved: NY_PM (13:30:00 - 16:09:00)
+2025-08-14 22:22:48,274 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 22:22:48,274 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:48,274 - INFO -    Features for TGAT training: 26 (filtered from 47)
+2025-08-14 22:22:48,279 - INFO - ✅ Completed enhanced_rel_NY_PM_Lvl-1_2025_08_04.json in 0.02s
+2025-08-14 22:22:48,279 - INFO - Processing 6/57: enhanced_rel_LUNCH_Lvl-1_2025_08_06.json
+2025-08-14 22:22:48,281 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,281 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,294 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,296 - INFO - ✅ Rich graph built: 42 nodes, 42 rich features
+2025-08-14 22:22:48,296 - INFO - ✅ Session metadata preserved: LUNCH (12:00:00 - 12:59:00)
+2025-08-14 22:22:48,297 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 22:22:48,297 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:48,297 - INFO -    Features for TGAT training: 26 (filtered from 47)
+2025-08-14 22:22:48,299 - INFO - ✅ Completed enhanced_rel_LUNCH_Lvl-1_2025_08_06.json in 0.02s
+2025-08-14 22:22:48,299 - INFO - Processing 7/57: enhanced_rel_MIDNIGHT_Lvl-1_2025_08_05.json
+2025-08-14 22:22:48,300 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,300 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,304 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,305 - INFO - ✅ Rich graph built: 27 nodes, 27 rich features
+2025-08-14 22:22:48,305 - INFO - ✅ Session metadata preserved: MIDNIGHT (00:00:00 - 00:29:00)
+2025-08-14 22:22:48,306 - INFO - 🔍 TASK 4: Detected 23 constant features (variance=0)
+2025-08-14 22:22:48,306 - INFO -    Constant features: ['fvg_redelivery_flag', 'retracement_flag', 'reversal_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:48,306 - INFO -    Features for TGAT training: 24 (filtered from 47)
+2025-08-14 22:22:48,308 - INFO - ✅ Completed enhanced_rel_MIDNIGHT_Lvl-1_2025_08_05.json in 0.01s
+2025-08-14 22:22:48,308 - INFO - Processing 8/57: enhanced_rel_PREASIA_Lvl-1_2025_07_30.json
+2025-08-14 22:22:48,310 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,311 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,316 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,318 - INFO - ✅ Rich graph built: 16 nodes, 16 rich features
+2025-08-14 22:22:48,318 - INFO - ✅ Session metadata preserved: PREASIA (16:59:00 - 18:15:00)
+2025-08-14 22:22:48,319 - INFO - 🔍 TASK 4: Detected 23 constant features (variance=0)
+2025-08-14 22:22:48,319 - INFO -    Constant features: ['expansion_phase_flag', 'retracement_flag', 'reversal_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'phase_mid', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,319 - INFO -    Features for TGAT training: 24 (filtered from 47)
+2025-08-14 22:22:48,323 - INFO - ✅ Completed enhanced_rel_PREASIA_Lvl-1_2025_07_30.json in 0.01s
+2025-08-14 22:22:48,324 - INFO - Processing 9/57: enhanced_rel_LONDON_Lvl-1_2025_07_31.json
+2025-08-14 22:22:48,326 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,326 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,334 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,337 - INFO - ✅ Rich graph built: 42 nodes, 42 rich features
+2025-08-14 22:22:48,337 - INFO - ✅ Session metadata preserved: LONDON (02:00:00 - 04:59:00)
+2025-08-14 22:22:48,338 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 22:22:48,338 - INFO -    Constant features: ['expansion_phase_flag', 'consolidation_flag', 'retracement_flag', 'reversal_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,338 - INFO -    Features for TGAT training: 25 (filtered from 47)
+2025-08-14 22:22:48,341 - INFO - ✅ Completed enhanced_rel_LONDON_Lvl-1_2025_07_31.json in 0.02s
+2025-08-14 22:22:48,341 - INFO - Processing 10/57: enhanced_rel_NYPM_Lvl-1_2025_08_06.json
+2025-08-14 22:22:48,341 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,341 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,359 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,361 - INFO - ✅ Rich graph built: 47 nodes, 47 rich features
+2025-08-14 22:22:48,361 - INFO - ✅ Session metadata preserved: NY_PM (13:30:00 - 16:09:00)
+2025-08-14 22:22:48,362 - INFO - 🔍 TASK 4: Detected 23 constant features (variance=0)
+2025-08-14 22:22:48,362 - INFO -    Constant features: ['fvg_redelivery_flag', 'reversal_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:48,363 - INFO -    Features for TGAT training: 24 (filtered from 47)
+2025-08-14 22:22:48,365 - INFO - ✅ Completed enhanced_rel_NYPM_Lvl-1_2025_08_06.json in 0.02s
+2025-08-14 22:22:48,365 - INFO - Processing 11/57: enhanced_rel_PREMARKET_Lvl-1_2025_07_31.json
+2025-08-14 22:22:48,366 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,366 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,374 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,378 - INFO - ✅ Rich graph built: 38 nodes, 38 rich features
+2025-08-14 22:22:48,378 - INFO - ✅ Session metadata preserved: PREMARKET (07:00:00 - 09:29:00)
+2025-08-14 22:22:48,380 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 22:22:48,381 - INFO -    Constant features: ['expansion_phase_flag', 'consolidation_flag', 'retracement_flag', 'reversal_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,381 - INFO -    Features for TGAT training: 25 (filtered from 47)
+2025-08-14 22:22:48,388 - INFO - ✅ Completed enhanced_rel_PREMARKET_Lvl-1_2025_07_31.json in 0.02s
+2025-08-14 22:22:48,389 - INFO - Processing 12/57: enhanced_rel_PREMARKET_Lvl-1_2025_08_05.json
+2025-08-14 22:22:48,391 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,391 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,401 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,404 - INFO - ✅ Rich graph built: 48 nodes, 48 rich features
+2025-08-14 22:22:48,404 - INFO - ✅ Session metadata preserved: PREMARKET (07:00:00 - 09:29:00)
+2025-08-14 22:22:48,405 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 22:22:48,405 - INFO -    Constant features: ['fvg_redelivery_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:48,405 - INFO -    Features for TGAT training: 25 (filtered from 47)
+2025-08-14 22:22:48,408 - INFO - ✅ Completed enhanced_rel_PREMARKET_Lvl-1_2025_08_05.json in 0.02s
+2025-08-14 22:22:48,409 - INFO - Processing 13/57: enhanced_rel_LONDON_Lvl-1_2025_08_05.json
+2025-08-14 22:22:48,411 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,412 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,428 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,430 - INFO - ✅ Rich graph built: 50 nodes, 50 rich features
+2025-08-14 22:22:48,430 - INFO - ✅ Session metadata preserved: LONDON (02:00:00 - 04:59:00)
+2025-08-14 22:22:48,431 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 22:22:48,431 - INFO -    Constant features: ['fvg_redelivery_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:48,432 - INFO -    Features for TGAT training: 25 (filtered from 47)
+2025-08-14 22:22:48,434 - INFO - ✅ Completed enhanced_rel_LONDON_Lvl-1_2025_08_05.json in 0.02s
+2025-08-14 22:22:48,434 - INFO - Processing 14/57: enhanced_rel_LUNCH_Lvl-1_2025_07_24.json
+2025-08-14 22:22:48,435 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,435 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,438 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,439 - INFO - ✅ Rich graph built: 20 nodes, 20 rich features
+2025-08-14 22:22:48,440 - INFO - ✅ Session metadata preserved: LUNCH (12:00:00 - 12:59:00)
+2025-08-14 22:22:48,440 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 22:22:48,440 - INFO -    Constant features: ['expansion_phase_flag', 'consolidation_flag', 'retracement_flag', 'reversal_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,441 - INFO -    Features for TGAT training: 25 (filtered from 47)
+2025-08-14 22:22:48,442 - INFO - ✅ Completed enhanced_rel_LUNCH_Lvl-1_2025_07_24.json in 0.01s
+2025-08-14 22:22:48,442 - INFO - Processing 15/57: enhanced_rel_MIDNIGHT_Lvl-1_2025_07_31.json
+2025-08-14 22:22:48,444 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,445 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,454 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,457 - INFO - ✅ Rich graph built: 27 nodes, 27 rich features
+2025-08-14 22:22:48,458 - INFO - ✅ Session metadata preserved: MIDNIGHT (00:00:00 - 00:29:00)
+2025-08-14 22:22:48,459 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 22:22:48,459 - INFO -    Constant features: ['consolidation_flag', 'retracement_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,459 - INFO -    Features for TGAT training: 27 (filtered from 47)
+2025-08-14 22:22:48,461 - INFO - ✅ Completed enhanced_rel_MIDNIGHT_Lvl-1_2025_07_31.json in 0.02s
+2025-08-14 22:22:48,461 - INFO - Processing 16/57: enhanced_rel_NY_PM_Lvl-1_2025_07_30.json
+2025-08-14 22:22:48,462 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,462 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,494 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,497 - INFO - ✅ Rich graph built: 74 nodes, 74 rich features
+2025-08-14 22:22:48,497 - INFO - ✅ Session metadata preserved: NY_PM (13:30:00 - 16:09:00)
+2025-08-14 22:22:48,498 - INFO - 🔍 TASK 4: Detected 17 constant features (variance=0)
+2025-08-14 22:22:48,499 - INFO -    Constant features: ['pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,499 - INFO -    Features for TGAT training: 30 (filtered from 47)
+2025-08-14 22:22:48,511 - INFO - ✅ Completed enhanced_rel_NY_PM_Lvl-1_2025_07_30.json in 0.05s
+2025-08-14 22:22:48,511 - INFO - Processing 17/57: enhanced_rel_NY_AM_Lvl-1_2025_07_29.json
+2025-08-14 22:22:48,511 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,512 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,543 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,546 - INFO - ✅ Rich graph built: 66 nodes, 66 rich features
+2025-08-14 22:22:48,546 - INFO - ✅ Session metadata preserved: NY_AM (09:30:00 - 11:59:00)
+2025-08-14 22:22:48,547 - INFO - 🔍 TASK 4: Detected 19 constant features (variance=0)
+2025-08-14 22:22:48,547 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,547 - INFO -    Features for TGAT training: 28 (filtered from 47)
+2025-08-14 22:22:48,560 - INFO - ✅ Completed enhanced_rel_NY_AM_Lvl-1_2025_07_29.json in 0.05s
+2025-08-14 22:22:48,561 - INFO - Processing 18/57: enhanced_rel_ASIA_Lvl-1_2025_07_30.json
+2025-08-14 22:22:48,562 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,562 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,568 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,570 - INFO - ✅ Rich graph built: 26 nodes, 26 rich features
+2025-08-14 22:22:48,570 - INFO - ✅ Session metadata preserved: ASIA (19:00:00 - 23:59:00)
+2025-08-14 22:22:48,570 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 22:22:48,571 - INFO -    Constant features: ['consolidation_flag', 'reversal_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,571 - INFO -    Features for TGAT training: 27 (filtered from 47)
+2025-08-14 22:22:48,573 - INFO - ✅ Completed enhanced_rel_ASIA_Lvl-1_2025_07_30.json in 0.01s
+2025-08-14 22:22:48,573 - INFO - Processing 19/57: enhanced_rel_LUNCH_Lvl-1_2025_07_28.json
+2025-08-14 22:22:48,573 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,573 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,581 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,584 - INFO - ✅ Rich graph built: 26 nodes, 26 rich features
+2025-08-14 22:22:48,584 - INFO - ✅ Session metadata preserved: LUNCH (12:00:00 - 12:59:00)
+2025-08-14 22:22:48,585 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 22:22:48,585 - INFO -    Constant features: ['consolidation_flag', 'retracement_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,585 - INFO -    Features for TGAT training: 26 (filtered from 47)
+2025-08-14 22:22:48,589 - INFO - ✅ Completed enhanced_rel_LUNCH_Lvl-1_2025_07_28.json in 0.02s
+2025-08-14 22:22:48,590 - INFO - Processing 20/57: enhanced_rel_NY_AM_Lvl-1_2025_07_25.json
+2025-08-14 22:22:48,591 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,591 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,593 - WARNING - ⚠️ Event at 11:21:00 lacks relativity features - using basic calculations
+2025-08-14 22:22:48,593 - WARNING - ⚠️ Event at 11:45:00 lacks relativity features - using basic calculations
+2025-08-14 22:22:48,598 - INFO - ✅ Created 4 structural context edges across archetype relationships
+2025-08-14 22:22:48,600 - INFO - ✅ Rich graph built: 29 nodes, 29 rich features
+2025-08-14 22:22:48,600 - INFO - ✅ Session metadata preserved: NY_AM (09:30:00 - 11:59:00)
+2025-08-14 22:22:48,601 - INFO - 🔍 TASK 4: Detected 18 constant features (variance=0)
+2025-08-14 22:22:48,601 - INFO -    Constant features: ['liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,601 - INFO -    Features for TGAT training: 29 (filtered from 47)
+2025-08-14 22:22:48,603 - INFO - ✅ Completed enhanced_rel_NY_AM_Lvl-1_2025_07_25.json in 0.01s
+2025-08-14 22:22:48,603 - INFO - Processing 21/57: enhanced_rel_NY_AM_Lvl-1_2025_07_24.json
+2025-08-14 22:22:48,604 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,604 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,607 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,609 - INFO - ✅ Rich graph built: 22 nodes, 22 rich features
+2025-08-14 22:22:48,609 - INFO - ✅ Session metadata preserved: NY_AM (09:30:00 - 11:59:00)
+2025-08-14 22:22:48,610 - INFO - 🔍 TASK 4: Detected 24 constant features (variance=0)
+2025-08-14 22:22:48,610 - INFO -    Constant features: ['fvg_redelivery_flag', 'retracement_flag', 'reversal_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:48,610 - INFO -    Features for TGAT training: 23 (filtered from 47)
+2025-08-14 22:22:48,615 - INFO - ✅ Completed enhanced_rel_NY_AM_Lvl-1_2025_07_24.json in 0.01s
+2025-08-14 22:22:48,615 - INFO - Processing 22/57: enhanced_rel_LUNCH_Lvl-1_2025_07_29.json
+2025-08-14 22:22:48,616 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,617 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,631 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,633 - INFO - ✅ Rich graph built: 37 nodes, 37 rich features
+2025-08-14 22:22:48,633 - INFO - ✅ Session metadata preserved: LUNCH (12:00:00 - 12:59:00)
+2025-08-14 22:22:48,634 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 22:22:48,634 - INFO -    Constant features: ['retracement_flag', 'reversal_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,634 - INFO -    Features for TGAT training: 27 (filtered from 47)
+2025-08-14 22:22:48,637 - INFO - ✅ Completed enhanced_rel_LUNCH_Lvl-1_2025_07_29.json in 0.02s
+2025-08-14 22:22:48,637 - INFO - Processing 23/57: enhanced_rel_NY_AM_Lvl-1_2025_07_28.json
+2025-08-14 22:22:48,638 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,638 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,640 - WARNING - ⚠️ Event at 11:16:00 lacks relativity features - using basic calculations
+2025-08-14 22:22:48,647 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,651 - INFO - ✅ Rich graph built: 34 nodes, 34 rich features
+2025-08-14 22:22:48,652 - INFO - ✅ Session metadata preserved: NY_AM (09:30:00 - 11:59:00)
+2025-08-14 22:22:48,654 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 22:22:48,654 - INFO -    Constant features: ['consolidation_flag', 'retracement_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,655 - INFO -    Features for TGAT training: 26 (filtered from 47)
+2025-08-14 22:22:48,660 - INFO - ✅ Completed enhanced_rel_NY_AM_Lvl-1_2025_07_28.json in 0.02s
+2025-08-14 22:22:48,660 - INFO - Processing 24/57: enhanced_rel_MIDNIGHT_Lvl-1_2025_07_30.json
+2025-08-14 22:22:48,660 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,660 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,664 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,665 - INFO - ✅ Rich graph built: 24 nodes, 24 rich features
+2025-08-14 22:22:48,665 - INFO - ✅ Session metadata preserved: MIDNIGHT (00:00:00 - 00:29:00)
+2025-08-14 22:22:48,666 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 22:22:48,666 - INFO -    Constant features: ['consolidation_flag', 'reversal_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,666 - INFO -    Features for TGAT training: 27 (filtered from 47)
+2025-08-14 22:22:48,667 - INFO - ✅ Completed enhanced_rel_MIDNIGHT_Lvl-1_2025_07_30.json in 0.01s
+2025-08-14 22:22:48,667 - INFO - Processing 25/57: enhanced_rel_LUNCH_Lvl-1_2025_07_25.json
+2025-08-14 22:22:48,668 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,668 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,669 - WARNING - ⚠️ Event at 12:21:00 lacks relativity features - using basic calculations
+2025-08-14 22:22:48,670 - WARNING - ⚠️ Event at 12:50:00 lacks relativity features - using basic calculations
+2025-08-14 22:22:48,675 - INFO - ✅ Created 2 structural context edges across archetype relationships
+2025-08-14 22:22:48,679 - INFO - ✅ Rich graph built: 30 nodes, 30 rich features
+2025-08-14 22:22:48,680 - INFO - ✅ Session metadata preserved: LUNCH (12:00:00 - 12:59:00)
+2025-08-14 22:22:48,682 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 22:22:48,682 - INFO -    Constant features: ['consolidation_flag', 'reversal_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,682 - INFO -    Features for TGAT training: 27 (filtered from 47)
+2025-08-14 22:22:48,688 - INFO - ✅ Completed enhanced_rel_LUNCH_Lvl-1_2025_07_25.json in 0.02s
+2025-08-14 22:22:48,688 - INFO - Processing 26/57: enhanced_rel_LUNCH_Lvl-1_2025_07_30.json
+2025-08-14 22:22:48,689 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,690 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,698 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,699 - INFO - ✅ Rich graph built: 33 nodes, 33 rich features
+2025-08-14 22:22:48,699 - INFO - ✅ Session metadata preserved: LUNCH (12:00:00 - 12:59:00)
+2025-08-14 22:22:48,700 - INFO - 🔍 TASK 4: Detected 19 constant features (variance=0)
+2025-08-14 22:22:48,700 - INFO -    Constant features: ['reversal_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,700 - INFO -    Features for TGAT training: 28 (filtered from 47)
+2025-08-14 22:22:48,703 - INFO - ✅ Completed enhanced_rel_LUNCH_Lvl-1_2025_07_30.json in 0.01s
+2025-08-14 22:22:48,703 - INFO - Processing 27/57: enhanced_rel_MIDNIGHT_Lvl-1_2025_07_25.json
+2025-08-14 22:22:48,703 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,704 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,705 - WARNING - ⚠️ Event at 00:13:00 lacks relativity features - using basic calculations
+2025-08-14 22:22:48,707 - INFO - ✅ Created 2 structural context edges across archetype relationships
+2025-08-14 22:22:48,709 - INFO - ✅ Rich graph built: 24 nodes, 24 rich features
+2025-08-14 22:22:48,709 - INFO - ✅ Session metadata preserved: MIDNIGHT (00:00:00 - 00:29:00)
+2025-08-14 22:22:48,712 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 22:22:48,712 - INFO -    Constant features: ['fvg_redelivery_flag', 'retracement_flag', 'reversal_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,713 - INFO -    Features for TGAT training: 26 (filtered from 47)
+2025-08-14 22:22:48,717 - INFO - ✅ Completed enhanced_rel_MIDNIGHT_Lvl-1_2025_07_25.json in 0.01s
+2025-08-14 22:22:48,718 - INFO - Processing 28/57: enhanced_rel_LONDON_Lvl-1_2025_08_07.json
+2025-08-14 22:22:48,719 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,719 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,734 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,737 - INFO - ✅ Rich graph built: 55 nodes, 55 rich features
+2025-08-14 22:22:48,737 - INFO - ✅ Session metadata preserved: LONDON (02:00:00 - 04:59:00)
+2025-08-14 22:22:48,738 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 22:22:48,738 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:48,738 - INFO -    Features for TGAT training: 26 (filtered from 47)
+2025-08-14 22:22:48,741 - INFO - ✅ Completed enhanced_rel_LONDON_Lvl-1_2025_08_07.json in 0.02s
+2025-08-14 22:22:48,741 - INFO - Processing 29/57: enhanced_rel_PREMARKET_Lvl-1_2025_08_07.json
+2025-08-14 22:22:48,742 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,743 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,753 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,756 - INFO - ✅ Rich graph built: 30 nodes, 30 rich features
+2025-08-14 22:22:48,757 - INFO - ✅ Session metadata preserved: PREMARKET (07:00:00 - 09:29:00)
+2025-08-14 22:22:48,759 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 22:22:48,759 - INFO -    Constant features: ['fvg_redelivery_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:48,759 - INFO -    Features for TGAT training: 25 (filtered from 47)
+2025-08-14 22:22:48,761 - INFO - ✅ Completed enhanced_rel_PREMARKET_Lvl-1_2025_08_07.json in 0.02s
+2025-08-14 22:22:48,761 - INFO - Processing 30/57: enhanced_rel_MIDNIGHT_Lvl-1_2025_07_29.json
+2025-08-14 22:22:48,762 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,762 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,766 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,767 - INFO - ✅ Rich graph built: 28 nodes, 28 rich features
+2025-08-14 22:22:48,767 - INFO - ✅ Session metadata preserved: MIDNIGHT (00:00:00 - 00:29:00)
+2025-08-14 22:22:48,768 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 22:22:48,768 - INFO -    Constant features: ['consolidation_flag', 'retracement_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,768 - INFO -    Features for TGAT training: 27 (filtered from 47)
+2025-08-14 22:22:48,770 - INFO - ✅ Completed enhanced_rel_MIDNIGHT_Lvl-1_2025_07_29.json in 0.01s
+2025-08-14 22:22:48,770 - INFO - Processing 31/57: enhanced_rel_NY_AM_Lvl-1_2025_07_31.json
+2025-08-14 22:22:48,771 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,771 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,785 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,787 - INFO - ✅ Rich graph built: 37 nodes, 37 rich features
+2025-08-14 22:22:48,787 - INFO - ✅ Session metadata preserved: NY_AM (09:30:00 - 11:59:00)
+2025-08-14 22:22:48,789 - INFO - 🔍 TASK 4: Detected 19 constant features (variance=0)
+2025-08-14 22:22:48,790 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,790 - INFO -    Features for TGAT training: 28 (filtered from 47)
+2025-08-14 22:22:48,794 - INFO - ✅ Completed enhanced_rel_NY_AM_Lvl-1_2025_07_31.json in 0.02s
+2025-08-14 22:22:48,794 - INFO - Processing 32/57: enhanced_rel_NY_PM_Lvl-1_2025_07_28.json
+2025-08-14 22:22:48,794 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,794 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,800 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,802 - INFO - ✅ Rich graph built: 32 nodes, 32 rich features
+2025-08-14 22:22:48,802 - INFO - ✅ Session metadata preserved: NY_PM (13:30:00 - 16:09:00)
+2025-08-14 22:22:48,803 - INFO - 🔍 TASK 4: Detected 19 constant features (variance=0)
+2025-08-14 22:22:48,803 - INFO -    Constant features: ['retracement_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,803 - INFO -    Features for TGAT training: 28 (filtered from 47)
+2025-08-14 22:22:48,805 - INFO - ✅ Completed enhanced_rel_NY_PM_Lvl-1_2025_07_28.json in 0.01s
+2025-08-14 22:22:48,805 - INFO - Processing 33/57: enhanced_rel_ASIA_Lvl-1_2025_07_24.json
+2025-08-14 22:22:48,806 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,806 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,809 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,812 - INFO - ✅ Rich graph built: 22 nodes, 22 rich features
+2025-08-14 22:22:48,812 - INFO - ✅ Session metadata preserved: ASIA (19:00:00 - 23:59:00)
+2025-08-14 22:22:48,814 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 22:22:48,815 - INFO -    Constant features: ['expansion_phase_flag', 'consolidation_flag', 'retracement_flag', 'reversal_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,815 - INFO -    Features for TGAT training: 25 (filtered from 47)
+2025-08-14 22:22:48,819 - INFO - ✅ Completed enhanced_rel_ASIA_Lvl-1_2025_07_24.json in 0.01s
+2025-08-14 22:22:48,819 - INFO - Processing 34/57: enhanced_rel_NY_AM_Lvl-1_2025_07_30.json
+2025-08-14 22:22:48,820 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,821 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,826 - WARNING - ⚠️ Event at 09:43:00 lacks relativity features - using basic calculations
+2025-08-14 22:22:48,826 - WARNING - ⚠️ Event at 10:50:00 lacks relativity features - using basic calculations
+2025-08-14 22:22:48,834 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,836 - INFO - ✅ Rich graph built: 43 nodes, 43 rich features
+2025-08-14 22:22:48,836 - INFO - ✅ Session metadata preserved: NY_AM (09:30:00 - 11:59:00)
+2025-08-14 22:22:48,837 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 22:22:48,837 - INFO -    Constant features: ['consolidation_flag', 'reversal_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,837 - INFO -    Features for TGAT training: 27 (filtered from 47)
+2025-08-14 22:22:48,841 - INFO - ✅ Completed enhanced_rel_NY_AM_Lvl-1_2025_07_30.json in 0.02s
+2025-08-14 22:22:48,841 - INFO - Processing 35/57: enhanced_rel_NY_PM_Lvl-1_2025_07_29.json
+2025-08-14 22:22:48,842 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,843 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,865 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,868 - INFO - ✅ Rich graph built: 61 nodes, 61 rich features
+2025-08-14 22:22:48,868 - INFO - ✅ Session metadata preserved: NY_PM (13:30:00 - 16:09:00)
+2025-08-14 22:22:48,869 - INFO - 🔍 TASK 4: Detected 18 constant features (variance=0)
+2025-08-14 22:22:48,869 - INFO -    Constant features: ['liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,869 - INFO -    Features for TGAT training: 29 (filtered from 47)
+2025-08-14 22:22:48,874 - INFO - ✅ Completed enhanced_rel_NY_PM_Lvl-1_2025_07_29.json in 0.03s
+2025-08-14 22:22:48,874 - INFO - Processing 36/57: enhanced_rel_MIDNIGHT_Lvl-1_2025_07_28.json
+2025-08-14 22:22:48,874 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,875 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,880 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,883 - INFO - ✅ Rich graph built: 24 nodes, 24 rich features
+2025-08-14 22:22:48,883 - INFO - ✅ Session metadata preserved: MIDNIGHT (00:00:00 - 00:29:00)
+2025-08-14 22:22:48,884 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 22:22:48,884 - INFO -    Constant features: ['consolidation_flag', 'retracement_flag', 'reversal_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,884 - INFO -    Features for TGAT training: 25 (filtered from 47)
+2025-08-14 22:22:48,886 - INFO - ✅ Completed enhanced_rel_MIDNIGHT_Lvl-1_2025_07_28.json in 0.01s
+2025-08-14 22:22:48,887 - INFO - Processing 37/57: enhanced_rel_PREMARKET_Lvl-1_2025_08_06.json
+2025-08-14 22:22:48,888 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,888 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,896 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,898 - INFO - ✅ Rich graph built: 33 nodes, 33 rich features
+2025-08-14 22:22:48,898 - INFO - ✅ Session metadata preserved: PREMARKET (07:00:00 - 09:29:00)
+2025-08-14 22:22:48,898 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 22:22:48,898 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:48,898 - INFO -    Features for TGAT training: 26 (filtered from 47)
+2025-08-14 22:22:48,900 - INFO - ✅ Completed enhanced_rel_PREMARKET_Lvl-1_2025_08_06.json in 0.01s
+2025-08-14 22:22:48,901 - INFO - Processing 38/57: enhanced_rel_ASIA_Lvl-1_2025_07_29.json
+2025-08-14 22:22:48,901 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,901 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,903 - WARNING - ⚠️ Event at 21:13:00 lacks relativity features - using basic calculations
+2025-08-14 22:22:48,906 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,907 - INFO - ✅ Rich graph built: 31 nodes, 31 rich features
+2025-08-14 22:22:48,907 - INFO - ✅ Session metadata preserved: ASIA (19:00:00 - 23:59:00)
+2025-08-14 22:22:48,908 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 22:22:48,908 - INFO -    Constant features: ['consolidation_flag', 'retracement_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,908 - INFO -    Features for TGAT training: 27 (filtered from 47)
+2025-08-14 22:22:48,912 - INFO - ✅ Completed enhanced_rel_ASIA_Lvl-1_2025_07_29.json in 0.01s
+2025-08-14 22:22:48,912 - INFO - Processing 39/57: enhanced_rel_LONDON_Lvl-1_2025_08_06.json
+2025-08-14 22:22:48,913 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,914 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,924 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,926 - INFO - ✅ Rich graph built: 31 nodes, 31 rich features
+2025-08-14 22:22:48,926 - INFO - ✅ Session metadata preserved: LONDON (02:00:00 - 04:59:00)
+2025-08-14 22:22:48,927 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 22:22:48,927 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:48,927 - INFO -    Features for TGAT training: 26 (filtered from 47)
+2025-08-14 22:22:48,929 - INFO - ✅ Completed enhanced_rel_LONDON_Lvl-1_2025_08_06.json in 0.02s
+2025-08-14 22:22:48,929 - INFO - Processing 40/57: enhanced_rel_MIDNIGHT_Lvl-1_2025_07_24.json
+2025-08-14 22:22:48,930 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,930 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,933 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,934 - INFO - ✅ Rich graph built: 20 nodes, 20 rich features
+2025-08-14 22:22:48,934 - INFO - ✅ Session metadata preserved: MIDNIGHT (00:00:00 - 00:29:00)
+2025-08-14 22:22:48,935 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 22:22:48,935 - INFO -    Constant features: ['expansion_phase_flag', 'consolidation_flag', 'retracement_flag', 'reversal_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:48,935 - INFO -    Features for TGAT training: 26 (filtered from 47)
+2025-08-14 22:22:48,936 - INFO - ✅ Completed enhanced_rel_MIDNIGHT_Lvl-1_2025_07_24.json in 0.01s
+2025-08-14 22:22:48,936 - INFO - Processing 41/57: enhanced_rel_NY_AM_Lvl-1_2025_08_04.json
+2025-08-14 22:22:48,937 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,937 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,967 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:48,972 - INFO - ✅ Rich graph built: 97 nodes, 97 rich features
+2025-08-14 22:22:48,972 - INFO - ✅ Session metadata preserved: NY_AM (09:30:00 - 11:59:00)
+2025-08-14 22:22:48,974 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 22:22:48,974 - INFO -    Constant features: ['fvg_redelivery_flag', 'reversal_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:48,974 - INFO -    Features for TGAT training: 25 (filtered from 47)
+2025-08-14 22:22:48,984 - INFO - ✅ Completed enhanced_rel_NY_AM_Lvl-1_2025_08_04.json in 0.05s
+2025-08-14 22:22:48,985 - INFO - Processing 42/57: enhanced_rel_ASIA_Lvl-1_2025_08_07.json
+2025-08-14 22:22:48,985 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:48,985 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:48,998 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:49,001 - INFO - ✅ Rich graph built: 50 nodes, 50 rich features
+2025-08-14 22:22:49,001 - INFO - ✅ Session metadata preserved: ASIA (19:00:00 - 23:59:00)
+2025-08-14 22:22:49,002 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 22:22:49,002 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:49,002 - INFO -    Features for TGAT training: 26 (filtered from 47)
+2025-08-14 22:22:49,005 - INFO - ✅ Completed enhanced_rel_ASIA_Lvl-1_2025_08_07.json in 0.02s
+2025-08-14 22:22:49,005 - INFO - Processing 43/57: enhanced_rel_PREMARKET_Lvl-1_2025_07_28.json
+2025-08-14 22:22:49,006 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:49,006 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:49,013 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:49,016 - INFO - ✅ Rich graph built: 28 nodes, 28 rich features
+2025-08-14 22:22:49,016 - INFO - ✅ Session metadata preserved: PREMARKET (07:00:00 - 09:29:00)
+2025-08-14 22:22:49,018 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 22:22:49,019 - INFO -    Constant features: ['consolidation_flag', 'retracement_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:49,019 - INFO -    Features for TGAT training: 26 (filtered from 47)
+2025-08-14 22:22:49,022 - INFO - ✅ Completed enhanced_rel_PREMARKET_Lvl-1_2025_07_28.json in 0.02s
+2025-08-14 22:22:49,023 - INFO - Processing 44/57: enhanced_rel_NYAM_Lvl-1_2025_08_06.json
+2025-08-14 22:22:49,024 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:49,024 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:49,037 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:49,040 - INFO - ✅ Rich graph built: 61 nodes, 61 rich features
+2025-08-14 22:22:49,040 - INFO - ✅ Session metadata preserved: NY_AM (09:30:00 - 11:59:00)
+2025-08-14 22:22:49,044 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 22:22:49,044 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:49,045 - INFO -    Features for TGAT training: 26 (filtered from 47)
+2025-08-14 22:22:49,052 - INFO - ✅ Completed enhanced_rel_NYAM_Lvl-1_2025_08_06.json in 0.03s
+2025-08-14 22:22:49,052 - INFO - Processing 45/57: enhanced_rel_LONDON_Lvl-1_2025_07_28.json
+2025-08-14 22:22:49,054 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:49,054 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:49,061 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:49,063 - INFO - ✅ Rich graph built: 29 nodes, 29 rich features
+2025-08-14 22:22:49,063 - INFO - ✅ Session metadata preserved: LONDON (02:00:00 - 04:59:00)
+2025-08-14 22:22:49,063 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 22:22:49,063 - INFO -    Constant features: ['consolidation_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:49,064 - INFO -    Features for TGAT training: 27 (filtered from 47)
+2025-08-14 22:22:49,065 - INFO - ✅ Completed enhanced_rel_LONDON_Lvl-1_2025_07_28.json in 0.01s
+2025-08-14 22:22:49,065 - INFO - Processing 46/57: enhanced_rel_LUNCH_Lvl-1_2025_08_05.json
+2025-08-14 22:22:49,066 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:49,066 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:49,073 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:49,075 - INFO - ✅ Rich graph built: 41 nodes, 41 rich features
+2025-08-14 22:22:49,075 - INFO - ✅ Session metadata preserved: LUNCH (12:00:00 - 12:59:00)
+2025-08-14 22:22:49,079 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 22:22:49,080 - INFO -    Constant features: ['fvg_redelivery_flag', 'reversal_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:49,081 - INFO -    Features for TGAT training: 25 (filtered from 47)
+2025-08-14 22:22:49,090 - INFO - ✅ Completed enhanced_rel_LUNCH_Lvl-1_2025_08_05.json in 0.02s
+2025-08-14 22:22:49,090 - INFO - Processing 47/57: enhanced_rel_MIDNIGHT_Lvl-1_2025_08_06.json
+2025-08-14 22:22:49,092 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:49,092 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:49,095 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:49,096 - INFO - ✅ Rich graph built: 22 nodes, 22 rich features
+2025-08-14 22:22:49,097 - INFO - ✅ Session metadata preserved: MIDNIGHT (00:00:00 - 00:29:00)
+2025-08-14 22:22:49,097 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 22:22:49,097 - INFO -    Constant features: ['fvg_redelivery_flag', 'reversal_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:49,097 - INFO -    Features for TGAT training: 25 (filtered from 47)
+2025-08-14 22:22:49,098 - INFO - ✅ Completed enhanced_rel_MIDNIGHT_Lvl-1_2025_08_06.json in 0.01s
+2025-08-14 22:22:49,099 - INFO - Processing 48/57: enhanced_rel_PREMARKET_Lvl-1_2025_07_24.json
+2025-08-14 22:22:49,099 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:49,099 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:49,102 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:49,103 - INFO - ✅ Rich graph built: 20 nodes, 20 rich features
+2025-08-14 22:22:49,104 - INFO - ✅ Session metadata preserved: PREMARKET (07:00:00 - 09:29:00)
+2025-08-14 22:22:49,104 - INFO - 🔍 TASK 4: Detected 23 constant features (variance=0)
+2025-08-14 22:22:49,104 - INFO -    Constant features: ['expansion_phase_flag', 'consolidation_flag', 'retracement_flag', 'reversal_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:49,104 - INFO -    Features for TGAT training: 24 (filtered from 47)
+2025-08-14 22:22:49,106 - INFO - ✅ Completed enhanced_rel_PREMARKET_Lvl-1_2025_07_24.json in 0.01s
+2025-08-14 22:22:49,106 - INFO - Processing 49/57: enhanced_rel_NYAM_Lvl-1_2025_08_07_FRESH.json
+2025-08-14 22:22:49,106 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:49,107 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:49,127 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:49,130 - INFO - ✅ Rich graph built: 62 nodes, 62 rich features
+2025-08-14 22:22:49,131 - INFO - ✅ Session metadata preserved: NY_AM (09:30:00 - 11:59:00)
+2025-08-14 22:22:49,132 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 22:22:49,132 - INFO -    Constant features: ['fvg_redelivery_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:49,132 - INFO -    Features for TGAT training: 25 (filtered from 47)
+2025-08-14 22:22:49,136 - INFO - ✅ Completed enhanced_rel_NYAM_Lvl-1_2025_08_07_FRESH.json in 0.03s
+2025-08-14 22:22:49,136 - INFO - Processing 50/57: enhanced_rel_LONDON_Lvl-1_2025_07_24.json
+2025-08-14 22:22:49,136 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:49,136 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:49,139 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:49,140 - INFO - ✅ Rich graph built: 20 nodes, 20 rich features
+2025-08-14 22:22:49,141 - INFO - ✅ Session metadata preserved: LONDON (02:00:00 - 04:59:00)
+2025-08-14 22:22:49,141 - INFO - 🔍 TASK 4: Detected 23 constant features (variance=0)
+2025-08-14 22:22:49,141 - INFO -    Constant features: ['expansion_phase_flag', 'consolidation_flag', 'retracement_flag', 'reversal_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:49,141 - INFO -    Features for TGAT training: 24 (filtered from 47)
+2025-08-14 22:22:49,143 - INFO - ✅ Completed enhanced_rel_LONDON_Lvl-1_2025_07_24.json in 0.01s
+2025-08-14 22:22:49,145 - INFO - Processing 51/57: enhanced_rel_LONDON_Lvl-1_2025_07_25.json
+2025-08-14 22:22:49,146 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:49,147 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:49,150 - WARNING - ⚠️ Event at 02:34:00 lacks relativity features - using basic calculations
+2025-08-14 22:22:49,152 - WARNING - ⚠️ Event at 03:08:00 lacks relativity features - using basic calculations
+2025-08-14 22:22:49,152 - WARNING - ⚠️ Event at 04:10:00 lacks relativity features - using basic calculations
+2025-08-14 22:22:49,160 - INFO - ✅ Created 2 structural context edges across archetype relationships
+2025-08-14 22:22:49,161 - INFO - ✅ Rich graph built: 29 nodes, 29 rich features
+2025-08-14 22:22:49,161 - INFO - ✅ Session metadata preserved: LONDON (02:00:00 - 04:59:00)
+2025-08-14 22:22:49,162 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 22:22:49,162 - INFO -    Constant features: ['consolidation_flag', 'retracement_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:49,162 - INFO -    Features for TGAT training: 27 (filtered from 47)
+2025-08-14 22:22:49,164 - INFO - ✅ Completed enhanced_rel_LONDON_Lvl-1_2025_07_25.json in 0.02s
+2025-08-14 22:22:49,164 - INFO - Processing 52/57: enhanced_rel_PREMARKET_Lvl-1_2025_07_25.json
+2025-08-14 22:22:49,165 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:49,165 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:49,166 - WARNING - ⚠️ Event at 07:43:00 lacks relativity features - using basic calculations
+2025-08-14 22:22:49,166 - WARNING - ⚠️ Event at 08:16:00 lacks relativity features - using basic calculations
+2025-08-14 22:22:49,170 - INFO - ✅ Created 4 structural context edges across archetype relationships
+2025-08-14 22:22:49,172 - INFO - ✅ Rich graph built: 28 nodes, 28 rich features
+2025-08-14 22:22:49,172 - INFO - ✅ Session metadata preserved: PREMARKET (07:00:00 - 09:29:00)
+2025-08-14 22:22:49,173 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 22:22:49,173 - INFO -    Constant features: ['consolidation_flag', 'reversal_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:49,173 - INFO -    Features for TGAT training: 27 (filtered from 47)
+2025-08-14 22:22:49,175 - INFO - ✅ Completed enhanced_rel_PREMARKET_Lvl-1_2025_07_25.json in 0.01s
+2025-08-14 22:22:49,175 - INFO - Processing 53/57: enhanced_rel_MIDNIGHT_Lvl-1_2025_08_07.json
+2025-08-14 22:22:49,175 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:49,176 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:49,180 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:49,182 - INFO - ✅ Rich graph built: 20 nodes, 20 rich features
+2025-08-14 22:22:49,183 - INFO - ✅ Session metadata preserved: MIDNIGHT (00:00:00 - 00:29:00)
+2025-08-14 22:22:49,185 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 22:22:49,186 - INFO -    Constant features: ['fvg_redelivery_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:49,187 - INFO -    Features for TGAT training: 25 (filtered from 47)
+2025-08-14 22:22:49,190 - INFO - ✅ Completed enhanced_rel_MIDNIGHT_Lvl-1_2025_08_07.json in 0.01s
+2025-08-14 22:22:49,190 - INFO - Processing 54/57: enhanced_rel_LUNCH_Lvl-1_2025_08_04.json
+2025-08-14 22:22:49,192 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:49,192 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:49,200 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:49,202 - INFO - ✅ Rich graph built: 43 nodes, 43 rich features
+2025-08-14 22:22:49,203 - INFO - ✅ Session metadata preserved: LUNCH (12:00:00 - 12:59:00)
+2025-08-14 22:22:49,203 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 22:22:49,204 - INFO -    Constant features: ['fvg_redelivery_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:49,204 - INFO -    Features for TGAT training: 25 (filtered from 47)
+2025-08-14 22:22:49,206 - INFO - ✅ Completed enhanced_rel_LUNCH_Lvl-1_2025_08_04.json in 0.02s
+2025-08-14 22:22:49,206 - INFO - Processing 55/57: enhanced_rel_PREMARKET_Lvl-1_2025_07_29.json
+2025-08-14 22:22:49,207 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:49,207 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:49,209 - WARNING - ⚠️ Event at 08:39:00 lacks relativity features - using basic calculations
+2025-08-14 22:22:49,218 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:49,221 - INFO - ✅ Rich graph built: 37 nodes, 37 rich features
+2025-08-14 22:22:49,222 - INFO - ✅ Session metadata preserved: PREMARKET (07:00:00 - 09:29:00)
+2025-08-14 22:22:49,224 - INFO - 🔍 TASK 4: Detected 20 constant features (variance=0)
+2025-08-14 22:22:49,224 - INFO -    Constant features: ['consolidation_flag', 'retracement_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence']
+2025-08-14 22:22:49,225 - INFO -    Features for TGAT training: 27 (filtered from 47)
+2025-08-14 22:22:49,227 - INFO - ✅ Completed enhanced_rel_PREMARKET_Lvl-1_2025_07_29.json in 0.02s
+2025-08-14 22:22:49,228 - INFO - Processing 56/57: enhanced_rel_ASIA_Lvl-1_2025_08_06.json
+2025-08-14 22:22:49,228 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:49,228 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:49,233 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:49,235 - INFO - ✅ Rich graph built: 31 nodes, 31 rich features
+2025-08-14 22:22:49,235 - INFO - ✅ Session metadata preserved: ASIA (19:00:00 - 23:59:00)
+2025-08-14 22:22:49,235 - INFO - 🔍 TASK 4: Detected 21 constant features (variance=0)
+2025-08-14 22:22:49,236 - INFO -    Constant features: ['fvg_redelivery_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:49,236 - INFO -    Features for TGAT training: 26 (filtered from 47)
+2025-08-14 22:22:49,238 - INFO - ✅ Completed enhanced_rel_ASIA_Lvl-1_2025_08_06.json in 0.01s
+2025-08-14 22:22:49,238 - INFO - Processing 57/57: enhanced_rel_NY_AM_Lvl-1_2025_08_05.json
+2025-08-14 22:22:49,238 - INFO - 🔍 Building rich multi-timeframe graph...
+2025-08-14 22:22:49,239 - INFO - 📊 Using standard 1m-only mode
+2025-08-14 22:22:49,262 - INFO - ✅ Created 0 structural context edges across archetype relationships
+2025-08-14 22:22:49,265 - INFO - ✅ Rich graph built: 64 nodes, 64 rich features
+2025-08-14 22:22:49,265 - INFO - ✅ Session metadata preserved: NY_AM (09:30:00 - 11:59:00)
+2025-08-14 22:22:49,266 - INFO - 🔍 TASK 4: Detected 22 constant features (variance=0)
+2025-08-14 22:22:49,267 - INFO -    Constant features: ['fvg_redelivery_flag', 'liq_sweep_flag', 'pd_array_interaction_flag', 'day_of_week', 'month_phase', 'week_of_month', 'month_of_year', 'day_of_week_cycle', 'week_position', 'session_day_alignment', 'volume_intensity', 'contamination_level', 'structural_quality', 'cross_tf_confluence', 'temporal_echo_strength', 'scaling_factor', 'temporal_stability', 'discovery_epoch', 'discovery_confidence', 'pattern_permanence', 'validation_score', 'temporal_context']
+2025-08-14 22:22:49,267 - INFO -    Features for TGAT training: 25 (filtered from 47)
+2025-08-14 22:22:49,271 - INFO - ✅ Completed enhanced_rel_NY_AM_Lvl-1_2025_08_05.json in 0.03s
+2025-08-14 22:22:49,272 - INFO - 🎯 Analysis complete: 57/57 sessions processed
+2025-08-14 22:22:49,272 - INFO - ⏱️ Total time: 1.17s, Average: 0.02s/session
+2025-08-14 22:22:49,272 - INFO - 📊 Generating enhanced pattern correlation visualizations...
+2025-08-14 22:22:58,779 - INFO - 📊 Enhanced pattern correlation visualizations generated
+2025-08-14 22:22:58,779 - INFO - 📋 Enhanced summary CSV saved to results/session_patterns_summary.csv
+2025-08-14 22:22:58,780 - INFO - 📝 Generating analysis reports...
+2025-08-14 22:22:58,781 - INFO - 📝 Comprehensive report saved to reports/comprehensive_analysis_report.txt
+2025-08-14 22:22:58,910 - INFO - ✅ Complete analysis finished!
+2025-08-14 22:22:58,911 - INFO - 📊 Check visualizations/ for graphs
+2025-08-14 22:22:58,911 - INFO - 📝 Check reports/ for detailed analysis
+2025-08-14 22:22:58,911 - INFO - 📋 Check results/ for raw data and CSV summary

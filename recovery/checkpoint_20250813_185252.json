@@ -1,0 +1,10 @@
+{
+  "checkpoint_id": "checkpoint_20250813_185252",
+  "timestamp": "2025-08-13 18:52:53.905899",
+  "session_states": [],
+  "system_state": {
+    "active_sessions": 0,
+    "workspace_root": "/Users/jack/IRONPULSE"
+  },
+  "preservation_backup_path": "/Users/jack/IRONPULSE/IRONFORGE/recovery/backups/checkpoint_20250813_185252"
+}
