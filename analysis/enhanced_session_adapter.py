@@ -170,7 +170,7 @@ class EnhancedSessionAdapter:
         
         # Extract events from session_liquidity_events
         liquidity_events = self._extract_liquidity_events(
-            session_data.get('session_liquidity_events', [])
+            session_data.get('session_liquidity_events', []), session_data
         )
         archaeological_events.extend(liquidity_events)
         
@@ -262,7 +262,44 @@ class EnhancedSessionAdapter:
         
         return events
     
-    def _extract_liquidity_events(self, liquidity_events: List[Dict]) -> List[Dict]:
+    def _resolve_target_level_to_price(self, target_level: str, session_data: Dict) -> float:
+        """Resolve target_level string to actual price value"""
+        if not target_level:
+            return None
+            
+        # Get relativity stats for session extremes
+        relativity_stats = session_data.get('relativity_stats', {})
+        
+        # Direct mapping for exact matches
+        level_mapping = {
+            'session_open': relativity_stats.get('session_open'),
+            'session_close': relativity_stats.get('session_close'),
+            'session_high': relativity_stats.get('session_high'),
+            'session_low': relativity_stats.get('session_low'),
+            'session_session_high': relativity_stats.get('session_high'),
+            'session_session_low': relativity_stats.get('session_low'),
+        }
+        
+        # Check for exact matches first
+        exact_match = level_mapping.get(target_level)
+        if exact_match is not None:
+            return exact_match
+            
+        # Check for partial matches in target_level string
+        target_lower = target_level.lower()
+        if 'session_high' in target_lower or 'high' in target_lower:
+            return relativity_stats.get('session_high')
+        elif 'session_low' in target_lower or 'low' in target_lower:
+            return relativity_stats.get('session_low')
+        elif 'session_open' in target_lower or 'open' in target_lower:
+            return relativity_stats.get('session_open')
+        elif 'session_close' in target_lower or 'close' in target_lower:
+            return relativity_stats.get('session_close')
+            
+        # Return None if no mapping found (will be handled gracefully)
+        return None
+    
+    def _extract_liquidity_events(self, liquidity_events: List[Dict], session_data: Dict = None) -> List[Dict]:
         """Extract archaeological events from session_liquidity_events array"""
         events = []
         
@@ -278,6 +315,12 @@ class EnhancedSessionAdapter:
             # Use intensity as primary magnitude source
             magnitude = liq_event.get('intensity', 0.5)
             
+            # Resolve price level from target_level if price_level is not available
+            price_level = liq_event.get('price_level')
+            if price_level is None and session_data:
+                target_level = liq_event.get('target_level')
+                price_level = self._resolve_target_level_to_price(target_level, session_data)
+            
             # Calculate archaeological significance
             archaeological_significance = self._calculate_archaeological_significance(
                 0.5, original_type, magnitude  # Default range position for liquidity events
@@ -290,7 +333,8 @@ class EnhancedSessionAdapter:
                 'magnitude': magnitude,
                 'value': magnitude,  # Use intensity as value
                 'timestamp': liq_event.get('timestamp'),
-                'price_level': liq_event.get('price_level'),
+                'price_level': price_level,
+                'absolute_price': price_level,  # Use same value for absolute_price
                 'duration': liq_event.get('impact_duration', 60),
                 'range_position': liq_event.get('range_position', 0.5),
                 'htf_confluence': liq_event.get('htf_confluence', 0.5),
@@ -300,6 +344,7 @@ class EnhancedSessionAdapter:
                 'impact_duration': liq_event.get('impact_duration', 60),
                 'liquidity_type': liq_event.get('liquidity_type', 'unknown'),
                 'sweep_direction': liq_event.get('sweep_direction', 'unknown'),
+                'target_level': liq_event.get('target_level', 'unknown'),
                 
                 # Archaeological analysis
                 'archaeological_significance': archaeological_significance,
@@ -400,7 +445,7 @@ class EnhancedSessionAdapter:
         session_low = relativity_stats.get('session_low', 0)
         session_range = relativity_stats.get('session_range', 0)
         
-        if session_range <= 0:
+        if session_range is None or session_range <= 0:
             return zone_events
         
         # Define archaeological zone levels (Theory B)
@@ -413,8 +458,8 @@ class EnhancedSessionAdapter:
         
         # Check events for archaeological zone proximity
         for event in events:
-            price_level = event.get('price_level', 0)
-            if price_level <= 0:
+            price_level = event.get('price_level')
+            if price_level is None or price_level <= 0:
                 continue
             
             # Find closest archaeological zone

@@ -1,0 +1,18 @@
+{
+  "metadata": {
+    "export_timestamp": "2025-08-15T23:11:33.473867",
+    "total_events": 0,
+    "sessions_analyzed": 57,
+    "timeframes_covered": [
+      "1m",
+      "5m",
+      "15m",
+      "50m",
+      "1h",
+      "daily",
+      "weekly",
+      "monthly"
+    ]
+  },
+  "events": []
+}
