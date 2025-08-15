@@ -1,0 +1,329 @@
+{
+  "analysis_metadata": {
+    "analysis_type": "top_convergence_discovery",
+    "sessions_analyzed": 57,
+    "nodes_found": 15,
+    "min_convergence_threshold": 0.4
+  },
+  "top_nodes": [
+    {
+      "node_id": "2025-08-05_NY_AM",
+      "session_date": "2025-08-05",
+      "session_type": "NY_AM",
+      "convergence_score": 0.8330000000000001,
+      "htf_carryover_strength": 0.99,
+      "cross_session_inheritance": 0.98,
+      "energy_density": 0.95,
+      "phase_transitions": 0,
+      "momentum_strength": 0.0,
+      "total_fpfvg_interactions": 14,
+      "cascade_events_count": 0,
+      "high_momentum_events": 0,
+      "total_price_events": 48,
+      "energy_accumulation": {},
+      "historical_influences": [
+        "three_day_fpfvg_influence"
+      ],
+      "session_file": "enhanced_rel_NY_AM_Lvl-1_2025_08_05.json"
+    },
+    {
+      "node_id": "2025-08-06_PREMARKET",
+      "session_date": "2025-08-06",
+      "session_type": "PREMARKET",
+      "convergence_score": 0.8048403826101046,
+      "htf_carryover_strength": 0.96,
+      "cross_session_inheritance": 0.94,
+      "energy_density": 0.8942019130505228,
+      "phase_transitions": 0,
+      "momentum_strength": 0.0,
+      "total_fpfvg_interactions": 16,
+      "cascade_events_count": 0,
+      "high_momentum_events": 0,
+      "total_price_events": 23,
+      "energy_accumulation": {},
+      "historical_influences": [
+        "london_session_influence",
+        "previous_day_lunch_influence",
+        "midnight_opening_range_influence",
+        "three_day_historical_influence"
+      ],
+      "session_file": "enhanced_rel_PREMARKET_Lvl-1_2025_08_06.json"
+    },
+    {
+      "node_id": "2025-08-06_NYAM",
+      "session_date": "2025-08-06",
+      "session_type": "NYAM",
+      "convergence_score": 0.7965000000000001,
+      "htf_carryover_strength": 0.92,
+      "cross_session_inheritance": 0.89,
+      "energy_density": 0.95,
+      "phase_transitions": 0,
+      "momentum_strength": 0.0,
+      "total_fpfvg_interactions": 19,
+      "cascade_events_count": 0,
+      "high_momentum_events": 1,
+      "total_price_events": 44,
+      "energy_accumulation": {},
+      "historical_influences": [
+        "previous_day_influence"
+      ],
+      "session_file": "enhanced_rel_NYAM_Lvl-1_2025_08_06.json"
+    },
+    {
+      "node_id": "2025-08-05_PREMARKET",
+      "session_date": "2025-08-05",
+      "session_type": "PREMARKET",
+      "convergence_score": 0.768949591640733,
+      "htf_carryover_strength": 0.95,
+      "cross_session_inheritance": 0.92,
+      "energy_density": 0.8997479582036649,
+      "phase_transitions": 0,
+      "momentum_strength": 0.0,
+      "total_fpfvg_interactions": 8,
+      "cascade_events_count": 0,
+      "high_momentum_events": 0,
+      "total_price_events": 35,
+      "energy_accumulation": {},
+      "historical_influences": [],
+      "session_file": "enhanced_rel_PREMARKET_Lvl-1_2025_08_05.json"
+    },
+    {
+      "node_id": "2025-08-06_LUNCH",
+      "session_date": "2025-08-06",
+      "session_type": "LUNCH",
+      "convergence_score": 0.7185689716676857,
+      "htf_carryover_strength": 0.81,
+      "cross_session_inheritance": 0.76,
+      "energy_density": 0.8678448583384286,
+      "phase_transitions": 0,
+      "momentum_strength": 0.0,
+      "total_fpfvg_interactions": 12,
+      "cascade_events_count": 0,
+      "high_momentum_events": 0,
+      "total_price_events": 26,
+      "energy_accumulation": {},
+      "historical_influences": [
+        "previous_day_influence"
+      ],
+      "session_file": "enhanced_rel_LUNCH_Lvl-1_2025_08_06.json"
+    },
+    {
+      "node_id": "2025-08-05_NY_PM",
+      "session_date": "2025-08-05",
+      "session_type": "NY_PM",
+      "convergence_score": 0.7142123865590988,
+      "htf_carryover_strength": 0.92,
+      "cross_session_inheritance": 0.89,
+      "energy_density": 0.926061932795494,
+      "phase_transitions": 0,
+      "momentum_strength": 0.0,
+      "total_fpfvg_interactions": 5,
+      "cascade_events_count": 0,
+      "high_momentum_events": 0,
+      "total_price_events": 54,
+      "energy_accumulation": {},
+      "historical_influences": [
+        "lunch_session_influence"
+      ],
+      "session_file": "enhanced_rel_NY_PM_Lvl-1_2025_08_05.json"
+    },
+    {
+      "node_id": "2025-08-06_NYPM",
+      "session_date": "2025-08-06",
+      "session_type": "NYPM",
+      "convergence_score": 0.7009793278710187,
+      "htf_carryover_strength": 0.79,
+      "cross_session_inheritance": 0.72,
+      "energy_density": 0.8498966393550934,
+      "phase_transitions": 0,
+      "momentum_strength": 0.0,
+      "total_fpfvg_interactions": 11,
+      "cascade_events_count": 0,
+      "high_momentum_events": 0,
+      "total_price_events": 37,
+      "energy_accumulation": {},
+      "historical_influences": [
+        "previous_day_influence"
+      ],
+      "session_file": "enhanced_rel_NYPM_Lvl-1_2025_08_06.json"
+    },
+    {
+      "node_id": "2025-08-07_NYAM",
+      "session_date": "2025-08-07",
+      "session_type": "NYAM",
+      "convergence_score": 0.7006623168298283,
+      "htf_carryover_strength": 0.85,
+      "cross_session_inheritance": 0.78,
+      "energy_density": 0.9233115841491409,
+      "phase_transitions": 0,
+      "momentum_strength": 0.0,
+      "total_fpfvg_interactions": 7,
+      "cascade_events_count": 0,
+      "high_momentum_events": 0,
+      "total_price_events": 52,
+      "energy_accumulation": {},
+      "historical_influences": [
+        "premarket_influence",
+        "asia_influence",
+        "london_influence",
+        "midnight_influence"
+      ],
+      "session_file": "enhanced_rel_NYAM_Lvl-1_2025_08_07_FRESH.json"
+    },
+    {
+      "node_id": "2025-08-06_LONDON",
+      "session_date": "2025-08-06",
+      "session_type": "LONDON",
+      "convergence_score": 0.6962418926934942,
+      "htf_carryover_strength": 0.82,
+      "cross_session_inheritance": 0.78,
+      "energy_density": 0.8712094634674707,
+      "phase_transitions": 0,
+      "momentum_strength": 0.0,
+      "total_fpfvg_interactions": 8,
+      "cascade_events_count": 0,
+      "high_momentum_events": 0,
+      "total_price_events": 21,
+      "energy_accumulation": {},
+      "historical_influences": [
+        "previous_day_pm_session_influence",
+        "previous_day_lunch_influence",
+        "midnight_opening_range_influence"
+      ],
+      "session_file": "enhanced_rel_LONDON_Lvl-1_2025_08_06.json"
+    },
+    {
+      "node_id": "2025-08-07_LONDON",
+      "session_date": "2025-08-07",
+      "session_type": "LONDON",
+      "convergence_score": 0.6624924361071387,
+      "htf_carryover_strength": 0.74,
+      "cross_session_inheritance": 0.67,
+      "energy_density": 0.8574621805356933,
+      "phase_transitions": 0,
+      "momentum_strength": 0.0,
+      "total_fpfvg_interactions": 9,
+      "cascade_events_count": 0,
+      "high_momentum_events": 0,
+      "total_price_events": 39,
+      "energy_accumulation": {},
+      "historical_influences": [],
+      "session_file": "enhanced_rel_LONDON_Lvl-1_2025_08_07.json"
+    },
+    {
+      "node_id": "2025-08-04_NY_PM",
+      "session_date": "2025-08-04",
+      "session_type": "NY_PM",
+      "convergence_score": 0.6073823132268018,
+      "htf_carryover_strength": 0.85,
+      "cross_session_inheritance": 0.9,
+      "energy_density": 0.8619115661340085,
+      "phase_transitions": 0,
+      "momentum_strength": 0.0,
+      "total_fpfvg_interactions": 0,
+      "cascade_events_count": 0,
+      "high_momentum_events": 0,
+      "total_price_events": 22,
+      "energy_accumulation": {},
+      "historical_influences": [
+        "previous_day_fpfvg_influence"
+      ],
+      "session_file": "enhanced_rel_NY_PM_Lvl-1_2025_08_04.json"
+    },
+    {
+      "node_id": "2025-08-06_ASIA",
+      "session_date": "2025-08-06",
+      "session_type": "ASIA",
+      "convergence_score": 0.5859544556212071,
+      "htf_carryover_strength": 0.68,
+      "cross_session_inheritance": 0.62,
+      "energy_density": 0.8397722781060354,
+      "phase_transitions": 0,
+      "momentum_strength": 0.0,
+      "total_fpfvg_interactions": 6,
+      "cascade_events_count": 0,
+      "high_momentum_events": 0,
+      "total_price_events": 16,
+      "energy_accumulation": {},
+      "historical_influences": [
+        "three_day_historical_influence"
+      ],
+      "session_file": "enhanced_rel_ASIA_Lvl-1_2025_08_06.json"
+    },
+    {
+      "node_id": "2025-08-07_ASIA",
+      "session_date": "2025-08-07",
+      "session_type": "ASIA",
+      "convergence_score": 0.5063455592632318,
+      "htf_carryover_strength": 0.71,
+      "cross_session_inheritance": 0.58,
+      "energy_density": 0.8867277963161592,
+      "phase_transitions": 0,
+      "momentum_strength": 0.0,
+      "total_fpfvg_interactions": 0,
+      "cascade_events_count": 0,
+      "high_momentum_events": 0,
+      "total_price_events": 40,
+      "energy_accumulation": {},
+      "historical_influences": [],
+      "session_file": "enhanced_rel_ASIA_Lvl-1_2025_08_07.json"
+    },
+    {
+      "node_id": "2025-08-05_LONDON",
+      "session_date": "2025-08-05",
+      "session_type": "LONDON",
+      "convergence_score": 0.4842025109869047,
+      "htf_carryover_strength": 0.85,
+      "cross_session_inheritance": 0.0,
+      "energy_density": 0.8460125549345234,
+      "phase_transitions": 0,
+      "momentum_strength": 0.0,
+      "total_fpfvg_interactions": 4,
+      "cascade_events_count": 0,
+      "high_momentum_events": 0,
+      "total_price_events": 36,
+      "energy_accumulation": {},
+      "historical_influences": [
+        "cross_session_fpfvg_influence"
+      ],
+      "session_file": "enhanced_rel_LONDON_Lvl-1_2025_08_05.json"
+    },
+    {
+      "node_id": "2025-08-04_NY_AM",
+      "session_date": "2025-08-04",
+      "session_type": "NY_AM",
+      "convergence_score": 0.40914061684833225,
+      "htf_carryover_strength": 0.75,
+      "cross_session_inheritance": 0.0,
+      "energy_density": 0.9207030842416615,
+      "phase_transitions": 0,
+      "momentum_strength": 0.0,
+      "total_fpfvg_interactions": 0,
+      "cascade_events_count": 0,
+      "high_momentum_events": 0,
+      "total_price_events": 82,
+      "energy_accumulation": {},
+      "historical_influences": [
+        "nwog_influence_on_session"
+      ],
+      "session_file": "enhanced_rel_NY_AM_Lvl-1_2025_08_04.json"
+    }
+  ],
+  "convergence_summary": {
+    "highest_score": 0.8330000000000001,
+    "highest_htf_carryover": 0.99,
+    "avg_convergence_score": 0.6659648507950386,
+    "nodes_with_energy_accumulation": 0,
+    "nodes_with_cascade_events": 0,
+    "session_type_distribution": {
+      "NY_AM": 2,
+      "PREMARKET": 2,
+      "NYAM": 2,
+      "LUNCH": 1,
+      "NY_PM": 2,
+      "NYPM": 1,
+      "LONDON": 3,
+      "ASIA": 2
+    }
+  }
+}

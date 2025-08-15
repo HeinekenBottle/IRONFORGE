@@ -214,19 +214,19 @@ class EventClassifier:
                 "context_markers": ["acceleration", "momentum", "building"],
                 "range_preference": [35.0, 45.0],  # 40% zone
                 "timing_preference": [100.0, 150.0],
-                "event_types": [EventType.EXPANSION_PHASE, EventType.SWEEP_ACCELERATION]
+                "event_types": [EventType.EXPANSION_PHASE, EventType.SWEEP_DOUBLE]
             },
             LiquidityArchetype.EQUILIBRIUM_BALANCE.value: {
                 "context_markers": ["equilibrium", "balance", "middle"],
                 "range_preference": [55.0, 65.0],  # 60% zone
                 "timing_preference": [80.0, 160.0],
-                "event_types": [EventType.PD_EQUILIBRIUM_TEST, EventType.FVG_EQUILIBRIUM]
+                "event_types": [EventType.PD_EQUILIBRIUM_TEST, EventType.FVG_FIRST_PRESENTED]
             },
             LiquidityArchetype.COMPLETION_EXHAUSTION.value: {
                 "context_markers": ["completion", "exhaustion", "final"],
                 "range_preference": [75.0, 85.0],  # 80% zone
                 "timing_preference": [140.0, 190.0],
-                "event_types": [EventType.SWEEP_COMPLETION, EventType.REVERSAL_POINT]
+                "event_types": [EventType.SWEEP_DOUBLE, EventType.REVERSAL_POINT]
             }
         }
         

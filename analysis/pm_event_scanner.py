@@ -3,12 +3,12 @@
 IRONFORGE PM Event Scanner
 ==========================
 
-Scans PM sessions for events occurring at minute_offset 126-129 (37-38 minutes into session)
+Scans PM sessions for events occurring at minute_offset 66-68 (14:36-14:38 PM)
 that last 2.5-3.5 minutes and are followed by significant directional moves within 10-15 minutes.
 
 Data Structure Mapping:
 - PM sessions start at 13:30 ET (time_minutes=0)
-- Target window: 126-129 minutes = 15:36-15:39 ET  
+- Target window: 66-68 minutes = 14:36-14:38 ET  
 - Events stored in rich_node_features with time_minutes, raw_json context
 - Sequential events allow duration calculation
 """
@@ -100,16 +100,16 @@ class PMEventScanner:
         self.pm_sessions = self._discover_pm_sessions()
         
         # Analysis parameters
-        self.target_window_start = 126  # minutes
-        self.target_window_end = 129    # minutes
-        self.min_event_duration = 2.5  # minutes
+        self.target_window_start = 65   # minutes (14:35 PM)
+        self.target_window_end = 68     # minutes (14:38 PM)
+        self.min_event_duration = 1.5  # minutes (reduced for narrower window)
         self.max_event_duration = 3.5  # minutes
         self.directional_move_window = 15  # minutes to look ahead
         self.min_directional_move_window = 10  # minimum time before checking
         
         print(f"🕒 PM Event Scanner initialized")
         print(f"  PM sessions found: {len(self.pm_sessions)}")
-        print(f"  Target window: {self.target_window_start}-{self.target_window_end} minutes")
+        print(f"  Target window: {self.target_window_start}-{self.target_window_end} minutes (14:35-14:38 PM)")
     
     def _discover_pm_sessions(self) -> List[Path]:
         """Discover all PM session files"""
@@ -128,7 +128,7 @@ class PMEventScanner:
     
     def scan_all_pm_sessions(self) -> List[PMEventPattern]:
         """Scan all PM sessions for target events"""
-        print(f"🔍 Scanning {len(self.pm_sessions)} PM sessions for 126-129 minute events...")
+        print(f"🔍 Scanning {len(self.pm_sessions)} PM sessions for 65-68 minute events (14:35-14:38 PM)...")
         
         all_patterns = []
         
@@ -301,7 +301,7 @@ class PMEventScanner:
     
     def _extract_float_field(self, feature_str: str, field_name: str, default: float = 0.0) -> float:
         """Extract float field from feature string"""
-        pattern = f'{field_name}=([-\d.e]+)'
+        pattern = f'{field_name}=([-\\d.e]+)'
         match = re.search(pattern, feature_str)
         if match:
             try:

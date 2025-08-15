@@ -1,0 +1,23 @@
+{
+  "analysis_metadata": {
+    "analysis_timestamp": "2025-08-15T19:42:46.788954",
+    "total_sessions_analyzed": 57,
+    "convergence_nodes_found": 138,
+    "significant_convergences": 0
+  },
+  "convergence_statistics": {
+    "total_nodes": 138,
+    "significant_nodes": 0,
+    "significance_rate": 0.0,
+    "avg_convergence_strength": 0.546576811594203,
+    "avg_htf_carryover": 0.7641304347826087,
+    "avg_cross_session_inheritance": 0.5203623188405796,
+    "avg_phase_transitions": 0.0,
+    "max_convergence_strength": 0.7944,
+    "max_htf_carryover": 0.99,
+    "max_phase_transitions": 0
+  },
+  "pattern_insights": {},
+  "top_convergence_nodes": [],
+  "detailed_convergences": []
+}

@@ -1,0 +1,85 @@
+{
+  "analysis_metadata": {
+    "total_phenomena_analyzed": 1,
+    "analysis_timestamp": "2025-08-15T19:50:22.769554",
+    "blast_radius_window": "-5m to +15m",
+    "cross_session_lookback": 2
+  },
+  "event_table": [
+    {
+      "phenomenon_id": "PM_2025-08-05_65.0_blast",
+      "session_date": "2025-08-05",
+      "time_window": "65.0-67.0",
+      "duration": 2.0,
+      "range_level": "40_percent_sweep_acceleration",
+      "liquidity_archetype": "fpfvg_redelivery",
+      "htf_confluence": "absent",
+      "significance_score": 0.08625000000000001,
+      "archaeological_match": null,
+      "move_confirmed": true,
+      "post_move_type": "no_move",
+      "predictive_confidence": 0.065
+    }
+  ],
+  "blast_radius_map": {
+    "avg_pre_event_count": 0.0,
+    "avg_post_event_count": 0.0,
+    "common_microstructural_transitions": {},
+    "liquidity_sweep_frequency": 0.0,
+    "fvg_event_frequency": 0.0,
+    "htf_interaction_frequency": 0.0
+  },
+  "evolution_summary": {
+    "cross_session_patterns": 0,
+    "avg_recurrence_rate": 0,
+    "avg_continuation_probability": 0,
+    "predictive_tendencies": {
+      "high_confidence_phenomena": 0,
+      "archaeological_matches": 0,
+      "consistent_move_patterns": 0
+    }
+  },
+  "aggregate_insights": {
+    "avg_significance_score": 0.08625000000000001,
+    "avg_archaeological_match_score": 0.15,
+    "avg_predictive_confidence": 0.065,
+    "most_common_archetype": "fpfvg_redelivery",
+    "most_common_range_level": "40_percent_sweep_acceleration",
+    "move_confirmation_rate": 1.0
+  },
+  "detailed_phenomena": [
+    {
+      "phenomenon_id": "PM_2025-08-05_65.0_blast",
+      "core_event": {
+        "session_date": "2025-08-05",
+        "cluster_start_minute": 65.0,
+        "cluster_duration": 2.0,
+        "primary_event_type": "expansion",
+        "pattern_strength": 0.7
+      },
+      "classification": {
+        "event_type": "consolidation_range",
+        "range_level": "40_percent_sweep_acceleration",
+        "liquidity_archetype": "fpfvg_redelivery",
+        "htf_confluence_status": "absent",
+        "confidence_score": 0.8500000000000001
+      },
+      "blast_radius": {
+        "pre_event_activities": 0,
+        "post_event_activities": 0,
+        "microstructural_transitions": []
+      },
+      "post_impact": {
+        "move_classification": "no_move",
+        "magnitude_score": 0.0,
+        "velocity_score": 0.0,
+        "exhaustion_score": 1.0
+      },
+      "scores": {
+        "significance_score": 0.08625000000000001,
+        "archaeological_match_score": 0.15,
+        "predictive_confidence": 0.065
+      }
+    }
+  ]
+}

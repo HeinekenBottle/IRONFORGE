@@ -1,0 +1,33 @@
+{
+  "test_timestamp": "2025-08-15T21:20:19.064342",
+  "test_type": "simplified_archaeology_test",
+  "input_data": {
+    "total_events": 80,
+    "sessions": 4,
+    "timeframes": 5,
+    "event_types": 4
+  },
+  "lattice_mapping": {
+    "lattice_points": 80,
+    "nodes": 10,
+    "connections": 2
+  },
+  "temporal_clustering": {
+    "clusters": 28,
+    "time_clusters": 18,
+    "position_clusters": 10
+  },
+  "structural_analysis": {
+    "structural_links": 88,
+    "cascade_chains": 308,
+    "sessions_analyzed": 4
+  },
+  "success_metrics": {
+    "lattice_density": 0.125,
+    "clustering_coverage": 3.5,
+    "link_density": 1.1,
+    "cascade_detection_rate": 38.5
+  },
+  "overall_success_score": 0.78125,
+  "test_status": "PASS"
+}

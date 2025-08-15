@@ -1,0 +1,242 @@
+{
+  "analysis_metadata": {
+    "detector_version": "1.0",
+    "patterns_analyzed": 560,
+    "range_signatures": {
+      "20%": {
+        "primary_events": [
+          "buy_side_sweep",
+          "fvg_redelivery"
+        ],
+        "pd_array_interaction": true,
+        "htf_confluence_rate": 1.0,
+        "avg_evolution_strength": 0.92,
+        "velocity_consistency": 0.68,
+        "continuation_probability": 1.0
+      },
+      "40%": {
+        "primary_events": [
+          "double_sweep",
+          "fvg_continuation"
+        ],
+        "pd_array_interaction": true,
+        "htf_confluence_rate": 1.0,
+        "avg_evolution_strength": 0.89,
+        "velocity_consistency": 1.0,
+        "continuation_probability": 1.0
+      },
+      "60%": {
+        "primary_events": [
+          "fvg_first_presented",
+          "equilibrium_test"
+        ],
+        "pd_array_interaction": true,
+        "htf_confluence_rate": 1.0,
+        "avg_evolution_strength": 0.93,
+        "velocity_consistency": 0.89,
+        "continuation_probability": 1.0
+      },
+      "80%": {
+        "primary_events": [
+          "double_sweep",
+          "range_consolidation"
+        ],
+        "pd_array_interaction": true,
+        "htf_confluence_rate": 1.0,
+        "avg_evolution_strength": 0.92,
+        "velocity_consistency": 1.0,
+        "continuation_probability": 1.0
+      }
+    }
+  },
+  "range_event_analysis": {
+    "20%": {
+      "total_events": 206,
+      "event_distribution": {
+        "fvg_redelivery": 47,
+        "premium_rejection": 84,
+        "buy_side_sweep": 51,
+        "accumulation": 22,
+        "momentum_expansion": 2
+      },
+      "event_frequencies": {
+        "fvg_redelivery": 0.22815533980582525,
+        "premium_rejection": 0.4077669902912621,
+        "buy_side_sweep": 0.24757281553398058,
+        "accumulation": 0.10679611650485436,
+        "momentum_expansion": 0.009708737864077669
+      },
+      "avg_pattern_strength": 0.5,
+      "htf_confluence_rate": 1.0,
+      "temporal_echo_rate": 1.0,
+      "avg_evolution_strength": 0.5,
+      "avg_archaeological_significance": 0.30546755237608586,
+      "session_phase_distribution": {
+        "session_closing": 206
+      },
+      "dominant_event_types": [
+        "premium_rejection",
+        "buy_side_sweep",
+        "fvg_redelivery"
+      ]
+    },
+    "40%": {
+      "total_events": 168,
+      "event_distribution": {
+        "fvg_continuation": 39,
+        "discount_acceptance": 68,
+        "double_sweep": 43,
+        "distribution": 18
+      },
+      "event_frequencies": {
+        "fvg_continuation": 0.23214285714285715,
+        "discount_acceptance": 0.40476190476190477,
+        "double_sweep": 0.25595238095238093,
+        "distribution": 0.10714285714285714
+      },
+      "avg_pattern_strength": 0.5,
+      "htf_confluence_rate": 1.0,
+      "temporal_echo_rate": 1.0,
+      "avg_evolution_strength": 0.5,
+      "avg_archaeological_significance": 0.2796992481203007,
+      "session_phase_distribution": {
+        "session_closing": 168
+      },
+      "dominant_event_types": [
+        "discount_acceptance",
+        "double_sweep",
+        "fvg_continuation"
+      ]
+    },
+    "50%": {
+      "total_events": 177,
+      "event_distribution": {
+        "fvg_continuation": 33,
+        "premium_rejection": 68,
+        "buy_side_sweep": 43,
+        "distribution": 25,
+        "momentum_expansion": 8
+      },
+      "event_frequencies": {
+        "fvg_continuation": 0.1864406779661017,
+        "premium_rejection": 0.384180790960452,
+        "buy_side_sweep": 0.24293785310734464,
+        "distribution": 0.14124293785310735,
+        "momentum_expansion": 0.04519774011299435
+      },
+      "avg_pattern_strength": 0.5,
+      "htf_confluence_rate": 1.0,
+      "temporal_echo_rate": 1.0,
+      "avg_evolution_strength": 0.5,
+      "avg_archaeological_significance": 0.2864010308256517,
+      "session_phase_distribution": {
+        "session_closing": 177
+      },
+      "dominant_event_types": [
+        "premium_rejection",
+        "buy_side_sweep",
+        "fvg_continuation"
+      ]
+    },
+    "60%": {
+      "total_events": 138,
+      "event_distribution": {
+        "fvg_first_presented": 33,
+        "equilibrium_test": 54,
+        "sell_side_sweep": 31,
+        "distribution": 16,
+        "breakout_expansion": 4
+      },
+      "event_frequencies": {
+        "fvg_first_presented": 0.2391304347826087,
+        "equilibrium_test": 0.391304347826087,
+        "sell_side_sweep": 0.2246376811594203,
+        "distribution": 0.11594202898550725,
+        "breakout_expansion": 0.028985507246376812
+      },
+      "avg_pattern_strength": 0.5,
+      "htf_confluence_rate": 1.0,
+      "temporal_echo_rate": 1.0,
+      "avg_evolution_strength": 0.5,
+      "avg_archaeological_significance": 0.2577930333079075,
+      "session_phase_distribution": {
+        "session_closing": 138
+      },
+      "dominant_event_types": [
+        "equilibrium_test",
+        "fvg_first_presented",
+        "sell_side_sweep"
+      ]
+    },
+    "85%": {
+      "total_events": 152,
+      "event_distribution": {
+        "fvg_continuation": 29,
+        "premium_rejection": 62,
+        "double_sweep": 39,
+        "range_consolidation": 18,
+        "breakout_expansion": 4
+      },
+      "event_frequencies": {
+        "fvg_continuation": 0.19078947368421054,
+        "premium_rejection": 0.40789473684210525,
+        "double_sweep": 0.2565789473684211,
+        "range_consolidation": 0.11842105263157894,
+        "breakout_expansion": 0.02631578947368421
+      },
+      "avg_pattern_strength": 0.5,
+      "htf_confluence_rate": 1.0,
+      "temporal_echo_rate": 1.0,
+      "avg_evolution_strength": 0.5,
+      "avg_archaeological_significance": 0.2565096952908587,
+      "session_phase_distribution": {
+        "session_closing": 152
+      },
+      "dominant_event_types": [
+        "premium_rejection",
+        "double_sweep",
+        "fvg_continuation"
+      ]
+    },
+    "80%": {
+      "total_events": 169,
+      "event_distribution": {
+        "double_sweep": 46,
+        "premium_rejection": 64,
+        "range_consolidation": 25,
+        "fvg_continuation": 28,
+        "breakout_expansion": 6
+      },
+      "event_frequencies": {
+        "double_sweep": 0.27218934911242604,
+        "premium_rejection": 0.378698224852071,
+        "range_consolidation": 0.14792899408284024,
+        "fvg_continuation": 0.16568047337278108,
+        "breakout_expansion": 0.03550295857988166
+      },
+      "avg_pattern_strength": 0.5,
+      "htf_confluence_rate": 1.0,
+      "temporal_echo_rate": 1.0,
+      "avg_evolution_strength": 0.5,
+      "avg_archaeological_significance": 0.25583930239800684,
+      "session_phase_distribution": {
+        "session_closing": 169
+      },
+      "dominant_event_types": [
+        "premium_rejection",
+        "double_sweep",
+        "fvg_continuation"
+      ]
+    }
+  },
+  "detection_thresholds": {
+    "fvg_confidence_threshold": 0.75,
+    "sweep_momentum_threshold": 0.6,
+    "pd_array_significance_threshold": 0.8,
+    "consolidation_range_threshold": 0.25,
+    "expansion_velocity_threshold": 0.7,
+    "htf_confluence_strength_threshold": 0.5,
+    "temporal_echo_threshold": 0.8,
+    "evolution_strength_threshold": 0.85
+  }
+}

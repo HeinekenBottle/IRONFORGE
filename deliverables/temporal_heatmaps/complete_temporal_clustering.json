@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "analysis_id": "clustering_20250815_213439",
+    "analysis_timestamp": "2025-08-15T21:34:39.333338",
+    "total_events_analyzed": 0,
+    "sessions_covered": [],
+    "timeframes_analyzed": [],
+    "clustering_parameters": {
+      "min_cluster_size": 3,
+      "max_cluster_size": 100,
+      "feature_weights": {
+        "temporal": 0.4,
+        "structural": 0.3,
+        "significance": 0.3
+      }
+    }
+  },
+  "clusters": [],
+  "quality_metrics": {
+    "overall_silhouette_score": 0.0,
+    "cluster_quality_distribution": {
+      "excellent": 0,
+      "good": 0,
+      "fair": 0,
+      "poor": 0
+    },
+    "temporal_coverage": 0.0,
+    "pattern_discovery_rate": 0.0
+  },
+  "statistics": {
+    "cluster_statistics": {
+      "total_clusters": 0,
+      "average_cluster_size": 0,
+      "largest_cluster_size": 0,
+      "cluster_types": {},
+      "clustering_methods": {},
+      "average_recurrence_rate": 0,
+      "high_quality_clusters": 0
+    },
+    "temporal_heatmap_data": {
+      "absolute_time": {},
+      "relative_position": {},
+      "session_phase": {}
+    },
+    "recurrence_analysis": {
+      "patterns_with_high_recurrence": 0,
+      "cross_session_patterns": 0,
+      "stable_patterns": 0,
+      "predictive_patterns": 0
+    }
+  },
+  "noise_events": []
+}

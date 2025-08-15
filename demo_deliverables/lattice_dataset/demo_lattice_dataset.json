@@ -1,0 +1,38 @@
+{
+  "dataset_id": "demo_lattice_20250815_213109",
+  "creation_timestamp": "2025-08-15T21:31:09.795952",
+  "total_events_mapped": 192,
+  "nodes": {
+    "7_0.00": {
+      "node_id": "lattice_node_7_0.00",
+      "coordinate": {
+        "timeframe_level": 7,
+        "cycle_position": 0.0,
+        "absolute_timeframe": "1m"
+      },
+      "event_count": 8,
+      "average_significance": 0.41758791660079386,
+      "total_magnitude": 5.701568501275729,
+      "dominant_event_type": "fvg_first_presented",
+      "dominant_pattern_family": "fvg_family",
+      "events": [
+        "demo_event_0000",
+        "demo_event_0020",
+        "demo_event_0040",
+        "demo_event_0074",
+        "demo_event_0095",
+        "demo_event_0128",
+        "demo_event_0152",
+        "demo_event_0169"
+      ],
+      "sessions_involved": [
+        "NY_PM_Lvl-1_2025_08_06",
+        "ASIA_Lvl-1_2025_08_06",
+        "NY_AM_Lvl-1_2025_08_06",
+        "NY_AM_Lvl-1_2025_08_05",
+        "ASIA_Lvl-1_2025_08_05",
+        "NY_PM_Lvl-1_2025_08_05",
+        "LONDON_Lvl-1_2025_08_06",
+        "LONDON_Lvl-1_2025_08_05"
+      ],
+      "hot_zone_member": 

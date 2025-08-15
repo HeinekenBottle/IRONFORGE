@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "dataset_id": "lattice_20250815_213439",
+    "creation_timestamp": "2025-08-15T21:34:39.332716",
+    "total_events_mapped": 0,
+    "sessions_covered": [],
+    "analysis_parameters": {
+      "grid_resolution": 100,
+      "min_node_events": 2,
+      "hot_zone_threshold": 0.8,
+      "timeframe_levels": {
+        "0": "monthly",
+        "1": "weekly",
+        "2": "daily",
+        "3": "1h",
+        "4": "50m",
+        "5": "15m",
+        "6": "5m",
+        "7": "1m"
+      }
+    }
+  },
+  "nodes": {},
+  "connections": {},
+  "hot_zones": {},
+  "statistics": {
+    "nodes": {
+      "total_nodes": 0,
+      "average_events_per_node": 0,
+      "average_significance": 0,
+      "timeframe_distribution": {},
+      "hot_zone_nodes": 0
+    },
+    "connections": {
+      "total_connections": 0,
+      "average_strength": 0,
+      "connection_types": {},
+      "strong_connections": 0
+    },
+    "hot_zones": {
+      "total_hot_zones": 0,
+      "average_events_per_zone": 0,
+      "average_density": 0,
+      "dominant_patterns": {}
+    }
+  },
+  "timeframe_levels": {
+    "0": "monthly",
+    "1": "weekly",
+    "2": "daily",
+    "3": "1h",
+    "4": "50m",
+    "5": "15m",
+    "6": "5m",
+    "7": "1m"
+  }
+}
