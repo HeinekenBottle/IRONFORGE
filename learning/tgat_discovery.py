@@ -1990,3 +1990,7 @@ class IRONFORGEDiscovery:
                 patterns.append(pattern)
         
         return patterns
+
+
+# Compatibility alias for import consistency
+TGATDiscovery = IRONFORGEDiscovery

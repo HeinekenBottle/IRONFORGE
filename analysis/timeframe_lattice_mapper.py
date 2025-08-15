@@ -260,20 +260,39 @@ class TimeframeLatticeMapper:
         coordinates = {}
         
         for event in events:
+            # Handle both ArchaeologicalEvent objects and dictionary-based events
+            if hasattr(event, 'timeframe'):
+                # Standard ArchaeologicalEvent object
+                timeframe = event.timeframe
+                event_id = event.event_id
+                relative_cycle_position = event.relative_cycle_position
+            elif isinstance(event, dict):
+                # Dictionary-based event (Enhanced Session Adapter format)
+                timeframe_str = event.get('timeframe', '1m')
+                timeframe = TimeframeType(timeframe_str) if timeframe_str in [tf.value for tf in TimeframeType] else TimeframeType.MINUTE_1
+                event_id = event.get('event_id', f"event_{len(coordinates)}")
+                relative_cycle_position = event.get('relative_cycle_position', 0.5)
+            else:
+                # Fallback for unknown formats
+                print(f"⚠️  Warning: Unknown event format {type(event)}, using defaults")
+                timeframe = TimeframeType.MINUTE_1
+                event_id = f"unknown_event_{len(coordinates)}"
+                relative_cycle_position = 0.5
+            
             # Get timeframe level
-            timeframe_level = self.timeframe_levels[event.timeframe]
+            timeframe_level = self.timeframe_levels[timeframe]
             
             # Quantize cycle position to grid
-            position_bucket = int(event.relative_cycle_position * self.grid_resolution) / self.grid_resolution
+            position_bucket = int(relative_cycle_position * self.grid_resolution) / self.grid_resolution
             
             coordinate = LatticeCoordinate(
                 timeframe_level=timeframe_level,
                 cycle_position=position_bucket,
-                absolute_timeframe=event.timeframe,
-                absolute_position=event.relative_cycle_position
+                absolute_timeframe=timeframe,
+                absolute_position=relative_cycle_position
             )
             
-            coordinates[event.event_id] = coordinate
+            coordinates[event_id] = coordinate
         
         return coordinates
     
@@ -284,7 +303,15 @@ class TimeframeLatticeMapper:
         coordinate_groups = defaultdict(list)
         
         for event in events:
-            coord = coordinates[event.event_id]
+            # Handle both object and dict formats for event_id
+            if hasattr(event, 'event_id'):
+                event_id = event.event_id
+            elif isinstance(event, dict):
+                event_id = event.get('event_id', f"event_{len(coordinate_groups)}")
+            else:
+                event_id = f"unknown_event_{len(coordinate_groups)}"
+            
+            coord = coordinates[event_id]
             coord_key = f"{coord.timeframe_level}_{coord.cycle_position:.3f}"
             coordinate_groups[coord_key].append(event)
         
@@ -292,19 +319,57 @@ class TimeframeLatticeMapper:
         for coord_key, group_events in coordinate_groups.items():
             if len(group_events) >= self.min_node_events:
                 
-                # Get representative coordinate
-                representative_coord = coordinates[group_events[0].event_id]
+                # Get representative coordinate - handle both object and dict formats
+                first_event = group_events[0]
+                if hasattr(first_event, 'event_id'):
+                    first_event_id = first_event.event_id
+                elif isinstance(first_event, dict):
+                    first_event_id = first_event.get('event_id', f"event_0_{coord_key}")
+                else:
+                    first_event_id = f"unknown_event_0_{coord_key}"
+                
+                representative_coord = coordinates[first_event_id]
                 
                 # Calculate node properties
                 node_id = f"node_{coord_key}"
                 event_count = len(group_events)
-                avg_significance = np.mean([e.significance_score for e in group_events])
                 
-                # Determine dominant characteristics
-                event_types = [e.event_type.value for e in group_events]
-                pattern_families = [e.pattern_family for e in group_events]
-                archetypes = [e.liquidity_archetype.value for e in group_events]
-                structural_roles = [e.structural_role for e in group_events]
+                # Calculate average significance - handle both formats
+                significance_scores = []
+                for e in group_events:
+                    if hasattr(e, 'significance_score'):
+                        significance_scores.append(e.significance_score)
+                    elif isinstance(e, dict):
+                        significance_scores.append(e.get('significance_score', 0.5))
+                    else:
+                        significance_scores.append(0.5)
+                avg_significance = np.mean(significance_scores)
+                
+                # Determine dominant characteristics - handle both formats
+                event_types = []
+                pattern_families = []
+                archetypes = []
+                structural_roles = []
+                
+                for e in group_events:
+                    if hasattr(e, 'event_type'):
+                        # Standard ArchaeologicalEvent object
+                        event_types.append(e.event_type.value)
+                        pattern_families.append(e.pattern_family)
+                        archetypes.append(e.liquidity_archetype.value)
+                        structural_roles.append(e.structural_role)
+                    elif isinstance(e, dict):
+                        # Dictionary-based event
+                        event_types.append(e.get('event_type', 'unknown'))
+                        pattern_families.append(e.get('pattern_family', 'miscellaneous'))
+                        archetypes.append(e.get('liquidity_archetype', 'unknown'))
+                        structural_roles.append(e.get('structural_role', 'minor_signal'))
+                    else:
+                        # Fallback defaults
+                        event_types.append('unknown')
+                        pattern_families.append('miscellaneous')
+                        archetypes.append('unknown')
+                        structural_roles.append('minor_signal')
                 
                 dominant_event_type = Counter(event_types).most_common(1)[0][0]
                 dominant_pattern_family = Counter(pattern_families).most_common(1)[0][0]
@@ -317,9 +382,27 @@ class TimeframeLatticeMapper:
                 shape = self.structural_role_shapes.get(dominant_role, 'circle')
                 opacity = min(0.3 + avg_significance * 0.7, 1.0)
                 
-                # Calculate recurrence rate
-                sessions = set(e.session_name for e in group_events)
-                recurrence_rate = len(sessions) / len(set(e.session_name for e in events))
+                # Calculate recurrence rate - handle both formats
+                sessions = set()
+                all_sessions = set()
+                
+                for e in group_events:
+                    if hasattr(e, 'session_name'):
+                        sessions.add(e.session_name)
+                    elif isinstance(e, dict):
+                        sessions.add(e.get('session_name', 'unknown'))
+                    else:
+                        sessions.add('unknown')
+                
+                for e in events:
+                    if hasattr(e, 'session_name'):
+                        all_sessions.add(e.session_name)
+                    elif isinstance(e, dict):
+                        all_sessions.add(e.get('session_name', 'unknown'))
+                    else:
+                        all_sessions.add('unknown')
+                
+                recurrence_rate = len(sessions) / max(1, len(all_sessions))
                 
                 # Create lattice node
                 lattice_node = LatticeNode(
@@ -350,15 +433,30 @@ class TimeframeLatticeMapper:
         # Group events by session for temporal analysis
         session_events = defaultdict(list)
         for event in events:
-            session_events[event.session_name].append(event)
+            # Handle both object and dict formats
+            if hasattr(event, 'session_name'):
+                session_name = event.session_name
+            elif isinstance(event, dict):
+                session_name = event.get('session_name', 'unknown')
+            else:
+                session_name = 'unknown'
+            session_events[session_name].append(event)
         
         connection_count = 0
         
         # Analyze each session for temporal relationships
         for session_name, session_event_list in session_events.items():
             
-            # Sort events by session minute
-            sorted_events = sorted(session_event_list, key=lambda e: e.session_minute)
+            # Sort events by session minute - handle both formats
+            def get_session_minute(event):
+                if hasattr(event, 'session_minute'):
+                    return event.session_minute
+                elif isinstance(event, dict):
+                    return event.get('session_minute', 0.0)
+                else:
+                    return 0.0
+            
+            sorted_events = sorted(session_event_list, key=get_session_minute)
             
             # Look for lead-lag relationships
             for i, event1 in enumerate(sorted_events):
@@ -381,9 +479,18 @@ class TimeframeLatticeMapper:
                             # Determine connection type
                             connection_type = self._determine_connection_type(event1, event2)
                             
-                            # Calculate distances
-                            temporal_distance = abs(event2.session_minute - event1.session_minute)
+                            # Calculate distances - handle both formats
+                            minute1 = get_session_minute(event1)
+                            minute2 = get_session_minute(event2)
+                            temporal_distance = abs(minute2 - minute1)
                             structural_distance = self._calculate_structural_distance(event1, event2)
+                            
+                            # Get event IDs and confidence scores - handle both formats
+                            event1_id = event1.event_id if hasattr(event1, 'event_id') else event1.get('event_id', 'unknown_1')
+                            event2_id = event2.event_id if hasattr(event2, 'event_id') else event2.get('event_id', 'unknown_2')
+                            
+                            conf1 = event1.confidence_score if hasattr(event1, 'confidence_score') else event1.get('confidence_score', 0.5)
+                            conf2 = event2.confidence_score if hasattr(event2, 'confidence_score') else event2.get('confidence_score', 0.5)
                             
                             # Create connection
                             connection = LatticeConnection(
@@ -394,8 +501,8 @@ class TimeframeLatticeMapper:
                                 strength=connection_strength,
                                 temporal_distance=temporal_distance,
                                 structural_distance=structural_distance,
-                                supporting_events=[event1.event_id, event2.event_id],
-                                confidence_score=min(event1.confidence_score, event2.confidence_score),
+                                supporting_events=[event1_id, event2_id],
+                                confidence_score=min(conf1, conf2),
                                 line_style=self._get_line_style(connection_type),
                                 line_width=max(1.0, connection_strength * 3.0),
                                 arrow_type=self._get_arrow_type(connection_type)
@@ -423,61 +530,119 @@ class TimeframeLatticeMapper:
         
         return None
     
-    def _calculate_connection_strength(self, event1: ArchaeologicalEvent, event2: ArchaeologicalEvent) -> float:
-        """Calculate connection strength between two events"""
+    def _calculate_connection_strength(self, event1, event2) -> float:
+        """Calculate connection strength between two events - handles both object and dict formats"""
         
-        # Base strength from significance scores
-        base_strength = (event1.significance_score + event2.significance_score) / 2
+        # Get significance scores - handle both formats
+        sig1 = event1.significance_score if hasattr(event1, 'significance_score') else event1.get('significance_score', 0.5)
+        sig2 = event2.significance_score if hasattr(event2, 'significance_score') else event2.get('significance_score', 0.5)
+        base_strength = (sig1 + sig2) / 2
+        
+        # Get event types - handle both formats
+        type1 = event1.event_type if hasattr(event1, 'event_type') else event1.get('event_type', 'unknown')
+        type2 = event2.event_type if hasattr(event2, 'event_type') else event2.get('event_type', 'unknown')
+        
+        # Convert enum to value if needed
+        if hasattr(type1, 'value'):
+            type1 = type1.value
+        if hasattr(type2, 'value'):
+            type2 = type2.value
         
         # Boost for similar event types
-        if event1.event_type == event2.event_type:
+        if type1 == type2:
             base_strength *= 1.2
         
+        # Get archetypes - handle both formats
+        arch1 = event1.liquidity_archetype if hasattr(event1, 'liquidity_archetype') else event1.get('liquidity_archetype', 'unknown')
+        arch2 = event2.liquidity_archetype if hasattr(event2, 'liquidity_archetype') else event2.get('liquidity_archetype', 'unknown')
+        
+        # Convert enum to value if needed
+        if hasattr(arch1, 'value'):
+            arch1 = arch1.value
+        if hasattr(arch2, 'value'):
+            arch2 = arch2.value
+        
         # Boost for similar archetypes
-        if event1.liquidity_archetype == event2.liquidity_archetype:
+        if arch1 == arch2:
             base_strength *= 1.1
         
-        # Boost for HTF confluence
-        if event1.htf_confluence.value in ['confirmed', 'partial'] and event2.htf_confluence.value in ['confirmed', 'partial']:
-            base_strength *= 1.15
+        # Handle HTF confluence - optional for dict format
+        try:
+            if hasattr(event1, 'htf_confluence') and hasattr(event2, 'htf_confluence'):
+                htf1 = event1.htf_confluence.value if hasattr(event1.htf_confluence, 'value') else str(event1.htf_confluence)
+                htf2 = event2.htf_confluence.value if hasattr(event2.htf_confluence, 'value') else str(event2.htf_confluence)
+                if htf1 in ['confirmed', 'partial'] and htf2 in ['confirmed', 'partial']:
+                    base_strength *= 1.15
+        except:
+            pass  # Skip HTF confluence for dictionary events
         
         # Adjust for temporal distance (closer events have stronger connections)
-        temporal_distance = abs(event2.session_minute - event1.session_minute)
+        minute1 = event1.session_minute if hasattr(event1, 'session_minute') else event1.get('session_minute', 0.0)
+        minute2 = event2.session_minute if hasattr(event2, 'session_minute') else event2.get('session_minute', 0.0)
+        temporal_distance = abs(minute2 - minute1)
         temporal_weight = max(0.1, 1.0 - temporal_distance / 180.0)  # 180 minutes = full session
         
         return min(1.0, base_strength * temporal_weight)
     
-    def _determine_connection_type(self, event1: ArchaeologicalEvent, event2: ArchaeologicalEvent) -> str:
-        """Determine the type of connection between two events"""
+    def _determine_connection_type(self, event1, event2) -> str:
+        """Determine the type of connection between two events - handles both formats"""
+        
+        # Get session minutes - handle both formats
+        minute1 = event1.session_minute if hasattr(event1, 'session_minute') else event1.get('session_minute', 0.0)
+        minute2 = event2.session_minute if hasattr(event2, 'session_minute') else event2.get('session_minute', 0.0)
         
         # Temporal precedence
-        if event1.session_minute < event2.session_minute:
-            if event2.session_minute - event1.session_minute < 5:
+        if minute1 < minute2:
+            if minute2 - minute1 < 5:
                 return "immediate_causality"
-            elif event2.session_minute - event1.session_minute < 30:
+            elif minute2 - minute1 < 30:
                 return "short_term_lead"
             else:
                 return "long_term_lead"
         
+        # Get session phases - handle both formats
+        phase1 = event1.session_phase if hasattr(event1, 'session_phase') else event1.get('session_phase', 'unknown')
+        phase2 = event2.session_phase if hasattr(event2, 'session_phase') else event2.get('session_phase', 'unknown')
+        
+        # Convert enum to value if needed
+        if hasattr(phase1, 'value'):
+            phase1 = phase1.value
+        if hasattr(phase2, 'value'):
+            phase2 = phase2.value
+        
         # Same session phase
-        elif event1.session_phase == event2.session_phase:
+        if phase1 == phase2:
             return "phase_resonance"
         
+        # Get session names - handle both formats
+        session1 = event1.session_name if hasattr(event1, 'session_name') else event1.get('session_name', 'unknown')
+        session2 = event2.session_name if hasattr(event2, 'session_name') else event2.get('session_name', 'unknown')
+        
         # Cross-session
-        elif event1.session_name != event2.session_name:
+        if session1 != session2:
             return "cross_session_inheritance"
         
-        else:
-            return "structural_resonance"
+        return "structural_resonance"
     
-    def _calculate_structural_distance(self, event1: ArchaeologicalEvent, event2: ArchaeologicalEvent) -> float:
-        """Calculate structural distance between events in lattice space"""
+    def _calculate_structural_distance(self, event1, event2) -> float:
+        """Calculate structural distance between events in lattice space - handles both formats"""
         
-        level1 = self.timeframe_levels[event1.timeframe]
-        level2 = self.timeframe_levels[event2.timeframe]
+        # Get timeframes - handle both formats
+        tf1 = event1.timeframe if hasattr(event1, 'timeframe') else event1.get('timeframe', '1m')
+        tf2 = event2.timeframe if hasattr(event2, 'timeframe') else event2.get('timeframe', '1m')
         
-        pos1 = event1.relative_cycle_position
-        pos2 = event2.relative_cycle_position
+        # Convert string to enum if needed
+        if isinstance(tf1, str):
+            tf1 = TimeframeType(tf1) if tf1 in [tf.value for tf in TimeframeType] else TimeframeType.MINUTE_1
+        if isinstance(tf2, str):
+            tf2 = TimeframeType(tf2) if tf2 in [tf.value for tf in TimeframeType] else TimeframeType.MINUTE_1
+        
+        level1 = self.timeframe_levels[tf1]
+        level2 = self.timeframe_levels[tf2]
+        
+        # Get positions - handle both formats
+        pos1 = event1.relative_cycle_position if hasattr(event1, 'relative_cycle_position') else event1.get('relative_cycle_position', 0.5)
+        pos2 = event2.relative_cycle_position if hasattr(event2, 'relative_cycle_position') else event2.get('relative_cycle_position', 0.5)
         
         # Euclidean distance in lattice space
         level_distance = abs(level1 - level2) / len(self.timeframe_levels)
@@ -512,23 +677,44 @@ class TimeframeLatticeMapper:
     def _identify_cross_session_connections(self, events: List[ArchaeologicalEvent]):
         """Identify connections that span across sessions"""
         
-        # Group events by pattern signature
+        # Group events by pattern signature - handle both formats
         pattern_groups = defaultdict(list)
         
         for event in events:
-            pattern_signature = f"{event.event_type.value}_{event.range_level.value}_{event.absolute_time_signature}"
+            # Get event type - handle both formats
+            event_type = event.event_type if hasattr(event, 'event_type') else event.get('event_type', 'unknown')
+            if hasattr(event_type, 'value'):
+                event_type = event_type.value
+            
+            # Get range level - handle both formats
+            range_level = event.range_level if hasattr(event, 'range_level') else event.get('range_level', 'unknown')
+            if hasattr(range_level, 'value'):
+                range_level = range_level.value
+            
+            # Get time signature - handle both formats
+            time_sig = event.absolute_time_signature if hasattr(event, 'absolute_time_signature') else event.get('absolute_time_signature', 'unknown')
+            
+            pattern_signature = f"{event_type}_{range_level}_{time_sig}"
             pattern_groups[pattern_signature].append(event)
         
         # Look for patterns that repeat across sessions
         for pattern_signature, pattern_events in pattern_groups.items():
-            sessions = set(e.session_name for e in pattern_events)
+            # Get session names - handle both formats
+            sessions = set()
+            for e in pattern_events:
+                session_name = e.session_name if hasattr(e, 'session_name') else e.get('session_name', 'unknown')
+                sessions.add(session_name)
             
             if len(sessions) >= 2:  # Pattern appears in multiple sessions
                 
                 # Create connections between similar events in different sessions
                 for i, event1 in enumerate(pattern_events):
                     for event2 in pattern_events[i+1:]:
-                        if event1.session_name != event2.session_name:
+                        # Get session names - handle both formats
+                        session1 = event1.session_name if hasattr(event1, 'session_name') else event1.get('session_name', 'unknown')
+                        session2 = event2.session_name if hasattr(event2, 'session_name') else event2.get('session_name', 'unknown')
+                        
+                        if session1 != session2:
                             
                             node1_id = self._find_node_for_event(event1)
                             node2_id = self._find_node_for_event(event2)
@@ -549,8 +735,14 @@ class TimeframeLatticeMapper:
                                         strength=connection_strength,
                                         temporal_distance=self._calculate_session_distance(event1, event2),
                                         structural_distance=self._calculate_structural_distance(event1, event2),
-                                        supporting_events=[event1.event_id, event2.event_id],
-                                        confidence_score=(event1.confidence_score + event2.confidence_score) / 2,
+                                        supporting_events=[
+                                            event1.event_id if hasattr(event1, 'event_id') else event1.get('event_id', 'unknown_1'),
+                                            event2.event_id if hasattr(event2, 'event_id') else event2.get('event_id', 'unknown_2')
+                                        ],
+                                        confidence_score=(
+                                            (event1.confidence_score if hasattr(event1, 'confidence_score') else event1.get('confidence_score', 0.5)) +
+                                            (event2.confidence_score if hasattr(event2, 'confidence_score') else event2.get('confidence_score', 0.5))
+                                        ) / 2,
                                         line_style="dashdot",
                                         line_width=max(1.0, connection_strength * 2.0),
                                         arrow_type="bidirectional"
@@ -558,35 +750,67 @@ class TimeframeLatticeMapper:
                                     
                                     self.lattice_connections[connection_id] = connection
     
-    def _calculate_cross_session_strength(self, event1: ArchaeologicalEvent, event2: ArchaeologicalEvent) -> float:
-        """Calculate strength of cross-session connection"""
+    def _calculate_cross_session_strength(self, event1, event2) -> float:
+        """Calculate strength of cross-session connection - handles both formats"""
         
         # Base strength from pattern similarity
         base_strength = 0.5
         
+        # Get event types - handle both formats
+        type1 = event1.event_type if hasattr(event1, 'event_type') else event1.get('event_type', 'unknown')
+        type2 = event2.event_type if hasattr(event2, 'event_type') else event2.get('event_type', 'unknown')
+        
+        # Convert enum to value if needed
+        if hasattr(type1, 'value'):
+            type1 = type1.value
+        if hasattr(type2, 'value'):
+            type2 = type2.value
+        
         # Boost for identical event types
-        if event1.event_type == event2.event_type:
+        if type1 == type2:
             base_strength += 0.2
         
+        # Get range levels - handle both formats
+        range1 = event1.range_level if hasattr(event1, 'range_level') else event1.get('range_level', 'unknown')
+        range2 = event2.range_level if hasattr(event2, 'range_level') else event2.get('range_level', 'unknown')
+        
+        # Convert enum to value if needed
+        if hasattr(range1, 'value'):
+            range1 = range1.value
+        if hasattr(range2, 'value'):
+            range2 = range2.value
+        
         # Boost for similar range levels
-        if event1.range_level == event2.range_level:
+        if range1 == range2:
             base_strength += 0.15
         
+        # Get time signatures - handle both formats
+        sig1 = event1.absolute_time_signature if hasattr(event1, 'absolute_time_signature') else event1.get('absolute_time_signature', 'unknown')
+        sig2 = event2.absolute_time_signature if hasattr(event2, 'absolute_time_signature') else event2.get('absolute_time_signature', 'unknown')
+        
         # Boost for similar time signatures
-        if event1.absolute_time_signature == event2.absolute_time_signature:
+        if sig1 == sig2:
             base_strength += 0.25
         
+        # Get significance scores - handle both formats
+        score1 = event1.significance_score if hasattr(event1, 'significance_score') else event1.get('significance_score', 0.5)
+        score2 = event2.significance_score if hasattr(event2, 'significance_score') else event2.get('significance_score', 0.5)
+        
         # Boost for high individual significance
-        significance_boost = (event1.significance_score + event2.significance_score) / 4
+        significance_boost = (score1 + score2) / 4
         
         return min(1.0, base_strength + significance_boost)
     
-    def _calculate_session_distance(self, event1: ArchaeologicalEvent, event2: ArchaeologicalEvent) -> float:
-        """Calculate temporal distance between sessions"""
+    def _calculate_session_distance(self, event1, event2) -> float:
+        """Calculate temporal distance between sessions - handles both formats"""
         
         try:
-            date1 = datetime.strptime(event1.session_date, '%Y-%m-%d')
-            date2 = datetime.strptime(event2.session_date, '%Y-%m-%d')
+            # Get session dates - handle both formats
+            date1_str = event1.session_date if hasattr(event1, 'session_date') else event1.get('session_date', '2025-01-01')
+            date2_str = event2.session_date if hasattr(event2, 'session_date') else event2.get('session_date', '2025-01-01')
+            
+            date1 = datetime.strptime(date1_str, '%Y-%m-%d')
+            date2 = datetime.strptime(date2_str, '%Y-%m-%d')
             return abs((date2 - date1).days)
         except:
             return 1.0  # Default distance
@@ -707,8 +931,13 @@ class TimeframeLatticeMapper:
             'dominant_patterns': Counter(zone.dominant_pattern for zone in self.hot_zones.values())
         }
         
-        # Get session coverage
-        sessions_covered = list(set(event.session_name for event in events))
+        # Get session coverage - handle both formats
+        sessions_covered = []
+        sessions_set = set()
+        for event in events:
+            session_name = event.session_name if hasattr(event, 'session_name') else event.get('session_name', 'unknown')
+            sessions_set.add(session_name)
+        sessions_covered = list(sessions_set)
         
         # Create analysis parameters
         analysis_params = {
