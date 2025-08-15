@@ -1,0 +1,17 @@
+direct_prompt: |
+  Review this IRONFORGE code for critical issues:
+  
+  🚨 **MANDATORY CHECKS:**
+  1. **Syntax errors** - Import failures, undefined variables
+  2. **Data structure compatibility** - Enhanced session format mismatches  
+  3. **JSON serialization errors** - TimeframeType enum issues
+  4. **Event detection format** - Archaeological compatibility
+  
+  🎯 **IRONFORGE SPECIFIC:**
+  - Enhanced session adapter compatibility
+  - Archaeological event detector format matching
+  - TGAT architecture constraints
+  - Performance issues (>4.7s SLA)
+  
+  **Only comment on actual bugs. Be specific about fixes.**
+  If no issues: "✅ No critical issues found"
