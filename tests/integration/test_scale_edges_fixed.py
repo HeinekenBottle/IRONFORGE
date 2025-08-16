@@ -8,8 +8,8 @@ that the 0% scale edges issue has been resolved.
 
 import json
 from pathlib import Path
-from learning.enhanced_graph_builder import EnhancedGraphBuilder
-from learning.tgat_discovery import IRONFORGEDiscovery
+from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
+from ironforge.learning.tgat_discovery import IRONFORGEDiscovery
 
 def test_scale_edges_with_fixed_data():
     """Test scale edge generation with fixed HTF data."""

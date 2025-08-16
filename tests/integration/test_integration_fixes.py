@@ -16,11 +16,11 @@ def test_tgat_import():
     
     try:
         # Test original import
-        from learning.tgat_discovery import IRONFORGEDiscovery
+        from ironforge.learning.tgat_discovery import IRONFORGEDiscovery
         print("  ✅ IRONFORGEDiscovery import successful")
         
         # Test alias import
-        from learning.tgat_discovery import TGATDiscovery
+        from ironforge.learning.tgat_discovery import TGATDiscovery
         print("  ✅ TGATDiscovery alias import successful")
         
         # Test that they're the same
@@ -43,8 +43,8 @@ def test_lattice_mapper():
     print("\n🗺️  Testing Lattice Mapper...")
     
     try:
-        from analysis.timeframe_lattice_mapper import TimeframeLatticeMapper, TimeframeType
-        from analysis.broad_spectrum_archaeology import ArchaeologicalEvent, EventType, RangeLevel, LiquidityArchetype, SessionPhase, HTFConfluenceStatus
+        from ironforge.analysis.timeframe_lattice_mapper import TimeframeLatticeMapper, TimeframeType
+        from ironforge.analysis.broad_spectrum_archaeology import ArchaeologicalEvent, EventType, RangeLevel, LiquidityArchetype, SessionPhase, HTFConfluenceStatus
         
         # Initialize mapper
         mapper = TimeframeLatticeMapper(grid_resolution=20, min_node_events=1)
@@ -173,7 +173,7 @@ def test_enhanced_session_integration():
             }
         ]
         
-        from analysis.timeframe_lattice_mapper import TimeframeLatticeMapper
+        from ironforge.analysis.timeframe_lattice_mapper import TimeframeLatticeMapper
         
         # Test lattice mapping with Enhanced Session format
         mapper = TimeframeLatticeMapper(grid_resolution=10, min_node_events=1)

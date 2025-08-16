@@ -22,7 +22,7 @@ def test_iron_core_integration():
     try:
         # Test 1: Import iron_core components
         print("\n📦 Test 1: Iron-Core Import")
-        from integration.ironforge_container import get_ironforge_container
+        from ironforge.integration.ironforge_container import get_ironforge_container
         import_time = time.time() - start_time
         print(f"✅ Iron-core imports successful in {import_time:.3f}s")
         

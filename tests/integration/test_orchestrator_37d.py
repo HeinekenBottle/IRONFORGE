@@ -10,8 +10,8 @@ import json
 from pathlib import Path
 sys.path.append('/Users/jack/IRONPULSE/IRONFORGE')
 
-from learning.enhanced_graph_builder import EnhancedGraphBuilder
-from learning.tgat_discovery import IRONFORGEDiscovery
+from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
+from ironforge.learning.tgat_discovery import IRONFORGEDiscovery
 
 def test_orchestrator_37d():
     """Test that orchestrator works with 37D temporal cycle features"""

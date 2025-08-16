@@ -105,13 +105,30 @@ class IRONFORGEConfig:
             'reports_path'
         ]
         
+        workspace_root = Path(self.config.get('workspace_root', os.getcwd())).resolve()
+
         for dir_key in required_dirs:
             dir_path = Path(self.config[dir_key])
+
+            # Security: Validate path to prevent directory traversal
             try:
-                dir_path.mkdir(parents=True, exist_ok=True)
-                self.logger.debug(f"Ensured directory exists: {dir_path}")
-            except Exception as e:
+                resolved_path = dir_path.resolve()
+                # Ensure path is within workspace or is absolute and safe
+                if not dir_path.is_absolute():
+                    resolved_path = (workspace_root / dir_path).resolve()
+
+                # Check for directory traversal attempts
+                if '..' in str(dir_path) and not str(resolved_path).startswith(str(workspace_root)):
+                    raise ValueError(f"Invalid path detected (directory traversal): {dir_path}")
+
+                resolved_path.mkdir(parents=True, exist_ok=True)
+                self.logger.debug(f"Ensured directory exists: {resolved_path}")
+
+            except (OSError, ValueError) as e:
                 self.logger.error(f"Failed to create directory {dir_path}: {e}")
+                raise ValueError(f"Invalid or unsafe directory path '{dir_path}': {e}") from e
+            except Exception as e:
+                self.logger.error(f"Unexpected error creating directory {dir_path}: {e}")
                 raise
     
     def get_path(self, key: str) -> str:

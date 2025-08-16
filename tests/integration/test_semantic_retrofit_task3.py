@@ -20,7 +20,7 @@ def test_session_context_preservation():
     
     try:
         # Import IRONFORGE components
-        from learning.enhanced_graph_builder import EnhancedGraphBuilder
+        from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
         
         print("✅ Successfully imported EnhancedGraphBuilder")
         

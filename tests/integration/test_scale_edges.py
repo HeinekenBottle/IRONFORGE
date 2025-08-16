@@ -6,7 +6,7 @@ Unit Test for HTF Scale Edge Validation
 import json
 import unittest
 import torch
-from learning.enhanced_graph_builder import EnhancedGraphBuilder
+from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
 
 class TestHTFScaleEdges(unittest.TestCase):
     """Test suite for HTF scale edge creation and validation"""

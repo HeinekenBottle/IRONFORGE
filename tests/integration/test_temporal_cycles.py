@@ -10,8 +10,8 @@ import json
 from datetime import datetime
 sys.path.append('/Users/jack/IRONPULSE/IRONFORGE')
 
-from learning.enhanced_graph_builder import EnhancedGraphBuilder, RichNodeFeature
-from learning.tgat_discovery import IRONFORGEDiscovery
+from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder, RichNodeFeature
+from ironforge.learning.tgat_discovery import IRONFORGEDiscovery
 
 def test_temporal_cycle_features():
     """Test that temporal cycle features are properly integrated"""

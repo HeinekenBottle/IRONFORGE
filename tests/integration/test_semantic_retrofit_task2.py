@@ -21,7 +21,7 @@ def test_semantic_edge_enrichment():
     
     try:
         # Import IRONFORGE components
-        from learning.enhanced_graph_builder import EnhancedGraphBuilder, RichNodeFeature, RichEdgeFeature
+        from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder, RichNodeFeature, RichEdgeFeature
         
         print("✅ Successfully imported Enhanced Graph Builder components")
         

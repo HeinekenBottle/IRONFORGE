@@ -27,8 +27,8 @@ from datetime import datetime
 # Add current directory to path for imports
 sys.path.append(str(Path(__file__).parent))
 
-from analysis.timeframe_lattice_mapper import TimeframeLatticeMapper
-from analysis.enhanced_session_adapter import EnhancedSessionAdapter
+from ironforge.analysis.timeframe_lattice_mapper import TimeframeLatticeMapper
+from ironforge.analysis.enhanced_session_adapter import EnhancedSessionAdapter
 
 class LatticeIntegrationTest:
     """Integration test for Enhanced Session Adapter → Lattice Mapper pipeline"""

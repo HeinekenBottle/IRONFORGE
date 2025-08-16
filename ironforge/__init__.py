@@ -45,5 +45,3 @@ __all__ = [
 
 # Lazy loading note: Components are accessed through the container system
 # to maintain the 88.7% performance improvement from lazy loading
-print(f"IRONFORGE v{__version__} initialized with iron-core v{iron_core_version}")
-print("Use integration.ironforge_container for component access")

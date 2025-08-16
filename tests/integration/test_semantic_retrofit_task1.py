@@ -21,7 +21,7 @@ def test_semantic_feature_extraction():
     
     try:
         # Import IRONFORGE components
-        from learning.enhanced_graph_builder import EnhancedGraphBuilder, RichNodeFeature
+        from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder, RichNodeFeature
         
         print("✅ Successfully imported EnhancedGraphBuilder")
         

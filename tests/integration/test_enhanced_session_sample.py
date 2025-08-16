@@ -15,8 +15,8 @@ def test_enhanced_session_sample():
     print("=" * 50)
     
     try:
-        from learning.tgat_discovery import IRONFORGEDiscovery, TGATDiscovery
-        from analysis.timeframe_lattice_mapper import TimeframeLatticeMapper
+        from ironforge.learning.tgat_discovery import IRONFORGEDiscovery, TGATDiscovery
+        from ironforge.analysis.timeframe_lattice_mapper import TimeframeLatticeMapper
         from visualizations.lattice_visualizer import LatticeVisualizer, VisualizationConfig
         
         # Simulate Enhanced Session Adapter output (Theory B format)

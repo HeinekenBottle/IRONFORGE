@@ -27,7 +27,7 @@ from typing import Dict, Any
 sys.path.append('.')
 
 # Import lazy loading system  
-from integration.ironforge_container import initialize_ironforge_lazy_loading
+from ironforge.integration.ironforge_container import initialize_ironforge_lazy_loading
 
 def test_sprint2_lazy_integration():
     """Complete Sprint 2 integration test with lazy loading"""

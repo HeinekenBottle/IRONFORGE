@@ -5,7 +5,7 @@ Test HTF Integration with Enhanced Graph Builder
 
 import json
 import logging
-from learning.enhanced_graph_builder import EnhancedGraphBuilder
+from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)

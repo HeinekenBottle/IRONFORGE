@@ -3,8 +3,8 @@
 Test Price Relativity Fix
 """
 import json
-from learning.enhanced_graph_builder import EnhancedGraphBuilder
-from learning.tgat_discovery import IRONFORGEDiscovery
+from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
+from ironforge.learning.tgat_discovery import IRONFORGEDiscovery
 
 def test_relativity_fix():
     print("🧪 Testing Price Relativity Fix")

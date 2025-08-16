@@ -27,7 +27,7 @@ from typing import Dict, List
 sys.path.insert(0, str(Path(__file__).parent))
 
 try:
-    from performance_monitor import PerformanceMonitor, PerformanceMetrics, BaselineMetrics, create_graph_analysis
+    from scripts.utilities.performance_monitor import PerformanceMonitor, PerformanceMetrics, BaselineMetrics, create_graph_analysis
     from orchestrator import IRONFORGE
 except ImportError as e:
     print(f"❌ Failed to import IRONFORGE components: {e}")

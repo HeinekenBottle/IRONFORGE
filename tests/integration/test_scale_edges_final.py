@@ -8,8 +8,8 @@ Tests the full Level 1 → HTF → TGAT archaeological discovery flow.
 
 import json
 from pathlib import Path
-from learning.enhanced_graph_builder import EnhancedGraphBuilder
-from learning.tgat_discovery import IRONFORGEDiscovery
+from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
+from ironforge.learning.tgat_discovery import IRONFORGEDiscovery
 
 def test_complete_archaeological_pipeline():
     """Test the complete archaeological discovery pipeline."""

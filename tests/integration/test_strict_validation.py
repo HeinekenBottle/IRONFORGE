@@ -11,7 +11,7 @@ import json
 import sys
 import traceback
 from pathlib import Path
-from learning.enhanced_graph_builder import EnhancedGraphBuilder
+from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
 from price_relativity_generator import PriceRelativityGenerator
 
 def create_test_cases():

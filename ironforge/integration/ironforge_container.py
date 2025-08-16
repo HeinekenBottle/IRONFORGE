@@ -89,7 +89,7 @@ class IRONFORGEContainer:
         # Performance monitoring system
         self._register_component(
             'performance_monitor',
-            'scripts.utilities.performance_monitor',
+            'ironforge.utilities.performance_monitor',
             'PerformanceMonitor',
             'Sprint 2 performance monitoring with 15% regression threshold'
         )

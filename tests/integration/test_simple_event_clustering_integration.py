@@ -36,7 +36,7 @@ def test_module_imports():
     
     try:
         # Test core module import
-        from learning.simple_event_clustering import (
+        from ironforge.learning.simple_event_clustering import (
             EventTimeClusterer, 
             CrossTFMapper, 
             SimpleEventAnalyzer,
@@ -49,7 +49,7 @@ def test_module_imports():
         print("✅ Enhanced orchestrator imports successful")
         
         # Test that the new import in orchestrator works
-        from learning.simple_event_clustering import analyze_time_patterns
+        from ironforge.learning.simple_event_clustering import analyze_time_patterns
         print("✅ Orchestrator integration import successful")
         
         return True
@@ -67,7 +67,7 @@ def test_individual_components():
     print("-" * 50)
     
     try:
-        from learning.simple_event_clustering import EventTimeClusterer, CrossTFMapper, SimpleEventAnalyzer
+        from ironforge.learning.simple_event_clustering import EventTimeClusterer, CrossTFMapper, SimpleEventAnalyzer
         
         # Test EventTimeClusterer
         print("Testing EventTimeClusterer...")
@@ -138,7 +138,7 @@ def test_analyze_time_patterns_function():
     print("-" * 50)
     
     try:
-        from learning.simple_event_clustering import analyze_time_patterns
+        from ironforge.learning.simple_event_clustering import analyze_time_patterns
         
         # Create test graph data
         test_graph = {
@@ -251,7 +251,7 @@ def test_performance_overhead():
     print("-" * 50)
     
     try:
-        from learning.simple_event_clustering import analyze_time_patterns
+        from ironforge.learning.simple_event_clustering import analyze_time_patterns
         
         # Create realistic test data
         events = []
@@ -317,7 +317,7 @@ def test_output_data_quality():
     print("-" * 50)
     
     try:
-        from learning.simple_event_clustering import analyze_time_patterns
+        from ironforge.learning.simple_event_clustering import analyze_time_patterns
         
         # Create comprehensive test data
         events = [

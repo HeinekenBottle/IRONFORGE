@@ -10,7 +10,7 @@ def test_task3():
     print("Testing Task 3: Session Context Preservation")
     
     try:
-        from learning.enhanced_graph_builder import EnhancedGraphBuilder
+        from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
         
         builder = EnhancedGraphBuilder()
         

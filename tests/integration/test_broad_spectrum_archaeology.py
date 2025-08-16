@@ -28,10 +28,10 @@ sys.path.append(str(Path(__file__).parent))
 
 # Import archaeology components
 try:
-    from analysis.broad_spectrum_archaeology import BroadSpectrumArchaeology, ArchaeologicalSummary
-    from analysis.timeframe_lattice_mapper import TimeframeLatticeMapper, LatticeDataset
-    from analysis.temporal_clustering_engine import TemporalClusteringEngine, ClusteringAnalysis
-    from analysis.structural_link_analyzer import StructuralLinkAnalyzer, StructuralAnalysis
+    from ironforge.analysis.broad_spectrum_archaeology import BroadSpectrumArchaeology, ArchaeologicalSummary
+    from ironforge.analysis.timeframe_lattice_mapper import TimeframeLatticeMapper, LatticeDataset
+    from ironforge.analysis.temporal_clustering_engine import TemporalClusteringEngine, ClusteringAnalysis
+    from ironforge.analysis.structural_link_analyzer import StructuralLinkAnalyzer, StructuralAnalysis
     from visualizations.lattice_visualizer import LatticeVisualizer, VisualizationConfig
     
     print("✅ All archaeology components imported successfully")

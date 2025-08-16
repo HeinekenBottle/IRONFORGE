@@ -31,12 +31,12 @@ if __name__ == "__main__":
     print("🧪 Minimal Import Test for Sprint 2 Components")
     print("=" * 50)
     
-    # Test imports one by one
-    test_import("learning.enhanced_graph_builder", "EnhancedGraphBuilder")
-    test_import("learning.tgat_discovery", "IRONFORGEDiscovery")  
-    test_import("learning.regime_segmentation", "RegimeSegmentation")
-    test_import("learning.precursor_detection", "EventPrecursorDetector")
-    test_import("performance_monitor", "PerformanceMonitor")
-    test_import("reporting.analyst_reports", "AnalystReports")
+    # Test imports one by one - Updated for new package structure
+    test_import("ironforge.learning.enhanced_graph_builder", "EnhancedGraphBuilder")
+    test_import("ironforge.learning.tgat_discovery", "IRONFORGEDiscovery")
+    test_import("ironforge.learning.regime_segmentation", "RegimeSegmentation")
+    test_import("ironforge.learning.precursor_detection", "EventPrecursorDetector")
+    test_import("ironforge.utilities.performance_monitor", "PerformanceMonitor")
+    test_import("ironforge.reporting.analyst_reports", "AnalystReports")
     
     print("\n✅ All imports completed!")

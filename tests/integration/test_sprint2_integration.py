@@ -20,12 +20,12 @@ from typing import Dict, List, Any
 sys.path.append('/Users/jack/IRONPULSE/IRONFORGE')
 
 # Sprint 2 imports
-from learning.enhanced_graph_builder import EnhancedGraphBuilder
-from learning.tgat_discovery import IRONFORGEDiscovery
-from learning.regime_segmentation import RegimeSegmentation
-from learning.precursor_detection import EventPrecursorDetector
-from performance_monitor import PerformanceMonitor, monitor_ironforge_session
-from reporting.analyst_reports import AnalystReports
+from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
+from ironforge.learning.tgat_discovery import IRONFORGEDiscovery
+from ironforge.learning.regime_segmentation import RegimeSegmentation
+from ironforge.learning.precursor_detection import EventPrecursorDetector
+from scripts.utilities.performance_monitor import PerformanceMonitor, monitor_ironforge_session
+from ironforge.reporting.analyst_reports import AnalystReports
 
 def test_sprint2_complete_integration():
     """
