@@ -16,6 +16,32 @@ IRONFORGE is a sophisticated archaeological discovery system that uncovers hidde
 - **Session Context**: ✅ NY_AM/LONDON_PM/ASIA timing and characteristics preserved
 - **Archaeological Intelligence**: ✅ Permanent vs temporary pattern classification implemented
 
+## 📁 Project Structure
+
+```
+IRONFORGE/
+├── ironforge/                    # Main application package
+│   ├── learning/                # ML/TGAT discovery engine
+│   ├── analysis/                # Pattern analysis & archaeology
+│   ├── synthesis/               # Pattern validation & graduation
+│   ├── integration/             # System integration & containers
+│   ├── utilities/               # Core utilities & monitoring
+│   └── reporting/               # Analysis reporting
+├── iron_core/                   # Infrastructure & performance
+├── data/                        # Organized data storage
+│   ├── raw/                     # Level 1 raw market data
+│   ├── enhanced/                # Enhanced/processed sessions
+│   ├── adapted/                 # Adapted sessions with relativity
+│   └── discoveries/             # Pattern discoveries
+├── scripts/                     # Utility scripts
+│   ├── analysis/                # Analysis runners
+│   ├── data_processing/         # Data pipeline scripts
+│   └── utilities/               # General utilities
+├── tests/                       # Comprehensive test suite
+├── reports/                     # Generated reports & visualizations
+└── docs/                        # Documentation
+```
+
 ## 🚀 Quick Start
 
 ### Installation
@@ -27,6 +53,25 @@ cd IRONFORGE
 
 # Install dependencies
 pip install -r requirements.txt
+```
+
+### Basic Usage
+
+```python
+# Import the main components
+from ironforge.integration.ironforge_container import get_ironforge_container
+from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
+from ironforge.learning.tgat_discovery import IRONFORGEDiscovery
+
+# Initialize the system
+container = get_ironforge_container()
+graph_builder = container.get_enhanced_graph_builder()
+discovery_engine = container.get_tgat_discovery()
+
+# Load and process session data
+session_data = load_session_data("data/raw/session.json")
+enhanced_session = graph_builder.enhance_session(session_data)
+discoveries = discovery_engine.discover_patterns(enhanced_session)
 ```
 
 ### Basic Usage
