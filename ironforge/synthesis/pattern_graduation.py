@@ -173,19 +173,18 @@ class PatternGraduation:
             for metric, weight in weights.items()
         )
         
-        # Determine graduation status
+        # STRICT 87% THRESHOLD ENFORCEMENT - NO COMPROMISES
+        # Architecture requires strict 87% threshold with no conditional graduation
         if graduation_score >= self.baseline_accuracy:
             status = 'GRADUATED'
             graduated_patterns = validation_metrics  # All patterns graduate
             rejected_patterns = {}
-        elif graduation_score >= 0.75:  # Close to threshold
-            status = 'CONDITIONAL'
-            graduated_patterns = {k: v for k, v in validation_metrics.items() if v >= 0.8}
-            rejected_patterns = {k: v for k, v in validation_metrics.items() if v < 0.8}
+            logger.info(f"PATTERNS GRADUATED: Score {graduation_score:.3f} >= {self.baseline_accuracy:.3f}")
         else:
             status = 'REJECTED'
             graduated_patterns = {}
             rejected_patterns = validation_metrics
+            logger.warning(f"PATTERNS REJECTED: Score {graduation_score:.3f} < {self.baseline_accuracy:.3f} (strict threshold)")
         
         return {
             'status': status,
