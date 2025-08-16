@@ -18,7 +18,7 @@ class PatternGraduation:
     
     def __init__(self, baseline_accuracy: float = 0.87):
         self.baseline_accuracy = baseline_accuracy
-        self.validation_history = []
+        # REMOVED: self.validation_history = [] to ensure session independence
         logger.info(f"Pattern Graduation initialized with {baseline_accuracy*100}% threshold")
     
     def validate_patterns(self, discovered_patterns: Dict[str, Any]) -> Dict[str, Any]:
@@ -57,8 +57,8 @@ class PatternGraduation:
                 'production_ready': graduation_status['status'] == 'GRADUATED'
             }
             
-            # Store validation history
-            self.validation_history.append(results)
+            # REMOVED: validation_history.append() to ensure session independence
+            # Each session validation is completely isolated
             
             logger.info(f"Graduation complete: {graduation_status['status']} "
                        f"(score: {graduation_status['score']:.3f})")
@@ -194,34 +194,16 @@ class PatternGraduation:
         }
     
     def get_graduation_summary(self) -> Dict[str, Any]:
-        """Get summary of all graduation validations"""
+        """Get summary of graduation system configuration
         
-        if not self.validation_history:
-            return {
-                'total_validations': 0,
-                'graduation_rate': 0.0,
-                'average_score': 0.0,
-                'status_distribution': {}
-            }
+        NOTE: No historical data is maintained to ensure session independence.
+        Use external logging/storage if cross-session analytics are needed.
+        """
         
-        total_validations = len(self.validation_history)
-        graduated_count = sum(1 for v in self.validation_history if v.get('production_ready', False))
-        graduation_rate = graduated_count / total_validations
-        
-        scores = [v.get('graduation_score', 0.0) for v in self.validation_history]
-        average_score = np.mean(scores)
-        
-        # Status distribution
-        statuses = [v.get('graduation_status', 'UNKNOWN') for v in self.validation_history]
-        status_distribution = {
-            status: statuses.count(status) / total_validations
-            for status in set(statuses)
-        }
-        
+        # REMOVED validation_history dependency for session independence
         return {
-            'total_validations': total_validations,
-            'graduation_rate': graduation_rate,
-            'average_score': average_score,
-            'status_distribution': status_distribution,
-            'baseline_threshold': self.baseline_accuracy
+            'baseline_threshold': self.baseline_accuracy,
+            'session_independence': True,
+            'note': 'No cross-session state maintained - each validation is isolated'
         }
+        

@@ -11,17 +11,33 @@ from pathlib import Path
 import logging
 from datetime import datetime
 
+try:
+    from config import get_config
+except ImportError:
+    import sys
+    import os
+    sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
+    from config import get_config
+
 logger = logging.getLogger(__name__)
 
 class ProductionGraduation:
     """
     Production feature export for graduated patterns
     Converts validated archaeological discoveries into production-ready features
+    
+    NOTE: This class maintains NO STATE between sessions to ensure complete session independence.
+    Each export is completely isolated and cannot be contaminated by previous sessions.
     """
     
     def __init__(self, output_path: Optional[Path] = None):
-        self.output_path = output_path or Path("preservation/production_features.json")
-        self.production_features = []
+        if output_path is None:
+            config = get_config()
+            preservation_path = config.get_preservation_path()
+            self.output_path = Path(preservation_path) / "production_features.json"
+        else:
+            self.output_path = output_path
+        # REMOVED: self.production_features = [] to ensure session independence
         logger.info(f"Production Graduation initialized, output: {self.output_path}")
     
     def export_graduated_patterns(self, graduation_results: Dict[str, Any]) -> Dict[str, Any]:
@@ -60,8 +76,8 @@ class ProductionGraduation:
                     'session_name': session_name
                 }
             
-            # Add to production feature store
-            self.production_features.append(production_features)
+            # REMOVED: production_features.append() to ensure session independence
+            # Each session export is completely isolated
             
             # Export to file
             export_result = self._export_to_file(production_features)
@@ -242,33 +258,14 @@ class ProductionGraduation:
             }
     
     def get_production_summary(self) -> Dict[str, Any]:
-        """Get summary of all production exports"""
+        """Get summary of production system configuration
         
-        if not self.production_features:
-            return {
-                'total_exports': 0,
-                'total_features': 0,
-                'average_graduation_score': 0.0,
-                'feature_types': {}
-            }
-        
-        total_exports = len(self.production_features)
-        total_features = sum(len(pf.get('features', [])) for pf in self.production_features)
-        
-        scores = [pf.get('graduation_score', 0.0) for pf in self.production_features]
-        average_score = np.mean(scores) if scores else 0.0
-        
-        # Feature type distribution
-        feature_types = {}
-        for pf in self.production_features:
-            for feature in pf.get('features', []):
-                pattern_type = feature.get('pattern_type', 'unknown')
-                feature_types[pattern_type] = feature_types.get(pattern_type, 0) + 1
+        NOTE: No historical data is maintained to ensure session independence.
+        Use external logging/storage if cross-session analytics are needed.
+        """
         
         return {
-            'total_exports': total_exports,
-            'total_features': total_features,
-            'average_graduation_score': average_score,
-            'feature_types': feature_types,
-            'output_path': str(self.output_path)
+            'output_path': str(self.output_path),
+            'session_independence': True,
+            'note': 'No cross-session state maintained - each export is isolated'
         }
