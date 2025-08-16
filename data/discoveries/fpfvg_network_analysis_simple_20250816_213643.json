@@ -1,0 +1,48 @@
+{
+  "analysis_type": "simplified_fpfvg_network",
+  "total_candidates": 615,
+  "candidate_stats": {
+    "total": 615,
+    "by_type": {
+      "formation": 458,
+      "redelivery": 157
+    },
+    "pm_belt_count": 2,
+    "theory_b_zone_count": 367,
+    "price_stats": {
+      "count": 355,
+      "min": 23084.5,
+      "max": 23800.25,
+      "mean": 23416.553711267607
+    }
+  },
+  "zone_enrichment_test": {
+    "test_type": "zone_enrichment_fisher_exact",
+    "redeliveries_total": 157,
+    "observed_in_zones": 141,
+    "observed_outside_zones": 16,
+    "expected_in_zones": 78.5,
+    "expected_outside_zones": 78.5,
+    "odds_ratio": 8.8125,
+    "p_value": 3.982724127076855e-15,
+    "significant": "True",
+    "enrichment_factor": 1.7961783439490446
+  },
+  "pm_belt_test": {
+    "error": "Statistical test failed: The internally computed table of expected frequencies has a zero element at (0, 0)."
+  },
+  "summary": {
+    "total_candidates": 615,
+    "formations": 458,
+    "redeliveries": 157,
+    "pm_belt_rate": {
+      "formations": 0.004366812227074236,
+      "redeliveries": 0.0
+    },
+    "theory_b_zone_rate": {
+      "formations": 0.49344978165938863,
+      "redeliveries": 0.8980891719745223
+    },
+    "key_insight": "Statistical validation of FPFVG redelivery alignment with Theory B zones and PM belt timing"
+  }
+}
