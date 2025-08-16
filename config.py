@@ -29,17 +29,19 @@ class IRONFORGEConfig:
     def __init__(self, config_file: Optional[str] = None):
         self.logger = logging.getLogger('ironforge.config')
         
-        # Default configuration
+        # Default configuration - updated for new directory structure
         self._defaults = {
             'data_path': 'data',
-            'preservation_path': 'IRONFORGE/preservation',
-            'graphs_path': 'IRONFORGE/preservation/full_graph_store',
-            'embeddings_path': 'IRONFORGE/preservation/embeddings',
-            'discoveries_path': 'IRONFORGE/discoveries',
-            'reports_path': 'IRONFORGE/reports',
-            'htf_data_path': 'data/sessions/htf_relativity',
-            'session_data_path': 'data/sessions/level_1',
-            'integration_path': 'integration'
+            'preservation_path': 'preservation',
+            'graphs_path': 'preservation/full_graph_store',
+            'embeddings_path': 'preservation/embeddings',
+            'discoveries_path': 'data/discoveries',
+            'reports_path': 'reports',
+            'htf_data_path': 'data/raw/htf_relativity',
+            'session_data_path': 'data/raw',
+            'enhanced_data_path': 'data/enhanced',
+            'adapted_data_path': 'data/adapted',
+            'integration_path': 'ironforge/integration'
         }
         
         # Load configuration
@@ -103,13 +105,30 @@ class IRONFORGEConfig:
             'reports_path'
         ]
         
+        workspace_root = Path(self.config.get('workspace_root', os.getcwd())).resolve()
+
         for dir_key in required_dirs:
             dir_path = Path(self.config[dir_key])
+
+            # Security: Validate path to prevent directory traversal
             try:
-                dir_path.mkdir(parents=True, exist_ok=True)
-                self.logger.debug(f"Ensured directory exists: {dir_path}")
-            except Exception as e:
+                resolved_path = dir_path.resolve()
+                # Ensure path is within workspace or is absolute and safe
+                if not dir_path.is_absolute():
+                    resolved_path = (workspace_root / dir_path).resolve()
+
+                # Check for directory traversal attempts
+                if '..' in str(dir_path) and not str(resolved_path).startswith(str(workspace_root)):
+                    raise ValueError(f"Invalid path detected (directory traversal): {dir_path}")
+
+                resolved_path.mkdir(parents=True, exist_ok=True)
+                self.logger.debug(f"Ensured directory exists: {resolved_path}")
+
+            except (OSError, ValueError) as e:
                 self.logger.error(f"Failed to create directory {dir_path}: {e}")
+                raise ValueError(f"Invalid or unsafe directory path '{dir_path}': {e}") from e
+            except Exception as e:
+                self.logger.error(f"Unexpected error creating directory {dir_path}: {e}")
                 raise
     
     def get_path(self, key: str) -> str:
