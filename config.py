@@ -29,17 +29,19 @@ class IRONFORGEConfig:
     def __init__(self, config_file: Optional[str] = None):
         self.logger = logging.getLogger('ironforge.config')
         
-        # Default configuration
+        # Default configuration - updated for new directory structure
         self._defaults = {
             'data_path': 'data',
-            'preservation_path': 'IRONFORGE/preservation',
-            'graphs_path': 'IRONFORGE/preservation/full_graph_store',
-            'embeddings_path': 'IRONFORGE/preservation/embeddings',
-            'discoveries_path': 'IRONFORGE/discoveries',
-            'reports_path': 'IRONFORGE/reports',
-            'htf_data_path': 'data/sessions/htf_relativity',
-            'session_data_path': 'data/sessions/level_1',
-            'integration_path': 'integration'
+            'preservation_path': 'preservation',
+            'graphs_path': 'preservation/full_graph_store',
+            'embeddings_path': 'preservation/embeddings',
+            'discoveries_path': 'data/discoveries',
+            'reports_path': 'reports',
+            'htf_data_path': 'data/raw/htf_relativity',
+            'session_data_path': 'data/raw',
+            'enhanced_data_path': 'data/enhanced',
+            'adapted_data_path': 'data/adapted',
+            'integration_path': 'ironforge/integration'
         }
         
         # Load configuration

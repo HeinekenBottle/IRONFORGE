@@ -17,9 +17,9 @@ from pathlib import Path
 from config import get_config
 
 # Lazy loading imports to resolve timeout issues
-from integration.ironforge_container import get_ironforge_container
-from synthesis.pattern_graduation import PatternGraduation
-from learning.simple_event_clustering import analyze_time_patterns
+from ironforge.integration.ironforge_container import get_ironforge_container
+from ironforge.synthesis.pattern_graduation import PatternGraduation
+from ironforge.learning.simple_event_clustering import analyze_time_patterns
 
 class IRONFORGE:
     """Main orchestrator for discovery system"""
