@@ -1,27 +1,12 @@
 """
-IRONFORGE Integration Layer
-==========================
-
-Lazy loading and dependency injection for IRONFORGE components
-to resolve Sprint 2 timeout issues and achieve performance improvements.
+Integration layer for system coordination
 """
 
-import sys
-import os
-
-# Ensure iron_core package can be found
-parent_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-if parent_dir not in sys.path:
-    sys.path.insert(0, parent_dir)
-
-from .ironforge_container import (
-    IRONFORGEContainer,
-    get_ironforge_container, 
-    initialize_ironforge_lazy_loading
-)
+# Core integration components
+from .ironforge_container import get_ironforge_container, initialize_ironforge_lazy_loading, IRONFORGEContainer
 
 __all__ = [
-    'IRONFORGEContainer',
     'get_ironforge_container',
-    'initialize_ironforge_lazy_loading'
+    'initialize_ironforge_lazy_loading', 
+    'IRONFORGEContainer'
 ]

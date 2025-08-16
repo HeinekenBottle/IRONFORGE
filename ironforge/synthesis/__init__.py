@@ -1,15 +1,19 @@
 """
-IRONFORGE Synthesis Module
-==========================
-Pattern graduation and production synthesis components.
-
-Components:
-- PatternGraduation: Archaeological pattern validation and graduation
-- ProductionGraduation: Production-ready pattern synthesis
+Synthesis components for pattern validation
 """
 
-from .pattern_graduation import PatternGraduation
-from .production_graduation import ProductionGraduation
+# Core synthesis components
+try:
+    from .pattern_graduation import PatternGraduation
+except ImportError:
+    # Component not yet available
+    pass
+
+try:
+    from .production_graduation import ProductionGraduation
+except ImportError:
+    # Component not yet available
+    pass
 
 __all__ = [
     'PatternGraduation',

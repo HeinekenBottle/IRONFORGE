@@ -1,7 +1,7 @@
 # IRONFORGE Architecture Documentation
 **Archaeological Discovery System - Definitive Architectural Guide**
 
-*Preventing architectural drift across IRONFORGE's 2,225-file codebase*
+*Preventing architectural drift across IRONFORGE's refactored package architecture*
 
 ## Table of Contents
 
@@ -20,7 +20,8 @@
 IRONFORGE is a sophisticated archaeological discovery system that uncovers hidden patterns in financial market data using advanced temporal graph attention networks (TGAT) and semantic feature analysis. The system transforms raw market sessions into rich contextual archaeological discoveries with complete event preservation and session anchoring.
 
 **Core Mission**: Archaeological discovery of market patterns (NOT prediction)  
-**Architecture**: Component-based lazy loading with iron-core integration  
+**Architecture**: Refactored package-based structure with iron-core integration  
+**Installation**: `pip install -e .` for development mode  
 **Performance**: 88.7% improvement through lazy loading (3.4s vs 2+ min timeouts)  
 **Features**: 45D node vectors, 20D edge vectors with semantic event preservation  
 
@@ -37,7 +38,7 @@ IRONFORGE is a sophisticated archaeological discovery system that uncovers hidde
 ```
 - **Discovery Purpose**: Find hidden relationships and patterns in historical data
 - **No Prediction**: System must never generate trading recommendations or future price predictions
-- **Clear Separation**: Discovery components (`learning/`, `synthesis/`) completely isolated from any prediction logic
+- **Clear Separation**: Discovery components (`ironforge.learning`, `ironforge.synthesis`) completely isolated from any prediction logic
 
 #### 2. 87% Graduation Threshold
 ```
@@ -45,7 +46,7 @@ IRONFORGE is a sophisticated archaeological discovery system that uncovers hidde
 ❌ FORBIDDEN: Patterns below 87% accuracy entering production
 ```
 - **Validation Required**: All patterns must pass `PatternGraduation` pipeline
-- **Quality Gate**: `synthesis/pattern_graduation.py` enforces 87% minimum accuracy
+- **Quality Gate**: `ironforge.synthesis.pattern_graduation` enforces 87% minimum accuracy
 - **Production Bridge**: Only graduated patterns become production features
 
 #### 3. Feature Architecture Constraints
@@ -66,7 +67,8 @@ IRONFORGE is a sophisticated archaeological discovery system that uncovers hidde
 ❌ FORBIDDEN: Reverting to blocking/synchronous loading
 ```
 - **Lazy Loading**: All components use iron-core lazy loading patterns
-- **Container Pattern**: Dependency injection through `IRONFORGEContainer`
+- **Package Installation**: `pip install -e .` for development mode
+- **Container Pattern**: Dependency injection through `ironforge.integration.ironforge_container`
 - **Thread Safety**: All lazy loading must be thread-safe
 
 #### 5. Complete Preservation
@@ -83,7 +85,7 @@ IRONFORGE is a sophisticated archaeological discovery system that uncovers hidde
 
 ## Component Boundaries & Responsibilities
 
-### 📁 `/learning/` - Archaeological Discovery Engine
+### 📁 `ironforge.learning` - Archaeological Discovery Engine
 **Responsibility**: Self-supervised pattern discovery without prediction
 
 **Core Files**:
@@ -92,26 +94,38 @@ IRONFORGE is a sophisticated archaeological discovery system that uncovers hidde
 - `simple_event_clustering.py` - Time-based event clustering
 - `regime_segmentation.py` - Market regime detection
 
+**Import Pattern**:
+```python
+from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
+from ironforge.learning.tgat_discovery import IRONFORGEDiscovery
+```
+
 **Boundaries**:
 - ✅ **Input**: Level 1 JSON session data
 - ✅ **Output**: Discovered patterns with attention weights
 - ❌ **Forbidden**: Prediction logic, trading signals, future forecasts
 - ❌ **Forbidden**: Direct file I/O (use orchestrator/config)
 
-### 📁 `/synthesis/` - Pattern Validation & Production Bridge
+### 📁 `ironforge.synthesis` - Pattern Validation & Production Bridge
 **Responsibility**: Validate discovered patterns and bridge to production
 
 **Core Files**:
 - `pattern_graduation.py` - 87% threshold validation pipeline
 - `production_graduation.py` - Production feature export
 
+**Import Pattern**:
+```python
+from ironforge.synthesis.pattern_graduation import PatternGraduation
+from ironforge.synthesis.production_graduation import ProductionGraduation
+```
+
 **Boundaries**:
-- ✅ **Input**: Raw discovered patterns from `/learning/`
+- ✅ **Input**: Raw discovered patterns from `ironforge.learning`
 - ✅ **Output**: Validated patterns exceeding 87% accuracy
 - ❌ **Forbidden**: Pattern modification (validation only)
 - ❌ **Forbidden**: Bypassing validation thresholds
 
-### 📁 `/preservation/` - Archaeological Data Storage
+### 📁 `preservation/` - Archaeological Data Storage
 **Responsibility**: Persistent storage of graphs, patterns, and models
 
 **Structure**:
@@ -125,18 +139,31 @@ preservation/
 └── full_graph_store/          # Complete graph archives
 ```
 
+**Access Pattern**:
+```python
+# Data accessed through configuration system
+config = get_config()
+preservation_path = config.get_preservation_path()
+```
+
 **Boundaries**:
 - ✅ **Storage**: All patterns, graphs, embeddings, models
 - ✅ **Archival**: Complete historical preservation
 - ❌ **Forbidden**: Pattern modification or filtering
 - ❌ **Forbidden**: Data deletion (archival system)
 
-### 📁 `/integration/` - System Integration Layer
+### 📁 `ironforge.integration` - System Integration Layer
 **Responsibility**: Iron-core integration and lazy loading management
 
 **Core Files**:
 - `ironforge_container.py` - Dependency injection container
 - `__init__.py` - Clean iron-core imports
+
+**Import Pattern**:
+```python
+from ironforge.integration.ironforge_container import initialize_ironforge_lazy_loading
+container = initialize_ironforge_lazy_loading()
+```
 
 **Boundaries**:
 - ✅ **Container Management**: Lazy loading coordination
@@ -144,13 +171,19 @@ preservation/
 - ❌ **Forbidden**: Business logic (container only)
 - ❌ **Forbidden**: Direct component instantiation
 
-### 📁 `/iron_core/` - Shared Infrastructure
+### 📁 `iron_core/` - Shared Infrastructure
 **Responsibility**: Performance optimization and mathematical operations
 
 **Key Components**:
 - `performance/` - Lazy loading, container patterns
 - `mathematical/` - RG optimizers, correlators, invariants
 - `validation/` - Data validation utilities
+
+**Import Pattern**:
+```python
+from iron_core.performance import IRONContainer, LazyComponent
+from iron_core.mathematical import RGOptimizer
+```
 
 **Boundaries**:
 - ✅ **Infrastructure**: Performance, math, validation utilities
@@ -231,7 +264,8 @@ def get_graph_builder():
 
 # ✅ CORRECT - Container pattern
 def get_graph_builder():
-    container = get_ironforge_container()
+    from ironforge.integration.ironforge_container import initialize_ironforge_lazy_loading
+    container = initialize_ironforge_lazy_loading()
     return container.get_enhanced_graph_builder()  # Lazy loaded
 ```
 
@@ -413,16 +447,18 @@ Performance Issue Identified
 ### 🔄 Architectural Evolution Framework
 
 #### Adding New Discovery Methods
-1. **Component Placement**: Must go in `/learning/` directory
+1. **Component Placement**: Must go in `ironforge.learning` package
 2. **Interface Compliance**: Follow `tgat_discovery.py` patterns
 3. **Feature Compatibility**: Support 45D/20D architecture
 4. **Graduation Path**: Integrate with `PatternGraduation` pipeline
+5. **Import Structure**: Use proper package imports (`from ironforge.learning import ...`)
 
 #### New Validation Methods
-1. **Component Placement**: Must go in `/synthesis/` directory
+1. **Component Placement**: Must go in `ironforge.synthesis` package
 2. **Threshold Enforcement**: Maintain 87% minimum accuracy
 3. **Historical Testing**: Backtest against archived patterns
 4. **Production Bridge**: Export only graduated patterns
+5. **Import Structure**: Use proper package imports (`from ironforge.synthesis import ...`)
 
 #### Storage Schema Evolution
 1. **Backwards Compatibility**: Never break existing graph storage
@@ -497,11 +533,12 @@ Performance Issue Identified
 ### 🚀 Getting Started with IRONFORGE Architecture
 
 #### For New Components
-1. **Choose Correct Directory**: `/learning/` for discovery, `/synthesis/` for validation
+1. **Choose Correct Package**: `ironforge.learning` for discovery, `ironforge.synthesis` for validation
 2. **Follow Naming Conventions**: `enhanced_*` for upgraded components
 3. **Use Configuration System**: Never hardcode paths, use `get_config()`
 4. **Apply Lazy Loading**: Register in container, use `@LazyComponent`
 5. **Preserve Dimensions**: Maintain 45D/20D architecture
+6. **Package Installation**: Use `pip install -e .` for development
 
 #### For Modifications
 1. **Read This Document First**: Understand constraints and anti-patterns
@@ -520,6 +557,7 @@ Performance Issue Identified
 
 *This document serves as the definitive architectural guide for IRONFORGE. All development decisions should reference and comply with these specifications to prevent architectural drift.*
 
-**Last Updated**: August 15, 2025  
-**Version**: 1.0  
-**Status**: Architectural Foundation Complete
+**Last Updated**: August 16, 2025  
+**Version**: 1.1  
+**Status**: Updated for Refactored Package Architecture  
+**Changes**: Updated import paths, package structure, installation process

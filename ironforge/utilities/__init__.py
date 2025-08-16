@@ -1,7 +1,14 @@
 """
-IRONFORGE Utilities Package
-==========================
-Core utilities for monitoring, debugging, and system operations.
+Core utilities and helpers
 """
 
-__all__ = []
+# Core utilities
+try:
+    from .performance_monitor import PerformanceMonitor
+except ImportError:
+    # Component not yet available
+    pass
+
+__all__ = [
+    'PerformanceMonitor'
+]

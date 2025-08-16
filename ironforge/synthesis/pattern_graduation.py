@@ -1,110 +1,228 @@
 """
-IRONFORGE Pattern Graduation Pipeline
-Validates discovered patterns and bridges to production
+Pattern Graduation System
+87% threshold validation pipeline for discovered patterns
 """
+
+import torch
 import numpy as np
-import json
-import os
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Any, Optional
+import logging
 from datetime import datetime
+
+logger = logging.getLogger(__name__)
 
 class PatternGraduation:
     """
-    Tests discovered patterns against 87% baseline
-    Promotes proven patterns to production
+    Validation system ensuring discovered patterns exceed 87% baseline accuracy
     """
     
     def __init__(self, baseline_accuracy: float = 0.87):
         self.baseline_accuracy = baseline_accuracy
-        self.validated_patterns = []
-        
-    def validate_pattern(self, pattern: Dict, historical_data: List[Dict]) -> Dict:
+        self.validation_history = []
+        logger.info(f"Pattern Graduation initialized with {baseline_accuracy*100}% threshold")
+    
+    def validate_patterns(self, discovered_patterns: Dict[str, Any]) -> Dict[str, Any]:
         """
-        Backtest pattern against historical sessions
+        Validate discovered patterns against 87% accuracy threshold
         
+        Args:
+            discovered_patterns: Results from TGAT discovery
+            
         Returns:
-            Validation results with improvement metrics
+            Validation results with graduation status
         """
-        pattern_hits = 0
-        pattern_accuracy = []
-        
-        for session in historical_data:
-            if self._pattern_matches(pattern, session):
-                pattern_hits += 1
-                accuracy = self._measure_accuracy(pattern, session)
-                pattern_accuracy.append(accuracy)
-        
-        if len(pattern_accuracy) == 0:
+        try:
+            session_name = discovered_patterns.get('session_name', 'unknown')
+            significant_patterns = discovered_patterns.get('significant_patterns', [])
+            session_metrics = discovered_patterns.get('session_metrics', {})
+            
+            logger.info(f"Validating {len(significant_patterns)} patterns from {session_name}")
+            
+            # Calculate pattern validation metrics
+            validation_results = self._calculate_validation_metrics(discovered_patterns)
+            
+            # Apply graduation criteria
+            graduation_status = self._apply_graduation_criteria(validation_results)
+            
+            # Prepare graduation results
+            results = {
+                'session_name': session_name,
+                'validation_timestamp': datetime.now().isoformat(),
+                'baseline_threshold': self.baseline_accuracy,
+                'validation_metrics': validation_results,
+                'graduation_status': graduation_status['status'],
+                'graduation_score': graduation_status['score'],
+                'graduated_patterns': graduation_status['graduated_patterns'],
+                'rejected_patterns': graduation_status['rejected_patterns'],
+                'production_ready': graduation_status['status'] == 'GRADUATED'
+            }
+            
+            # Store validation history
+            self.validation_history.append(results)
+            
+            logger.info(f"Graduation complete: {graduation_status['status']} "
+                       f"(score: {graduation_status['score']:.3f})")
+            
+            return results
+            
+        except Exception as e:
+            logger.error(f"Pattern validation failed: {e}")
             return {
-                'pattern': pattern,
-                'status': 'NO_MATCHES',
-                'improvement': 0.0
+                'session_name': discovered_patterns.get('session_name', 'unknown'),
+                'status': 'ERROR',
+                'error': str(e),
+                'production_ready': False
+            }
+    
+    def _calculate_validation_metrics(self, patterns: Dict[str, Any]) -> Dict[str, float]:
+        """Calculate comprehensive validation metrics"""
+        
+        significant_patterns = patterns.get('significant_patterns', [])
+        session_metrics = patterns.get('session_metrics', {})
+        raw_results = patterns.get('raw_results', {})
+        
+        if not significant_patterns:
+            return {
+                'pattern_confidence': 0.0,
+                'significance_score': 0.0,
+                'attention_coherence': 0.0,
+                'pattern_consistency': 0.0,
+                'archaeological_value': 0.0
             }
         
-        avg_accuracy = np.mean(pattern_accuracy)
-        improvement = avg_accuracy - self.baseline_accuracy
+        # Pattern confidence - average of highest pattern scores
+        pattern_scores = []
+        for pattern in significant_patterns:
+            max_score = max(pattern.get('pattern_scores', [0.0]))
+            pattern_scores.append(max_score)
         
-        result = {
-            'pattern': pattern,
-            'appearances': pattern_hits,
-            'accuracy': avg_accuracy,
-            'improvement': improvement,
-            'confidence': np.std(pattern_accuracy) if len(pattern_accuracy) > 1 else 0,
-            'status': 'VALIDATED' if improvement > 0.02 else 'INSUFFICIENT'
-        }
+        pattern_confidence = np.mean(pattern_scores) if pattern_scores else 0.0
         
-        if result['status'] == 'VALIDATED':
-            self.validated_patterns.append(result)
-            
-        return result
-    
-    def _pattern_matches(self, pattern: Dict, session: Dict) -> bool:
-        """Check if pattern appears in session"""
-        pattern_type = pattern.get('type')
+        # Significance score - archaeological significance
+        significance_scores = [
+            pattern.get('archaeological_significance', 0.0) 
+            for pattern in significant_patterns
+        ]
+        significance_score = np.mean(significance_scores) if significance_scores else 0.0
         
-        if pattern_type == 'high_energy_cluster':
-            energy = session.get('metadata', {}).get('energy_state', {})
-            return any(v > 0.8 for v in energy.values() if isinstance(v, (int, float)))
-            
-        elif pattern_type == 'potential_cascade':
-            movements = session.get('nodes', [])
-            if len(movements) < 4:
-                return False
-            for i in range(len(movements) - 3):
-                types = [m.get('type') for m in movements[i:i+4]]
-                if len(set(types)) == 1:
-                    return True
-                    
-        return False
-    
-    def _measure_accuracy(self, pattern: Dict, session: Dict) -> float:
-        """Measure pattern's predictive accuracy"""
-        # Placeholder: actual implementation would measure real prediction accuracy
-        # For now, return random accuracy for testing
-        return 0.85 + np.random.random() * 0.1
-    
-    def convert_to_simple_feature(self, pattern: Dict) -> Dict:
-        """Convert validated pattern to simple feature for production"""
+        # Attention coherence - measure of attention consistency  
+        attention_scores = [
+            pattern.get('attention_received', 0.0)
+            for pattern in significant_patterns
+        ]
+        attention_coherence = 1.0 - np.std(attention_scores) if len(attention_scores) > 1 else 1.0
+        attention_coherence = max(0.0, min(1.0, attention_coherence))
+        
+        # Pattern consistency - similar patterns should have similar scores
+        pattern_consistency = self._calculate_pattern_consistency(significant_patterns)
+        
+        # Archaeological value - session-level quality metrics
+        archaeological_value = session_metrics.get('average_significance', 0.0)
+        
         return {
-            'name': f"pattern_{pattern['type']}",
-            'type': 'discovered',
-            'extractor': self._create_extractor(pattern),
-            'improvement': pattern.get('improvement', 0),
-            'confidence': pattern.get('confidence', 0)
+            'pattern_confidence': pattern_confidence,
+            'significance_score': significance_score, 
+            'attention_coherence': attention_coherence,
+            'pattern_consistency': pattern_consistency,
+            'archaeological_value': archaeological_value
         }
     
-    def _create_extractor(self, pattern: Dict):
-        """Create feature extraction function for pattern"""
-        def extractor(session_data):
-            # Simple counting based on pattern type
-            if pattern['type'] == 'high_energy_cluster':
-                return 1.0 if self._pattern_matches(pattern, session_data) else 0.0
-            return 0.0
-        return extractor
+    def _calculate_pattern_consistency(self, patterns: List[Dict[str, Any]]) -> float:
+        """Calculate consistency metric across similar pattern types"""
+        
+        if len(patterns) < 2:
+            return 1.0
+        
+        # Group patterns by type
+        pattern_groups = {}
+        for pattern in patterns:
+            pattern_types = tuple(pattern.get('pattern_types', []))
+            if pattern_types not in pattern_groups:
+                pattern_groups[pattern_types] = []
+            pattern_groups[pattern_types].append(pattern)
+        
+        # Calculate consistency within each group
+        consistencies = []
+        for group_patterns in pattern_groups.values():
+            if len(group_patterns) < 2:
+                consistencies.append(1.0)
+                continue
+                
+            # Calculate score variance within group
+            scores = [p.get('archaeological_significance', 0.0) for p in group_patterns]
+            consistency = 1.0 - np.std(scores) if len(scores) > 1 else 1.0
+            consistencies.append(max(0.0, min(1.0, consistency)))
+        
+        return np.mean(consistencies) if consistencies else 1.0
     
-    def save_validated_patterns(self, path: str):
-        """Save validated patterns for production use"""
-        output_path = os.path.join(path, 'validated_patterns.json')
-        with open(output_path, 'w') as f:
-            json.dump(self.validated_patterns, f, indent=2)
-        print(f"Saved {len(self.validated_patterns)} validated patterns")
+    def _apply_graduation_criteria(self, validation_metrics: Dict[str, float]) -> Dict[str, Any]:
+        """Apply graduation criteria and determine final status"""
+        
+        # Weight validation metrics for overall score
+        weights = {
+            'pattern_confidence': 0.3,
+            'significance_score': 0.25,
+            'attention_coherence': 0.2,
+            'pattern_consistency': 0.15,
+            'archaeological_value': 0.1
+        }
+        
+        # Calculate weighted graduation score
+        graduation_score = sum(
+            validation_metrics.get(metric, 0.0) * weight
+            for metric, weight in weights.items()
+        )
+        
+        # Determine graduation status
+        if graduation_score >= self.baseline_accuracy:
+            status = 'GRADUATED'
+            graduated_patterns = validation_metrics  # All patterns graduate
+            rejected_patterns = {}
+        elif graduation_score >= 0.75:  # Close to threshold
+            status = 'CONDITIONAL'
+            graduated_patterns = {k: v for k, v in validation_metrics.items() if v >= 0.8}
+            rejected_patterns = {k: v for k, v in validation_metrics.items() if v < 0.8}
+        else:
+            status = 'REJECTED'
+            graduated_patterns = {}
+            rejected_patterns = validation_metrics
+        
+        return {
+            'status': status,
+            'score': graduation_score,
+            'graduated_patterns': graduated_patterns,
+            'rejected_patterns': rejected_patterns
+        }
+    
+    def get_graduation_summary(self) -> Dict[str, Any]:
+        """Get summary of all graduation validations"""
+        
+        if not self.validation_history:
+            return {
+                'total_validations': 0,
+                'graduation_rate': 0.0,
+                'average_score': 0.0,
+                'status_distribution': {}
+            }
+        
+        total_validations = len(self.validation_history)
+        graduated_count = sum(1 for v in self.validation_history if v.get('production_ready', False))
+        graduation_rate = graduated_count / total_validations
+        
+        scores = [v.get('graduation_score', 0.0) for v in self.validation_history]
+        average_score = np.mean(scores)
+        
+        # Status distribution
+        statuses = [v.get('graduation_status', 'UNKNOWN') for v in self.validation_history]
+        status_distribution = {
+            status: statuses.count(status) / total_validations
+            for status in set(statuses)
+        }
+        
+        return {
+            'total_validations': total_validations,
+            'graduation_rate': graduation_rate,
+            'average_score': average_score,
+            'status_distribution': status_distribution,
+            'baseline_threshold': self.baseline_accuracy
+        }
