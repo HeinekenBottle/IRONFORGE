@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.python]
+version = ">=3.10"
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+extend-exclude = ["tests/_golden/**"]
+
+[tool.ruff.lint]
+select = ["E","F","I","UP","B","SIM","C4","ARG"]
+ignore = ["E501"]  # handled by black
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_return_any = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+exclude = "(^tests/_golden/|^scripts/|^tests/integration/|^ironforge/analysis/|^ironforge/learning/|^ironforge/synthesis/|^ironforge/validation/|^ironforge/utilities/|^config.py)"
+
+[tool.bandit]
+skips = ["B101", "B110"] # assert allowed in tests, ignore existing try/except/pass patterns
+exclude_dirs = ["tests/integration", "ironforge/analysis", "ironforge/learning", "ironforge/synthesis", "ironforge/validation", "ironforge/utilities"]
