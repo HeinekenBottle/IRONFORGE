@@ -31,3 +31,9 @@ exclude = "(^tests/_golden/|^scripts/|^tests/integration/|^ironforge/analysis/|^
 [tool.bandit]
 skips = ["B101", "B110"] # assert allowed in tests, ignore existing try/except/pass patterns
 exclude_dirs = ["tests/integration", "ironforge/analysis", "ironforge/learning", "ironforge/synthesis", "ironforge/validation", "ironforge/utilities"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "performance: performance regression tests",
+]
