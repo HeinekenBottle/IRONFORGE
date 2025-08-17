@@ -13,6 +13,11 @@ from __future__ import annotations
 import argparse
 import sys
 from pathlib import Path
+from types import SimpleNamespace
+
+# Base directories that shards must reside within. By default this allows any
+# absolute path but tests can monkeypatch this to tighten the restriction.
+APPROVED_SHARDS_BASE_DIRS = [Path("/")]
 
 try:
     from ironforge.learning.discovery_pipeline import TemporalDiscoveryPipeline
@@ -24,6 +29,27 @@ try:
 except ImportError:
     ValidationRunner = None  # type: ignore
     ValidationConfig = None  # type: ignore
+
+
+def _resolve_shards_dir(c: SimpleNamespace, allowed_roots: list[Path] | None = None) -> Path:
+    """Resolve and validate ``c.paths.shards_dir``.
+
+    The path is resolved to an absolute path and checked to ensure it is within
+    one of the ``allowed_roots``. A :class:`ValueError` is raised if the
+    resolved path escapes the allowed base directories.
+    """
+
+    allowed_roots = [Path(p).resolve() for p in (allowed_roots or APPROVED_SHARDS_BASE_DIRS)]
+
+    shards_path = Path(c.paths.shards_dir).resolve()
+
+    if not any(root == shards_path or root in shards_path.parents for root in allowed_roots):
+        raise ValueError(
+            f"Shards directory {shards_path} escapes approved base directories: {allowed_roots}"
+        )
+
+    c.paths.shards_dir = shards_path
+    return shards_path
 
 
 def _parse_args(args: list[str]) -> argparse.Namespace:
@@ -198,10 +224,14 @@ def main(argv: list[str] | None = None) -> int:
     args = _parse_args(argv or sys.argv[1:])
 
     if args.command == "discover-temporal":
+        # Resolve and validate the shards directory before running the pipeline.
+        c = SimpleNamespace(paths=SimpleNamespace(shards_dir=args.data_path))
+        shards_dir = _resolve_shards_dir(c)
+
         if TemporalDiscoveryPipeline is None:
             raise ImportError("TemporalDiscoveryPipeline not available; install Wave 3 components.")
         pipeline = TemporalDiscoveryPipeline(
-            data_path=args.data_path,
+            data_path=shards_dir,
             num_neighbors=args.fanouts,
             batch_size=args.batch_size,
             time_window=args.time_window,
