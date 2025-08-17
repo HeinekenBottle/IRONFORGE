@@ -1,0 +1,9 @@
+paths:
+  shards_dir: data/shards/NQ_2025-08-16
+  out_dir: runs/NQ_2025-08-16
+loader:
+  fanouts: [10, 10]
+  batch_size: 2048
+confluence:
+  weights: {cluster: 0.25, htf_prox: 0.25, structure: 0.20, cycle: 0.15, precursor: 0.15}
+  threshold: 65
