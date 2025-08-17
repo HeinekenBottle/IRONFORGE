@@ -8,14 +8,14 @@ logger = logging.getLogger(__name__)
 
 
 def construct_directed_network(
-    candidates: list[dict[str, Any]], 
+    candidates: list[dict[str, Any]],
     price_epsilon: float = 5.0,
     range_pos_delta: float = 0.05,
-    max_temporal_gap_hours: float = 12.0  # noqa: ARG001
+    max_temporal_gap_hours: float = 12.0,  # noqa: ARG001
 ) -> dict[str, Any]:
     """
     Construct directed network of FPFVG events
-    
+
     Network Rules:
     - Node = FPFVG instance (formation or redelivery)
     - Edge A→B if:
@@ -84,10 +84,10 @@ def _is_temporally_ordered(node_a: dict[str, Any], node_b: dict[str, Any]) -> bo
 
 
 def _meets_proximity_criteria(
-    node_a: dict[str, Any], 
+    node_a: dict[str, Any],
     node_b: dict[str, Any],
     price_epsilon: float = 5.0,
-    range_pos_delta: float = 0.05
+    range_pos_delta: float = 0.05,
 ) -> bool:
     """Check if nodes meet proximity criteria for edge creation"""
     # Price proximity check
@@ -116,21 +116,19 @@ def _create_network_edge(node_a: dict[str, Any], node_b: dict[str, Any]) -> dict
     # Calculate edge features
     price_distance = abs(node_a["price_level"] - node_b["price_level"])
     delta_range_pos = abs(node_a["range_pos"] - node_b["range_pos"])
-    
+
     # Time delta calculation (simplified)
-    delta_t_minutes = _calculate_time_delta_minutes(
-        node_a["timestamp"], node_b["timestamp"]
-    )
+    delta_t_minutes = _calculate_time_delta_minutes(node_a["timestamp"], node_b["timestamp"])
 
     # Zone alignment flags
     zone_prox_a = node_a["zone_proximity"]
     zone_prox_b = node_b["zone_proximity"]
-    
+
     same_zone_flags = {}
     if "closest_zones" in zone_prox_a and "closest_zones" in zone_prox_b:
         zones_a = zone_prox_a["closest_zones"]
         zones_b = zone_prox_b["closest_zones"]
-        
+
         # Check if both nodes are in the same zones
         for zone in ["20%", "40%", "50%", "61.8%", "80%"]:
             same_zone_flags[zone] = zone in zones_a and zone in zones_b
@@ -158,13 +156,13 @@ def _calculate_time_delta_minutes(timestamp_a: str, timestamp_b: str) -> float:
         # For now, return a placeholder
         if timestamp_a == timestamp_b:
             return 0.0
-        
+
         # Simplified: use string comparison as proxy
         if timestamp_a < timestamp_b:
             return 30.0  # Placeholder
         else:
             return -30.0  # Should not happen if properly ordered
-            
+
     except Exception as e:
         logger.warning(f"Time delta calculation failed: {e}")
         return 0.0
@@ -174,10 +172,10 @@ def calculate_network_density(network_graph: dict[str, Any]) -> float:
     """Calculate network density (edges / max_possible_edges)"""
     nodes = len(network_graph["nodes"])
     edges = len(network_graph["edges"])
-    
+
     if nodes <= 1:
         return 0.0
-    
+
     max_possible_edges = nodes * (nodes - 1)  # Directed graph
     return edges / max_possible_edges
 
@@ -185,22 +183,22 @@ def calculate_network_density(network_graph: dict[str, Any]) -> float:
 def identify_network_motifs(network_graph: dict[str, Any]) -> dict[str, Any]:
     """Identify common network motifs (chains, convergences, divergences)"""
     adjacency = {}
-    
+
     # Build adjacency list
     for node in network_graph["nodes"]:
         adjacency[node["id"]] = []
-    
+
     for edge in network_graph["edges"]:
         source = edge["source"]
         target = edge["target"]
         if source in adjacency:
             adjacency[source].append(target)
-    
+
     # Find motifs
     chains = find_chains(adjacency, min_length=3)
     convergences = _find_convergences(adjacency)
     divergences = _find_divergences(adjacency)
-    
+
     return {
         "chains": chains,
         "convergences": convergences,
@@ -219,14 +217,14 @@ def find_chains(adjacency: dict[str, list[str]], min_length: int = 3) -> list[li
     def dfs_chain(node, current_chain, visited):
         visited.add(node)
         current_chain.append(node)
-        
+
         # Explore neighbors
         extended = False
         for neighbor in adjacency.get(node, []):
             if neighbor not in visited:
                 dfs_chain(neighbor, current_chain.copy(), visited.copy())
                 extended = True
-        
+
         # If no extensions and chain is long enough, save it
         if not extended and len(current_chain) >= min_length:
             chain_key = tuple(current_chain)
@@ -246,15 +244,15 @@ def _find_convergences(adjacency: dict[str, list[str]]) -> list[dict[str, Any]]:
     """Find convergence motifs (multiple nodes pointing to one)"""
     convergences = []
     in_degree = {}
-    
+
     # Calculate in-degrees
     for node in adjacency:
         in_degree[node] = 0
-    
+
     for _node, neighbors in adjacency.items():
         for neighbor in neighbors:
             in_degree[neighbor] = in_degree.get(neighbor, 0) + 1
-    
+
     # Find nodes with in-degree >= 2
     for node, degree in in_degree.items():
         if degree >= 2:
@@ -263,26 +261,30 @@ def _find_convergences(adjacency: dict[str, list[str]]) -> list[dict[str, Any]]:
             for pred_node, neighbors in adjacency.items():
                 if node in neighbors:
                     predecessors.append(pred_node)
-            
-            convergences.append({
-                "target": node,
-                "sources": predecessors,
-                "in_degree": degree,
-            })
-    
+
+            convergences.append(
+                {
+                    "target": node,
+                    "sources": predecessors,
+                    "in_degree": degree,
+                }
+            )
+
     return convergences
 
 
 def _find_divergences(adjacency: dict[str, list[str]]) -> list[dict[str, Any]]:
     """Find divergence motifs (one node pointing to multiple)"""
     divergences = []
-    
+
     for node, neighbors in adjacency.items():
         if len(neighbors) >= 2:
-            divergences.append({
-                "source": node,
-                "targets": neighbors,
-                "out_degree": len(neighbors),
-            })
-    
+            divergences.append(
+                {
+                    "source": node,
+                    "targets": neighbors,
+                    "out_degree": len(neighbors),
+                }
+            )
+
     return divergences

@@ -41,32 +41,32 @@ logger = logging.getLogger(__name__)
 class FPFVGNetworkAnalyzer:
     """
     FPFVG Redelivery Network Analyzer - Main orchestration class
-    
+
     Coordinates the analysis pipeline while delegating heavy lifting to specialized modules.
     """
 
     def __init__(self):
         """Initialize FPFVG Network Analyzer with configuration"""
         self.config = get_config()
-        
+
         # Paths
         self.enhanced_path = Path(self.config.get_enhanced_data_path())
         self.discoveries_path = Path(self.config.get_discoveries_path())
-        
+
         # Analysis parameters
         self.price_epsilon = 5.0  # Points for price proximity
         self.range_pos_delta = 0.05  # Range position proximity threshold
         self.max_temporal_gap_hours = 12.0  # Maximum time gap for connections
         self.zone_tolerance = 0.03  # Theory B zone tolerance
         self.alpha = 0.05  # Statistical significance level
-        
+
         # Theory B zones (dimensional anchors)
         self.theory_b_zones = [0.2, 0.4, 0.5, 0.618, 0.8]
-        
+
         # PM belt timing
         self.pm_belt_start = time(14, 35)
         self.pm_belt_end = time(14, 38)
-        
+
         # Scoring weights
         self.scoring_weights = {
             "price_proximity": 0.3,
@@ -74,20 +74,20 @@ class FPFVGNetworkAnalyzer:
             "zone_confluence": 0.25,
             "temporal_penalty": 0.15,
         }
-        
+
         # Session range cache (would be populated from data)
         self.session_ranges = {}
-        
+
         logger.info("FPFVG Network Analyzer initialized")
 
     def analyze_fpfvg_network(self) -> dict[str, Any]:
         """
         Main analysis entrypoint - orchestrates the full FPFVG network analysis pipeline
-        
+
         Returns comprehensive analysis results with statistical validation.
         """
         logger.info("Starting FPFVG network analysis")
-        
+
         analysis_results = {
             "analysis_type": "fpfvg_network_analysis",
             "timestamp": datetime.now().isoformat(),
@@ -105,19 +105,19 @@ class FPFVGNetworkAnalyzer:
             # Step 1: Extract FPFVG candidates
             logger.info("Extracting FPFVG candidates from enhanced sessions")
             candidates = self._extract_fpfvg_candidates()
-            
+
             # Validate candidates
             validation_results = validate_candidates(candidates)
             analysis_results["candidate_validation"] = validation_results
-            
+
             if not validation_results["valid"]:
                 analysis_results["error"] = "Candidate validation failed"
                 return analysis_results
-            
+
             # Step 2: Get candidate summary statistics
             candidate_stats = get_candidate_summary_stats(candidates)
             analysis_results["candidate_extraction"] = candidate_stats
-            
+
             if not candidates:
                 analysis_results["error"] = "No FPFVG candidates found"
                 return analysis_results
@@ -125,24 +125,21 @@ class FPFVGNetworkAnalyzer:
             # Step 3: Construct directed network
             logger.info("Constructing directed FPFVG network")
             network_graph = construct_directed_network(
-                candidates,
-                self.price_epsilon,
-                self.range_pos_delta,
-                self.max_temporal_gap_hours
+                candidates, self.price_epsilon, self.range_pos_delta, self.max_temporal_gap_hours
             )
-            
+
             # Validate network
             network_validation = validate_network_graph(network_graph)
             analysis_results["network_validation"] = network_validation
-            
+
             if not network_validation["valid"]:
                 analysis_results["error"] = "Network validation failed"
                 return analysis_results
-            
+
             # Calculate network metrics
             network_density = calculate_network_density(network_graph)
             network_motifs = identify_network_motifs(network_graph)
-            
+
             analysis_results["network_construction"] = {
                 "network_summary": network_graph["metadata"],
                 "network_density": network_density,
@@ -157,11 +154,11 @@ class FPFVGNetworkAnalyzer:
                 self.price_epsilon,
                 self.range_pos_delta,
                 self.max_temporal_gap_hours,
-                self.theory_b_zones
+                self.theory_b_zones,
             )
-            
+
             score_distribution = analyze_score_distribution(redelivery_scores)
-            
+
             analysis_results["redelivery_scoring"] = {
                 "score_distribution": score_distribution,
                 "high_strength_edges": [s for s in redelivery_scores if s["strength"] > 0.7],
@@ -170,19 +167,17 @@ class FPFVGNetworkAnalyzer:
 
             # Step 5: Statistical tests
             logger.info("Running statistical validation tests")
-            
+
             # Zone enrichment test
             zone_enrichment = test_zone_enrichment(
                 candidates, self.theory_b_zones, self.zone_tolerance, self.alpha
             )
             analysis_results["zone_enrichment_test"] = zone_enrichment
-            
+
             # PM belt interaction test
-            pm_belt_interaction = test_pm_belt_interaction(
-                candidates, network_graph, self.alpha
-            )
+            pm_belt_interaction = test_pm_belt_interaction(candidates, network_graph, self.alpha)
             analysis_results["pm_belt_interaction_test"] = pm_belt_interaction
-            
+
             # Reproducibility test
             reproducibility = test_reproducibility(candidates, network_graph)
             analysis_results["reproducibility_test"] = reproducibility
@@ -207,58 +202,67 @@ class FPFVGNetworkAnalyzer:
     def _extract_fpfvg_candidates(self) -> list[dict[str, Any]]:
         """
         Extract FPFVG candidates from enhanced sessions
-        
+
         This is a simplified extraction - real implementation would parse lattice summaries
         """
         candidates = []
-        
+
         try:
             # Find enhanced session files
             enhanced_files = list(self.enhanced_path.glob("enhanced_rel_*.json"))
             logger.info(f"Found {len(enhanced_files)} enhanced session files")
-            
+
             for file_path in enhanced_files[:10]:  # Limit for testing
                 try:
                     with open(file_path) as f:
                         session_data = json.load(f)
-                    
-                    session_candidates = self._extract_session_candidates(session_data, file_path.stem)
+
+                    session_candidates = self._extract_session_candidates(
+                        session_data, file_path.stem
+                    )
                     candidates.extend(session_candidates)
-                    
+
                 except Exception as e:
                     logger.warning(f"Failed to process {file_path}: {e}")
-            
+
             logger.info(f"Extracted {len(candidates)} FPFVG candidates")
             return candidates
-            
+
         except Exception as e:
             logger.error(f"Failed to extract FPFVG candidates: {e}")
             return []
 
-    def _extract_session_candidates(self, session_data: dict[str, Any], session_id: str) -> list[dict[str, Any]]:
+    def _extract_session_candidates(
+        self, session_data: dict[str, Any], session_id: str
+    ) -> list[dict[str, Any]]:
         """Extract FPFVG candidates from a single session"""
         candidates = []
-        
+
         # This is a simplified implementation
         # Real implementation would parse specific FPFVG event types from graph data
-        
+
         # Mock some candidates for testing
         if "nodes" in session_data:
             nodes = session_data["nodes"][:5]  # Limit for testing
-            
+
             for i, node in enumerate(nodes):
                 # Create mock FPFVG candidates
                 price_level = safe_float(node.get("price", 23000 + i * 10))
                 timestamp = node.get("timestamp", f"2025-08-01T14:{30+i}:00")
-                
+
                 # Calculate session range (simplified)
                 if session_id not in self.session_ranges:
-                    self.session_ranges[session_id] = {"low": price_level - 50, "high": price_level + 50}
-                
+                    self.session_ranges[session_id] = {
+                        "low": price_level - 50,
+                        "high": price_level + 50,
+                    }
+
                 range_pos = calculate_range_position(price_level, session_id, self.session_ranges)
-                zone_proximity = get_zone_proximity(range_pos, self.theory_b_zones, self.zone_tolerance)
+                zone_proximity = get_zone_proximity(
+                    range_pos, self.theory_b_zones, self.zone_tolerance
+                )
                 in_pm_belt = is_in_pm_belt(timestamp, self.pm_belt_start, self.pm_belt_end)
-                
+
                 candidate = {
                     "id": f"{session_id}_fpfvg_{i}",
                     "session_id": session_id,
@@ -271,24 +275,24 @@ class FPFVGNetworkAnalyzer:
                     "timeframe": "15m",
                     "magnitude": extract_magnitude(node),
                 }
-                
+
                 candidates.append(candidate)
-        
+
         return candidates
 
     def _save_analysis_results(
-        self, 
-        analysis_results: dict[str, Any], 
-        network_graph: dict[str, Any], 
-        redelivery_scores: list[dict[str, Any]]  # noqa: ARG002
+        self,
+        analysis_results: dict[str, Any],
+        network_graph: dict[str, Any],
+        redelivery_scores: list[dict[str, Any]],  # noqa: ARG002
     ) -> None:
         """Save analysis results to discovery files"""
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        
+
         # Save main analysis results
         results_filename = f"fpfvg_network_analysis_{timestamp}.json"
         results_filepath = self.discoveries_path / results_filename
-        
+
         try:
             with open(results_filepath, "w") as f:
                 json.dump(analysis_results, f, indent=2, default=str)
@@ -333,6 +337,7 @@ class FPFVGNetworkAnalyzer:
 def build_chains(adjacency: dict[str, list[str]], min_length: int = 3) -> list[list[str]]:
     """Build chains from adjacency list (re-exported from chain_builder)"""
     from ironforge.analysis.fpfvg.chain_builder import find_chains
+
     return find_chains(adjacency, min_length)
 
 
