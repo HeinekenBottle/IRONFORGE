@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+"""
+IRONFORGE Semantic Indexer
+=========================
+
+Executable script for the IRONFORGE semantic codebase indexer.
+Provides deep semantic analysis of the multi-engine IRONFORGE architecture.
+
+Usage:
+    ./index-project [mode] [options]
+
+Modes:
+    full         - Complete analysis with all reports (default)
+    summary      - Quick markdown summary only  
+    engines      - Engine architecture analysis
+    dependencies - Dependency mapping analysis
+    quick        - Fast analysis with minimal output
+
+Examples:
+    ./index-project                    # Full analysis
+    ./index-project summary           # Quick summary
+    ./index-project engines           # Engine focus
+    ./index-project --output reports  # Custom output dir
+    ./index-project --json-stdout     # JSON to stdout for piping
+"""
+
+import sys
+import os
+from pathlib import Path
+
+# Add the project root and tools directory to Python path
+project_root = Path(__file__).parent
+tools_dir = project_root / 'tools'
+sys.path.insert(0, str(project_root))
+sys.path.insert(0, str(tools_dir))
+
+try:
+    # Import the CLI main function
+    from indexer.cli import main
+except ImportError as e:
+    print(f"Error: Failed to import indexer CLI: {e}", file=sys.stderr)
+    print("Make sure you're running this script from the IRONFORGE project root.", file=sys.stderr)
+    print(f"Current directory: {Path.cwd()}", file=sys.stderr)
+    print(f"Expected tools/indexer directory: {tools_dir / 'indexer'}", file=sys.stderr)
+    sys.exit(1)
+
+if __name__ == '__main__':
+    # Verify we're in the right directory
+    if not (Path.cwd() / 'ironforge').exists():
+        print("Warning: 'ironforge' directory not found. Make sure you're in the IRONFORGE project root.", file=sys.stderr)
+    
+    sys.exit(main())
