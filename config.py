@@ -169,6 +169,14 @@ class IRONFORGEConfig:
         """Get session data directory path."""
         return self.get_path('session_data_path')
     
+    def get_enhanced_data_path(self) -> str:
+        """Get enhanced session data directory path."""
+        return self.get_path('enhanced_data_path')
+    
+    def get_adapted_data_path(self) -> str:
+        """Get adapted session data directory path."""
+        return self.get_path('adapted_data_path')
+    
     def get_integration_path(self) -> str:
         """Get integration directory path."""
         return self.get_path('integration_path')

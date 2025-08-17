@@ -1,0 +1,242 @@
+{
+  "lattice_type": "ny_pm_archaeological_belt",
+  "lattice_metadata": {
+    "build_timestamp": "2025-08-16T18:39:34.314569",
+    "focus_timeframe": "14:35:00 - 14:38:59",
+    "resolution": "1m",
+    "theory_b_validation": true,
+    "sessions_analyzed": 5
+  },
+  "belt_events": [
+    {
+      "session_name": "NY_PM_Lvl-1_2025_08_05",
+      "timestamp": "14:35:00",
+      "time_object": "14:35:00",
+      "event_type": "price_movement",
+      "price": 23162.25,
+      "significance": 0.5,
+      "archaeological_zone": "belt_zone",
+      "source": "price_movements",
+      "raw_event": {
+        "timestamp": "14:35:00",
+        "price_level": 23162.25,
+        "movement_type": "expansion_low",
+        "normalized_price": 0.3448905109489051,
+        "pct_from_open": -0.20895490236205205,
+        "pct_from_high": 65.51094890510949,
+        "pct_from_low": 34.48905109489051,
+        "time_since_session_open": 3900,
+        "normalized_time": 0.4088050314465409,
+        "time_to_next_event": 120,
+        "price_momentum": -0.14227050797038188,
+        "range_position": 0.3448905109489051,
+        "absolute_price": 23162.25,
+        "relativity_enhanced": true,
+        "enhancement_timestamp": "2025-08-14T13:06:58.473312"
+      }
+    },
+    {
+      "session_name": "NY_PM_Lvl-1_2025_08_05",
+      "timestamp": "14:37:00",
+      "time_object": "14:37:00",
+      "event_type": "price_movement",
+      "price": 23173.0,
+      "significance": 0.5,
+      "archaeological_zone": "belt_zone",
+      "source": "price_movements",
+      "raw_event": {
+        "timestamp": "14:37:00",
+        "price_level": 23173.0,
+        "movement_type": "consolidation_start_high",
+        "normalized_price": 0.4233576642335766,
+        "pct_from_open": -0.1626401559622158,
+        "pct_from_high": 57.66423357664233,
+        "pct_from_low": 42.33576642335766,
+        "time_since_session_open": 4020,
+        "normalized_time": 0.42138364779874216,
+        "time_to_next_event": 480,
+        "price_momentum": 0.0464117259765351,
+        "range_position": 0.4233576642335766,
+        "absolute_price": 23173.0,
+        "relativity_enhanced": true,
+        "enhancement_timestamp": "2025-08-14T13:06:58.473352"
+      }
+    },
+    {
+      "session_name": "NY_PM_Lvl-1_2025_07_30",
+      "timestamp": "14:36:00",
+      "time_object": "14:36:00",
+      "event_type": "liquidity",
+      "price": 0,
+      "significance": 0.5,
+      "archaeological_zone": "belt_zone",
+      "source": "session_liquidity_events",
+      "raw_event": {
+        "timestamp": "14:36:00",
+        "event_type": "rebalance",
+        "liquidity_type": "internal",
+        "target_level": "session_expansion higher ends, reversal point",
+        "magnitude": "low",
+        "context": "generated_from_expansion higher ends, reversal point"
+      }
+    },
+    {
+      "session_name": "NY_PM_Lvl-1_2025_07_30",
+      "timestamp": "14:36:00",
+      "time_object": "14:36:00",
+      "event_type": "price_movement",
+      "price": 23589.5,
+      "significance": 0.5,
+      "archaeological_zone": "belt_zone",
+      "source": "price_movements",
+      "raw_event": {
+        "timestamp": "14:36:00",
+        "price": 23589.5,
+        "action": "touch",
+        "context": "Expansion higher ends, reversal point",
+        "normalized_price": 0.7633087633087633,
+        "pct_from_open": 0.26884862653419056,
+        "pct_from_high": 23.669123669123667,
+        "pct_from_low": 76.33087633087634,
+        "time_since_session_open": 3960,
+        "normalized_time": 0.41509433962264153,
+        "time_to_next_event": 300,
+        "price_momentum": 0.23902350929004704,
+        "range_position": 0.7633087633087633,
+        "absolute_price": 23589.5,
+        "relativity_enhanced": true,
+        "enhancement_timestamp": "2025-08-14T13:06:58.526662",
+        "price_level": 23589.5
+      }
+    },
+    {
+      "session_name": "NY_PM_Lvl-1_2025_07_28",
+      "timestamp": "14:35:00",
+      "time_object": "14:35:00",
+      "event_type": "liquidity",
+      "price": 0,
+      "significance": 0.5,
+      "archaeological_zone": "belt_zone",
+      "source": "session_liquidity_events",
+      "raw_event": {
+        "timestamp": "14:35:00",
+        "event_type": "interaction",
+        "liquidity_type": "cross_session",
+        "target_level": "session_touch of previous day's pm fvg during consolidation",
+        "magnitude": "medium",
+        "context": "generated_from_touch of previous day's pm fvg during consolidation"
+      }
+    },
+    {
+      "session_name": "NY_PM_Lvl-1_2025_07_28",
+      "timestamp": "14:35:00",
+      "time_object": "14:35:00",
+      "event_type": "price_movement",
+      "price": 23450.0,
+      "significance": 0.5,
+      "archaeological_zone": "belt_zone",
+      "source": "price_movements",
+      "raw_event": {
+        "timestamp": "14:35:00",
+        "price": 23450.0,
+        "action": "touch",
+        "context": "Touch of previous day's PM FVG during consolidation",
+        "normalized_price": 0.15625,
+        "pct_from_open": -0.06392499467291711,
+        "pct_from_high": 84.375,
+        "pct_from_low": 15.625,
+        "time_since_session_open": 3900,
+        "normalized_time": 0.4088050314465409,
+        "time_to_next_event": 4260,
+        "price_momentum": 0.042662116040955635,
+        "range_position": 0.15625,
+        "absolute_price": 23450.0,
+        "relativity_enhanced": true,
+        "enhancement_timestamp": "2025-08-14T13:06:58.372404",
+        "price_level": 23450.0
+      }
+    }
+  ],
+  "theory_b_analysis": {},
+  "dimensional_relationships": {
+    "session_count": 3,
+    "total_belt_events": 6,
+    "temporal_patterns": {
+      "minute_distribution": {
+        "35": 3,
+        "37": 1,
+        "36": 2
+      },
+      "most_active_minute": "35"
+    },
+    "price_clustering": {
+      "price_range": 427.25,
+      "avg_price": 23343.6875,
+      "median_price": 23311.5,
+      "price_std": 182.8796885079095,
+      "unique_price_levels": 4
+    },
+    "significance_distribution": {
+      "avg_significance": 0.5,
+      "median_significance": 0.5,
+      "high_significance_events": 0,
+      "total_events": 6
+    }
+  },
+  "archaeological_zones": {
+    "zone_identification": {
+      "belt_zone": 6
+    },
+    "zone_characteristics": {
+      "belt_zone": {
+        "event_count": 6,
+        "sessions_involved": 3,
+        "cross_session_persistence": true,
+        "avg_significance": 0.5
+      }
+    },
+    "cross_session_persistence": {}
+  },
+  "belt_statistics": {
+    "belt_coverage": {
+      "sessions_with_belt_events": 3,
+      "total_belt_events": 6,
+      "avg_events_per_session": 2.0
+    },
+    "event_type_distribution": {
+      "price_movement": 4,
+      "liquidity": 2
+    },
+    "temporal_characteristics": {
+      "belt_timeframe": "14:35:00 - 14:38:59",
+      "resolution": "1m",
+      "temporal_span_minutes": 4
+    },
+    "archaeological_significance": {
+      "high_significance_events": 0,
+      "medium_significance_events": 6,
+      "total_events": 6
+    }
+  },
+  "discovery_insights": {
+    "theory_b_validation": {},
+    "temporal_non_locality": {
+      "evidence_strength": "STRONG",
+      "clustering_detected": false,
+      "minute_concentration": "35"
+    },
+    "archaeological_patterns": {
+      "persistent_zones_detected": 1,
+      "cross_session_reproducibility": true,
+      "total_archaeological_zones": 1
+    },
+    "discovery_recommendations": [
+      {
+        "priority": "EXTREME",
+        "type": "temporal_causality_investigation",
+        "description": "Investigate temporal causality mechanisms",
+        "action": "Build predictive models based on belt event positioning"
+      }
+    ]
+  }
+}

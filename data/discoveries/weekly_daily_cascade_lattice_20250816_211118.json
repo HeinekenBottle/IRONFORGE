@@ -1,0 +1,837 @@
+{
+  "lattice_type": "weekly_daily_sweep_cascade",
+  "lattice_metadata": {
+    "build_timestamp": "2025-08-16T21:11:17.945693",
+    "focus": "weekly_to_daily_liquidity_sweep_cascades",
+    "htf_timeframes": [
+      "Weekly",
+      "Daily",
+      "4H",
+      "1H"
+    ],
+    "session_timeframes": [
+      "NY_AM",
+      "LONDON",
+      "ASIA",
+      "NY_PM"
+    ],
+    "cascade_detection_window_days": 7,
+    "sessions_analyzed": 57
+  },
+  "weekly_liquidity_events": [
+    {
+      "source_session": "unknown",
+      "session_date": "unknown",
+      "event_timestamp": "11:28:00",
+      "liquidity_type": "unknown_weekly_liquidity",
+      "liquidity_level": 0.0,
+      "formation_context": {
+        "session_timeframe": "unknown",
+        "formation_significance": 0.7,
+        "structural_context": "session_formation",
+        "timing_context": "mid_session"
+      },
+      "potential_cascade_targets": [
+        "NY_AM",
+        "NY_PM"
+      ],
+      "weekly_significance": 0.3,
+      "raw_event": {
+        "timestamp": "11:28:00",
+        "event_type": "redelivery",
+        "liquidity_type": "internal",
+        "target_level": "session_new week opening gap filled completely, ny am session low created",
+        "magnitude": "low",
+        "context": "generated_from_new week opening gap filled completely, ny am session low created"
+      }
+    },
+    {
+      "source_session": "unknown",
+      "session_date": "unknown",
+      "event_timestamp": "11:28:00",
+      "liquidity_type": "unknown_weekly_liquidity",
+      "liquidity_level": 23436.75,
+      "formation_context": {
+        "session_timeframe": "unknown",
+        "formation_significance": 0.7,
+        "structural_context": "session_formation",
+        "timing_context": "mid_session"
+      },
+      "potential_cascade_targets": [
+        "NY_AM",
+        "NY_PM"
+      ],
+      "weekly_significance": 0.3,
+      "raw_event": {
+        "timestamp": "11:28:00",
+        "price": 23436.75,
+        "action": "touch",
+        "context": "New Week Opening Gap filled completely, NY AM session low created",
+        "normalized_price": 0.0,
+        "pct_from_open": -0.1533693325238841,
+        "pct_from_high": 100.0,
+        "pct_from_low": 0.0,
+        "time_since_session_open": 7080,
+        "normalized_time": 0.7919463087248322,
+        "time_to_next_event": 0,
+        "price_momentum": -0.12571245938315667,
+        "range_position": 0.0,
+        "absolute_price": 23436.75,
+        "relativity_enhanced": true,
+        "enhancement_timestamp": "2025-08-14T13:06:58.484963",
+        "price_level": 23436.75
+      }
+    }
+  ],
+  "daily_sweep_events": [
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "07:01:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23165.0,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "07:01:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.381,
+        "price_level": 23165.0,
+        "impact_duration": 14
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "13:45:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23215.75,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "13:45:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.417,
+        "price_level": 23215.75,
+        "impact_duration": 5
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "13:31:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23285.25,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "13:31:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.677,
+        "price_level": 23285.25,
+        "impact_duration": 36
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "13:47:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23241.25,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "13:47:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.917,
+        "price_level": 23241.25,
+        "impact_duration": 7
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "13:30:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23280.5,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "13:30:00",
+        "price_level": 23280.5,
+        "movement_type": "liquidity_sweep_lunch_high",
+        "normalized_price": 0.5814814814814815,
+        "pct_from_open": 0.0,
+        "pct_from_high": 41.85185185185185,
+        "pct_from_low": 58.14814814814815,
+        "time_since_session_open": 0,
+        "normalized_time": 0.0,
+        "time_to_next_event": 60,
+        "price_momentum": 0.0,
+        "range_position": 0.5814814814814815,
+        "absolute_price": 23280.5,
+        "relativity_enhanced": true,
+        "enhancement_timestamp": "2025-08-14T13:06:58.446434"
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "13:47:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23241.25,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "13:47:00",
+        "price_level": 23241.25,
+        "movement_type": "session_low_liquidity_sweep",
+        "normalized_price": 0.0,
+        "pct_from_open": -0.16859603530852,
+        "pct_from_high": 100.0,
+        "pct_from_low": 0.0,
+        "time_since_session_open": 1020,
+        "normalized_time": 0.1069182389937107,
+        "time_to_next_event": 0,
+        "price_momentum": -0.14500537056928034,
+        "range_position": 0.0,
+        "absolute_price": 23241.25,
+        "relativity_enhanced": true,
+        "enhancement_timestamp": "2025-08-14T13:06:58.446563"
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "15:36:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23253.25,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "15:36:00",
+        "price_level": 23253.25,
+        "movement_type": "expansion_low_liquidity_sweep",
+        "normalized_price": 0.17777777777777778,
+        "pct_from_open": -0.11705075062820815,
+        "pct_from_high": 82.22222222222221,
+        "pct_from_low": 17.77777777777778,
+        "time_since_session_open": 7560,
+        "normalized_time": 0.7924528301886793,
+        "time_to_next_event": 420,
+        "price_momentum": -0.15029038248902343,
+        "range_position": 0.17777777777777778,
+        "absolute_price": 23253.25,
+        "relativity_enhanced": true,
+        "enhancement_timestamp": "2025-08-14T13:06:58.447013"
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "09:42:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23180.0,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "09:42:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.73,
+        "price_level": 23180.0,
+        "impact_duration": 6
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "09:30:30",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23088.75,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "09:30:30",
+        "price_level": 23088.75,
+        "movement_type": "liquidity_sweep",
+        "normalized_price": 0.0,
+        "pct_from_open": -0.022733177448687972,
+        "pct_from_high": 100.0,
+        "pct_from_low": 0.0,
+        "time_since_session_open": 30,
+        "normalized_time": 0.003355704697986577,
+        "time_to_next_event": 30,
+        "price_momentum": -0.022733177448687972,
+        "range_position": 0.0,
+        "absolute_price": 23088.75,
+        "relativity_enhanced": true,
+        "enhancement_timestamp": "2025-08-14T13:06:58.409804"
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "10:45:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23206.5,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "10:45:00",
+        "price_level": 23206.5,
+        "movement_type": "expansion_low_liquidity_sweep",
+        "normalized_price": 0.6478679504814305,
+        "pct_from_open": 0.48713951675759937,
+        "pct_from_high": 35.213204951856945,
+        "pct_from_low": 64.78679504814305,
+        "time_since_session_open": 4500,
+        "normalized_time": 0.5033557046979866,
+        "time_to_next_event": 60,
+        "price_momentum": -0.015079707022834983,
+        "range_position": 0.6478679504814305,
+        "absolute_price": 23206.5,
+        "relativity_enhanced": true,
+        "enhancement_timestamp": "2025-08-14T13:06:58.411978"
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "10:54:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23194.0,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "10:54:00",
+        "price_level": 23194.0,
+        "movement_type": "consolidation_low_liquidity_sweep",
+        "normalized_price": 0.579092159559835,
+        "pct_from_open": 0.4330129037845328,
+        "pct_from_high": 42.0907840440165,
+        "pct_from_low": 57.9092159559835,
+        "time_since_session_open": 5040,
+        "normalized_time": 0.5637583892617449,
+        "time_to_next_event": 60,
+        "price_momentum": -0.06893580353295993,
+        "range_position": 0.579092159559835,
+        "absolute_price": 23194.0,
+        "relativity_enhanced": true,
+        "enhancement_timestamp": "2025-08-14T13:06:58.412612"
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "11:42:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23198.0,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "11:42:00",
+        "price_level": 23198.0,
+        "movement_type": "retracement_low_liquidity_sweep",
+        "normalized_price": 0.6011004126547456,
+        "pct_from_open": 0.4503334199359141,
+        "pct_from_high": 39.88995873452545,
+        "pct_from_low": 60.11004126547456,
+        "time_since_session_open": 7920,
+        "normalized_time": 0.8859060402684564,
+        "time_to_next_event": 180,
+        "price_momentum": -0.05170185264971995,
+        "range_position": 0.6011004126547456,
+        "absolute_price": 23198.0,
+        "relativity_enhanced": true,
+        "enhancement_timestamp": "2025-08-14T13:06:58.413916"
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "09:52:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23173.75,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "09:52:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.477,
+        "price_level": 23173.75,
+        "impact_duration": 39
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "00:03:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23173.0,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "00:03:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.309,
+        "price_level": 23173.0,
+        "impact_duration": 41
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "00:07:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23342.25,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "00:07:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.353,
+        "price_level": 23342.25,
+        "impact_duration": 22
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "00:27:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23345.5,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "00:27:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.638,
+        "price_level": 23345.5,
+        "impact_duration": 29
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "12:00:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23431.75,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "12:00:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.413,
+        "price_level": 23431.75,
+        "impact_duration": 9
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "12:03:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23375.5,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "12:03:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.735,
+        "price_level": 23375.5,
+        "impact_duration": 15
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "12:03:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23369.0,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "12:03:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.751,
+        "price_level": 23369.0,
+        "impact_duration": 20
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "12:25:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23200.75,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "12:25:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.397,
+        "price_level": 23200.75,
+        "impact_duration": 44
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "02:08:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23481.0,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "02:08:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.551,
+        "price_level": 23481.0,
+        "impact_duration": 32
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "02:20:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23477.0,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "02:20:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.322,
+        "price_level": 23477.0,
+        "impact_duration": 5
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "02:42:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23487.25,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "02:42:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.782,
+        "price_level": 23487.25,
+        "impact_duration": 35
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "02:01:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23185.75,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "02:01:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.435,
+        "price_level": 23185.75,
+        "impact_duration": 26
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "19:08:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23466.0,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "19:08:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.458,
+        "price_level": 23466.0,
+        "impact_duration": 35
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "19:18:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23097.5,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "19:18:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.492,
+        "price_level": 23097.5,
+        "impact_duration": 29
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "21:41:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23128.75,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "21:41:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.442,
+        "price_level": 23128.75,
+        "impact_duration": 13
+      }
+    },
+    {
+      "session_name": "unknown",
+      "session_date": "unknown",
+      "session_timeframe": "unknown",
+      "sweep_timestamp": "19:39:00",
+      "sweep_type": "liquidity_sweep",
+      "sweep_target_level": 23316.0,
+      "sweep_direction": "unknown_direction",
+      "session_context": {
+        "sweep_timing_in_session": 0.5,
+        "session_phase": "middle",
+        "relative_session_position": 0.5
+      },
+      "cascade_receptivity": 0.7,
+      "raw_event": {
+        "timestamp": "19:39:00",
+        "event_type": "liquidity_sweep",
+        "intensity": 0.351,
+        "price_level": 23316.0,
+        "impact_duration": 42
+      }
+    }
+  ],
+  "cascade_relationships": [],
+  "cascade_timing_analysis": {
+    "total_cascades_analyzed": 0,
+    "timing_distribution": {},
+    "average_transmission_delay": 0,
+    "timing_precision_analysis": {},
+    "cascade_velocity_patterns": []
+  },
+  "sweep_propagation_analysis": {
+    "session_sweep_distribution": {
+      "unknown": 28
+    },
+    "cross_session_propagation_chains": [],
+    "session_to_session_transmission_patterns": {},
+    "sweep_clustering_analysis": {}
+  },
+  "htf_transmission_analysis": {
+    "total_weekly_events": 2,
+    "transmission_efficiency_by_type": {
+      "unknown_weekly_liquidity": {
+        "average_efficiency": 0.3,
+        "event_count": 2
+      }
+    },
+    "session_receptivity_analysis": {},
+    "htf_influence_patterns": []
+  },
+  "cascade_network_topology": {
+    "total_cascade_relationships": 0,
+    "network_density": 0,
+    "cascade_hub_analysis": {},
+    "cascade_strength_distribution": {},
+    "network_efficiency": 0
+  },
+  "predictive_patterns": {
+    "cascade_prediction_rules": [],
+    "timing_prediction_patterns": [],
+    "strength_prediction_indicators": [],
+    "session_targeting_patterns": []
+  },
+  "discovery_insights": {
+    "cascade_mapping_summary": {
+      "total_weekly_events": 2,
+      "total_daily_sweeps": 28,
+      "mapped_cascades": 0,
+      "cascade_ratio": 0.0,
+      "cascade_detection_success": "LOW"
+    },
+    "htf_transmission_assessment": {
+      "transmission_efficiency": {
+        "unknown_weekly_liquidity": {
+          "average_efficiency": 0.3,
+          "event_count": 2
+        }
+      },
+      "htf_influence_strength": "MODERATE"
+    },
+    "cross_session_propagation_insights": {
+      "propagation_chains_detected": 0,
+      "propagation_strength": "MODERATE"
+    },
+    "discovery_recommendations": []
+  }
+}
