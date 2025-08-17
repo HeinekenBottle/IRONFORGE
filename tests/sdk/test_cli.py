@@ -1,6 +1,6 @@
 """Tests for IRONFORGE SDK CLI (Wave 3)."""
 
-import subprocess
+import subprocess  # nosec B404
 import sys
 import tempfile
 from pathlib import Path
@@ -107,7 +107,7 @@ def test_main_discover_temporal(mock_pipeline_class):
 
 def test_main_discover_temporal_import_error():
     """Test main function when TemporalDiscoveryPipeline is not available."""
-    with patch("ironforge.sdk.cli.TemporalDiscoveryPipeline", None):
+    with patch("ironforge.sdk.cli.TemporalDiscoveryPipeline", None):  # noqa: SIM117
         with pytest.raises(ImportError, match="TemporalDiscoveryPipeline not available"):
             main(["discover-temporal", "--data-path", "/test/data"])
 
@@ -181,7 +181,7 @@ def test_cli_subprocess_execution():
     """Test CLI execution via subprocess (smoke test)."""
     # This is a smoke test to ensure the CLI module can be imported and executed
     try:
-        result = subprocess.run(
+        result = subprocess.run(  # nosec B603
             [
                 sys.executable,
                 "-c",
@@ -204,7 +204,7 @@ def test_cli_subprocess_execution():
 def test_cli_help_message():
     """Test CLI help message generation."""
     try:
-        result = subprocess.run(
+        result = subprocess.run(  # nosec B603
             [sys.executable, "-m", "ironforge.sdk.cli", "--help"],
             capture_output=True,
             text=True,
@@ -286,3 +286,22 @@ def test_main_with_all_options(mock_pipeline_class):
         stitch_policy="global",
     )
     mock_pipeline.run.assert_called_once()
+
+
+def test_main_discover_temporal_missing_data_path():
+    """discover-temporal fails when data path is missing."""
+    with pytest.raises(FileNotFoundError):
+        main(["discover-temporal", "--data-path", "/does/not/exist"])
+
+
+def test_main_discover_temporal_no_shards(tmp_path):
+    """discover-temporal fails when no Parquet shards are present."""
+    with pytest.raises(ValueError, match="No node Parquet files found"):
+        main(["discover-temporal", "--data-path", str(tmp_path)])
+
+
+def test_main_validate_missing_data_path(tmp_path):
+    """validate fails when validation data path is missing."""
+    missing_path = tmp_path / "missing"
+    with pytest.raises(FileNotFoundError):
+        main(["validate", "--data-path", str(missing_path)])

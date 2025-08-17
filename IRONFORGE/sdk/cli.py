@@ -216,6 +216,9 @@ def main(argv: list[str] | None = None) -> int:
         if ValidationRunner is None or ValidationConfig is None:
             raise ImportError("ValidationRunner not available; install Wave 4 components.")
 
+        if not args.data_path.exists():
+            raise FileNotFoundError(f"Validation data path not found: {args.data_path}")
+
         # Create validation configuration
         config = ValidationConfig(
             mode=args.mode,
@@ -279,7 +282,7 @@ def main(argv: list[str] | None = None) -> int:
                 build_session_heatmap,
             )
         except ImportError as e:
-            raise ImportError(f"Wave 5 reporting components not available: {e}")
+            raise ImportError(f"Wave 5 reporting components not available: {e}") from e
 
         print("🎨 Starting IRONFORGE report generation...")
         print(f"📊 Discovery file: {args.discovery_file}")
@@ -313,7 +316,6 @@ def main(argv: list[str] | None = None) -> int:
         for pattern in patterns:
             # Extract temporal features
             temporal_features = pattern.get("temporal_features", {})
-            duration = temporal_features.get("duration_seconds", 300) / 60  # Convert to minutes
             intensity = temporal_features.get("peak_intensity", 0.5)
 
             # Extract confidence as score
@@ -412,7 +414,7 @@ def main(argv: list[str] | None = None) -> int:
         try:
             from ironforge.motifs.scanner import run_cli_scan
         except Exception as e:
-            raise SystemExit(f"Motif scanner unavailable: {e}")
+            raise SystemExit(f"Motif scanner unavailable: {e}") from e
         run_cli_scan(
             args.input_json,
             top_k=args.top_k,
@@ -425,7 +427,7 @@ def main(argv: list[str] | None = None) -> int:
         try:
             from ironforge.scripts.prepare_motifs_input import main as prep_main
         except Exception as e:
-            raise SystemExit(f"Adapter unavailable: {e}")
+            raise SystemExit(f"Adapter unavailable: {e}") from e
         # reuse its argparse by building argv
         argv = [
             "--discovery-json",
