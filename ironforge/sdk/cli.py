@@ -104,6 +104,65 @@ def cmd_report(cfg):
     return 0
 
 
+def cmd_prep_shards(source_glob: str, symbol: str, timeframe: str, timezone: str, 
+                   pack_mode: str, dry_run: bool, overwrite: bool):
+    """Prepare Parquet shards from enhanced JSON sessions."""
+    try:
+        from ironforge.converters.json_to_parquet import ConversionConfig, convert_enhanced_sessions
+        
+        config = ConversionConfig(
+            source_glob=source_glob,
+            symbol=symbol,
+            timeframe=timeframe,
+            source_timezone=timezone,
+            pack_mode=pack_mode,
+            dry_run=dry_run,
+            overwrite=overwrite
+        )
+        
+        print(f"[prep-shards] Converting sessions from {source_glob}")
+        print(f"[prep-shards] Target: {symbol}_{timeframe} | Timezone: {timezone} | Pack: {pack_mode}")
+        
+        if dry_run:
+            print("[prep-shards] DRY RUN MODE - no files will be written")
+        
+        shard_dirs = convert_enhanced_sessions(config)
+        
+        print(f"[prep-shards] ✅ Processed {len(shard_dirs)} sessions")
+        
+        # Write manifest
+        if not dry_run and shard_dirs:
+            manifest_path = Path(f"data/shards/{symbol}_{timeframe}/manifest.jsonl")
+            manifest_path.parent.mkdir(parents=True, exist_ok=True)
+            
+            with open(manifest_path, 'w') as f:
+                for shard_dir in shard_dirs:
+                    if shard_dir.exists():
+                        meta_file = shard_dir / "meta.json"
+                        if meta_file.exists():
+                            with open(meta_file, 'r') as meta_f:
+                                metadata = json.load(meta_f)
+                                manifest_entry = {
+                                    "shard_dir": str(shard_dir),
+                                    "session_id": metadata.get("session_id"),
+                                    "node_count": metadata.get("node_count", 0),
+                                    "edge_count": metadata.get("edge_count", 0),
+                                    "conversion_timestamp": metadata.get("conversion_timestamp")
+                                }
+                                f.write(json.dumps(manifest_entry) + "\n")
+            
+            print(f"[prep-shards] Wrote manifest: {manifest_path}")
+        
+        return 0
+        
+    except ImportError as e:
+        print(f"[prep-shards] Error: Converter not available - {e}")
+        return 1
+    except Exception as e:
+        print(f"[prep-shards] Error: {e}")
+        return 1
+
+
 def cmd_status(runs: Path):
     runs = Path(runs)
     if not runs.exists():
@@ -133,10 +192,25 @@ def main(argv: list[str] | None = None) -> int:
     c4.add_argument("--config", default="configs/dev.yml")
     c5 = sub.add_parser("status")
     c5.add_argument("--runs", default="runs")
+    c6 = sub.add_parser("prep-shards")
+    c6.add_argument("--source-glob", default="data/enhanced/enhanced_*_Lvl-1_*.json", 
+                   help="Glob pattern for enhanced JSON sessions")
+    c6.add_argument("--symbol", default="NQ", help="Symbol for shard directory")
+    c6.add_argument("--timeframe", "--tf", default="M5", help="Timeframe for shard directory")
+    c6.add_argument("--timezone", "--tz", default="ET", help="Source timezone")
+    c6.add_argument("--pack", choices=["single", "pack"], default="single",
+                   help="Packing mode: single session per shard or pack multiple")
+    c6.add_argument("--dry-run", action="store_true", help="Show what would be converted without writing files")
+    c6.add_argument("--overwrite", action="store_true", help="Overwrite existing shards")
 
     args = p.parse_args(argv)
     if args.cmd == "status":
         return cmd_status(Path(args.runs))
+    if args.cmd == "prep-shards":
+        return cmd_prep_shards(
+            args.source_glob, args.symbol, args.timeframe, args.timezone,
+            args.pack, args.dry_run, args.overwrite
+        )
     cfg = load_config(args.config)
     if args.cmd == "discover-temporal":
         return cmd_discover(cfg)
