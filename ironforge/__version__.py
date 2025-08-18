@@ -1,8 +1,8 @@
 """IRONFORGE Version Information"""
 
-__version__ = "0.7.1"
-__version_info__ = (0, 7, 1)
-__release_notes__ = "HTF context features enabled by default (nodes v1.1: 45D→51D)"
+__version__ = "0.8.0"
+__version_info__ = (0, 8, 0)
+__release_notes__ = "WAF-NEXT validation framework: A/B testing, watchlist curation, minidash integration"
 
 # Feature version tracking
 NODE_FEATURES_VERSION = "1.1"

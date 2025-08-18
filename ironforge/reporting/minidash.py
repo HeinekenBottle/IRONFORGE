@@ -122,6 +122,21 @@ def load_aux_trader_data(run_dir: Path) -> dict[str, Any]:
     return result
 
 
+def load_watchlist_data(run_dir: Path) -> list[dict] | None:
+    """Load watchlist data if available."""
+    watchlist_path = run_dir / "motifs" / "watchlist.csv"
+    
+    if not watchlist_path.exists():
+        return None
+    
+    try:
+        watchlist_df = pd.read_csv(watchlist_path)
+        # Convert to list of dicts for easy templating
+        return watchlist_df.to_dict('records')
+    except Exception:
+        return None
+
+
 def build_minidash(
     activity: pd.DataFrame,
     confluence: pd.DataFrame,
@@ -214,6 +229,9 @@ def build_minidash(
     
     # Load trader-relevant AUX data
     trader_data = load_aux_trader_data(Path(run_dir)) if run_dir else {"trajectories": None, "phase_stats": None, "chains": None}
+    
+    # Load watchlist data
+    watchlist_data = load_watchlist_data(Path(run_dir)) if run_dir else None
     
     # Load confluence scale information and health status
     scale_badge = ""
@@ -356,6 +374,46 @@ def build_minidash(
             <div>Subsequent returns: <span style="background:{ret_color};color:white;padding:2px 6px;border-radius:3px;">μ={ret_stats["mean"]:.2f}% σ={ret_stats["std"]:.2f}% (n={ret_stats["count"]})</span></div>
         </div>'''
     
+    # Watchlist Panel
+    watchlist_panel = ""
+    if watchlist_data:
+        watchlist_rows = []
+        for i, zone in enumerate(watchlist_data[:5]):  # Top 5 watchlist zones
+            zone_id = zone.get('zone_id', 'N/A')
+            confidence = zone.get('confidence', 0)
+            hit_100 = zone.get('hit_+100_12b', False)
+            fwd_ret = zone.get('fwd_ret_12b', None)
+            chain_tag = zone.get('chain_tag', 'none')
+            trading_score = zone.get('trading_score', 0)
+            
+            # Format cells
+            hit_icon = "✅" if hit_100 else "❌"
+            ret_text = f"{fwd_ret:+.2f}%" if pd.notna(fwd_ret) else "N/A"
+            score_color = "#28a745" if trading_score > 0.05 else "#ffc107" if trading_score > 0.01 else "#6c757d"
+            
+            watchlist_rows.append(f'''
+                <tr>
+                    <td><strong>{zone_id}</strong></td>
+                    <td>{confidence:.3f}</td>
+                    <td>{hit_icon}</td>
+                    <td>{ret_text}</td>
+                    <td>{chain_tag}</td>
+                    <td><span style="background:{score_color};color:white;padding:2px 4px;border-radius:3px;">{trading_score:.3f}</span></td>
+                </tr>
+            ''')
+        
+        watchlist_panel = f'''
+        <div style="background:#fff8dc;padding:10px;margin:10px 0;border-radius:5px;">
+            <strong>🎯 Watchlist (Top {len(watchlist_data)} Cards)</strong><br>
+            <small>Daily shortlist with horizon stats</small>
+            <table style="margin-top:5px;font-size:12px;">
+                <tr style="background:#f8f9fa;">
+                    <th>Zone</th><th>Conf</th><th>Hit100</th><th>Ret12b</th><th>Chain</th><th>Score</th>
+                </tr>
+                {''.join(watchlist_rows)}
+            </table>
+        </div>'''
+    
     html = f"""<!doctype html><meta charset="utf-8">
     <style>body{{font:14px system-ui}} table{{border-collapse:collapse}} td,th{{border:1px solid #ccc;padding:6px}}</style>
     <h1>IRONFORGE — Minimal Report{scale_badge}{health_badge}</h1>
@@ -364,6 +422,7 @@ def build_minidash(
     {trajectories_panel}
     {phase_panel}
     {chains_panel}
+    {watchlist_panel}
     <img src="{out_png.name}" alt="Confluence & Activity" />
     <h2>Motifs</h2><table><tr><th>Name</th><th>Support</th><th>PPV</th></tr>{rows}</table>"""
     out_html.write_text(html, encoding="utf-8")
