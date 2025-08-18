@@ -1,8 +1,8 @@
 workspace: runs/{date}
 data:
-  shards_glob: "data/shards/*.parquet"
-  symbol: "ES"
-  timeframe: "1m"
+  shards_glob: "data/shards/NQ_M5/shard_*"
+  symbol: "NQ"
+  timeframe: "M5"
 outputs:
   run_dir: "runs/{date}"
   overwrite: true
@@ -22,4 +22,14 @@ reporting:
 validation:
   folds: 5
   purge_bars: 20
+tgat:
+  hidden_dim: 64
+  num_layers: 3
+  time_encoding: "fourier"
+  dropout: 0.1
+  batch_size: 4096
+  window_bars: 192     # ~16 hours on M5; adjust to session length
+  max_edges_per_node: 16
+  num_heads: 4
+  seed: 42
 
