@@ -1,0 +1,24 @@
+workspace: runs/{date}
+data:
+  shards_glob: "data/shards/NQ_M5/shard_*/nodes.parquet"
+  symbol: "NQ"
+  timeframe: "M5"
+outputs:
+  run_dir: "runs/{date}"
+  overwrite: true
+scoring:
+  weights:
+    cluster_z: 0.30
+    htf_prox: 0.25
+    structure: 0.20
+    cycle: 0.15
+    precursor: 0.10
+reporting:
+  minidash:
+    out_html: "minidash.html"
+    out_png:  "minidash.png"
+    width: 1200
+    height: 700
+validation:
+  folds: 5
+  purge_bars: 20
