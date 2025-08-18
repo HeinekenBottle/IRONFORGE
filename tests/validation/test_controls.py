@@ -138,7 +138,7 @@ class TestNodeFeatureShuffle:
         assert shuffled.shape == features.shape
 
         # Each group should be shuffled independently
-        for group_name, indices in feature_groups.items():
+        for _, indices in feature_groups.items():
             for idx in indices:
                 # Column means should be preserved
                 assert abs(np.mean(shuffled[:, idx]) - np.mean(features[:, idx])) < 1e-10
