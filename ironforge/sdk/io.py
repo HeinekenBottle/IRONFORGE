@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import glob as _glob
 from typing import Any
 
 
@@ -18,5 +19,6 @@ def write_html(path: str | Path, html: str) -> None:
     p.write_text(html, encoding="utf-8")
 
 
-def glob_many(glob: str) -> list[Path]:
-    return list(Path().glob(glob))
+def glob_many(pattern: str) -> list[Path]:
+    # Support absolute and recursive globs
+    return [Path(p) for p in _glob.glob(pattern, recursive=True)]

@@ -200,3 +200,22 @@ print(f"Discovered {len(results.patterns)} archaeological patterns")
 *Documentation: FULLY MODERNIZED*
 *Patterns Discovered: 3,220+ cross-timeframe archaeological patterns*
 *Archaeological Discovery Mission: ACCOMPLISHED*
+## Quickstart (Wave 7 — SDK + Minimal Reporting)
+
+```bash
+pip install -e .[dev]
+
+# 1) Discover → Score → Validate → Report
+python -m ironforge.sdk.cli discover-temporal --config configs/dev.yml
+python -m ironforge.sdk.cli score-session     --config configs/dev.yml
+python -m ironforge.sdk.cli validate-run      --config configs/dev.yml
+python -m ironforge.sdk.cli report-minimal    --config configs/dev.yml
+
+# 2) Open the dashboard
+open runs/$(date +%F)/minidash.html
+
+# 3) Check artifacts
+python -m ironforge.sdk.cli status --runs runs
+```
+
+Defaults: `symbol=NQ`, `timeframe=M5`, shards at `data/shards/NQ_M5/shard_*` (each shard dir contains `nodes.parquet` + `edges.parquet`).

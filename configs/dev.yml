@@ -1,8 +1,8 @@
 workspace: runs/{date}
 data:
-  shards_glob: "data/shards/*.parquet"
-  symbol: "ES"
-  timeframe: "1m"
+  shards_glob: "data/shards/NQ_M5/shard_*"
+  symbol: "NQ"
+  timeframe: "M5"
 outputs:
   run_dir: "runs/{date}"
   overwrite: true
@@ -13,6 +13,7 @@ scoring:
     structure: 0.20
     cycle: 0.15
     precursor: 0.10
+  threshold: 65
 reporting:
   minidash:
     out_html: "minidash.html"
@@ -22,4 +23,3 @@ reporting:
 validation:
   folds: 5
   purge_bars: 20
-

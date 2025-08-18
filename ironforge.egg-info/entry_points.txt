@@ -1,0 +1,3 @@
+[console_scripts]
+ifg = ironforge.sdk.cli:main
+ironforge = ironforge.sdk.cli:main

@@ -1,9 +1,46 @@
-paths:
-  shards_dir: data/shards/NQ_2025-08-16
-  out_dir: runs/NQ_2025-08-16
+# Local run configuration for Wave 7 SDK/CLI
+# Customize paths below to match your workstation.
+
+workspace: runs/{date}
+
+data:
+  # Point this to your shard directories. Each shard dir should contain
+  # nodes/edges parquet files (or whatever your discovery loader expects).
+  # Examples:
+  #   - "/Volumes/IRON/data/shards/NQ_M5/shard_*"
+  #   - "/Users/jack/data/iron/shards/NQ_M5/shard_*"
+  shards_glob: "/absolute/path/to/data/shards/NQ_M5/shard_*"
+  symbol: "NQ"
+  timeframe: "M5"
+
+# Optional: parameters passed through to discovery loader
 loader:
-  fanouts: [10, 10]
-  batch_size: 2048
-confluence:
-  weights: {cluster: 0.25, htf_prox: 0.25, structure: 0.20, cycle: 0.15, precursor: 0.15}
+  nodes: "nodes.parquet"
+  edges: "edges.parquet"
+  # index_col: "ts"
+  # engine: "pyarrow"
+
+outputs:
+  run_dir: "runs/{date}"
+  overwrite: true
+
+scoring:
+  weights:
+    cluster_z: 0.30
+    htf_prox: 0.25
+    structure: 0.20
+    cycle: 0.15
+    precursor: 0.10
   threshold: 65
+
+reporting:
+  minidash:
+    out_html: "minidash.html"
+    out_png:  "minidash.png"
+    width: 1200
+    height: 700
+
+validation:
+  folds: 5
+  purge_bars: 20
+

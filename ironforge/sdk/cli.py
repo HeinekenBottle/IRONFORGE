@@ -5,6 +5,7 @@ import contextlib
 import importlib
 import json
 import sys
+import glob as _glob
 from pathlib import Path
 
 import pandas as pd
@@ -15,44 +16,55 @@ from .app_config import load_config, materialize_run_dir
 from .io import glob_many, write_json
 
 
-def _maybe(mod: str, attr: str):
+def _import_required(mod: str, attr: str):
     try:
         m = importlib.import_module(mod)
         return getattr(m, attr)
-    except Exception:
-        return None
+    except Exception as e:
+        print(f"[ironforge] Missing required entrypoint: {mod}:{attr} — {e}", file=sys.stderr)
+        sys.exit(2)
 
 
 def cmd_discover(cfg):
-    fn = _maybe("ironforge.learning.tgat_discovery", "run_discovery") or _maybe(
-        "ironforge.discovery.runner", "run_discovery"
-    )
-    if fn is None:
-        print("[discover] discovery engine not found; skipping (no-op).")
-        return 0
-    return int(bool(fn(cfg)))
+    """Run discovery across shard_* directories via discovery_pipeline."""
+    run_dir = materialize_run_dir(cfg)
+    shards_glob = getattr(getattr(cfg, "data", object()), "shards_glob", "data/shards/NQ_M5/shard_*")
+    shard_dirs = sorted([p for p in _glob.glob(shards_glob) if Path(p).is_dir()])
+    if not shard_dirs:
+        print(f"[discover] No shards found for pattern: {shards_glob}", file=sys.stderr)
+        sys.exit(2)
+    run_discovery = _import_required("ironforge.learning.discovery_pipeline", "run_discovery")
+    loader = getattr(cfg, "loader", None) or {}
+    res = run_discovery(shard_dirs, str(run_dir), loader)
+    print(json.dumps({"patterns": res, "out_dir": str(run_dir)}))
+    return 0
 
 
 def cmd_score(cfg):
-    fn = _maybe("ironforge.confluence.scorer", "score_session") or _maybe(
-        "ironforge.metrics.confluence", "score_session"
-    )
-    if fn is None:
-        print("[score] scorer not found; skipping (no-op).")
-        return 0
-    fn(cfg)
+    """Compute confluence scores from discovered patterns → run_dir/confluence/."""
+    run_dir = materialize_run_dir(cfg)
+    score_confluence = _import_required("ironforge.confluence.scoring", "score_confluence")
+    weights = getattr(getattr(cfg, "scoring", object()), "weights", {}) or {}
+    if not isinstance(weights, dict):
+        try:
+            weights = dict(vars(weights))
+        except Exception:
+            weights = {}
+    threshold = getattr(getattr(cfg, "scoring", object()), "threshold", 65)
+    out = score_confluence(str(run_dir), weights=weights, threshold=threshold)
+    print(json.dumps({"confluence": out}))
     return 0
 
 
 def cmd_validate(cfg):
-    fn = _maybe("ironforge.validation.runner", "validate_run")
-    if fn is None:
-        print("[validate] validation rails not found; skipping (no-op).")
-        return 0
-    res = fn(cfg)
-    run_dir = materialize_run_dir(cfg) / "reports"
-    run_dir.mkdir(parents=True, exist_ok=True)
-    write_json(run_dir / "validation.json", res if isinstance(res, dict) else {"result": "ok"})
+    """Run validation rails and write reports/validation.json."""
+    run_dir = materialize_run_dir(cfg)
+    validate_run = _import_required("ironforge.validation.runner", "validate_run")
+    res = validate_run(str(run_dir))
+    reports = Path(run_dir) / "reports"
+    reports.mkdir(parents=True, exist_ok=True)
+    write_json(reports / "validation.json", res if isinstance(res, dict) else {"result": "ok"})
+    print(json.dumps({"reports": str(reports)}))
     return 0
 
 
@@ -73,14 +85,16 @@ def cmd_report(cfg):
     if conf.empty:
         conf = pd.DataFrame(
             {
-                "ts": pd.date_range("2025-01-01", periods=50, freq="T"),
+                "ts": pd.date_range("2025-01-01", periods=50, freq="min"),
                 "score": [min(99, i * 2 % 100) for i in range(50)],
             }
         )
     pat_paths = glob_many(str(run_dir / "patterns" / "*.parquet"))
     act = _load_first_parquet(pat_paths, ["ts", "count"])
     if act.empty:
-        g = conf.groupby(conf["ts"].astype("datetime64[m]")).size().reset_index(name="count")
+        # Normalize to minute resolution and count by minute
+        conf_ts_min = pd.to_datetime(conf["ts"]).dt.floor("min")
+        g = conf.groupby(conf_ts_min).size().reset_index(name="count")
         g.rename(columns={g.columns[0]: "ts"}, inplace=True)
         act = g
     motifs = []
