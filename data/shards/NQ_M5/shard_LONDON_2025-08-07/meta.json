@@ -1,0 +1,14 @@
+{
+  "session_id": "LONDON_2025-08-07",
+  "session_type": "LONDON",
+  "date": "2025-08-07",
+  "source_file": "data/enhanced/enhanced_rel_LONDON_Lvl-1_2025_08_07.json",
+  "node_count": 55,
+  "edge_count": 93,
+  "symbol": "NQ",
+  "timeframe": "M5",
+  "timezone_source": "ET",
+  "timezone_target": "UTC",
+  "feature_set": "v1.0",
+  "conversion_timestamp": "2025-08-18T17:02:49.002981Z"
+}

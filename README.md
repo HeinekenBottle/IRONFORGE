@@ -1,6 +1,8 @@
 # IRONFORGE 
 **Archaeological Discovery System for Market Pattern Recognition**
 
+Note: Wave 7 SDK/CLI is the canonical workflow. Older module-level examples below are legacy. See Quickstart and docs/GETTING_STARTED.md.
+
 <img src="./visualizations/session_dashboard.png" alt="IRONFORGE Dashboard" width="800"/>
 
 ## 🏛️ Overview
@@ -44,35 +46,24 @@ IRONFORGE/
 
 ## 🚀 Quick Start
 
-### Installation
-
 ```bash
-# Clone the repository
-git clone <repository-url>
-cd IRONFORGE
+pip install -e .[dev]
 
-# Install dependencies
-pip install -r requirements.txt
+# Discover → Score → Validate → Report
+python -m ironforge.sdk.cli discover-temporal --config configs/dev.yml
+python -m ironforge.sdk.cli score-session     --config configs/dev.yml
+python -m ironforge.sdk.cli validate-run      --config configs/dev.yml
+python -m ironforge.sdk.cli report-minimal    --config configs/dev.yml
+
+# Open dashboard
+open runs/$(date +%F)/minidash.html
+
+# Check artifacts
+python -m ironforge.sdk.cli status --runs runs
 ```
 
-### Basic Usage
-
-```python
-# Import the main components
-from ironforge.integration.ironforge_container import get_ironforge_container
-from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
-from ironforge.learning.tgat_discovery import IRONFORGEDiscovery
-
-# Initialize the system
-container = get_ironforge_container()
-graph_builder = container.get_enhanced_graph_builder()
-discovery_engine = container.get_tgat_discovery()
-
-# Load and process session data
-session_data = load_session_data("data/raw/session.json")
-enhanced_session = graph_builder.enhance_session(session_data)
-discoveries = discovery_engine.discover_patterns(enhanced_session)
-```
+### Legacy Usage (module-level APIs)
+These examples are archived; prefer the CLI above for daily workflows.
 
 ### Basic Usage
 

@@ -1,0 +1,14 @@
+{
+  "session_id": "MIDNIGHT_2025-07-31",
+  "session_type": "MIDNIGHT",
+  "date": "2025-07-31",
+  "source_file": "data/enhanced/enhanced_rel_MIDNIGHT_Lvl-1_2025_07_31.json",
+  "node_count": 27,
+  "edge_count": 39,
+  "symbol": "NQ",
+  "timeframe": "M5",
+  "timezone_source": "ET",
+  "timezone_target": "UTC",
+  "feature_set": "v1.0",
+  "conversion_timestamp": "2025-08-18T17:02:49.638900Z"
+}

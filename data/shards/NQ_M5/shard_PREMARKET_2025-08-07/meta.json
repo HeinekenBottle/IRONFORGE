@@ -1,0 +1,14 @@
+{
+  "session_id": "PREMARKET_2025-08-07",
+  "session_type": "PREMARKET",
+  "date": "2025-08-07",
+  "source_file": "data/enhanced/enhanced_rel_PREMARKET_Lvl-1_2025_08_07.json",
+  "node_count": 30,
+  "edge_count": 49,
+  "symbol": "NQ",
+  "timeframe": "M5",
+  "timezone_source": "ET",
+  "timezone_target": "UTC",
+  "feature_set": "v1.0",
+  "conversion_timestamp": "2025-08-18T17:02:50.891327Z"
+}
