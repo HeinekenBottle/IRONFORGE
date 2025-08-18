@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Simple test for refactored structure"""
 
-import sys
 import os
+import sys
 
 # Add current directory to path
 sys.path.insert(0, os.getcwd())

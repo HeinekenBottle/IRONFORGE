@@ -4,10 +4,6 @@ Test Task 3: Session Context Preservation - Metadata Attachment
 """
 
 import sys
-import os
-import json
-from pathlib import Path
-from datetime import datetime
 
 # Add IRONFORGE to path
 sys.path.insert(0, '/Users/jack/IRONPULSE/IRONFORGE')

@@ -8,8 +8,10 @@ that the 0% scale edges issue has been resolved.
 
 import json
 from pathlib import Path
+
 from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
 from ironforge.learning.tgat_discovery import IRONFORGEDiscovery
+
 
 def test_scale_edges_with_fixed_data():
     """Test scale edge generation with fixed HTF data."""
@@ -20,7 +22,7 @@ def test_scale_edges_with_fixed_data():
     htf_file = "/Users/jack/IRONPULSE/data/sessions/htf_relativity/NY_AM_Lvl-1_2025_07_30_htf_regenerated_rel.json"
     print(f"📊 Testing with: {Path(htf_file).name}")
     
-    with open(htf_file, 'r') as f:
+    with open(htf_file) as f:
         htf_data = json.load(f)
     
     # Initialize enhanced graph builder

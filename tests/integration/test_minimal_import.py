@@ -5,6 +5,7 @@ Minimal import test to isolate timeout issues in Sprint 2 components
 
 import sys
 import time
+
 sys.path.append('.')
 
 def test_import(module_name, class_name=None):

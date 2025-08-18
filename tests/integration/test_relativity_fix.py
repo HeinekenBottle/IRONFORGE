@@ -3,8 +3,10 @@
 Test Price Relativity Fix
 """
 import json
+
 from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
 from ironforge.learning.tgat_discovery import IRONFORGEDiscovery
+
 
 def test_relativity_fix():
     print("🧪 Testing Price Relativity Fix")
@@ -12,7 +14,7 @@ def test_relativity_fix():
     # Test session
     test_session = "/Users/jack/IRONPULSE/data/sessions/htf_relativity/NY_PM_Lvl-1_2025_08_04_htf_rel.json"
     
-    with open(test_session, 'r') as f:
+    with open(test_session) as f:
         session_data = json.load(f)
     
     # Build graph

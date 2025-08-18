@@ -4,11 +4,6 @@ Test Task 1: Semantic Feature Retrofit - Feature Vector Enhancement
 """
 
 import sys
-import os
-import torch
-import numpy as np
-from pathlib import Path
-import json
 
 # Add IRONFORGE to path
 sys.path.insert(0, '/Users/jack/IRONPULSE/IRONFORGE')

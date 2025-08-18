@@ -4,14 +4,15 @@ Test IRONFORGE 37D temporal cycle implementation - clean data only
 Innovation Architect validation - demonstrating successful 34D->37D evolution
 """
 
-import sys
-import os
 import json
+import sys
 from pathlib import Path
+
 sys.path.append('/Users/jack/IRONPULSE/IRONFORGE')
 
 from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
 from ironforge.learning.tgat_discovery import IRONFORGEDiscovery
+
 
 def test_37d_success():
     """Test 37D system with clean data only - skip corrupted files"""
@@ -41,7 +42,7 @@ def test_37d_success():
     for session_file in all_session_files[:10]:  # Test first 10 files
         try:
             # Load and validate session
-            with open(session_file, 'r') as f:
+            with open(session_file) as f:
                 session_data = json.load(f)
             
             # Quick validation - check for required fields

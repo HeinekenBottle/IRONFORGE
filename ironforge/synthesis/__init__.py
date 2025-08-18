@@ -2,20 +2,13 @@
 Synthesis components for pattern validation
 """
 
+import contextlib
+
 # Core synthesis components
-try:
+with contextlib.suppress(ImportError):
     from .pattern_graduation import PatternGraduation
-except ImportError:
-    # Component not yet available
-    pass
 
-try:
+with contextlib.suppress(ImportError):
     from .production_graduation import ProductionGraduation
-except ImportError:
-    # Component not yet available
-    pass
 
-__all__ = [
-    'PatternGraduation',
-    'ProductionGraduation'
-]
+__all__ = ["PatternGraduation", "ProductionGraduation"]

@@ -5,15 +5,15 @@ Fix Test Import Paths Script
 Updates all test files to use the new ironforge package structure.
 """
 
-import os
 import re
 from pathlib import Path
+
 
 def fix_imports_in_file(file_path):
     """Fix import statements in a single file"""
     print(f"🔧 Fixing imports in {file_path}")
     
-    with open(file_path, 'r') as f:
+    with open(file_path) as f:
         content = f.read()
     
     original_content = content

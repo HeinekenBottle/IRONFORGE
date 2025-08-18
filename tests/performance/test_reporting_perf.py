@@ -2,19 +2,21 @@
 
 import gc
 import json
-import psutil
-import pytest
 import tempfile
 import time
 from pathlib import Path
 from unittest.mock import patch
 
+import psutil
+import pytest
+
 try:
     import numpy as np
-    from ironforge.reporting.heatmap import build_session_heatmap, TimelineHeatmapSpec
-    from ironforge.reporting.confluence import build_confluence_strip, ConfluenceStripSpec
+
+    from ironforge.reporting.confluence import ConfluenceStripSpec, build_confluence_strip
+    from ironforge.reporting.heatmap import TimelineHeatmapSpec, build_session_heatmap
     from ironforge.reporting.html import build_report_html
-    from ironforge.reporting.writer import write_png, write_html
+    from ironforge.reporting.writer import write_html, write_png
     from ironforge.sdk.cli import main
     DEPS_AVAILABLE = True
 except ImportError:

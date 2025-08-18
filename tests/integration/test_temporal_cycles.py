@@ -5,13 +5,13 @@ Innovation Architect implementation validation
 """
 
 import sys
-import torch
-import json
 from datetime import datetime
+
 sys.path.append('/Users/jack/IRONPULSE/IRONFORGE')
 
 from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder, RichNodeFeature
 from ironforge.learning.tgat_discovery import IRONFORGEDiscovery
+
 
 def test_temporal_cycle_features():
     """Test that temporal cycle features are properly integrated"""

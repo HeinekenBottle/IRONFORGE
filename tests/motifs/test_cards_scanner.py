@@ -1,14 +1,10 @@
 """Tests for motif cards and scanner functionality."""
 
-import pytest
 import numpy as np
+import pytest
+
 from ironforge.motifs.cards import MotifCard, MotifStep, default_cards
-from ironforge.motifs.scanner import (
-    MotifMatch, 
-    scan_session_for_cards,
-    _events_by_type,
-    _find_next
-)
+from ironforge.motifs.scanner import _events_by_type, _find_next, scan_session_for_cards
 
 
 class TestMotifStep:

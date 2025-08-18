@@ -1,0 +1,62 @@
+name: Lint and Format Check
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt', 'requirements-dev.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+          pip install -r requirements-dev.txt
+
+      - name: Verify lint tools are available
+        run: |
+          echo "=== Verifying development tools installation ==="
+          ruff --version
+          black --version
+          mypy --version
+          echo "All tools verified successfully"
+
+      - name: Run ruff linter
+        run: |
+          echo "=== Running ruff linter ==="
+          ruff check ironforge tests --diff
+
+      - name: Run black formatter check
+        run: |
+          echo "=== Checking black formatting ==="
+          black --check --diff ironforge tests
+
+      - name: Run mypy type checker
+        run: |
+          echo "=== Running mypy type checker ==="
+          mypy ironforge
+
+      - name: Security check with bandit
+        run: |
+          echo "=== Running security check ==="
+          bandit -r ironforge -ll || true

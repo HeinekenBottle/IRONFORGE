@@ -4,11 +4,6 @@ Test Task 2: Edge Feature Enrichment - Semantic Edge Labels
 """
 
 import sys
-import os
-import torch
-import numpy as np
-from pathlib import Path
-import json
 
 # Add IRONFORGE to path
 sys.path.insert(0, '/Users/jack/IRONPULSE/IRONFORGE')
@@ -21,7 +16,11 @@ def test_semantic_edge_enrichment():
     
     try:
         # Import IRONFORGE components
-        from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder, RichNodeFeature, RichEdgeFeature
+        from ironforge.learning.enhanced_graph_builder import (
+            EnhancedGraphBuilder,
+            RichEdgeFeature,
+            RichNodeFeature,
+        )
         
         print("✅ Successfully imported Enhanced Graph Builder components")
         

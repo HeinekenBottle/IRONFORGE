@@ -43,8 +43,18 @@ def test_lattice_mapper():
     print("\n🗺️  Testing Lattice Mapper...")
     
     try:
-        from ironforge.analysis.timeframe_lattice_mapper import TimeframeLatticeMapper, TimeframeType
-        from ironforge.analysis.broad_spectrum_archaeology import ArchaeologicalEvent, EventType, RangeLevel, LiquidityArchetype, SessionPhase, HTFConfluenceStatus
+        from ironforge.analysis.broad_spectrum_archaeology import (
+            ArchaeologicalEvent,
+            EventType,
+            HTFConfluenceStatus,
+            LiquidityArchetype,
+            RangeLevel,
+            SessionPhase,
+        )
+        from ironforge.analysis.timeframe_lattice_mapper import (
+            TimeframeLatticeMapper,
+            TimeframeType,
+        )
         
         # Initialize mapper
         mapper = TimeframeLatticeMapper(grid_resolution=20, min_node_events=1)

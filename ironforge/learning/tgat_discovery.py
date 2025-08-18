@@ -41,7 +41,7 @@ class TemporalAttentionLayer(nn.Module):
 
         logger.info(f"Temporal Attention Layer: {input_dim}D -> {hidden_dim}D, {num_heads} heads")
 
-    def forward(self, node_features, edge_features, temporal_distances):
+    def forward(self, node_features, _edge_features, temporal_distances):
         """
         Forward pass with temporal attention
 

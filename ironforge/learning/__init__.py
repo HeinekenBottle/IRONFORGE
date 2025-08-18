@@ -2,34 +2,24 @@
 Learning components for archaeological discovery
 """
 
+import contextlib
+
 # Core learning components
-try:
+with contextlib.suppress(ImportError):
     from .enhanced_graph_builder import EnhancedGraphBuilder
-except ImportError:
-    # Component not yet available
-    pass
 
-try:
+with contextlib.suppress(ImportError):
     from .tgat_discovery import IRONFORGEDiscovery
-except ImportError:
-    # Component not yet available
-    pass
 
-try:
+with contextlib.suppress(ImportError):
     from .simple_event_clustering import SimpleEventClustering
-except ImportError:
-    # Component not yet available
-    pass
 
-try:
+with contextlib.suppress(ImportError):
     from .regime_segmentation import RegimeSegmentation
-except ImportError:
-    # Component not yet available
-    pass
 
 __all__ = [
-    'EnhancedGraphBuilder',
-    'IRONFORGEDiscovery', 
-    'SimpleEventClustering',
-    'RegimeSegmentation'
+    "EnhancedGraphBuilder",
+    "IRONFORGEDiscovery",
+    "SimpleEventClustering",
+    "RegimeSegmentation",
 ]

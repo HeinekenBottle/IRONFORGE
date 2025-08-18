@@ -4,6 +4,7 @@ Test Task 3: Session Context Preservation - Simple Test
 """
 
 import sys
+
 sys.path.insert(0, '/Users/jack/IRONPULSE/IRONFORGE')
 
 def test_task3():
