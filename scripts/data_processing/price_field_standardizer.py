@@ -9,9 +9,8 @@ Final fix for TGAT Model Quality Recovery Plan Phase 5 validation.
 """
 
 import json
-import os
 from pathlib import Path
-from typing import Dict, List, Any
+from typing import Any, Dict
 
 
 class PriceFieldStandardizer:
@@ -150,7 +149,7 @@ class PriceFieldStandardizer:
         validation_results = self.validate_standardization()
         
         # Generate summary report
-        print(f"\n🎯 STANDARDIZATION COMPLETE")
+        print("\n🎯 STANDARDIZATION COMPLETE")
         print("=" * 50)
         print(f"Sessions processed: {self.stats['sessions_processed']}")
         print(f"Total movements: {self.stats['movements_processed']}")
@@ -172,7 +171,7 @@ class PriceFieldStandardizer:
             print(f"\n✅ SUCCESS: All {len(session_files)} sessions standardized")
             print("🏆 Ready for final TGAT validation!")
         else:
-            print(f"\n❌ ISSUES DETECTED: Manual review required")
+            print("\n❌ ISSUES DETECTED: Manual review required")
         
         return {
             'standardization_stats': self.stats,

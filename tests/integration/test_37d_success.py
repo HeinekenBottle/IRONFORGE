@@ -90,33 +90,33 @@ def test_37d_success():
             corrupted_sessions.append(f"{session_file.name}: {str(e)[:50]}...")
     
     # Report results
-    print(f"\n📊 Processing Results")
+    print("\n📊 Processing Results")
     print(f"   ✅ Clean sessions processed: {len(clean_sessions)}")
     print(f"   ❌ Corrupted sessions skipped: {len(corrupted_sessions)}")
     print(f"   🔍 Total patterns discovered: {total_patterns}")
     print(f"   🔄 Temporal cycle patterns: {temporal_cycle_patterns}")
     
     if clean_sessions:
-        print(f"\n🏆 SUCCESS EXAMPLES:")
+        print("\n🏆 SUCCESS EXAMPLES:")
         for session in clean_sessions[:3]:  # Show first 3
             print(f"   📁 {session['file']}")
             print(f"      - Nodes: {session['nodes']}, Features: {session['features']}D")
             print(f"      - Patterns: {session['total_patterns']} (cycles: {session['cycle_patterns']})")
     
     if corrupted_sessions:
-        print(f"\n⚠️ Data Quality Issues (handled correctly):")
+        print("\n⚠️ Data Quality Issues (handled correctly):")
         for corrupt in corrupted_sessions[:5]:  # Show first 5
             print(f"   - {corrupt}")
     
     success = len(clean_sessions) > 0
     if success:
-        print(f"\n✅ INNOVATION ARCHITECT SUCCESS: 37D temporal cycle system operational!")
-        print(f"   • Clean data processed successfully with 37D features")
-        print(f"   • Temporal cycle pattern detection active")
-        print(f"   • System correctly skips corrupted data (NO FALLBACKS)")
+        print("\n✅ INNOVATION ARCHITECT SUCCESS: 37D temporal cycle system operational!")
+        print("   • Clean data processed successfully with 37D features")
+        print("   • Temporal cycle pattern detection active")
+        print("   • System correctly skips corrupted data (NO FALLBACKS)")
         print(f"   • {temporal_cycle_patterns} temporal cycle patterns discovered")
     else:
-        print(f"\n❌ No clean sessions found to process")
+        print("\n❌ No clean sessions found to process")
     
     return success
 

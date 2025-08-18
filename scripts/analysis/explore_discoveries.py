@@ -5,11 +5,12 @@ Explore IRONFORGE Discovery Results with Time Pattern Intelligence
 See what the Simple Event-Time Clustering + Cross-TF Mapping reveals
 """
 
+import glob
 import json
 import pickle
-import glob
+from collections import Counter, defaultdict
 from pathlib import Path
-from collections import defaultdict, Counter
+
 
 def load_time_patterns_from_graphs():
     """Load time patterns from preserved graphs"""
@@ -91,12 +92,12 @@ def analyze_discovered_patterns():
                 temporal_features.append(pattern['temporal_features'])
         
         # Display analysis
-        print(f"\n📈 Pattern Type Distribution:")
+        print("\n📈 Pattern Type Distribution:")
         for ptype, count in pattern_types.most_common():
             percentage = (count / len(patterns)) * 100
             print(f"  {ptype}: {count} patterns ({percentage:.1f}%)")
         
-        print(f"\n🗓️ Session Distribution:")
+        print("\n🗓️ Session Distribution:")
         for session, count in session_distribution.most_common():
             print(f"  {session}: {count} patterns")
         
@@ -156,13 +157,13 @@ def explore_time_clustering_insights(time_patterns, session_summaries):
             # Show peak activity times
             if time_distribution:
                 peak_times = time_distribution.most_common(3)
-                print(f"   Peak activity:")
+                print("   Peak activity:")
                 for time_bin, count in peak_times:
                     print(f"     {time_bin}: {count} events")
     
     # Cross-timeframe analysis
     if all_cross_tf_links:
-        print(f"\n📈 CROSS-TIMEFRAME INTELLIGENCE:")
+        print("\n📈 CROSS-TIMEFRAME INTELLIGENCE:")
         print(f"   Total cross-TF links: {len(all_cross_tf_links)}")
         
         # Analyze HTF contexts
@@ -178,18 +179,18 @@ def explore_time_clustering_insights(time_patterns, session_summaries):
                 for event in ltf_event_types:
                     ltf_events[event] += 1
         
-        print(f"   HTF contexts:")
+        print("   HTF contexts:")
         for context, count in htf_contexts.most_common():
             print(f"     {context}: {count} links")
         
-        print(f"   LTF events linked:")
+        print("   LTF events linked:")
         for event, count in ltf_events.most_common():
             print(f"     {event}: {count} links")
 
 def show_session_insights(session_summaries):
     """Show insights by session"""
     
-    print(f"\n📊 SESSION-BY-SESSION INSIGHTS:")
+    print("\n📊 SESSION-BY-SESSION INSIGHTS:")
     print("=" * 50)
     
     if not session_summaries:
@@ -240,7 +241,7 @@ def main():
     show_session_insights(session_summaries)
     
     # Summary
-    print(f"\n🎯 DISCOVERY SUMMARY:")
+    print("\n🎯 DISCOVERY SUMMARY:")
     print("=" * 30)
     print(f"📊 Sessions analyzed: {len(session_summaries)}")
     print(f"🧠 Patterns discovered: {len(patterns)}")
@@ -251,8 +252,8 @@ def main():
         top_pattern = max(pattern_types, key=pattern_types.get)
         print(f"🔥 Dominant pattern type: {top_pattern} ({pattern_types[top_pattern]} patterns)")
     
-    print(f"\n💡 Your enhanced IRONFORGE now provides rich temporal intelligence!")
-    print(f"🎯 Use this to understand 'when events cluster' + 'what HTF context'")
+    print("\n💡 Your enhanced IRONFORGE now provides rich temporal intelligence!")
+    print("🎯 Use this to understand 'when events cluster' + 'what HTF context'")
 
 if __name__ == "__main__":
     main()

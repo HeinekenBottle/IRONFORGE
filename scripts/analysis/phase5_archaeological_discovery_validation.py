@@ -18,14 +18,12 @@ proceed with full validation. If still producing 96.8% duplication-like artifact
 recommend Phase 4 model retraining.
 """
 
-import os
-import sys
 import json
-import time
-from pathlib import Path
+import sys
+from collections import Counter
 from datetime import datetime
-from typing import Dict, List, Any, Tuple
-from collections import defaultdict, Counter
+from pathlib import Path
+from typing import Any, Dict, List
 
 # Add IRONFORGE to path for component access
 ironforge_root = Path(__file__).parent
@@ -38,6 +36,7 @@ if str(ironpulse_root) not in sys.path:
     sys.path.insert(0, str(ironpulse_root))
 
 from iron_core.performance.container import get_container
+
 
 class Phase5ArchaeologicalValidator:
     """
@@ -276,7 +275,7 @@ class Phase5ArchaeologicalValidator:
         print("🏛️ PHASE 5: ARCHAEOLOGICAL DISCOVERY VALIDATION")
         print("=" * 60)
         print(f"Testing TGAT model on {len(self.test_sessions)} enhanced sessions")
-        print(f"Target: <20% duplication (vs 96.8% contaminated baseline)")
+        print("Target: <20% duplication (vs 96.8% contaminated baseline)")
         print()
         
         # Load and validate enhanced sessions
@@ -317,7 +316,7 @@ class Phase5ArchaeologicalValidator:
                 all_patterns.extend(discovery_result['patterns'])
                 
         print()
-        print(f"🔍 TGAT Discovery Results:")
+        print("🔍 TGAT Discovery Results:")
         print(f"   Sessions Processed: {len(discovery_results)}")
         print(f"   Successful Discoveries: {sum(1 for r in discovery_results.values() if r['discovery_success'])}")
         print(f"   Total Patterns Found: {len(all_patterns)}")
@@ -346,21 +345,21 @@ class Phase5ArchaeologicalValidator:
         baseline = comparative_analysis['contaminated_baseline']
         improvements = comparative_analysis['improvements']
         
-        print(f"CONTAMINATED BASELINE (Phase 1):")
+        print("CONTAMINATED BASELINE (Phase 1):")
         print(f"   Duplication Rate: {baseline['duplication_rate']:.1f}%")
         print(f"   Unique Descriptions: {baseline['unique_descriptions']}")
         print(f"   Time Spans >0: {baseline['zero_time_spans']}/{baseline['total_patterns']} (0%)")
         print(f"   Authenticity Score: {baseline['authenticity_score']:.1f}/100")
         print()
         
-        print(f"ENHANCED RESULTS (Phase 5):")
+        print("ENHANCED RESULTS (Phase 5):")
         print(f"   Duplication Rate: {quality_metrics['duplication_rate']:.1f}%")
         print(f"   Unique Descriptions: {quality_metrics['unique_descriptions']}")
         print(f"   Time Spans >0: {quality_metrics['time_spans_analysis']['non_zero_time_spans']}/{quality_metrics['total_patterns']} ({100-quality_metrics['time_spans_analysis']['zero_span_percentage']:.1f}%)")
         print(f"   Authenticity Score: {quality_metrics['archaeological_authenticity_score']:.1f}/100")
         print()
         
-        print(f"IMPROVEMENTS:")
+        print("IMPROVEMENTS:")
         print(f"   Duplication Reduction: {improvements['duplication_improvement']:.1f} percentage points")
         print(f"   Additional Unique Patterns: +{improvements['unique_descriptions_improvement']}")
         print(f"   New Temporal Relationships: +{improvements['time_span_improvement']}")

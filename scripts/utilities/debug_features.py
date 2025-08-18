@@ -3,8 +3,9 @@
 Debug Price Relativity Feature Dimensions
 """
 import json
-import torch
+
 from learning.enhanced_graph_builder import EnhancedGraphBuilder
+
 
 def debug_feature_dimensions():
     print("🔍 Debugging IRONFORGE Price Relativity Feature Dimensions")
@@ -22,7 +23,7 @@ def debug_feature_dimensions():
     price_movements = session_data.get('price_movements', [])
     if price_movements:
         first_movement = price_movements[0]
-        print(f"✅ Price movement relativity features:")
+        print("✅ Price movement relativity features:")
         for key in ['normalized_price', 'pct_from_open', 'pct_from_high', 'pct_from_low', 
                    'price_to_HTF_ratio', 'time_since_session_open', 'normalized_time']:
             if key in first_movement:
@@ -46,7 +47,7 @@ def debug_feature_dimensions():
                 break
     
     # Build graph and check dimensions
-    print(f"\n🏗️ Building graph with EnhancedGraphBuilder...")
+    print("\n🏗️ Building graph with EnhancedGraphBuilder...")
     builder = EnhancedGraphBuilder()
     
     try:
@@ -61,7 +62,7 @@ def debug_feature_dimensions():
             first_feature = rich_features[0]
             feature_tensor = first_feature.to_tensor()
             print(f"📐 Feature tensor shape: {feature_tensor.shape}")
-            print(f"📐 Expected: torch.Size([34]) for price relativity")
+            print("📐 Expected: torch.Size([34]) for price relativity")
             
             if feature_tensor.shape[0] == 34:
                 print("✅ CORRECT: 34D features with price relativity!")
@@ -71,7 +72,7 @@ def debug_feature_dimensions():
                 print(f"⚠️ UNEXPECTED: {feature_tensor.shape[0]}D features")
                 
             # Show feature breakdown
-            print(f"\n📊 Feature composition:")
+            print("\n📊 Feature composition:")
             print(f"   Temporal (9): {feature_tensor[:9]}")
             print(f"   Price Relativity (7): {feature_tensor[9:16]}")
             print(f"   Legacy Price (3): {feature_tensor[16:19]}")

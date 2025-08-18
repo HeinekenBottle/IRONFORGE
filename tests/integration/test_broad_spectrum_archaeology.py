@@ -83,7 +83,7 @@ def test_archaeology_engine():
         summary = archaeology.discover_all_phenomena()
         
         # Validate results
-        print(f"\n📊 Discovery Results:")
+        print("\n📊 Discovery Results:")
         print(f"  Sessions analyzed: {summary.sessions_analyzed}")
         print(f"  Total events discovered: {summary.total_events_discovered}")
         print(f"  Events by timeframe: {summary.events_by_timeframe}")
@@ -121,7 +121,7 @@ def test_lattice_mapper(archaeological_events):
         lattice_dataset = mapper.map_events_to_lattice(archaeological_events)
         
         # Validate results
-        print(f"\n📊 Lattice Mapping Results:")
+        print("\n📊 Lattice Mapping Results:")
         print(f"  Nodes created: {len(lattice_dataset.nodes)}")
         print(f"  Connections identified: {len(lattice_dataset.connections)}")
         print(f"  Hot zones detected: {len(lattice_dataset.hot_zones)}")
@@ -159,7 +159,7 @@ def test_temporal_clustering(archaeological_events):
         clustering_analysis = clustering_engine.cluster_temporal_patterns(archaeological_events)
         
         # Validate results
-        print(f"\n📊 Clustering Results:")
+        print("\n📊 Clustering Results:")
         print(f"  Clusters identified: {clustering_analysis.cluster_count}")
         print(f"  Overall silhouette score: {clustering_analysis.overall_silhouette_score:.3f}")
         print(f"  Temporal coverage: {clustering_analysis.temporal_coverage:.1%}")
@@ -199,7 +199,7 @@ def test_structural_analyzer(archaeological_events):
         structural_analysis = analyzer.analyze_structural_relationships(archaeological_events)
         
         # Validate results
-        print(f"\n📊 Structural Analysis Results:")
+        print("\n📊 Structural Analysis Results:")
         print(f"  Structural links: {len(structural_analysis.structural_links)}")
         print(f"  Cascade chains: {len(structural_analysis.cascade_chains)}")
         print(f"  Energy accumulations: {len(structural_analysis.energy_accumulations)}")
@@ -246,7 +246,7 @@ def test_visualizer(lattice_dataset, clustering_analysis, structural_analysis):
         )
         
         # Validate results
-        print(f"\n📊 Visualization Results:")
+        print("\n📊 Visualization Results:")
         print(f"  Visualizations created: {len(visualization_files)}")
         for name, file_path in visualization_files.items():
             print(f"    {name}: {file_path}")
@@ -342,7 +342,7 @@ def generate_test_summary(results: Dict[str, Any]):
     with open(summary_file, 'w') as f:
         json.dump(summary, f, indent=2)
     
-    print(f"\n📊 Test Summary:")
+    print("\n📊 Test Summary:")
     print(f"  Components tested: {len(summary['components_tested'])}")
     print(f"  Success status: {'✅ PASS' if summary['success_status'] else '❌ FAIL'}")
     print(f"  Test duration: {summary['test_duration']:.1f} seconds")
@@ -419,17 +419,17 @@ def main():
         test_summary = generate_test_summary(results)
         
         # Final status
-        print(f"\n🏁 Test Execution Complete!")
+        print("\n🏁 Test Execution Complete!")
         print(f"  Total duration: {total_duration:.1f} seconds")
         print(f"  Overall status: {'✅ SUCCESS' if test_summary['success_status'] else '❌ FAILURE'}")
         
         if test_summary['success_status']:
-            print(f"\n🎉 All components tested successfully!")
-            print(f"  The IRONFORGE Broad-Spectrum Market Archaeology system is operational")
-            print(f"  Ready for production archaeological discovery workflows")
+            print("\n🎉 All components tested successfully!")
+            print("  The IRONFORGE Broad-Spectrum Market Archaeology system is operational")
+            print("  Ready for production archaeological discovery workflows")
         else:
-            print(f"\n⚠️  Some components failed testing")
-            print(f"  Review logs and fix issues before production use")
+            print("\n⚠️  Some components failed testing")
+            print("  Review logs and fix issues before production use")
         
     except Exception as e:
         print(f"\n💥 Test execution failed: {e}")

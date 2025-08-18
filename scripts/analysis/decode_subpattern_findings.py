@@ -74,16 +74,16 @@ def decode_feature_7():
     }
     
     print(f"🎯 FEATURE 7 = '{feature_mapping[7]}'")
-    print(f"   Description: Session phase flag - 0.0 or 1.0 (first 20% of session)")
-    print(f"   Type: Binary flag indicating if event occurs in session opening phase")
-    print(f"   Market Significance: Captures session timing behavior")
+    print("   Description: Session phase flag - 0.0 or 1.0 (first 20% of session)")
+    print("   Type: Binary flag indicating if event occurs in session opening phase")
+    print("   Market Significance: Captures session timing behavior")
     
     return feature_mapping[7]
 
 def decode_feature_clusters():
     """Decode the other significant features from the clustering"""
     
-    print(f"\n🔍 DECODING OTHER KEY FEATURES")
+    print("\n🔍 DECODING OTHER KEY FEATURES")
     print("=" * 50)
     
     # Key features from clustering results
@@ -108,117 +108,117 @@ def decode_feature_clusters():
 def decode_sub_pattern_0():
     """Decode what Sub-Pattern 0 actually represents"""
     
-    print(f"\n🎯 DECODING SUB-PATTERN 0")
+    print("\n🎯 DECODING SUB-PATTERN 0")
     print("=" * 50)
     
-    print(f"📊 Sub-Pattern 0 Characteristics:")
-    print(f"   • 1,746 patterns (41.5% of all patterns)")
-    print(f"   • Feature 7 (phase_open) = -0.869 (STRONGLY NEGATIVE)")
-    print(f"   • Features 28&13 (normalized_time, session_position) = 0.847 (POSITIVE)")
-    print(f"   • Primary sessions: NY_PM (35.9%), ASIA (16.9%), NY_AM (15.6%)")
+    print("📊 Sub-Pattern 0 Characteristics:")
+    print("   • 1,746 patterns (41.5% of all patterns)")
+    print("   • Feature 7 (phase_open) = -0.869 (STRONGLY NEGATIVE)")
+    print("   • Features 28&13 (normalized_time, session_position) = 0.847 (POSITIVE)")
+    print("   • Primary sessions: NY_PM (35.9%), ASIA (16.9%), NY_AM (15.6%)")
     
-    print(f"\n🧠 MARKET INTERPRETATION:")
-    print(f"   Feature 7 = -0.869 means: ANTI-CORRELATED with session opening")
-    print(f"   → These patterns occur LATER in sessions, NOT in opening 20%")
-    print(f"   ")
-    print(f"   Features 28&13 = 0.847 means: HIGH normalized time & session position")
-    print(f"   → Events happening in MID-TO-LATE session periods")
-    print(f"   ")
-    print(f"   Session preference: NY_PM dominant suggests END-OF-DAY patterns")
+    print("\n🧠 MARKET INTERPRETATION:")
+    print("   Feature 7 = -0.869 means: ANTI-CORRELATED with session opening")
+    print("   → These patterns occur LATER in sessions, NOT in opening 20%")
+    print("   ")
+    print("   Features 28&13 = 0.847 means: HIGH normalized time & session position")
+    print("   → Events happening in MID-TO-LATE session periods")
+    print("   ")
+    print("   Session preference: NY_PM dominant suggests END-OF-DAY patterns")
     
-    print(f"\n💡 SUB-PATTERN 0 = 'LATE-SESSION INSTITUTIONAL PATTERN'")
-    print(f"   Market Behavior: End-of-day positioning, afternoon institutional flows")
-    print(f"   Timing: Mid-to-late session (60-100% through session)")
-    print(f"   Sessions: NY_PM closing flows, ASIA late-session moves")
+    print("\n💡 SUB-PATTERN 0 = 'LATE-SESSION INSTITUTIONAL PATTERN'")
+    print("   Market Behavior: End-of-day positioning, afternoon institutional flows")
+    print("   Timing: Mid-to-late session (60-100% through session)")
+    print("   Sessions: NY_PM closing flows, ASIA late-session moves")
 
 def decode_sub_pattern_1():
     """Decode what Sub-Pattern 1 represents"""
     
-    print(f"\n🎯 DECODING SUB-PATTERN 1") 
+    print("\n🎯 DECODING SUB-PATTERN 1") 
     print("=" * 50)
     
-    print(f"📊 Sub-Pattern 1 Characteristics:")
-    print(f"   • 1,493 patterns (35.4% of all patterns)")
-    print(f"   • Feature 7 (phase_open) = 0.993 (STRONGLY POSITIVE)")
-    print(f"   • Features 28&13 (normalized_time, session_position) = -0.860 (NEGATIVE)")
-    print(f"   • Primary sessions: NY_PM (34.6%), ASIA (18.4%), NY_AM (14.1%)")
+    print("📊 Sub-Pattern 1 Characteristics:")
+    print("   • 1,493 patterns (35.4% of all patterns)")
+    print("   • Feature 7 (phase_open) = 0.993 (STRONGLY POSITIVE)")
+    print("   • Features 28&13 (normalized_time, session_position) = -0.860 (NEGATIVE)")
+    print("   • Primary sessions: NY_PM (34.6%), ASIA (18.4%), NY_AM (14.1%)")
     
-    print(f"\n🧠 MARKET INTERPRETATION:")
-    print(f"   Feature 7 = 0.993 means: STRONGLY CORRELATED with session opening")
-    print(f"   → These patterns occur in the FIRST 20% of sessions")
-    print(f"   ")
-    print(f"   Features 28&13 = -0.860 means: LOW normalized time & session position")
-    print(f"   → Events happening in EARLY session periods")
-    print(f"   ")
-    print(f"   Session preference: Similar session mix but EARLY timing")
+    print("\n🧠 MARKET INTERPRETATION:")
+    print("   Feature 7 = 0.993 means: STRONGLY CORRELATED with session opening")
+    print("   → These patterns occur in the FIRST 20% of sessions")
+    print("   ")
+    print("   Features 28&13 = -0.860 means: LOW normalized time & session position")
+    print("   → Events happening in EARLY session periods")
+    print("   ")
+    print("   Session preference: Similar session mix but EARLY timing")
     
-    print(f"\n💡 SUB-PATTERN 1 = 'EARLY-SESSION OPENING PATTERN'")
-    print(f"   Market Behavior: Session opening dynamics, initial price discovery")
-    print(f"   Timing: Early session (0-20% through session)")
-    print(f"   Sessions: Opening gaps, pre-market continuation, initial institutional flows")
+    print("\n💡 SUB-PATTERN 1 = 'EARLY-SESSION OPENING PATTERN'")
+    print("   Market Behavior: Session opening dynamics, initial price discovery")
+    print("   Timing: Early session (0-20% through session)")
+    print("   Sessions: Opening gaps, pre-market continuation, initial institutional flows")
 
 def decode_sub_pattern_2():
     """Decode what Sub-Pattern 2 represents"""
     
-    print(f"\n🎯 DECODING SUB-PATTERN 2")
+    print("\n🎯 DECODING SUB-PATTERN 2")
     print("=" * 50)
     
-    print(f"📊 Sub-Pattern 2 Characteristics:")
-    print(f"   • 973 patterns (23.1% of all patterns)")
-    print(f"   • Features 15-21 (temporal cycle features) = 1.425 (HIGHLY ELEVATED)")
-    print(f"   • Feature 15 (weekend_proximity) = -0.647 (NEGATIVE)")
-    print(f"   • Primary sessions: NYAM (27.4%), LONDON (21.3%), ASIA (18.5%)")
+    print("📊 Sub-Pattern 2 Characteristics:")
+    print("   • 973 patterns (23.1% of all patterns)")
+    print("   • Features 15-21 (temporal cycle features) = 1.425 (HIGHLY ELEVATED)")
+    print("   • Feature 15 (weekend_proximity) = -0.647 (NEGATIVE)")
+    print("   • Primary sessions: NYAM (27.4%), LONDON (21.3%), ASIA (18.5%)")
     
-    print(f"\n🧠 MARKET INTERPRETATION:")
-    print(f"   Features 15-21 elevated means: STRONG temporal cycle signals")
-    print(f"   → weekend_proximity, absolute_timestamp, day_of_week patterns")
-    print(f"   → week_of_month, month_of_year, day_of_week_cycle emphasis")
-    print(f"   ")
-    print(f"   Feature 15 negative means: AWAY from weekends")
-    print(f"   → Mid-week patterns, avoiding Friday/Monday effects")
-    print(f"   ")
-    print(f"   Session preference: NYAM/LONDON suggests MORNING/EUROPEAN hours")
+    print("\n🧠 MARKET INTERPRETATION:")
+    print("   Features 15-21 elevated means: STRONG temporal cycle signals")
+    print("   → weekend_proximity, absolute_timestamp, day_of_week patterns")
+    print("   → week_of_month, month_of_year, day_of_week_cycle emphasis")
+    print("   ")
+    print("   Feature 15 negative means: AWAY from weekends")
+    print("   → Mid-week patterns, avoiding Friday/Monday effects")
+    print("   ")
+    print("   Session preference: NYAM/LONDON suggests MORNING/EUROPEAN hours")
     
-    print(f"\n💡 SUB-PATTERN 2 = 'MID-WEEK MORNING CYCLE PATTERN'")
-    print(f"   Market Behavior: Weekly/monthly cyclical effects, morning flows")
-    print(f"   Timing: Mid-week (Tue-Thu), morning/European hours")
-    print(f"   Sessions: Fresh money flows, institutional week-start positioning")
+    print("\n💡 SUB-PATTERN 2 = 'MID-WEEK MORNING CYCLE PATTERN'")
+    print("   Market Behavior: Weekly/monthly cyclical effects, morning flows")
+    print("   Timing: Mid-week (Tue-Thu), morning/European hours")
+    print("   Sessions: Fresh money flows, institutional week-start positioning")
 
 def synthesize_discovery():
     """Synthesize the complete discovery meaning"""
     
-    print(f"\n🎉 COMPLETE SUB-PATTERN DISCOVERY SYNTHESIS")
+    print("\n🎉 COMPLETE SUB-PATTERN DISCOVERY SYNTHESIS")
     print("=" * 80)
     
-    print(f"🧠 WHAT WE ACTUALLY DISCOVERED:")
-    print(f"   The 568 TGAT patterns contain THREE distinct temporal-behavioral archetypes:")
-    print(f"   ")
-    print(f"   1. LATE-SESSION PATTERN (41.5%): End-of-day institutional positioning")
-    print(f"      • NY_PM closing flows, afternoon ASIA moves")
-    print(f"      • Features: Anti-opening phase, high session position")
-    print(f"   ")
-    print(f"   2. EARLY-SESSION PATTERN (35.4%): Opening dynamics & price discovery")  
-    print(f"      • Session gap fills, initial institutional flows")
-    print(f"      • Features: Strong opening phase, low session position")
-    print(f"   ")
-    print(f"   3. MID-WEEK CYCLE PATTERN (23.1%): Weekly/monthly temporal cycles")
-    print(f"      • NYAM/LONDON morning flows, mid-week positioning")
-    print(f"      • Features: High temporal cycle signals, away from weekends")
+    print("🧠 WHAT WE ACTUALLY DISCOVERED:")
+    print("   The 568 TGAT patterns contain THREE distinct temporal-behavioral archetypes:")
+    print("   ")
+    print("   1. LATE-SESSION PATTERN (41.5%): End-of-day institutional positioning")
+    print("      • NY_PM closing flows, afternoon ASIA moves")
+    print("      • Features: Anti-opening phase, high session position")
+    print("   ")
+    print("   2. EARLY-SESSION PATTERN (35.4%): Opening dynamics & price discovery")  
+    print("      • Session gap fills, initial institutional flows")
+    print("      • Features: Strong opening phase, low session position")
+    print("   ")
+    print("   3. MID-WEEK CYCLE PATTERN (23.1%): Weekly/monthly temporal cycles")
+    print("      • NYAM/LONDON morning flows, mid-week positioning")
+    print("      • Features: High temporal cycle signals, away from weekends")
     
-    print(f"\n🎯 MARKET INTELLIGENCE BREAKTHROUGH:")
-    print(f"   Instead of generic 'range_position_confluence' patterns,")
-    print(f"   IRONFORGE discovered SPECIFIC INSTITUTIONAL BEHAVIOR PATTERNS:")
-    print(f"   ")
-    print(f"   • SESSION TIMING INTELLIGENCE: Early vs Late session behaviors")
-    print(f"   • CYCLICAL INTELLIGENCE: Weekly/monthly institutional patterns")
-    print(f"   • GEOGRAPHIC INTELLIGENCE: NY_PM vs NYAM/LONDON preferences")
+    print("\n🎯 MARKET INTELLIGENCE BREAKTHROUGH:")
+    print("   Instead of generic 'range_position_confluence' patterns,")
+    print("   IRONFORGE discovered SPECIFIC INSTITUTIONAL BEHAVIOR PATTERNS:")
+    print("   ")
+    print("   • SESSION TIMING INTELLIGENCE: Early vs Late session behaviors")
+    print("   • CYCLICAL INTELLIGENCE: Weekly/monthly institutional patterns")
+    print("   • GEOGRAPHIC INTELLIGENCE: NY_PM vs NYAM/LONDON preferences")
     
-    print(f"\n🚀 PREDICTIVE IMPLICATIONS:")
-    print(f"   • If NY_PM session + late timing → expect Late-Session Pattern")
-    print(f"   • If session opening + gap → expect Early-Session Pattern") 
-    print(f"   • If Tuesday-Thursday + NYAM → expect Mid-Week Cycle Pattern")
-    print(f"   ")
-    print(f"   This transforms pattern recognition from reactive to PREDICTIVE!")
+    print("\n🚀 PREDICTIVE IMPLICATIONS:")
+    print("   • If NY_PM session + late timing → expect Late-Session Pattern")
+    print("   • If session opening + gap → expect Early-Session Pattern") 
+    print("   • If Tuesday-Thursday + NYAM → expect Mid-Week Cycle Pattern")
+    print("   ")
+    print("   This transforms pattern recognition from reactive to PREDICTIVE!")
 
 def main():
     """Main analysis function"""
@@ -242,7 +242,7 @@ def main():
     # Synthesize the complete discovery
     synthesize_discovery()
     
-    print(f"\n✅ DISCOVERY DECODED: Your TGAT system discovered institutional timing patterns!")
+    print("\n✅ DISCOVERY DECODED: Your TGAT system discovered institutional timing patterns!")
 
 if __name__ == "__main__":
     main()

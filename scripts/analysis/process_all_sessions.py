@@ -5,10 +5,12 @@ Process ALL Sessions with Simple Event-Time Clustering + Cross-TF Mapping
 Complete analysis of the entire dataset with temporal intelligence
 """
 
-from orchestrator import IRONFORGE
 import glob
 import time
 from pathlib import Path
+
+from orchestrator import IRONFORGE
+
 
 def process_all_sessions():
     """Process all available sessions with time pattern analysis"""
@@ -27,7 +29,7 @@ def process_all_sessions():
     
     # Find all session files
     session_files = glob.glob('enhanced_sessions_with_relativity/*.json')
-    print(f"\n📁 Session Discovery:")
+    print("\n📁 Session Discovery:")
     print(f"   Total sessions found: {len(session_files)}")
     
     if not session_files:
@@ -51,7 +53,7 @@ def process_all_sessions():
         else:
             session_types['OTHER'] = session_types.get('OTHER', 0) + 1
     
-    print(f"\n📊 Session Type Distribution:")
+    print("\n📊 Session Type Distribution:")
     for session_type, count in sorted(session_types.items()):
         print(f"   {session_type}: {count} sessions")
     
@@ -69,7 +71,7 @@ def process_all_sessions():
     patterns_discovered = results.get('patterns_discovered', [])
     graphs_preserved = results.get('graphs_preserved', 0)
     
-    print(f"\n📈 COMPLETE RESULTS:")
+    print("\n📈 COMPLETE RESULTS:")
     print(f"   Sessions processed: {len(session_files)}")
     print(f"   Patterns discovered: {len(patterns_discovered)}")
     print(f"   Graphs preserved: {graphs_preserved}")
@@ -78,14 +80,14 @@ def process_all_sessions():
     # Analyze time patterns from all preserved graphs
     analyze_all_time_patterns()
     
-    print(f"\n🎯 MISSION ACCOMPLISHED!")
+    print("\n🎯 MISSION ACCOMPLISHED!")
     print(f"✅ All {len(session_files)} sessions processed with temporal intelligence")
-    print(f"💡 Rich time clustering and cross-TF mapping now available for analysis")
+    print("💡 Rich time clustering and cross-TF mapping now available for analysis")
 
 def analyze_all_time_patterns():
     """Analyze time patterns from all preserved graphs"""
     
-    print(f"\n🕐 COMPLETE TIME PATTERN ANALYSIS")
+    print("\n🕐 COMPLETE TIME PATTERN ANALYSIS")
     print("-" * 60)
     
     # Find all preserved graphs
@@ -143,7 +145,7 @@ def analyze_all_time_patterns():
                 print(f"  ❌ {session_name}: Error - {e}")
     
     # Summary statistics
-    print(f"\n📊 AGGREGATE TIME PATTERN RESULTS:")
+    print("\n📊 AGGREGATE TIME PATTERN RESULTS:")
     print(f"   Sessions with time patterns: {len(session_summaries)}")
     print(f"   Total events analyzed: {total_events}")
     print(f"   Total event clusters: {total_clusters}")
@@ -154,14 +156,14 @@ def analyze_all_time_patterns():
         avg_clusters = total_clusters / len(session_summaries)
         avg_cross_tf = total_cross_tf_links / len(session_summaries)
         
-        print(f"\n📈 AVERAGES PER SESSION:")
+        print("\n📈 AVERAGES PER SESSION:")
         print(f"   Events: {avg_events:.1f}")
         print(f"   Clusters: {avg_clusters:.1f}")
         print(f"   Cross-TF links: {avg_cross_tf:.1f}")
         
         # Show top sessions
         top_sessions = sorted(session_summaries, key=lambda x: x['events'], reverse=True)[:5]
-        print(f"\n🏆 TOP 5 SESSIONS BY EVENT COUNT:")
+        print("\n🏆 TOP 5 SESSIONS BY EVENT COUNT:")
         for session in top_sessions:
             print(f"   {session['session']}: {session['events']} events")
 

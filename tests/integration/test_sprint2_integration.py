@@ -407,7 +407,7 @@ def main():
     print(f"Overall Status: {analysis['overall_status']}")
     
     # Detailed phase results
-    print(f"\n📋 Phase-by-Phase Results:")
+    print("\n📋 Phase-by-Phase Results:")
     phase_names = {
         'phase1': '37D Features + 4 Edge Types',
         'phase2': 'TGAT Discovery + Regime Integration',
@@ -429,20 +429,20 @@ def main():
     
     # Sprint 2 capabilities summary
     if analysis['overall_status'] == 'PASSED':
-        print(f"\n🚀 Sprint 2 Enhanced Capabilities Validated:")
-        print(f"   ✅ 37D temporal cycle features operational")
-        print(f"   ✅ 4 edge types: temporal, scale, structural_context, discovered")
-        print(f"   ✅ Regime labels automatically assigned to patterns")
-        print(f"   ✅ Precursor detection using temporal cycles + structural context")
-        print(f"   ✅ Performance within acceptable limits")
-        print(f"   ✅ Comprehensive analyst reporting system")
-        print(f"\n🎯 IRONFORGE Sprint 2 implementation COMPLETE and OPERATIONAL!")
+        print("\n🚀 Sprint 2 Enhanced Capabilities Validated:")
+        print("   ✅ 37D temporal cycle features operational")
+        print("   ✅ 4 edge types: temporal, scale, structural_context, discovered")
+        print("   ✅ Regime labels automatically assigned to patterns")
+        print("   ✅ Precursor detection using temporal cycles + structural context")
+        print("   ✅ Performance within acceptable limits")
+        print("   ✅ Comprehensive analyst reporting system")
+        print("\n🎯 IRONFORGE Sprint 2 implementation COMPLETE and OPERATIONAL!")
         
         return 0
     else:
-        print(f"\n❌ Sprint 2 integration issues detected")
-        print(f"   Review failed phases above for resolution")
-        print(f"   Fix issues before deploying Sprint 2 features")
+        print("\n❌ Sprint 2 integration issues detected")
+        print("   Review failed phases above for resolution")
+        print("   Fix issues before deploying Sprint 2 features")
         
         return 1
 

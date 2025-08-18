@@ -149,7 +149,7 @@ class LatticeIntegrationTest:
             
             self.test_results['total_events_processed'] = len(enhanced_events)
             print(f"✅ Enhanced Session Adapter: {len(enhanced_events)} events generated")
-            print(f"   Event format: Dictionary-based (Enhanced Session Adapter format)")
+            print("   Event format: Dictionary-based (Enhanced Session Adapter format)")
             print(f"   Sample event keys: {list(enhanced_events[0].keys())}")
             
             self.test_results['tests_passed'] += 1
@@ -174,7 +174,7 @@ class LatticeIntegrationTest:
             
             print(f"✅ Dictionary Format Validation: {valid_events}/{len(events)} events valid")
             print(f"   Required fields present: {required_fields}")
-            print(f"   Format compatibility: Enhanced Session Adapter ↔ Lattice Mapper")
+            print("   Format compatibility: Enhanced Session Adapter ↔ Lattice Mapper")
             
             self.test_results['tests_passed'] += 1
             
@@ -206,7 +206,7 @@ class LatticeIntegrationTest:
             self.test_results['hot_zones_detected'] = hot_zones_detected
             self.test_results['performance_metrics']['lattice_mapping_time'] = processing_time
             
-            print(f"✅ Lattice Mapper Integration: SUCCESS")
+            print("✅ Lattice Mapper Integration: SUCCESS")
             print(f"   Events processed: {len(events)}")
             print(f"   Nodes created: {nodes_created}")
             print(f"   Connections created: {connections_created}")
@@ -215,9 +215,9 @@ class LatticeIntegrationTest:
             print(f"   KeyError count: {self.test_results['keyerror_count']} (TARGET: 0)")
             
             if processing_time < 5.0:  # IRONFORGE performance standard
-                print(f"✅ Performance: Within IRONFORGE <5s standard")
+                print("✅ Performance: Within IRONFORGE <5s standard")
             else:
-                print(f"⚠️ Performance: Exceeds 5s standard")
+                print("⚠️ Performance: Exceeds 5s standard")
             
             self.test_results['tests_passed'] += 1
             return lattice_dataset
@@ -225,7 +225,7 @@ class LatticeIntegrationTest:
         except KeyError as e:
             self.test_results['keyerror_count'] += 1
             print(f"❌ CRITICAL FAILURE: KeyError occurred: {e}")
-            print(f"   This indicates the defensive coding fix didn't work completely")
+            print("   This indicates the defensive coding fix didn't work completely")
             self.test_results['tests_failed'] += 1
             return None
             
@@ -260,8 +260,8 @@ class LatticeIntegrationTest:
             
             print(f"✅ Coordinate Mapping: {mapping_accuracy:.1f}% accuracy")
             print(f"   Valid coordinates: {valid_coordinates}/{total_nodes}")
-            print(f"   Timeframe levels: 0-7 (monthly to 1m)")
-            print(f"   Cycle positions: 0.0-1.0 (0% to 100%)")
+            print("   Timeframe levels: 0-7 (monthly to 1m)")
+            print("   Cycle positions: 0.0-1.0 (0% to 100%)")
             
             self.test_results['tests_passed'] += 1
             
@@ -285,7 +285,7 @@ class LatticeIntegrationTest:
                 for zone_id, zone in list(hot_zones.items())[:3]:  # Show first 3
                     print(f"   {zone_id}: {zone.total_events} events, density {zone.event_density:.2f}")
             else:
-                print(f"ℹ️ Hot Zone Detection: No zones detected (normal for small test dataset)")
+                print("ℹ️ Hot Zone Detection: No zones detected (normal for small test dataset)")
             
             self.test_results['tests_passed'] += 1
             
@@ -315,7 +315,7 @@ class LatticeIntegrationTest:
                 for conn_type, count in connection_types.items():
                     print(f"   {conn_type}: {count} connections")
             else:
-                print(f"ℹ️ Connection Network: No connections created (normal for small test dataset)")
+                print("ℹ️ Connection Network: No connections created (normal for small test dataset)")
             
             self.test_results['tests_passed'] += 1
             
@@ -349,12 +349,12 @@ class LatticeIntegrationTest:
         total_tests = self.test_results['tests_passed'] + self.test_results['tests_failed']
         pass_rate = (self.test_results['tests_passed'] / total_tests) * 100 if total_tests > 0 else 0
         
-        print(f"📊 Test Summary:")
+        print("📊 Test Summary:")
         print(f"   Tests passed: {self.test_results['tests_passed']}")
         print(f"   Tests failed: {self.test_results['tests_failed']}")
         print(f"   Pass rate: {pass_rate:.1f}%")
         
-        print(f"\n🗺️ Lattice Mapping Results:")
+        print("\n🗺️ Lattice Mapping Results:")
         print(f"   Events processed: {self.test_results['total_events_processed']}")
         print(f"   KeyError count: {self.test_results['keyerror_count']} (TARGET: 0)")
         print(f"   Nodes created: {self.test_results['nodes_created']}")
@@ -369,14 +369,14 @@ class LatticeIntegrationTest:
         )
         
         if critical_success:
-            print(f"\n✅ INTEGRATION TEST PASSED")
-            print(f"   Enhanced Session Adapter → Lattice Mapper pipeline operational")
-            print(f"   KeyError issues resolved")
-            print(f"   Ready for full 2,888 event processing")
+            print("\n✅ INTEGRATION TEST PASSED")
+            print("   Enhanced Session Adapter → Lattice Mapper pipeline operational")
+            print("   KeyError issues resolved")
+            print("   Ready for full 2,888 event processing")
         else:
-            print(f"\n❌ INTEGRATION TEST FAILED")
-            print(f"   KeyErrors still present or no events processed")
-            print(f"   Additional debugging required")
+            print("\n❌ INTEGRATION TEST FAILED")
+            print("   KeyErrors still present or no events processed")
+            print("   Additional debugging required")
         
         # Export test results
         self._export_test_results(lattice_dataset)
@@ -390,7 +390,7 @@ class LatticeIntegrationTest:
             with open(test_results_path, 'w') as f:
                 json.dump(self.test_results, f, indent=2)
             
-            print(f"\n📁 Test Results Exported:")
+            print("\n📁 Test Results Exported:")
             print(f"   {test_results_path}")
             
             # Export lattice dataset if successful

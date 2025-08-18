@@ -26,7 +26,7 @@ def test_small_batch():
         print("\n🔍 Starting small batch discovery...")
         results = forge.process_sessions(test_sessions)
         
-        print(f"\n📊 RESULTS:")
+        print("\n📊 RESULTS:")
         print(f"  Sessions processed: {results['sessions_processed']}")
         print(f"  Patterns discovered: {len(results['patterns_discovered'])}")
         print(f"  Graphs preserved: {len(results['graphs_preserved'])}")

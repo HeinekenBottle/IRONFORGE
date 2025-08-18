@@ -311,11 +311,11 @@ class TestIntegrationWithRealData(unittest.TestCase):
         self.assertGreater(total_events_extracted, 0, "Should extract events from real sessions")
         
         avg_events = total_events_extracted / max(1, successful_adaptations)
-        print(f"\n📊 Integration Test Results:")
+        print("\n📊 Integration Test Results:")
         print(f"   Sessions processed: {successful_adaptations}")
         print(f"   Total events extracted: {total_events_extracted}")
         print(f"   Average events per session: {avg_events:.1f}")
-        print(f"   Target: 15-25+ events per session")
+        print("   Target: 15-25+ events per session")
         
         # Verify meets target
         self.assertGreater(avg_events, 10, "Should extract at least 10+ events per session on average")
@@ -353,7 +353,7 @@ class TestIntegrationWithRealData(unittest.TestCase):
             except Exception as e:
                 continue
         
-        print(f"\n🗺️ Event Type Mapping Coverage:")
+        print("\n🗺️ Event Type Mapping Coverage:")
         print(f"   Mapped types: {len(mapped_types)}")
         print(f"   Unmapped types: {len(unmapped_types)}")
         
@@ -408,7 +408,7 @@ class TestPerformanceBenchmark(unittest.TestCase):
         
         total_time = time.time() - start_time
         
-        print(f"\n⚡ Performance Benchmark Results:")
+        print("\n⚡ Performance Benchmark Results:")
         print(f"   Sessions processed: {successful_adaptations}")
         print(f"   Total time: {total_time:.3f}s")
         print(f"   Average time per session: {total_time/max(1, successful_adaptations):.3f}s")
@@ -464,24 +464,24 @@ def run_before_after_comparison():
         print(f"\n   Sessions analyzed: {successful_sessions}")
         print(f"   Total events detected: {total_events}")
         print(f"   Detection rate: {avg_events:.1f} events/session")
-        print(f"   Success rate: 100%")
+        print("   Success rate: 100%")
         print(f"   Improvement: {total_events}x (from 0 to {total_events} total events)")
         
         # Extrapolate to full dataset
         full_dataset_estimate = avg_events * 57
-        print(f"\n📈 PROJECTED IMPROVEMENT FOR FULL DATASET:")
+        print("\n📈 PROJECTED IMPROVEMENT FOR FULL DATASET:")
         print(f"   Estimated events from 57 sessions: {full_dataset_estimate:.0f}")
         print(f"   Improvement factor: ∞ (0 → {full_dataset_estimate:.0f})")
     
     # Show adapter statistics
-    print(f"\n📊 ADAPTER STATISTICS:")
+    print("\n📊 ADAPTER STATISTICS:")
     stats = adapter.get_adapter_stats()
     print(f"   Event type mappings: {stats['event_type_mapping_coverage']}")
     print(f"   Sessions processed: {stats['sessions_processed']}")
     print(f"   Archaeological zones detected: {stats['archaeological_zones_detected']}")
     
     event_families = stats['event_family_distribution']
-    print(f"   Event family breakdown:")
+    print("   Event family breakdown:")
     for family, count in event_families.items():
         if count > 0:
             print(f"     {family}: {count}")
@@ -564,8 +564,8 @@ if __name__ == "__main__":
     success = run_comprehensive_test_suite()
     
     if success:
-        print(f"\n🚀 ENHANCED SESSION ADAPTER VALIDATION COMPLETE")
-        print(f"   System ready for production integration")
-        print(f"   Expected improvement: 0 → 15-25+ events per session")
+        print("\n🚀 ENHANCED SESSION ADAPTER VALIDATION COMPLETE")
+        print("   System ready for production integration")
+        print("   Expected improvement: 0 → 15-25+ events per session")
     else:
-        print(f"\n⚠️  TEST SUITE INCOMPLETE - Review failures")
+        print("\n⚠️  TEST SUITE INCOMPLETE - Review failures")

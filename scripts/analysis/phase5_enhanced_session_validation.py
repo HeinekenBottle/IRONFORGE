@@ -5,14 +5,13 @@ Phase 5: Enhanced Session TGAT Validation
 Test TGAT pattern discovery on enhanced sessions and validate quality improvement.
 """
 
-import os
-import sys
 import json
-import torch
-import numpy as np
+import sys
 from pathlib import Path
-from typing import Dict, List, Any
-from collections import Counter
+from typing import Dict, List
+
+import numpy as np
+import torch
 
 # Add IRONFORGE to path
 ironforge_root = Path(__file__).parent
@@ -188,7 +187,7 @@ def analyze_pattern_quality_improvement(results: List[Dict]):
     improvement = baseline_duplication - avg_duplication_rate
     improvement_pct = (improvement / baseline_duplication) * 100
     
-    print(f"\n🎯 IMPROVEMENT VS BASELINE:")
+    print("\n🎯 IMPROVEMENT VS BASELINE:")
     print(f"   Baseline duplication rate: {baseline_duplication}%")
     print(f"   Enhanced duplication rate: {avg_duplication_rate:.1f}%")
     print(f"   Improvement: {improvement:.1f} percentage points")
@@ -231,7 +230,7 @@ def main():
     quality_analysis = analyze_pattern_quality_improvement(test_results['results'])
     
     # Final assessment
-    print(f"\n🏛️ PHASE 5 FINAL ASSESSMENT:")
+    print("\n🏛️ PHASE 5 FINAL ASSESSMENT:")
     print("=" * 32)
     
     if quality_analysis and quality_analysis['avg_duplication_rate'] < 25:

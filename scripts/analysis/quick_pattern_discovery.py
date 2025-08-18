@@ -15,12 +15,12 @@ Examples:
     python3 quick_pattern_discovery.py --session-type LONDON --limit 5
 """
 
-import os
-import json
 import argparse
-from datetime import datetime
-from learning.enhanced_graph_builder import EnhancedGraphBuilder
+import json
 import logging
+import os
+
+from learning.enhanced_graph_builder import EnhancedGraphBuilder
 
 # Setup logging
 logging.basicConfig(level=logging.WARNING)  # Reduce noise for quick analysis
@@ -115,7 +115,7 @@ class QuickPatternDiscovery:
         print("=" * 50)
         
         # Overall statistics
-        print(f"📊 OVERALL STATISTICS:")
+        print("📊 OVERALL STATISTICS:")
         print(f"   Total Sessions: {len(results)}")
         print(f"   Total Nodes: {total_nodes:,}")
         print(f"   Total FVG Events: {total_fvg:,}")
@@ -127,14 +127,14 @@ class QuickPatternDiscovery:
         print()
         
         # Top sessions by FVG activity
-        print(f"🔥 TOP FVG REDELIVERY SESSIONS:")
+        print("🔥 TOP FVG REDELIVERY SESSIONS:")
         top_fvg = sorted(results, key=lambda x: x['fvg_events'], reverse=True)[:5]
         for i, session in enumerate(top_fvg, 1):
             print(f"   {i}. {session['session_name']} ({session['session_date']}) - {session['fvg_events']} events ({session['fvg_pct']:.1f}%)")
         print()
         
         # Top sessions by expansion activity
-        print(f"📈 TOP EXPANSION PHASE SESSIONS:")
+        print("📈 TOP EXPANSION PHASE SESSIONS:")
         top_expansion = sorted(results, key=lambda x: x['expansion_events'], reverse=True)[:5]
         for i, session in enumerate(top_expansion, 1):
             print(f"   {i}. {session['session_name']} ({session['session_date']}) - {session['expansion_events']} events ({session['expansion_pct']:.1f}%)")
@@ -156,7 +156,7 @@ class QuickPatternDiscovery:
             session_types[session_name]['total_expansion'] += result['expansion_events']
             session_types[session_name]['total_nodes'] += result['nodes']
         
-        print(f"🎪 SESSION TYPE ANALYSIS:")
+        print("🎪 SESSION TYPE ANALYSIS:")
         for session_type, stats in session_types.items():
             avg_fvg = stats['total_fvg'] / stats['count']
             avg_expansion = stats['total_expansion'] / stats['count']
@@ -174,7 +174,7 @@ class QuickPatternDiscovery:
             quality_stats[quality]['total_fvg'] += result['fvg_events']
             quality_stats[quality]['total_expansion'] += result['expansion_events']
         
-        print(f"⭐ SESSION QUALITY ANALYSIS:")
+        print("⭐ SESSION QUALITY ANALYSIS:")
         for quality, stats in quality_stats.items():
             avg_fvg = stats['total_fvg'] / stats['count']
             avg_expansion = stats['total_expansion'] / stats['count']
@@ -185,7 +185,7 @@ class QuickPatternDiscovery:
         best_session_type = max(session_types.keys(), key=lambda x: session_types[x]['total_fvg'] + session_types[x]['total_expansion'])
         most_active_session = max(results, key=lambda x: x['fvg_events'] + x['expansion_events'])
         
-        print(f"💡 QUICK INSIGHTS & RECOMMENDATIONS:")
+        print("💡 QUICK INSIGHTS & RECOMMENDATIONS:")
         print(f"   🏆 Most Active Session Type: {best_session_type}")
         print(f"   🎯 Most Active Individual Session: {most_active_session['session_name']} on {most_active_session['session_date']}")
         print(f"   📊 Best FVG Discovery Rate: {max(results, key=lambda x: x['fvg_pct'])['session_name']} ({max(results, key=lambda x: x['fvg_pct'])['fvg_pct']:.1f}%)")

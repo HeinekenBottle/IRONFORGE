@@ -13,13 +13,13 @@ This enables IRONFORGE to discover patterns that survive regime changes,
 making archaeological discoveries permanently valuable across all market conditions.
 """
 
-import json
 import glob
+import json
 import os
-import numpy as np
 from datetime import datetime, timedelta
-from typing import Dict, List, Any, Optional
 from pathlib import Path
+from typing import Dict, List
+
 
 class PriceRelativityGenerator:
     """
@@ -484,26 +484,26 @@ class PriceRelativityGenerator:
                 print(f"    Error type: {type(e).__name__}")
                 print(f"    File path: {filepath}")
                 if "INTEGRITY FAILURE" in str(e) or "MISSING REQUIRED FIELD" in str(e):
-                    print(f"    ℹ️ This appears to be a data quality issue requiring source data fix")
+                    print("    ℹ️ This appears to be a data quality issue requiring source data fix")
         
         # Summary
-        print(f"\n🏆 Price Relativity Processing Complete:")
+        print("\n🏆 Price Relativity Processing Complete:")
         print(f"✅ Successfully processed: {results['processed_count']} sessions")
         print(f"❌ Failed: {results['failed_count']} sessions")
         print(f"📊 Success rate: {(results['processed_count'] / len(files)) * 100:.1f}%")
         
         if results['failed_files']:
-            print(f"\n⚠️  FAILED FILES ANALYSIS:")
+            print("\n⚠️  FAILED FILES ANALYSIS:")
             for failure in results['failed_files']:
                 if isinstance(failure, dict):
                     print(f"   • {failure['filename']}: {failure['error_type']} - {failure['error'][:100]}...")
                 else:
                     print(f"   • {failure}")
             
-            print(f"\n🔧 TECHNICAL DEBT SURGEON RECOMMENDATION:")
-            print(f"   1. Review failed files for data corruption")
-            print(f"   2. Fix data source issues before reprocessing")
-            print(f"   3. NO FALLBACKS policy enforced - clean data required")
+            print("\n🔧 TECHNICAL DEBT SURGEON RECOMMENDATION:")
+            print("   1. Review failed files for data corruption")
+            print("   2. Fix data source issues before reprocessing")
+            print("   3. NO FALLBACKS policy enforced - clean data required")
         
         return results
     
@@ -572,9 +572,9 @@ def main():
         output_dir='/Users/jack/IRONPULSE/data/sessions/htf_relativity'
     )
     
-    print(f"\n🎯 IRONFORGE Price Relativity Transformation Complete!")
-    print(f"🔄 Patterns transformed from absolute prices to permanent structural relationships")
-    print(f"📈 Discovered patterns will now survive market regime changes")
+    print("\n🎯 IRONFORGE Price Relativity Transformation Complete!")
+    print("🔄 Patterns transformed from absolute prices to permanent structural relationships")
+    print("📈 Discovered patterns will now survive market regime changes")
     
     return results
 

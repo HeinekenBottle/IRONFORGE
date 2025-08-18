@@ -28,7 +28,7 @@ def test_htf_integration():
         with open(htf_session_path, 'r') as f:
             htf_session_data = json.load(f)
         
-        print(f"📊 Loaded HTF session data:")
+        print("📊 Loaded HTF session data:")
         print(f"   Session type: {htf_session_data.get('session_metadata', {}).get('session_type')}")
         
         # Check HTF data structure
@@ -42,7 +42,7 @@ def test_htf_integration():
             print(f"     {tf}: {len(nodes)} nodes")
             
         # Build enhanced graph with HTF data
-        print(f"\n🏗️ Building enhanced graph with HTF integration...")
+        print("\n🏗️ Building enhanced graph with HTF integration...")
         
         enhanced_graph = builder.build_rich_graph(
             htf_session_data,
@@ -50,19 +50,19 @@ def test_htf_integration():
         )
         
         # Analyze results
-        print(f"\n📈 HTF Integration Results:")
+        print("\n📈 HTF Integration Results:")
         print(f"   Total nodes: {enhanced_graph['metadata']['total_nodes']}")
         print(f"   Node feature dimensions: {enhanced_graph['metadata']['feature_dimensions']}")
         
         # Timeframe distribution
-        print(f"   Timeframe node distribution:")
+        print("   Timeframe node distribution:")
         for tf, count in enhanced_graph['metadata']['timeframe_counts'].items():
             if count > 0:
                 print(f"     {tf}: {count} nodes")
         
         # Edge analysis
         total_edges = 0
-        print(f"   Edge type distribution:")
+        print("   Edge type distribution:")
         for edge_type, edges in enhanced_graph['edges'].items():
             if edges:
                 print(f"     {edge_type}: {len(edges)} edges")
@@ -79,7 +79,7 @@ def test_htf_integration():
         print(f"   Total edges: {total_edges}")
         
         # Test TGAT format conversion
-        print(f"\n🧠 Testing TGAT format conversion...")
+        print("\n🧠 Testing TGAT format conversion...")
         X, edge_index, edge_times, metadata, edge_attr = builder.to_tgat_format(enhanced_graph)
         
         print(f"   Node features shape: {X.shape}")
@@ -100,7 +100,7 @@ def test_htf_integration():
                 mappings_used.add(mapping)
             print(f"   Mappings utilized: {sorted(mappings_used)}")
         else:
-            print(f"\n⚠️ No HTF scale edges found")
+            print("\n⚠️ No HTF scale edges found")
         
         return True
         
@@ -113,7 +113,7 @@ def test_htf_integration():
 def test_fallback_mode():
     """Test fallback to regular mode without HTF data"""
     
-    print(f"\n🔄 Testing fallback mode (no HTF data)...")
+    print("\n🔄 Testing fallback mode (no HTF data)...")
     
     builder = EnhancedGraphBuilder()
     
@@ -133,9 +133,9 @@ def test_fallback_mode():
         # Check that it falls back correctly
         has_1m_only = sum(1 for tf, count in regular_graph['metadata']['timeframe_counts'].items() if count > 0)
         if has_1m_only <= 3:  # Mostly 1m with some 15m/1h
-            print(f"✅ Fallback mode working correctly")
+            print("✅ Fallback mode working correctly")
         else:
-            print(f"⚠️ Fallback mode may not be working as expected")
+            print("⚠️ Fallback mode may not be working as expected")
             
         return True
         
@@ -154,7 +154,7 @@ if __name__ == "__main__":
     
     print(f"\n{'=' * 60}")
     if success:
-        print(f"🎉 HTF Integration Tests PASSED")
+        print("🎉 HTF Integration Tests PASSED")
     else:
-        print(f"❌ HTF Integration Tests FAILED")
+        print("❌ HTF Integration Tests FAILED")
     print(f"{'=' * 60}")

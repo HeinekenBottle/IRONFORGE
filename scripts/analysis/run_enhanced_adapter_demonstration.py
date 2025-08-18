@@ -19,21 +19,21 @@ Author: IRONFORGE Archaeological Discovery System
 Date: August 15, 2025
 """
 
-import sys
 import json
+import sys
 import time
-from pathlib import Path
-from typing import Dict, List, Any
 from datetime import datetime
+from pathlib import Path
 
 # Add current directory to path for imports
 sys.path.append(str(Path(__file__).parent))
 
 from analysis.enhanced_session_adapter import (
-    EnhancedSessionAdapter, 
     ArchaeologySystemPatch,
-    test_adapter_with_sample
+    EnhancedSessionAdapter,
+    test_adapter_with_sample,
 )
+
 
 class EnhancedAdapterDemo:
     """Live demonstration system for Enhanced Session Adapter"""
@@ -113,7 +113,7 @@ class EnhancedAdapterDemo:
         try:
             adapted = test_adapter_with_sample()
             
-            print(f"\n✅ Sample Test Results:")
+            print("\n✅ Sample Test Results:")
             print(f"   Events extracted: {len(adapted['events'])}")
             print(f"   Enhanced features: {len(adapted['enhanced_features'])}")
             
@@ -124,11 +124,11 @@ class EnhancedAdapterDemo:
                     family = event.get('event_family', 'unknown')
                     event_families[family] = event_families.get(family, 0) + 1
                 
-                print(f"   Event family breakdown:")
+                print("   Event family breakdown:")
                 for family, count in event_families.items():
                     print(f"     {family}: {count} events")
             
-            print(f"   Adapter validation: ✅ PASSED")
+            print("   Adapter validation: ✅ PASSED")
             
         except Exception as e:
             print(f"   Adapter validation: ❌ FAILED - {e}")
@@ -147,7 +147,7 @@ class EnhancedAdapterDemo:
         print(f"📁 Found {len(list(self.session_dir.glob('enhanced_rel_*.json')))} enhanced session files")
         print(f"🎯 Testing with {len(session_files)} sessions for demonstration")
         
-        print(f"\n📊 Processing Sessions:")
+        print("\n📊 Processing Sessions:")
         
         start_time = time.time()
         
@@ -192,7 +192,7 @@ class EnhancedAdapterDemo:
                         self.demo_results['event_family_breakdown'].get(family, 0) + 1
                     )
                 
-                print(f"   ✅ Status: SUCCESS")
+                print("   ✅ Status: SUCCESS")
                 
             except Exception as e:
                 print(f"   ❌ Status: FAILED - {e}")
@@ -214,7 +214,7 @@ class EnhancedAdapterDemo:
             'events_per_second': self.demo_results['total_events_extracted'] / total_time if total_time > 0 else 0
         }
         
-        print(f"\n📈 Phase 3 Results:")
+        print("\n📈 Phase 3 Results:")
         print(f"   Sessions tested: {self.demo_results['total_sessions_tested']}")
         print(f"   Successful adaptations: {self.demo_results['successful_adaptations']}")
         print(f"   Total events extracted: {self.demo_results['total_events_extracted']}")
@@ -249,7 +249,7 @@ class EnhancedAdapterDemo:
         
         # Scalability projection
         full_dataset_time = avg_time * 57  # Full 57 sessions
-        print(f"\n🔮 Scalability Projection (57 sessions):")
+        print("\n🔮 Scalability Projection (57 sessions):")
         print(f"   Estimated total processing time: {full_dataset_time:.1f}s ({full_dataset_time/60:.1f} minutes)")
         print(f"   Estimated total events: {self.demo_results['average_events_per_session'] * 57:.0f}")
     
@@ -267,7 +267,7 @@ class EnhancedAdapterDemo:
         else:
             print("   No event families detected")
         
-        print(f"\n🏺 Archaeological Zone Analysis:")
+        print("\n🏺 Archaeological Zone Analysis:")
         print(f"   Zones detected: {self.demo_results['archaeological_zones_detected']}")
         print(f"   Theory B validations: {self.demo_results['theory_b_validations']}")
         
@@ -276,17 +276,17 @@ class EnhancedAdapterDemo:
                           self.demo_results['total_events_extracted']) * 100
             print(f"   Zone density: {zone_density:.1f}% of all events")
         
-        print(f"\n📏 Theory B Dimensional Destiny Analysis:")
+        print("\n📏 Theory B Dimensional Destiny Analysis:")
         if self.demo_results['theory_b_validations'] > 0:
             theory_b_rate = (self.demo_results['theory_b_validations'] / 
                            self.demo_results['archaeological_zones_detected']) * 100
             print(f"   40% zone validations: {self.demo_results['theory_b_validations']}")
             print(f"   Theory B validation rate: {theory_b_rate:.1f}% of zones")
-            print(f"   ✅ Dimensional destiny concept preserved")
+            print("   ✅ Dimensional destiny concept preserved")
         else:
-            print(f"   No Theory B validations in test data")
+            print("   No Theory B validations in test data")
         
-        print(f"\n🧬 Enhanced Intelligence Preservation:")
+        print("\n🧬 Enhanced Intelligence Preservation:")
         adapter_stats = self.adapter.get_adapter_stats()
         print(f"   Event type mappings: {adapter_stats['event_type_mapping_coverage']}")
         print(f"   Unmapped types: {len(adapter_stats['unmapped_event_types'])}")
@@ -296,7 +296,7 @@ class EnhancedAdapterDemo:
         magnitude_methods = adapter_stats['magnitude_calculation_methods']
         total_calculations = sum(magnitude_methods.values())
         if total_calculations > 0:
-            print(f"   Magnitude calculation distribution:")
+            print("   Magnitude calculation distribution:")
             for method, count in magnitude_methods.items():
                 if count > 0:
                     percentage = (count / total_calculations) * 100
@@ -400,7 +400,7 @@ class EnhancedAdapterDemo:
         print("     Detection rate: 0.0 events/session")
         print("     Issue: Data structure incompatibility")
         
-        print(f"\n   AFTER (With Enhanced Session Adapter):")
+        print("\n   AFTER (With Enhanced Session Adapter):")
         print(f"     Sessions tested: {self.demo_results['total_sessions_tested']}")
         print(f"     Events detected: {self.demo_results['total_events_extracted']}")
         print(f"     Detection rate: {self.demo_results['average_events_per_session']:.1f} events/session")
@@ -415,30 +415,30 @@ class EnhancedAdapterDemo:
         # Extrapolated full dataset impact
         if self.demo_results['average_events_per_session'] > 0:
             full_dataset_events = self.demo_results['average_events_per_session'] * 57
-            print(f"\n📈 Projected Impact (Full 57 Sessions):")
+            print("\n📈 Projected Impact (Full 57 Sessions):")
             print(f"     Estimated total events: {full_dataset_events:.0f}")
             print(f"     Estimated zones: {(self.demo_results['archaeological_zones_detected']/max(1, self.demo_results['total_sessions_tested'])) * 57:.0f}")
-            print(f"     Archaeological discovery potential: UNLOCKED")
+            print("     Archaeological discovery potential: UNLOCKED")
         
-        print(f"\n🎯 Key Achievements:")
-        print(f"   ✅ Data structure compatibility solved")
+        print("\n🎯 Key Achievements:")
+        print("   ✅ Data structure compatibility solved")
         print(f"   ✅ Event detection enabled: 0 → {self.demo_results['average_events_per_session']:.1f} events/session")
-        print(f"   ✅ Archaeological zones operational")
-        print(f"   ✅ Theory B dimensional destiny preserved")
-        print(f"   ✅ 60+ event type mappings functional")
-        print(f"   ✅ Performance targets met")
-        print(f"   ✅ Integration ready for production")
+        print("   ✅ Archaeological zones operational")
+        print("   ✅ Theory B dimensional destiny preserved")
+        print("   ✅ 60+ event type mappings functional")
+        print("   ✅ Performance targets met")
+        print("   ✅ Integration ready for production")
         
-        print(f"\n🚀 Next Steps:")
-        print(f"   1. Apply ArchaeologySystemPatch to production archaeology system")
-        print(f"   2. Run full archaeology discovery on all 57 enhanced sessions")
-        print(f"   3. Generate complete archaeological deliverables")
-        print(f"   4. Validate TGAT neural network integration")
-        print(f"   5. Deploy to production IRONFORGE environment")
+        print("\n🚀 Next Steps:")
+        print("   1. Apply ArchaeologySystemPatch to production archaeology system")
+        print("   2. Run full archaeology discovery on all 57 enhanced sessions")
+        print("   3. Generate complete archaeological deliverables")
+        print("   4. Validate TGAT neural network integration")
+        print("   5. Deploy to production IRONFORGE environment")
         
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         print(f"\n📝 Demonstration completed: {timestamp}")
-        print(f"   Status: ✅ ENHANCED SESSION ADAPTER READY FOR PRODUCTION")
+        print("   Status: ✅ ENHANCED SESSION ADAPTER READY FOR PRODUCTION")
 
 
 def run_quick_demo():

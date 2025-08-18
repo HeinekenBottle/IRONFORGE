@@ -20,12 +20,12 @@ Date: 2025-08-14
 """
 
 import json
-import os
-from datetime import datetime, timedelta
-from pathlib import Path
-import numpy as np
-from typing import Dict, List, Optional, Tuple, Any
 import logging
+from datetime import datetime
+from pathlib import Path
+from typing import Any, Dict, List
+
+import numpy as np
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -52,7 +52,7 @@ class FeaturePipelineEnhancer:
         # Get high-quality sessions (90+ score first, then 85+, then 80+)
         self.target_sessions = self._get_target_sessions()
         
-        logger.info(f"Initialized Feature Pipeline Enhancer")
+        logger.info("Initialized Feature Pipeline Enhancer")
         logger.info(f"Target sessions for decontamination: {len(self.target_sessions)}")
     
     def _get_target_sessions(self) -> List[Dict[str, Any]]:

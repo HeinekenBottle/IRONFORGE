@@ -6,18 +6,16 @@ Investigating how events inherit structural properties from higher timeframes,
 creating detectable "HTF DNA" in 1-minute events.
 """
 
-import json
+import glob
 import pickle
+import warnings
+from pathlib import Path
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from datetime import datetime, timedelta
-import glob
-from pathlib import Path
-from collections import defaultdict, Counter
-import matplotlib.pyplot as plt
-import seaborn as sns
 from scipy.stats import pearsonr, spearmanr
-import warnings
+
 warnings.filterwarnings('ignore')
 
 def extract_htf_ltf_relationships():
@@ -142,7 +140,7 @@ def get_dominant_event(ltf_characteristics):
 def analyze_htf_ltf_correlations(htf_ltf_data):
     """Analyze correlations between HTF context and LTF event characteristics"""
     
-    print(f"\n📊 HTF-LTF CORRELATION ANALYSIS")
+    print("\n📊 HTF-LTF CORRELATION ANALYSIS")
     print("-" * 50)
     
     if not htf_ltf_data:
@@ -191,7 +189,7 @@ def analyze_htf_ltf_correlations(htf_ltf_data):
                         continue
     
     # Report significant correlations
-    print(f"\n🔥 SIGNIFICANT HTF→LTF CORRELATIONS (p < 0.05):")
+    print("\n🔥 SIGNIFICANT HTF→LTF CORRELATIONS (p < 0.05):")
     
     significant_correlations = []
     for relationship, stats in correlation_results.items():
@@ -215,7 +213,7 @@ def analyze_htf_ltf_correlations(htf_ltf_data):
 def discover_htf_inheritance_rules(htf_ltf_data):
     """Discover rules for how HTF states influence LTF event characteristics"""
     
-    print(f"\n🧬 DISCOVERING HTF DNA INHERITANCE RULES")
+    print("\n🧬 DISCOVERING HTF DNA INHERITANCE RULES")
     print("-" * 50)
     
     if not htf_ltf_data:
@@ -228,7 +226,7 @@ def discover_htf_inheritance_rules(htf_ltf_data):
     inheritance_rules = {}
     
     # Rule 1: HTF Timeframe Rank influence
-    print(f"\n📊 RULE 1: HTF Timeframe Rank → LTF Event Properties")
+    print("\n📊 RULE 1: HTF Timeframe Rank → LTF Event Properties")
     
     # Categorize by timeframe rank
     high_tf_rank = df[df['htf_timeframe_rank'] > df['htf_timeframe_rank'].median()]
@@ -268,7 +266,7 @@ def discover_htf_inheritance_rules(htf_ltf_data):
             }
     
     # Rule 2: HTF Cross-TF Confluence influence
-    print(f"\n📊 RULE 2: HTF Cross-TF Confluence → LTF Event Strength")
+    print("\n📊 RULE 2: HTF Cross-TF Confluence → LTF Event Strength")
     
     high_confluence = df[df['htf_cross_tf_confluence'] > df['htf_cross_tf_confluence'].median()]
     low_confluence = df[df['htf_cross_tf_confluence'] <= df['htf_cross_tf_confluence'].median()]
@@ -306,7 +304,7 @@ def discover_htf_inheritance_rules(htf_ltf_data):
             }
     
     # Rule 3: HTF Price Ratio influence on LTF directional bias
-    print(f"\n📊 RULE 3: HTF Price Ratio → LTF Directional Characteristics")
+    print("\n📊 RULE 3: HTF Price Ratio → LTF Directional Characteristics")
     
     high_price_ratio = df[df['htf_price_to_HTF_ratio'] > 1.0]  # Above HTF reference
     low_price_ratio = df[df['htf_price_to_HTF_ratio'] < 1.0]   # Below HTF reference
@@ -344,7 +342,7 @@ def discover_htf_inheritance_rules(htf_ltf_data):
             }
     
     # Report discovered rules
-    print(f"\n🧬 DISCOVERED HTF DNA INHERITANCE RULES:")
+    print("\n🧬 DISCOVERED HTF DNA INHERITANCE RULES:")
     
     if inheritance_rules:
         for rule_name, rule_data in inheritance_rules.items():
@@ -363,7 +361,7 @@ def discover_htf_inheritance_rules(htf_ltf_data):
 def analyze_event_type_htf_preferences(htf_ltf_data):
     """Analyze HTF context preferences for different LTF event types"""
     
-    print(f"\n🎯 EVENT TYPE HTF PREFERENCES")
+    print("\n🎯 EVENT TYPE HTF PREFERENCES")
     print("-" * 50)
     
     if not htf_ltf_data:
@@ -404,7 +402,7 @@ def analyze_event_type_htf_preferences(htf_ltf_data):
 def test_htf_coherence_hypothesis(htf_ltf_data):
     """Test the specific hypothesis that discovered patterns align across timeframes"""
     
-    print(f"\n🧪 TESTING HTF COHERENCE HYPOTHESIS")
+    print("\n🧪 TESTING HTF COHERENCE HYPOTHESIS")
     print("=" * 60)
     print("Hypothesis: Discovered patterns show multi-timeframe coherence")
     
@@ -417,7 +415,7 @@ def test_htf_coherence_hypothesis(htf_ltf_data):
     coherence_results = {}
     
     # Test 1: HTF-LTF Event Alignment
-    print(f"\n📊 TEST 1: HTF-LTF Event Alignment")
+    print("\n📊 TEST 1: HTF-LTF Event Alignment")
     
     # High HTF signal strength should correlate with stronger LTF events
     high_htf_signal = df[df['htf_signal_strength'] > df['htf_signal_strength'].quantile(0.75)]
@@ -447,7 +445,7 @@ def test_htf_coherence_hypothesis(htf_ltf_data):
         print(f"   Volatility difference: {high_htf_volatility - low_htf_volatility:.3f}")
     
     # Test 2: Cross-TF Confluence Validation
-    print(f"\n📊 TEST 2: Cross-TF Confluence Validation")
+    print("\n📊 TEST 2: Cross-TF Confluence Validation")
     
     high_confluence = df[df['htf_cross_tf_confluence'] > df['htf_cross_tf_confluence'].quantile(0.75)]
     low_confluence = df[df['htf_cross_tf_confluence'] < df['htf_cross_tf_confluence'].quantile(0.25)]
@@ -477,7 +475,7 @@ def test_htf_coherence_hypothesis(htf_ltf_data):
         print(f"   Difference: {high_conf_events - low_conf_events:.3f}")
     
     # Test 3: Structural Importance Inheritance
-    print(f"\n📊 TEST 3: Structural Importance Inheritance")
+    print("\n📊 TEST 3: Structural Importance Inheritance")
     
     high_structural = df[df['htf_structural_importance'] > df['htf_structural_importance'].quantile(0.75)]
     low_structural = df[df['htf_structural_importance'] < df['htf_structural_importance'].quantile(0.25)]
@@ -515,16 +513,16 @@ def test_htf_coherence_hypothesis(htf_ltf_data):
     
     coherence_rate = (coherence_tests_passed / total_tests * 100) if total_tests > 0 else 0
     
-    print(f"\n🎯 OVERALL HTF COHERENCE ASSESSMENT:")
+    print("\n🎯 OVERALL HTF COHERENCE ASSESSMENT:")
     print(f"   Tests passed: {coherence_tests_passed}/{total_tests}")
     print(f"   Coherence rate: {coherence_rate:.1f}%")
     
     if coherence_rate >= 75:
-        print(f"   ✅ STRONG multi-timeframe coherence detected")
+        print("   ✅ STRONG multi-timeframe coherence detected")
     elif coherence_rate >= 50:
-        print(f"   ⚠️ MODERATE multi-timeframe coherence detected")
+        print("   ⚠️ MODERATE multi-timeframe coherence detected")
     else:
-        print(f"   ❌ WEAK multi-timeframe coherence detected")
+        print("   ❌ WEAK multi-timeframe coherence detected")
     
     coherence_results['overall_assessment'] = {
         'tests_passed': coherence_tests_passed,
@@ -538,7 +536,7 @@ def test_htf_coherence_hypothesis(htf_ltf_data):
 def create_htf_inheritance_visualization(htf_ltf_data, correlation_results, inheritance_rules, coherence_results):
     """Create comprehensive visualization of HTF-LTF inheritance patterns"""
     
-    print(f"\n📈 CREATING HTF INHERITANCE VISUALIZATION")
+    print("\n📈 CREATING HTF INHERITANCE VISUALIZATION")
     print("-" * 50)
     
     if not htf_ltf_data:
@@ -585,7 +583,7 @@ def create_htf_inheritance_visualization(htf_ltf_data, correlation_results, inhe
     ax2.grid(True, alpha=0.3)
     
     # Add value labels
-    for bar, value in zip(bars, confluence_by_type):
+    for bar, value in zip(bars, confluence_by_type, strict=False):
         if value > 0:
             ax2.text(bar.get_x() + bar.get_width()/2., bar.get_height() + 0.01,
                     f'{value:.2f}', ha='center', va='bottom')
@@ -722,7 +720,7 @@ def main():
                                                    inheritance_rules, coherence_results)
     
     # Summary
-    print(f"\n🏗️ HTF STRUCTURAL INHERITANCE SUMMARY")
+    print("\n🏗️ HTF STRUCTURAL INHERITANCE SUMMARY")
     print("=" * 60)
     
     total_relationships = len(htf_ltf_data)
@@ -730,7 +728,7 @@ def main():
                                   if r['pearson_p'] < 0.05 and abs(r['pearson_corr']) > 0.1])
     inheritance_rules_count = len(inheritance_rules)
     
-    print(f"📊 Analysis Results:")
+    print("📊 Analysis Results:")
     print(f"   HTF-LTF relationships analyzed: {total_relationships}")
     print(f"   Significant correlations found: {significant_correlations}")
     print(f"   HTF DNA inheritance rules: {inheritance_rules_count}")
@@ -741,19 +739,19 @@ def main():
         coherence_rate = assessment['coherence_rate']
         coherence_level = assessment['assessment']
         
-        print(f"\n🧬 HTF DNA INHERITANCE:")
+        print("\n🧬 HTF DNA INHERITANCE:")
         print(f"   Multi-timeframe coherence: {coherence_rate:.1f}% ({coherence_level})")
         
         if coherence_rate >= 75:
-            print(f"   ✅ STRONG evidence of HTF structural inheritance")
+            print("   ✅ STRONG evidence of HTF structural inheritance")
         elif coherence_rate >= 50:
-            print(f"   ⚠️ MODERATE evidence of HTF structural inheritance")
+            print("   ⚠️ MODERATE evidence of HTF structural inheritance")
         else:
-            print(f"   ❌ WEAK evidence of HTF structural inheritance")
+            print("   ❌ WEAK evidence of HTF structural inheritance")
     
     # Top inheritance rules
     if inheritance_rules:
-        print(f"\n🔗 TOP HTF DNA INHERITANCE RULES:")
+        print("\n🔗 TOP HTF DNA INHERITANCE RULES:")
         sorted_rules = sorted(inheritance_rules.items(), 
                             key=lambda x: x[1]['difference'], reverse=True)
         
@@ -763,7 +761,7 @@ def main():
     
     # Top correlations
     if correlation_results:
-        print(f"\n📊 TOP HTF→LTF CORRELATIONS:")
+        print("\n📊 TOP HTF→LTF CORRELATIONS:")
         top_correlations = sorted(correlation_results.items(), 
                                 key=lambda x: abs(x[1]['pearson_corr']), reverse=True)
         
@@ -771,16 +769,16 @@ def main():
             print(f"   #{i+1}: {relationship}")
             print(f"       Correlation: {stats['pearson_corr']:.3f} (p={stats['pearson_p']:.4f})")
     
-    print(f"\n✅ RANK 6 INVESTIGATION COMPLETE")
+    print("\n✅ RANK 6 INVESTIGATION COMPLETE")
     print(f"💾 Results visualization: {viz_path}")
     
     if inheritance_rules_count > 0 or significant_correlations > 0:
-        print(f"\n🚀 BREAKTHROUGH: HTF DNA detected in LTF events!")
-        print(f"   Events inherit measurable structural properties from higher timeframes.")
-        print(f"   This validates multi-timeframe coherence in discovered patterns.")
+        print("\n🚀 BREAKTHROUGH: HTF DNA detected in LTF events!")
+        print("   Events inherit measurable structural properties from higher timeframes.")
+        print("   This validates multi-timeframe coherence in discovered patterns.")
     else:
-        print(f"\n📝 Result: Limited HTF structural inheritance detected.")
-        print(f"   LTF events appear more independent of HTF context than expected.")
+        print("\n📝 Result: Limited HTF structural inheritance detected.")
+        print("   LTF events appear more independent of HTF context than expected.")
 
 if __name__ == "__main__":
     main()

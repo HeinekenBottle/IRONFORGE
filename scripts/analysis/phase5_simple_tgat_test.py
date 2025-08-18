@@ -5,13 +5,11 @@ Phase 5: Simple TGAT Test
 Basic test to isolate TGAT discovery issues and validate pattern generation.
 """
 
-import os
-import sys
 import json
-import torch
+import sys
 from pathlib import Path
-from typing import Dict, List, Any
-from collections import Counter
+
+import torch
 
 # Add IRONFORGE to path
 ironforge_root = Path(__file__).parent
@@ -187,7 +185,7 @@ def test_enhanced_session_processing():
         htf_carryover = session_data.get('contamination_analysis', {}).get('htf_contamination', {}).get('htf_carryover_strength', 0.3)
         liquidity_events = session_data.get('session_liquidity_events', [])
         
-        print(f"Enhanced Features:")
+        print("Enhanced Features:")
         print(f"   Energy Density: {energy_density} ({'✅ Authentic' if energy_density != 0.5 else '❌ Default'})")
         print(f"   HTF Carryover: {htf_carryover} ({'✅ Authentic' if htf_carryover != 0.3 else '❌ Default'})")
         print(f"   Liquidity Events: {len(liquidity_events)} ({'✅ Rich' if len(liquidity_events) > 0 else '❌ Empty'})")
@@ -246,13 +244,13 @@ def main():
         print(f"❌ TGAT Discovery: Failed ({tgat_test.get('error', 'Unknown error')})")
         
     if session_test.get('session_loaded'):
-        print(f"✅ Enhanced Session: Loaded successfully")
+        print("✅ Enhanced Session: Loaded successfully")
         if session_test.get('features_enhanced'):
             print("   Features: ✅ Properly enhanced (authentic values)")
         else:
             print("   Features: ❌ Still contaminated (default values)")
     else:
-        print(f"❌ Enhanced Session: Failed to load")
+        print("❌ Enhanced Session: Failed to load")
         
     # Overall assessment for Phase 5
     print("\n🏛️ PHASE 5 ASSESSMENT:")

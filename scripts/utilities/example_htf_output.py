@@ -5,7 +5,9 @@ Demonstrates the final integrated system with pythonnodes and scale edges
 """
 
 import json
+
 from learning.enhanced_graph_builder import EnhancedGraphBuilder
+
 
 def demonstrate_htf_integration():
     """Create example HTF output showing all features"""

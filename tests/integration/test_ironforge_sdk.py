@@ -322,7 +322,7 @@ def run_performance_test():
             patterns = sdk.discover_session_patterns(session_files[0])
             single_discovery_time = time.time() - start_time
             
-            print(f"📊 Performance Results:")
+            print("📊 Performance Results:")
             print(f"   SDK Initialization: {init_time:.2f}s")
             print(f"   Single Session Discovery: {single_discovery_time:.2f}s")
             print(f"   Patterns per Second: {len(patterns)/single_discovery_time:.1f}")

@@ -5,16 +5,18 @@ TGAT Pattern Sub-Architecture Investigation
 Discover hidden sub-patterns within the 3 main TGAT archetypes using 38D feature space analysis
 """
 
+import glob
 import json
 import pickle
-import numpy as np
-import glob
+from collections import Counter, defaultdict
 from pathlib import Path
-from collections import defaultdict, Counter
+
+import matplotlib.pyplot as plt
+import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
-import matplotlib.pyplot as plt
+
 
 def load_tgat_patterns():
     """Load the 568 TGAT patterns with full feature data"""
@@ -83,7 +85,7 @@ def load_feature_vectors():
 def analyze_pattern_archetypes(patterns):
     """Analyze the distribution and characteristics of the 3 main pattern types"""
     
-    print(f"\n🏛️ PATTERN ARCHETYPE ANALYSIS")
+    print("\n🏛️ PATTERN ARCHETYPE ANALYSIS")
     print("=" * 60)
     
     # Count pattern types
@@ -99,7 +101,7 @@ def analyze_pattern_archetypes(patterns):
         type_features[pattern_type].append(features)
     
     # Display distribution
-    print(f"📊 Pattern Type Distribution:")
+    print("📊 Pattern Type Distribution:")
     total_patterns = sum(type_counts.values())
     for ptype, count in type_counts.most_common():
         percentage = (count / total_patterns) * 100
@@ -110,7 +112,7 @@ def analyze_pattern_archetypes(patterns):
 def discover_sub_patterns(features, pattern_metadata, n_clusters_range=[3, 5, 7]):
     """Discover sub-patterns using k-means clustering on 38D feature space"""
     
-    print(f"\n🔬 SUB-PATTERN DISCOVERY")
+    print("\n🔬 SUB-PATTERN DISCOVERY")
     print("=" * 60)
     
     if len(features) == 0:
@@ -203,7 +205,7 @@ def calculate_silhouette_score(features, labels):
 def visualize_sub_patterns(features, cluster_labels, cluster_analysis):
     """Create visualization of discovered sub-patterns"""
     
-    print(f"\n📈 CREATING SUB-PATTERN VISUALIZATION")
+    print("\n📈 CREATING SUB-PATTERN VISUALIZATION")
     print("-" * 50)
     
     # Apply PCA for visualization
@@ -240,14 +242,14 @@ def visualize_sub_patterns(features, cluster_labels, cluster_analysis):
     
     # Save visualization
     plt.savefig('/Users/jack/IRONPULSE/IRONFORGE/tgat_subpattern_visualization.png', dpi=300, bbox_inches='tight')
-    print(f"💾 Visualization saved: tgat_subpattern_visualization.png")
+    print("💾 Visualization saved: tgat_subpattern_visualization.png")
     
     return features_2d
 
 def characterize_sub_patterns(cluster_analysis, features, cluster_labels):
     """Characterize the discovered sub-patterns with detailed analysis"""
     
-    print(f"\n🔍 SUB-PATTERN CHARACTERIZATION")
+    print("\n🔍 SUB-PATTERN CHARACTERIZATION")
     print("=" * 60)
     
     unique_clusters = np.unique(cluster_labels)
@@ -265,14 +267,14 @@ def characterize_sub_patterns(cluster_analysis, features, cluster_labels):
         # Find most distinctive features (highest centroid values)
         top_feature_indices = np.argsort(np.abs(centroid))[-5:]
         
-        print(f"   🔬 Distinctive Features (Top 5):")
+        print("   🔬 Distinctive Features (Top 5):")
         for i, feat_idx in enumerate(reversed(top_feature_indices)):
             feat_val = centroid[feat_idx]
             feat_var = variance[feat_idx]
             print(f"      Feature {feat_idx}: {feat_val:.3f} ± {np.sqrt(feat_var):.3f}")
         
         # Session composition
-        print(f"   📍 Session Composition:")
+        print("   📍 Session Composition:")
         for session, count in analysis['top_sessions']:
             session_percentage = (count / analysis['size']) * 100
             print(f"      {session}: {count} patterns ({session_percentage:.1f}%)")
@@ -283,7 +285,7 @@ def characterize_sub_patterns(cluster_analysis, features, cluster_labels):
         session_type_dist = Counter(session_types)
         
         if session_type_dist:
-            print(f"   ⏰ Temporal Preference:")
+            print("   ⏰ Temporal Preference:")
             for stype, count in session_type_dist.most_common(3):
                 type_percentage = (count / sum(session_type_dist.values())) * 100
                 print(f"      {stype}: {type_percentage:.1f}%")
@@ -325,19 +327,19 @@ def main():
     
     # Summary
     n_subclusters = len(np.unique(best_clustering['labels']))
-    print(f"\n🎯 DISCOVERY SUMMARY:")
+    print("\n🎯 DISCOVERY SUMMARY:")
     print("=" * 50)
     print(f"✅ Discovered {n_subclusters} distinct sub-patterns within TGAT architecture")
     print(f"📊 Quality score: {best_clustering['silhouette']:.3f} (silhouette coefficient)")
     print(f"🔬 Feature space: {features.shape[1]}D → 2D visualization")
-    print(f"💾 Results saved: tgat_subpattern_visualization.png")
+    print("💾 Results saved: tgat_subpattern_visualization.png")
     
-    print(f"\n💡 POTENTIAL IMPACT:")
+    print("\n💡 POTENTIAL IMPACT:")
     print(f"   Instead of 3 pattern types, we now have {n_subclusters} sub-types")
-    print(f"   Each sub-type has distinct feature signatures and session preferences")
-    print(f"   This enables more granular pattern classification and prediction")
+    print("   Each sub-type has distinct feature signatures and session preferences")
+    print("   This enables more granular pattern classification and prediction")
     
-    print(f"\n🚀 Your TGAT sub-architecture discovery is complete!")
+    print("\n🚀 Your TGAT sub-architecture discovery is complete!")
 
 if __name__ == "__main__":
     main()

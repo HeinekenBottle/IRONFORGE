@@ -1,9 +1,10 @@
 """
 Direct discovery runner - bypasses TGAT import issues
 """
-import json
 import glob
+import json
 import os
+
 
 def run_direct_discovery():
     # Get all session files
@@ -49,7 +50,7 @@ def run_direct_discovery():
             failed.append((filepath, str(e)))
             print(f"✗ {os.path.basename(filepath)}: {e}")
     
-    print(f"\n📊 Results:")
+    print("\n📊 Results:")
     print(f"Sessions processed: {len(files) - len(failed)}/{len(files)}")
     print(f"Total patterns discovered: {len(discoveries)}")
     print(f"Average per session: {len(discoveries)/(len(files)-len(failed)):.1f}")

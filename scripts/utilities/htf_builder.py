@@ -2,11 +2,9 @@
 HTF Builder Improved - Build sophisticated multi-timeframe data for IRONFORGE
 Generates pythonnodes arrays and htf_cross_map for graph builder integration
 """
-import json
 import glob
-from datetime import datetime, timedelta
-from collections import defaultdict
-import math
+import json
+
 
 class HTFBuilder:
     def __init__(self):
@@ -231,7 +229,7 @@ class HTFBuilder:
                 if processed == 1:
                     pythonnodes = enhanced.get('pythonnodes', {})
                     cross_map = enhanced.get('htf_cross_map', {})
-                    print(f"  Sample HTF data structure:")
+                    print("  Sample HTF data structure:")
                     for tf, nodes in pythonnodes.items():
                         print(f"    {tf}: {len(nodes)} nodes")
                     print(f"    Cross-mappings: {len(cross_map)} timeframe pairs")

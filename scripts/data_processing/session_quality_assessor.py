@@ -15,10 +15,11 @@ Scoring System (0-100):
 
 import json
 import os
-from datetime import datetime, timedelta
-from typing import Dict, List, Any, Optional, Tuple
-from pathlib import Path
 import statistics
+from datetime import datetime
+from pathlib import Path
+from typing import Any, Dict
+
 
 class SessionQualityAssessor:
     def __init__(self, data_path: str = "/Users/jack/IRONPULSE/data/sessions/level_1"):
@@ -416,7 +417,7 @@ def main():
     
     if results["summary_statistics"]:
         stats = results["summary_statistics"]
-        print(f"\nScore Statistics:")
+        print("\nScore Statistics:")
         print(f"  Mean Score     : {stats['mean_score']:5.1f}/100")
         print(f"  Median Score   : {stats['median_score']:5.1f}/100")
         print(f"  Score Range    : {stats['min_score']:3.0f}-{stats['max_score']:3.0f}")

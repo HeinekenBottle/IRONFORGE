@@ -6,9 +6,10 @@ No embeddings, no similarities, just real market relationships
 
 import glob
 import json
-import pickle
 import os
+import pickle
 import re
+
 
 def extract_price_from_node_feature(feature_str):
     """Extract price from RichNodeFeature string representation"""
@@ -95,13 +96,13 @@ def find_real_patterns():
     with open('/Users/jack/IRONPULSE/IRONFORGE/real_patterns.json', 'w') as f:
         json.dump(output, f, indent=2)
     
-    print(f"\n🎯 OPERATIONAL RESULTS:")
+    print("\n🎯 OPERATIONAL RESULTS:")
     print(f"Sessions processed: {len(graph_files)}")
     print(f"Real patterns found: {len(patterns)}")
-    print(f"Status: OPERATIONAL - Loading actual graph data")
+    print("Status: OPERATIONAL - Loading actual graph data")
     
     if patterns:
-        print(f"\n📋 REAL CROSS-TIMEFRAME PATTERNS:")
+        print("\n📋 REAL CROSS-TIMEFRAME PATTERNS:")
         for i, pattern in enumerate(patterns):
             print(f"  {i+1}. {pattern['session']}: {pattern['price']:.0f} @ {pattern['timestamp']} -> {pattern['tf_target']} (coverage: {pattern['coverage']})")
     else:

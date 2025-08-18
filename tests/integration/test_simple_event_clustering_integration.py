@@ -49,7 +49,6 @@ def test_module_imports():
         print("✅ Enhanced orchestrator imports successful")
         
         # Test that the new import in orchestrator works
-        from ironforge.learning.simple_event_clustering import analyze_time_patterns
         print("✅ Orchestrator integration import successful")
         
         return True
@@ -231,13 +230,13 @@ def test_orchestrator_integration():
         }
         
         time_patterns = forge._analyze_time_patterns(test_graph, "test_integration.json")
-        print(f"✅ Method executed successfully")
+        print("✅ Method executed successfully")
         print(f"✅ Returned {len(time_patterns.get('event_clusters', []))} clusters")
         
         # Validate error handling
         empty_graph = {'nodes': [], 'metadata': {}}
         empty_result = forge._analyze_time_patterns(empty_graph, "empty_test.json")
-        print(f"✅ Error handling: empty graph handled gracefully")
+        print("✅ Error handling: empty graph handled gracefully")
         
         return True
         
@@ -420,7 +419,7 @@ def test_output_data_quality():
                 if key not in cluster:
                     print(f"❌ Missing cluster key: {key}")
                     return False
-            print(f"✅ Event cluster structure valid")
+            print("✅ Event cluster structure valid")
         
         print("✅ All data quality validations passed")
         return True
@@ -488,7 +487,7 @@ if __name__ == "__main__":
     success = run_comprehensive_integration_test()
     
     if success:
-        print(f"\n🚀 INTEGRATION COMPLETE - Ready for IRONFORGE enhancement!")
+        print("\n🚀 INTEGRATION COMPLETE - Ready for IRONFORGE enhancement!")
         print("Next steps:")
         print("1. Deploy to IRONFORGE production environment")
         print("2. Monitor time pattern analysis in session metadata")
@@ -496,5 +495,5 @@ if __name__ == "__main__":
         
         sys.exit(0)
     else:
-        print(f"\n❌ INTEGRATION INCOMPLETE - Address test failures")
+        print("\n❌ INTEGRATION INCOMPLETE - Address test failures")
         sys.exit(1)

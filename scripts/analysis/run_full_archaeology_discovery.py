@@ -17,14 +17,12 @@ Author: IRONFORGE Archaeological Discovery System
 Date: August 15, 2025
 """
 
-import os
-import sys
 import json
-import time
 import logging
-from pathlib import Path
-from typing import Dict, List, Any
+import sys
+import time
 from datetime import datetime
+from pathlib import Path
 
 # Add paths for imports
 sys.path.append(str(Path(__file__).parent))
@@ -33,10 +31,10 @@ sys.path.append(str(Path(__file__).parent / "visualizations"))
 
 # Import archaeology components
 try:
-    from analysis.broad_spectrum_archaeology import BroadSpectrumArchaeology, ArchaeologicalSummary
-    from analysis.timeframe_lattice_mapper import TimeframeLatticeMapper, LatticeDataset
-    from analysis.temporal_clustering_engine import TemporalClusteringEngine, ClusteringAnalysis
-    from analysis.structural_link_analyzer import StructuralLinkAnalyzer, StructuralAnalysis
+    from analysis.broad_spectrum_archaeology import ArchaeologicalSummary, BroadSpectrumArchaeology
+    from analysis.structural_link_analyzer import StructuralAnalysis, StructuralLinkAnalyzer
+    from analysis.temporal_clustering_engine import ClusteringAnalysis, TemporalClusteringEngine
+    from analysis.timeframe_lattice_mapper import LatticeDataset, TimeframeLatticeMapper
     from visualizations.lattice_visualizer import LatticeVisualizer, VisualizationConfig
     print("✅ All archaeology components loaded successfully")
 except ImportError as e:
@@ -80,7 +78,7 @@ def setup_production_environment():
         ]
     )
     
-    print(f"  ✅ Output directories created")
+    print("  ✅ Output directories created")
     print(f"  ✅ Logging configured: {log_path}")
     
     return str(log_path)
@@ -111,7 +109,7 @@ def discover_archaeological_phenomena():
         
         discovery_time = time.time() - start_time
         
-        print(f"\n📊 Archaeological Discovery Results:")
+        print("\n📊 Archaeological Discovery Results:")
         print(f"  Sessions analyzed: {summary.sessions_analyzed}")
         print(f"  Total events discovered: {summary.total_events_discovered}")
         print(f"  Discovery time: {discovery_time:.1f} seconds")
@@ -154,7 +152,7 @@ def generate_lattice_mapping(archaeological_events):
         
         mapping_time = time.time() - start_time
         
-        print(f"\n📊 Lattice Mapping Results:")
+        print("\n📊 Lattice Mapping Results:")
         print(f"  Lattice nodes created: {len(lattice_dataset.nodes)}")
         print(f"  Structural connections: {len(lattice_dataset.connections)}")
         print(f"  Hot zones identified: {len(lattice_dataset.hot_zones)}")
@@ -203,7 +201,7 @@ def analyze_temporal_patterns(archaeological_events):
         
         clustering_time = time.time() - start_time
         
-        print(f"\n📊 Temporal Clustering Results:")
+        print("\n📊 Temporal Clustering Results:")
         print(f"  Clusters identified: {clustering_analysis.cluster_count}")
         print(f"  Overall quality (silhouette): {clustering_analysis.overall_silhouette_score:.3f}")
         print(f"  Temporal coverage: {clustering_analysis.temporal_coverage:.1%}")
@@ -251,7 +249,7 @@ def analyze_structural_relationships(archaeological_events):
         
         analysis_time = time.time() - start_time
         
-        print(f"\n📊 Structural Analysis Results:")
+        print("\n📊 Structural Analysis Results:")
         print(f"  Structural links identified: {len(structural_analysis.structural_links)}")
         print(f"  Cascade chains detected: {len(structural_analysis.cascade_chains)}")
         print(f"  Energy accumulation zones: {len(structural_analysis.energy_accumulations)}")
@@ -311,7 +309,7 @@ def create_comprehensive_visualizations(lattice_dataset, clustering_analysis, st
         
         visualization_time = time.time() - start_time
         
-        print(f"\n📊 Visualization Results:")
+        print("\n📊 Visualization Results:")
         print(f"  Visualizations created: {len(visualization_files)}")
         print(f"  Visualization time: {visualization_time:.1f} seconds")
         
@@ -505,7 +503,7 @@ Generated visualizations include:
         for step in report['production_readiness']['next_steps']:
             f.write(f"1. {step}\n")
         
-        f.write(f"""
+        f.write("""
 ---
 
 *IRONFORGE Broad-Spectrum Market Archaeology System - Complete Discovery Report*
@@ -571,7 +569,7 @@ def main():
         # Final Summary
         total_time = time.time() - total_start_time
         
-        print(f"\n🏁 ARCHAEOLOGICAL DISCOVERY COMPLETE!")
+        print("\n🏁 ARCHAEOLOGICAL DISCOVERY COMPLETE!")
         print("=" * 80)
         print(f"🕒 Total Runtime: {total_time:.1f} seconds")
         print(f"📊 Events Discovered: {summary.total_events_discovered:,}")
@@ -582,11 +580,11 @@ def main():
         print(f"📋 Executive Report: {report_file}")
         print(f"📄 Summary: {summary_file}")
         
-        print(f"\n🎉 MISSION ACCOMPLISHED!")
-        print(f"   The IRONFORGE Broad-Spectrum Market Archaeology System")
-        print(f"   has successfully completed comprehensive discovery across")
-        print(f"   all timeframes with complete deliverable generation.")
-        print(f"\n🚀 System is operational and ready for production deployment.")
+        print("\n🎉 MISSION ACCOMPLISHED!")
+        print("   The IRONFORGE Broad-Spectrum Market Archaeology System")
+        print("   has successfully completed comprehensive discovery across")
+        print("   all timeframes with complete deliverable generation.")
+        print("\n🚀 System is operational and ready for production deployment.")
         
     except Exception as e:
         print(f"\n💥 Discovery workflow failed: {e}")
@@ -609,7 +607,7 @@ def main():
         with open("deliverables/reports/ERROR_REPORT.json", 'w') as f:
             json.dump(error_report, f, indent=2)
         
-        print(f"❌ Error report saved: deliverables/reports/ERROR_REPORT.json")
+        print("❌ Error report saved: deliverables/reports/ERROR_REPORT.json")
 
 
 if __name__ == "__main__":

@@ -14,22 +14,19 @@ Features:
 - Pattern performance tracking
 """
 
-import os
-import sys
 import json
-import numpy as np
-import pandas as pd
-from pathlib import Path
-from typing import Dict, List, Any, Optional, Tuple
+from collections import Counter, defaultdict
+from dataclasses import asdict, dataclass
 from datetime import datetime, timedelta
-from dataclasses import dataclass, asdict
-from collections import defaultdict, Counter
+from typing import Any, Dict, List, Tuple
+
+import numpy as np
+
+# IRONFORGE components
+from ironforge_discovery_sdk import IRONFORGEDiscoverySDK, PatternAnalysis
 from scipy import stats
 from sklearn.cluster import DBSCAN
 from sklearn.preprocessing import StandardScaler
-
-# IRONFORGE components
-from ironforge_discovery_sdk import PatternAnalysis, CrossSessionLink, IRONFORGEDiscoverySDK
 
 
 @dataclass
@@ -449,12 +446,12 @@ Generated: {datetime.now().isoformat()}
             report += f"{i}. {direction} {pattern_type}: {trend.description}\n"
         
         if self.market_regimes:
-            report += f"\n🏛️ Market Regimes:\n"
+            report += "\n🏛️ Market Regimes:\n"
             for regime in self.market_regimes:
                 report += f"- {regime.regime_name}: {len(regime.sessions)} sessions ({regime.description})\n"
         
         if self.pattern_alerts:
-            report += f"\n🚨 Recent Alerts:\n"
+            report += "\n🚨 Recent Alerts:\n"
             recent_alerts = sorted(self.pattern_alerts, key=lambda x: x.timestamp, reverse=True)[:3]
             for alert in recent_alerts:
                 report += f"- {alert.alert_type}: {alert.description}\n"

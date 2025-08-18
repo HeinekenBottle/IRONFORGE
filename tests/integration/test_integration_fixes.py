@@ -179,7 +179,7 @@ def test_enhanced_session_integration():
         mapper = TimeframeLatticeMapper(grid_resolution=10, min_node_events=1)
         lattice_dataset = mapper.map_events_to_lattice(mock_enhanced_events)
         
-        print(f"  ✅ Enhanced Session format processed successfully")
+        print("  ✅ Enhanced Session format processed successfully")
         print(f"    Created {len(lattice_dataset.nodes)} nodes from {len(mock_enhanced_events)} events")
         print(f"    Detected {len(lattice_dataset.hot_zones)} hot zones")
         

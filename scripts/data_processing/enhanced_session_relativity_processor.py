@@ -19,13 +19,13 @@ Enhanced Session Structure Support:
 - Adds structural relationship features
 """
 
-import json
 import glob
+import json
 import os
-import numpy as np
 from datetime import datetime, timedelta
-from typing import Dict, List, Any, Optional
 from pathlib import Path
+from typing import Dict, List
+
 
 class EnhancedSessionRelativityProcessor:
     """
@@ -338,7 +338,7 @@ class EnhancedSessionRelativityProcessor:
         print(f"🔄 Processing {len(files)} enhanced sessions for price relativity...")
         print(f"📂 Input: {input_dir}")
         print(f"📂 Output: {output_dir}")
-        print(f"🎯 MISSION: Transform absolute prices → permanent structural relationships")
+        print("🎯 MISSION: Transform absolute prices → permanent structural relationships")
         
         results = {
             'processed_count': 0,
@@ -391,10 +391,10 @@ class EnhancedSessionRelativityProcessor:
                 print(f"    Error type: {type(e).__name__}")
                 print(f"    File path: {filepath}")
                 if "INTEGRITY FAILURE" in str(e) or "MISSING REQUIRED FIELD" in str(e):
-                    print(f"    ℹ️ This appears to be a data quality issue requiring source data fix")
+                    print("    ℹ️ This appears to be a data quality issue requiring source data fix")
         
         # Summary
-        print(f"\n🏆 Enhanced Session Relativity Processing Complete:")
+        print("\n🏆 Enhanced Session Relativity Processing Complete:")
         print(f"✅ Successfully processed: {results['processed_count']} sessions")
         print(f"🔄 Total price movements enhanced: {results['total_movements_enhanced']}")
         print(f"❌ Failed: {results['failed_count']} sessions")
@@ -403,24 +403,24 @@ class EnhancedSessionRelativityProcessor:
         if results['processed_count'] > 0:
             avg_movements = results['total_movements_enhanced'] / results['processed_count']
             print(f"📈 Average movements per session: {avg_movements:.1f}")
-            print(f"🎯 STRUCTURAL TRANSFORMATION ACHIEVED:")
-            print(f"   • Absolute prices → Normalized positions (0.0-1.0)")
-            print(f"   • Price deltas → Percentage relationships")
-            print(f"   • Timestamps → Session-relative timing")
-            print(f"   • Patterns now survive market regime changes!")
+            print("🎯 STRUCTURAL TRANSFORMATION ACHIEVED:")
+            print("   • Absolute prices → Normalized positions (0.0-1.0)")
+            print("   • Price deltas → Percentage relationships")
+            print("   • Timestamps → Session-relative timing")
+            print("   • Patterns now survive market regime changes!")
         
         if results['failed_files']:
-            print(f"\n⚠️ FAILED FILES ANALYSIS:")
+            print("\n⚠️ FAILED FILES ANALYSIS:")
             for failure in results['failed_files']:
                 if isinstance(failure, dict):
                     print(f"   • {failure['filename']}: {failure['error_type']} - {failure['error'][:100]}...")
                 else:
                     print(f"   • {failure}")
             
-            print(f"\n🔧 RECOMMENDATION:")
-            print(f"   1. Review failed files for data corruption")
-            print(f"   2. Fix data source issues before reprocessing")
-            print(f"   3. NO FALLBACKS policy enforced - clean data required")
+            print("\n🔧 RECOMMENDATION:")
+            print("   1. Review failed files for data corruption")
+            print("   2. Fix data source issues before reprocessing")
+            print("   3. NO FALLBACKS policy enforced - clean data required")
         
         return results
     
@@ -480,10 +480,10 @@ def main():
         output_dir='/Users/jack/IRONPULSE/IRONFORGE/enhanced_sessions_with_relativity'
     )
     
-    print(f"\n🚀 IRONFORGE Enhanced Session Relativity Transformation Complete!")
-    print(f"🔄 Patterns transformed from absolute prices to permanent structural relationships")
-    print(f"📈 Discovered patterns will now survive market regime changes")
-    print(f"🏛️ Archaeological discoveries permanently valid across all market conditions!")
+    print("\n🚀 IRONFORGE Enhanced Session Relativity Transformation Complete!")
+    print("🔄 Patterns transformed from absolute prices to permanent structural relationships")
+    print("📈 Discovered patterns will now survive market regime changes")
+    print("🏛️ Archaeological discoveries permanently valid across all market conditions!")
     
     return results
 

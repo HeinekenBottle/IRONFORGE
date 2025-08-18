@@ -11,13 +11,11 @@ Date: 2025-08-14
 """
 
 import json
-import numpy as np
-from pathlib import Path
-from typing import Dict, List, Any, Tuple
 import logging
-from collections import Counter
-import matplotlib.pyplot as plt
-import seaborn as sns
+from pathlib import Path
+from typing import Any, Dict, List
+
+import numpy as np
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -396,12 +394,12 @@ def main():
     
     if 'improvement_metrics' in validation_report['contamination_analysis']:
         improvements = validation_report['contamination_analysis']['improvement_metrics']
-        print(f"\nImprovement Metrics:")
+        print("\nImprovement Metrics:")
         print(f"  Default Contamination Reduction: {improvements['default_contamination_reduction']:.1f}%")
         print(f"  Feature Diversity Improvement: {improvements['feature_diversity_improvement']:.1f}%")
         print(f"  Distribution Variance Improvement: {improvements['distribution_variance_improvement']:.1f}%")
     
-    print(f"\nRecommendations:")
+    print("\nRecommendations:")
     for i, rec in enumerate(validation_report['recommendations'], 1):
         print(f"  {i}. {rec}")
     
