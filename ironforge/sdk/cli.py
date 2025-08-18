@@ -105,7 +105,7 @@ def cmd_report(cfg):
 
 
 def cmd_prep_shards(source_glob: str, symbol: str, timeframe: str, timezone: str, 
-                   pack_mode: str, dry_run: bool, overwrite: bool):
+                   pack_mode: str, dry_run: bool, overwrite: bool, htf_context: bool):
     """Prepare Parquet shards from enhanced JSON sessions."""
     try:
         from ironforge.converters.json_to_parquet import ConversionConfig, convert_enhanced_sessions
@@ -117,11 +117,13 @@ def cmd_prep_shards(source_glob: str, symbol: str, timeframe: str, timezone: str
             source_timezone=timezone,
             pack_mode=pack_mode,
             dry_run=dry_run,
-            overwrite=overwrite
+            overwrite=overwrite,
+            htf_context_enabled=htf_context
         )
         
         print(f"[prep-shards] Converting sessions from {source_glob}")
         print(f"[prep-shards] Target: {symbol}_{timeframe} | Timezone: {timezone} | Pack: {pack_mode}")
+        print(f"[prep-shards] HTF Context: {'ENABLED (51D features)' if htf_context else 'DISABLED (45D features)'}")
         
         if dry_run:
             print("[prep-shards] DRY RUN MODE - no files will be written")
@@ -202,6 +204,7 @@ def main(argv: list[str] | None = None) -> int:
                    help="Packing mode: single session per shard or pack multiple")
     c6.add_argument("--dry-run", action="store_true", help="Show what would be converted without writing files")
     c6.add_argument("--overwrite", action="store_true", help="Overwrite existing shards")
+    c6.add_argument("--htf-context", action="store_true", help="Enable HTF context features (45D → 51D)")
 
     args = p.parse_args(argv)
     if args.cmd == "status":
@@ -209,7 +212,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.cmd == "prep-shards":
         return cmd_prep_shards(
             args.source_glob, args.symbol, args.timeframe, args.timezone,
-            args.pack, args.dry_run, args.overwrite
+            args.pack, args.dry_run, args.overwrite, args.htf_context
         )
     cfg = load_config(args.config)
     if args.cmd == "discover-temporal":

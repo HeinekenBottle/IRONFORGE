@@ -18,6 +18,7 @@ import pytz
 from dataclasses import dataclass
 
 from ironforge.data_engine.parquet_writer import write_nodes, write_edges
+from ironforge.converters.htf_context_processor import HTFContextProcessor, HTFContextConfig, create_default_htf_config
 
 logger = logging.getLogger(__name__)
 
@@ -33,6 +34,9 @@ class ConversionConfig:
     pack_mode: str = "single"  # single session per shard
     overwrite: bool = False
     dry_run: bool = False
+    # HTF Context Configuration
+    htf_context_enabled: bool = False  # Enable HTF context features (45D → 51D)
+    htf_context_config: Optional[HTFContextConfig] = None
 
 
 class TimeProcessor:
@@ -63,11 +67,19 @@ class TimeProcessor:
 
 
 class FeatureExtractor:
-    """Extracts 45D node features and 20D edge features from session events."""
+    """Extracts node features (45D base + optional 6D HTF context) and 20D edge features from session events."""
     
-    def extract_node_features(self, event: Dict[str, Any], session_context: Dict[str, Any]) -> np.ndarray:
-        """Extract 45D feature vector for a node."""
-        features = np.full(45, np.nan, dtype=np.float32)
+    def __init__(self, htf_processor: Optional[HTFContextProcessor] = None):
+        self.htf_processor = htf_processor
+        
+    def extract_node_features(self, event: Dict[str, Any], session_context: Dict[str, Any], 
+                             htf_features: Optional[Dict[str, float]] = None) -> np.ndarray:
+        """Extract feature vector for a node (45D base + optional 6D HTF = 51D max)."""
+        base_features = 45
+        htf_features_count = 6 if self.htf_processor else 0
+        total_features = base_features + htf_features_count
+        
+        features = np.full(total_features, np.nan, dtype=np.float32)
         
         # Semantic features (f0-f7): 8D
         features[0] = self._get_fvg_redelivery_flag(event, session_context)
@@ -88,6 +100,15 @@ class FeatureExtractor:
         # Fill remaining traditional features with basic computations
         for i in range(12, 45):
             features[i] = 0.0  # Placeholder for additional traditional features
+            
+        # Add HTF context features (f45-f50) if enabled
+        if self.htf_processor and htf_features:
+            features[45] = htf_features.get('f45_sv_m15_z', np.nan)
+            features[46] = htf_features.get('f46_sv_h1_z', np.nan)
+            features[47] = htf_features.get('f47_barpos_m15', np.nan)
+            features[48] = htf_features.get('f48_barpos_h1', np.nan)
+            features[49] = htf_features.get('f49_dist_daily_mid', np.nan)
+            features[50] = float(htf_features.get('f50_htf_regime', 1))  # uint8 regime code
             
         return features
     
@@ -235,7 +256,15 @@ class JSONToParquetConverter:
     def __init__(self, config: ConversionConfig):
         self.config = config
         self.time_processor = TimeProcessor(config.source_timezone, config.target_timezone)
-        self.feature_extractor = FeatureExtractor()
+        
+        # Initialize HTF processor if enabled
+        self.htf_processor = None
+        if config.htf_context_enabled:
+            htf_config = config.htf_context_config or create_default_htf_config()
+            self.htf_processor = HTFContextProcessor(htf_config)
+            logger.info("HTF context processing enabled (45D → 51D features)")
+        
+        self.feature_extractor = FeatureExtractor(self.htf_processor)
         self.node_id_manager = NodeIDManager()
         
     def convert_session(self, json_path: Path) -> Optional[Path]:
@@ -387,13 +416,35 @@ class JSONToParquetConverter:
         # Generate global node IDs
         node_ids = self.node_id_manager.get_next_ids(len(all_events))
         
+        # Generate HTF context features if enabled
+        htf_feature_arrays = {}
+        if self.htf_processor:
+            logger.info("Processing HTF context features...")
+            htf_feature_arrays = self.htf_processor.process_session(all_events, session_data)
+            
+            # Validate temporal integrity
+            validation = self.htf_processor.validate_temporal_integrity(all_events)
+            if not all(validation.values()):
+                logger.error(f"HTF temporal integrity validation failed: {validation}")
+                # Continue but log the issue
+        
         # Create nodes DataFrame
         nodes_data = []
         node_map_data = []
         
         for i, (event, node_id) in enumerate(zip(all_events, node_ids)):
+            # Prepare HTF features for this event
+            htf_features_for_event = None
+            if self.htf_processor and htf_feature_arrays:
+                htf_features_for_event = {
+                    feature_name: feature_values[i] 
+                    for feature_name, feature_values in htf_feature_arrays.items()
+                }
+            
             # Extract features
-            features = self.feature_extractor.extract_node_features(event, session_data)
+            features = self.feature_extractor.extract_node_features(
+                event, session_data, htf_features_for_event
+            )
             
             # Determine node kind
             kind = self._get_node_kind(event)
