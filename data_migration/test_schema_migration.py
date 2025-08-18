@@ -21,10 +21,10 @@ legacy and current data formats.
 import json
 import sys
 import traceback
-from pathlib import Path
-from datetime import datetime
-from typing import Dict, List, Any
-from schema_normalizer import SchemaNormalizer, SchemaValidationResult, MigrationResult
+from typing import Dict
+
+from schema_normalizer import SchemaNormalizer
+
 
 class SchemaMigrationTester:
     """
@@ -296,7 +296,7 @@ class SchemaMigrationTester:
                 
                 # Check if detection matches expectation
                 if detection.schema_version == test_case['expected_schema']:
-                    print(f"    ✅ PASS - Schema correctly detected")
+                    print("    ✅ PASS - Schema correctly detected")
                     detection_results['passed'] += 1
                     detection_results['details'].append({
                         'test': test_name,
@@ -457,7 +457,7 @@ class SchemaMigrationTester:
                     post_validation = self.normalizer.validate_migrated_data(test_data, expected_schema="37D")
                     
                     if post_validation.is_valid and post_validation.schema_version == "37D":
-                        print(f"    ✅ PASS - Migration successful and validated")
+                        print("    ✅ PASS - Migration successful and validated")
                         migration_results['passed'] += 1
                         
                         # Check specific features were added correctly
@@ -468,12 +468,12 @@ class SchemaMigrationTester:
                         if missing_features:
                             print(f"    ⚠️  WARNING - Missing features: {missing_features}")
                         else:
-                            print(f"    ✅ All temporal cycle features present")
+                            print("    ✅ All temporal cycle features present")
                         
                         # Check tensor dimensions
                         features_tensor = migrated_node.get('features', [])
                         if len(features_tensor) == 37:
-                            print(f"    ✅ Feature tensor correctly expanded to 37D")
+                            print("    ✅ Feature tensor correctly expanded to 37D")
                         else:
                             print(f"    ❌ Feature tensor wrong size: {len(features_tensor)}D (expected 37D)")
                             
@@ -484,7 +484,7 @@ class SchemaMigrationTester:
                             'validation_result': str(post_validation)
                         })
                     else:
-                        print(f"    ❌ FAIL - Migration succeeded but validation failed")
+                        print("    ❌ FAIL - Migration succeeded but validation failed")
                         print(f"        Post-validation: {post_validation.schema_version}")
                         migration_results['failed'] += 1
                         migration_results['details'].append({
@@ -494,7 +494,7 @@ class SchemaMigrationTester:
                             'validation_errors': post_validation.validation_errors
                         })
                 else:
-                    print(f"    ❌ FAIL - Migration failed")
+                    print("    ❌ FAIL - Migration failed")
                     for error in migration_result.migration_errors[:2]:
                         print(f"        • {error[:80]}...")
                     migration_results['failed'] += 1
@@ -600,9 +600,9 @@ class SchemaMigrationTester:
                 
                 # Check for NO FALLBACKS compliance
                 if "NO FALLBACKS" in error_msg:
-                    print(f"    ✅ NO FALLBACKS policy properly enforced")
+                    print("    ✅ NO FALLBACKS policy properly enforced")
                 if "SOLUTION:" in error_msg:
-                    print(f"    ✅ Clear solution provided in error message")
+                    print("    ✅ Clear solution provided in error message")
                 
                 if test_case['should_fail']:
                     error_results['passed'] += 1
@@ -707,7 +707,7 @@ class SchemaMigrationTester:
         
         # Overall summary
         summary = results['summary']
-        print(f"\n🏆 OVERALL RESULTS:")
+        print("\n🏆 OVERALL RESULTS:")
         print(f"  Total Tests: {summary['total_tests']}")
         print(f"  ✅ Passed: {summary['passed_tests']}")
         print(f"  ❌ Failed: {summary['failed_tests']}")

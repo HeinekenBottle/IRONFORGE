@@ -14,20 +14,18 @@ Key Features:
 - Health check and status endpoints
 """
 
-from abc import ABC, abstractmethod
-from typing import Dict, List, Any, Optional, Callable
-from dataclasses import dataclass
-from datetime import datetime
 import json
 import logging
-import asyncio
+from abc import ABC, abstractmethod
+from datetime import datetime
+from typing import Any, Dict, List, Optional
 
 # FastAPI imports (optional dependency)
 try:
-    from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect, BackgroundTasks
+    import uvicorn
+    from fastapi import BackgroundTasks, FastAPI, HTTPException, WebSocket, WebSocketDisconnect
     from fastapi.responses import JSONResponse
     from pydantic import BaseModel, Field
-    import uvicorn
     FASTAPI_AVAILABLE = True
 except ImportError:
     FASTAPI_AVAILABLE = False
@@ -39,8 +37,8 @@ except ImportError:
     class FastAPI:
         pass
 
-from .integration_layer import MathematicalModelRegistry, ModelChain
 from ..mathematical_hooks import HookManager
+from .integration_layer import MathematicalModelRegistry
 
 logger = logging.getLogger(__name__)
 
@@ -674,8 +672,8 @@ if __name__ == "__main__":
         exit(1)
     
     # Create model registry and API
-    from .integration_layer import MathematicalModelRegistry
     from ..mathematical_hooks import create_oracle_hook_manager
+    from .integration_layer import MathematicalModelRegistry
     
     print("🔧 Setting up components...")
     model_registry = MathematicalModelRegistry(oracle_integration=False)  # Use fallback models
@@ -683,25 +681,25 @@ if __name__ == "__main__":
     
     api = create_mathematical_api(model_registry, hook_manager)
     
-    print(f"✅ API created successfully")
-    print(f"📊 Components initialized:")
+    print("✅ API created successfully")
+    print("📊 Components initialized:")
     print(f"  Model Registry: {'✅' if api.model_registry else '❌'}")
     print(f"  Hook Manager: {'✅' if api.hook_manager else '❌'}")
     print(f"  FastAPI App: {'✅' if api.app else '❌'}")
     
     # Test health check
-    print(f"\n🏥 HEALTH CHECK:")
+    print("\n🏥 HEALTH CHECK:")
     health_status = api.health_check_endpoint()
     print(f"  System Status: {health_status['system_status']}")
     print(f"  Active Models: {health_status['performance_metrics']['active_models']}")
     print(f"  Total Models: {health_status['performance_metrics']['total_models']}")
     
-    print(f"\n🚀 To start the API server, use:")
-    print(f"  api.start_api_server(host='0.0.0.0', port=8000)")
-    print(f"\n📖 API Documentation will be available at:")
-    print(f"  http://localhost:8000/docs")
-    print(f"  http://localhost:8000/redoc")
-    print(f"\n🔌 WebSocket endpoint:")
-    print(f"  ws://localhost:8000/ws/predictions")
+    print("\n🚀 To start the API server, use:")
+    print("  api.start_api_server(host='0.0.0.0', port=8000)")
+    print("\n📖 API Documentation will be available at:")
+    print("  http://localhost:8000/docs")
+    print("  http://localhost:8000/redoc")
+    print("\n🔌 WebSocket endpoint:")
+    print("  ws://localhost:8000/ws/predictions")
     
-    print(f"\n✅ Mathematical models API testing completed")
+    print("\n✅ Mathematical models API testing completed")

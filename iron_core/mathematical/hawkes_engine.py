@@ -15,13 +15,14 @@ Mathematical Foundation:
 CRITICAL: This is an ENHANCEMENT, not a replacement. All proven logic is preserved.
 """
 
-import numpy as np
-import json
-import math
-from typing import Dict, List, Any, Optional, Tuple
-from dataclasses import dataclass
-from datetime import datetime, timedelta
 import logging
+import math
+from dataclasses import dataclass
+from datetime import datetime
+from typing import Any, Dict, List, Optional, Tuple
+
+import numpy as np
+
 
 @dataclass
 class HawkesParameters:
@@ -280,7 +281,7 @@ if __name__ == "__main__":
         print(f"Event: {event_type} | Magnitude: {magnitude} | Intensity: {intensity:.3f}")
     
     # Test multi-dimensional intensity
-    print(f"\n📊 Multi-dimensional intensity at current time:")
+    print("\n📊 Multi-dimensional intensity at current time:")
     current_time = base_time + 400
     multi_intensity = engine.calculate_multi_dimensional_intensity(current_time)
     
@@ -289,17 +290,17 @@ if __name__ == "__main__":
     
     # Predict next event
     predicted_time, probability = engine.predict_next_event_time(current_time)
-    print(f"\n🔮 Next event prediction:")
+    print("\n🔮 Next event prediction:")
     print(f"  Time: {predicted_time - current_time:.1f} seconds from now")
     print(f"  Probability: {probability:.2%}")
     
     # Get process statistics
-    print(f"\n📈 Process Statistics:")
+    print("\n📈 Process Statistics:")
     stats = engine.get_process_statistics()
     for key, value in stats.items():
         if key != "parameters":
             print(f"  {key}: {value}")
     
-    print(f"\n⚙️ Parameters:")
+    print("\n⚙️ Parameters:")
     for key, value in stats["parameters"].items():
         print(f"  {key}: {value}")

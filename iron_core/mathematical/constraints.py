@@ -8,10 +8,10 @@ ANY modification to these values will break the validated system performance.
 These constants are IMMUTABLE during migration to preserve mathematical integrity.
 """
 
+import math
 from decimal import Decimal, getcontext
 from enum import Enum
 from typing import Dict, List, NamedTuple, Optional
-import math
 
 # Set high precision for all calculations
 getcontext().prec = 50

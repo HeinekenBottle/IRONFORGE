@@ -1,9 +1,11 @@
 # IRONPULSE RG Scaler Production Implementation
 
-import numpy as np
 import logging
-from typing import Tuple, Optional, List, Dict, Any
 from dataclasses import dataclass
+from typing import Any, Dict, Optional, Tuple
+
+import numpy as np
+
 
 @dataclass
 class RGScalingResult:
@@ -52,9 +54,9 @@ class RGScaler:
         }
         
         self.logger = logging.getLogger(__name__)
-        self.logger.info(f"🔬 RG SCALER: Production linchpin initialized")
+        self.logger.info("🔬 RG SCALER: Production linchpin initialized")
         self.logger.info(f"   Scale bounds: [{min_scale}, {max_scale}] minutes")
-        self.logger.info(f"   Inverse law: s(d) = 15 - 5*log₁₀(d)")
+        self.logger.info("   Inverse law: s(d) = 15 - 5*log₁₀(d)")
         
     def calculate_event_density(self, events_in_minutes: np.ndarray) -> float:
         """
@@ -340,15 +342,15 @@ if __name__ == "__main__":
             print(f"\n❌ {scenario['name']}: Failed to scale")
     
     # Show scaling statistics
-    print(f"\n🔬 RG SCALER CONFIGURATION:")
+    print("\n🔬 RG SCALER CONFIGURATION:")
     stats = rg_scaler.get_scaling_statistics()
     print(f"   Formula: {stats['inverse_scaling_law']}")
     print(f"   Validation: r = {stats['correlation_coefficient']}")
     print(f"   Scale Range: {stats['scale_bounds']} minutes")
     
-    print(f"\n📈 DENSITY REGIME CLASSIFICATIONS:")
+    print("\n📈 DENSITY REGIME CLASSIFICATIONS:")
     for regime, description in stats['regime_classifications'].items():
         print(f"   {regime.capitalize()}: {description}")
     
-    print(f"\n✅ RG SCALER: Production testing complete")
-    print(f"🔗 Ready for integration as mandatory data transformer")
+    print("\n✅ RG SCALER: Production testing complete")
+    print("🔗 Ready for integration as mandatory data transformer")

@@ -15,13 +15,13 @@ Validates:
 - Performance impact analysis
 """
 
+import logging
+import os
+import sys
 import threading
 import time
-import logging
-import sys
-import os
-from typing import List, Dict, Any
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from typing import Any, Dict
 
 # Setup logging
 logging.basicConfig(
@@ -326,7 +326,7 @@ def main():
         
         # Container analysis
         container_analysis = analysis['detailed_analysis']['container']
-        print(f"\n  🏗️ IRONContainer Singleton:")
+        print("\n  🏗️ IRONContainer Singleton:")
         print(f"    Instances Created: {container_analysis['unique_instances']}/1 (expected)")
         print(f"    Success Rate: {container_analysis['success_rate']:.1%}")
         print(f"    Avg Init Time: {container_analysis['average_init_time']:.4f}s")
@@ -334,7 +334,7 @@ def main():
         
         # Lazy manager analysis
         manager_analysis = analysis['detailed_analysis']['lazy_manager']
-        print(f"\n  🔄 LazyLoadingManager Singleton:")
+        print("\n  🔄 LazyLoadingManager Singleton:")
         print(f"    Instances Created: {manager_analysis['unique_instances']}/1 (expected)")
         print(f"    Success Rate: {manager_analysis['success_rate']:.1%}")
         print(f"    Avg Init Time: {manager_analysis['average_init_time']:.4f}s")
@@ -342,7 +342,7 @@ def main():
         
         # Component analysis
         component_analysis = analysis['detailed_analysis']['lazy_components']
-        print(f"\n  🔧 LazyComponent Thread Safety:")
+        print("\n  🔧 LazyComponent Thread Safety:")
         print(f"    Success Rate: {component_analysis['success_rate']:.1%}")
         print(f"    Avg Load Time: {component_analysis['average_load_time']:.4f}s")
         

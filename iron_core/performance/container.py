@@ -16,9 +16,11 @@ Features:
 
 import logging
 import threading
-from typing import Dict, Any, Optional
 import time
+from typing import Any, Dict
+
 from .lazy_loader import LazyComponent, LazyLoadingManager, initialize_lazy_loading
+
 
 class IRONContainer:
     """

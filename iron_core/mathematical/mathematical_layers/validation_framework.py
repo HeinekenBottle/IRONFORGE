@@ -14,21 +14,20 @@ Key Features:
 - Mathematical invariant checking
 """
 
+import logging
 from abc import ABC, abstractmethod
-from typing import Dict, List, Any, Optional, Callable, Tuple, Union
 from dataclasses import dataclass, field
+from datetime import datetime
 from enum import Enum
+from typing import Any, Dict, List, Optional
+
 import numpy as np
 import scipy.stats as stats
-from scipy.optimize import minimize
-import logging
-from datetime import datetime
-import warnings
-import asyncio
 
 # Hypothesis testing for property-based testing (optional dependency)
 try:
-    from hypothesis import given, strategies as st, settings, assume
+    from hypothesis import assume, given, settings
+    from hypothesis import strategies as st
     HYPOTHESIS_AVAILABLE = True
 except ImportError:
     HYPOTHESIS_AVAILABLE = False
@@ -955,8 +954,9 @@ class PerformanceBenchmarkTest:
         results = []
         
         try:
-            import psutil
             import os
+
+            import psutil
             
             process = psutil.Process(os.getpid())
             
@@ -1325,7 +1325,7 @@ class MathematicalValidationFramework(ValidationLayer):
             # Add failed test details
             failed_tests = [r for r in suite.results if r.result == TestResult.FAIL]
             if failed_tests:
-                report_lines.append(f"  FAILED TESTS:")
+                report_lines.append("  FAILED TESTS:")
                 for test in failed_tests:
                     report_lines.append(f"    - {test.test_name}: {test.message}")
                 report_lines.append("")
@@ -1388,7 +1388,7 @@ if __name__ == "__main__":
             return np.array(intensities)
     
     # Test comprehensive validation
-    print(f"\n🔍 RUNNING COMPREHENSIVE VALIDATION...")
+    print("\n🔍 RUNNING COMPREHENSIVE VALIDATION...")
     
     mock_model = MockHawkesModel()
     validation_results = framework.comprehensive_validation(mock_model, "hawkes_process")
@@ -1396,8 +1396,8 @@ if __name__ == "__main__":
     print(f"Validation suites completed: {len(validation_results)}")
     
     # Generate and display report
-    print(f"\n📋 VALIDATION REPORT:")
+    print("\n📋 VALIDATION REPORT:")
     report = framework.generate_validation_report(validation_results)
     print(report)
     
-    print(f"\n✅ Validation framework testing completed")
+    print("\n✅ Validation framework testing completed")

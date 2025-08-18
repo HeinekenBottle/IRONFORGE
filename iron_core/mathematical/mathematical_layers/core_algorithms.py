@@ -13,17 +13,17 @@ Key Features:
 - Memory-efficient implementations
 """
 
+import warnings
 from abc import ABC, abstractmethod
-from typing import Dict, List, Any, Tuple, Optional, Union
 from dataclasses import dataclass
-import numpy as np
 from decimal import Decimal, getcontext
+from typing import Any, Dict
+
+import numpy as np
 import scipy.fft
 from scipy.optimize import minimize
-from scipy.stats import gamma
-import warnings
 
-from .theory_abstraction import MathematicalParameters, MathematicalDomain
+from .theory_abstraction import MathematicalDomain, MathematicalParameters
 
 # Set high precision for critical calculations
 getcontext().prec = 50
@@ -236,7 +236,7 @@ class HawkesAlgorithmImplementation(CoreAlgorithmLayer):
                 
                 return -log_likelihood  # Minimize negative log-likelihood
                 
-            except Exception as e:
+            except Exception:
                 return np.inf
         
         # Oracle validated initial parameters
@@ -288,9 +288,10 @@ class HawkesAlgorithmImplementation(CoreAlgorithmLayer):
     
     def benchmark_performance(self) -> AlgorithmPerformanceMetrics:
         """Benchmark Hawkes algorithm performance"""
-        import time
-        import psutil
         import os
+        import time
+
+        import psutil
         
         # Generate test data
         test_events = np.sort(np.random.uniform(0, 100, 500))
@@ -641,7 +642,7 @@ if __name__ == "__main__":
             print(f"\n{algo_name.upper().replace('_', ' ')}: ❌ BENCHMARK FAILED")
     
     # Demonstrate Hawkes implementation
-    print(f"\n📊 HAWKES ALGORITHM DEMONSTRATION")
+    print("\n📊 HAWKES ALGORITHM DEMONSTRATION")
     print("=" * 40)
     
     hawkes = HawkesAlgorithmImplementation(precision=20, vectorized=True)
@@ -657,7 +658,7 @@ if __name__ == "__main__":
     print(f"Intensity Range: [{intensities.min():.3f}, {intensities.max():.3f}]")
     
     # Parameter optimization demonstration
-    print(f"\n🎯 PARAMETER OPTIMIZATION")
+    print("\n🎯 PARAMETER OPTIMIZATION")
     print("=" * 30)
     
     optimization_result = hawkes.optimize_parameters(test_events)

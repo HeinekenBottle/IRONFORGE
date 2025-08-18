@@ -15,18 +15,18 @@ Key Features:
 - Distributed computation coordination
 """
 
-from typing import Dict, List, Any, Optional, Callable, Union, Tuple
-from dataclasses import dataclass, field
-from enum import Enum
-from abc import ABC, abstractmethod
 import asyncio
-import numpy as np
-import logging
-from datetime import datetime
 import concurrent.futures
+import logging
+from abc import ABC, abstractmethod
+from dataclasses import dataclass
+from datetime import datetime
+from enum import Enum
+from typing import Any, Callable, Dict, List, Optional, Tuple
+
+import numpy as np
 import psutil
-import threading
-from contextlib import asynccontextmanager
+
 
 class ScalingStrategy(Enum):
     """Available scaling strategies"""
