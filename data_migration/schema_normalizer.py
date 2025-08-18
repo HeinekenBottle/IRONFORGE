@@ -10,8 +10,9 @@ Follows NO FALLBACKS policy - fails cleanly if data cannot be migrated properly.
 import json
 import logging
 from datetime import datetime
-from typing import Dict, List, Any, Tuple, Optional
 from pathlib import Path
+from typing import Any, Dict
+
 
 class SchemaNormalizer:
     """
@@ -147,7 +148,7 @@ class SchemaNormalizer:
                 f"SCHEMA MIGRATION FAILED: Cannot parse session date '{session_date_str}'\n"
                 f"Error: {e}\n"
                 "SOLUTION: Use YYYY-MM-DD format for session_date"
-            )
+            ) from e
     
     def _calculate_temporal_cycles(self, session_date: datetime) -> Dict[str, int]:
         """Calculate temporal cycle features from session date"""
@@ -354,19 +355,19 @@ def main():
             Path(args.output_dir)
         )
         
-        print(f"\n📊 Migration Summary:")
+        print("\n📊 Migration Summary:")
         print(f"   Total files: {summary['total_files']}")
         print(f"   ✅ Successful: {summary['successful_migrations']}")
         print(f"   ⚠️  Skipped (corrupted): {summary['skipped_corrupted']}")
         print(f"   ❌ Failed: {len(summary['failed_migrations'])}")
         
         if summary['failed_migrations']:
-            print(f"\n❌ Failed migrations:")
+            print("\n❌ Failed migrations:")
             for failure in summary['failed_migrations']:
                 print(f"   - {failure['file']}: {failure['error']}")
         
         if summary['skipped_files']:
-            print(f"\n⚠️  Skipped files (data quality issues):")
+            print("\n⚠️  Skipped files (data quality issues):")
             for skipped in summary['skipped_files']:
                 print(f"   - {skipped}")
         

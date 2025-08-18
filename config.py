@@ -13,11 +13,12 @@ Supports:
 - Path validation
 """
 
-import os
 import json
-from pathlib import Path
-from typing import Dict, Any, Optional
 import logging
+import os
+from pathlib import Path
+from typing import Any, Dict, Optional
+
 
 class IRONFORGEConfig:
     """
@@ -89,8 +90,7 @@ class IRONFORGEConfig:
         # Convert relative paths to absolute paths
         workspace_root = Path(config['workspace_root'])
         for key, value in config.items():
-            if key != 'workspace_root' and isinstance(value, str):
-                if not os.path.isabs(value):
+            if key != 'workspace_root' and isinstance(value, str) and not os.path.isabs(value):
                     config[key] = str(workspace_root / value)
         
         return config

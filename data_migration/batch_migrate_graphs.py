@@ -22,17 +22,16 @@ Usage:
     python3 batch_migrate_graphs.py --input /path/to/34d/graphs --output /path/to/37d/graphs
 """
 
-import os
-import json
 import argparse
+import json
 import shutil
-from pathlib import Path
-from datetime import datetime
-from typing import Dict, List, Tuple, Optional
-from concurrent.futures import ThreadPoolExecutor, as_completed
 import traceback
+from datetime import datetime
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
 
-from schema_normalizer import SchemaNormalizer, SchemaValidationResult, MigrationResult
+from schema_normalizer import SchemaNormalizer
+
 
 class BatchGraphMigrator:
     """
@@ -105,7 +104,7 @@ class BatchGraphMigrator:
             print(f"✅ Backup created successfully: {backup_path}")
             return str(backup_path)
         except Exception as e:
-            raise ValueError(f"Backup creation failed: {str(e)}")
+            raise ValueError(f"Backup creation failed: {str(e)}") from e
     
     def analyze_batch_requirements(self, graph_files: List[Path]) -> Dict:
         """
@@ -210,7 +209,7 @@ class BatchGraphMigrator:
             # Load graph data
             if input_file.suffix.lower() == '.json':
                 with open(input_file, 'r') as f:
-                    graph_data = json.load(f)
+                    json.load(f)  # Validate JSON format
             else:
                 return False, f"Unsupported file format: {input_file.suffix}", result_info
             
@@ -266,7 +265,7 @@ class BatchGraphMigrator:
             return False, error_msg, result_info
     
     def migrate_batch(self, input_dir: str, output_dir: str, 
-                     max_workers: int = 4, create_backups: bool = True) -> Dict:
+                     create_backups: bool = True) -> Dict:
         """
         Migrate entire batch of graph files
         
@@ -278,7 +277,6 @@ class BatchGraphMigrator:
         self.batch_stats['start_time'] = datetime.now()
         
         # Setup directories
-        input_path = Path(input_dir)
         output_path = Path(output_dir)
         output_path.mkdir(parents=True, exist_ok=True)
         
@@ -297,14 +295,14 @@ class BatchGraphMigrator:
         # Analyze batch requirements
         analysis = self.analyze_batch_requirements(graph_files)
         
-        print(f"\n📊 Batch Analysis Results:")
+        print("\n📊 Batch Analysis Results:")
         print(f"   Schema Distribution: {analysis['schema_distribution']}")
         print(f"   Migration Candidates: {len(analysis['migration_candidates'])}")
         print(f"   Validation Failures: {len(analysis['validation_failures'])}")
         print(f"   Analysis Errors: {len(analysis['analysis_errors'])}")
         
         if analysis['analysis_errors']:
-            print(f"\n⚠️  Analysis Errors:")
+            print("\n⚠️  Analysis Errors:")
             for error in analysis['analysis_errors'][:3]:
                 print(f"   • {error['file']}: {error['error']}")
         
@@ -318,7 +316,7 @@ class BatchGraphMigrator:
                 self.batch_stats['warnings'].append(f"Backup failed: {str(e)}")
         
         # Process files
-        print(f"\n🔄 Starting batch migration...")
+        print("\n🔄 Starting batch migration...")
         successful_migrations = []
         failed_migrations = []
         
@@ -364,7 +362,7 @@ class BatchGraphMigrator:
         processing_time = (self.batch_stats['end_time'] - self.batch_stats['start_time']).total_seconds()
         
         print(f"\n{'='*70}")
-        print(f"📊 BATCH MIGRATION COMPLETE")
+        print("📊 BATCH MIGRATION COMPLETE")
         print(f"{'='*70}")
         
         print(f"\n⏱️  Processing Time: {processing_time:.1f} seconds")
@@ -379,7 +377,7 @@ class BatchGraphMigrator:
         # Migration statistics
         if successful_migrations:
             total_nodes_migrated = sum([m['migration_result']['nodes_migrated'] for m in successful_migrations])
-            print(f"\n🔄 Migration Details:")
+            print("\n🔄 Migration Details:")
             print(f"   Total Nodes Migrated: {total_nodes_migrated}")
             
             # Most common schema transitions
@@ -392,7 +390,7 @@ class BatchGraphMigrator:
         
         # Error analysis
         if failed_migrations:
-            print(f"\n❌ Failed Migrations Analysis:")
+            print("\n❌ Failed Migrations Analysis:")
             error_types = {}
             for failure in failed_migrations:
                 if failure['error']:
@@ -402,12 +400,12 @@ class BatchGraphMigrator:
             print(f"   Error Types: {dict(error_types)}")
             
             # Show first few failures
-            print(f"\n   Sample Failures:")
+            print("\n   Sample Failures:")
             for failure in failed_migrations[:3]:
                 print(f"   • {Path(failure['input_file']).name}: {failure['error'][:60]}...")
         
         # Recommendations
-        print(f"\n💡 TECHNICAL DEBT SURGEON RECOMMENDATIONS:")
+        print("\n💡 TECHNICAL DEBT SURGEON RECOMMENDATIONS:")
         if success_rate >= 90:
             print("   ✅ Excellent migration success rate - system is production ready")
         elif success_rate >= 70:
@@ -472,7 +470,7 @@ Examples:
             graph_files = migrator.discover_graph_files(args.input)
             analysis = migrator.analyze_batch_requirements(graph_files)
             
-            print(f"\n📊 Analysis Results:")
+            print("\n📊 Analysis Results:")
             print(f"   Total Files: {analysis['total_files']}")
             print(f"   Schema Distribution: {analysis['schema_distribution']}")
             print(f"   Migration Candidates: {len(analysis['migration_candidates'])}")
@@ -495,7 +493,7 @@ Examples:
             return 0 if success_rate >= 70 else 1
             
     except KeyboardInterrupt:
-        print(f"\n⚠️  Migration interrupted by user")
+        print("\n⚠️  Migration interrupted by user")
         return 130
     except Exception as e:
         print(f"💥 CRITICAL ERROR: {type(e).__name__}: {str(e)}")
