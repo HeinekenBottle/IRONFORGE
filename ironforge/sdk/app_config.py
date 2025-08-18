@@ -104,18 +104,28 @@ def _env_overrides(prefix: str = "IFG_") -> dict[str, Any]:
 
 def _to_dc(dc, d: dict[str, Any]):
     kwargs: dict[str, Any] = {}
+    # Get module for resolving string type annotations
+    import sys
+    dc_module = sys.modules[dc.__module__]
+    
     for f in dc.__dataclass_fields__:  # type: ignore[attr-defined]
         val = d.get(f)
-        field_type = getattr(dc, "__annotations__", {}).get(f)
+        field_type_str = getattr(dc, "__annotations__", {}).get(f)
+        
+        # Resolve string annotation to actual type
+        field_type = field_type_str
+        if isinstance(field_type_str, str):
+            field_type = getattr(dc_module, field_type_str, None)
+        
         if val is None:
             # Use default factory by instantiating nested dataclass when available
-            if hasattr(field_type, "__dataclass_fields__"):
+            if field_type and hasattr(field_type, "__dataclass_fields__"):
                 kwargs[f] = field_type()  # type: ignore[call-arg]
             else:
                 # Fall back to attribute default via a temporary instance
                 kwargs[f] = getattr(dc(), f)  # type: ignore[misc]
             continue
-        if hasattr(field_type, "__dataclass_fields__") and isinstance(val, dict):
+        if field_type and hasattr(field_type, "__dataclass_fields__") and isinstance(val, dict):
             kwargs[f] = _to_dc(field_type, val)  # type: ignore[arg-type]
         else:
             kwargs[f] = val

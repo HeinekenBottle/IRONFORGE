@@ -19,4 +19,5 @@ def write_html(path: str | Path, html: str) -> None:
 
 
 def glob_many(glob: str) -> list[Path]:
-    return list(Path().glob(glob))
+    from glob import glob as pyglob
+    return [Path(p) for p in pyglob(glob)]

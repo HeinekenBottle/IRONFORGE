@@ -73,14 +73,14 @@ def cmd_report(cfg):
     if conf.empty:
         conf = pd.DataFrame(
             {
-                "ts": pd.date_range("2025-01-01", periods=50, freq="T"),
+                "ts": pd.date_range("2025-01-01", periods=50, freq="min"),
                 "score": [min(99, i * 2 % 100) for i in range(50)],
             }
         )
     pat_paths = glob_many(str(run_dir / "patterns" / "*.parquet"))
     act = _load_first_parquet(pat_paths, ["ts", "count"])
     if act.empty:
-        g = conf.groupby(conf["ts"].astype("datetime64[m]")).size().reset_index(name="count")
+        g = conf.groupby(conf["ts"].dt.floor("min")).size().reset_index(name="count")
         g.rename(columns={g.columns[0]: "ts"}, inplace=True)
         act = g
     motifs = []
