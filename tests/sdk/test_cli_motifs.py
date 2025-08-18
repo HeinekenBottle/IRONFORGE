@@ -487,6 +487,7 @@ class TestCLIIntegration:
     def test_help_messages(self):
         """Test help messages for new commands."""
         import subprocess
+        import sys
         
         try:
             # Test motifs help
@@ -521,6 +522,7 @@ class TestCLIIntegration:
     def test_command_discovery(self):
         """Test that new commands are discoverable in main help."""
         import subprocess
+        import sys
         
         try:
             result = subprocess.run(

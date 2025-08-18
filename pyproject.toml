@@ -12,25 +12,11 @@ target-version = ["py310"]
 [tool.ruff]
 line-length = 100
 target-version = "py310"
-extend-exclude = [
-  "tests/_golden/**",
-  "deliverables",
-  "discovery_cache", 
-  "reports",
-  "logs",
-  "visualizations",
-  "ironforge_env",
-  "ironforge_refactor_env", 
-  "env"
-]
-force-exclude = true
+extend-exclude = ["tests/_golden/**"]
 
 [tool.ruff.lint]
-select = ["E","F","I","B","SIM","ARG"]
+select = ["E","F","I","UP","B","SIM","C4","ARG"]
 ignore = ["E501"]  # handled by black
-
-[tool.ruff.lint.per-file-ignores]
-"tests/**" = ["F401","F841","B007","SIM117","I001","ARG002"]
 
 [tool.mypy]
 python_version = "3.10"
@@ -40,10 +26,16 @@ warn_redundant_casts = true
 warn_return_any = true
 disallow_untyped_defs = true
 no_implicit_optional = true
-explicit_package_bases = true
 namespace_packages = true
+files = ["ironforge"]
 exclude = "(^tests/_golden/|^scripts/|^tests/integration/|^ironforge/analysis/|^ironforge/learning/|^ironforge/synthesis/|^ironforge/validation/|^ironforge/utilities/|^config.py)"
 
 [tool.bandit]
 skips = ["B101", "B110"] # assert allowed in tests, ignore existing try/except/pass patterns
 exclude_dirs = ["tests/integration", "ironforge/analysis", "ironforge/learning", "ironforge/synthesis", "ironforge/validation", "ironforge/utilities"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "performance: performance regression tests",
+]

@@ -3,14 +3,13 @@ TGAT Discovery Engine for Archaeological Pattern Discovery
 Temporal Graph Attention Network for market pattern archaeology
 """
 
-import logging
-from typing import Any, Dict
-
-import networkx as nx
-import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import networkx as nx
+import numpy as np
+from typing import Dict, List, Tuple, Optional, Any
+import logging
 
 logger = logging.getLogger(__name__)
 
@@ -54,7 +53,7 @@ class TemporalAttentionLayer(nn.Module):
             attended_features: [N, 44] attended node features
             attention_weights: [N, N] attention weight matrix
         """
-        _batch_size, seq_len = node_features.size(0), node_features.size(0)
+        batch_size, seq_len = node_features.size(0), node_features.size(0)
 
         # Project 45D to 44D
         projected_features = self.input_projection(node_features)  # [N, 44]
@@ -76,7 +75,9 @@ class TemporalAttentionLayer(nn.Module):
 
         # Apply temporal encoding if temporal distances provided
         if temporal_distances is not None and len(temporal_distances) > 0:
-            self.temporal_encoding(temporal_distances.float().unsqueeze(-1))  # [E, 44]
+            temporal_encoding = self.temporal_encoding(
+                temporal_distances.float().unsqueeze(-1)
+            )  # [E, 44]
             # This is a simplified temporal bias - in practice would be more sophisticated
             temporal_bias = torch.zeros(seq_len, seq_len, device=node_features.device)
             attention_scores = attention_scores + temporal_bias.unsqueeze(0)  # [4, N, N]
@@ -336,3 +337,36 @@ class IRONFORGEDiscovery(nn.Module):
         # Calculate entropy
         entropy = -torch.sum(attention_dist * torch.log(attention_dist + 1e-10))
         return entropy.item()
+
+
+def infer_shard_embeddings(data, out_dir: str, loader_cfg):  # type: ignore[no-untyped-def]
+    """Minimal stub that writes placeholder embeddings and patterns.
+
+    Parameters
+    ----------
+    data : Any
+        Ignored graph data.
+    out_dir : str
+        Base output directory for run.
+    loader_cfg : Any
+        Configuration for the loader (unused).
+
+    Returns
+    -------
+    tuple[str, str]
+        Paths to the embeddings and patterns parquet files.
+    """
+    from pathlib import Path
+    import pandas as pd
+
+    run_path = Path(out_dir)
+    emb_dir = run_path / "embeddings"
+    patt_dir = run_path / "patterns"
+    emb_dir.mkdir(parents=True, exist_ok=True)
+    patt_dir.mkdir(parents=True, exist_ok=True)
+
+    emb_path = emb_dir / "embeddings.parquet"
+    patt_path = patt_dir / "patterns.parquet"
+    pd.DataFrame().to_parquet(emb_path)
+    pd.DataFrame().to_parquet(patt_path)
+    return str(emb_path), str(patt_path)
