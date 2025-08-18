@@ -20,7 +20,7 @@ test:
 
 ci-validate:
 	@echo "Running full CI validation suite..."
-	python scripts/validate-ci.py
+	python3 scripts/validate-ci.py
 
 precommit:
 	pre-commit run --all-files
@@ -29,19 +29,7 @@ smoke:
 	@echo "[smoke] Verify package presence"
 	test -d ironforge || (echo "ironforge/ package missing" && exit 1)
 	@echo "[smoke] Import public modules"
-	python - <<'PY'
-	import importlib
-	modules = [
-	    "ironforge",
-	    "ironforge.validation",
-	    "ironforge.reporting",
-	    "ironforge.confluence",
-	    "ironforge.sdk",
-	]
-	for m in modules:
-	    importlib.import_module(m)
-	print("import smoke OK")
-	PY
+	python3 -c 'import importlib,sys; mods=["ironforge","ironforge.validation","ironforge.reporting","ironforge.confluence","ironforge.sdk"]; [importlib.import_module(m) for m in mods]; print("import smoke OK")'
 
 # Usage: make release VERSION=v0.6.0 MSG="Waves 4–6: Validation Rails, Reporting, Confluence"
 release:
@@ -55,15 +43,15 @@ release:
 
 .PHONY: discover score validate report status
 discover:
-	python -m ironforge.sdk.cli discover-temporal --config configs/dev.yml
+	python3 -m ironforge.sdk.cli discover-temporal --config configs/dev.yml
 score:
-	python -m ironforge.sdk.cli score-session --config configs/dev.yml
+	python3 -m ironforge.sdk.cli score-session --config configs/dev.yml
 validate:
-	python -m ironforge.sdk.cli validate-run --config configs/dev.yml
+	python3 -m ironforge.sdk.cli validate-run --config configs/dev.yml
 report:
-	python -m ironforge.sdk.cli report-minimal --config configs/dev.yml
+	python3 -m ironforge.sdk.cli report-minimal --config configs/dev.yml
 status:
-	python -m ironforge.sdk.cli status --runs runs
+	python3 -m ironforge.sdk.cli status --runs runs
 
 # Write docs/context.json from repo state (non-destructive)
 .PHONY: context
