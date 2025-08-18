@@ -47,6 +47,7 @@ setup(
         "scikit-learn>=1.0.0",
         "networkx>=2.5",
         "tqdm>=4.60.0",
+        "PyYAML>=6.0",
     ],
     extras_require={
         "dev": [
@@ -58,4 +59,10 @@ setup(
     },
     include_package_data=True,
     zip_safe=False,
+    entry_points={
+        "console_scripts": [
+            "ironforge=ironforge.sdk.cli:main",
+            "ifg=ironforge.sdk.cli:main",
+        ]
+    },
 )

@@ -1,3 +1,7 @@
+import pytest
+
+
+@pytest.mark.smoke
 def test_imports_smoke() -> None:
     # Ensure packages import without side-effects
     import ironforge  # noqa: F401
