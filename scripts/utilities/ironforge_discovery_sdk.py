@@ -16,26 +16,23 @@ Author: IRONFORGE Archaeological Discovery System
 Date: August 14, 2025
 """
 
-import os
-import sys
 import json
-import time
 import logging
-from pathlib import Path
-from typing import Dict, List, Any, Optional, Union, Tuple
-from datetime import datetime, timedelta
+import sys
+import time
+from collections import Counter
 from dataclasses import dataclass
-from collections import defaultdict, Counter
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime
+from pathlib import Path
+from typing import Any, Dict, List, Tuple
 
 import torch
-import numpy as np
-import pandas as pd
 
 # IRONFORGE core components
 sys.path.append(str(Path(__file__).parent))
-from orchestrator import IRONFORGE
 from learning.tgat_discovery import IRONFORGEDiscovery
+
+from orchestrator import IRONFORGE
 
 
 @dataclass

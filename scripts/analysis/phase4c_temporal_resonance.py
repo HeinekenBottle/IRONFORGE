@@ -6,16 +6,17 @@ Prove IRONFORGE discovers permanent, cross-session structures.
 Build multi-session union graph with D/W anchors and compute resonance indices.
 """
 
-import json
 import glob
-import torch
-import numpy as np
-from pathlib import Path
-from typing import List, Dict, Any, Tuple
-from datetime import datetime, timedelta
+import json
 from collections import defaultdict
+from datetime import datetime
+from pathlib import Path
+from typing import Dict, List, Tuple
+
+import numpy as np
 from learning.enhanced_graph_builder import EnhancedGraphBuilder
 from learning.tgat_discovery import IRONFORGEDiscovery
+
 
 class TemporalResonanceAnalyzer:
     """Analyze temporal resonance across multiple sessions."""
@@ -387,7 +388,7 @@ class TemporalResonanceAnalyzer:
         
         # C4c-2: Implement anchor projection for each session
         session_data_map = {}
-        print(f"\n⚓ Processing sessions with anchor projection...")
+        print("\n⚓ Processing sessions with anchor projection...")
         
         for i, session_file in enumerate(test_sessions, 1):
             session_name = Path(session_file).stem
@@ -408,7 +409,7 @@ class TemporalResonanceAnalyzer:
                 continue
         
         # C4c-3: Compute resonance scores for all pairs
-        print(f"\n🔄 Computing resonance scores for session pairs...")
+        print("\n🔄 Computing resonance scores for session pairs...")
         resonance_results = {}
         high_resonance_pairs = []
         
@@ -493,28 +494,28 @@ def run_phase4c_temporal_resonance():
     results, success = analyzer.run_temporal_resonance_analysis()
     
     # Print comprehensive results
-    print(f"\n🏆 PHASE 4c RESULTS:")
+    print("\n🏆 PHASE 4c RESULTS:")
     print("=" * 70)
     
     summary = results['analysis_summary']
-    print(f"📊 Analysis Summary:")
+    print("📊 Analysis Summary:")
     print(f"  Sessions analyzed: {results['session_count']}")
     print(f"  Session pairs: {results['total_pairs_analyzed']}")
     print(f"  High-resonance pairs: {results['high_resonance_pairs']}")
     print(f"  Avg resonance index: {summary['avg_resonance_index']:.3f}")
     print(f"  Max resonance index: {summary['max_resonance_index']:.3f}")
     
-    print(f"\n🧬 Motif Analysis:")
+    print("\n🧬 Motif Analysis:")
     print(f"  Total motifs extracted: {len(results['top_motifs'])}")
     print(f"  Distinct archetypes: {summary['distinct_archetype_count']}")
     
     if results['motif_archetypes']:
-        print(f"  Archetype breakdown:")
+        print("  Archetype breakdown:")
         for archetype, count in results['motif_archetypes'].items():
             print(f"    {archetype}: {count}")
     
     if results['head_attribution']:
-        print(f"\n🧠 Head Attribution:")
+        print("\n🧠 Head Attribution:")
         head_dist = results['head_attribution']['head_distribution']
         for head, count in head_dist.items():
             print(f"  {head}: {count} motifs")
@@ -527,7 +528,7 @@ def run_phase4c_temporal_resonance():
         ("Temporal separation", results['total_pairs_analyzed'] > 0)
     ]
     
-    print(f"\n✅ Exit Criteria Validation:")
+    print("\n✅ Exit Criteria Validation:")
     all_passed = True
     for criterion, passed in exit_criteria:
         status = "✅" if passed else "❌"
@@ -536,13 +537,13 @@ def run_phase4c_temporal_resonance():
             all_passed = False
     
     if all_passed and success:
-        print(f"\n🎉 PHASE 4c: COMPLETE SUCCESS!")
-        print(f"✅ Cross-session temporal resonance CONFIRMED")
-        print(f"✅ Permanent structures discovered across multiple days")
-        print(f"✅ Multiple motif archetypes identified")
+        print("\n🎉 PHASE 4c: COMPLETE SUCCESS!")
+        print("✅ Cross-session temporal resonance CONFIRMED")
+        print("✅ Permanent structures discovered across multiple days")
+        print("✅ Multiple motif archetypes identified")
     else:
-        print(f"\n⚠️ PHASE 4c: PARTIAL SUCCESS")
-        print(f"🔧 Some exit criteria need attention")
+        print("\n⚠️ PHASE 4c: PARTIAL SUCCESS")
+        print("🔧 Some exit criteria need attention")
     
     return results, all_passed and success
 
@@ -580,7 +581,7 @@ if __name__ == "__main__":
                     f.write(f"- **Dominant Head:** head_{motif['dominant_head']}\n")
                 f.write("\n")
         
-        print(f"\n📁 Results saved to:")
+        print("\n📁 Results saved to:")
         print(f"  📊 {output_file}")
         print(f"  📝 {motifs_file}")
         print(f"🎯 Phase 4c Status: {'SUCCESS' if success else 'NEEDS REVIEW'}")

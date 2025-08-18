@@ -1,0 +1,791 @@
+{
+  "analysis_type": "weekly_daily_sweep_cascade_step_3b",
+  "timestamp": "2025-08-16T21:57:41.069225",
+  "metadata": {
+    "sessions_analyzed": 57,
+    "weekly_sweeps_detected": 0,
+    "daily_sweeps_detected": 21,
+    "pm_executions_detected": 0,
+    "cascade_links_mapped": 0
+  },
+  "sweep_detection_results": {
+    "weekly_sweeps": [],
+    "daily_sweeps": [
+      {
+        "session_id": "unknown",
+        "timestamp": "19:39:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23316.0,
+        "displacement": 23.316,
+        "follow_through": 0.7,
+        "range_pos": 0.5,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23416.0,
+        "prior_swing_low": 23216.0,
+        "closes_in_range": true
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "13:45:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23215.75,
+        "displacement": 23.21575,
+        "follow_through": 0.7,
+        "range_pos": 0.5,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23315.75,
+        "prior_swing_low": 23115.75,
+        "closes_in_range": true
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "13:31:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23285.25,
+        "displacement": 23.28525,
+        "follow_through": 0.7,
+        "range_pos": 0.5,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23385.25,
+        "prior_swing_low": 23185.25,
+        "closes_in_range": true
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "13:47:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23241.25,
+        "displacement": 23.24125,
+        "follow_through": 0.7,
+        "range_pos": 0.5,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23341.25,
+        "prior_swing_low": 23141.25,
+        "closes_in_range": true
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "12:03:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23375.5,
+        "displacement": 23.3755,
+        "follow_through": 0.7,
+        "range_pos": 0.5,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23475.5,
+        "prior_swing_low": 23275.5,
+        "closes_in_range": true
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "12:03:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23369.0,
+        "displacement": 23.369,
+        "follow_through": 0.7,
+        "range_pos": 0.5,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23469.0,
+        "prior_swing_low": 23269.0,
+        "closes_in_range": true
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "00:07:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23342.25,
+        "displacement": 23.34225,
+        "follow_through": 0.7,
+        "range_pos": 0.5,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23442.25,
+        "prior_swing_low": 23242.25,
+        "closes_in_range": true
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "00:27:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23345.5,
+        "displacement": 23.3455,
+        "follow_through": 0.7,
+        "range_pos": 0.5,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23445.5,
+        "prior_swing_low": 23245.5,
+        "closes_in_range": true
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "12:00:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23431.75,
+        "displacement": 23.43175,
+        "follow_through": 0.7,
+        "range_pos": 0.8,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23531.75,
+        "prior_swing_low": 23331.75,
+        "closes_in_range": true
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "02:08:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23481.0,
+        "displacement": 23.481,
+        "follow_through": 0.7,
+        "range_pos": 0.8,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23581.0,
+        "prior_swing_low": 23381.0,
+        "closes_in_range": true
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "02:20:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23477.0,
+        "displacement": 23.477,
+        "follow_through": 0.7,
+        "range_pos": 0.8,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23577.0,
+        "prior_swing_low": 23377.0,
+        "closes_in_range": true
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "02:42:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23487.25,
+        "displacement": 23.48725,
+        "follow_through": 0.7,
+        "range_pos": 0.8,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23587.25,
+        "prior_swing_low": 23387.25,
+        "closes_in_range": true
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "07:01:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23165.0,
+        "displacement": 23.165,
+        "follow_through": 0.7,
+        "range_pos": 0.2,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23265.0,
+        "prior_swing_low": 23065.0,
+        "closes_in_range": true
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "02:01:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23185.75,
+        "displacement": 23.18575,
+        "follow_through": 0.7,
+        "range_pos": 0.2,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23285.75,
+        "prior_swing_low": 23085.75,
+        "closes_in_range": true
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "09:42:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23180.0,
+        "displacement": 23.18,
+        "follow_through": 0.7,
+        "range_pos": 0.2,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23280.0,
+        "prior_swing_low": 23080.0,
+        "closes_in_range": true
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:08:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23466.0,
+        "displacement": 23.466,
+        "follow_through": 0.7,
+        "range_pos": 0.8,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23566.0,
+        "prior_swing_low": 23366.0,
+        "closes_in_range": true
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "09:52:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23173.75,
+        "displacement": 23.173750000000002,
+        "follow_through": 0.7,
+        "range_pos": 0.2,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23273.75,
+        "prior_swing_low": 23073.75,
+        "closes_in_range": true
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "12:25:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23200.75,
+        "displacement": 23.20075,
+        "follow_through": 0.7,
+        "range_pos": 0.5,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23300.75,
+        "prior_swing_low": 23100.75,
+        "closes_in_range": true
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "00:03:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23173.0,
+        "displacement": 23.173000000000002,
+        "follow_through": 0.7,
+        "range_pos": 0.2,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23273.0,
+        "prior_swing_low": 23073.0,
+        "closes_in_range": true
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:18:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23097.5,
+        "displacement": 23.0975,
+        "follow_through": 0.7,
+        "range_pos": 0.2,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23197.5,
+        "prior_swing_low": 22997.5,
+        "closes_in_range": true
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "21:41:00",
+        "timeframe": "Daily",
+        "sweep_type": "neutral_sweep",
+        "price_level": 23128.75,
+        "displacement": 23.12875,
+        "follow_through": 0.7,
+        "range_pos": 0.2,
+        "zone_proximity": 1.0,
+        "prior_swing_high": 23228.75,
+        "prior_swing_low": 23028.75,
+        "closes_in_range": true
+      }
+    ],
+    "pm_executions": []
+  },
+  "cascade_analysis": {
+    "cascade_links": [],
+    "quantification_results": {
+      "hit_rates": {
+        "pm_execution_given_weekly_sweep": 0.0,
+        "daily_reaction_given_weekly_sweep": 0.0,
+        "pm_execution_given_daily_confirmation": 0.0,
+        "baseline_pm_rate": 0.0
+      },
+      "lead_lag_analysis": {
+        "weekly_to_daily_delays": {
+          "mean": 0,
+          "median": 0,
+          "std": 0,
+          "histogram_data": []
+        },
+        "daily_to_pm_delays": {
+          "mean": 0,
+          "median": 0,
+          "std": 0,
+          "histogram_data": []
+        }
+      },
+      "directional_consistency": {
+        "consistent_cascades": 0,
+        "total_measurable_cascades": 0,
+        "consistency_rate": 0.0,
+        "consistency_significance": "MODERATE"
+      }
+    },
+    "statistical_validation": {
+      "causal_ordering_test": {
+        "test_type": "causal_ordering_permutation",
+        "observed_cascades": 0,
+        "permutation_iterations": 100,
+        "permutation_mean": 0.0,
+        "permutation_std": 0.0,
+        "p_value": 1.0,
+        "significant": false,
+        "effect_magnitude": 0.0,
+        "z_score": 0.0
+      },
+      "effect_size_analysis": {
+        "test_type": "cohens_h_effect_size",
+        "hit_rate_with_weekly": 0.0,
+        "baseline_hit_rate": 0.0,
+        "cohens_h": 0.0,
+        "effect_magnitude": "small",
+        "uplift_ratio": 0.0,
+        "absolute_improvement": 0.0
+      },
+      "robustness_analysis": {
+        "test_type": "parameter_robustness",
+        "parameter_combinations_tested": 64,
+        "cascade_count_range": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "std": 0.0
+        },
+        "stability_coefficient": 0.0,
+        "stability_assessment": "HIGH",
+        "parameter_sensitivity": [
+          {
+            "price_tolerance": 50,
+            "range_pos_tolerance": 0.05,
+            "time_window": 3,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 50,
+            "range_pos_tolerance": 0.05,
+            "time_window": 5,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 50,
+            "range_pos_tolerance": 0.05,
+            "time_window": 7,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 50,
+            "range_pos_tolerance": 0.05,
+            "time_window": 10,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 50,
+            "range_pos_tolerance": 0.1,
+            "time_window": 3,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 50,
+            "range_pos_tolerance": 0.1,
+            "time_window": 5,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 50,
+            "range_pos_tolerance": 0.1,
+            "time_window": 7,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 50,
+            "range_pos_tolerance": 0.1,
+            "time_window": 10,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 50,
+            "range_pos_tolerance": 0.15,
+            "time_window": 3,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 50,
+            "range_pos_tolerance": 0.15,
+            "time_window": 5,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 50,
+            "range_pos_tolerance": 0.15,
+            "time_window": 7,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 50,
+            "range_pos_tolerance": 0.15,
+            "time_window": 10,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 50,
+            "range_pos_tolerance": 0.2,
+            "time_window": 3,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 50,
+            "range_pos_tolerance": 0.2,
+            "time_window": 5,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 50,
+            "range_pos_tolerance": 0.2,
+            "time_window": 7,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 50,
+            "range_pos_tolerance": 0.2,
+            "time_window": 10,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 100,
+            "range_pos_tolerance": 0.05,
+            "time_window": 3,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 100,
+            "range_pos_tolerance": 0.05,
+            "time_window": 5,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 100,
+            "range_pos_tolerance": 0.05,
+            "time_window": 7,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 100,
+            "range_pos_tolerance": 0.05,
+            "time_window": 10,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 100,
+            "range_pos_tolerance": 0.1,
+            "time_window": 3,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 100,
+            "range_pos_tolerance": 0.1,
+            "time_window": 5,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 100,
+            "range_pos_tolerance": 0.1,
+            "time_window": 7,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 100,
+            "range_pos_tolerance": 0.1,
+            "time_window": 10,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 100,
+            "range_pos_tolerance": 0.15,
+            "time_window": 3,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 100,
+            "range_pos_tolerance": 0.15,
+            "time_window": 5,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 100,
+            "range_pos_tolerance": 0.15,
+            "time_window": 7,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 100,
+            "range_pos_tolerance": 0.15,
+            "time_window": 10,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 100,
+            "range_pos_tolerance": 0.2,
+            "time_window": 3,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 100,
+            "range_pos_tolerance": 0.2,
+            "time_window": 5,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 100,
+            "range_pos_tolerance": 0.2,
+            "time_window": 7,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 100,
+            "range_pos_tolerance": 0.2,
+            "time_window": 10,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 150,
+            "range_pos_tolerance": 0.05,
+            "time_window": 3,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 150,
+            "range_pos_tolerance": 0.05,
+            "time_window": 5,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 150,
+            "range_pos_tolerance": 0.05,
+            "time_window": 7,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 150,
+            "range_pos_tolerance": 0.05,
+            "time_window": 10,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 150,
+            "range_pos_tolerance": 0.1,
+            "time_window": 3,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 150,
+            "range_pos_tolerance": 0.1,
+            "time_window": 5,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 150,
+            "range_pos_tolerance": 0.1,
+            "time_window": 7,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 150,
+            "range_pos_tolerance": 0.1,
+            "time_window": 10,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 150,
+            "range_pos_tolerance": 0.15,
+            "time_window": 3,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 150,
+            "range_pos_tolerance": 0.15,
+            "time_window": 5,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 150,
+            "range_pos_tolerance": 0.15,
+            "time_window": 7,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 150,
+            "range_pos_tolerance": 0.15,
+            "time_window": 10,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 150,
+            "range_pos_tolerance": 0.2,
+            "time_window": 3,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 150,
+            "range_pos_tolerance": 0.2,
+            "time_window": 5,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 150,
+            "range_pos_tolerance": 0.2,
+            "time_window": 7,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 150,
+            "range_pos_tolerance": 0.2,
+            "time_window": 10,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 200,
+            "range_pos_tolerance": 0.05,
+            "time_window": 3,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 200,
+            "range_pos_tolerance": 0.05,
+            "time_window": 5,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 200,
+            "range_pos_tolerance": 0.05,
+            "time_window": 7,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 200,
+            "range_pos_tolerance": 0.05,
+            "time_window": 10,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 200,
+            "range_pos_tolerance": 0.1,
+            "time_window": 3,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 200,
+            "range_pos_tolerance": 0.1,
+            "time_window": 5,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 200,
+            "range_pos_tolerance": 0.1,
+            "time_window": 7,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 200,
+            "range_pos_tolerance": 0.1,
+            "time_window": 10,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 200,
+            "range_pos_tolerance": 0.15,
+            "time_window": 3,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 200,
+            "range_pos_tolerance": 0.15,
+            "time_window": 5,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 200,
+            "range_pos_tolerance": 0.15,
+            "time_window": 7,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 200,
+            "range_pos_tolerance": 0.15,
+            "time_window": 10,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 200,
+            "range_pos_tolerance": 0.2,
+            "time_window": 3,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 200,
+            "range_pos_tolerance": 0.2,
+            "time_window": 5,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 200,
+            "range_pos_tolerance": 0.2,
+            "time_window": 7,
+            "cascade_count": 0
+          },
+          {
+            "price_tolerance": 200,
+            "range_pos_tolerance": 0.2,
+            "time_window": 10,
+            "cascade_count": 0
+          }
+        ]
+      },
+      "bootstrap_confidence_intervals": {
+        "error": "Insufficient data for bootstrap analysis"
+      }
+    }
+  },
+  "discovery_insights": {
+    "weekly_dominance_assessment": {
+      "dominance_confirmed": false,
+      "hit_rate_uplift": 0.0,
+      "causal_ordering_significant": false,
+      "strength_category": "MODERATE"
+    },
+    "cascade_transmission_efficiency": {
+      "weekly_to_daily_success_rate": 0.0,
+      "daily_to_pm_success_rate": 0.0,
+      "end_to_end_transmission": 0.0,
+      "transmission_quality": "MODERATE"
+    },
+    "statistical_validation_summary": {
+      "causal_ordering_p_value": 1.0,
+      "effect_size_magnitude": "small",
+      "robustness_confirmed": true,
+      "overall_significance": "MODERATE"
+    },
+    "key_discoveries": [
+      "Weekly\u2192PM hit rate: 0.000",
+      "Uplift vs baseline: 0.00x",
+      "Causal ordering p-value: 1.000000",
+      "Total cascades mapped: 0"
+    ]
+  }
+}

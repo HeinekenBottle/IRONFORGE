@@ -7,9 +7,10 @@ Quick validation showing the transformation from contaminated to authentic featu
 """
 
 import json
-import os
 from pathlib import Path
+
 import numpy as np
+
 
 def validate_decontamination():
     """Show before/after decontamination results."""
@@ -75,17 +76,17 @@ def validate_decontamination():
     # Show feature diversity statistics
     print("Feature Diversity Analysis:")
     print("-" * 40)
-    print(f"HTF Carryover Strengths:")
+    print("HTF Carryover Strengths:")
     print(f"  Range: {min(htf_strengths):.2f} - {max(htf_strengths):.2f}")
     print(f"  Mean: {np.mean(htf_strengths):.2f} ± {np.std(htf_strengths):.2f}")
     print(f"  Unique values: {len(set([round(x, 2) for x in htf_strengths]))}")
     
-    print(f"\nEnergy Densities:")
+    print("\nEnergy Densities:")
     print(f"  Range: {min(energy_densities):.3f} - {max(energy_densities):.3f}")
     print(f"  Mean: {np.mean(energy_densities):.3f} ± {np.std(energy_densities):.3f}")
     print(f"  Unique values: {len(set([round(x, 3) for x in energy_densities]))}")
     
-    print(f"\nLiquidity Event Counts:")
+    print("\nLiquidity Event Counts:")
     print(f"  Range: {min(liquidity_event_counts)} - {max(liquidity_event_counts)} events")
     print(f"  Mean: {np.mean(liquidity_event_counts):.1f} events per session")
     print(f"  Total events generated: {sum(liquidity_event_counts)}")

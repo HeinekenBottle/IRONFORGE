@@ -16,16 +16,11 @@ Author: IRONFORGE Archaeological Discovery System
 Date: August 14, 2025
 """
 
-import os
-import sys
 import json
-import time
-from pathlib import Path
-from typing import Dict, List, Any, Optional
-from datetime import datetime, timedelta
 from dataclasses import dataclass
+from datetime import datetime, timedelta
+from typing import Any, Dict, List
 
-import pandas as pd
 import numpy as np
 
 # IRONFORGE components
@@ -330,25 +325,25 @@ class DailyDiscoveryWorkflows:
         print(f"🌅 MORNING MARKET ANALYSIS - {analysis.analysis_date}")
         print("="*60)
         
-        print(f"\n📊 Pattern Overview:")
+        print("\n📊 Pattern Overview:")
         print(f"   Strength Score: {analysis.pattern_strength_score:.2f}/1.0")
         print(f"   Confidence Level: {analysis.confidence_level}")
         print(f"   Current Regime: {analysis.regime_status}")
         
-        print(f"\n🔥 Dominant Pattern Types:")
+        print("\n🔥 Dominant Pattern Types:")
         for i, ptype in enumerate(analysis.dominant_pattern_types, 1):
             print(f"   {i}. {ptype}")
         
         if analysis.cross_session_signals:
-            print(f"\n🔗 Cross-Session Signals:")
+            print("\n🔗 Cross-Session Signals:")
             for signal in analysis.cross_session_signals:
                 print(f"   • {signal}")
         
-        print(f"\n💡 Trading Insights:")
+        print("\n💡 Trading Insights:")
         for insight in analysis.trading_insights:
             print(f"   • {insight}")
         
-        print(f"\n📈 Session Focus Areas:")
+        print("\n📈 Session Focus Areas:")
         for session_type, patterns in analysis.session_patterns.items():
             if patterns:
                 importance = self.session_schedule.get(session_type, {}).get('importance', 'medium')
@@ -537,27 +532,27 @@ class DailyDiscoveryWorkflows:
         print(f"🎯 SESSION PATTERN DISCOVERY - {result.session_name}")
         print("="*60)
         
-        print(f"\n📊 Discovery Summary:")
+        print("\n📊 Discovery Summary:")
         print(f"   Patterns Found: {result.strength_indicators['pattern_count']}")
         print(f"   Average Confidence: {result.strength_indicators['avg_confidence']:.2f}")
         print(f"   Pattern Types: {result.strength_indicators['pattern_types']}")
         print(f"   Max Temporal Span: {result.strength_indicators['temporal_span']:.1f}h")
         
         if result.patterns_found:
-            print(f"\n🔍 Discovered Patterns:")
+            print("\n🔍 Discovered Patterns:")
             for i, pattern in enumerate(result.patterns_found, 1):
                 print(f"   {i}. {pattern.pattern_type}: {pattern.description} (conf: {pattern.confidence:.2f})")
         
         if result.historical_comparisons:
-            print(f"\n📈 Historical Context:")
+            print("\n📈 Historical Context:")
             for comp in result.historical_comparisons:
                 print(f"   • {comp}")
         
-        print(f"\n💡 Immediate Insights:")
+        print("\n💡 Immediate Insights:")
         for insight in result.immediate_insights:
             print(f"   • {insight}")
         
-        print(f"\n🔮 Next Session Expectations:")
+        print("\n🔮 Next Session Expectations:")
         for expectation in result.next_session_expectations:
             print(f"   • {expectation}")
         

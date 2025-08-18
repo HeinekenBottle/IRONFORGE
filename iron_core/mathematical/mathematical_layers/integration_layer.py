@@ -13,18 +13,17 @@ Key Features:
 - Performance monitoring integration
 """
 
-from abc import ABC, abstractmethod
-from typing import Dict, List, Any, Optional, Callable, Union
-from dataclasses import dataclass, field
-from enum import Enum
-import numpy as np
-import json
 import logging
-import asyncio
+from abc import ABC, abstractmethod
+from dataclasses import dataclass, field
 from datetime import datetime
+from enum import Enum
+from typing import Any, Callable, Dict, List, Optional
 
-from .theory_abstraction import MathematicalModel, MathematicalDomain
-from .core_algorithms import CoreAlgorithmLayer, AlgorithmPerformanceMetrics
+import numpy as np
+
+from .core_algorithms import AlgorithmPerformanceMetrics, CoreAlgorithmLayer
+from .theory_abstraction import MathematicalDomain
 
 # Oracle system integration
 try:
@@ -266,8 +265,8 @@ class MathematicalModelRegistry(IntegrationLayer):
         """Initialize integration with existing Oracle system models"""
         try:
             # Try to integrate with existing Oracle components
-            from ..hawkes_engine import create_enhanced_hawkes_engine
             from ..fisher_information_monitor import create_fisher_monitor
+            from ..hawkes_engine import create_enhanced_hawkes_engine
             from ..rg_scaler_production import create_production_rg_scaler
             
             logger.info("Oracle system components available for integration")
@@ -333,7 +332,7 @@ class MathematicalModelRegistry(IntegrationLayer):
     
     def _register_fallback_models(self):
         """Register fallback models when Oracle integration unavailable"""
-        from .core_algorithms import HawkesAlgorithmImplementation, FFTOptimizedCorrelator
+        from .core_algorithms import FFTOptimizedCorrelator, HawkesAlgorithmImplementation
         
         # Basic Hawkes implementation
         hawkes = HawkesAlgorithmImplementation()
@@ -615,7 +614,7 @@ if __name__ == "__main__":
         print(f"  {model_id}: {status_emoji} {model_status.value}")
     
     # Performance summary
-    print(f"\n⚡ MODEL PERFORMANCE SUMMARY:")
+    print("\n⚡ MODEL PERFORMANCE SUMMARY:")
     performance = registry.get_model_performance_summary()
     for model_id, perf_data in performance.items():
         if "current_performance" in perf_data:
@@ -624,7 +623,7 @@ if __name__ == "__main__":
             print(f"  {model_id}: {exec_time:.2f}ms ({domain})")
     
     # Create and test prediction chain
-    print(f"\n🔮 PREDICTION CHAIN TESTING:")
+    print("\n🔮 PREDICTION CHAIN TESTING:")
     
     try:
         # Create Oracle prediction chain
@@ -657,4 +656,4 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"  ❌ Chain execution failed: {e}")
     
-    print(f"\n✅ Integration layer testing completed")
+    print("\n✅ Integration layer testing completed")

@@ -5,12 +5,14 @@ Concrete Analysis: What Do These Sub-Patterns Actually Mean?
 Move beyond vague descriptions to specific market mechanics
 """
 
+import glob
 import json
 import pickle
-import numpy as np
-import glob
+from collections import Counter, defaultdict
 from pathlib import Path
-from collections import defaultdict, Counter
+
+import numpy as np
+
 
 def analyze_actual_events_by_subpattern():
     """Analyze what actual semantic events occur in each sub-pattern"""
@@ -113,7 +115,7 @@ def analyze_actual_events_by_subpattern():
             avg_position = np.mean([t['session_position'] for t in timing])
             avg_phase_open = np.mean([t['phase_open'] for t in timing])
             
-            print(f"⏰ Actual Timing:")
+            print("⏰ Actual Timing:")
             print(f"   Average time: {avg_time:.1f} minutes into session")
             print(f"   Normalized time: {avg_normalized:.2f} (0=start, 1=end)")
             print(f"   Session position: {avg_position:.2f}")
@@ -121,14 +123,14 @@ def analyze_actual_events_by_subpattern():
         
         # Session analysis
         session_counts = Counter(sessions)
-        print(f"📍 Top Sessions:")
+        print("📍 Top Sessions:")
         for session, count in session_counts.most_common(3):
             print(f"   {session}: {count} events")
 
 def analyze_market_mechanics():
     """Analyze what these patterns mean in terms of actual market mechanics"""
     
-    print(f"\n🔧 CONCRETE MARKET MECHANICS ANALYSIS")
+    print("\n🔧 CONCRETE MARKET MECHANICS ANALYSIS")
     print("=" * 60)
     
     # Load actual discovered patterns to see their characteristics
@@ -171,7 +173,7 @@ def analyze_market_mechanics():
             time_spans = [p['time_span'] for p in pattern_list if p['time_span'] > 0]
             
             if confidences:
-                print(f"📈 Quality Metrics:")
+                print("📈 Quality Metrics:")
                 print(f"   Avg confidence: {np.mean(confidences):.3f}")
                 print(f"   Avg permanence: {np.mean(permanences):.3f}")
                 if time_spans:
@@ -179,7 +181,7 @@ def analyze_market_mechanics():
             
             # Session distribution
             session_dist = Counter(p['session'] for p in pattern_list)
-            print(f"📍 Session Distribution:")
+            print("📍 Session Distribution:")
             for session, count in session_dist.most_common(3):
                 pct = (count / len(pattern_list)) * 100
                 print(f"   {session}: {count} patterns ({pct:.1f}%)")
@@ -188,7 +190,7 @@ def analyze_market_mechanics():
             descriptions = [p['description'] for p in pattern_list if p['description'] != 'no_description']
             if descriptions:
                 desc_counts = Counter(descriptions)
-                print(f"🔍 Common Descriptions:")
+                print("🔍 Common Descriptions:")
                 for desc, count in desc_counts.most_common(3):
                     print(f"   '{desc}': {count} patterns")
     
@@ -198,7 +200,7 @@ def analyze_market_mechanics():
 def analyze_specific_examples():
     """Look at specific examples of each sub-pattern"""
     
-    print(f"\n📋 SPECIFIC PATTERN EXAMPLES")
+    print("\n📋 SPECIFIC PATTERN EXAMPLES")
     print("=" * 60)
     
     # Load patterns and find specific examples
@@ -242,7 +244,7 @@ def analyze_specific_examples():
 def decode_price_levels():
     """Analyze what specific price levels and movements these patterns represent"""
     
-    print(f"\n💰 PRICE LEVEL ANALYSIS")
+    print("\n💰 PRICE LEVEL ANALYSIS")
     print("=" * 60)
     
     # This would require access to the actual price data in the patterns
@@ -274,7 +276,7 @@ def decode_price_levels():
                     }
                     price_analysis.append(price_info)
         
-        except Exception as e:
+        except Exception:
             continue
     
     if price_analysis:
@@ -286,7 +288,7 @@ def decode_price_levels():
             avg_norm_price = np.mean([p['normalized_price'] for p in expansion_prices])
             avg_pct_open = np.mean([p['pct_from_open'] for p in expansion_prices])
             
-            print(f"\n🔥 EXPANSION PHASE PRICE CHARACTERISTICS:")
+            print("\n🔥 EXPANSION PHASE PRICE CHARACTERISTICS:")
             print(f"   Events: {len(expansion_prices)}")
             print(f"   Avg normalized price: {avg_norm_price:.2f} (0=low, 1=high)")
             print(f"   Avg % from open: {avg_pct_open:.1f}%")
@@ -297,7 +299,7 @@ def decode_price_levels():
             avg_norm_price = np.mean([p['normalized_price'] for p in consolidation_prices])
             avg_pct_open = np.mean([p['pct_from_open'] for p in consolidation_prices])
             
-            print(f"\n📊 CONSOLIDATION PHASE PRICE CHARACTERISTICS:")
+            print("\n📊 CONSOLIDATION PHASE PRICE CHARACTERISTICS:")
             print(f"   Events: {len(consolidation_prices)}")
             print(f"   Avg normalized price: {avg_norm_price:.2f} (0=low, 1=high)")
             print(f"   Avg % from open: {avg_pct_open:.1f}%")
@@ -309,7 +311,7 @@ def decode_price_levels():
             avg_pct_high = np.mean([p['pct_from_high'] for p in liq_sweep_prices])
             avg_pct_low = np.mean([p['pct_from_low'] for p in liq_sweep_prices])
             
-            print(f"\n⚡ LIQUIDITY SWEEP PRICE CHARACTERISTICS:")
+            print("\n⚡ LIQUIDITY SWEEP PRICE CHARACTERISTICS:")
             print(f"   Events: {len(liq_sweep_prices)}")
             print(f"   Avg normalized price: {avg_norm_price:.2f}")
             print(f"   Avg % from high: {avg_pct_high:.1f}%")
@@ -335,7 +337,7 @@ def main():
     # Analyze price levels
     decode_price_levels()
     
-    print(f"\n✅ CONCRETE ANALYSIS COMPLETE")
+    print("\n✅ CONCRETE ANALYSIS COMPLETE")
     print("Now we know exactly what these patterns represent in market terms!")
 
 if __name__ == "__main__":

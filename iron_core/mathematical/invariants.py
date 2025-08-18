@@ -13,13 +13,12 @@ Mathematical Foundation:
 - Critical threshold: δ_crit = 0.15 (15% semantic drift → architectural failure)
 """
 
-import ast
 import hashlib
 import inspect
 import time
-from typing import Dict, Callable, Any, List
 from dataclasses import dataclass
-from pathlib import Path
+from typing import Any, Callable, Dict, List
+
 
 @dataclass
 class DriftEvent:
@@ -128,7 +127,7 @@ class InvariantGuard:
                 if line_count > 50:  # Arbitrary threshold for function complexity
                     return True
                     
-        except Exception as e:
+        except Exception:
             # If we can't analyze, assume no drift to avoid false positives
             return False
         
@@ -234,7 +233,7 @@ Generated: {time.strftime('%Y-%m-%d %H:%M:%S')}
 """
         
         if checkpoint['high_drift_functions']:
-            report += f"""
+            report += """
 ## ⚠️ High Drift Functions
 These functions are deviating from their intended purpose:
 """
@@ -245,7 +244,7 @@ These functions are deviating from their intended purpose:
         # Recent drift events
         recent_drifts = [d for d in self.drift_log if time.time() - d.timestamp < 3600]
         if recent_drifts:
-            report += f"""
+            report += """
 ## Recent Drift Events (Last Hour)
 """
             for drift in recent_drifts[-10:]:  # Last 10 events

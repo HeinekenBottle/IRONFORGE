@@ -6,17 +6,15 @@ Investigating liq_sweep as initiating event rather than terminal event.
 Focus on discovering what causal chains liq_sweep triggers.
 """
 
-import json
-import pickle
-import numpy as np
-import pandas as pd
-from datetime import datetime, timedelta
 import glob
-from pathlib import Path
-from collections import defaultdict, Counter
-import matplotlib.pyplot as plt
-import seaborn as sns
+import pickle
 import warnings
+from collections import Counter, defaultdict
+from pathlib import Path
+
+import matplotlib.pyplot as plt
+import numpy as np
+
 warnings.filterwarnings('ignore')
 
 def extract_liquidity_sweep_sequences():
@@ -143,7 +141,7 @@ def extract_liquidity_sweep_sequences():
 def analyze_immediate_responses(liq_sweep_sequences, time_windows=[1, 3, 5, 10, 15, 30]):
     """Analyze what happens immediately after liq_sweep events"""
     
-    print(f"\n⚡ IMMEDIATE RESPONSE ANALYSIS")
+    print("\n⚡ IMMEDIATE RESPONSE ANALYSIS")
     print("-" * 50)
     print("Analyzing what events trigger immediately after liq_sweep...")
     
@@ -183,7 +181,7 @@ def analyze_immediate_responses(liq_sweep_sequences, time_windows=[1, 3, 5, 10, 
                         seen_types.add(event['event_type'])
     
     # Report results
-    print(f"\n📊 RESPONSE RATES BY TIME WINDOW:")
+    print("\n📊 RESPONSE RATES BY TIME WINDOW:")
     
     for window_minutes in time_windows:
         data = window_responses[window_minutes]
@@ -195,7 +193,7 @@ def analyze_immediate_responses(liq_sweep_sequences, time_windows=[1, 3, 5, 10, 
         print(f"   Response rate: {responsive}/{total} ({response_rate:.1f}%)")
         
         if data['event_counts']:
-            print(f"   Most common responses:")
+            print("   Most common responses:")
             for event_type, count in data['event_counts'].most_common(5):
                 event_rate = (count / total * 100) if total > 0 else 0
                 print(f"      {event_type}: {count} times ({event_rate:.1f}%)")
@@ -205,7 +203,7 @@ def analyze_immediate_responses(liq_sweep_sequences, time_windows=[1, 3, 5, 10, 
 def discover_catalyst_chains(liq_sweep_sequences, max_chain_length=5):
     """Discover the most common event chains triggered by liq_sweep"""
     
-    print(f"\n🔗 DISCOVERING CATALYST CHAINS")
+    print("\n🔗 DISCOVERING CATALYST CHAINS")
     print("-" * 50)
     print("Finding common event sequences that follow liq_sweep...")
     
@@ -239,7 +237,7 @@ def discover_catalyst_chains(liq_sweep_sequences, max_chain_length=5):
             })
     
     # Report most common chains
-    print(f"\n🔥 MOST COMMON CATALYST CHAINS:")
+    print("\n🔥 MOST COMMON CATALYST CHAINS:")
     
     for chain_length in sorted(chain_patterns.keys()):
         print(f"\n📊 {chain_length}-Event Chains:")
@@ -268,7 +266,7 @@ def discover_catalyst_chains(liq_sweep_sequences, max_chain_length=5):
 def analyze_catalyst_timing_patterns(liq_sweep_sequences):
     """Analyze when liq_sweeps occur and their effectiveness as catalysts"""
     
-    print(f"\n⏰ CATALYST TIMING PATTERN ANALYSIS")
+    print("\n⏰ CATALYST TIMING PATTERN ANALYSIS")
     print("-" * 50)
     
     # Analyze when liq_sweeps occur
@@ -294,7 +292,7 @@ def analyze_catalyst_timing_patterns(liq_sweep_sequences):
         sweep_timing['response_strengths'].append(response_strength)
     
     # Statistical analysis
-    print(f"📊 LIQ_SWEEP CATALYST CHARACTERISTICS:")
+    print("📊 LIQ_SWEEP CATALYST CHARACTERISTICS:")
     
     if sweep_timing['session_positions']:
         avg_position = np.mean(sweep_timing['session_positions'])
@@ -335,7 +333,7 @@ def analyze_catalyst_timing_patterns(liq_sweep_sequences):
         else:
             timing_categories['non_opening'].append(response_strength)
     
-    print(f"\n🎯 CATALYST EFFECTIVENESS BY TIMING:")
+    print("\n🎯 CATALYST EFFECTIVENESS BY TIMING:")
     
     for category, strengths in timing_categories.items():
         if strengths:
@@ -348,7 +346,7 @@ def analyze_catalyst_timing_patterns(liq_sweep_sequences):
 def test_specific_catalyst_hypotheses(liq_sweep_sequences):
     """Test specific hypotheses about liq_sweep catalyst behavior"""
     
-    print(f"\n🧪 TESTING CATALYST HYPOTHESES")
+    print("\n🧪 TESTING CATALYST HYPOTHESES")
     print("=" * 60)
     
     hypotheses_results = {}
@@ -474,7 +472,7 @@ def test_specific_catalyst_hypotheses(liq_sweep_sequences):
 def create_catalyst_visualization(liq_sweep_sequences, window_responses, chain_patterns, hypotheses_results):
     """Create comprehensive visualization of liq_sweep catalyst behavior"""
     
-    print(f"\n📈 CREATING CATALYST VISUALIZATION")
+    print("\n📈 CREATING CATALYST VISUALIZATION")
     print("-" * 50)
     
     if not liq_sweep_sequences:
@@ -515,7 +513,7 @@ def create_catalyst_visualization(liq_sweep_sequences, window_responses, chain_p
         ax2.tick_params(axis='x', rotation=45)
         
         # Add value labels on bars
-        for bar, count in zip(bars, event_counts):
+        for bar, count in zip(bars, event_counts, strict=False):
             height = bar.get_height()
             ax2.text(bar.get_x() + bar.get_width()/2., height + 0.1,
                     f'{count}', ha='center', va='bottom')
@@ -560,7 +558,7 @@ def create_catalyst_visualization(liq_sweep_sequences, window_responses, chain_p
     ax5.grid(True, alpha=0.3)
     
     # Add value labels
-    for bar, rate in zip(bars, hypothesis_rates):
+    for bar, rate in zip(bars, hypothesis_rates, strict=False):
         height = bar.get_height()
         ax5.text(bar.get_x() + bar.get_width()/2., height + 1,
                 f'{rate:.1f}%', ha='center', va='bottom')
@@ -625,14 +623,14 @@ def main():
     viz_path = create_catalyst_visualization(liq_sweep_sequences, window_responses, chain_patterns, hypotheses_results)
     
     # Summary
-    print(f"\n⚡ LIQUIDITY SWEEP CATALYST SUMMARY")
+    print("\n⚡ LIQUIDITY SWEEP CATALYST SUMMARY")
     print("=" * 60)
     
     total_sweeps = liq_sweep_stats['total_sweeps']
     catalyst_sequences = len(liq_sweep_sequences)
     sessions_with_sweeps = liq_sweep_stats['sessions_with_sweeps']
     
-    print(f"📊 Analysis Scope:")
+    print("📊 Analysis Scope:")
     print(f"   Total liq_sweeps found: {total_sweeps}")
     print(f"   Catalyst sequences analyzed: {catalyst_sequences}")
     print(f"   Sessions with sweeps: {sessions_with_sweeps}")
@@ -643,12 +641,12 @@ def main():
         sequences_with_response = sum(1 for seq in liq_sweep_sequences if seq['following_events'])
         response_rate = (sequences_with_response / catalyst_sequences * 100)
         
-        print(f"\n⚡ CATALYST EFFECTIVENESS:")
+        print("\n⚡ CATALYST EFFECTIVENESS:")
         print(f"   Overall response rate: {sequences_with_response}/{catalyst_sequences} ({response_rate:.1f}%)")
         print(f"   Average response strength: {avg_response_strength:.1f} events per sweep")
     
     # Top hypothesis results
-    print(f"\n🏆 TOP CATALYST PATTERNS:")
+    print("\n🏆 TOP CATALYST PATTERNS:")
     if hypotheses_results:
         sorted_hypotheses = sorted(hypotheses_results.items(), 
                                  key=lambda x: x[1]['occurrences'], reverse=True)
@@ -658,16 +656,16 @@ def main():
             print(f"   #{i+1}: {h_data['name']}")
             print(f"       Success rate: {h_data['occurrences']}/{catalyst_sequences} ({rate:.1f}%)")
     
-    print(f"\n✅ CATALYST INVESTIGATION COMPLETE")
+    print("\n✅ CATALYST INVESTIGATION COMPLETE")
     print(f"💾 Results visualization: {viz_path}")
     
     if catalyst_sequences > 0:
-        print(f"\n🚀 BREAKTHROUGH: liq_sweep confirmed as market catalyst!")
-        print(f"   Liquidity sweeps trigger measurable market responses with predictable patterns.")
-        print(f"   This enables proactive positioning based on sweep detection.")
+        print("\n🚀 BREAKTHROUGH: liq_sweep confirmed as market catalyst!")
+        print("   Liquidity sweeps trigger measurable market responses with predictable patterns.")
+        print("   This enables proactive positioning based on sweep detection.")
     else:
-        print(f"\n📝 Result: Limited liq_sweep catalyst activity detected.")
-        print(f"   Consider expanding analysis window or lowering detection thresholds.")
+        print("\n📝 Result: Limited liq_sweep catalyst activity detected.")
+        print("   Consider expanding analysis window or lowering detection thresholds.")
 
 if __name__ == "__main__":
     main()

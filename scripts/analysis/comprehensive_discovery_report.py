@@ -5,12 +5,14 @@ Comprehensive IRONFORGE Discovery Report
 Deep analysis of what the enhanced system with Simple Event-Time Clustering discovers
 """
 
-import pickle
-import json
 import glob
-from pathlib import Path
+import json
+import pickle
 from collections import Counter, defaultdict
+from pathlib import Path
+
 import numpy as np
+
 
 def analyze_all_sessions():
     """Analyze all preserved sessions comprehensively"""
@@ -48,7 +50,7 @@ def analyze_all_sessions():
             print(f"  ❌ {session_name}: Error - {e}")
     
     # Aggregate analysis
-    print(f"\n📊 AGGREGATE RESULTS:")
+    print("\n📊 AGGREGATE RESULTS:")
     print(f"   Sessions analyzed: {len(all_session_data)}")
     print(f"   Total nodes: {total_nodes}")
     print(f"   Total semantic events: {total_semantic_events}")
@@ -70,12 +72,12 @@ def analyze_all_sessions():
             for event_type, pattern_data in session['time_patterns'].items():
                 temporal_distribution[event_type].extend(pattern_data)
     
-    print(f"\n🔥 EVENT TYPE DISTRIBUTION:")
+    print("\n🔥 EVENT TYPE DISTRIBUTION:")
     for event_type, count in sorted(aggregate_events.items(), key=lambda x: x[1], reverse=True):
         percentage = (count / total_semantic_events) * 100 if total_semantic_events > 0 else 0
         print(f"   {event_type}: {count} events ({percentage:.1f}%)")
     
-    print(f"\n📈 SESSION TYPE ANALYSIS:")
+    print("\n📈 SESSION TYPE ANALYSIS:")
     for session_type, count in session_types.most_common():
         print(f"   {session_type}: {count} sessions")
     
@@ -191,7 +193,7 @@ def extract_session_type(session_name):
 def analyze_temporal_patterns(session_data):
     """Analyze temporal patterns across sessions"""
     
-    print(f"\n🕐 TEMPORAL PATTERN ANALYSIS:")
+    print("\n🕐 TEMPORAL PATTERN ANALYSIS:")
     print("-" * 50)
     
     # Aggregate time patterns by event type
@@ -220,7 +222,7 @@ def analyze_temporal_patterns(session_data):
                 sorted_times = sorted(time_distribution.items(), key=lambda x: x[1], reverse=True)
                 peak_times = sorted_times[:5]
                 
-                print(f"   Peak activity periods:")
+                print("   Peak activity periods:")
                 for time_bin, count in peak_times:
                     percentage = (count / total_events) * 100
                     print(f"     {time_bin}: {count} events ({percentage:.1f}%)")
@@ -234,7 +236,7 @@ def analyze_temporal_patterns(session_data):
 def analyze_pattern_quality(session_data):
     """Analyze the quality and characteristics of discovered patterns"""
     
-    print(f"\n📊 PATTERN QUALITY ANALYSIS:")
+    print("\n📊 PATTERN QUALITY ANALYSIS:")
     print("-" * 50)
     
     # Event density analysis
@@ -245,7 +247,7 @@ def analyze_pattern_quality(session_data):
         max_density = np.max(densities)
         min_density = np.min(densities)
         
-        print(f"📈 Event Density Statistics:")
+        print("📈 Event Density Statistics:")
         print(f"   Average: {avg_density:.1f}%")
         print(f"   Range: {min_density:.1f}% - {max_density:.1f}%")
         
@@ -254,7 +256,7 @@ def analyze_pattern_quality(session_data):
         medium_quality = [s for s in session_data if 10 <= s['event_percentage'] <= 25]
         low_quality = [s for s in session_data if s['event_percentage'] < 10]
         
-        print(f"\n🎯 Session Quality Distribution:")
+        print("\n🎯 Session Quality Distribution:")
         print(f"   High quality (>25% events): {len(high_quality)} sessions")
         print(f"   Medium quality (10-25%): {len(medium_quality)} sessions")
         print(f"   Low quality (<10%): {len(low_quality)} sessions")
@@ -262,14 +264,14 @@ def analyze_pattern_quality(session_data):
         # Show best sessions
         if high_quality:
             best_sessions = sorted(high_quality, key=lambda x: x['event_percentage'], reverse=True)[:3]
-            print(f"\n🏆 Top Sessions:")
+            print("\n🏆 Top Sessions:")
             for session in best_sessions:
                 print(f"   {session['session_name']}: {session['event_percentage']:.1f}% ({session['total_semantic_events']} events)")
 
 def analyze_discovered_patterns():
     """Analyze the 500 patterns from TGAT discovery"""
     
-    print(f"\n🧠 TGAT PATTERN ANALYSIS:")
+    print("\n🧠 TGAT PATTERN ANALYSIS:")
     print("-" * 50)
     
     try:
@@ -297,7 +299,7 @@ def analyze_discovered_patterns():
             if 'temporal_features' in pattern:
                 pattern_analysis['temporal_info'].append(pattern['temporal_features'])
         
-        print(f"\n📈 Pattern Type Breakdown:")
+        print("\n📈 Pattern Type Breakdown:")
         for ptype, count in pattern_analysis['types'].most_common():
             percentage = (count / len(patterns)) * 100
             print(f"   {ptype}: {count} ({percentage:.1f}%)")
@@ -318,19 +320,19 @@ def main():
     tgat_patterns = analyze_discovered_patterns()
     
     # Final insights
-    print(f"\n🎯 KEY INSIGHTS:")
+    print("\n🎯 KEY INSIGHTS:")
     print("=" * 50)
     
     if session_results:
         total_events = sum(s['total_semantic_events'] for s in session_results)
         total_nodes = sum(s['total_nodes'] for s in session_results)
         
-        print(f"✅ IRONFORGE Enhanced System Performance:")
+        print("✅ IRONFORGE Enhanced System Performance:")
         print(f"   • {len(session_results)} sessions analyzed")
         print(f"   • {total_events} semantic events detected")
         print(f"   • {(total_events/total_nodes)*100:.1f}% overall event detection rate")
-        print(f"   • Time clustering operational for temporal intelligence")
-        print(f"   • Cross-timeframe mapping capturing HTF context")
+        print("   • Time clustering operational for temporal intelligence")
+        print("   • Cross-timeframe mapping capturing HTF context")
         
         # Event type insights
         event_counts = defaultdict(int)
@@ -338,17 +340,17 @@ def main():
             for event_type, count in session['semantic_events'].items():
                 event_counts[event_type] += count
         
-        print(f"\n🔥 Dominant Market Events:")
+        print("\n🔥 Dominant Market Events:")
         for event_type, count in sorted(event_counts.items(), key=lambda x: x[1], reverse=True):
             if count > 0:
                 print(f"   • {event_type}: {count} occurrences")
         
-        print(f"\n💡 Simple Event-Time Clustering + Cross-TF Mapping delivers:")
-        print(f"   • When events cluster: Temporal distribution analysis")
-        print(f"   • What HTF context: Cross-timeframe relationship mapping")
-        print(f"   • Rich archaeological intelligence: Market phase detection")
+        print("\n💡 Simple Event-Time Clustering + Cross-TF Mapping delivers:")
+        print("   • When events cluster: Temporal distribution analysis")
+        print("   • What HTF context: Cross-timeframe relationship mapping")
+        print("   • Rich archaeological intelligence: Market phase detection")
     
-    print(f"\n🚀 Your enhanced IRONFORGE system is fully operational!")
+    print("\n🚀 Your enhanced IRONFORGE system is fully operational!")
 
 if __name__ == "__main__":
     main()

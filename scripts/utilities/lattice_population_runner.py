@@ -13,19 +13,20 @@ Author: IRONFORGE Archaeological Discovery System
 Date: August 16, 2025
 """
 
-import sys
-import json
-import time
-from pathlib import Path
-from typing import Dict, List, Any, Tuple
-from datetime import datetime
 import glob
+import json
+import sys
+import time
+from datetime import datetime
+from pathlib import Path
+from typing import Dict, List
 
 # Add current directory to path for imports
 sys.path.append(str(Path(__file__).parent))
 
-from analysis.timeframe_lattice_mapper import TimeframeLatticeMapper
 from analysis.enhanced_session_adapter import EnhancedSessionAdapter
+from analysis.timeframe_lattice_mapper import TimeframeLatticeMapper
+
 
 class LatticePopulationRunner:
     """Populates the complete IRONFORGE lattice with all available enhanced sessions"""
@@ -107,7 +108,7 @@ class LatticePopulationRunner:
         unique_files = list(set(found_files))
         unique_files.sort()
         
-        print(f"📁 Search patterns used:")
+        print("📁 Search patterns used:")
         for pattern in search_patterns:
             print(f"   {pattern}")
         
@@ -217,7 +218,7 @@ class LatticePopulationRunner:
         total_sessions = self.run_stats['sessions_processed'] + self.run_stats['sessions_failed']
         success_rate = (self.run_stats['sessions_processed'] / total_sessions * 100) if total_sessions > 0 else 0
         
-        print(f"📊 Session Processing:")
+        print("📊 Session Processing:")
         print(f"   Sessions processed: {self.run_stats['sessions_processed']}")
         print(f"   Sessions failed: {self.run_stats['sessions_failed']}")
         print(f"   Success rate: {success_rate:.1f}%")
@@ -231,7 +232,7 @@ class LatticePopulationRunner:
         
         # Lattice statistics
         if lattice_dataset:
-            print(f"\n🗺️ Lattice Structure:")
+            print("\n🗺️ Lattice Structure:")
             print(f"   Total nodes: {len(lattice_dataset.nodes)}")
             print(f"   Total connections: {len(lattice_dataset.connections)}")
             print(f"   Hot zones detected: {len(lattice_dataset.hot_zones)}")
@@ -242,13 +243,13 @@ class LatticePopulationRunner:
                 tf = node.coordinate.absolute_timeframe
                 timeframe_dist[tf] = timeframe_dist.get(tf, 0) + 1
             
-            print(f"\n📈 Timeframe Distribution:")
+            print("\n📈 Timeframe Distribution:")
             for tf, count in sorted(timeframe_dist.items()):
                 print(f"   {tf}: {count} nodes")
             
             # Hot zone analysis
             if lattice_dataset.hot_zones:
-                print(f"\n🔥 Top Hot Zones:")
+                print("\n🔥 Top Hot Zones:")
                 sorted_zones = sorted(
                     lattice_dataset.hot_zones.items(), 
                     key=lambda x: x[1].total_events, 
@@ -263,15 +264,15 @@ class LatticePopulationRunner:
             max_time = max(self.run_stats['processing_times'])
             ironforge_standard = 5.0  # <5s standard
             
-            print(f"\n⚡ Performance Analysis:")
+            print("\n⚡ Performance Analysis:")
             print(f"   Max processing time: {max_time:.3f}s")
             if max_time < ironforge_standard:
                 print(f"   ✅ Within IRONFORGE <{ironforge_standard}s standard")
             else:
                 print(f"   ⚠️ Exceeds {ironforge_standard}s standard")
         
-        print(f"\n✅ GLOBAL LATTICE POPULATION COMPLETE")
-        print(f"   Ready for hot zone analysis and PM belt overlay")
+        print("\n✅ GLOBAL LATTICE POPULATION COMPLETE")
+        print("   Ready for hot zone analysis and PM belt overlay")
 
 def main():
     """Run the complete lattice population"""
@@ -280,10 +281,10 @@ def main():
     lattice_dataset = runner.run_complete_population()
     
     if lattice_dataset:
-        print(f"\n🎉 Success! Global lattice populated with comprehensive archaeological data")
+        print("\n🎉 Success! Global lattice populated with comprehensive archaeological data")
         print(f"📁 Results available in: {runner.output_dir}")
     else:
-        print(f"\n❌ Population failed - check error messages above")
+        print("\n❌ Population failed - check error messages above")
 
 if __name__ == "__main__":
     main()

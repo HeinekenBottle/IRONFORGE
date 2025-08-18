@@ -16,7 +16,12 @@ Status: Production Ready
 """
 
 from .performance.container import IRONContainer, get_container, initialize_container
-from .performance.lazy_loader import LazyComponent, LazyLoadingManager, get_lazy_manager, initialize_lazy_loading
+from .performance.lazy_loader import (
+    LazyComponent,
+    LazyLoadingManager,
+    get_lazy_manager,
+    initialize_lazy_loading,
+)
 
 __version__ = "1.0.0"
 __author__ = "IRON Ecosystem"

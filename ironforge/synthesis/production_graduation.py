@@ -4,18 +4,16 @@ Bridge validated patterns to production features
 """
 
 import json
-import torch
-import numpy as np
-from typing import Dict, List, Any, Optional
-from pathlib import Path
 import logging
 from datetime import datetime
+from pathlib import Path
+from typing import Any
 
 try:
     from config import get_config
 except ImportError:
-    import sys
     import os
+    import sys
     sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
     from config import get_config
 
@@ -30,7 +28,7 @@ class ProductionGraduation:
     Each export is completely isolated and cannot be contaminated by previous sessions.
     """
     
-    def __init__(self, output_path: Optional[Path] = None):
+    def __init__(self, output_path: Path | None = None):
         if output_path is None:
             config = get_config()
             preservation_path = config.get_preservation_path()
@@ -40,7 +38,7 @@ class ProductionGraduation:
         # REMOVED: self.production_features = [] to ensure session independence
         logger.info(f"Production Graduation initialized, output: {self.output_path}")
     
-    def export_graduated_patterns(self, graduation_results: Dict[str, Any]) -> Dict[str, Any]:
+    def export_graduated_patterns(self, graduation_results: dict[str, Any]) -> dict[str, Any]:
         """
         Export graduated patterns as production features
         
@@ -99,7 +97,7 @@ class ProductionGraduation:
                 'session_name': graduation_results.get('session_name', 'unknown')
             }
     
-    def _convert_to_production_features(self, graduation_results: Dict[str, Any]) -> Dict[str, Any]:
+    def _convert_to_production_features(self, graduation_results: dict[str, Any]) -> dict[str, Any]:
         """Convert graduation results to production feature format"""
         
         session_name = graduation_results.get('session_name', 'unknown')
@@ -156,7 +154,7 @@ class ProductionGraduation:
         
         return classification_map.get(metric_name, 'unknown_pattern')
     
-    def _validate_production_features(self, features: Dict[str, Any]) -> Dict[str, Any]:
+    def _validate_production_features(self, features: dict[str, Any]) -> dict[str, Any]:
         """Validate production feature format and content"""
         
         errors = []
@@ -188,7 +186,7 @@ class ProductionGraduation:
             'warnings': warnings
         }
     
-    def _validate_single_feature(self, feature: Dict[str, Any], index: int) -> List[str]:
+    def _validate_single_feature(self, feature: dict[str, Any], index: int) -> list[str]:
         """Validate individual production feature"""
         
         errors = []
@@ -217,7 +215,7 @@ class ProductionGraduation:
         
         return errors
     
-    def _export_to_file(self, production_features: Dict[str, Any]) -> Dict[str, Any]:
+    def _export_to_file(self, production_features: dict[str, Any]) -> dict[str, Any]:
         """Export production features to file"""
         
         try:
@@ -228,7 +226,7 @@ class ProductionGraduation:
             existing_features = []
             if self.output_path.exists():
                 try:
-                    with open(self.output_path, 'r') as f:
+                    with open(self.output_path) as f:
                         existing_data = json.load(f)
                         if isinstance(existing_data, list):
                             existing_features = existing_data
@@ -257,7 +255,7 @@ class ProductionGraduation:
                 'error': str(e)
             }
     
-    def get_production_summary(self) -> Dict[str, Any]:
+    def get_production_summary(self) -> dict[str, Any]:
         """Get summary of production system configuration
         
         NOTE: No historical data is maintained to ensure session independence.

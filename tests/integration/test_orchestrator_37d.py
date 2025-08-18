@@ -81,7 +81,7 @@ def test_orchestrator_37d():
     
     print(f"\n🏆 SUCCESS: Processed {len(session_files)} sessions")
     print(f"🔍 Total patterns discovered: {total_patterns}")
-    print(f"✅ IRONFORGE orchestrator works with 37D temporal cycle features!")
+    print("✅ IRONFORGE orchestrator works with 37D temporal cycle features!")
     
     return True
 

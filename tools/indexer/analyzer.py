@@ -12,11 +12,9 @@ Deep AST-based analysis of Python source code to extract:
 """
 
 import ast
-import inspect
-from pathlib import Path
-from typing import Dict, Any, List, Optional, Set
-import re
 import logging
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Set
 
 
 class CodeAnalyzer:

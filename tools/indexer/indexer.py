@@ -7,16 +7,14 @@ Main orchestrator for deep semantic analysis of the IRONFORGE codebase.
 Coordinates AST analysis, engine classification, and report generation.
 """
 
-import os
-import json
+import logging
 import time
 from pathlib import Path
-from typing import Dict, Any, List, Optional
-import logging
+from typing import Any, Dict, List, Optional
 
 from .analyzer import CodeAnalyzer
-from .engine_classifier import EngineClassifier
 from .dependency_mapper import DependencyMapper
+from .engine_classifier import EngineClassifier
 from .report_generator import ReportGenerator
 
 
@@ -364,7 +362,7 @@ class IRONFORGEIndexer:
                 relative_path = file_path.relative_to(self.project_root)
                 analysis = self.analyzer.analyze_file(file_path, quick_mode=True)
                 file_analyses[str(relative_path)] = analysis
-            except Exception as e:
+            except Exception:
                 continue
         
         if focus == 'engines':

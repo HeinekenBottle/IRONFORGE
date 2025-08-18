@@ -7,15 +7,17 @@ Monitors 37D + 4 edge types performance vs baseline to ensure Sprint 2
 structural intelligence additions maintain acceptable performance levels.
 """
 
-import time
-import psutil
 import json
 import logging
-from datetime import datetime
-from typing import Dict, List, Any, Optional, Tuple
+import time
 from dataclasses import dataclass
-import numpy as np
+from datetime import datetime
 from pathlib import Path
+from typing import Any, Dict
+
+import numpy as np
+import psutil
+
 
 @dataclass
 class PerformanceMetrics:
@@ -439,7 +441,7 @@ def main():
         
         # Show Sprint 2 analysis
         sprint2_analysis = results['performance_report']['sprint2_analysis']
-        print(f"\n🎯 Sprint 2 Analysis:")
+        print("\n🎯 Sprint 2 Analysis:")
         print(f"   Feature architecture: {sprint2_analysis['feature_architecture_status']}")
         print(f"   Edge types: {sprint2_analysis['edge_types_status']}")
         
@@ -447,11 +449,11 @@ def main():
         if 'regression_analysis' in results['performance_report']:
             regression = results['performance_report']['regression_analysis']
             if regression['regression_detected']:
-                print(f"\n⚠️  Performance regression detected:")
+                print("\n⚠️  Performance regression detected:")
                 for reg in regression['regressions']:
                     print(f"   - {reg}")
             else:
-                print(f"\n✅ No performance regression detected")
+                print("\n✅ No performance regression detected")
                 if regression['improvements']:
                     for imp in regression['improvements']:
                         print(f"   + {imp}")

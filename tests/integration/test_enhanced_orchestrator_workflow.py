@@ -148,7 +148,7 @@ def test_enhanced_workflow():
         }
         
         time_patterns = forge._analyze_time_patterns(test_graph, session_file)
-        print(f"✅ Time pattern analysis completed")
+        print("✅ Time pattern analysis completed")
         print(f"   Events analyzed: {time_patterns['analysis_metadata']['total_events_analyzed']}")
         print(f"   Clusters found: {len(time_patterns['event_clusters'])}")
         print(f"   Processing time: {time_patterns['analysis_metadata']['processing_time_ms']:.1f}ms")
@@ -168,7 +168,7 @@ def test_enhanced_workflow():
         if 'time_patterns' not in metadata:
             metadata['time_patterns'] = time_patterns
         
-        print(f"✅ Metadata enriched with time_patterns")
+        print("✅ Metadata enriched with time_patterns")
         print(f"   Total metadata keys: {len(metadata)}")
         print(f"   Time patterns keys: {len(metadata['time_patterns'])}")
         
@@ -297,7 +297,7 @@ if __name__ == "__main__":
         print("✅ Performance targets met (<50ms overhead per session)")
         print("✅ Non-invasive integration preserves all existing functionality")
         
-        print(f"\n🚀 INTEGRATION COMPLETE - IRONFORGE Enhanced Ready!")
+        print("\n🚀 INTEGRATION COMPLETE - IRONFORGE Enhanced Ready!")
         print("The system now provides:")
         print("  • Event clustering analysis ('when events cluster')")
         print("  • Cross-timeframe mapping ('what HTF context')")

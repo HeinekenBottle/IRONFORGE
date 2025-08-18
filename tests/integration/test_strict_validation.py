@@ -274,12 +274,12 @@ def print_test_summary(component_name, results):
         print(f"\n❌ Correctly failed: {', '.join(results['failed_as_expected'])}")
     
     if results['unexpected_passes']:
-        print(f"\n⚠️  CONCERN - Unexpected passes:")
+        print("\n⚠️  CONCERN - Unexpected passes:")
         for test in results['unexpected_passes']:
             print(f"   • {test} (should have failed)")
     
     if results['unexpected_failures']:
-        print(f"\n💥 CONCERN - Unexpected failures:")
+        print("\n💥 CONCERN - Unexpected failures:")
         for test, error in results['unexpected_failures']:
             print(f"   • {test}: {error[:80]}...")
     
@@ -462,20 +462,20 @@ def test_sprint2_regime_labels():
             
             if is_valid and test_name == 'valid_regime_labels':
                 results['passed_validation'].append(test_name)
-                print(f"   ✅ Regime labels validated successfully")
+                print("   ✅ Regime labels validated successfully")
                 
             elif not is_valid and test_name != 'valid_regime_labels':
                 results['failed_as_expected'].append(test_name) 
-                print(f"   ✅ Regime validation failed as expected")
+                print("   ✅ Regime validation failed as expected")
                 
             else:
                 # Unexpected result
                 if is_valid:
                     results['unexpected_passes'].append(test_name)
-                    print(f"   ⚠️ Unexpected pass")
+                    print("   ⚠️ Unexpected pass")
                 else:
                     results['unexpected_failures'].append((test_name, "Validation failed"))
-                    print(f"   ❌ Unexpected failure")
+                    print("   ❌ Unexpected failure")
                     
         except Exception as e:
             results['unexpected_failures'].append((test_name, str(e)))
@@ -530,20 +530,20 @@ def test_sprint2_precursor_index():
             
             if is_valid and test_name == 'valid_precursor_index':
                 results['passed_validation'].append(test_name)
-                print(f"   ✅ Precursor index validated successfully")
+                print("   ✅ Precursor index validated successfully")
                 
             elif not is_valid and test_name != 'valid_precursor_index':
                 results['failed_as_expected'].append(test_name)
-                print(f"   ✅ Precursor validation failed as expected")
+                print("   ✅ Precursor validation failed as expected")
                 
             else:
                 # Unexpected result
                 if is_valid:
                     results['unexpected_passes'].append(test_name)
-                    print(f"   ⚠️ Unexpected pass")
+                    print("   ⚠️ Unexpected pass")
                 else:
                     results['unexpected_failures'].append((test_name, "Validation failed"))
-                    print(f"   ❌ Unexpected failure")
+                    print("   ❌ Unexpected failure")
                     
         except Exception as e:
             results['unexpected_failures'].append((test_name, str(e)))
@@ -686,12 +686,12 @@ def main():
         print(f"\n❌ Correctly failed: {', '.join(combined_sprint2_results['failed_as_expected'])}")
     
     if combined_sprint2_results['unexpected_passes']:
-        print(f"\n⚠️  Unexpected passes:")
+        print("\n⚠️  Unexpected passes:")
         for test in combined_sprint2_results['unexpected_passes']:
             print(f"   • {test}")
     
     if combined_sprint2_results['unexpected_failures']:
-        print(f"\n💥 CONCERN - Unexpected failures:")
+        print("\n💥 CONCERN - Unexpected failures:")
         for test, error in combined_sprint2_results['unexpected_failures']:
             print(f"   • {test}: {error[:80]}...")
     

@@ -14,11 +14,9 @@ This layer focuses on:
 """
 
 from abc import ABC, abstractmethod
-from typing import Dict, List, Any, Tuple, Optional, Generic, TypeVar
 from dataclasses import dataclass
 from enum import Enum
-from decimal import Decimal
-import numpy as np
+from typing import Any, Dict, Generic, List, Tuple, TypeVar
 
 T = TypeVar('T')
 
@@ -424,7 +422,7 @@ if __name__ == "__main__":
         print(f"{model_name:20}: {status}")
     
     # Demonstrate Hawkes theory
-    print(f"\n📊 HAWKES PROCESS DEMONSTRATION")
+    print("\n📊 HAWKES PROCESS DEMONSTRATION")
     print("=" * 40)
     
     hawkes = HawkesTheoryAbstraction()

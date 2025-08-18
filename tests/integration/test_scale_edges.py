@@ -135,7 +135,7 @@ class TestHTFScaleEdges(unittest.TestCase):
         for edge in mappings_1m_to_5m:
             self.assertEqual(edge['coverage'], 5, "5m node should have coverage=5")
             
-        print(f"✅ Scale edge mappings follow htf_cross_map correctly")
+        print("✅ Scale edge mappings follow htf_cross_map correctly")
         
     def test_scale_edge_features(self):
         """Test that scale edges have proper 17D features"""
@@ -159,7 +159,7 @@ class TestHTFScaleEdges(unittest.TestCase):
             self.assertEqual(feature_tensor.shape[0], 17, "Edge features should be 17-dimensional")
             self.assertTrue(torch.is_tensor(feature_tensor), "Should be a valid tensor")
             
-        print(f"✅ Scale edges have proper 17D features")
+        print("✅ Scale edges have proper 17D features")
         
     def test_tgat_compatibility(self):
         """Test that HTF graphs maintain TGAT compatibility"""
@@ -223,7 +223,7 @@ class TestHTFScaleEdges(unittest.TestCase):
         htf_scale_edges = [e for e in scale_edges if 'tf_source' in e]
         self.assertEqual(len(htf_scale_edges), 0, "Should have no HTF scale edges in fallback mode")
         
-        print(f"✅ Graceful fallback to 1m-only mode works correctly")
+        print("✅ Graceful fallback to 1m-only mode works correctly")
 
 def run_scale_edge_tests():
     """Run all scale edge tests"""

@@ -7,8 +7,9 @@ Target the 33 contaminated TGAT-ready sessions that need decontamination.
 """
 
 import json
-from phase2_feature_pipeline_enhancement import FeaturePipelineEnhancer
 import logging
+
+from phase2_feature_pipeline_enhancement import FeaturePipelineEnhancer
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -64,7 +65,7 @@ def main():
                 logger.error(f"❌ Exception processing {session_filename}: {e}")
     
     print(f"\n{'='*60}")
-    print(f"CONTAMINATED SESSION ENHANCEMENT COMPLETE")
+    print("CONTAMINATED SESSION ENHANCEMENT COMPLETE")
     print(f"{'='*60}")
     print(f"Total Sessions Processed: {len(contaminated_sessions)}")
     print(f"Successfully Enhanced: {total_enhanced}")

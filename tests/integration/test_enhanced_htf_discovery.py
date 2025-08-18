@@ -32,7 +32,7 @@ def test_enhanced_htf_discovery():
         print("🧠 Starting enhanced cross-TF discovery...")
         results = forge.process_sessions(test_sessions)
         
-        print(f"\n📊 ENHANCED DISCOVERY RESULTS:")
+        print("\n📊 ENHANCED DISCOVERY RESULTS:")
         print(f"  Sessions processed: {results['sessions_processed']}")
         print(f"  Total patterns discovered: {len(results['patterns_discovered'])}")
         
@@ -42,7 +42,7 @@ def test_enhanced_htf_discovery():
             ptype = pattern.get('type', 'unknown')
             pattern_types[ptype] = pattern_types.get(ptype, 0) + 1
         
-        print(f"\n🎯 PATTERN TYPE BREAKDOWN:")
+        print("\n🎯 PATTERN TYPE BREAKDOWN:")
         for ptype, count in sorted(pattern_types.items()):
             print(f"    {ptype}: {count}")
         
@@ -55,13 +55,13 @@ def test_enhanced_htf_discovery():
         new_pattern_count = sum(pattern_types.get(ptype, 0) for ptype in cross_tf_patterns)
         old_pattern_count = len(results['patterns_discovered']) - new_pattern_count
         
-        print(f"\n✨ CROSS-TIMEFRAME PATTERN ANALYSIS:")
+        print("\n✨ CROSS-TIMEFRAME PATTERN ANALYSIS:")
         print(f"  Traditional patterns: {old_pattern_count}")
         print(f"  NEW Cross-TF patterns: {new_pattern_count}")
         print(f"  Cross-TF discovery rate: {new_pattern_count/len(results['patterns_discovered'])*100:.1f}%")
         
         # Show sample cross-TF patterns
-        print(f"\n🔍 SAMPLE CROSS-TIMEFRAME PATTERNS:")
+        print("\n🔍 SAMPLE CROSS-TIMEFRAME PATTERNS:")
         for pattern in results['patterns_discovered'][:10]:
             if pattern['type'] in cross_tf_patterns:
                 print(f"  • {pattern['type']}: {pattern}")
@@ -70,7 +70,7 @@ def test_enhanced_htf_discovery():
         # Test success criteria
         success = True
         if new_pattern_count == 0:
-            print(f"\n❌ FAILURE: No cross-timeframe patterns discovered!")
+            print("\n❌ FAILURE: No cross-timeframe patterns discovered!")
             success = False
         elif new_pattern_count < 5:
             print(f"\n⚠️ WARNING: Only {new_pattern_count} cross-TF patterns (expected >5)")
@@ -88,8 +88,8 @@ def test_enhanced_htf_discovery():
 if __name__ == "__main__":
     success = test_enhanced_htf_discovery()
     if success:
-        print(f"\n🎉 Enhanced HTF discovery test PASSED")
-        print(f"🚀 Ready for full 61-session test")
+        print("\n🎉 Enhanced HTF discovery test PASSED")
+        print("🚀 Ready for full 61-session test")
     else:
-        print(f"\n💥 Enhanced HTF discovery test FAILED")
-        print(f"🔧 Check implementation for issues")
+        print("\n💥 Enhanced HTF discovery test FAILED")
+        print("🔧 Check implementation for issues")

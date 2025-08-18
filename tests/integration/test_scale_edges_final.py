@@ -32,7 +32,7 @@ def test_complete_archaeological_pipeline():
     graph_data = graph_builder.build_rich_graph(htf_data)
     
     # Analyze graph structure
-    print(f"\n📊 Graph Analysis:")
+    print("\n📊 Graph Analysis:")
     print(f"  📍 Node dictionary: {len(graph_data['nodes'])} entries")
     print(f"  🔗 Edge dictionary: {len(graph_data['edges'])} entries")
     print(f"  🧠 Rich node features: {len(graph_data['rich_node_features'])}")
@@ -54,13 +54,13 @@ def test_complete_archaeological_pipeline():
         if price_level > 0:
             price_level_counts[timeframe] = price_level_counts.get(timeframe, 0) + 1
     
-    print(f"\n⏰ Timeframe Distribution:")
+    print("\n⏰ Timeframe Distribution:")
     for tf, count in timeframe_counts.items():
         valid_prices = price_level_counts.get(tf, 0)
         print(f"  {tf}: {count} nodes ({valid_prices} with valid prices)")
     
     # Convert to TGAT format for tensor analysis
-    print(f"\n🧠 Converting to TGAT Format...")
+    print("\n🧠 Converting to TGAT Format...")
     X, edge_index, edge_times, metadata, edge_attr = graph_builder.to_tgat_format(graph_data)
     
     print(f"  X (node features): {X.shape}")
@@ -92,11 +92,11 @@ def test_complete_archaeological_pipeline():
             if source_tf != target_tf and source_tf != 'unknown' and target_tf != 'unknown':
                 scale_edges += 1
     
-    print(f"\n⚖️ Scale Edge Analysis:")
+    print("\n⚖️ Scale Edge Analysis:")
     print(f"  Cross-timeframe edges: {scale_edges}/{total_edges} ({scale_edges/total_edges*100:.1f}%)")
     
     # Initialize TGAT discovery
-    print(f"\n🏛️ Running TGAT Archaeological Discovery...")
+    print("\n🏛️ Running TGAT Archaeological Discovery...")
     tgat_discovery = IRONFORGEDiscovery()
     
     # Test learn_session with full tensor pipeline
@@ -110,7 +110,7 @@ def test_complete_archaeological_pipeline():
         pattern_types[pattern_type] = pattern_types.get(pattern_type, 0) + 1
     
     print(f"  🎯 Patterns discovered: {len(patterns)}")
-    print(f"  📊 Pattern breakdown:")
+    print("  📊 Pattern breakdown:")
     for pattern_type, count in pattern_types.items():
         print(f"    {pattern_type}: {count}")
     
@@ -125,7 +125,7 @@ def test_complete_archaeological_pipeline():
         ("Scale edge percentage", scale_edges/total_edges > 0.1)  # >10% scale edges
     ]
     
-    print(f"\n✅ Archaeological Pipeline Validation:")
+    print("\n✅ Archaeological Pipeline Validation:")
     all_passed = True
     for criterion, passed in success_criteria:
         status = "✅ PASS" if passed else "❌ FAIL"
@@ -135,15 +135,15 @@ def test_complete_archaeological_pipeline():
     
     # Final assessment
     if all_passed:
-        print(f"\n🎉 COMPLETE ARCHAEOLOGICAL PIPELINE: SUCCESS!")
-        print(f"✅ Phase 3 Step 3: Scale edge validation COMPLETE")
-        print(f"✅ Level 1 → HTF → TGAT pipeline fully operational")
-        print(f"✅ Cross-timeframe hierarchical relationships working")
-        print(f"✅ 37D+17D sophisticated feature processing intact")
-        print(f"✅ No fallbacks, no compromises - full capability achieved")
+        print("\n🎉 COMPLETE ARCHAEOLOGICAL PIPELINE: SUCCESS!")
+        print("✅ Phase 3 Step 3: Scale edge validation COMPLETE")
+        print("✅ Level 1 → HTF → TGAT pipeline fully operational")
+        print("✅ Cross-timeframe hierarchical relationships working")
+        print("✅ 37D+17D sophisticated feature processing intact")
+        print("✅ No fallbacks, no compromises - full capability achieved")
     else:
-        print(f"\n⚠️ Archaeological Pipeline: PARTIAL SUCCESS")
-        print(f"🔧 Some criteria not met, investigate remaining issues")
+        print("\n⚠️ Archaeological Pipeline: PARTIAL SUCCESS")
+        print("🔧 Some criteria not met, investigate remaining issues")
     
     return {
         'nodes': X.shape[0],
@@ -161,7 +161,7 @@ def test_complete_archaeological_pipeline():
 if __name__ == "__main__":
     try:
         result = test_complete_archaeological_pipeline()
-        print(f"\n📊 Final Pipeline Results:")
+        print("\n📊 Final Pipeline Results:")
         print(f"  🏗️ Graph: {result['nodes']} nodes, {result['edges']} edges")
         print(f"  ⚖️ Scale edges: {result['scale_edges']} ({result['scale_edge_percentage']:.1f}%)")
         print(f"  ⏰ Timeframes: {len(result['timeframes'])}")

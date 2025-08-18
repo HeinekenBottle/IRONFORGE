@@ -3,10 +3,12 @@ Temporal Correlator - Extracted from cascade classifier for modular integration
 Handles prediction-validation correlation and sequence analysis
 """
 
-import numpy as np
-from datetime import datetime, timedelta
-from typing import Dict, List, Tuple, Any, Optional
 from dataclasses import dataclass
+from datetime import datetime
+from typing import Any, Dict, List, Optional
+
+import numpy as np
+
 
 @dataclass
 class CorrelationResult:
@@ -252,11 +254,11 @@ class SequencePatternAnalyzer:
             actual_partial = actual_sequence[:min_len]
             pattern_partial = pattern_sequence[:min_len]
             
-            matches = sum(1 for a, p in zip(actual_partial, pattern_partial) if a == p)
+            matches = sum(1 for a, p in zip(actual_partial, pattern_partial, strict=False) if a == p)
             return (matches / min_len) * 0.8  # Penalty for length mismatch
         else:
             # Exact length matching
-            matches = sum(1 for a, p in zip(actual_sequence, pattern_sequence) if a == p)
+            matches = sum(1 for a, p in zip(actual_sequence, pattern_sequence, strict=False) if a == p)
             return matches / len(pattern_sequence)
     
     def detect_emerging_patterns(self, all_sequences: List[List[Any]]) -> Dict[str, Any]:
@@ -340,7 +342,7 @@ if __name__ == "__main__":
     pattern_analyzer = SequencePatternAnalyzer()
     pattern_result = pattern_analyzer.analyze_sequence_pattern(sample_events)
     
-    print(f"\nSequence Pattern Analysis:")
+    print("\nSequence Pattern Analysis:")
     print(f"Pattern: {pattern_result['pattern']}")
     print(f"Confidence: {pattern_result['confidence']:.2f}")
     print(f"Sequence: {' -> '.join(pattern_result['sequence_types'])}")

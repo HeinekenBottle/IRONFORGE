@@ -6,18 +6,15 @@ Discover predictable sequences: expansion_phase → consolidation → liq_sweep
 with consistent lag profiles and probability weights.
 """
 
-import json
-import pickle
-import numpy as np
-import pandas as pd
-from datetime import datetime, timedelta
 import glob
-from pathlib import Path
-from collections import defaultdict, Counter
-import matplotlib.pyplot as plt
-import seaborn as sns
-from itertools import combinations
+import pickle
 import warnings
+from collections import Counter, defaultdict
+from pathlib import Path
+
+import matplotlib.pyplot as plt
+import numpy as np
+
 warnings.filterwarnings('ignore')
 
 def extract_event_sequences():
@@ -91,7 +88,7 @@ def extract_event_sequences():
     
     # Event type distribution
     event_counts = Counter(event['event_type'] for event in all_events)
-    print(f"📈 Event Distribution:")
+    print("📈 Event Distribution:")
     for event_type, count in event_counts.most_common():
         pct = (count / len(all_events)) * 100
         print(f"   {event_type}: {count} events ({pct:.1f}%)")
@@ -101,7 +98,7 @@ def extract_event_sequences():
 def build_transition_matrices(session_sequences):
     """Build event transition matrices within each session"""
     
-    print(f"\n🔄 BUILDING EVENT TRANSITION MATRICES")
+    print("\n🔄 BUILDING EVENT TRANSITION MATRICES")
     print("-" * 50)
     
     # Define the main event types of interest
@@ -142,13 +139,13 @@ def build_transition_matrices(session_sequences):
         
         session_transition_counts[session_name] = dict(session_transitions)
     
-    print(f"📊 Transition Matrix Analysis:")
+    print("📊 Transition Matrix Analysis:")
     print(f"   Sessions with transitions: {len(session_transition_counts)}")
     print(f"   Unique transition types: {len(transition_lags)}")
     
     # Display top transitions
     total_transitions = sum(sum(transitions.values()) for transitions in global_transitions.values())
-    print(f"\n🔥 Most Common Transitions:")
+    print("\n🔥 Most Common Transitions:")
     
     transition_frequencies = []
     for from_event, to_events in global_transitions.items():
@@ -167,7 +164,7 @@ def build_transition_matrices(session_sequences):
 def analyze_lag_profiles(transition_lags, min_occurrences=3):
     """Calculate lag histograms and consistency metrics for each transition pair"""
     
-    print(f"\n⏱️ LAG PROFILE ANALYSIS")
+    print("\n⏱️ LAG PROFILE ANALYSIS")
     print("-" * 50)
     
     lag_profiles = {}
@@ -233,7 +230,7 @@ def identify_causal_chains(lag_profiles, consistency_threshold=80):
         print(f"❌ No chains found with consistency ≥{consistency_threshold}%")
         
         # Show best available chains
-        print(f"\n📊 BEST AVAILABLE CHAINS (lower threshold):")
+        print("\n📊 BEST AVAILABLE CHAINS (lower threshold):")
         sorted_profiles = sorted(lag_profiles.items(), key=lambda x: x[1]['consistency_pct'], reverse=True)
         
         for transition_name, profile in sorted_profiles[:5]:
@@ -265,7 +262,7 @@ def identify_causal_chains(lag_profiles, consistency_threshold=80):
 def test_specific_hypothesis(session_sequences, lag_profiles):
     """Test specific hypothesis: expansion_phase → consolidation → liq_sweep"""
     
-    print(f"\n🧪 TESTING SPECIFIC HYPOTHESIS")
+    print("\n🧪 TESTING SPECIFIC HYPOTHESIS")
     print("=" * 60)
     print("Hypothesis: expansion_phase → consolidation → liq_sweep")
     print("Expected sequence with consistent lag profiles")
@@ -325,7 +322,7 @@ def test_specific_hypothesis(session_sequences, lag_profiles):
                 partial_sequences['exp→liq'].append(lag)
     
     # Report results
-    print(f"\n📊 HYPOTHESIS TEST RESULTS:")
+    print("\n📊 HYPOTHESIS TEST RESULTS:")
     
     if complete_sequences:
         print(f"✅ COMPLETE SEQUENCES FOUND: {len(complete_sequences)}")
@@ -352,10 +349,10 @@ def test_specific_hypothesis(session_sequences, lag_profiles):
         else:
             print(f"   ❌ con→liq lag differs from hypothesis: {avg_con_liq:.1f}m vs 45m")
     else:
-        print(f"❌ NO COMPLETE SEQUENCES FOUND")
+        print("❌ NO COMPLETE SEQUENCES FOUND")
     
     # Report partial sequences
-    print(f"\n📊 PARTIAL SEQUENCE ANALYSIS:")
+    print("\n📊 PARTIAL SEQUENCE ANALYSIS:")
     for seq_name, lags in partial_sequences.items():
         if lags:
             mean_lag = np.mean(lags)
@@ -369,7 +366,7 @@ def test_specific_hypothesis(session_sequences, lag_profiles):
 def create_causal_chain_visualization(lag_profiles, high_consistency_chains, complete_sequences):
     """Create visualization of causal chain discoveries"""
     
-    print(f"\n📈 CREATING CAUSAL CHAIN VISUALIZATION")
+    print("\n📈 CREATING CAUSAL CHAIN VISUALIZATION")
     print("-" * 50)
     
     if not lag_profiles:
@@ -534,14 +531,14 @@ def main():
     viz_path = create_causal_chain_visualization(lag_profiles, high_consistency_chains, complete_sequences)
     
     # Summary
-    print(f"\n🎯 CAUSAL CHAIN INVESTIGATION SUMMARY")
+    print("\n🎯 CAUSAL CHAIN INVESTIGATION SUMMARY")
     print("=" * 60)
     
     total_transitions = len(transition_lags)
     high_consistency_count = len(high_consistency_chains) if isinstance(high_consistency_chains, dict) else len(high_consistency_chains)
     complete_seq_count = len(complete_sequences) if complete_sequences else 0
     
-    print(f"📊 Analysis Results:")
+    print("📊 Analysis Results:")
     print(f"   Event sequences analyzed: {len(session_sequences)}")
     print(f"   Total transition types: {total_transitions}")
     print(f"   High-consistency chains (≥80%): {high_consistency_count}")
@@ -549,7 +546,7 @@ def main():
     
     # Report on hypothesis
     if complete_sequences:
-        print(f"\n🧪 Hypothesis Validation:")
+        print("\n🧪 Hypothesis Validation:")
         exp_con_lags = [seq['exp_con_lag'] for seq in complete_sequences]
         con_liq_lags = [seq['con_liq_lag'] for seq in complete_sequences]
         
@@ -560,18 +557,18 @@ def main():
         liq_match = abs(avg_con_liq - 45) < 20
         
         if exp_match and liq_match:
-            print(f"   ✅ HYPOTHESIS CONFIRMED: Lags match expected profile")
+            print("   ✅ HYPOTHESIS CONFIRMED: Lags match expected profile")
         elif exp_match or liq_match:
-            print(f"   ⚠️ PARTIAL MATCH: Some lags match expected profile")
+            print("   ⚠️ PARTIAL MATCH: Some lags match expected profile")
         else:
-            print(f"   ❌ HYPOTHESIS REJECTED: Lags don't match expected profile")
+            print("   ❌ HYPOTHESIS REJECTED: Lags don't match expected profile")
         
         print(f"   Actual lags: {avg_exp_con:.1f}m → {avg_con_liq:.1f}m")
-        print(f"   Expected lags: 15m → 45m")
+        print("   Expected lags: 15m → 45m")
     
     # Best causal chains discovered
     if lag_profiles:
-        print(f"\n🔥 TOP CAUSAL DISCOVERIES:")
+        print("\n🔥 TOP CAUSAL DISCOVERIES:")
         sorted_chains = sorted(lag_profiles.items(), key=lambda x: x[1]['consistency_pct'], reverse=True)
         
         for i, (chain_name, profile) in enumerate(sorted_chains[:3]):
@@ -580,15 +577,15 @@ def main():
             print(f"       Predictive lag: {profile['mean_lag']:.1f} ± {profile['std_lag']:.1f} min")
             print(f"       Sample size: {profile['count']} occurrences")
     
-    print(f"\n✅ RANK 2 INVESTIGATION COMPLETE")
+    print("\n✅ RANK 2 INVESTIGATION COMPLETE")
     print(f"💾 Results visualization: {viz_path}")
     
     if high_consistency_count > 0:
         print(f"\n🚀 BREAKTHROUGH: {high_consistency_count} high-consistency causal chains discovered!")
-        print(f"   These enable predictive event forecasting with confidence intervals.")
+        print("   These enable predictive event forecasting with confidence intervals.")
     else:
-        print(f"\n📝 Result: No chains exceed 80% consistency threshold.")
-        print(f"   Consider investigating lower consistency thresholds or different event combinations.")
+        print("\n📝 Result: No chains exceed 80% consistency threshold.")
+        print("   Consider investigating lower consistency thresholds or different event combinations.")
 
 if __name__ == "__main__":
     main()

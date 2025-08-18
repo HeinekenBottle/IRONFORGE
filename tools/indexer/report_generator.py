@@ -12,10 +12,10 @@ Generates comprehensive reports from codebase analysis:
 """
 
 import json
+import logging
 import time
 from pathlib import Path
-from typing import Dict, Any, List, Optional
-import logging
+from typing import Any, Dict, List
 
 
 class ReportGenerator:

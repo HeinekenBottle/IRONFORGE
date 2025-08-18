@@ -10,8 +10,8 @@ Usage:
     python run_global_lattice.py
 """
 
-import sys
 import logging
+import sys
 from pathlib import Path
 
 # Add IRONFORGE to path

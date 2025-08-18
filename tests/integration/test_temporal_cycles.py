@@ -101,7 +101,7 @@ def test_temporal_cycle_features():
         
         assert week_of_month == expected_week_of_month, f"Week calculation wrong for {test_date}"
         assert month_of_year == expected_month_of_year, f"Month calculation wrong for {test_date}"
-        assert day_of_week_cycle == day_of_week, f"Day cycle should match day of week"
+        assert day_of_week_cycle == day_of_week, "Day cycle should match day of week"
     
     # Test 4: Mock session data processing
     print("\n4. Testing mock session processing with temporal cycles...")
@@ -144,13 +144,13 @@ def test_temporal_cycle_features():
     
     try:
         graph = builder.build_rich_graph(mock_session)
-        print(f"   ✅ Graph built successfully")
+        print("   ✅ Graph built successfully")
         print(f"   ✅ Feature dimensions: {graph['metadata']['feature_dimensions']}")
         print(f"   ✅ Total nodes: {graph['metadata']['total_nodes']}")
         
         # Convert to TGAT format
         X, edge_index, edge_times, metadata, edge_attr = builder.to_tgat_format(graph)
-        print(f"   ✅ TGAT format conversion successful")
+        print("   ✅ TGAT format conversion successful")
         print(f"   ✅ Node features shape: {X.shape}")
         
         assert X.shape[1] == 37, f"Expected 37D features in TGAT format, got {X.shape[1]}D"

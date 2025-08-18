@@ -14,13 +14,14 @@ Author: IRONFORGE Archaeological Discovery System
 Date: August 16, 2025
 """
 
-import sys
-import json
 import glob
+import json
+import sys
+from collections import Counter, defaultdict
+from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Any, Tuple, Optional
-from datetime import datetime, timedelta
-from collections import defaultdict, Counter
+from typing import Dict, List, Optional
+
 import numpy as np
 
 # Add current directory to path for imports
@@ -383,13 +384,13 @@ class BridgeNodeMapper:
         print("\n" + "🌉 BRIDGE NODE ANALYSIS RESULTS" + "\n" + "=" * 60)
         
         # Summary statistics
-        print(f"📊 Cascade Analysis Summary:")
+        print("📊 Cascade Analysis Summary:")
         print(f"   PM belt events analyzed: {len(pm_belt_events)}")
         print(f"   Complete cascade patterns: {len(cascade_patterns)}")
         print(f"   Trading days covered: {len(set(p['trading_date'] for p in cascade_patterns if p['trading_date']))}")
         
         # Bridge session frequency
-        print(f"\n🌉 Bridge Session Analysis:")
+        print("\n🌉 Bridge Session Analysis:")
         bridge_freq = bridge_analysis['session_bridge_frequency']
         total_cascades = bridge_analysis['total_cascades']
         
@@ -399,14 +400,14 @@ class BridgeNodeMapper:
             print(f"   {session}: {frequency}/{total_cascades} cascades ({participation_rate:.1f}%) - {classification}")
         
         # Cascade depth distribution
-        print(f"\n📏 Cascade Depth Distribution:")
+        print("\n📏 Cascade Depth Distribution:")
         depth_dist = bridge_analysis['cascade_depth_distribution']
         for depth, count in sorted(depth_dist.items()):
             percentage = count / total_cascades * 100
             print(f"   {depth} precursor events: {count} cascades ({percentage:.1f}%)")
         
         # Theory B zone analysis
-        print(f"\n🎯 Theory B Zone Distribution:")
+        print("\n🎯 Theory B Zone Distribution:")
         theory_b = bridge_analysis['theory_b_relationships']
         for zone, events in theory_b.items():
             count = len(events)
@@ -416,18 +417,18 @@ class BridgeNodeMapper:
                 print(f"   {zone.replace('_', ' ').title()}: {count} events ({percentage:.1f}%) - avg {avg_precursors:.1f} precursors")
         
         # Common precursor patterns
-        print(f"\n🔄 Common Precursor Patterns:")
+        print("\n🔄 Common Precursor Patterns:")
         precursor_patterns = bridge_analysis['common_precursor_patterns']
         for pattern, count in sorted(precursor_patterns.items(), key=lambda x: x[1], reverse=True)[:5]:
             print(f"   {pattern}: appears {count} times across cascades")
         
         # Key findings
-        print(f"\n🎯 Key Strategic Findings:")
+        print("\n🎯 Key Strategic Findings:")
         for i, finding in enumerate(bridge_analysis['key_findings'], 1):
             print(f"   {i}. {finding}")
         
         # Tactical intelligence
-        print(f"\n💡 Tactical Intelligence:")
+        print("\n💡 Tactical Intelligence:")
         
         # Check for consistent bridge patterns
         if bridge_freq:
@@ -458,10 +459,10 @@ class BridgeNodeMapper:
             avg_follow_through = np.mean(list(next_session_events.values()))
             if avg_follow_through < 1.0:
                 print(f"   🏁 TERMINAL NODE: PM belt appears to be cascade endpoint (avg {avg_follow_through:.1f} follow-through events)")
-                print(f"      → PM belt = decision point, not continuation")
+                print("      → PM belt = decision point, not continuation")
             else:
                 print(f"   🔄 RELAY NODE: PM belt shows follow-through (avg {avg_follow_through:.1f} subsequent events)")
-                print(f"      → PM belt = transition point in larger structure")
+                print("      → PM belt = transition point in larger structure")
         
         # Export results
         self._export_bridge_results({
@@ -535,10 +536,10 @@ def main():
     results = mapper.run_bridge_analysis()
     
     if results:
-        print(f"\n🎉 Bridge node analysis complete!")
-        print(f"   Discovered cascade intelligence for PM belt trading")
+        print("\n🎉 Bridge node analysis complete!")
+        print("   Discovered cascade intelligence for PM belt trading")
     else:
-        print(f"\n❌ Bridge node analysis failed")
+        print("\n❌ Bridge node analysis failed")
 
 if __name__ == "__main__":
     main()

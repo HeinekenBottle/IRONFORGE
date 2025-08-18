@@ -10,13 +10,14 @@ Usage:
     python3 pattern_monitor.py [--watch-dir DIR] [--alert-threshold N]
 """
 
-import os
-import json
-import time
 import argparse
-from datetime import datetime
-from learning.enhanced_graph_builder import EnhancedGraphBuilder
+import json
 import logging
+import os
+import time
+from datetime import datetime
+
+from learning.enhanced_graph_builder import EnhancedGraphBuilder
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

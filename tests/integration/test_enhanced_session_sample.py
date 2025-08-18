@@ -100,7 +100,7 @@ def test_enhanced_session_sample():
         mapper = TimeframeLatticeMapper(grid_resolution=50, min_node_events=1, hot_zone_threshold=0.5)
         lattice_dataset = mapper.map_events_to_lattice(enhanced_session_events)
         
-        print(f"  ✅ Lattice mapping successful:")
+        print("  ✅ Lattice mapping successful:")
         print(f"    Nodes created: {len(lattice_dataset.nodes)}")
         print(f"    Connections: {len(lattice_dataset.connections)}")
         print(f"    Hot zones: {len(lattice_dataset.hot_zones)}")
@@ -114,7 +114,7 @@ def test_enhanced_session_sample():
         
         # Analyze connections
         if lattice_dataset.connections:
-            print(f"\n  🔗 Connection analysis:")
+            print("\n  🔗 Connection analysis:")
             for conn_id, conn in lattice_dataset.connections.items():
                 print(f"    {conn.source_node_id} → {conn.target_node_id}: {conn.connection_type} (strength: {conn.strength:.3f})")
         
@@ -159,8 +159,8 @@ def test_enhanced_session_sample():
         
         print(f"  ✅ Cross-session pattern inheritance: {cross_session_nodes} nodes span multiple sessions")
         
-        print(f"\n✅ Enhanced Session Adapter integration verified successfully!")
-        print(f"   Key metrics:")
+        print("\n✅ Enhanced Session Adapter integration verified successfully!")
+        print("   Key metrics:")
         print(f"   - Events processed: {len(enhanced_session_events)}")
         print(f"   - Lattice nodes: {len(lattice_dataset.nodes)}")
         print(f"   - Network connections: {len(lattice_dataset.connections)}")

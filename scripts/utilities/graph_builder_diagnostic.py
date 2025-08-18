@@ -5,9 +5,8 @@ Graph Builder Diagnostic
 Debug the graph building process to understand 'node_features' error.
 """
 
-import sys
-import os
 import json
+import sys
 from pathlib import Path
 
 # Add IRONFORGE to path
@@ -49,7 +48,7 @@ def diagnose_graph_building():
     print("\n🔧 Testing graph building process...")
     try:
         graph = builder.build_rich_graph(session_data)
-        print(f"✅ Graph built successfully")
+        print("✅ Graph built successfully")
         print(f"   Graph type: {type(graph)}")
         print(f"   Graph attributes: {dir(graph) if hasattr(graph, '__dict__') else 'No __dict__'}")
         
@@ -57,13 +56,13 @@ def diagnose_graph_building():
         if hasattr(graph, 'node_features'):
             print(f"   ✅ node_features present: shape {graph.node_features.shape if hasattr(graph.node_features, 'shape') else type(graph.node_features)}")
         else:
-            print(f"   ❌ node_features missing!")
+            print("   ❌ node_features missing!")
             print(f"   Available attributes: {list(vars(graph).keys()) if hasattr(graph, '__dict__') else 'No attributes'}")
         
         if hasattr(graph, 'edge_features'):
             print(f"   ✅ edge_features present: shape {graph.edge_features.shape if hasattr(graph.edge_features, 'shape') else type(graph.edge_features)}")
         else:
-            print(f"   ❌ edge_features missing!")
+            print("   ❌ edge_features missing!")
             
         if hasattr(graph, 'num_nodes'):
             print(f"   Nodes: {graph.num_nodes}")
@@ -103,13 +102,13 @@ def diagnose_graph_building():
         }
         
         minimal_graph = builder.build_rich_graph(minimal_session)
-        print(f"✅ Minimal graph built successfully")
+        print("✅ Minimal graph built successfully")
         print(f"   Minimal graph type: {type(minimal_graph)}")
         
         if hasattr(minimal_graph, 'node_features'):
             print(f"   ✅ Minimal node_features present: {minimal_graph.node_features.shape if hasattr(minimal_graph.node_features, 'shape') else type(minimal_graph.node_features)}")
         else:
-            print(f"   ❌ Minimal node_features missing!")
+            print("   ❌ Minimal node_features missing!")
             
     except Exception as e:
         print(f"❌ Minimal graph building failed: {str(e)}")

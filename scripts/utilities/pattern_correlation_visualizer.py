@@ -13,14 +13,14 @@ Features:
 - Co-occurrence heatmaps
 """
 
+from pathlib import Path
+from typing import Dict, List
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
-from datetime import datetime, timedelta
-from typing import Dict, List, Any, Tuple
 import seaborn as sns
-from pathlib import Path
+
 
 class PatternCorrelationVisualizer:
     """Advanced pattern correlation visualization system"""
@@ -301,7 +301,7 @@ class PatternCorrelationVisualizer:
         ax.set_title('Market Cycle Stage Frequency')
         
         # Add value labels
-        for i, (bar, value) in enumerate(zip(bars, values)):
+        for i, (bar, value) in enumerate(zip(bars, values, strict=False)):
             width = bar.get_width()
             ax.text(width + 0.1, bar.get_y() + bar.get_height()/2,
                    f'{value:.1f}', ha='left', va='center', fontweight='bold')
@@ -417,9 +417,9 @@ class PatternCorrelationVisualizer:
         plt.savefig(self.output_dir / 'market_cycle_progression.png', dpi=300, bbox_inches='tight')
         plt.close()
         
-        print(f"📊 Generated 5 pattern correlation visualizations")
-        print(f"   - Temporal clustering analysis")
-        print(f"   - Session boundary pattern detection")
-        print(f"   - Sequential pattern analysis")
-        print(f"   - Co-occurrence heatmaps")
-        print(f"   - Market cycle progression")
+        print("📊 Generated 5 pattern correlation visualizations")
+        print("   - Temporal clustering analysis")
+        print("   - Session boundary pattern detection")
+        print("   - Sequential pattern analysis")
+        print("   - Co-occurrence heatmaps")
+        print("   - Market cycle progression")

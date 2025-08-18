@@ -1,9 +1,10 @@
 """
 Quick fix for Unicode issues in session data
 """
+import glob
 import json
 import os
-import glob
+
 
 def sanitize_session_data(data):
     """Recursively sanitize all strings in data structure"""

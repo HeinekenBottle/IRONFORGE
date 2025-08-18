@@ -6,23 +6,23 @@ Direct test of TGAT archaeological discovery on enhanced sessions
 to validate pattern quality vs contaminated baseline.
 """
 
-import os
-import sys
 import json
-import torch
-import numpy as np
-from pathlib import Path
-from datetime import datetime
-from typing import Dict, List, Any
+import sys
 from collections import Counter
+from datetime import datetime
+from pathlib import Path
+from typing import Any, Dict, List
+
+import numpy as np
+import torch
 
 # Add IRONFORGE to path
 ironforge_root = Path(__file__).parent
 sys.path.insert(0, str(ironforge_root))
 
 # Import TGAT discovery directly
-from learning.tgat_discovery import IRONFORGEDiscovery
 from learning.enhanced_graph_builder import EnhancedGraphBuilder
+from learning.tgat_discovery import IRONFORGEDiscovery
 
 
 def make_serializable(obj) -> Any:
@@ -394,7 +394,7 @@ class Phase5DirectTGATValidator:
                 all_patterns.extend(discovery_result['patterns'])
                 
         print()
-        print(f"🔍 TGAT Discovery Results:")
+        print("🔍 TGAT Discovery Results:")
         print(f"   Sessions Processed: {len(discovery_results)}")
         print(f"   Successful Discoveries: {sum(1 for r in discovery_results.values() if r['discovery_success'])}")
         print(f"   Total Patterns Found: {len(all_patterns)}")
@@ -431,21 +431,21 @@ class Phase5DirectTGATValidator:
         temporal_improvement = current['time_spans_analysis']['non_zero_time_spans'] - 0
         authenticity_improvement = current['archaeological_authenticity_score'] - contaminated_baseline['authenticity_score']
         
-        print(f"CONTAMINATED BASELINE:")
+        print("CONTAMINATED BASELINE:")
         print(f"   Duplication Rate: {contaminated_baseline['duplication_rate']:.1f}%")
         print(f"   Unique Descriptions: {contaminated_baseline['unique_descriptions']}")
-        print(f"   Non-Zero Time Spans: 0/4840 (0%)")
+        print("   Non-Zero Time Spans: 0/4840 (0%)")
         print(f"   Authenticity Score: {contaminated_baseline['authenticity_score']:.1f}/100")
         print()
         
-        print(f"ENHANCED RESULTS:")
+        print("ENHANCED RESULTS:")
         print(f"   Duplication Rate: {current['duplication_rate']:.1f}%")
         print(f"   Unique Descriptions: {current['unique_descriptions']}")
         print(f"   Non-Zero Time Spans: {current['time_spans_analysis']['non_zero_time_spans']}/{current['total_patterns']}")
         print(f"   Authenticity Score: {current['archaeological_authenticity_score']:.1f}/100")
         print()
         
-        print(f"IMPROVEMENTS:")
+        print("IMPROVEMENTS:")
         print(f"   Duplication Reduction: {duplication_improvement:.1f} percentage points")
         print(f"   Additional Unique Patterns: +{unique_improvement}")
         print(f"   New Temporal Relationships: +{temporal_improvement}")

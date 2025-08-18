@@ -14,14 +14,11 @@ Based on Computational Tactical Engineer analysis:
 - 80.9% cache hit rate for performance optimization
 """
 
-import asyncio
-import weakref
-import threading
-from typing import Any, Dict, Optional, Type, Callable, Union
-from functools import wraps
-import time
 import logging
-from pathlib import Path
+import threading
+import time
+from functools import wraps
+from typing import Any, Callable, Dict, Optional
 
 
 class LazyComponent:

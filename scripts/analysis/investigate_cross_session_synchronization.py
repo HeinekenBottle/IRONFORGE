@@ -6,16 +6,15 @@ Discover if events cluster at consistent intraday times across different calenda
 revealing market microstructure synchronization patterns.
 """
 
-import json
+import glob
 import pickle
+from pathlib import Path
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from datetime import datetime, timedelta
-import glob
-from pathlib import Path
-from collections import defaultdict, Counter
-import matplotlib.pyplot as plt
 import seaborn as sns
+
 
 def extract_event_timing_data():
     """Extract absolute time-of-day for each semantic event across all sessions"""
@@ -96,7 +95,7 @@ def extract_event_timing_data():
 def build_synchronization_matrix(event_data):
     """Build co-occurrence matrix: Time_Bin[i] vs Sessions[j]"""
     
-    print(f"\n🔄 BUILDING SYNCHRONIZATION MATRIX")
+    print("\n🔄 BUILDING SYNCHRONIZATION MATRIX")
     print("-" * 50)
     
     # Convert to DataFrame for easier analysis
@@ -106,7 +105,7 @@ def build_synchronization_matrix(event_data):
         print("❌ No event data available")
         return None, None
     
-    print(f"📊 Event Type Distribution:")
+    print("📊 Event Type Distribution:")
     event_counts = df['event_type'].value_counts()
     for event_type, count in event_counts.items():
         pct = (count / len(df)) * 100
@@ -183,13 +182,13 @@ def identify_synchronized_time_slots(sync_matrices, threshold=0.6):
 def analyze_temporal_patterns(event_data, sync_discoveries):
     """Analyze the temporal patterns for evidence of systematic timing"""
     
-    print(f"\n🔍 TEMPORAL PATTERN ANALYSIS")
+    print("\n🔍 TEMPORAL PATTERN ANALYSIS")
     print("=" * 60)
     
     df = pd.DataFrame(event_data)
     
     # Overall timing distribution analysis
-    print(f"📊 OVERALL TIMING DISTRIBUTION:")
+    print("📊 OVERALL TIMING DISTRIBUTION:")
     
     # Time bin analysis across all events
     time_bin_dist = df.groupby('time_bin_5m').size().sort_index()
@@ -197,23 +196,23 @@ def analyze_temporal_patterns(event_data, sync_discoveries):
     # Find peak timing periods
     top_time_bins = time_bin_dist.nlargest(5)
     
-    print(f"   🔥 Peak Event Time Bins:")
+    print("   🔥 Peak Event Time Bins:")
     for time_bin, count in top_time_bins.items():
         pct = (count / len(df)) * 100
         print(f"      {time_bin}-{time_bin+5}m: {count} events ({pct:.1f}%)")
     
     # Session consistency analysis
-    print(f"\n📅 SESSION CONSISTENCY ANALYSIS:")
+    print("\n📅 SESSION CONSISTENCY ANALYSIS:")
     
     session_event_counts = df.groupby('session').size().sort_values(ascending=False)
-    print(f"   Most active sessions:")
+    print("   Most active sessions:")
     for session, count in session_event_counts.head(5).items():
         pct = (count / len(df)) * 100
         print(f"      {session}: {count} events ({pct:.1f}%)")
     
     # Cross-day analysis if we have calendar day info
     if 'calendar_day' in df.columns and df['calendar_day'].nunique() > 1:
-        print(f"\n📆 CROSS-DAY SYNCHRONIZATION:")
+        print("\n📆 CROSS-DAY SYNCHRONIZATION:")
         
         day_event_dist = df.groupby(['calendar_day', 'time_bin_5m']).size().unstack(fill_value=0)
         
@@ -229,7 +228,7 @@ def analyze_temporal_patterns(event_data, sync_discoveries):
 def test_synchronization_hypothesis(sync_discoveries, event_data):
     """Test the core hypothesis: IF event@time occurs on Day_N, THEN probability increases on Day_N+1"""
     
-    print(f"\n🧪 TESTING SYNCHRONIZATION HYPOTHESIS")
+    print("\n🧪 TESTING SYNCHRONIZATION HYPOTHESIS")
     print("=" * 60)
     
     df = pd.DataFrame(event_data)
@@ -289,7 +288,7 @@ def test_synchronization_hypothesis(sync_discoveries, event_data):
 def create_synchronization_visualization(sync_discoveries, event_data):
     """Create visualization of temporal synchronization patterns"""
     
-    print(f"\n📈 CREATING SYNCHRONIZATION VISUALIZATION")
+    print("\n📈 CREATING SYNCHRONIZATION VISUALIZATION")
     print("-" * 50)
     
     df = pd.DataFrame(event_data)
@@ -397,20 +396,20 @@ def main():
     viz_path = create_synchronization_visualization(sync_discoveries, event_data)
     
     # Summary
-    print(f"\n🎯 CROSS-SESSION SYNCHRONIZATION SUMMARY")
+    print("\n🎯 CROSS-SESSION SYNCHRONIZATION SUMMARY")
     print("=" * 60)
     
     total_events = len(event_data)
     n_sessions = len(session_metadata)
     n_sync_discoveries = len(sync_discoveries)
     
-    print(f"📊 Analysis Scope:")
+    print("📊 Analysis Scope:")
     print(f"   Events analyzed: {total_events}")
     print(f"   Sessions: {n_sessions}")
     print(f"   Event types with synchronization: {n_sync_discoveries}")
     
     if hypothesis_results:
-        print(f"\n🧪 Hypothesis Test Results:")
+        print("\n🧪 Hypothesis Test Results:")
         for event_type, result in hypothesis_results.items():
             evidence = result['evidence_strength']
             persistence = result['max_persistence']
@@ -419,7 +418,7 @@ def main():
             print(f"   {event_type}: {evidence} evidence (persistence: {persistence:.2f} at {time_bin}m)")
     
     if sync_discoveries:
-        print(f"\n🔥 Key Synchronization Discoveries:")
+        print("\n🔥 Key Synchronization Discoveries:")
         for event_type, discovery in sync_discoveries.items():
             n_sync_bins = len(discovery['synchronized_bins'])
             max_sync_rate = discovery['synchronized_bins'].max()
@@ -427,15 +426,15 @@ def main():
             
             print(f"   {event_type}: {n_sync_bins} synchronized time bins (best: {max_sync_rate:.1%} at {best_time}m)")
     
-    print(f"\n✅ RANK 1 INVESTIGATION COMPLETE")
+    print("\n✅ RANK 1 INVESTIGATION COMPLETE")
     print(f"💾 Results visualization: {viz_path}")
     
     if n_sync_discoveries > 0:
-        print(f"\n🚀 BREAKTHROUGH: Evidence of cross-session temporal synchronization detected!")
-        print(f"   This suggests systematic market timing patterns that could enable predictive modeling.")
+        print("\n🚀 BREAKTHROUGH: Evidence of cross-session temporal synchronization detected!")
+        print("   This suggests systematic market timing patterns that could enable predictive modeling.")
     else:
-        print(f"\n📝 Result: No strong cross-session synchronization detected at 60% threshold.")
-        print(f"   This suggests more individualistic session patterns rather than systematic timing.")
+        print("\n📝 Result: No strong cross-session synchronization detected at 60% threshold.")
+        print("   This suggests more individualistic session patterns rather than systematic timing.")
 
 if __name__ == "__main__":
     main()

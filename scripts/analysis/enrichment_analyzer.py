@@ -14,13 +14,13 @@ Author: IRONFORGE Archaeological Discovery System
 Date: August 16, 2025
 """
 
-import sys
 import json
-import time
-from pathlib import Path
-from typing import Dict, List, Any, Tuple
+import sys
+from collections import defaultdict
 from datetime import datetime
-from collections import defaultdict, Counter
+from pathlib import Path
+from typing import Dict, List
+
 import numpy as np
 from scipy import stats
 
@@ -85,7 +85,7 @@ class EnrichmentAnalyzer:
             nodes_count = len(self.lattice_dataset['nodes'])
             hot_zones_count = len(self.lattice_dataset['hot_zones'])
             
-            print(f"✅ Loaded lattice dataset:")
+            print("✅ Loaded lattice dataset:")
             print(f"   Total events: {total_events}")
             print(f"   Lattice nodes: {nodes_count}")
             print(f"   Hot zones: {hot_zones_count}")
@@ -276,13 +276,13 @@ class EnrichmentAnalyzer:
         belt_count = enrichment_results['pm_belt_events_count']
         baseline_count = enrichment_results['baseline_events_count']
         
-        print(f"📊 Event Distribution:")
+        print("📊 Event Distribution:")
         print(f"   PM Belt (14:35-38): {belt_count} events")
         print(f"   Baseline PM: {baseline_count} events")
         print(f"   Belt proportion: {belt_count/(belt_count+baseline_count)*100:.1f}%")
         
         # Zone enrichment analysis
-        print(f"\n🔍 Zone Enrichment Analysis:")
+        print("\n🔍 Zone Enrichment Analysis:")
         
         significant_zones = []
         for zone_name, zone_data in enrichment_results['enrichment_ratios'].items():
@@ -306,10 +306,10 @@ class EnrichmentAnalyzer:
                 significant_zones.append(zone_name)
         
         # Key findings
-        print(f"\n🎯 Key Findings:")
+        print("\n🎯 Key Findings:")
         
         if significant_zones:
-            print(f"   ✅ SIGNIFICANT ENRICHMENT DETECTED")
+            print("   ✅ SIGNIFICANT ENRICHMENT DETECTED")
             print(f"   📍 Enriched zones: {', '.join(significant_zones)}")
             
             # Check for 40% zone specifically
@@ -317,15 +317,15 @@ class EnrichmentAnalyzer:
             if forty_percent.get('enriched', False):
                 ratio = forty_percent['enrichment_ratio']
                 print(f"   🎯 Theory B Validation: 40% zone shows {ratio:.2f}x enrichment")
-                print(f"   📈 This supports dimensional destiny hypothesis")
+                print("   📈 This supports dimensional destiny hypothesis")
             
-            print(f"\n💡 Recommendation: Proceed to bridge node analysis")
-            print(f"   The PM belt shows statistical significance - build focused tools")
+            print("\n💡 Recommendation: Proceed to bridge node analysis")
+            print("   The PM belt shows statistical significance - build focused tools")
             
         else:
-            print(f"   ❌ NO SIGNIFICANT ENRICHMENT")
-            print(f"   📊 PM belt appears similar to baseline PM minutes")
-            print(f"   💡 Recommendation: Focus on other time windows or patterns")
+            print("   ❌ NO SIGNIFICANT ENRICHMENT")
+            print("   📊 PM belt appears similar to baseline PM minutes")
+            print("   💡 Recommendation: Focus on other time windows or patterns")
         
         # Export results
         self._export_enrichment_results({
@@ -362,9 +362,9 @@ def main():
     results = analyzer.run_enrichment_analysis()
     
     if results:
-        print(f"\n🎉 Enrichment analysis complete!")
+        print("\n🎉 Enrichment analysis complete!")
     else:
-        print(f"\n❌ Enrichment analysis failed")
+        print("\n❌ Enrichment analysis failed")
 
 if __name__ == "__main__":
     main()

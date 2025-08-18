@@ -92,7 +92,7 @@ def main():
             files_updated += 1
     
     print("\n" + "=" * 50)
-    print(f"📊 Summary:")
+    print("📊 Summary:")
     print(f"  Total files scanned: {total_files}")
     print(f"  Files updated: {files_updated}")
     print(f"  Files unchanged: {total_files - files_updated}")

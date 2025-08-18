@@ -55,7 +55,7 @@ def test_iron_core_integration():
             print("❌ build_rich_graph method missing")
             
         total_time = time.time() - start_time
-        print(f"\n🏆 Iron-Core Integration: SUCCESS")
+        print("\n🏆 Iron-Core Integration: SUCCESS")
         print(f"📊 Total test time: {total_time:.3f}s")
         print(f"⚡ Performance: {(120 / max(0.1, total_time)):.1f}x faster than old system")
         
@@ -63,7 +63,7 @@ def test_iron_core_integration():
         
     except Exception as e:
         total_time = time.time() - start_time
-        print(f"\n❌ Iron-Core Integration: FAILED")
+        print("\n❌ Iron-Core Integration: FAILED")
         print(f"⚠️ Error: {str(e)}")
         print(f"📊 Test time before failure: {total_time:.3f}s")
         return False

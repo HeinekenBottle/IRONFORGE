@@ -21,8 +21,8 @@ Usage:
     python run_fpfvg_network_analysis.py
 """
 
-import sys
 import logging
+import sys
 from pathlib import Path
 
 # Add IRONFORGE to path
@@ -113,7 +113,7 @@ def main():
                     pm_touchpoints = motifs.get('pm_belt_touchpoints', [])
                     formation_paths = motifs.get('formation_to_redelivery_paths', [])
                     
-                    print(f"Network motifs detected:")
+                    print("Network motifs detected:")
                     print(f"  Chains (≥3 nodes): {len(chains)}")
                     print(f"  Convergences (k-in ≥2): {len(convergences)}")
                     print(f"  PM belt touchpoints: {len(pm_touchpoints)}")
@@ -138,7 +138,7 @@ def main():
                     median_score = score_dist.get('median', 0)
                     categories = score_dist.get('strength_categories', {})
                     
-                    print(f"Score distribution:")
+                    print("Score distribution:")
                     print(f"  Mean: {mean_score:.3f}")
                     print(f"  Median: {median_score:.3f}")
                     
@@ -171,7 +171,7 @@ def main():
                 print(f"Significant (α=0.05): {'✓ YES' if significant else '✗ NO'}")
                 
                 if significant:
-                    print(f"🎯 ZONE ENRICHMENT DETECTED - Theory B validation!")
+                    print("🎯 ZONE ENRICHMENT DETECTED - Theory B validation!")
                 print()
             
             # PM Belt Interaction Test
@@ -201,7 +201,7 @@ def main():
                 print(f"Significant (α=0.05): {'✓ YES' if significant else '✗ NO'}")
                 
                 if significant:
-                    print(f"🎯 PM BELT INTERACTION DETECTED - Timing validation!")
+                    print("🎯 PM BELT INTERACTION DETECTED - Timing validation!")
                 print()
             
             # Reproducibility Test
@@ -248,14 +248,14 @@ def main():
                 # Belt latencies
                 belt_latencies = latency_test.get('pm_belt_latencies', {})
                 if belt_latencies:
-                    print(f"PM belt latencies:")
+                    print("PM belt latencies:")
                     print(f"  Mean: {belt_latencies.get('mean', 0):.1f} minutes")
                     print(f"  Median: {belt_latencies.get('median', 0):.1f} minutes")
                 
                 # Non-belt latencies
                 non_belt_latencies = latency_test.get('non_belt_latencies', {})
                 if non_belt_latencies:
-                    print(f"Non-belt latencies:")
+                    print("Non-belt latencies:")
                     print(f"  Mean: {non_belt_latencies.get('mean', 0):.1f} minutes")
                     print(f"  Median: {non_belt_latencies.get('median', 0):.1f} minutes")
                 
@@ -266,7 +266,7 @@ def main():
                     significant = stat_comp.get('significant', False)
                     difference = stat_comp.get('belt_vs_non_belt_difference', 0)
                     
-                    print(f"Statistical comparison:")
+                    print("Statistical comparison:")
                     print(f"  Difference (belt - non-belt): {difference:.1f} minutes")
                     print(f"  P-value: {p_value:.6f}")
                     print(f"  Significant: {'✓ YES' if significant else '✗ NO'}")

@@ -29,13 +29,13 @@ def test_time_patterns():
     results = forge.process_sessions(sessions)
     
     # Results summary
-    print(f"\n📊 Results Summary:")
+    print("\n📊 Results Summary:")
     print(f"  Sessions processed: {results['sessions_processed']}/{len(sessions)}")
     print(f"  Patterns discovered: {len(results['patterns_discovered'])}")
     print(f"  Graphs preserved: {len(results.get('graphs_preserved', []))}")
     
     # Check time patterns in preserved graphs
-    print(f"\n🕐 Time Pattern Analysis:")
+    print("\n🕐 Time Pattern Analysis:")
     print("-" * 40)
     
     for i, graph_file in enumerate(results.get('graphs_preserved', [])[:3]):
@@ -55,7 +55,7 @@ def test_time_patterns():
                 cross_tf_links = cross_tf_mapping.get('ltf_to_15m', []) + cross_tf_mapping.get('ltf_to_1h', [])
                 stats = time_patterns.get('clustering_stats', {})
                 
-                print(f"  ✅ Time patterns found!")
+                print("  ✅ Time patterns found!")
                 print(f"     Event cluster types: {len(clusters)}")
                 print(f"     Cross-TF links: {len(cross_tf_links)}")
                 print(f"     Total events: {stats.get('total_events', 0)}")
@@ -74,13 +74,13 @@ def test_time_patterns():
                     print(f"     Sample link: {sample_link['ltf_time']}min {sample_link['ltf_event_types']} → {sample_link['htf_timeframe']} {sample_link['htf_structures']}")
                     
             else:
-                print(f"  ⚠️ No time patterns found")
+                print("  ⚠️ No time patterns found")
                 
         except Exception as e:
             print(f"  ❌ Error loading graph: {e}")
     
-    print(f"\n🎉 Time pattern analysis complete!")
-    print(f"💡 Your sessions now include 'when events cluster' + 'what HTF context' intelligence")
+    print("\n🎉 Time pattern analysis complete!")
+    print("💡 Your sessions now include 'when events cluster' + 'what HTF context' intelligence")
 
 if __name__ == "__main__":
     test_time_patterns()

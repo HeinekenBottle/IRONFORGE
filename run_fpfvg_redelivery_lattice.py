@@ -15,8 +15,8 @@ Usage:
     python run_fpfvg_redelivery_lattice.py
 """
 
-import sys
 import logging
+import sys
 from pathlib import Path
 
 # Add IRONFORGE to path

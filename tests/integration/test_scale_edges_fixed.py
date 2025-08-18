@@ -32,7 +32,7 @@ def test_scale_edges_with_fixed_data():
     graph_data = graph_builder.build_rich_graph(htf_data)
     
     # Analyze node features
-    print(f"\n📊 Graph Analysis:")
+    print("\n📊 Graph Analysis:")
     print(f"  📍 Nodes: {len(graph_data['nodes'])}")
     print(f"  🔗 Edges: {len(graph_data['edges'])}")
     
@@ -58,7 +58,7 @@ def test_scale_edges_with_fixed_data():
         if price_level > 0:
             price_level_counts[timeframe] = price_level_counts.get(timeframe, 0) + 1
     
-    print(f"\n⏰ Timeframe Distribution:")
+    print("\n⏰ Timeframe Distribution:")
     for tf, count in timeframe_counts.items():
         valid_prices = price_level_counts.get(tf, 0)
         print(f"  {tf}: {count} nodes ({valid_prices} with valid prices)")
@@ -112,15 +112,15 @@ def test_scale_edges_with_fixed_data():
             if source_tf != target_tf and source_tf != 'unknown' and target_tf != 'unknown':
                 scale_edges += 1
     
-    print(f"\n🔗 Edge Analysis:")
+    print("\n🔗 Edge Analysis:")
     for edge_type, count in edge_types.items():
         print(f"  {edge_type}: {count} edges")
     
-    print(f"\n⚖️ Scale Edge Analysis:")
+    print("\n⚖️ Scale Edge Analysis:")
     print(f"  Cross-timeframe edges: {scale_edges}/{len(graph_data['edges'])} ({scale_edges/len(graph_data['edges'])*100:.1f}%)")
     
     # Test TGAT conversion
-    print(f"\n🧠 Testing TGAT Conversion...")
+    print("\n🧠 Testing TGAT Conversion...")
     X, edge_index, edge_times, metadata, edge_attr = graph_builder.to_tgat_format(graph_data)
     
     print(f"  X (node features): {X.shape}")
@@ -131,7 +131,7 @@ def test_scale_edges_with_fixed_data():
     tgat_discovery = IRONFORGEDiscovery()
     
     # Test learn_session with full tensor pipeline
-    print(f"\n🏛️ Testing TGAT learn_session()...")
+    print("\n🏛️ Testing TGAT learn_session()...")
     learn_result = tgat_discovery.learn_session(X, edge_index, edge_times, metadata, edge_attr)
     
     patterns = learn_result.get('patterns', [])
@@ -146,7 +146,7 @@ def test_scale_edges_with_fixed_data():
         ("Tensor conversion", X.shape[0] > 0 and edge_attr.shape[0] > 0)
     ]
     
-    print(f"\n✅ Success Criteria:")
+    print("\n✅ Success Criteria:")
     all_passed = True
     for criterion, passed in success_criteria:
         status = "✅ PASS" if passed else "❌ FAIL"
@@ -155,12 +155,12 @@ def test_scale_edges_with_fixed_data():
             all_passed = False
     
     if all_passed:
-        print(f"\n🎉 Scale Edges Test: SUCCESS!")
-        print(f"✅ HTF data fix has resolved the 0% scale edges issue")
-        print(f"✅ Cross-timeframe hierarchical relationships now working")
+        print("\n🎉 Scale Edges Test: SUCCESS!")
+        print("✅ HTF data fix has resolved the 0% scale edges issue")
+        print("✅ Cross-timeframe hierarchical relationships now working")
     else:
-        print(f"\n⚠️ Scale Edges Test: PARTIAL SUCCESS")
-        print(f"🔧 Some issues remain, but major progress made")
+        print("\n⚠️ Scale Edges Test: PARTIAL SUCCESS")
+        print("🔧 Some issues remain, but major progress made")
     
     return {
         'scale_edges': scale_edges,
@@ -174,7 +174,7 @@ def test_scale_edges_with_fixed_data():
 if __name__ == "__main__":
     try:
         result = test_scale_edges_with_fixed_data()
-        print(f"\n📊 Final Results:")
+        print("\n📊 Final Results:")
         print(f"  Scale edges: {result['scale_edges']}/{result['total_edges']} ({result['scale_edge_percentage']:.1f}%)")
         print(f"  Timeframes: {len(result['timeframes'])}")
         print(f"  Patterns: {result['patterns_discovered']}")

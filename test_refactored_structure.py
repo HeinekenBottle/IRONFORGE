@@ -6,8 +6,8 @@ Test script to verify the refactored directory structure and imports work correc
 """
 
 import sys
-import os
 from pathlib import Path
+
 
 def test_directory_structure():
     """Test that the new directory structure exists"""
@@ -55,7 +55,6 @@ def test_package_imports():
     
     # Test iron_core import
     try:
-        from iron_core import IRONContainer
         print("  ✅ iron_core import successful")
     except Exception as e:
         print(f"  ❌ iron_core import failed: {e}")
@@ -71,7 +70,6 @@ def test_package_imports():
     
     # Test integration container import
     try:
-        from ironforge.integration.ironforge_container import IRONFORGEContainer
         print("  ✅ ironforge.integration.ironforge_container import successful")
     except Exception as e:
         print(f"  ❌ ironforge.integration.ironforge_container import failed: {e}")
@@ -91,7 +89,7 @@ def test_config_system():
         data_path = config.get_data_path()
         preservation_path = config.get_preservation_path()
         
-        print(f"  ✅ Config system working")
+        print("  ✅ Config system working")
         print(f"    Data path: {data_path}")
         print(f"    Preservation path: {preservation_path}")
         return True
@@ -189,7 +187,7 @@ def main():
     passed = sum(results)
     total = len(results)
     
-    for i, (test, result) in enumerate(zip(tests, results)):
+    for i, (test, result) in enumerate(zip(tests, results, strict=False)):
         status = "✅ PASS" if result else "❌ FAIL"
         print(f"  {status} {test.__name__}")
     

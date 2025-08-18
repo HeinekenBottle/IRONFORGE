@@ -18,11 +18,13 @@ Critical Implementation:
 - Action: Switch from probabilistic to deterministic execution focus
 """
 
-import numpy as np
 import logging
-from typing import Dict, List, Any, Optional, Tuple
-from dataclasses import dataclass
 import warnings
+from dataclasses import dataclass
+from typing import Any, Dict, List, Optional, Tuple
+
+import numpy as np
+
 warnings.filterwarnings('ignore', category=RuntimeWarning)
 
 # Lazy import for scipy.stats to improve startup performance
@@ -357,7 +359,7 @@ if __name__ == "__main__":
                 print(f"  🚨 SPIKE DETECTED! Confidence={result.confidence:.2f}")
                 
             if result.alert_level == 'red':
-                print(f"  🔴 RED ALERT: Crystallization imminent!")
+                print("  🔴 RED ALERT: Crystallization imminent!")
                 
             if result.time_to_crystallization is not None:
                 print(f"  ⏰ Est. crystallization: {result.time_to_crystallization:.1f} min")

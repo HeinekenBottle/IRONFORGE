@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-import sys
 import json
+import sys
 from pathlib import Path
 
 sys.path.append(str(Path(__file__).parent))
 
-from analysis.timeframe_lattice_mapper import TimeframeLatticeMapper
 from analysis.enhanced_session_adapter import EnhancedSessionAdapter
+from analysis.timeframe_lattice_mapper import TimeframeLatticeMapper
 
 # Test with just one small session
 adapter = EnhancedSessionAdapter()

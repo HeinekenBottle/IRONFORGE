@@ -16,8 +16,8 @@ Usage:
     python run_weekly_daily_cascade_lattice.py
 """
 
-import sys
 import logging
+import sys
 from pathlib import Path
 
 # Add IRONFORGE to path

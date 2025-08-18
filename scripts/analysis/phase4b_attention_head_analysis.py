@@ -7,12 +7,14 @@ pattern archetypes, not all focusing on the same links.
 """
 
 import json
-import torch
-import numpy as np
 from pathlib import Path
-from typing import List, Dict, Any, Tuple
+from typing import Any, Dict, List
+
+import numpy as np
+import torch
 from learning.enhanced_graph_builder import EnhancedGraphBuilder
-from learning.tgat_discovery import IRONFORGEDiscovery, TGAT
+from learning.tgat_discovery import TGAT, IRONFORGEDiscovery
+
 
 class AttentionHeadAnalyzer:
     """Analyze TGAT attention heads to verify archeological pattern specialization."""
@@ -75,7 +77,7 @@ class AttentionHeadAnalyzer:
                         head_patterns[head_key]['attention_weights'].extend(head_data['attention_weights'])
                         head_patterns[head_key]['dominant_patterns'].extend(head_data['dominant_patterns'])
                 
-                print(f"  ✅ Attention analysis complete")
+                print("  ✅ Attention analysis complete")
                 
             except Exception as e:
                 print(f"  ❌ Failed: {e}")
@@ -366,19 +368,19 @@ def run_phase4b_attention_analysis():
     results = analyzer.analyze_attention_heads(sessions_to_test=5)
     
     # Print comprehensive results
-    print(f"\n🏆 PHASE 4b RESULTS:")
+    print("\n🏆 PHASE 4b RESULTS:")
     print("=" * 70)
     
     spec_analysis = results['specialization_analysis']
     overall = spec_analysis['overall']
     
-    print(f"📊 Attention Head Analysis:")
+    print("📊 Attention Head Analysis:")
     print(f"  Sessions analyzed: {len(results['session_results'])}")
     print(f"  Head diversity: {overall['avg_head_diversity']:.3f}")
     print(f"  Pattern overlap: {overall['avg_pattern_overlap']:.3f}")
     print(f"  Specialization quality: {overall['specialization_quality']:.3f}")
     
-    print(f"\n🧠 Individual Head Analysis:")
+    print("\n🧠 Individual Head Analysis:")
     for head_key, head_data in spec_analysis['head_diversity'].items():
         patterns = [p[0] for p in head_data['top_patterns']]
         print(f"  {head_key}: {head_data['unique_patterns']} patterns - {', '.join(patterns[:2])}...")
@@ -391,7 +393,7 @@ def run_phase4b_attention_analysis():
         ("All 4 heads active", len(spec_analysis['head_diversity']) == 4)
     ]
     
-    print(f"\n✅ 4-Head Attention Validation:")
+    print("\n✅ 4-Head Attention Validation:")
     all_passed = True
     for criterion, passed in success_criteria:
         status = "✅" if passed else "❌"
@@ -400,13 +402,13 @@ def run_phase4b_attention_analysis():
             all_passed = False
     
     if all_passed:
-        print(f"\n🎉 PHASE 4b: COMPLETE SUCCESS!")
-        print(f"✅ 4-head attention specialization CONFIRMED")
-        print(f"✅ Each head discovers different pattern archetypes")
-        print(f"✅ No attention heads focusing on same links")
+        print("\n🎉 PHASE 4b: COMPLETE SUCCESS!")
+        print("✅ 4-head attention specialization CONFIRMED")
+        print("✅ Each head discovers different pattern archetypes")
+        print("✅ No attention heads focusing on same links")
     else:
-        print(f"\n⚠️ PHASE 4b: PARTIAL SUCCESS")
-        print(f"🔧 Some attention specialization criteria need review")
+        print("\n⚠️ PHASE 4b: PARTIAL SUCCESS")
+        print("🔧 Some attention specialization criteria need review")
     
     return results, all_passed
 

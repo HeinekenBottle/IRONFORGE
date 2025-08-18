@@ -2,11 +2,11 @@
 """
 Analyze NY PM session patterns from IRONFORGE discoveries
 """
-import re
 import glob
 import pickle
-from collections import defaultdict, Counter
-from datetime import datetime
+import re
+from collections import Counter, defaultdict
+
 
 def analyze_nypm_patterns():
     """Analyze discovered patterns specifically for NY PM sessions"""
@@ -98,7 +98,7 @@ def analyze_nypm_patterns():
                 high_frequency_prices = [(price, count) for price, count in price_counter.most_common(5) if count >= 4]
                 
                 if high_frequency_prices:
-                    print(f"   🎯 High-frequency price levels:")
+                    print("   🎯 High-frequency price levels:")
                     for price, count in high_frequency_prices:
                         print(f"     {price}s level: {count} cross-TF connections")
                         pm_analysis['cascade_sequences'].append({
@@ -112,20 +112,20 @@ def analyze_nypm_patterns():
             print(f"   ⚠️ Error analyzing {session_name}: {e}")
     
     # Summary analysis
-    print(f"\n🏆 NY PM Cross-Timeframe Discovery Summary:")
+    print("\n🏆 NY PM Cross-Timeframe Discovery Summary:")
     print(f"Sessions analyzed: {len(pm_analysis['sessions'])}")
     
     total_cross_tf = sum(pm_analysis['cross_timeframe_density'].values())
     print(f"Total cross-timeframe links: {total_cross_tf}")
     
-    print(f"\nTarget timeframe distribution:")
+    print("\nTarget timeframe distribution:")
     for tf, count in sorted(pm_analysis['cross_timeframe_density'].items()):
         percentage = (count / total_cross_tf) * 100 if total_cross_tf > 0 else 0
         print(f"  {tf}: {count} links ({percentage:.1f}%)")
     
     # High-impact cascade sequences
     if pm_analysis['cascade_sequences']:
-        print(f"\n🎯 Discovered Cascade Sequences (4+ cross-TF connections):")
+        print("\n🎯 Discovered Cascade Sequences (4+ cross-TF connections):")
         for seq in sorted(pm_analysis['cascade_sequences'], key=lambda x: x['connection_count'], reverse=True):
             print(f"  {seq['date']} - {seq['price_cluster']}s level: {seq['connection_count']} connections")
     

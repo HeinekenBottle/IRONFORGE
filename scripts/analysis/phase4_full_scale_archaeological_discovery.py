@@ -7,13 +7,15 @@ Test pattern discovery on long runs and multi-day datasets.
 NO COMPROMISES - Full production-level archaeological mode.
 """
 
-import json
 import glob
+import json
 import time
 from pathlib import Path
-from typing import List, Dict, Any
+from typing import Any, Dict, List
+
 from learning.enhanced_graph_builder import EnhancedGraphBuilder
 from learning.tgat_discovery import IRONFORGEDiscovery
+
 
 class FullScaleArchaeologicalDiscovery:
     """Full scale archaeological discovery with no session limits or chunking."""
@@ -250,36 +252,36 @@ def run_phase4a_full_scale():
     results = discovery.discover_all_sessions()
     
     # Print comprehensive results
-    print(f"\n🏆 PHASE 4a RESULTS:")
+    print("\n🏆 PHASE 4a RESULTS:")
     print("=" * 70)
     
     exec_summary = results['execution_summary']
-    print(f"📊 Execution Summary:")
+    print("📊 Execution Summary:")
     print(f"  Sessions: {exec_summary['successful_sessions']}/{exec_summary['total_sessions_attempted']} ({exec_summary['success_rate']:.1f}% success)")
     print(f"  Runtime: {exec_summary['total_execution_time']:.1f}s ({exec_summary['avg_time_per_session']:.2f}s per session)")
     
     arch_discoveries = results['archaeological_discoveries']
-    print(f"\n🏛️ Archaeological Discoveries:")
+    print("\n🏛️ Archaeological Discoveries:")
     print(f"  Total patterns: {arch_discoveries['total_patterns']:,}")
     print(f"  Pattern types: {arch_discoveries['pattern_types_discovered']}")
     print(f"  Avg per session: {arch_discoveries['avg_patterns_per_session']:.1f}")
     print(f"  Discovery rate: {arch_discoveries['patterns_per_second']:.1f} patterns/second")
     
     graph_analysis = results['graph_analysis']
-    print(f"\n📊 Graph Analysis:")
+    print("\n📊 Graph Analysis:")
     print(f"  Total nodes: {graph_analysis['total_nodes']:,}")
     print(f"  Total edges: {graph_analysis['total_edges']:,}")
     print(f"  Scale edges: {graph_analysis['total_scale_edges']:,} ({graph_analysis['avg_scale_edge_percentage']:.1f}% avg)")
     print(f"  Timeframes: {len(graph_analysis['timeframes_discovered'])}")
     
     multi_day = results['multi_day_coverage']
-    print(f"\n📅 Multi-Day Coverage:")
+    print("\n📅 Multi-Day Coverage:")
     print(f"  Date span: {multi_day['date_span_days']} days")
     print(f"  Multi-day dataset: {multi_day['multi_day_dataset']}")
     print(f"  Dates: {', '.join(multi_day['dates_covered'][:5])}{'...' if len(multi_day['dates_covered']) > 5 else ''}")
     
     production = results['production_readiness']
-    print(f"\n🚀 Production Readiness:")
+    print("\n🚀 Production Readiness:")
     all_criteria = [
         ("No session limits", production['no_session_limits']),
         ("No chunking", production['no_chunking_used']),
@@ -295,13 +297,13 @@ def run_phase4a_full_scale():
     all_passed = all(passed for _, passed in all_criteria)
     
     if all_passed:
-        print(f"\n🎉 PHASE 4a: COMPLETE SUCCESS!")
-        print(f"✅ Full scale archaeological discovery OPERATIONAL")
-        print(f"✅ Multi-day pattern discovery CONFIRMED")
-        print(f"✅ Production-level performance ACHIEVED")
+        print("\n🎉 PHASE 4a: COMPLETE SUCCESS!")
+        print("✅ Full scale archaeological discovery OPERATIONAL")
+        print("✅ Multi-day pattern discovery CONFIRMED")
+        print("✅ Production-level performance ACHIEVED")
     else:
-        print(f"\n⚠️ PHASE 4a: PARTIAL SUCCESS")
-        print(f"🔧 Some production criteria need attention")
+        print("\n⚠️ PHASE 4a: PARTIAL SUCCESS")
+        print("🔧 Some production criteria need attention")
     
     return results, all_passed
 

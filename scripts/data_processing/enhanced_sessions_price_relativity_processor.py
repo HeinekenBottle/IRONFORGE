@@ -9,13 +9,13 @@ to enable permanent structural pattern discovery.
 CRITICAL: Transforms enhanced sessions from absolute prices to structural relationships
 """
 
-import json
 import glob
+import json
 import os
-import numpy as np
 from datetime import datetime, timedelta
-from typing import Dict, List, Any, Optional
 from pathlib import Path
+from typing import Dict, List
+
 
 class EnhancedSessionsRelativityProcessor:
     """
@@ -322,7 +322,7 @@ class EnhancedSessionsRelativityProcessor:
                 results['failed_files'].append({'filename': filename, 'error': str(e)})
         
         # Summary
-        print(f"\n🏆 Enhanced Sessions Price Relativity Processing Complete:")
+        print("\n🏆 Enhanced Sessions Price Relativity Processing Complete:")
         print(f"✅ Successfully processed: {results['processed_count']} sessions")
         print(f"❌ Failed: {results['failed_count']} sessions")
         print(f"📊 Success rate: {(results['processed_count'] / len(files)) * 100:.1f}%")
@@ -338,9 +338,9 @@ def main():
     processor = EnhancedSessionsRelativityProcessor()
     results = processor.process_all_enhanced_sessions()
     
-    print(f"\n🎯 Enhanced Sessions Price Relativity Transformation Complete!")
-    print(f"🔄 Enhanced sessions now use permanent structural relationships")
-    print(f"📈 Patterns will survive market regime changes (23k → 30k+)")
+    print("\n🎯 Enhanced Sessions Price Relativity Transformation Complete!")
+    print("🔄 Enhanced sessions now use permanent structural relationships")
+    print("📈 Patterns will survive market regime changes (23k → 30k+)")
     
     return results
 

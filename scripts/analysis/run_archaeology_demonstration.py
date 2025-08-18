@@ -12,16 +12,16 @@ Author: IRONFORGE Archaeological Discovery System
 Date: August 15, 2025
 """
 
-import os
-import sys
 import json
+import sys
 import time
-import numpy as np
-from pathlib import Path
-from typing import Dict, List, Any
-from datetime import datetime, timedelta
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
+from datetime import datetime
 from enum import Enum
+from pathlib import Path
+from typing import Dict, List
+
+import numpy as np
 
 # Add paths for imports
 sys.path.append(str(Path(__file__).parent))
@@ -769,10 +769,8 @@ def create_demonstration_visualizations(lattice_dataset, clustering_analysis, st
     print("=" * 60)
     
     try:
-        import matplotlib.pyplot as plt
         import matplotlib.patches as patches
-        from matplotlib.patches import FancyBboxPatch
-        import seaborn as sns
+        import matplotlib.pyplot as plt
         
         # Set style
         plt.style.use('dark_background')
@@ -1130,7 +1128,7 @@ def generate_demonstration_report(events, lattice_results, clustering_results, s
         for viz_type in report['visualization_suite']['visualization_types']:
             f.write(f"- {viz_type.replace('_', ' ').title()}\n")
         
-        f.write(f"""
+        f.write("""
 ---
 
 ## ✅ System Capabilities Verified
@@ -1140,7 +1138,7 @@ def generate_demonstration_report(events, lattice_results, clustering_results, s
         for capability, status in report['system_capabilities_demonstrated'].items():
             f.write(f"- **{capability.replace('_', ' ').title()}**: {status}\n")
         
-        f.write(f"""
+        f.write("""
 ---
 
 ## 🏛️ Archaeological Insights Demonstrated
@@ -1150,7 +1148,7 @@ def generate_demonstration_report(events, lattice_results, clustering_results, s
         for insight, description in report['archaeological_insights_demonstrated'].items():
             f.write(f"- **{insight.replace('_', ' ').title()}**: {description}\n")
         
-        f.write(f"""
+        f.write("""
 ---
 
 ## 🚀 Production Readiness
@@ -1160,7 +1158,7 @@ def generate_demonstration_report(events, lattice_results, clustering_results, s
         for component, status in report['production_readiness_assessment'].items():
             f.write(f"- **{component.replace('_', ' ').title()}**: {status}\n")
         
-        f.write(f"""
+        f.write("""
 ---
 
 ## 🎉 DEMONSTRATION COMPLETE
@@ -1233,7 +1231,7 @@ def main():
         # Final summary
         total_time = time.time() - start_time
         
-        print(f"\n🏁 DEMONSTRATION COMPLETE!")
+        print("\n🏁 DEMONSTRATION COMPLETE!")
         print("=" * 80)
         print(f"🕒 Total Runtime: {total_time:.1f} seconds")
         print(f"📊 Events Generated: {len(events):,}")
@@ -1244,11 +1242,11 @@ def main():
         print(f"📋 Executive Report: {report_file}")
         print(f"📄 Summary: {summary_file}")
         
-        print(f"\n🎉 MISSION ACCOMPLISHED!")
-        print(f"   The IRONFORGE Broad-Spectrum Market Archaeology System")
-        print(f"   has been successfully demonstrated with comprehensive")
-        print(f"   multi-timeframe analysis, lattice mapping, and visualization.")
-        print(f"\n🚀 System validated and ready for production deployment!")
+        print("\n🎉 MISSION ACCOMPLISHED!")
+        print("   The IRONFORGE Broad-Spectrum Market Archaeology System")
+        print("   has been successfully demonstrated with comprehensive")
+        print("   multi-timeframe analysis, lattice mapping, and visualization.")
+        print("\n🚀 System validated and ready for production deployment!")
         
     except Exception as e:
         print(f"\n💥 Demonstration failed: {e}")

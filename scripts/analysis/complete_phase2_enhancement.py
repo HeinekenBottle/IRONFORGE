@@ -15,9 +15,9 @@ This completes the systematic feature decontamination across all TGAT-ready sess
 import json
 import os
 import random
-import numpy as np
 from datetime import datetime
-from typing import Dict, List, Any
+from typing import Any, Dict, List
+
 
 def generate_authentic_htf_carryover(price_volatility: float, session_type: str) -> float:
     """Generate authentic HTF carryover strength based on market conditions."""
@@ -160,8 +160,8 @@ def process_remaining_sessions():
     enhanced_set = set(enhanced_files)
     missing_sessions = sorted(list(tgat_ready - enhanced_set))
     
-    print(f"🔧 PHASE 2 FEATURE DECONTAMINATION - COMPLETION")
-    print(f"=" * 60)
+    print("🔧 PHASE 2 FEATURE DECONTAMINATION - COMPLETION")
+    print("=" * 60)
     print(f"📊 Total TGAT-ready sessions: {len(tgat_ready)}")
     print(f"✅ Already enhanced: {len(enhanced_set)}")
     print(f"⏳ Remaining to process: {len(missing_sessions)}")
@@ -203,7 +203,7 @@ def process_remaining_sessions():
                     break
             
             if not session_path:
-                print(f"   ⚠️  Source file not found in any expected location")
+                print("   ⚠️  Source file not found in any expected location")
                 print(f"      Checked: {', '.join(possible_paths)}")
                 results['failed_sessions'].append({
                     'session': session_name,
@@ -231,7 +231,7 @@ def process_remaining_sessions():
                 'liquidity_events_count': len(enhanced_session['session_liquidity_events'])
             })
             
-            print(f"   ✅ Enhanced successfully")
+            print("   ✅ Enhanced successfully")
             print(f"      • HTF carryover: {enhancement_info['original_contamination']['htf_carryover_strength']:.3f} → {enhanced_session['htf_carryover_strength']:.3f}")
             print(f"      • Energy density: {enhancement_info['original_contamination']['energy_density']:.3f} → {enhanced_session['energy_density']:.3f}")
             print(f"      • Liquidity events: {enhancement_info['original_contamination']['session_liquidity_events_count']} → {len(enhanced_session['session_liquidity_events'])}")
@@ -262,8 +262,8 @@ def process_remaining_sessions():
         json.dump(results, f, indent=2)
     
     # Final summary
-    print(f"🎉 PHASE 2 COMPLETION SUMMARY")
-    print(f"=" * 40)
+    print("🎉 PHASE 2 COMPLETION SUMMARY")
+    print("=" * 40)
     print(f"✅ Sessions processed this run: {len(results['processed_sessions'])}")
     print(f"❌ Failed sessions: {len(results['failed_sessions'])}")
     print(f"📈 Total enhanced sessions: {total_enhanced_now}/{len(tgat_ready)}")
@@ -271,7 +271,7 @@ def process_remaining_sessions():
     print(f"📋 Results saved: {results_file}")
     
     if coverage_percentage >= 100.0:
-        print(f"🏆 PHASE 2 FEATURE DECONTAMINATION: COMPLETE SUCCESS!")
+        print("🏆 PHASE 2 FEATURE DECONTAMINATION: COMPLETE SUCCESS!")
         print(f"    All {len(tgat_ready)} TGAT-ready sessions enhanced with authentic features.")
     else:
         print(f"⚠️  Phase 2 incomplete. {len(tgat_ready) - total_enhanced_now} sessions remaining.")

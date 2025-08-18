@@ -20,15 +20,17 @@ Mathematical Foundation:
 NO FALLBACKS - Direct mathematical optimization only.
 """
 
-import numpy as np
 import json
 import logging
-from typing import Dict, List, Any, Optional, Tuple
+import warnings
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+import numpy as np
 from scipy import optimize
 from scipy.stats import entropy
-import warnings
+
 warnings.filterwarnings('ignore', category=RuntimeWarning)
 
 @dataclass
@@ -177,7 +179,7 @@ class AdaptiveRGOptimizer:
                 # Objective: maximize regime entropy (balanced classification)
                 return regime_entropy
                 
-            except Exception as e:
+            except Exception:
                 return -np.inf
         
         # Optimization bounds based on Fisher Information patterns
@@ -790,7 +792,7 @@ if __name__ == "__main__":
         'session_type': 'NY_AM'       # Current session
     }
     
-    print(f"📊 Test Market Data:")
+    print("📊 Test Market Data:")
     for key, value in sample_market_data.items():
         print(f"   {key}: {value}")
     
@@ -798,13 +800,13 @@ if __name__ == "__main__":
     try:
         optimized_params = optimizer.optimize_complete_system(sample_market_data)
         
-        print(f"\n🎯 OPTIMIZATION RESULTS:")
+        print("\n🎯 OPTIMIZATION RESULTS:")
         print(f"   Regime: {optimized_params.regime_classification}")
         print(f"   Confidence: {optimized_params.optimization_confidence:.4f}")
         print(f"   Coupling Matrix Eigenvalues: {np.linalg.eigvals(optimized_params.coupling_matrix).real}")
         print(f"   Fisher Thresholds: {list(optimized_params.fisher_thresholds.values())}")
         
-        print(f"\n🚀 ADAPTIVE RG OPTIMIZER: OPERATIONAL")
+        print("\n🚀 ADAPTIVE RG OPTIMIZER: OPERATIONAL")
         print("   Mathematical physics engine ready for IRONPULSE integration")
         
     except Exception as e:

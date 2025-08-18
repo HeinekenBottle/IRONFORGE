@@ -12,12 +12,11 @@ Provides command-line access to the semantic indexer with multiple modes:
 """
 
 import argparse
+import json
+import logging
 import sys
 import time
-import json
 from pathlib import Path
-from typing import Optional, List
-import logging
 
 from .indexer import IRONFORGEIndexer
 
@@ -299,7 +298,7 @@ Examples:
         print("="*60)
         
         # Project overview
-        print(f"\\n📊 PROJECT OVERVIEW")
+        print("\\n📊 PROJECT OVERVIEW")
         print(f"   Files Analyzed: {overview.get('total_files', 0):,}")
         print(f"   Lines of Code: {overview.get('total_lines', 0):,}")
         print(f"   Functions: {overview.get('total_functions', 0):,}")
@@ -307,7 +306,7 @@ Examples:
         print(f"   Avg Complexity: {overview.get('average_complexity', 0):.1f}")
         
         # Engine summary
-        print(f"\\n🏗️  ENGINE ARCHITECTURE")
+        print("\\n🏗️  ENGINE ARCHITECTURE")
         engine_count = len([e for e in engine_arch.keys() if e != 'metadata'])
         print(f"   Total Engines: {engine_count}")
         
@@ -318,14 +317,14 @@ Examples:
                     print(f"   {engine_name.title()}: {file_count} files")
         
         # Dependency summary
-        print(f"\\n🔗 DEPENDENCIES")
+        print("\\n🔗 DEPENDENCIES")
         total_deps = dependency_map.get('dependency_statistics', {}).get('total_dependencies', 0)
         circular_deps = len(dependency_map.get('circular_dependencies', []))
         print(f"   Total Dependencies: {total_deps}")
         print(f"   Circular Dependencies: {circular_deps}")
         
         # Complexity summary
-        print(f"\\n⚡ COMPLEXITY")
+        print("\\n⚡ COMPLEXITY")
         hotspots = len(complexity.get('hotspots', []))
         high_complexity_files = complexity.get('summary', {}).get('files_with_high_complexity', 0)
         print(f"   Complexity Hotspots: {hotspots}")
@@ -372,7 +371,7 @@ Examples:
         
         # Statistics
         stats = dependency_map.get('dependency_statistics', {})
-        print(f"\\n📊 STATISTICS")
+        print("\\n📊 STATISTICS")
         print(f"   Total Modules: {stats.get('total_modules', 0)}")
         print(f"   Total Dependencies: {stats.get('total_dependencies', 0)}")
         print(f"   Avg Dependencies/Module: {stats.get('average_dependencies_per_module', 0):.1f}")
@@ -387,7 +386,7 @@ Examples:
         # Hub modules
         hubs = dependency_map.get('hub_modules', [])[:5]
         if hubs:
-            print(f"\\n🌐 HUB MODULES")
+            print("\\n🌐 HUB MODULES")
             for hub in hubs:
                 print(f"   {hub.get('module', 'Unknown')} (centrality: {hub.get('centrality', 0)})")
         
@@ -396,19 +395,19 @@ Examples:
     def _print_quick_stats(self, results: dict) -> None:
         """Print quick statistics."""
         if 'file_count' in results:
-            print(f"\\n📊 Quick Analysis Complete")
+            print("\\n📊 Quick Analysis Complete")
             print(f"   Files Analyzed: {results.get('file_count', 0)}")
             print(f"   Focus: {results.get('focus', 'unknown').title()}")
         else:
             overview = results.get('project_overview', {})
-            print(f"\\n📊 Analysis Complete")
+            print("\\n📊 Analysis Complete")
             print(f"   Files: {overview.get('total_files', 0)}")
             print(f"   Functions: {overview.get('total_functions', 0)}")
             print(f"   Classes: {overview.get('total_classes', 0)}")
     
     def _print_report_paths(self, report_paths: dict) -> None:
         """Print generated report file paths."""
-        print(f"\\n📄 GENERATED REPORTS")
+        print("\\n📄 GENERATED REPORTS")
         for report_type, path in report_paths.items():
             print(f"   {report_type.title()}: {path}")
     

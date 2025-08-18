@@ -12,14 +12,13 @@ Features:
 - Performance monitoring with Sprint 2 metrics
 """
 
+import glob
+import json
 import os
 import sys
 import time
-import json
-import glob
 from datetime import datetime
 from pathlib import Path
-from typing import List, Dict, Any
 
 # Add current directory to path
 sys.path.append('.')
@@ -48,7 +47,7 @@ def run_full_scale_discovery():
     init_time = time.time() - init_start
     print(f"✅ IRONFORGE initialized in {init_time:.3f}s")
     print(f"✅ Enhanced mode: {forge.enhanced_mode}")
-    print(f"✅ iron_core lazy loading: Active")
+    print("✅ iron_core lazy loading: Active")
     
     # Discover all available session files
     print("\n🔍 Phase 2: Discovering Available Sessions")
@@ -89,7 +88,7 @@ def run_full_scale_discovery():
         
         discovery_time = time.time() - discovery_start
         
-        print(f"\n🎯 Discovery Results:")
+        print("\n🎯 Discovery Results:")
         print(f"✅ Sessions processed: {results['sessions_processed']}")
         print(f"✅ Processing time: {discovery_time:.1f}s")
         print(f"✅ Graphs preserved: {len(results.get('graphs_preserved', []))}")
@@ -115,7 +114,7 @@ def run_full_scale_discovery():
         
         # Show any errors
         if results.get('processing_errors'):
-            print(f"\n⚠️ Processing Errors:")
+            print("\n⚠️ Processing Errors:")
             for error in results['processing_errors'][:3]:  # Show first 3
                 print(f"  - {error}")
         
@@ -154,13 +153,13 @@ def run_full_scale_discovery():
     
     # Performance summary
     total_time = time.time() - start_time
-    print(f"\n🏁 Full-Scale Discovery Complete")
+    print("\n🏁 Full-Scale Discovery Complete")
     print("=" * 70)
     print(f"✅ Total execution time: {total_time:.1f}s")
-    print(f"✅ iron_core lazy loading: Operational")
-    print(f"✅ Sprint 2 features: Active (37D + TGAT + 4 edge types)")
+    print("✅ iron_core lazy loading: Operational")
+    print("✅ Sprint 2 features: Active (37D + TGAT + 4 edge types)")
     print(f"✅ Discovery files: {len(discovery_files)}")
-    print(f"✅ Archaeological mission: SUCCESS")
+    print("✅ Archaeological mission: SUCCESS")
     
     # Save execution summary
     summary = {
@@ -178,7 +177,7 @@ def run_full_scale_discovery():
     with open('full_scale_discovery_summary.json', 'w') as f:
         json.dump(summary, f, indent=2)
     
-    print(f"✅ Execution summary saved to: full_scale_discovery_summary.json")
+    print("✅ Execution summary saved to: full_scale_discovery_summary.json")
     
     return True
 

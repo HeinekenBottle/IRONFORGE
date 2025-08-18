@@ -415,7 +415,7 @@ def generate_simple_summary(events, lattice_results, clustering_results, structu
     summary['overall_success_score'] = success_score
     summary['test_status'] = 'PASS' if success_score > 0.6 else 'PARTIAL' if success_score > 0.3 else 'FAIL'
     
-    print(f"\n📊 Summary Results:")
+    print("\n📊 Summary Results:")
     print(f"  Input Events: {summary['input_data']['total_events']}")
     print(f"  Lattice Nodes: {summary['lattice_mapping']['nodes']}")
     print(f"  Temporal Clusters: {summary['temporal_clustering']['clusters']}")
@@ -462,19 +462,19 @@ def main():
         # Final results
         elapsed_time = time.time() - start_time
         
-        print(f"\n🏁 Simplified Test Complete!")
+        print("\n🏁 Simplified Test Complete!")
         print(f"  Test Duration: {elapsed_time:.1f} seconds")
         print(f"  Final Status: {'✅ SUCCESS' if summary['test_status'] == 'PASS' else '⚠️ PARTIAL' if summary['test_status'] == 'PARTIAL' else '❌ FAILURE'}")
         
         if summary['test_status'] == 'PASS':
-            print(f"\n🎉 Core architecture validation successful!")
-            print(f"  The broad-spectrum archaeology system demonstrates:")
-            print(f"    - Multi-timeframe event processing")
-            print(f"    - Lattice coordinate mapping")
-            print(f"    - Temporal pattern clustering")
-            print(f"    - Structural relationship detection")
-            print(f"    - Cascade chain identification")
-            print(f"\n  System is ready for enhanced session data integration")
+            print("\n🎉 Core architecture validation successful!")
+            print("  The broad-spectrum archaeology system demonstrates:")
+            print("    - Multi-timeframe event processing")
+            print("    - Lattice coordinate mapping")
+            print("    - Temporal pattern clustering")
+            print("    - Structural relationship detection")
+            print("    - Cascade chain identification")
+            print("\n  System is ready for enhanced session data integration")
         
     except Exception as e:
         print(f"\n💥 Test failed: {e}")

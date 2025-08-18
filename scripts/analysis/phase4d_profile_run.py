@@ -6,17 +6,19 @@ Demonstrate stable end-to-end runs at full sophistication without chunking/caps.
 Profiling harness with Small/Medium/Large workloads.
 """
 
-import json
+import csv
 import glob
+import json
 import time
 import tracemalloc
+from pathlib import Path
+from typing import Dict, List, Tuple
+
 import psutil
 import torch
-import csv
-from pathlib import Path
-from typing import List, Dict, Any, Tuple
 from learning.enhanced_graph_builder import EnhancedGraphBuilder
 from learning.tgat_discovery import IRONFORGEDiscovery
+
 
 class PerformanceProfiler:
     """Performance profiling harness for IRONFORGE workloads."""
@@ -47,7 +49,7 @@ class PerformanceProfiler:
         else:
             initial_gpu = 0
         
-        print(f"✅ Memory profiling initialized")
+        print("✅ Memory profiling initialized")
         print(f"📱 Initial CPU memory: {initial_memory:.1f} MB")
         print(f"🎮 GPU available: {gpu_available}")
         if gpu_available:
@@ -408,18 +410,18 @@ def run_phase4d_performance_validation():
     results, success = profiler.run_performance_validation()
     
     # Print comprehensive results
-    print(f"\n🏆 PHASE 4d RESULTS:")
+    print("\n🏆 PHASE 4d RESULTS:")
     print("=" * 70)
     
     validation_summary = results['validation_summary']
-    print(f"📊 Validation Summary:")
+    print("📊 Validation Summary:")
     print(f"  Total workloads: {validation_summary['total_workloads']}")
     print(f"  Total sessions tested: {validation_summary['total_sessions_tested']}")
     print(f"  Overall success rate: {validation_summary['overall_success_rate']:.1f}%")
     print(f"  No chunking confirmed: {validation_summary['no_chunking_confirmed']}")
     print(f"  No caps confirmed: {validation_summary['no_caps_confirmed']}")
     
-    print(f"\n📈 Workload Performance:")
+    print("\n📈 Workload Performance:")
     for workload_name, summary in results['workload_summaries'].items():
         print(f"  🔸 {workload_name.upper()}:")
         print(f"    Sessions: {summary['successful_sessions']}/{summary['total_sessions']}")
@@ -429,7 +431,7 @@ def run_phase4d_performance_validation():
         print(f"    Memory: CPU {summary['avg_cpu_peak_mb']:.1f}MB, GPU {summary['avg_gpu_peak_mb']:.1f}MB")
     
     # Target validation summary
-    print(f"\n✅ Target Validation:")
+    print("\n✅ Target Validation:")
     all_targets_passed = True
     for workload_name, target_result in results['target_results'].items():
         workload_passed = all(target_result.values())
@@ -438,13 +440,13 @@ def run_phase4d_performance_validation():
         print(f"  {status} {workload_name.upper()}: {sum(target_result.values())}/{len(target_result)} targets passed")
     
     if success and all_targets_passed:
-        print(f"\n🎉 PHASE 4d: COMPLETE SUCCESS!")
-        print(f"✅ Full capability validation ACHIEVED")
-        print(f"✅ No chunking/caps at production scale")
-        print(f"✅ All performance targets MET")
+        print("\n🎉 PHASE 4d: COMPLETE SUCCESS!")
+        print("✅ Full capability validation ACHIEVED")
+        print("✅ No chunking/caps at production scale")
+        print("✅ All performance targets MET")
     else:
-        print(f"\n⚠️ PHASE 4d: PARTIAL SUCCESS")
-        print(f"🔧 Some performance targets need attention")
+        print("\n⚠️ PHASE 4d: PARTIAL SUCCESS")
+        print("🔧 Some performance targets need attention")
     
     return results, success and all_targets_passed
 
@@ -527,7 +529,7 @@ if __name__ == "__main__":
                     f.write(f"- {status}: {target_name}\n")
                 f.write("\n")
         
-        print(f"\n📁 Results saved to:")
+        print("\n📁 Results saved to:")
         print(f"  📊 {output_file}")
         print(f"  📈 {csv_file}")
         print(f"  📝 {summary_file}")

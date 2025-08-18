@@ -67,7 +67,7 @@ def test_semantic_feature_extraction():
         expected_detections = ['fvg_redelivery_flag', 'expansion_phase_flag', 'phase_mid']
         actual_detections = [k for k, v in semantic_events.items() if v > 0.0]
         
-        print(f"\n📊 Detection Summary:")
+        print("\n📊 Detection Summary:")
         print(f"  Expected: {expected_detections}")
         print(f"  Actual: {actual_detections}")
         

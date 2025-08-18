@@ -12,10 +12,9 @@ Classifies components into IRONFORGE's multi-engine architecture:
 - Utilities: Support tools and scripts
 """
 
-import re
-from pathlib import Path
-from typing import Dict, Any, List, Set
 import logging
+from pathlib import Path
+from typing import Any, Dict, List
 
 
 class EngineClassifier:

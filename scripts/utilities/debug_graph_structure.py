@@ -7,7 +7,9 @@ Debug the actual graph structure returned by enhanced graph builder.
 
 import json
 from pathlib import Path
+
 from learning.enhanced_graph_builder import EnhancedGraphBuilder
+
 
 def debug_graph_structure():
     """Debug the actual graph structure."""
@@ -29,13 +31,13 @@ def debug_graph_structure():
     print("🏗️ Building enhanced graph...")
     graph_data = graph_builder.build_rich_graph(htf_data)
     
-    print(f"\n📊 Graph Data Structure:")
+    print("\n📊 Graph Data Structure:")
     print(f"  Type: {type(graph_data)}")
     print(f"  Keys: {list(graph_data.keys()) if isinstance(graph_data, dict) else 'Not a dict'}")
     
     if 'nodes' in graph_data:
         nodes = graph_data['nodes']
-        print(f"\n📍 Nodes:")
+        print("\n📍 Nodes:")
         print(f"  Type: {type(nodes)}")
         print(f"  Length: {len(nodes) if hasattr(nodes, '__len__') else 'No length'}")
         
@@ -61,7 +63,7 @@ def debug_graph_structure():
     
     if 'edges' in graph_data:
         edges = graph_data['edges']
-        print(f"\n🔗 Edges:")
+        print("\n🔗 Edges:")
         print(f"  Type: {type(edges)}")
         print(f"  Length: {len(edges) if hasattr(edges, '__len__') else 'No length'}")
         
@@ -86,10 +88,10 @@ def debug_graph_structure():
             print()
     
     # Test TGAT conversion
-    print(f"\n🧠 Testing TGAT Conversion...")
+    print("\n🧠 Testing TGAT Conversion...")
     try:
         X, edge_index, edge_times, metadata, edge_attr = graph_builder.to_tgat_format(graph_data)
-        print(f"  ✅ TGAT conversion successful:")
+        print("  ✅ TGAT conversion successful:")
         print(f"    X (node features): {X.shape}")
         print(f"    edge_index: {edge_index.shape}")
         print(f"    edge_attr (edge features): {edge_attr.shape}")

@@ -15,10 +15,11 @@ language with measurable information geometry.
 """
 
 import logging
-import numpy as np
-from typing import Dict, List, Any, Optional, Tuple
 from dataclasses import dataclass
-from datetime import datetime
+from typing import Any, Dict, List, Optional, Tuple
+
+import numpy as np
+
 
 @dataclass
 class GrammarParseState:
@@ -341,7 +342,7 @@ if __name__ == "__main__":
             print(f"  🎯 Deterministic next: {parse_state.deterministic_continuation}")
         
         if correlator.is_deterministic_mode_active():
-            print(f"  🔴 DETERMINISTIC MODE ACTIVE")
+            print("  🔴 DETERMINISTIC MODE ACTIVE")
     
     # Print correlation summary
     print("\n" + "=" * 50)
@@ -355,4 +356,4 @@ if __name__ == "__main__":
     if next_event:
         print(f"\n🔮 Predicted next event: {next_event}")
     else:
-        print(f"\n❓ No deterministic prediction available")
+        print("\n❓ No deterministic prediction available")

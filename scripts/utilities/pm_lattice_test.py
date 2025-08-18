@@ -3,15 +3,16 @@
 PM Lattice Test - Process only PM sessions for faster validation
 """
 
-import sys
-import json
 import glob
+import json
+import sys
 from pathlib import Path
 
 sys.path.append(str(Path(__file__).parent))
 
-from analysis.timeframe_lattice_mapper import TimeframeLatticeMapper
 from analysis.enhanced_session_adapter import EnhancedSessionAdapter
+from analysis.timeframe_lattice_mapper import TimeframeLatticeMapper
+
 
 def main():
     adapter = EnhancedSessionAdapter()

@@ -156,23 +156,23 @@ def test_sprint2_lazy_integration():
         )
         
         # Phase 5: Results summary
-        print(f"\n🏆 Phase 5: Results Summary")
+        print("\n🏆 Phase 5: Results Summary")
         print("=" * 40)
         
         if performance_success:
             print("✅ SPRINT 2 + LAZY LOADING INTEGRATION: SUCCESS")
-            print(f"⚡ Performance improvement achieved:")
+            print("⚡ Performance improvement achieved:")
             print(f"   - Total test time: {total_time:.3f}s (<30s target)")
             print(f"   - Average component load: {metrics['average_component_load_time']:.3f}s") 
-            print(f"   - All timeout issues resolved")
-            print(f"   - All Sprint 2 components functional")
+            print("   - All timeout issues resolved")
+            print("   - All Sprint 2 components functional")
         else:
             print("❌ SPRINT 2 + LAZY LOADING INTEGRATION: NEEDS OPTIMIZATION")
             print(f"   - Total time: {total_time:.3f}s (target: <30s)")
             print(f"   - Avg load time: {metrics['average_component_load_time']:.3f}s (target: <5s)")
             
         # Component load time breakdown
-        print(f"\n📈 Component Load Time Breakdown:")
+        print("\n📈 Component Load Time Breakdown:")
         for component, load_time in component_times.items():
             status = "✅" if load_time < 5.0 else "⚠️"
             print(f"   {status} {component}: {load_time:.3f}s")
@@ -201,11 +201,11 @@ if __name__ == "__main__":
     result = test_sprint2_lazy_integration()
     
     if result['success']:
-        print(f"\n🎯 VICTORY: Sprint 2 + Lazy Loading integration successful!")
-        print(f"🚀 Timeout issues resolved, performance targets achieved")
+        print("\n🎯 VICTORY: Sprint 2 + Lazy Loading integration successful!")
+        print("🚀 Timeout issues resolved, performance targets achieved")
         exit(0)
     else:
-        print(f"\n💥 FAILURE: Integration test failed")
+        print("\n💥 FAILURE: Integration test failed")
         print(f"⏱️ Total time: {result['total_time']:.3f}s")
         if 'error' in result:
             print(f"❌ Error: {result['error']}")

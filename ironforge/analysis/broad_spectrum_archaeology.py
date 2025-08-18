@@ -4,7 +4,7 @@ Comprehensive pattern discovery across market sessions
 """
 
 import logging
-from typing import Dict, List, Any, Optional
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
@@ -18,7 +18,7 @@ class BroadSpectrumArchaeology:
         self.logger = logging.getLogger(__name__)
         self.logger.info("Broad Spectrum Archaeology initialized")
     
-    def analyze_broad_spectrum(self, multi_session_data: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def analyze_broad_spectrum(self, multi_session_data: list[dict[str, Any]]) -> dict[str, Any]:
         """
         Perform broad spectrum archaeological analysis
         

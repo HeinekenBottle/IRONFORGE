@@ -1,0 +1,2400 @@
+{
+  "analysis_type": "working_cascade_analysis",
+  "timestamp": "2025-08-16T22:19:45.507201",
+  "metadata": {
+    "sessions_analyzed": 10,
+    "weekly_events": 8,
+    "daily_events": 8,
+    "pm_events": 38,
+    "cascade_links": 58
+  },
+  "events": {
+    "weekly_events": [
+      {
+        "session_id": "unknown",
+        "timestamp": "19:00:00",
+        "timeframe": "Weekly",
+        "event_type": "price_gap",
+        "price_level": 23327.25,
+        "intensity": 0.835,
+        "sweep_classification": "weekly_liquidity_break"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:04:00",
+        "timeframe": "Weekly",
+        "event_type": "level_break",
+        "price_level": 23325.0,
+        "intensity": 0.848,
+        "sweep_classification": "weekly_liquidity_break"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:21:00",
+        "timeframe": "Weekly",
+        "event_type": "level_break",
+        "price_level": 23329.5,
+        "intensity": 0.919,
+        "sweep_classification": "weekly_liquidity_break"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:34:00",
+        "timeframe": "Weekly",
+        "event_type": "consolidation_break",
+        "price_level": 23325.25,
+        "intensity": 0.805,
+        "sweep_classification": "weekly_liquidity_break"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "13:30:00",
+        "timeframe": "Weekly",
+        "event_type": "price_gap",
+        "price_level": 23210.75,
+        "intensity": 0.926,
+        "sweep_classification": "weekly_liquidity_break"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "13:35:00",
+        "timeframe": "Weekly",
+        "event_type": "price_gap",
+        "price_level": 23201.0,
+        "intensity": 0.819,
+        "sweep_classification": "weekly_liquidity_break"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "14:05:00",
+        "timeframe": "Weekly",
+        "event_type": "price_gap",
+        "price_level": 23283.75,
+        "intensity": 0.859,
+        "sweep_classification": "weekly_liquidity_break"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "13:30:00",
+        "timeframe": "Weekly",
+        "event_type": "consolidation_break",
+        "price_level": 23380.0,
+        "intensity": 0.844,
+        "sweep_classification": "weekly_liquidity_break"
+      }
+    ],
+    "daily_events": [
+      {
+        "session_id": "unknown",
+        "timestamp": "19:04:00",
+        "timeframe": "Daily",
+        "event_type": "level_break",
+        "price_level": 23325.0,
+        "intensity": 0.848,
+        "sweep_classification": "daily_liquidity_sweep"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:34:00",
+        "timeframe": "Daily",
+        "event_type": "consolidation_break",
+        "price_level": 23325.25,
+        "intensity": 0.805,
+        "sweep_classification": "daily_liquidity_sweep"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "13:30:00",
+        "timeframe": "Daily",
+        "event_type": "level_break",
+        "price_level": 23280.5,
+        "intensity": 0.717,
+        "sweep_classification": "daily_liquidity_sweep"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "12:33:00",
+        "timeframe": "Daily",
+        "event_type": "consolidation_break",
+        "price_level": 23365.5,
+        "intensity": 0.541,
+        "sweep_classification": "daily_liquidity_sweep"
+      },
+      {
+        "session_id": "midnight_opening_range",
+        "timestamp": "00:07:00",
+        "timeframe": "Daily",
+        "event_type": "consolidation_break",
+        "price_level": 23344.75,
+        "intensity": 0.557,
+        "sweep_classification": "daily_liquidity_sweep"
+      },
+      {
+        "session_id": "midnight_opening_range",
+        "timestamp": "00:20:00",
+        "timeframe": "Daily",
+        "event_type": "level_break",
+        "price_level": 23337.0,
+        "intensity": 0.677,
+        "sweep_classification": "daily_liquidity_sweep"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "13:30:00",
+        "timeframe": "Daily",
+        "event_type": "consolidation_break",
+        "price_level": 23380.0,
+        "intensity": 0.844,
+        "sweep_classification": "daily_liquidity_sweep"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "13:51:00",
+        "timeframe": "Daily",
+        "event_type": "level_break",
+        "price_level": 23364.5,
+        "intensity": 0.596,
+        "sweep_classification": "daily_liquidity_sweep"
+      }
+    ],
+    "pm_events": [
+      {
+        "session_id": "unknown",
+        "timestamp": "19:00:00",
+        "timeframe": "PM",
+        "event_type": "price_gap",
+        "price_level": 23327.25,
+        "intensity": 0.835,
+        "sweep_classification": "pm_execution_session_liquidity_events"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:04:00",
+        "timeframe": "PM",
+        "event_type": "level_break",
+        "price_level": 23325.0,
+        "intensity": 0.848,
+        "sweep_classification": "pm_execution_session_liquidity_events"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:06:00",
+        "timeframe": "PM",
+        "event_type": "volume_spike",
+        "price_level": 23330.0,
+        "intensity": 0.512,
+        "sweep_classification": "pm_execution_session_liquidity_events"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:16:00",
+        "timeframe": "PM",
+        "event_type": "volume_spike",
+        "price_level": 23349.5,
+        "intensity": 0.737,
+        "sweep_classification": "pm_execution_session_liquidity_events"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:21:00",
+        "timeframe": "PM",
+        "event_type": "level_break",
+        "price_level": 23329.5,
+        "intensity": 0.919,
+        "sweep_classification": "pm_execution_session_liquidity_events"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:24:00",
+        "timeframe": "PM",
+        "event_type": "fvg_creation",
+        "price_level": 23329.5,
+        "intensity": 0.584,
+        "sweep_classification": "pm_execution_session_liquidity_events"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:32:00",
+        "timeframe": "PM",
+        "event_type": "trend_continuation",
+        "price_level": 23314.75,
+        "intensity": 0.765,
+        "sweep_classification": "pm_execution_session_liquidity_events"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:34:00",
+        "timeframe": "PM",
+        "event_type": "consolidation_break",
+        "price_level": 23325.25,
+        "intensity": 0.805,
+        "sweep_classification": "pm_execution_session_liquidity_events"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:39:00",
+        "timeframe": "PM",
+        "event_type": "liquidity_sweep",
+        "price_level": 23316.0,
+        "intensity": 0.351,
+        "sweep_classification": "pm_execution_session_liquidity_events"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:44:00",
+        "timeframe": "PM",
+        "event_type": "fvg_creation",
+        "price_level": 23330.0,
+        "intensity": 0.599,
+        "sweep_classification": "pm_execution_session_liquidity_events"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:45:00",
+        "timeframe": "PM",
+        "event_type": "momentum_shift",
+        "price_level": 23334.25,
+        "intensity": 0.729,
+        "sweep_classification": "pm_execution_session_liquidity_events"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:00:00",
+        "timeframe": "PM",
+        "event_type": "open",
+        "price_level": 23327.25,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:04:00",
+        "timeframe": "PM",
+        "event_type": "expansion_start_higher",
+        "price_level": 23325.0,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:06:00",
+        "timeframe": "PM",
+        "event_type": "fpfvg_formation",
+        "price_level": 23330.0,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:16:00",
+        "timeframe": "PM",
+        "event_type": "expansion_high_reversal_point",
+        "price_level": 23349.5,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:21:00",
+        "timeframe": "PM",
+        "event_type": "fpfvg_rebalance",
+        "price_level": 23329.5,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:24:00",
+        "timeframe": "PM",
+        "event_type": "fpfvg_redelivery",
+        "price_level": 23329.5,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:32:00",
+        "timeframe": "PM",
+        "event_type": "expansion_low_reversal_point",
+        "price_level": 23314.75,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:34:00",
+        "timeframe": "PM",
+        "event_type": "expansion_high",
+        "price_level": 23325.25,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:39:00",
+        "timeframe": "PM",
+        "event_type": "retracement_low",
+        "price_level": 23316.0,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:44:00",
+        "timeframe": "PM",
+        "event_type": "fpfvg_rebalance_second",
+        "price_level": 23330.0,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:45:00",
+        "timeframe": "PM",
+        "event_type": "expansion_high",
+        "price_level": 23334.25,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "19:46:00",
+        "timeframe": "PM",
+        "event_type": "consolidation_start_high",
+        "price_level": 23335.25,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "20:12:00",
+        "timeframe": "PM",
+        "event_type": "consolidation_end_low",
+        "price_level": 23322.0,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "20:13:00",
+        "timeframe": "PM",
+        "event_type": "expansion_start_lower",
+        "price_level": 23331.75,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "20:21:00",
+        "timeframe": "PM",
+        "event_type": "session_low_reversal_point",
+        "price_level": 23310.75,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "20:35:00",
+        "timeframe": "PM",
+        "event_type": "fpfvg_rebalance_third",
+        "price_level": 23329.5,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "20:37:00",
+        "timeframe": "PM",
+        "event_type": "expansion_high",
+        "price_level": 23336.75,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "20:41:00",
+        "timeframe": "PM",
+        "event_type": "retracement_low",
+        "price_level": 23332.5,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "20:48:00",
+        "timeframe": "PM",
+        "event_type": "session_high_intraday_high_taken",
+        "price_level": 23374.5,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "20:53:00",
+        "timeframe": "PM",
+        "event_type": "retracement_low",
+        "price_level": 23332.25,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "21:09:00",
+        "timeframe": "PM",
+        "event_type": "expansion_high",
+        "price_level": 23372.5,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "21:18:00",
+        "timeframe": "PM",
+        "event_type": "retracement_low",
+        "price_level": 23338.5,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "21:19:00",
+        "timeframe": "PM",
+        "event_type": "consolidation_start_high",
+        "price_level": 23350.25,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "21:37:00",
+        "timeframe": "PM",
+        "event_type": "consolidation_end_low",
+        "price_level": 23337.0,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "21:50:00",
+        "timeframe": "PM",
+        "event_type": "expansion_high",
+        "price_level": 23354.75,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "21:57:00",
+        "timeframe": "PM",
+        "event_type": "retracement_low",
+        "price_level": 23335.0,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      },
+      {
+        "session_id": "unknown",
+        "timestamp": "21:58:00",
+        "timeframe": "PM",
+        "event_type": "consolidation_start_high",
+        "price_level": 23348.0,
+        "intensity": 0.5,
+        "sweep_classification": "pm_execution_price_movements"
+      }
+    ]
+  },
+  "cascades": {
+    "cascade_links": [
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "19:04:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23325.0,
+          "intensity": 0.848,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9999035462817092,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "19:34:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23325.25,
+          "intensity": 0.805,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9999142633615192,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23280.5,
+          "intensity": 0.717,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9979959060755126,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "12:33:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23365.5,
+          "intensity": 0.541,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9983629710470565,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "midnight_opening_range",
+          "timestamp": "00:07:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23344.75,
+          "intensity": 0.557,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9992503667848232,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "midnight_opening_range",
+          "timestamp": "00:20:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23337.0,
+          "intensity": 0.677,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9995822085100913,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23380.0,
+          "intensity": 0.844,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9977437981180496,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:51:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23364.5,
+          "intensity": 0.596,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9984057009565794,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:04:00",
+          "timeframe": "Weekly",
+          "event_type": "level_break",
+          "price_level": 23325.0,
+          "intensity": 0.848,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "19:04:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23325.0,
+          "intensity": 0.848,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 1.0,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:04:00",
+          "timeframe": "Weekly",
+          "event_type": "level_break",
+          "price_level": 23325.0,
+          "intensity": 0.848,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "19:34:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23325.25,
+          "intensity": 0.805,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9999892820012647,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:04:00",
+          "timeframe": "Weekly",
+          "event_type": "level_break",
+          "price_level": 23325.0,
+          "intensity": 0.848,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23280.5,
+          "intensity": 0.717,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9980921757770632,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:04:00",
+          "timeframe": "Weekly",
+          "event_type": "level_break",
+          "price_level": 23325.0,
+          "intensity": 0.848,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "12:33:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23365.5,
+          "intensity": 0.541,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9982666752262952,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:04:00",
+          "timeframe": "Weekly",
+          "event_type": "level_break",
+          "price_level": 23325.0,
+          "intensity": 0.848,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "midnight_opening_range",
+          "timestamp": "00:07:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23344.75,
+          "intensity": 0.557,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9991539853714433,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:04:00",
+          "timeframe": "Weekly",
+          "event_type": "level_break",
+          "price_level": 23325.0,
+          "intensity": 0.848,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "midnight_opening_range",
+          "timestamp": "00:20:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23337.0,
+          "intensity": 0.677,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9994857950893431,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:04:00",
+          "timeframe": "Weekly",
+          "event_type": "level_break",
+          "price_level": 23325.0,
+          "intensity": 0.848,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23380.0,
+          "intensity": 0.844,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9976475620188195,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:04:00",
+          "timeframe": "Weekly",
+          "event_type": "level_break",
+          "price_level": 23325.0,
+          "intensity": 0.848,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:51:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23364.5,
+          "intensity": 0.596,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9983094010143594,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:21:00",
+          "timeframe": "Weekly",
+          "event_type": "level_break",
+          "price_level": 23329.5,
+          "intensity": 0.919,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "19:04:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23325.0,
+          "intensity": 0.848,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9998071111682634,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:21:00",
+          "timeframe": "Weekly",
+          "event_type": "level_break",
+          "price_level": 23329.5,
+          "intensity": 0.919,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "19:34:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23325.25,
+          "intensity": 0.805,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.999817827214471,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:21:00",
+          "timeframe": "Weekly",
+          "event_type": "level_break",
+          "price_level": 23329.5,
+          "intensity": 0.919,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23280.5,
+          "intensity": 0.717,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9978996549433121,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:21:00",
+          "timeframe": "Weekly",
+          "event_type": "level_break",
+          "price_level": 23329.5,
+          "intensity": 0.919,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "12:33:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23365.5,
+          "intensity": 0.541,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9984592668678179,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:21:00",
+          "timeframe": "Weekly",
+          "event_type": "level_break",
+          "price_level": 23329.5,
+          "intensity": 0.919,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "midnight_opening_range",
+          "timestamp": "00:07:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23344.75,
+          "intensity": 0.557,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.999346748198203,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:21:00",
+          "timeframe": "Weekly",
+          "event_type": "level_break",
+          "price_level": 23329.5,
+          "intensity": 0.919,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "midnight_opening_range",
+          "timestamp": "00:20:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23337.0,
+          "intensity": 0.677,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9996786219308395,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:21:00",
+          "timeframe": "Weekly",
+          "event_type": "level_break",
+          "price_level": 23329.5,
+          "intensity": 0.919,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23380.0,
+          "intensity": 0.844,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9978400342172797,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:21:00",
+          "timeframe": "Weekly",
+          "event_type": "level_break",
+          "price_level": 23329.5,
+          "intensity": 0.919,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:51:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23364.5,
+          "intensity": 0.596,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9985020008987995,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:34:00",
+          "timeframe": "Weekly",
+          "event_type": "consolidation_break",
+          "price_level": 23325.25,
+          "intensity": 0.805,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "19:04:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23325.0,
+          "intensity": 0.848,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9999892820012647,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:34:00",
+          "timeframe": "Weekly",
+          "event_type": "consolidation_break",
+          "price_level": 23325.25,
+          "intensity": 0.805,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "19:34:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23325.25,
+          "intensity": 0.805,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 1.0,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:34:00",
+          "timeframe": "Weekly",
+          "event_type": "consolidation_break",
+          "price_level": 23325.25,
+          "intensity": 0.805,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23280.5,
+          "intensity": 0.717,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9980814782263856,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:34:00",
+          "timeframe": "Weekly",
+          "event_type": "consolidation_break",
+          "price_level": 23325.25,
+          "intensity": 0.805,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "12:33:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23365.5,
+          "intensity": 0.541,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9982773747619353,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:34:00",
+          "timeframe": "Weekly",
+          "event_type": "consolidation_break",
+          "price_level": 23325.25,
+          "intensity": 0.805,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "midnight_opening_range",
+          "timestamp": "00:07:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23344.75,
+          "intensity": 0.557,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9991646944173743,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:34:00",
+          "timeframe": "Weekly",
+          "event_type": "consolidation_break",
+          "price_level": 23325.25,
+          "intensity": 0.805,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "midnight_opening_range",
+          "timestamp": "00:20:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23337.0,
+          "intensity": 0.677,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9994965076916484,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:34:00",
+          "timeframe": "Weekly",
+          "event_type": "consolidation_break",
+          "price_level": 23325.25,
+          "intensity": 0.805,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23380.0,
+          "intensity": 0.844,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9976582549187339,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "19:34:00",
+          "timeframe": "Weekly",
+          "event_type": "consolidation_break",
+          "price_level": 23325.25,
+          "intensity": 0.805,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:51:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23364.5,
+          "intensity": 0.596,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9983201010079394,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23210.75,
+          "intensity": 0.926,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "19:04:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23325.0,
+          "intensity": 0.848,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9951018220793141,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23210.75,
+          "intensity": 0.926,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "19:34:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23325.25,
+          "intensity": 0.805,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9950911565792435,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23210.75,
+          "intensity": 0.926,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23280.5,
+          "intensity": 0.717,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9970039303279569,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23210.75,
+          "intensity": 0.926,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "12:33:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23365.5,
+          "intensity": 0.541,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9933769874387451,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23210.75,
+          "intensity": 0.926,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23380.0,
+          "intensity": 0.844,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9927609067579127,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23210.75,
+          "intensity": 0.926,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:51:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23364.5,
+          "intensity": 0.596,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9934195039482976,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "13:35:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23201.0,
+          "intensity": 0.819,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "19:04:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23325.0,
+          "intensity": 0.848,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9946838156484459,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "13:35:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23201.0,
+          "intensity": 0.819,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "19:34:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23325.25,
+          "intensity": 0.805,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9946731546285678,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "13:35:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23201.0,
+          "intensity": 0.819,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23280.5,
+          "intensity": 0.717,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9965851248899293,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "13:35:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23201.0,
+          "intensity": 0.819,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "12:33:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23365.5,
+          "intensity": 0.541,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9929597055487792,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "13:35:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23201.0,
+          "intensity": 0.819,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23380.0,
+          "intensity": 0.844,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9923438836612489,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "13:35:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23201.0,
+          "intensity": 0.819,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:51:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23364.5,
+          "intensity": 0.596,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9930022041986775,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "14:05:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23283.75,
+          "intensity": 0.859,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "19:04:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23325.0,
+          "intensity": 0.848,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9982315112540193,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "14:05:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23283.75,
+          "intensity": 0.859,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "19:34:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23325.25,
+          "intensity": 0.805,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9982208122099442,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "14:05:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23283.75,
+          "intensity": 0.859,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23280.5,
+          "intensity": 0.717,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9998604176732699,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "14:05:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23283.75,
+          "intensity": 0.859,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "12:33:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23365.5,
+          "intensity": 0.541,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9965012518456698,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "14:05:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23283.75,
+          "intensity": 0.859,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23380.0,
+          "intensity": 0.844,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9958832335329342,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "14:05:00",
+          "timeframe": "Weekly",
+          "event_type": "price_gap",
+          "price_level": 23283.75,
+          "intensity": 0.859,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:51:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23364.5,
+          "intensity": 0.596,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9965439020736587,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Weekly",
+          "event_type": "consolidation_break",
+          "price_level": 23380.0,
+          "intensity": 0.844,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "19:04:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23325.0,
+          "intensity": 0.848,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9976475620188195,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Weekly",
+          "event_type": "consolidation_break",
+          "price_level": 23380.0,
+          "intensity": 0.844,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "19:34:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23325.25,
+          "intensity": 0.805,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9976582549187339,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Weekly",
+          "event_type": "consolidation_break",
+          "price_level": 23380.0,
+          "intensity": 0.844,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23280.5,
+          "intensity": 0.717,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9957442258340462,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Weekly",
+          "event_type": "consolidation_break",
+          "price_level": 23380.0,
+          "intensity": 0.844,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "12:33:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23365.5,
+          "intensity": 0.541,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9993798118049615,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Weekly",
+          "event_type": "consolidation_break",
+          "price_level": 23380.0,
+          "intensity": 0.844,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "midnight_opening_range",
+          "timestamp": "00:07:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23344.75,
+          "intensity": 0.557,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9984923011120616,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Weekly",
+          "event_type": "consolidation_break",
+          "price_level": 23380.0,
+          "intensity": 0.844,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "midnight_opening_range",
+          "timestamp": "00:20:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23337.0,
+          "intensity": 0.677,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9981608212147134,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Weekly",
+          "event_type": "consolidation_break",
+          "price_level": 23380.0,
+          "intensity": 0.844,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Daily",
+          "event_type": "consolidation_break",
+          "price_level": 23380.0,
+          "intensity": 0.844,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 1.0,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      },
+      {
+        "weekly_event": {
+          "session_id": "unknown",
+          "timestamp": "13:30:00",
+          "timeframe": "Weekly",
+          "event_type": "consolidation_break",
+          "price_level": 23380.0,
+          "intensity": 0.844,
+          "sweep_classification": "weekly_liquidity_break"
+        },
+        "daily_event": {
+          "session_id": "unknown",
+          "timestamp": "13:51:00",
+          "timeframe": "Daily",
+          "event_type": "level_break",
+          "price_level": 23364.5,
+          "intensity": 0.596,
+          "sweep_classification": "daily_liquidity_sweep"
+        },
+        "pm_event": {
+          "session_id": "unknown",
+          "timestamp": "19:00:00",
+          "timeframe": "PM",
+          "event_type": "price_gap",
+          "price_level": 23327.25,
+          "intensity": 0.835,
+          "sweep_classification": "pm_execution_session_liquidity_events"
+        },
+        "price_correlation": 0.9993370402053037,
+        "time_correlation": 0.8,
+        "cascade_strength": 1.0
+      }
+    ],
+    "metrics": {
+      "hit_rates": {
+        "weekly_to_pm_rate": 7.25,
+        "weekly_to_daily_rate": 7.25,
+        "total_cascade_rate": 7.25
+      },
+      "cascade_strength": {
+        "average_strength": 1.0,
+        "max_strength": 1.0,
+        "min_strength": 1.0
+      },
+      "event_distribution": {
+        "weekly_events": 8,
+        "total_pm_events": 38,
+        "cascades_mapped": 58
+      }
+    }
+  },
+  "insights": {
+    "cascade_success": {
+      "cascades_found": true,
+      "weekly_to_pm_transmission": 7.25,
+      "framework_validated": true
+    },
+    "data_patterns_confirmed": {
+      "level_break_events_work": true,
+      "pm_timing_19_21_range": true,
+      "session_liquidity_events_primary_source": true
+    },
+    "next_steps": [
+      "Expand to more sessions for statistical significance",
+      "Implement ablation analysis",
+      "Integrate with Step 3A FPFVG analysis",
+      "Build dual-signal predictive framework"
+    ]
+  }
+}

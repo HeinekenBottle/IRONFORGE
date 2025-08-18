@@ -5,10 +5,9 @@ IRONFORGE Performance Benchmark
 Measures import times and system performance to validate refactoring claims.
 """
 
-import time
-import sys
 import importlib
-from pathlib import Path
+import time
+
 
 def measure_import_time(module_name, class_name=None):
     """Measure time to import a module and optionally get a class"""
@@ -62,7 +61,7 @@ def benchmark_core_imports():
         print(f"{status} {display_name:<50} {detail}")
     
     print("-" * 50)
-    print(f"📈 Summary:")
+    print("📈 Summary:")
     print(f"  Total import time: {total_time*1000:.2f}ms")
     print(f"  Successful imports: {successful_imports}")
     print(f"  Failed imports: {failed_imports}")
@@ -108,7 +107,7 @@ def benchmark_container_loading():
                 print(f"❌ {component_name}: FAILED ({e})")
         
         avg_component_time = sum(component_times) / len(component_times) if component_times else 0
-        print(f"\n📊 Container Performance:")
+        print("\n📊 Container Performance:")
         print(f"  Container init: {container_time*1000:.2f}ms")
         print(f"  Avg component access: {avg_component_time*1000:.2f}ms")
         

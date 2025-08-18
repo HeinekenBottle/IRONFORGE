@@ -1,15 +1,15 @@
 # IRONPULSE Mathematical Hooks System
 
-from typing import Callable, Dict, Any, List, Optional, Union
-from dataclasses import dataclass, field
-from enum import Enum
-from abc import ABC, abstractmethod
 import asyncio
-import numpy as np
 import logging
-from datetime import datetime, timedelta
+from abc import ABC, abstractmethod
 from collections import deque
-import json
+from dataclasses import dataclass, field
+from datetime import datetime, timedelta
+from enum import Enum
+from typing import Any, Dict, List, Optional
+
+import numpy as np
 
 logger = logging.getLogger(__name__)
 
@@ -784,13 +784,13 @@ if __name__ == "__main__":
     
     # Display hook summary
     summary = manager.get_hook_performance_summary()
-    print(f"\n📊 HOOKS REGISTERED:")
+    print("\n📊 HOOKS REGISTERED:")
     print(f"  Total Hooks: {summary['total_hooks_registered']}")
     for hook_type, info in summary["hooks_by_type"].items():
         print(f"  {hook_type}: {info['count']} hooks")
     
     # Test parameter drift detection
-    print(f"\n🔍 TESTING PARAMETER DRIFT DETECTION:")
+    print("\n🔍 TESTING PARAMETER DRIFT DETECTION:")
     
     async def test_drift_detection():
         # Simulate parameter drift scenario
@@ -828,4 +828,4 @@ if __name__ == "__main__":
     import asyncio
     asyncio.run(test_drift_detection())
     
-    print(f"\n✅ Mathematical hooks system testing completed")
+    print("\n✅ Mathematical hooks system testing completed")
