@@ -1,8 +1,8 @@
 """IRONFORGE Version Information"""
 
-__version__ = "0.7.1"
-__version_info__ = (0, 7, 1)
-__release_notes__ = "HTF context features enabled by default (nodes v1.1: 45D→51D)"
+__version__ = "0.9.0"
+__version_info__ = (0, 9, 0)
+__release_notes__ = "Macro-Micro Analytics Suite: HTF→trade horizon quantification, cross-session influence, session prototypes, adjacent possible exploration"
 
 # Feature version tracking
 NODE_FEATURES_VERSION = "1.1"
