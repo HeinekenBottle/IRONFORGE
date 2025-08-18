@@ -1,5 +1,6 @@
 """Tests for the CLI report subcommand."""
 
+import importlib.util
 import json
 import tempfile
 from pathlib import Path
@@ -7,14 +8,9 @@ from unittest.mock import patch
 
 import pytest
 
-try:
-    import numpy as np
+from ironforge.sdk.cli import _parse_args, main
 
-    from ironforge.sdk.cli import _parse_args, main
-
-    NUMPY_AVAILABLE = True
-except ImportError:
-    NUMPY_AVAILABLE = False
+NUMPY_AVAILABLE = importlib.util.find_spec("numpy") is not None
 
 
 @pytest.mark.skipif(not NUMPY_AVAILABLE, reason="NumPy not available")
@@ -230,13 +226,13 @@ class TestCLIReport:
 
     def test_main_report_import_error_handling(self):
         """Test error handling for missing dependencies."""
-        with patch("ironforge.sdk.cli.json", side_effect=ImportError("json not available")):
-            with tempfile.TemporaryDirectory() as temp_dir:
-                json_file = Path(temp_dir) / "test.json"
-                json_file.write_text('{"test": "data"}')
+        with patch("ironforge.sdk.cli.json", side_effect=ImportError("json not available")), \
+             tempfile.TemporaryDirectory() as temp_dir:
+            json_file = Path(temp_dir) / "test.json"
+            json_file.write_text('{"test": "data"}')
 
-                with pytest.raises(SystemExit, match="Reporting dependencies missing"):
-                    main(["report", "--input-json", str(json_file), "--out-dir", temp_dir])
+            with pytest.raises(SystemExit, match="Reporting dependencies missing"):
+                main(["report", "--input-json", str(json_file), "--out-dir", temp_dir])
 
     @patch("ironforge.sdk.cli.json.loads")
     @patch("ironforge.sdk.cli.build_session_heatmap")
@@ -248,7 +244,6 @@ class TestCLIReport:
         mock_build_confluence,
         mock_build_heatmap,
         mock_json_loads,
-        sample_json_data,
     ):
         """Test report generation with custom dimensions."""
         mock_json_loads.return_value = {
@@ -303,41 +298,37 @@ class TestCLIReport:
             }
         }
 
-        with patch("ironforge.sdk.cli.json.loads", return_value=minimal_data):
-            with patch(
-                "ironforge.sdk.cli.build_session_heatmap", return_value=object()
-            ) as mock_heatmap:
-                with patch(
-                    "ironforge.sdk.cli.build_confluence_strip", return_value=object()
-                ) as mock_confluence:
-                    with patch("ironforge.sdk.cli.write_png", return_value=Path("test.png")):
-                        with tempfile.TemporaryDirectory() as temp_dir:
-                            json_file = Path(temp_dir) / "minimal.json"
-                            json_file.write_text(json.dumps(minimal_data))
+        with patch("ironforge.sdk.cli.json.loads", return_value=minimal_data), \
+             patch("ironforge.sdk.cli.build_session_heatmap", return_value=object()), \
+             patch("ironforge.sdk.cli.build_confluence_strip", return_value=object()) as mock_confluence, \
+             patch("ironforge.sdk.cli.write_png", return_value=Path("test.png")), \
+             tempfile.TemporaryDirectory() as temp_dir:
+            json_file = Path(temp_dir) / "minimal.json"
+            json_file.write_text(json.dumps(minimal_data))
 
-                            with patch.object(Path, "exists", return_value=True):
-                                result = main(
-                                    [
-                                        "report",
-                                        "--input-json",
-                                        str(json_file),
-                                        "--out-dir",
-                                        temp_dir,
-                                    ]
-                                )
+            with patch.object(Path, "exists", return_value=True):
+                result = main(
+                    [
+                        "report",
+                        "--input-json",
+                        str(json_file),
+                        "--out-dir",
+                        temp_dir,
+                    ]
+                )
 
-                                assert result == 0
+                assert result == 0
 
-                                # Check that defaults were used for missing fields
-                                confluence_call = mock_confluence.call_args
-                                confluence_scores = confluence_call[0][1]
-                                markers = (
-                                    confluence_call[0][2] if len(confluence_call[0]) > 2 else None
-                                )
+                # Check that defaults were used for missing fields
+                confluence_call = mock_confluence.call_args
+                confluence_scores = confluence_call[0][1]
+                markers = (
+                    confluence_call[0][2] if len(confluence_call[0]) > 2 else None
+                )
 
-                                # Should have zeros for confluence and None for markers
-                                assert len(confluence_scores) == 3  # Same length as minute_bins
-                                assert markers is None
+                # Should have zeros for confluence and None for markers
+                assert len(confluence_scores) == 3  # Same length as minute_bins
+                assert markers is None
 
 
 @pytest.mark.skipif(NUMPY_AVAILABLE, reason="Testing without numpy")

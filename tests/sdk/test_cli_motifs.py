@@ -133,12 +133,12 @@ class TestMainMotifs:
     def test_main_motifs_import_error(self):
         """Test main function when motifs scanner is not available."""
         # Test by mocking the import failure within the CLI module
-        with patch.dict('sys.modules', {'ironforge.motifs.scanner': None}):
-            with pytest.raises(SystemExit, match="Motif scanner unavailable"):
-                main([
-                    "motifs",
-                    "--input-json", "/fake/input.json"
-                ])
+        with patch.dict('sys.modules', {'ironforge.motifs.scanner': None}), \
+             pytest.raises(SystemExit, match="Motif scanner unavailable"):
+            main([
+                "motifs",
+                "--input-json", "/fake/input.json"
+            ])
     
     @patch('ironforge.motifs.scanner.run_cli_scan')
     def test_main_motifs_integration(self, mock_run_cli_scan):
@@ -217,13 +217,13 @@ class TestMainPrepareMotifs:
     
     def test_main_prepare_import_error(self):
         """Test main function when prepare script is not available."""
-        with patch.dict('sys.modules', {'ironforge.scripts.prepare_motifs_input': None}):
-            with pytest.raises(SystemExit, match="Adapter unavailable"):
-                main([
-                    "prepare-motifs-input",
-                    "--discovery-json", "/fake/discovery.json",
-                    "--out", "/fake/output.json"
-                ])
+        with patch.dict('sys.modules', {'ironforge.scripts.prepare_motifs_input': None}), \
+             pytest.raises(SystemExit, match="Adapter unavailable"):
+            main([
+                "prepare-motifs-input",
+                "--discovery-json", "/fake/discovery.json",
+                "--out", "/fake/output.json"
+            ])
     
     @patch('ironforge.scripts.prepare_motifs_input.main')
     def test_main_prepare_error_return(self, mock_prep_main):
@@ -487,7 +487,6 @@ class TestCLIIntegration:
     def test_help_messages(self):
         """Test help messages for new commands."""
         import subprocess
-        import sys
         
         try:
             # Test motifs help
@@ -522,7 +521,6 @@ class TestCLIIntegration:
     def test_command_discovery(self):
         """Test that new commands are discoverable in main help."""
         import subprocess
-        import sys
         
         try:
             result = subprocess.run(

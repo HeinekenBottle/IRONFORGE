@@ -125,94 +125,93 @@ class TestValidationCLI:
 
     def test_main_validate_missing_components(self):
         """Test main function with missing validation components."""
-        with patch("ironforge.sdk.cli.ValidationRunner", None):
-            with patch("ironforge.sdk.cli.ValidationConfig", None):
-                with pytest.raises(ImportError, match="ValidationRunner not available"):
-                    main(["validate", "--data-path", "/tmp/data"])
+        with patch("ironforge.sdk.cli.ValidationRunner", None), \
+             patch("ironforge.sdk.cli.ValidationConfig", None), \
+             pytest.raises(ImportError, match="ValidationRunner not available"):
+            main(["validate", "--data-path", "/tmp/data"])
 
     def test_main_validate_execution(self):
         """Test main function execution of validate command."""
-        with tempfile.TemporaryDirectory() as temp_dir:
-            # Mock successful execution
-            with patch("ironforge.sdk.cli.ValidationRunner") as mock_runner_class:
-                with patch("ironforge.sdk.cli.ValidationConfig") as mock_config_class:
-                    # Setup mocks
-                    mock_config = mock_config_class.return_value
-                    mock_runner = mock_runner_class.return_value
-                    mock_runner.run.return_value = {
-                        "summary": {
-                            "validation_passed": True,
-                            "main_performance": {"temporal_auc": 0.85},
-                        }
-                    }
+        with tempfile.TemporaryDirectory() as temp_dir, \
+             patch("ironforge.sdk.cli.ValidationRunner") as mock_runner_class, \
+             patch("ironforge.sdk.cli.ValidationConfig") as mock_config_class:
+            # Setup mocks
+            mock_config = mock_config_class.return_value
+            mock_runner = mock_runner_class.return_value
+            mock_runner.run.return_value = {
+                "summary": {
+                    "validation_passed": True,
+                    "main_performance": {"temporal_auc": 0.85},
+                }
+            }
 
-                    # Capture stdout
-                    import io
-                    from contextlib import redirect_stdout
+            # Capture stdout
+            import io
+            from contextlib import redirect_stdout
 
-                    captured_output = io.StringIO()
+            captured_output = io.StringIO()
 
-                    with redirect_stdout(captured_output):
-                        result = main(
-                            [
-                                "validate",
-                                "--data-path",
-                                temp_dir,
-                                "--mode",
-                                "oos",
-                                "--report-dir",
-                                temp_dir,
-                            ]
-                        )
+            with redirect_stdout(captured_output):
+                result = main(
+                    [
+                        "validate",
+                        "--data-path",
+                        temp_dir,
+                        "--mode",
+                        "oos",
+                        "--report-dir",
+                        temp_dir,
+                    ]
+                )
 
-                    # Check execution
-                    assert result == 0  # Success
+            # Check execution
+            assert result == 0  # Success
 
-                    # Check that ValidationConfig was called with correct args
-                    mock_config_class.assert_called_once()
-                    config_call = mock_config_class.call_args
-                    assert config_call[1]["mode"] == "oos"
-                    assert config_call[1]["report_dir"] == Path(temp_dir)
+            # Check that ValidationConfig was called with correct args
+            mock_config_class.assert_called_once()
+            config_call = mock_config_class.call_args
+            assert config_call[1]["mode"] == "oos"
+            assert config_call[1]["report_dir"] == Path(temp_dir)
 
-                    # Check that runner was created and executed
-                    mock_runner_class.assert_called_once_with(mock_config)
-                    mock_runner.run.assert_called_once()
+            # Check that runner was created and executed
+            mock_runner_class.assert_called_once_with(mock_config)
+            mock_runner.run.assert_called_once()
 
-                    # Check output
-                    output = captured_output.getvalue()
-                    assert "Starting IRONFORGE validation" in output
-                    assert "Validation completed" in output
-                    assert "PASSED" in output
+            # Check output
+            output = captured_output.getvalue()
+            assert "Starting IRONFORGE validation" in output
+            assert "Validation completed" in output
+            assert "PASSED" in output
 
     def test_main_validate_failure(self):
         """Test main function with validation failure."""
-        with tempfile.TemporaryDirectory() as temp_dir:
-            with patch("ironforge.sdk.cli.ValidationRunner") as mock_runner_class:
-                with patch("ironforge.sdk.cli.ValidationConfig") as mock_config_class:
-                    # Setup mocks for failure
-                    mock_runner = mock_runner_class.return_value
-                    mock_runner.run.return_value = {
-                        "summary": {
-                            "validation_passed": False,
-                            "main_performance": {"temporal_auc": 0.45},
-                        }
-                    }
+        with tempfile.TemporaryDirectory() as temp_dir, \
+             patch("ironforge.sdk.cli.ValidationRunner") as mock_runner_class, \
+             patch("ironforge.sdk.cli.ValidationConfig"):
+            # Setup mocks for failure
+            mock_runner = mock_runner_class.return_value
+            mock_runner.run.return_value = {
+                "summary": {
+                    "validation_passed": False,
+                    "main_performance": {"temporal_auc": 0.45},
+                }
+            }
 
-                    result = main(
-                        [
-                            "validate",
-                            "--data-path",
-                            temp_dir,
-                        ]
-                    )
+            result = main(
+                [
+                    "validate",
+                    "--data-path",
+                    temp_dir,
+                ]
+            )
 
-                    # Should return error code
-                    assert result == 1
+            # Should return error code
+            assert result == 1
 
     def test_validate_subprocess_execution(self):
         """Test validation command via subprocess."""
         # This test ensures the CLI can be invoked as a subprocess
-        with tempfile.TemporaryDirectory() as temp_dir:
+        with tempfile.TemporaryDirectory():
             try:
                 result = subprocess.run(
                     [sys.executable, "-m", "ironforge.sdk.cli", "validate", "--help"],
@@ -404,28 +403,28 @@ def test_validate_control_combinations(controls):
 
 def test_validate_output_formatting():
     """Test that validation output is properly formatted."""
-    with patch("ironforge.sdk.cli.ValidationRunner") as mock_runner_class:
-        with patch("ironforge.sdk.cli.ValidationConfig"):
-            # Mock validation results
-            mock_runner = mock_runner_class.return_value
-            mock_runner.run.return_value = {
-                "summary": {"validation_passed": True, "main_performance": {"temporal_auc": 0.8765}}
-            }
+    with patch("ironforge.sdk.cli.ValidationRunner") as mock_runner_class, \
+         patch("ironforge.sdk.cli.ValidationConfig"):
+        # Mock validation results
+        mock_runner = mock_runner_class.return_value
+        mock_runner.run.return_value = {
+            "summary": {"validation_passed": True, "main_performance": {"temporal_auc": 0.8765}}
+        }
 
-            import io
-            from contextlib import redirect_stdout
+        import io
+        from contextlib import redirect_stdout
 
-            captured_output = io.StringIO()
+        captured_output = io.StringIO()
 
-            with redirect_stdout(captured_output):
-                result = main(["validate", "--data-path", "/tmp", "--mode", "oos"])
+        with redirect_stdout(captured_output):
+            main(["validate", "--data-path", "/tmp", "--mode", "oos"])
 
-            output = captured_output.getvalue()
+        output = captured_output.getvalue()
 
-            # Check formatting
-            assert "🚀" in output  # Emoji present
-            assert "Main AUC: 0.8765" in output  # Formatted number
-            assert "PASSED" in output  # Status message
+        # Check formatting
+        assert "🚀" in output  # Emoji present
+        assert "Main AUC: 0.8765" in output  # Formatted number
+        assert "PASSED" in output  # Status message
 
 
 def test_cli_documentation_consistency():
