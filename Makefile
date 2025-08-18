@@ -65,6 +65,11 @@ report:
 status:
 	python -m ironforge.sdk.cli status --runs runs
 
+# Write docs/context.json from repo state (non-destructive)
+.PHONY: context
+context:
+	python3 scripts/gen_context.py
+
 unlock:
 	./scripts/git-unlock.sh
 

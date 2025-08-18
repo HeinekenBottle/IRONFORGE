@@ -1,0 +1,43 @@
+{
+  "cli_commands": [
+    "discover-temporal",
+    "score-session",
+    "validate-run",
+    "report-minimal",
+    "status"
+  ],
+  "contracts": {
+    "run_dir": "runs/YYYY-MM-DD/",
+    "shard_dir": "data/shards/<SYMBOL_TF>/shard_*/",
+    "shard_files": [
+      "nodes.parquet",
+      "edges.parquet"
+    ]
+  },
+  "defaults": {
+    "shards_glob": "data/shards/*.parquet",
+    "symbol": "ES",
+    "threshold": 65,
+    "timeframe": "1m"
+  },
+  "edges": {
+    "dims": 20
+  },
+  "entrypoints": {
+    "confluence": "ironforge.confluence.scoring:score_confluence",
+    "discovery": "ironforge.learning.discovery_pipeline:run_discovery",
+    "validation": "ironforge.validation.runner:validate_run"
+  },
+  "nodes": {
+    "dims": 51,
+    "htf_v1_1": [
+      "f45_sv_m15_z",
+      "f46_sv_h1_z",
+      "f47_barpos_m15",
+      "f48_barpos_h1",
+      "f49_dist_daily_mid",
+      "f50_htf_regime"
+    ]
+  },
+  "version": "0.7.1"
+}
