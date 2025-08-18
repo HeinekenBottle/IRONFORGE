@@ -4,8 +4,8 @@ IRONFORGE Package Initialization
 Ensures proper iron_core package visibility for IRONFORGE components.
 """
 
-import sys
 import os
+import sys
 
 # Add parent directory to path to find iron_core package
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

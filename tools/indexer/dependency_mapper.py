@@ -11,10 +11,9 @@ Maps and analyzes dependencies between IRONFORGE components:
 - Coupling metrics
 """
 
-import re
-from collections import defaultdict, deque
-from typing import Dict, Any, List, Set, Tuple, Optional
 import logging
+from collections import defaultdict
+from typing import Any, Dict, List, Optional, Set
 
 
 class DependencyMapper:
@@ -218,7 +217,7 @@ class DependencyMapper:
                 })
         
         # Calculate flow depth for each module
-        for module in import_graph.keys():
+        for module in import_graph:
             flows['flow_depth'][module] = self._calculate_dependency_depth(module, import_graph)
         
         return flows
@@ -308,7 +307,7 @@ class DependencyMapper:
             rec_stack.remove(module)
         
         # Check each unvisited module
-        for module in import_graph.keys():
+        for module in import_graph:
             if module not in visited:
                 dfs_cycle_detection(module, [])
         
@@ -402,7 +401,7 @@ class DependencyMapper:
         
         # Classify modules into engines
         module_engines = {}
-        for module in import_graph.keys():
+        for module in import_graph:
             module_engines[module] = self._classify_module_engine(module, engine_patterns)
         
         # Find cross-engine flows
@@ -530,7 +529,7 @@ class DependencyMapper:
         
         # Find critical paths (longest chains)
         all_paths = []
-        for module in import_graph.keys():
+        for module in import_graph:
             path = find_longest_path(module)
             if len(path) > 3:  # Only consider paths longer than 3 modules
                 all_paths.append(path)

@@ -14,14 +14,14 @@ Usage:
     python run_fpfvg_network_analysis_simple.py
 """
 
-import sys
 import json
 import logging
-from pathlib import Path
+import sys
 from datetime import time
-from typing import Dict, List, Any
-import numpy as np
-from scipy.stats import fisher_exact, chi2_contingency
+from pathlib import Path
+from typing import Any, Dict, List
+
+from scipy.stats import chi2_contingency, fisher_exact
 
 # Add IRONFORGE to path
 sys.path.append(str(Path(__file__).parent))

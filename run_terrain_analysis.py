@@ -10,8 +10,8 @@ Usage:
     python run_terrain_analysis.py
 """
 
-import sys
 import logging
+import sys
 from pathlib import Path
 
 # Add IRONFORGE to path
@@ -141,7 +141,7 @@ def main():
                     
                     characteristics = candidate.get('key_characteristics', [])
                     if characteristics:
-                        print(f"     Key characteristics:")
+                        print("     Key characteristics:")
                         for char in characteristics[:2]:  # Show top 2
                             print(f"       - {char}")
                     
@@ -164,7 +164,7 @@ def main():
                     
                     actions = priority.get('immediate_actions', [])
                     if actions:
-                        print(f"     Immediate actions:")
+                        print("     Immediate actions:")
                         for action in actions[:2]:  # Show top 2
                             print(f"       - {action}")
                     print()

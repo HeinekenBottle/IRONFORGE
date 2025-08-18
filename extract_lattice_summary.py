@@ -7,6 +7,7 @@ import json
 import sys
 from pathlib import Path
 
+
 def extract_lattice_summary(lattice_file):
     """Extract key summary information from lattice file"""
     
@@ -127,7 +128,7 @@ def extract_lattice_summary(lattice_file):
                 if rec_type == 'hot_zone_investigation':
                     zones = rec.get('zones', [])
                     if zones:
-                        print(f"     Top zones:")
+                        print("     Top zones:")
                         for j, zone in enumerate(zones[:3], 1):
                             tf = zone.get('timeframe', 'unknown')
                             price = zone.get('price_level', 0)

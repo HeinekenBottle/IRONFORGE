@@ -3,8 +3,9 @@
 Setup script for IRONFORGE Archaeological Discovery System
 """
 
-from setuptools import setup, find_packages
 import os
+
+from setuptools import find_packages, setup
 
 # Read README if it exists
 readme_path = os.path.join(os.path.dirname(__file__), 'README.md')

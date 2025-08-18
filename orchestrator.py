@@ -3,23 +3,24 @@ IRONFORGE Main Orchestrator
 Coordinates learning, preservation, and synthesis
 Enhanced with Performance Monitor for Sprint 2 tracking
 """
-import os
 import json
-import pickle
-import torch
-import numpy as np
 import logging
-from typing import List, Dict, Optional, Tuple
+import os
+import pickle
 from datetime import datetime
 from pathlib import Path
+from typing import Dict, List, Optional, Tuple
+
+import torch
 
 # Configuration system to eliminate hardcoded paths
 from config import get_config
 
 # Lazy loading imports to resolve timeout issues
 from ironforge.integration.ironforge_container import get_ironforge_container
-from ironforge.synthesis.pattern_graduation import PatternGraduation
 from ironforge.learning.simple_event_clustering import analyze_time_patterns
+from ironforge.synthesis.pattern_graduation import PatternGraduation
+
 
 class IRONFORGE:
     """Main orchestrator for discovery system"""
@@ -433,14 +434,14 @@ class IRONFORGE:
                 all_raw_features.append(X_raw)
                 graph_metadata.append(graph)
             else:
-                print(f"⚠️ Skipping graph with no rich_node_features")
+                print("⚠️ Skipping graph with no rich_node_features")
         
         if not all_raw_features:
-            print(f"❌ No valid feature tensors found")
+            print("❌ No valid feature tensors found")
             return []
         
         # Step 2: Global constant feature detection
-        print(f"🔍 Detecting globally constant features...")
+        print("🔍 Detecting globally constant features...")
         global_constant_mask = self._detect_global_constant_features(all_raw_features)
         non_constant_count = (~global_constant_mask).sum().item()
         constant_count = global_constant_mask.sum().item()
@@ -451,7 +452,7 @@ class IRONFORGE:
         
         # Step 3: Apply global filtering and convert to TGAT format
         tgat_graphs = []
-        for i, (graph, X_raw) in enumerate(zip(graph_metadata, all_raw_features)):
+        for i, (graph, X_raw) in enumerate(zip(graph_metadata, all_raw_features, strict=False)):
             # Apply global constant mask
             X_filtered = X_raw[:, ~global_constant_mask]
             
@@ -538,7 +539,7 @@ if __name__ == "__main__":
     else:
         # NO FALLBACKS: If session data path doesn't exist, fail explicitly
         raise RuntimeError(f"Session data path does not exist: {session_data_path}")
-        print(f"ROOT CAUSE: Configure IRONFORGE_SESSION_DATA_PATH environment variable")
+        print("ROOT CAUSE: Configure IRONFORGE_SESSION_DATA_PATH environment variable")
     
     if session_files and (isinstance(session_files[0], Path) or os.path.exists(session_files[0])):
         print(f"\n🔄 Processing {len(session_files)} sessions with performance monitoring...")
@@ -553,7 +554,7 @@ if __name__ == "__main__":
         print(f"✅ Validated {validation['validated']}/{validation['total_patterns']} patterns")
         
         # Generate comprehensive performance report
-        print(f"\n📊 Generating Sprint 2 performance report...")
+        print("\n📊 Generating Sprint 2 performance report...")
         report = forge.generate_performance_report(results, validation)
         
         if report:
@@ -566,7 +567,7 @@ if __name__ == "__main__":
                 print(f"   {status_icon} {enhancement.replace('_', ' ').title()}: {status}")
         
         # Freeze for production
-        print(f"\n🧊 Freezing for production...")
+        print("\n🧊 Freezing for production...")
         forge.freeze_for_production()
         
         print("\n✅ IRONFORGE Sprint 2 processing complete with performance monitoring!")
