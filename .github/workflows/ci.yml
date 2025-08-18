@@ -43,11 +43,18 @@ jobs:
           print("import smoke OK")
           PY
 
+      - name: Verify dev tools installation
+        run: |
+          echo "Verifying development tools are installed..."
+          ruff --version
+          mypy --version
+          pytest --version
+
       - name: Lint
         run: |
           ruff check ironforge tests
 
-      - name: Type check
+      - name: Type check  
         run: |
           mypy ironforge
 

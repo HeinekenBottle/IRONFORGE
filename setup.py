@@ -53,8 +53,11 @@ setup(
         "dev": [
             "pytest>=6.0",
             "black>=21.0",
-            "flake8>=3.8",
+            "ruff>=0.6.8",
             "mypy>=0.800",
+            "bandit>=1.7.9",
+            "coverage>=7.3.2",
+            "pytest-benchmark>=4.0.0",
         ],
     },
     include_package_data=True,

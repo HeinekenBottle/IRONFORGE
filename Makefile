@@ -1,8 +1,9 @@
-.PHONY: setup fmt lint type test precommit smoke release unlock maintenance-off maintenance-on
+.PHONY: setup fmt lint type test precommit smoke release unlock maintenance-off maintenance-on ci-validate
 
 setup:
 	pip install -U pip
-	pip install -e .[dev]
+	pip install -e .
+	pip install -r requirements-dev.txt
 	pre-commit install
 
 fmt:
@@ -16,6 +17,10 @@ type:
 
 test:
 	pytest -q
+
+ci-validate:
+	@echo "Running full CI validation suite..."
+	python scripts/validate-ci.py
 
 precommit:
 	pre-commit run --all-files

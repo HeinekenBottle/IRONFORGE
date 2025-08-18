@@ -248,7 +248,7 @@ class EnhancedGraphBuilder:
         type1 = event1.get('event_type', '').lower()
         type2 = event2.get('event_type', '').lower()
         original_type1 = event1.get('original_type', '').lower()
-        original_type2 = event2.get('original_type', '').lower()
+        # original_type2 = event2.get('original_type', '').lower()  # Currently unused
         
         # ICT Causal Relationship Detection
         causality_score = 0.0

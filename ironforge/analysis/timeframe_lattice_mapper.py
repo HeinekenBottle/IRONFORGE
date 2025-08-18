@@ -99,7 +99,8 @@ class TimeframeLatticeMapper:
                         'archaeological_zone': 'fpfvg_zone'
                     })
             
-            enhanced_features = session_data.get('energy_state', {})
+            # Enhanced features available but not used in current implementation
+            # enhanced_features = session_data.get('energy_state', {})
             
             nodes = []
             edges = []
