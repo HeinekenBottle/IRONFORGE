@@ -15,7 +15,4 @@ except ImportError:
     # Component not yet available
     pass
 
-__all__ = [
-    'PatternGraduation',
-    'ProductionGraduation'
-]
+__all__ = ["PatternGraduation", "ProductionGraduation"]

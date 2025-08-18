@@ -117,7 +117,7 @@ def node_feature_shuffle(
             rng.shuffle(shuffled_features[:, col])
     else:
         # Shuffle within each feature group
-        for group_name, feature_indices in feature_groups.items():
+        for _group_name, feature_indices in feature_groups.items():
             for feat_idx in feature_indices:
                 if feat_idx < shuffled_features.shape[1]:
                     rng.shuffle(shuffled_features[:, feat_idx])

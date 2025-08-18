@@ -28,8 +28,8 @@ except ImportError:
     pass
 
 __all__ = [
-    'EnhancedGraphBuilder',
-    'IRONFORGEDiscovery', 
-    'SimpleEventClustering',
-    'RegimeSegmentation'
+    "EnhancedGraphBuilder",
+    "IRONFORGEDiscovery",
+    "SimpleEventClustering",
+    "RegimeSegmentation",
 ]

@@ -6,20 +6,18 @@ Comprehensive regression testing to ensure architectural compliance and prevent 
 Validates system behavior against established patterns and requirements.
 """
 
-import torch
-import numpy as np
-from typing import Dict, List, Any, Optional, Tuple
-import logging
-from datetime import datetime
 import json
-from pathlib import Path
+import logging
 import time
+from datetime import datetime
+from pathlib import Path
+from typing import Any, Dict
 
 try:
     from config import get_config
 except ImportError:
-    import sys
     import os
+    import sys
 
     sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
     from config import get_config
@@ -158,14 +156,14 @@ class RegressionTester:
             node_features = []
             edge_features = []
 
-            for node, data in graph.nodes(data=True):
+            for _node, data in graph.nodes(data=True):
                 if "features" in data:
                     features = data["features"]
                     if hasattr(features, "get_combined_features"):
                         combined = features.get_combined_features()
                         node_features.append(len(combined))
 
-            for u, v, data in graph.edges(data=True):
+            for _u, _v, data in graph.edges(data=True):
                 if "features" in data:
                     features = data["features"]
                     if hasattr(features, "get_combined_features"):
@@ -265,8 +263,8 @@ class RegressionTester:
         try:
             start_time = time.time()
             container = get_ironforge_container()
-            builder = container.get_enhanced_graph_builder()
-            graduation = container.get_pattern_graduation()
+            container.get_enhanced_graph_builder()
+            container.get_pattern_graduation()
             component_time = time.time() - start_time
 
             tests["component_creation"] = {

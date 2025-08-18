@@ -313,7 +313,7 @@ def main(argv: list[str] | None = None) -> int:
         for pattern in patterns:
             # Extract temporal features
             temporal_features = pattern.get("temporal_features", {})
-            duration = temporal_features.get("duration_seconds", 300) / 60  # Convert to minutes
+            temporal_features.get("duration_seconds", 300) / 60  # Convert to minutes
             intensity = temporal_features.get("peak_intensity", 0.5)
 
             # Extract confidence as score

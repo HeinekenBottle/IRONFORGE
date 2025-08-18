@@ -6,24 +6,24 @@ Performance benchmarking and monitoring system to track system performance,
 detect regressions, and ensure optimal operation.
 """
 
-import time
+import gc
+import json
+import logging
 import sys
+import time
+from contextlib import contextmanager
+from datetime import datetime
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+
 import psutil
 import torch
-import numpy as np
-from typing import Dict, List, Any, Optional, Callable
-import logging
-from datetime import datetime
-import json
-from pathlib import Path
-import gc
-from contextlib import contextmanager
 
 try:
     from config import get_config
 except ImportError:
-    import sys
     import os
+    import sys
 
     sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
     from config import get_config
@@ -171,7 +171,7 @@ class PerformanceMonitor:
             with self.monitor_execution("container_initialization"):
                 from ironforge.integration.ironforge_container import get_ironforge_container
 
-                container = get_ironforge_container()
+                get_ironforge_container()
 
             latest_perf = self.performance_history[-1]
             init_time = latest_perf["execution_time_seconds"]
@@ -203,7 +203,7 @@ class PerformanceMonitor:
             for _ in range(10):
                 from ironforge.integration.ironforge_container import get_ironforge_container
 
-                container = get_ironforge_container()
+                get_ironforge_container()
             multi_access_time = time.time() - start_time
 
             benchmarks["multi_access"] = {
@@ -239,11 +239,11 @@ class PerformanceMonitor:
                     container = get_ironforge_container()
 
                     if component_name == "enhanced_graph_builder":
-                        component = container.get_enhanced_graph_builder()
+                        container.get_enhanced_graph_builder()
                     elif component_name == "tgat_discovery":
-                        component = container.get_tgat_discovery()
+                        container.get_tgat_discovery()
                     elif component_name == "pattern_graduation":
-                        component = container.get_pattern_graduation()
+                        container.get_pattern_graduation()
 
                 latest_perf = self.performance_history[-1]
                 creation_time = latest_perf["execution_time_seconds"]
@@ -302,7 +302,7 @@ class PerformanceMonitor:
                     },
                 }
 
-                graph = builder.build_session_graph(mock_session)
+                builder.build_session_graph(mock_session)
 
             latest_perf = self.performance_history[-1]
             processing_time = latest_perf["execution_time_seconds"]
@@ -351,7 +351,7 @@ class PerformanceMonitor:
                     "session_metrics": {"total_patterns": 10, "pattern_quality": 0.87},
                 }
 
-                results = graduation.validate_patterns(mock_patterns)
+                graduation.validate_patterns(mock_patterns)
 
             latest_perf = self.performance_history[-1]
             graduation_time = latest_perf["execution_time_seconds"]
@@ -550,7 +550,7 @@ class PerformanceMonitor:
                 all_benchmarks.update(benchmark_results[category])
 
         # Count results
-        for benchmark_name, benchmark_data in all_benchmarks.items():
+        for _benchmark_name, benchmark_data in all_benchmarks.items():
             summary["total_benchmarks"] += 1
             result = benchmark_data.get("result", "UNKNOWN")
 

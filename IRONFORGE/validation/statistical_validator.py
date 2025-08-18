@@ -6,19 +6,20 @@ Comprehensive statistical validation for pattern quality, authenticity, and arch
 Ensures patterns meet rigorous statistical criteria before graduation.
 """
 
-import numpy as np
-import scipy.stats as stats
-from typing import Dict, List, Any, Optional, Tuple
+import json
 import logging
 from datetime import datetime
-import json
 from pathlib import Path
+from typing import Any, Dict, List
+
+import numpy as np
+import scipy.stats as stats
 
 try:
     from config import get_config
 except ImportError:
-    import sys
     import os
+    import sys
 
     sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
     from config import get_config
@@ -435,7 +436,7 @@ class StatisticalValidator:
 
         # Check statistical significance
         statistical_significance = False
-        for metric_name, tests in statistical_tests.items():
+        for _metric_name, tests in statistical_tests.items():
             baseline_test = tests.get("baseline_significance", {})
             if baseline_test.get("significantly_above_baseline", False):
                 statistical_significance = True

@@ -27,44 +27,58 @@ This framework ensures:
 """
 
 # Core validation framework
-from .statistical_validator import StatisticalValidator
-from .regression_tester import RegressionTester
-from .performance_monitor import PerformanceMonitor
+from .controls import (
+    create_control_variants,
+    edge_direction_shuffle,
+    label_permutation,
+    node_feature_shuffle,
+    temporal_block_shuffle,
+    time_shuffle_edges,
+)
 from .integration_tester import IntegrationTester
+from .metrics import (
+    archaeological_significance,
+    compute_validation_metrics,
+    motif_half_life,
+    pattern_stability_score,
+    precision_at_k,
+    temporal_auc,
+)
+from .performance_monitor import PerformanceMonitor
+from .regression_tester import RegressionTester
+from .runner import ValidationConfig, ValidationRunner
 
 # Wave 4 validation rails
 from .splits import PurgedKFold, oos_split, temporal_train_test_split
-from .controls import (
-    create_control_variants,
-    time_shuffle_edges,
-    label_permutation,
-    node_feature_shuffle,
-    edge_direction_shuffle,
-    temporal_block_shuffle,
-)
-from .metrics import (
-    precision_at_k,
-    temporal_auc,
-    motif_half_life,
-    pattern_stability_score,
-    archaeological_significance,
-    compute_validation_metrics,
-)
-from .runner import ValidationConfig, ValidationRunner
+from .statistical_validator import StatisticalValidator
 
 __all__ = [
     # Core framework
-    "StatisticalValidator", "RegressionTester", "PerformanceMonitor", "IntegrationTester",
+    "StatisticalValidator",
+    "RegressionTester",
+    "PerformanceMonitor",
+    "IntegrationTester",
     # Wave 4 splits
-    "PurgedKFold", "oos_split", "temporal_train_test_split",
+    "PurgedKFold",
+    "oos_split",
+    "temporal_train_test_split",
     # Wave 4 controls
-    "create_control_variants", "time_shuffle_edges", "label_permutation",
-    "node_feature_shuffle", "edge_direction_shuffle", "temporal_block_shuffle",
+    "create_control_variants",
+    "time_shuffle_edges",
+    "label_permutation",
+    "node_feature_shuffle",
+    "edge_direction_shuffle",
+    "temporal_block_shuffle",
     # Wave 4 metrics
-    "precision_at_k", "temporal_auc", "motif_half_life", "pattern_stability_score",
-    "archaeological_significance", "compute_validation_metrics",
+    "precision_at_k",
+    "temporal_auc",
+    "motif_half_life",
+    "pattern_stability_score",
+    "archaeological_significance",
+    "compute_validation_metrics",
     # Wave 4 runner
-    "ValidationConfig", "ValidationRunner",
+    "ValidationConfig",
+    "ValidationRunner",
 ]
 
 __version__ = "1.0.0"

@@ -6,20 +6,19 @@ Comprehensive integration tests focusing on session independence,
 end-to-end workflows, and system integration validation.
 """
 
-import torch
-import numpy as np
-from typing import Dict, List, Any, Optional
+import json
 import logging
 from datetime import datetime
-import json
 from pathlib import Path
-import time
+from typing import Any, Dict, List
+
+import numpy as np
 
 try:
     from config import get_config
 except ImportError:
-    import sys
     import os
+    import sys
 
     sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
     from config import get_config
@@ -426,7 +425,7 @@ class IntegrationTester:
 
             # Extract features for validation
             node_features = []
-            for node, data in graph.nodes(data=True):
+            for _node, data in graph.nodes(data=True):
                 if "features" in data:
                     features = data["features"]
                     if hasattr(features, "get_combined_features"):
@@ -521,14 +520,14 @@ class IntegrationTester:
             node_dims = []
             edge_dims = []
 
-            for node, data in graph.nodes(data=True):
+            for _node, data in graph.nodes(data=True):
                 if "features" in data:
                     features = data["features"]
                     if hasattr(features, "get_combined_features"):
                         combined = features.get_combined_features()
                         node_dims.append(len(combined))
 
-            for u, v, data in graph.edges(data=True):
+            for _u, _v, data in graph.edges(data=True):
                 if "features" in data:
                     features = data["features"]
                     if hasattr(features, "get_combined_features"):

@@ -9,6 +9,4 @@ except ImportError:
     # Component not yet available
     pass
 
-__all__ = [
-    'PerformanceMonitor'
-]
+__all__ = ["PerformanceMonitor"]
