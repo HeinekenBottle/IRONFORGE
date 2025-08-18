@@ -1,0 +1,38 @@
+{
+  "run_path": "runs/real-tgat-fixed-2025-08-18",
+  "analysis_ts": "2025-08-19T00:32:12.387469",
+  "total_sessions": 2,
+  "session_transitions": 1,
+  "correlation_analysis": {
+    "proto_sim_vs_next_hit_rate": {
+      "correlation": NaN,
+      "interpretation": "negative",
+      "strength": "weak"
+    },
+    "proto_sim_vs_delta_hit_rate": {
+      "correlation": NaN,
+      "interpretation": "negative",
+      "strength": "weak"
+    },
+    "intent_sim_vs_next_hit_rate": {
+      "correlation": NaN,
+      "interpretation": "negative",
+      "strength": "weak"
+    }
+  },
+  "acceptance_criteria": {
+    "has_correlation_sign": true,
+    "correlation_computed": true,
+    "passes": true
+  },
+  "top_transitions": [
+    {
+      "session_s": 0,
+      "session_s1": 1,
+      "proto_similarity": -0.21448284292774633,
+      "delta_hit_rate": -0.5,
+      "s_dominant_intent": "movement_transition",
+      "s1_dominant_intent": "temporal_next"
+    }
+  ]
+}

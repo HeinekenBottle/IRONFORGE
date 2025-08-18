@@ -1,0 +1,25 @@
+{
+  "run_path": "runs/real-tgat-fixed-2025-08-18",
+  "analysis_ts": "2025-08-19T00:32:10.739154",
+  "total_pairs": 1,
+  "session_baseline_hit_rate": 0.5,
+  "acceptance_criteria": {
+    "min_pairs": 20,
+    "actual_pairs": 1,
+    "passes": false
+  },
+  "influence_analysis": {
+    "high_performing_s_count": 0,
+    "s1_hit_rate_after_s_hit": null,
+    "influence_effect": null
+  },
+  "top_pairs": [
+    {
+      "s_zone_id": "zone_0",
+      "s1_zone_id": "zone_1",
+      "similarity": 0.22891848585293512,
+      "s_hit_+100_12b": false,
+      "s1_hit_+100_12b": true
+    }
+  ]
+}

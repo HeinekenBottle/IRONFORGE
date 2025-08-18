@@ -1,8 +1,8 @@
 """IRONFORGE Version Information"""
 
-__version__ = "0.8.0"
-__version_info__ = (0, 8, 0)
-__release_notes__ = "WAF-NEXT validation framework: A/B testing, watchlist curation, minidash integration"
+__version__ = "0.9.0"
+__version_info__ = (0, 9, 0)
+__release_notes__ = "Macro-Micro Analytics Suite: HTF→trade horizon quantification, cross-session influence, session prototypes, adjacent possible exploration"
 
 # Feature version tracking
 NODE_FEATURES_VERSION = "1.1"

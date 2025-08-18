@@ -1,0 +1,111 @@
+{
+  "run_path": "runs/real-tgat-fixed-2025-08-18",
+  "analysis_ts": "2025-08-19T00:32:09.196856",
+  "total_zones": 4,
+  "valid_buckets": 4,
+  "acceptance_criteria": {
+    "min_buckets": 10,
+    "actual_buckets": 4,
+    "passes": false
+  },
+  "top_hit_rate_buckets": [
+    {
+      "bucket_type": "f50_bucket",
+      "bucket_name": "regime_1",
+      "P_hit_+100_12b": 0.5,
+      "median_fwd_ret_12b": 0.5735340797763736,
+      "sample_size": 4,
+      "rank": 1
+    },
+    {
+      "bucket_type": "f49_quintile",
+      "bucket_name": "dist_single",
+      "P_hit_+100_12b": 0.5,
+      "median_fwd_ret_12b": 0.5735340797763736,
+      "sample_size": 4,
+      "rank": 2
+    },
+    {
+      "bucket_type": "f47_h1_bucket",
+      "bucket_name": "h1_single",
+      "P_hit_+100_12b": 0.5,
+      "median_fwd_ret_12b": 0.5735340797763736,
+      "sample_size": 4,
+      "rank": 3
+    }
+  ],
+  "top_return_buckets": [
+    {
+      "bucket_type": "f50_bucket",
+      "bucket_name": "regime_1",
+      "P_hit_+100_12b": 0.5,
+      "median_fwd_ret_12b": 0.5735340797763736,
+      "sample_size": 4,
+      "rank": 1
+    },
+    {
+      "bucket_type": "f49_quintile",
+      "bucket_name": "dist_single",
+      "P_hit_+100_12b": 0.5,
+      "median_fwd_ret_12b": 0.5735340797763736,
+      "sample_size": 4,
+      "rank": 2
+    },
+    {
+      "bucket_type": "f47_h1_bucket",
+      "bucket_name": "h1_single",
+      "P_hit_+100_12b": 0.5,
+      "median_fwd_ret_12b": 0.5735340797763736,
+      "sample_size": 4,
+      "rank": 3
+    }
+  ],
+  "bucket_summary": {
+    "by_feature": {
+      "f50_bucket": [
+        {
+          "bucket_type": "f50_bucket",
+          "bucket_name": "regime_1",
+          "sample_size": 4,
+          "P_hit_+100_12b": 0.5,
+          "median_fwd_ret_12b": 0.5735340797763736,
+          "mean_confidence": 0.714908922772421,
+          "hit_count": 2
+        }
+      ],
+      "f49_quintile": [
+        {
+          "bucket_type": "f49_quintile",
+          "bucket_name": "dist_single",
+          "sample_size": 4,
+          "P_hit_+100_12b": 0.5,
+          "median_fwd_ret_12b": 0.5735340797763736,
+          "mean_confidence": 0.714908922772421,
+          "hit_count": 2
+        }
+      ],
+      "f47_h1_bucket": [
+        {
+          "bucket_type": "f47_h1_bucket",
+          "bucket_name": "h1_single",
+          "sample_size": 4,
+          "P_hit_+100_12b": 0.5,
+          "median_fwd_ret_12b": 0.5735340797763736,
+          "mean_confidence": 0.714908922772421,
+          "hit_count": 2
+        }
+      ]
+    },
+    "macro_conditions": [
+      {
+        "bucket_type": "macro_condition",
+        "bucket_name": "regime_1_dist_single_h1_single",
+        "sample_size": 4,
+        "P_hit_+100_12b": 0.5,
+        "median_fwd_ret_12b": 0.5735340797763736,
+        "mean_confidence": 0.714908922772421,
+        "hit_count": 2
+      }
+    ]
+  }
+}
