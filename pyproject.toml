@@ -40,6 +40,8 @@ warn_redundant_casts = true
 warn_return_any = true
 disallow_untyped_defs = true
 no_implicit_optional = true
+explicit_package_bases = true
+namespace_packages = true
 exclude = "(^tests/_golden/|^scripts/|^tests/integration/|^ironforge/analysis/|^ironforge/learning/|^ironforge/synthesis/|^ironforge/validation/|^ironforge/utilities/|^config.py)"
 
 [tool.bandit]
