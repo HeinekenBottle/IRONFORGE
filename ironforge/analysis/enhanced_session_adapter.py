@@ -4,7 +4,7 @@ Adapts session data for archaeological analysis
 """
 
 import logging
-from typing import Dict, List, Any, Optional
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
@@ -18,7 +18,7 @@ class EnhancedSessionAdapter:
         self.logger = logging.getLogger(__name__)
         self.logger.info("Enhanced Session Adapter initialized")
     
-    def adapt_session(self, raw_session_data: Dict[str, Any]) -> Dict[str, Any]:
+    def adapt_session(self, raw_session_data: dict[str, Any]) -> dict[str, Any]:
         """
         Adapt raw session data for analysis
         

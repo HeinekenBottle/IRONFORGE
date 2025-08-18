@@ -3,11 +3,11 @@ Enhanced Graph Builder for 45D/20D architecture
 Archaeological discovery graph construction with semantic features
 """
 
-import torch
-import networkx as nx
-import numpy as np
-from typing import Dict, List, Tuple, Optional, Any
 import logging
+from typing import Any
+
+import networkx as nx
+import torch
 
 logger = logging.getLogger(__name__)
 
@@ -77,7 +77,7 @@ class EnhancedGraphBuilder:
         self.logger = logging.getLogger(__name__)
         self.logger.info("Enhanced Graph Builder initialized")
         
-    def build_session_graph(self, session_data: Dict[str, Any]) -> nx.Graph:
+    def build_session_graph(self, session_data: dict[str, Any]) -> nx.Graph:
         """
         Build enhanced graph from session JSON data
         
@@ -122,7 +122,7 @@ class EnhancedGraphBuilder:
             self.logger.error(f"Failed to build graph: {e}")
             raise
     
-    def _create_node_feature(self, event: Dict[str, Any], session_context: Dict[str, Any] = None) -> RichNodeFeature:
+    def _create_node_feature(self, event: dict[str, Any], session_context: dict[str, Any] = None) -> RichNodeFeature:
         """Create 45D node feature from event data"""
         feature = RichNodeFeature()
         
@@ -240,7 +240,7 @@ class EnhancedGraphBuilder:
         feature.set_traditional_features(traditional)
         return feature
     
-    def _create_edge_feature(self, event1: Dict[str, Any], event2: Dict[str, Any]) -> RichEdgeFeature:
+    def _create_edge_feature(self, event1: dict[str, Any], event2: dict[str, Any]) -> RichEdgeFeature:
         """Create 20D edge feature from event pair"""
         feature = RichEdgeFeature()
         
@@ -378,7 +378,7 @@ class EnhancedGraphBuilder:
         else:
             return 2.0
     
-    def _calculate_zone_proximity(self, price: float, session_low: float, session_range: float, zone_level: float, session_context: Dict[str, Any] = None) -> float:
+    def _calculate_zone_proximity(self, price: float, session_low: float, session_range: float, zone_level: float, session_context: dict[str, Any] = None) -> float:
         """Calculate proximity to archaeological zone (Theory B implementation)"""
         if session_range <= 0:
             return 0.0
@@ -419,7 +419,7 @@ class EnhancedGraphBuilder:
         
         return proximity
     
-    def _calculate_dimensional_relationship(self, price: float, session_low: float, session_range: float, session_context: Dict[str, Any] = None) -> float:
+    def _calculate_dimensional_relationship(self, price: float, session_low: float, session_range: float, session_context: dict[str, Any] = None) -> float:
         """Calculate Theory B dimensional relationship score"""
         if session_range <= 0:
             return 0.0
@@ -555,13 +555,13 @@ class EnhancedGraphBuilder:
             else:
                 return 0.0  # Within range
     
-    def _estimate_momentum(self, event: Dict[str, Any], session_context: Dict[str, Any]) -> float:
+    def _estimate_momentum(self, event: dict[str, Any], session_context: dict[str, Any]) -> float:
         """Estimate price momentum (simplified)"""
         # This would normally require multiple price points
         # For now, use event significance as proxy
         return event.get('significance', 0.5)
     
-    def _calculate_volatility_measure(self, session_range: float, session_context: Dict[str, Any]) -> float:
+    def _calculate_volatility_measure(self, session_range: float, session_context: dict[str, Any]) -> float:
         """Calculate session volatility measure"""
         # Normalize range by typical market volatility
         typical_range = session_context.get('typical_range', session_range)
@@ -571,7 +571,7 @@ class EnhancedGraphBuilder:
         else:
             return 1.0
     
-    def _estimate_volume_profile(self, price: float, volume: float, session_context: Dict[str, Any]) -> float:
+    def _estimate_volume_profile(self, price: float, volume: float, session_context: dict[str, Any]) -> float:
         """Estimate volume profile at price level"""
         # Simplified volume profile
         avg_volume = session_context.get('average_volume', 1.0)
@@ -581,7 +581,7 @@ class EnhancedGraphBuilder:
         else:
             return 1.0
     
-    def _estimate_pattern_completion(self, event: Dict[str, Any], session_context: Dict[str, Any]) -> float:
+    def _estimate_pattern_completion(self, event: dict[str, Any], session_context: dict[str, Any]) -> float:
         """Estimate pattern completion probability"""
         # Based on event type and session context
         event_type = event.get('event_type', '')
@@ -593,13 +593,13 @@ class EnhancedGraphBuilder:
         else:
             return 0.3  # Low completion probability
     
-    def _calculate_fractal_similarity(self, price: float, session_context: Dict[str, Any]) -> float:
+    def _calculate_fractal_similarity(self, price: float, session_context: dict[str, Any]) -> float:
         """Calculate fractal similarity score"""
         # Simplified fractal calculation
         # Would normally compare patterns across timeframes
         return 0.5  # Placeholder
     
-    def _calculate_archaeological_significance(self, event: Dict[str, Any], session_context: Dict[str, Any]) -> float:
+    def _calculate_archaeological_significance(self, event: dict[str, Any], session_context: dict[str, Any]) -> float:
         """Calculate overall archaeological significance"""
         significance = event.get('significance', 0.5)
         event_type = event.get('event_type', '')
@@ -750,7 +750,7 @@ class EnhancedGraphBuilder:
         else:
             return 0.2  # Opposite zones = weak relationship
     
-    def _extract_session_context(self, session_data: Dict[str, Any], events: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def _extract_session_context(self, session_data: dict[str, Any], events: list[dict[str, Any]]) -> dict[str, Any]:
         """Extract session context for feature calculations"""
         context = {}
         
@@ -799,7 +799,7 @@ class EnhancedGraphBuilder:
         
         return context
     
-    def _calculate_fvg_proximity(self, price: float, event: Dict[str, Any], session_context: Dict[str, Any]) -> float:
+    def _calculate_fvg_proximity(self, price: float, event: dict[str, Any], session_context: dict[str, Any]) -> float:
         """Calculate proximity to Fair Value Gaps (ICT concept)"""
         event_type = event.get('type', '').lower()
         
@@ -828,7 +828,7 @@ class EnhancedGraphBuilder:
         
         return min(1.0, fvg_score)
     
-    def _calculate_order_block_strength(self, price: float, event: Dict[str, Any], session_context: Dict[str, Any]) -> float:
+    def _calculate_order_block_strength(self, price: float, event: dict[str, Any], session_context: dict[str, Any]) -> float:
         """Calculate ICT Order Block strength"""
         session_range = session_context.get('session_range', 1.0)
         session_low = session_context.get('session_low', price)
@@ -872,7 +872,7 @@ class EnhancedGraphBuilder:
         
         return min(1.0, order_block_score)
     
-    def _calculate_ict_market_structure_shift(self, price: float, event: Dict[str, Any], session_context: Dict[str, Any]) -> float:
+    def _calculate_ict_market_structure_shift(self, price: float, event: dict[str, Any], session_context: dict[str, Any]) -> float:
         """Calculate ICT Market Structure Shift (MSS) potential"""
         event_type = event.get('type', '').lower()
         session_range = session_context.get('session_range', 1.0)
@@ -903,7 +903,7 @@ class EnhancedGraphBuilder:
         
         return min(1.0, mss_score)
     
-    def validate_theory_b_implementation(self, session_data: Dict[str, Any]) -> Dict[str, Any]:
+    def validate_theory_b_implementation(self, session_data: dict[str, Any]) -> dict[str, Any]:
         """
         Validate Theory B implementation for a session
         
@@ -971,7 +971,7 @@ class EnhancedGraphBuilder:
         except Exception as e:
             return {'error': f'Theory B validation failed: {e}'}
     
-    def extract_features_for_tgat(self, graph: nx.Graph) -> Tuple[torch.Tensor, torch.Tensor]:
+    def extract_features_for_tgat(self, graph: nx.Graph) -> tuple[torch.Tensor, torch.Tensor]:
         """
         Extract feature tensors for TGAT processing
         

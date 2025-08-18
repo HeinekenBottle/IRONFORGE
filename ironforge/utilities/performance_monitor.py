@@ -3,10 +3,10 @@ Performance Monitor
 Utility for monitoring IRONFORGE component performance
 """
 
-import time
 import logging
-from typing import Dict, List, Any, Optional
+import time
 from contextlib import contextmanager
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
@@ -49,7 +49,7 @@ class PerformanceMonitor:
             
             self.logger.info(f"Performance monitoring complete for {component_name}: {duration:.3f}s")
     
-    def get_performance_summary(self) -> Dict[str, Any]:
+    def get_performance_summary(self) -> dict[str, Any]:
         """Get summary of all performance metrics"""
         
         summary = {}

@@ -4,7 +4,7 @@ Pattern analysis component for timeframe relationships
 """
 
 import logging
-from typing import Dict, List, Any, Optional
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
@@ -18,7 +18,7 @@ class TimeframeLatticeMapper:
         self.logger = logging.getLogger(__name__)
         self.logger.info("Timeframe Lattice Mapper initialized")
     
-    def map_timeframe_patterns(self, session_data: Dict[str, Any]) -> Dict[str, Any]:
+    def map_timeframe_patterns(self, session_data: dict[str, Any]) -> dict[str, Any]:
         """
         Map patterns across timeframes
         
@@ -45,7 +45,7 @@ class TimeframeLatticeMapper:
             self.logger.error(f"Timeframe mapping failed: {e}")
             return {'error': str(e)}
     
-    def map_session_lattice(self, session_data: Dict[str, Any]) -> Dict[str, Any]:
+    def map_session_lattice(self, session_data: dict[str, Any]) -> dict[str, Any]:
         """
         Create global lattice mapping from Monthly → 1m timeframes
         
@@ -183,7 +183,7 @@ class TimeframeLatticeMapper:
             self.logger.error(f"Lattice mapping failed for {session_name}: {e}")
             return {'error': str(e), 'session_name': session_name}
     
-    def _filter_events_by_timeframe(self, events: List[Dict], timeframe: str) -> List[Dict]:
+    def _filter_events_by_timeframe(self, events: list[dict], timeframe: str) -> list[dict]:
         """Filter events relevant to specific timeframe"""
         # For now, return all events with timeframe weight
         filtered = []
@@ -195,7 +195,7 @@ class TimeframeLatticeMapper:
                 filtered.append(event_copy)
         return filtered
     
-    def _calculate_timeframe_relevance(self, event: Dict, timeframe: str) -> float:
+    def _calculate_timeframe_relevance(self, event: dict, timeframe: str) -> float:
         """Calculate how relevant an event is to a specific timeframe"""
         # Basic relevance scoring based on event type and significance
         base_relevance = event.get('significance', 0.5)
@@ -209,7 +209,7 @@ class TimeframeLatticeMapper:
         multiplier = tf_multipliers.get(timeframe, 0.5)
         return min(base_relevance * multiplier, 1.0)
     
-    def _aggregate_hot_zones(self, hot_zones: List[Dict]) -> List[Dict]:
+    def _aggregate_hot_zones(self, hot_zones: list[dict]) -> list[dict]:
         """Aggregate hot zones by exact price level and timeframe - NO ARTIFICIAL ROUNDING"""
         aggregated = {}
         

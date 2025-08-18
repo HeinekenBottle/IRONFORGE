@@ -3,11 +3,11 @@ Pattern Graduation System
 87% threshold validation pipeline for discovered patterns
 """
 
-import torch
-import numpy as np
-from typing import Dict, List, Any, Optional
 import logging
 from datetime import datetime
+from typing import Any
+
+import numpy as np
 
 logger = logging.getLogger(__name__)
 
@@ -21,7 +21,7 @@ class PatternGraduation:
         # REMOVED: self.validation_history = [] to ensure session independence
         logger.info(f"Pattern Graduation initialized with {baseline_accuracy*100}% threshold")
     
-    def validate_patterns(self, discovered_patterns: Dict[str, Any]) -> Dict[str, Any]:
+    def validate_patterns(self, discovered_patterns: dict[str, Any]) -> dict[str, Any]:
         """
         Validate discovered patterns against 87% accuracy threshold
         
@@ -74,7 +74,7 @@ class PatternGraduation:
                 'production_ready': False
             }
     
-    def _calculate_validation_metrics(self, patterns: Dict[str, Any]) -> Dict[str, float]:
+    def _calculate_validation_metrics(self, patterns: dict[str, Any]) -> dict[str, float]:
         """Calculate comprehensive validation metrics"""
         
         significant_patterns = patterns.get('significant_patterns', [])
@@ -127,7 +127,7 @@ class PatternGraduation:
             'archaeological_value': archaeological_value
         }
     
-    def _calculate_pattern_consistency(self, patterns: List[Dict[str, Any]]) -> float:
+    def _calculate_pattern_consistency(self, patterns: list[dict[str, Any]]) -> float:
         """Calculate consistency metric across similar pattern types"""
         
         if len(patterns) < 2:
@@ -155,7 +155,7 @@ class PatternGraduation:
         
         return np.mean(consistencies) if consistencies else 1.0
     
-    def _apply_graduation_criteria(self, validation_metrics: Dict[str, float]) -> Dict[str, Any]:
+    def _apply_graduation_criteria(self, validation_metrics: dict[str, float]) -> dict[str, Any]:
         """Apply graduation criteria and determine final status"""
         
         # Weight validation metrics for overall score
@@ -193,7 +193,7 @@ class PatternGraduation:
             'rejected_patterns': rejected_patterns
         }
     
-    def get_graduation_summary(self) -> Dict[str, Any]:
+    def get_graduation_summary(self) -> dict[str, Any]:
         """Get summary of graduation system configuration
         
         NOTE: No historical data is maintained to ensure session independence.

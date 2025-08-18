@@ -4,7 +4,7 @@ Temporal Graph Attention Network for market pattern archaeology
 """
 
 import logging
-from typing import Any, Dict
+from typing import Any
 
 import networkx as nx
 import numpy as np
@@ -146,7 +146,7 @@ class IRONFORGEDiscovery(nn.Module):
             f"IRONFORGE Discovery initialized: {node_dim}D nodes, {edge_dim}D edges, {num_layers} layers"
         )
 
-    def forward(self, graph: nx.Graph) -> Dict[str, torch.Tensor]:
+    def forward(self, graph: nx.Graph) -> dict[str, torch.Tensor]:
         """
         Discover archaeological patterns in session graph
 
@@ -222,7 +222,7 @@ class IRONFORGEDiscovery(nn.Module):
             logger.error(f"Discovery failed: {e}")
             return self._empty_result()
 
-    def _empty_result(self) -> Dict[str, torch.Tensor]:
+    def _empty_result(self) -> dict[str, torch.Tensor]:
         """Return empty result structure"""
         return {
             "pattern_scores": torch.zeros(0, 16),
@@ -232,7 +232,7 @@ class IRONFORGEDiscovery(nn.Module):
             "session_name": "empty",
         }
 
-    def discover_session_patterns(self, session_data: Dict[str, Any]) -> Dict[str, Any]:
+    def discover_session_patterns(self, session_data: dict[str, Any]) -> dict[str, Any]:
         """
         High-level interface for session pattern discovery
 
@@ -266,8 +266,8 @@ class IRONFORGEDiscovery(nn.Module):
             }
 
     def _interpret_discoveries(
-        self, results: Dict[str, torch.Tensor], session_data: Dict[str, Any]
-    ) -> Dict[str, Any]:
+        self, results: dict[str, torch.Tensor], session_data: dict[str, Any]
+    ) -> dict[str, Any]:
         """Interpret neural network outputs into archaeological insights"""
 
         session_name = session_data.get("session_name", "unknown")
