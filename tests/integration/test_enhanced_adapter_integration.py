@@ -19,22 +19,22 @@ Author: IRONFORGE Archaeological Discovery System
 Date: August 15, 2025
 """
 
-import sys
 import json
+import sys
 import time
-from pathlib import Path
-from typing import Dict, List, Any
 import unittest
-from unittest.mock import patch, MagicMock
+from pathlib import Path
+from unittest.mock import MagicMock, patch
 
 # Add current directory to path for imports
 sys.path.append(str(Path(__file__).parent))
 
 from ironforge.analysis.enhanced_session_adapter import (
-    EnhancedSessionAdapter, 
     ArchaeologySystemPatch,
-    test_adapter_with_sample
+    EnhancedSessionAdapter,
+    test_adapter_with_sample,
 )
+
 
 class TestEnhancedSessionAdapter(unittest.TestCase):
     """Unit tests for EnhancedSessionAdapter class"""
@@ -279,7 +279,7 @@ class TestIntegrationWithRealData(unittest.TestCase):
         
         for session_file in self.session_files:
             try:
-                with open(session_file, 'r') as f:
+                with open(session_file) as f:
                     session_data = json.load(f)
                 
                 # Test adaptation
@@ -330,7 +330,7 @@ class TestIntegrationWithRealData(unittest.TestCase):
         
         for session_file in self.session_files[:1]:  # Test one file
             try:
-                with open(session_file, 'r') as f:
+                with open(session_file) as f:
                     session_data = json.load(f)
                 
                 # Extract original event types
@@ -350,7 +350,7 @@ class TestIntegrationWithRealData(unittest.TestCase):
                         else:
                             unmapped_types.add(original_type)
                 
-            except Exception as e:
+            except Exception:
                 continue
         
         print("\n🗺️ Event Type Mapping Coverage:")
@@ -389,7 +389,7 @@ class TestPerformanceBenchmark(unittest.TestCase):
         
         for session_file in session_files:
             try:
-                with open(session_file, 'r') as f:
+                with open(session_file) as f:
                     session_data = json.load(f)
                 
                 # Time individual adaptation
@@ -403,7 +403,7 @@ class TestPerformanceBenchmark(unittest.TestCase):
                 # Verify reasonable performance (< 1 second per session)
                 self.assertLess(adapt_time, 1.0, f"Adaptation should take <1s, took {adapt_time:.3f}s")
                 
-            except Exception as e:
+            except Exception:
                 continue
         
         total_time = time.time() - start_time
@@ -446,7 +446,7 @@ def run_before_after_comparison():
     
     for session_file in session_files:
         try:
-            with open(session_file, 'r') as f:
+            with open(session_file) as f:
                 session_data = json.load(f)
             
             adapted = adapter.adapt_enhanced_session(session_data)

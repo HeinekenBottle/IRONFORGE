@@ -5,6 +5,7 @@ Test HTF Integration with Enhanced Graph Builder
 
 import json
 import logging
+
 from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
 
 # Set up logging
@@ -25,7 +26,7 @@ def test_htf_integration():
     
     try:
         # Load HTF-enhanced session
-        with open(htf_session_path, 'r') as f:
+        with open(htf_session_path) as f:
             htf_session_data = json.load(f)
         
         print("📊 Loaded HTF session data:")
@@ -121,7 +122,7 @@ def test_fallback_mode():
     regular_session_path = "/Users/jack/IRONPULSE/data/sessions/level_1/NY_PM_Lvl-1_.json"
     
     try:
-        with open(regular_session_path, 'r') as f:
+        with open(regular_session_path) as f:
             regular_session_data = json.load(f)
         
         # Build graph without HTF data

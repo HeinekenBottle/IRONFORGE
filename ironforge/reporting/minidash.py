@@ -1,14 +1,16 @@
 from __future__ import annotations
+
 from pathlib import Path
-from typing import List, Dict, Any
-import pandas as pd
+from typing import Any
+
 import matplotlib.pyplot as plt
+import pandas as pd
 
 
 def build_minidash(
     activity: pd.DataFrame,
     confluence: pd.DataFrame,
-    motifs: List[Dict[str, Any]],
+    motifs: list[dict[str, Any]],
     out_html: str | Path,
     out_png: str | Path,
     width: int = 1200,
@@ -65,4 +67,3 @@ def build_minidash(
     <h2>Motifs</h2><table><tr><th>Name</th><th>Support</th><th>PPV</th></tr>{rows}</table>"""
     out_html.write_text(html, encoding="utf-8")
     return out_html, out_png
-

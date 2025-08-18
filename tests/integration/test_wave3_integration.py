@@ -1,11 +1,12 @@
 """Integration tests for Wave 3 shard-aware temporal discovery."""
 
-import pytest
-import tempfile
 import json
-import pandas as pd
+import tempfile
 from pathlib import Path
 from unittest.mock import Mock, patch
+
+import pandas as pd
+import pytest
 
 from ironforge.learning.discovery_pipeline import TemporalDiscoveryPipeline
 from ironforge.sdk.cli import main

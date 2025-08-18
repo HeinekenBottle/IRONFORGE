@@ -9,12 +9,11 @@ to ensure the time pattern analysis works end-to-end with real session processin
 Author: IRONFORGE Enhancement Team
 """
 
+import json
 import os
 import sys
-import json
 import tempfile
 from datetime import datetime, timedelta
-from pathlib import Path
 
 # Add IRONFORGE to path
 sys.path.insert(0, '/Users/jack/IRONPULSE/IRONFORGE')

@@ -2,13 +2,10 @@
 Core utilities and helpers
 """
 
-# Core utilities
-try:
-    from .performance_monitor import PerformanceMonitor
-except ImportError:
-    # Component not yet available
-    pass
+import contextlib
 
-__all__ = [
-    'PerformanceMonitor'
-]
+# Core utilities
+with contextlib.suppress(ImportError):
+    from .performance_monitor import PerformanceMonitor
+
+__all__ = ["PerformanceMonitor"]

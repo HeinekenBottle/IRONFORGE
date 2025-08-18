@@ -4,14 +4,15 @@ Test IRONFORGE orchestrator with 37D temporal cycle features
 Innovation Architect validation
 """
 
-import sys
-import os
 import json
+import sys
 from pathlib import Path
+
 sys.path.append('/Users/jack/IRONPULSE/IRONFORGE')
 
 from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
 from ironforge.learning.tgat_discovery import IRONFORGEDiscovery
+
 
 def test_orchestrator_37d():
     """Test that orchestrator works with 37D temporal cycle features"""
@@ -40,7 +41,7 @@ def test_orchestrator_37d():
         
         try:
             # Load session data
-            with open(session_file, 'r') as f:
+            with open(session_file) as f:
                 session_data = json.load(f)
             
             # Build enhanced graph

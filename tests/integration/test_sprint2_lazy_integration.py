@@ -18,16 +18,14 @@ Expected result: <30 second completion vs 2+ minute hangs
 """
 
 import sys
-import os
 import time
-import json
-from typing import Dict, Any
 
 # Add IRONFORGE to path
 sys.path.append('.')
 
 # Import lazy loading system  
 from ironforge.integration.ironforge_container import initialize_ironforge_lazy_loading
+
 
 def test_sprint2_lazy_integration():
     """Complete Sprint 2 integration test with lazy loading"""

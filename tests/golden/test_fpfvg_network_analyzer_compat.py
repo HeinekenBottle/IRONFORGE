@@ -4,8 +4,6 @@ import json
 import tempfile
 from pathlib import Path
 
-import pytest
-
 from ironforge.analysis.fpfvg_network_analyzer import FPFVGNetworkAnalyzer
 
 
@@ -82,8 +80,8 @@ def test_fpfvg_analyzer_backwards_compatibility():
     # Test function imports
     from ironforge.analysis.fpfvg_network_analyzer import (
         build_chains,
-        validate_chain, 
         compute_chain_features,
+        validate_chain,
     )
     
     assert callable(build_chains)
@@ -152,8 +150,8 @@ def test_fpfvg_public_functions():
     """Test that public functions work as expected."""
     from ironforge.analysis.fpfvg_network_analyzer import (
         build_chains,
-        validate_chain,
         compute_chain_features,
+        validate_chain,
     )
     
     # Test build_chains

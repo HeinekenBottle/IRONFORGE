@@ -3,10 +3,11 @@
 Test Enhanced HTF Cross-Timeframe Discovery
 Validates that the scale-edge-aware TGAT system finds cross-TF patterns
 """
-import os
 import glob
-import json
+import os
+
 from orchestrator import IRONFORGE
+
 
 def test_enhanced_htf_discovery():
     print("🔍 Testing Enhanced HTF Cross-Timeframe Discovery")

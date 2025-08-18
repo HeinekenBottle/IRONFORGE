@@ -14,24 +14,32 @@ Author: IRONFORGE Archaeological Discovery System
 Date: August 15, 2025
 """
 
-import os
-import sys
 import json
-import time
 import logging
-from pathlib import Path
-from typing import Dict, List, Any
+import sys
+import time
 from datetime import datetime
+from pathlib import Path
+from typing import Any
 
 # Add current directory to Python path
 sys.path.append(str(Path(__file__).parent))
 
 # Import archaeology components
 try:
-    from ironforge.analysis.broad_spectrum_archaeology import BroadSpectrumArchaeology, ArchaeologicalSummary
-    from ironforge.analysis.timeframe_lattice_mapper import TimeframeLatticeMapper, LatticeDataset
-    from ironforge.analysis.temporal_clustering_engine import TemporalClusteringEngine, ClusteringAnalysis
-    from ironforge.analysis.structural_link_analyzer import StructuralLinkAnalyzer, StructuralAnalysis
+    from ironforge.analysis.broad_spectrum_archaeology import (
+        ArchaeologicalSummary,
+        BroadSpectrumArchaeology,
+    )
+    from ironforge.analysis.structural_link_analyzer import (
+        StructuralAnalysis,
+        StructuralLinkAnalyzer,
+    )
+    from ironforge.analysis.temporal_clustering_engine import (
+        ClusteringAnalysis,
+        TemporalClusteringEngine,
+    )
+    from ironforge.analysis.timeframe_lattice_mapper import LatticeDataset, TimeframeLatticeMapper
     from visualizations.lattice_visualizer import LatticeVisualizer, VisualizationConfig
     
     print("✅ All archaeology components imported successfully")
@@ -259,7 +267,7 @@ def test_visualizer(lattice_dataset, clustering_analysis, structural_analysis):
         return {}
 
 
-def generate_test_summary(results: Dict[str, Any]):
+def generate_test_summary(results: dict[str, Any]):
     """Generate comprehensive test summary"""
     
     print("\n📋 Generating Test Summary")

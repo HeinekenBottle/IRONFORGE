@@ -1,12 +1,11 @@
 """Test FPFVG validators functionality."""
 
-import pytest
 
 from ironforge.analysis.fpfvg.validators import (
-    validate_candidates,
-    validate_network_graph,
     is_in_pm_belt,
     safe_float,
+    validate_candidates,
+    validate_network_graph,
 )
 
 

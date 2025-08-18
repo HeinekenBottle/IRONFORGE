@@ -10,22 +10,19 @@ End-to-end validation of full Sprint 2 system:
 """
 
 import sys
-import json
-import time
-import logging
-from pathlib import Path
-from typing import Dict, List, Any
+from typing import Any
 
 # Add IRONFORGE to path
 sys.path.append('/Users/jack/IRONPULSE/IRONFORGE')
 
 # Sprint 2 imports
 from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
-from ironforge.learning.tgat_discovery import IRONFORGEDiscovery
-from ironforge.learning.regime_segmentation import RegimeSegmentation
 from ironforge.learning.precursor_detection import EventPrecursorDetector
-from scripts.utilities.performance_monitor import PerformanceMonitor, monitor_ironforge_session
+from ironforge.learning.regime_segmentation import RegimeSegmentation
+from ironforge.learning.tgat_discovery import IRONFORGEDiscovery
 from ironforge.reporting.analyst_reports import AnalystReports
+from scripts.utilities.performance_monitor import monitor_ironforge_session
+
 
 def test_sprint2_complete_integration():
     """
@@ -368,7 +365,7 @@ def test_sprint2_complete_integration():
     
     return test_results
 
-def analyze_integration_results(test_results: Dict[str, Any]) -> Dict[str, Any]:
+def analyze_integration_results(test_results: dict[str, Any]) -> dict[str, Any]:
     """Analyze overall integration test results"""
     
     total_phases = len(test_results)

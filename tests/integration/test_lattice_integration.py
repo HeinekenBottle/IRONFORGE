@@ -17,18 +17,18 @@ Author: IRONFORGE Archaeological Discovery System
 Date: August 15, 2025
 """
 
-import sys
 import json
+import sys
 import time
-from pathlib import Path
-from typing import Dict, List, Any
 from datetime import datetime
+from pathlib import Path
 
 # Add current directory to path for imports
 sys.path.append(str(Path(__file__).parent))
 
-from ironforge.analysis.timeframe_lattice_mapper import TimeframeLatticeMapper
 from ironforge.analysis.enhanced_session_adapter import EnhancedSessionAdapter
+from ironforge.analysis.timeframe_lattice_mapper import TimeframeLatticeMapper
+
 
 class LatticeIntegrationTest:
     """Integration test for Enhanced Session Adapter → Lattice Mapper pipeline"""
@@ -91,7 +91,7 @@ class LatticeIntegrationTest:
         # Final Results
         self._display_final_results(lattice_dataset)
     
-    def _test_enhanced_session_adapter(self) -> List[Dict]:
+    def _test_enhanced_session_adapter(self) -> list[dict]:
         """Test Enhanced Session Adapter event generation"""
         
         try:
@@ -160,7 +160,7 @@ class LatticeIntegrationTest:
             self.test_results['tests_failed'] += 1
             return []
     
-    def _test_dictionary_event_format(self, events: List[Dict]):
+    def _test_dictionary_event_format(self, events: list[dict]):
         """Test dictionary event format compatibility"""
         
         try:
@@ -182,7 +182,7 @@ class LatticeIntegrationTest:
             print(f"❌ Dictionary format validation failed: {e}")
             self.test_results['tests_failed'] += 1
     
-    def _test_lattice_mapper_integration(self, events: List[Dict]):
+    def _test_lattice_mapper_integration(self, events: list[dict]):
         """Critical test: Lattice Mapper integration with dictionary events"""
         
         print("   🚨 CRITICAL TEST: This validates the KeyError fixes")

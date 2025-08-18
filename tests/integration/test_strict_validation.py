@@ -7,12 +7,10 @@ Technical Debt Surgeon: Test comprehensive data integrity validation
 following NO FALLBACKS policy - fails fast with clear error messages.
 """
 
-import json
-import sys
-import traceback
-from pathlib import Path
-from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
 from price_relativity_generator import PriceRelativityGenerator
+
+from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
+
 
 def create_test_cases():
     """Create various test cases to validate strict validation logic"""

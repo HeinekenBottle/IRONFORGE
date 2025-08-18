@@ -2,9 +2,11 @@
 """
 Test Small Batch Price Relativity Discovery
 """
-import os
 import glob
+import os
+
 from orchestrator import IRONFORGE
+
 
 def test_small_batch():
     print("🧪 Testing Small Batch Price Relativity Discovery")

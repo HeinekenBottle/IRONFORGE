@@ -1,12 +1,13 @@
 """Tests for ironforge.metrics.confluence module."""
 
-import pytest
 import numpy as np
+import pytest
+
 from ironforge.metrics.confluence import (
     ConfluenceWeights,
-    compute_confluence_score,
+    _to_vec,
     compute_confluence_components,
-    _to_vec
+    compute_confluence_score,
 )
 
 

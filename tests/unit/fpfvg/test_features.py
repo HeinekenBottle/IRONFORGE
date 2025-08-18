@@ -1,18 +1,17 @@
 """Test FPFVG features functionality."""
 
 import pytest
-import numpy as np
 
 from ironforge.analysis.fpfvg.features import (
+    analyze_score_distribution,
     calculate_price_proximity_score,
     calculate_range_pos_proximity_score,
-    calculate_zone_confluence_score,
-    calculate_temporal_penalty_score,
     calculate_range_position,
-    get_zone_proximity,
+    calculate_temporal_penalty_score,
+    calculate_zone_confluence_score,
     extract_magnitude,
     get_candidate_summary_stats,
-    analyze_score_distribution,
+    get_zone_proximity,
 )
 
 

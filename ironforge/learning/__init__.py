@@ -1,6 +1,7 @@
 """
 Learning components for archaeological discovery
 """
+
 import contextlib
 
 # Core learning components
@@ -17,8 +18,8 @@ with contextlib.suppress(ImportError):
     from .regime_segmentation import RegimeSegmentation
 
 __all__ = [
-    'EnhancedGraphBuilder',
-    'IRONFORGEDiscovery', 
-    'SimpleEventClustering',
-    'RegimeSegmentation'
+    "EnhancedGraphBuilder",
+    "IRONFORGEDiscovery",
+    "SimpleEventClustering",
+    "RegimeSegmentation",
 ]

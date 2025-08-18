@@ -1,14 +1,18 @@
 from __future__ import annotations
+
 import argparse
-import sys
+import contextlib
 import importlib
 import json
+import sys
 from pathlib import Path
+
 import pandas as pd
 
-from .app_config import load_config, materialize_run_dir
-from .io import write_json, glob_many
 from ironforge.reporting.minidash import build_minidash
+
+from .app_config import load_config, materialize_run_dir
+from .io import glob_many, write_json
 
 
 def _maybe(mod: str, attr: str):
@@ -81,10 +85,8 @@ def cmd_report(cfg):
         act = g
     motifs = []
     for j in Path(run_dir / "motifs").glob("*.json"):
-        try:
+        with contextlib.suppress(Exception):
             motifs.extend(json.loads(j.read_text(encoding="utf-8")))
-        except Exception:
-            pass
     if not motifs:
         motifs = [{"name": "sweep→fvg", "support": 12, "ppv": 0.61}]
     out_html = run_dir / cfg.reporting.minidash.out_html
@@ -110,7 +112,8 @@ def cmd_status(runs: Path):
     items = []
     for r in sorted([p for p in runs.iterdir() if p.is_dir()]):
         counts = {
-            k: len(list((r / k).glob("**/*"))) for k in ["embeddings", "patterns", "confluence", "motifs", "reports"]
+            k: len(list((r / k).glob("**/*")))
+            for k in ["embeddings", "patterns", "confluence", "motifs", "reports"]
         }
         items.append({"run": r.name, **counts})
     print(json.dumps({"runs": items}, indent=2))
@@ -148,4 +151,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-

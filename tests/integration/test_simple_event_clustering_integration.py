@@ -17,14 +17,9 @@ Author: IRONFORGE Enhancement Team
 Target: IRONFORGE Archaeological Discovery System
 """
 
-import os
 import sys
-import json
 import time
-import tempfile
 from datetime import datetime, timedelta
-from pathlib import Path
-from typing import Dict, List, Any
 
 # Add IRONFORGE to path for testing
 sys.path.insert(0, '/Users/jack/IRONPULSE/IRONFORGE')
@@ -37,10 +32,10 @@ def test_module_imports():
     try:
         # Test core module import
         from ironforge.learning.simple_event_clustering import (
-            EventTimeClusterer, 
-            CrossTFMapper, 
+            CrossTFMapper,
+            EventTimeClusterer,
             SimpleEventAnalyzer,
-            analyze_time_patterns
+            analyze_time_patterns,
         )
         print("✅ Simple event clustering module imports successful")
         
@@ -66,7 +61,11 @@ def test_individual_components():
     print("-" * 50)
     
     try:
-        from ironforge.learning.simple_event_clustering import EventTimeClusterer, CrossTFMapper, SimpleEventAnalyzer
+        from ironforge.learning.simple_event_clustering import (
+            CrossTFMapper,
+            EventTimeClusterer,
+            SimpleEventAnalyzer,
+        )
         
         # Test EventTimeClusterer
         print("Testing EventTimeClusterer...")

@@ -1,9 +1,11 @@
 from __future__ import annotations
+
+import datetime
+import os
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Dict, Optional
-import os
-import datetime
+from typing import Any
+
 import yaml
 
 
@@ -55,7 +57,7 @@ class ValidationCfg:
 
 @dataclass
 class Config:
-    workspace: Optional[str] = None
+    workspace: str | None = None
     data: DataCfg = field(default_factory=DataCfg)
     outputs: OutputsCfg = field(default_factory=OutputsCfg)
     scoring: ScoringCfg = field(default_factory=ScoringCfg)
@@ -78,7 +80,7 @@ def _coerce(value: str) -> Any:
     return value
 
 
-def _merge(dst: Dict[str, Any], src: Dict[str, Any]) -> Dict[str, Any]:
+def _merge(dst: dict[str, Any], src: dict[str, Any]) -> dict[str, Any]:
     for k, v in src.items():
         if isinstance(v, dict) and isinstance(dst.get(k), dict):
             _merge(dst[k], v)
@@ -87,23 +89,23 @@ def _merge(dst: Dict[str, Any], src: Dict[str, Any]) -> Dict[str, Any]:
     return dst
 
 
-def _env_overrides(prefix: str = "IFG_") -> Dict[str, Any]:
-    out: Dict[str, Any] = {}
+def _env_overrides(prefix: str = "IFG_") -> dict[str, Any]:
+    out: dict[str, Any] = {}
     for key, val in os.environ.items():
         if not key.startswith(prefix):
             continue
         path = key[len(prefix) :].lower().split("__")
-        cur: Dict[str, Any] = out
+        cur: dict[str, Any] = out
         for p in path[:-1]:
             cur = cur.setdefault(p, {})  # type: ignore[assignment]
         cur[path[-1]] = _coerce(val)
     return out
 
 
-def _to_dc(dc, d: Dict[str, Any]):
-    kwargs: Dict[str, Any] = {}
-    for f in dc.__dataclass_fields__.keys():  # type: ignore[attr-defined]
-        val = d.get(f, None)
+def _to_dc(dc, d: dict[str, Any]):
+    kwargs: dict[str, Any] = {}
+    for f in dc.__dataclass_fields__:  # type: ignore[attr-defined]
+        val = d.get(f)
         field_type = getattr(dc, "__annotations__", {}).get(f)
         if val is None:
             # Use default factory by instantiating nested dataclass when available
@@ -111,7 +113,7 @@ def _to_dc(dc, d: Dict[str, Any]):
                 kwargs[f] = field_type()  # type: ignore[call-arg]
             else:
                 # Fall back to attribute default via a temporary instance
-                kwargs[f] = getattr(dc(), f) # type: ignore[misc]
+                kwargs[f] = getattr(dc(), f)  # type: ignore[misc]
             continue
         if hasattr(field_type, "__dataclass_fields__") and isinstance(val, dict):
             kwargs[f] = _to_dc(field_type, val)  # type: ignore[arg-type]
@@ -121,11 +123,11 @@ def _to_dc(dc, d: Dict[str, Any]):
 
 
 def load_config(
-    path: str | Path | None = None, cli_overrides: Optional[Dict[str, Any]] = None
+    path: str | Path | None = None, cli_overrides: dict[str, Any] | None = None
 ) -> Config:
-    base: Dict[str, Any] = {}
+    base: dict[str, Any] = {}
     if path:
-        with open(path, "r", encoding="utf-8") as f:
+        with open(path, encoding="utf-8") as f:
             base = yaml.safe_load(f) or {}
     env = _env_overrides()
     merged = _merge(_merge(base, env), cli_overrides or {})
@@ -139,4 +141,3 @@ def materialize_run_dir(cfg: Config) -> Path:
     p = Path(run_dir).resolve()
     p.mkdir(parents=True, exist_ok=True)
     return p
-

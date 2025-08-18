@@ -1,7 +1,8 @@
 from __future__ import annotations
+
+import json
 from pathlib import Path
 from typing import Any
-import json
 
 
 def write_json(path: str | Path, obj: Any) -> None:
@@ -18,5 +19,4 @@ def write_html(path: str | Path, html: str) -> None:
 
 
 def glob_many(glob: str) -> list[Path]:
-    return [p for p in Path().glob(glob)]
-
+    return list(Path().glob(glob))

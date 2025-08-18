@@ -3,11 +3,11 @@
 import pytest
 
 from ironforge.analysis.fpfvg.chain_builder import (
-    construct_directed_network,
-    calculate_network_density,
-    find_chains,
     _is_temporally_ordered,
     _meets_proximity_criteria,
+    calculate_network_density,
+    construct_directed_network,
+    find_chains,
 )
 
 

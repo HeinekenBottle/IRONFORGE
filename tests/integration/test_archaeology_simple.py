@@ -10,15 +10,14 @@ Author: IRONFORGE Archaeological Discovery System
 Date: August 15, 2025
 """
 
+import json
 import os
 import sys
-import json
 import time
-from pathlib import Path
-from datetime import datetime
-from typing import List, Dict, Any
 from dataclasses import dataclass
+from datetime import datetime
 from enum import Enum
+from pathlib import Path
 
 # Add current directory to Python path
 sys.path.append(str(Path(__file__).parent))
@@ -55,7 +54,7 @@ class SimpleEvent:
     range_position_percent: float
 
 
-def create_test_events() -> List[SimpleEvent]:
+def create_test_events() -> list[SimpleEvent]:
     """Create synthetic test events"""
     
     events = []
@@ -99,7 +98,7 @@ def create_test_events() -> List[SimpleEvent]:
     return events
 
 
-def test_timeframe_lattice_mapping(events: List[SimpleEvent]):
+def test_timeframe_lattice_mapping(events: list[SimpleEvent]):
     """Test basic lattice mapping functionality"""
     
     print("\n🗺️  Testing Timeframe Lattice Mapping")
@@ -199,7 +198,7 @@ def test_timeframe_lattice_mapping(events: List[SimpleEvent]):
     }
 
 
-def test_temporal_clustering(events: List[SimpleEvent]):
+def test_temporal_clustering(events: list[SimpleEvent]):
     """Test basic temporal clustering"""
     
     print("\n🕰️  Testing Temporal Clustering")
@@ -274,7 +273,7 @@ def test_temporal_clustering(events: List[SimpleEvent]):
     }
 
 
-def test_structural_analysis(events: List[SimpleEvent]):
+def test_structural_analysis(events: list[SimpleEvent]):
     """Test basic structural analysis"""
     
     print("\n🔗 Testing Structural Analysis")

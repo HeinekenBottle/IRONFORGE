@@ -3,9 +3,11 @@
 Quick test of Simple Event-Time Clustering + Cross-TF Mapping
 """
 
-from orchestrator import IRONFORGE
 import glob
 import pickle
+
+from orchestrator import IRONFORGE
+
 
 def test_time_patterns():
     """Test the new time pattern capabilities"""

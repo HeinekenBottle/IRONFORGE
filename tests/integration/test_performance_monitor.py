@@ -17,23 +17,25 @@ NO FALLBACKS POLICY: Tests fail fast on performance regression or quality gate f
 """
 
 import sys
-import json
 import time
-import tempfile
 from pathlib import Path
-from typing import Dict, List
 
 # Add IRONFORGE to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
 
 try:
-    from scripts.utilities.performance_monitor import PerformanceMonitor, PerformanceMetrics, BaselineMetrics, create_graph_analysis
     from orchestrator import IRONFORGE
+    from scripts.utilities.performance_monitor import (
+        BaselineMetrics,
+        PerformanceMetrics,
+        PerformanceMonitor,
+        create_graph_analysis,
+    )
 except ImportError as e:
     print(f"❌ Failed to import IRONFORGE components: {e}")
     sys.exit(1)
 
-def create_mock_orchestrator_results(good_performance: bool = True) -> Dict:
+def create_mock_orchestrator_results(good_performance: bool = True) -> dict:
     """Create mock orchestrator results for testing"""
     if good_performance:
         return {
@@ -53,7 +55,7 @@ def create_mock_orchestrator_results(good_performance: bool = True) -> Dict:
             'processing_errors': [{'file': 'error_session.json', 'error': 'processing_failed'}]
         }
 
-def create_mock_validation_results(good_performance: bool = True) -> Dict:
+def create_mock_validation_results(good_performance: bool = True) -> dict:
     """Create mock validation results for testing"""
     if good_performance:
         return {
@@ -68,7 +70,7 @@ def create_mock_validation_results(good_performance: bool = True) -> Dict:
             'results': [{'status': 'VALIDATED' if i < 6 else 'FAILED', 'improvement': 0.05} for i in range(8)]
         }
 
-def create_mock_graph_analysis(sprint_2_active: bool = True) -> Dict:
+def create_mock_graph_analysis(sprint_2_active: bool = True) -> dict:
     """Create mock graph analysis for testing"""
     if sprint_2_active:
         return {
