@@ -24,23 +24,33 @@ def _maybe(mod: str, attr: str):
 
 
 def cmd_discover(cfg):
-    fn = _maybe("ironforge.learning.tgat_discovery", "run_discovery") or _maybe(
-        "ironforge.discovery.runner", "run_discovery"
+    # Try canonical temporal engine import first
+    fn = _maybe("ironforge.temporal_engine", "run_discovery") or _maybe(
+        "ironforge.learning.discovery_pipeline", "run_discovery"
     )
     if fn is None:
-        print("[discover] discovery engine not found; skipping (no-op).")
+        print("[discover] temporal discovery engine not found; skipping (no-op).")
         return 0
     return int(bool(fn(cfg)))
 
 
 def cmd_score(cfg):
-    fn = _maybe("ironforge.confluence.scorer", "score_session") or _maybe(
-        "ironforge.metrics.confluence", "score_session"
+    # Try semantic engine import first, then confluence.scoring
+    fn = _maybe("ironforge.semantic_engine", "score_confluence") or _maybe(
+        "ironforge.confluence.scoring", "score_session"
     )
     if fn is None:
-        print("[score] scorer not found; skipping (no-op).")
+        print("[score] semantic scorer not found; skipping (no-op).")
         return 0
-    fn(cfg)
+    
+    # Call with appropriate signature
+    if fn.__name__ == "score_confluence":
+        # Direct function call - need to adapt
+        print("[score] using confluence scoring engine")
+        from ironforge.confluence.scoring import score_session
+        score_session(cfg)
+    else:
+        fn(cfg)
     return 0
 
 

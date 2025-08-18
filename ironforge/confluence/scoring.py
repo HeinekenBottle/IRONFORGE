@@ -22,3 +22,40 @@ def score_confluence(
     out_path.parent.mkdir(parents=True, exist_ok=True)
     scores.to_parquet(out_path, index=False)
     return str(out_path)
+
+
+# Alias for CLI compatibility
+def score_session(cfg) -> None:
+    """CLI-compatible wrapper for score_confluence"""
+    # Extract patterns from shards directory
+    from pathlib import Path
+    import glob
+    
+    # Default pattern paths from config or fallback
+    shards_glob = getattr(cfg.data, 'shards_glob', 'data/shards/*/shard_*')
+    pattern_paths = glob.glob(shards_glob)
+    
+    # Get run directory for output
+    try:
+        from ironforge.sdk.app_config import materialize_run_dir
+        run_dir = materialize_run_dir(cfg)
+        out_dir = str(run_dir / "confluence")
+    except:
+        out_dir = "runs/confluence"
+    
+    # Extract weights and threshold from config
+    weights = getattr(cfg.scoring, 'weights', None)
+    if weights:
+        weights = dict(weights.__dict__) if hasattr(weights, '__dict__') else dict(weights)
+    
+    threshold = 0.7  # Default threshold
+    
+    # Run confluence scoring
+    result_path = score_confluence(
+        pattern_paths=pattern_paths,
+        out_dir=out_dir, 
+        _weights=weights,
+        threshold=threshold
+    )
+    
+    print(f"[confluence] scored {len(pattern_paths)} patterns -> {result_path}")

@@ -512,18 +512,60 @@ class JSONToParquetConverter:
             return float('inf')
     
     def _get_node_kind(self, event: Dict[str, Any]) -> int:
-        """Determine node kind enum value."""
-        source_type = event.get("source_type", "")
-        movement_type = event.get("movement_type", "")
+        """
+        Determine node kind enum value using Taxonomy v1.0.
+        
+        Maps events to canonical event types:
+        0: EXPANSION - Directional movement with momentum
+        1: CONSOLIDATION - Sideways action in range
+        2: RETRACEMENT - Counter-trend pullback  
+        3: REVERSAL - Direction change/bias invalidation
+        4: LIQUIDITY_TAKEN - Sweep through liquidity zones
+        5: REDELIVERY - Return to FVG/imbalances
+        
+        For compatibility, maps legacy types and defaults to EXPANSION (0).
+        """
+        # Check for explicit event_type in enhanced data
+        event_type = event.get("event_type", "").lower()
+        
+        # Map to canonical taxonomy
+        if event_type in ["expansion", "expansion_phase"]:
+            return 0  # EXPANSION
+        elif event_type in ["consolidation", "consolidation_phase"]:
+            return 1  # CONSOLIDATION
+        elif event_type in ["retracement", "pullback"]:
+            return 2  # RETRACEMENT
+        elif event_type in ["reversal", "reversal_pattern"]:
+            return 3  # REVERSAL
+        elif event_type in ["liquidity_taken", "sweep", "liquidity_sweep"]:
+            return 4  # LIQUIDITY_TAKEN
+        elif event_type in ["redelivery", "fvg_redelivery", "gap_fill"]:
+            return 5  # REDELIVERY
+        
+        # Fallback: legacy source_type/movement_type mapping
+        source_type = event.get("source_type", "").lower()
+        movement_type = event.get("movement_type", "").lower()
         
         if source_type == "price_movement":
-            return 0  # price_move
+            # Analyze movement characteristics
+            if "expansion" in movement_type or "trending" in movement_type:
+                return 0  # EXPANSION
+            elif "consolidation" in movement_type or "ranging" in movement_type:
+                return 1  # CONSOLIDATION
+            elif "retracement" in movement_type or "pullback" in movement_type:
+                return 2  # RETRACEMENT
+            elif "reversal" in movement_type:
+                return 3  # REVERSAL
+            else:
+                return 0  # Default to EXPANSION
         elif source_type == "liquidity_event":
-            return 1  # liq_event
+            return 4  # LIQUIDITY_TAKEN
         elif movement_type in ["session_high", "session_low", "open", "close"]:
-            return 2  # anchor
+            return 1  # Session anchors -> CONSOLIDATION
+        elif "fvg" in source_type or "gap" in source_type:
+            return 5  # REDELIVERY
         else:
-            return 3  # other
+            return 0  # Default to EXPANSION
     
     def _create_edges(self, events: List[Dict[str, Any]], node_ids: List[int], 
                      session_data: Dict[str, Any]) -> pd.DataFrame:
