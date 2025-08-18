@@ -10,7 +10,7 @@ from ironforge.graph_builder.pyg_converters import igraph_to_pyg
 from .tgat_discovery import infer_shard_embeddings
 
 
-def run_discovery(shard_paths: Iterable[str], out_dir: str, loader_cfg) -> list[str]:  # type: ignore[no-untyped-def]
+def run_discovery(shard_paths: Iterable[str], out_dir: str, loader_cfg, persist_attention: bool = False) -> list[str]:  # type: ignore[no-untyped-def]
     """Run discovery over a list of shard directories.
 
     Parameters
@@ -21,6 +21,8 @@ def run_discovery(shard_paths: Iterable[str], out_dir: str, loader_cfg) -> list[
         Output directory where results will be stored.
     loader_cfg: LoaderCfg
         Configuration for loader. Only passed through to ``infer_shard_embeddings``.
+    persist_attention: bool
+        Whether to persist top-k attention neighborhoods.
 
     Returns
     -------
@@ -33,6 +35,6 @@ def run_discovery(shard_paths: Iterable[str], out_dir: str, loader_cfg) -> list[
         nodes, edges = read_nodes_edges(shard)
         g = from_parquet(nodes, edges)
         data = igraph_to_pyg(g)
-        _, patt_path = infer_shard_embeddings(data, out_dir, loader_cfg)
+        _, patt_path = infer_shard_embeddings(data, out_dir, loader_cfg, persist_attention, nodes_table=nodes)
         outputs.append(patt_path)
     return outputs
