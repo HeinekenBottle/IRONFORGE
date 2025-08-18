@@ -39,11 +39,6 @@
 {"shard_dir": "data/shards/NQ_M5/shard_NY_2025-07-31", "session_id": "NY_2025-07-31", "node_count": 37, "edge_count": 54, "conversion_timestamp": "2025-08-18T17:02:50.099471Z"}
 {"shard_dir": "data/shards/NQ_M5/shard_NY_2025-08-04", "session_id": "NY_2025-08-04", "node_count": 39, "edge_count": 62, "conversion_timestamp": "2025-08-18T17:02:50.386036Z"}
 {"shard_dir": "data/shards/NQ_M5/shard_NY_2025-08-05", "session_id": "NY_2025-08-05", "node_count": 65, "edge_count": 120, "conversion_timestamp": "2025-08-18T17:02:50.434417Z"}
-{"shard_dir": "data/shards/NQ_M5/shard_NY_2025-07-28", "session_id": "NY_2025-07-28", "node_count": 30, "edge_count": 43, "conversion_timestamp": "2025-08-18T17:02:50.255835Z"}
-{"shard_dir": "data/shards/NQ_M5/shard_NY_2025-07-29", "session_id": "NY_2025-07-29", "node_count": 60, "edge_count": 89, "conversion_timestamp": "2025-08-18T17:02:50.310992Z"}
-{"shard_dir": "data/shards/NQ_M5/shard_NY_2025-07-30", "session_id": "NY_2025-07-30", "node_count": 68, "edge_count": 101, "conversion_timestamp": "2025-08-18T17:02:50.358179Z"}
-{"shard_dir": "data/shards/NQ_M5/shard_NY_2025-08-04", "session_id": "NY_2025-08-04", "node_count": 39, "edge_count": 62, "conversion_timestamp": "2025-08-18T17:02:50.386036Z"}
-{"shard_dir": "data/shards/NQ_M5/shard_NY_2025-08-05", "session_id": "NY_2025-08-05", "node_count": 65, "edge_count": 120, "conversion_timestamp": "2025-08-18T17:02:50.434417Z"}
 {"shard_dir": "data/shards/NQ_M5/shard_PREASIA_2025-07-30", "session_id": "PREASIA_2025-07-30", "node_count": 16, "edge_count": 23, "conversion_timestamp": "2025-08-18T17:02:50.488029Z"}
 {"shard_dir": "data/shards/NQ_M5/shard_PREMARKET_2025-07-24", "session_id": "PREMARKET_2025-07-24", "node_count": 20, "edge_count": 29, "conversion_timestamp": "2025-08-18T17:02:50.514585Z"}
 {"shard_dir": "data/shards/NQ_M5/shard_PREMARKET_2025-07-25", "session_id": "PREMARKET_2025-07-25", "node_count": 24, "edge_count": 35, "conversion_timestamp": "2025-08-18T17:02:50.542062Z"}
