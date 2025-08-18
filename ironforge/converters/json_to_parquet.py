@@ -35,7 +35,7 @@ class ConversionConfig:
     overwrite: bool = False
     dry_run: bool = False
     # HTF Context Configuration
-    htf_context_enabled: bool = False  # Enable HTF context features (45D → 51D)
+    htf_context_enabled: bool = True  # Enable HTF context features (45D → 51D) - v0.7.1 default
     htf_context_config: Optional[HTFContextConfig] = None
 
 

@@ -15,6 +15,7 @@ def build_minidash(
     out_png: str | Path,
     width: int = 1200,
     height: int = 700,
+    htf_regime_data: dict[str, Any] | None = None,
 ) -> tuple[Path, Path]:
     if activity.empty:
         activity = pd.DataFrame(
@@ -60,9 +61,37 @@ def build_minidash(
         f"<tr><td>{m.get('name','')}</td><td>{m.get('support','')}</td><td>{m.get('ppv','')}</td></tr>"
         for m in motifs
     )
+    
+    # HTF Regime Ribbon (minimal text badges)
+    htf_ribbon = ""
+    if htf_regime_data:
+        regime_dist = htf_regime_data.get('regime_distribution', {})
+        total_zones = htf_regime_data.get('total_zones', 0)
+        theory_b_zones = htf_regime_data.get('theory_b_zones', 0)
+        quality_score = htf_regime_data.get('quality_score', 0.0)
+        
+        # Create regime badges
+        regime_badges = []
+        regime_colors = {'consolidation': '#ffc107', 'transition': '#17a2b8', 'expansion': '#dc3545'}
+        
+        for regime, count in regime_dist.items():
+            color = regime_colors.get(regime, '#6c757d')
+            badge = f'<span style="background:{color};color:white;padding:2px 6px;border-radius:3px;margin:2px">{regime.title()}: {count}</span>'
+            regime_badges.append(badge)
+        
+        htf_ribbon = f'''
+        <div style="background:#f8f9fa;padding:10px;margin:10px 0;border-radius:5px;">
+            <strong>HTF Context (v0.7.1):</strong> 
+            {' '.join(regime_badges)}
+            <br><small>
+                Zones: {total_zones} | Theory B: {theory_b_zones} | Quality: {quality_score:.2f}
+            </small>
+        </div>'''
+    
     html = f"""<!doctype html><meta charset="utf-8">
     <style>body{{font:14px system-ui}} table{{border-collapse:collapse}} td,th{{border:1px solid #ccc;padding:6px}}</style>
     <h1>IRONFORGE — Minimal Report</h1>
+    {htf_ribbon}
     <img src="{out_png.name}" alt="Confluence & Activity" />
     <h2>Motifs</h2><table><tr><th>Name</th><th>Support</th><th>PPV</th></tr>{rows}</table>"""
     out_html.write_text(html, encoding="utf-8")

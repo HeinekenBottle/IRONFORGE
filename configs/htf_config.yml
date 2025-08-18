@@ -1,0 +1,115 @@
+# IRONFORGE HTF Context Configuration
+# Version: v0.7.1 (Node Features v1.1)
+
+# HTF Context Features Control
+htf_context:
+  enabled: true                    # Master switch for HTF features
+  
+  # Timeframe Configuration
+  timeframes:
+    - "M15"                        # 15-minute timeframe
+    - "H1"                         # 1-hour timeframe
+  
+  # Synthetic Volume Configuration
+  sv_lookback_bars: 30             # Rolling window for SV z-scores
+  sv_weights:                      # SV formula weights (must sum to 1.0)
+    ev_cnt: 0.5                    # Event count component
+    abs_ret: 0.4                   # Price movement component
+    liq: 0.1                       # Liquidity component
+  
+  # Regime Classification Thresholds
+  regime:
+    upper: 0.7                     # Expansion threshold (70th percentile)
+    lower: 0.3                     # Consolidation threshold (30th percentile)
+  
+  # Daily Anchor Configuration
+  anchors:
+    daily_mid: true                # Enable daily midpoint distance calculation
+    use_prev_day: true             # Use previous day high/low data
+
+# Archaeological Discovery Configuration
+discovery:
+  dimensional_anchoring:
+    enabled: true                  # Theory B dimensional anchoring
+    tolerance: 0.05               # Zone detection tolerance (5%)
+    target_zones: [0.4, 0.6]     # 40% and 60% zones
+  
+  regime_shift_detection:
+    enabled: true                  # HTF regime shift markers
+    sv_threshold: 2.0             # SV z-score threshold for detection
+  
+  sv_anomaly_detection:
+    enabled: true                  # Synthetic volume anomaly sites
+    z_threshold: 1.5              # SV z-score anomaly threshold
+    coherence_threshold: 0.2      # Temporal coherence threshold
+
+# Safety and Rollback Configuration
+safety:
+  # Fast rollback: set enabled=false to revert to 45D nodes
+  htf_rollback_enabled: false      # Emergency HTF disable
+  
+  # Validation settings
+  enforce_temporal_integrity: true # Reject future bar joins
+  require_feature_completeness: false # Allow partial HTF features
+  
+  # Performance limits
+  max_session_duration_hours: 12   # Skip sessions longer than 12 hours
+  max_events_per_session: 1000    # Skip sessions with too many events
+
+# Observability Configuration
+observability:
+  enabled: true                    # Enable HTF observability
+  
+  # Metrics collection
+  collect_regime_distribution: true
+  collect_feature_coverage: true
+  collect_discovery_density: true
+  
+  # Alerting thresholds
+  min_quality_score: 0.7          # Alert if quality drops below 70%
+  min_feature_coverage: 0.5       # Alert if coverage drops below 50%
+  max_anomaly_rate: 0.1            # Alert if anomaly rate exceeds 10%
+
+# Development and Testing
+development:
+  # A/B Testing
+  enable_baseline_comparison: true  # Keep 45D baseline for comparison
+  baseline_sample_rate: 0.1       # Sample 10% for baseline comparison
+  
+  # Debugging
+  verbose_htf_logging: false       # Detailed HTF processing logs
+  save_intermediate_results: false # Save HTF bars and statistics
+  
+  # Performance profiling
+  profile_htf_performance: false   # Profile HTF feature extraction
+
+# CI/CD Configuration
+ci:
+  # Smoke test settings
+  smoke_test_sample_size: 5        # Number of sessions to test
+  required_feature_count: 58       # 51 features + 7 metadata
+  required_htf_features: 6         # f45-f50
+  
+  # Nightly checks
+  enable_nightly_validation: true  # Run nightly HTF validation
+  dry_run_timeout_seconds: 120    # Timeout for prep-shards dry run
+  
+  # Golden sample validation
+  enforce_golden_sample: true      # Enforce 51 node + 20 edge columns
+  
+# Runtime Configuration
+runtime:
+  # Feature extraction performance
+  htf_processing_timeout: 300      # 5 minutes per session
+  parallel_session_processing: false # Process sessions sequentially
+  
+  # Memory management
+  max_memory_usage_gb: 4           # Limit HTF memory usage
+  clear_cache_between_sessions: true # Clear HTF caches
+
+# Version Information
+version:
+  config_version: "1.0"
+  ironforge_version: "0.7.1"
+  node_features_version: "1.1"
+  htf_features: ["f45_sv_m15_z", "f46_sv_h1_z", "f47_barpos_m15", "f48_barpos_h1", "f49_dist_daily_mid", "f50_htf_regime"]
