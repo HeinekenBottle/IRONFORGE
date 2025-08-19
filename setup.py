@@ -16,7 +16,7 @@ if os.path.exists(readme_path):
 
 setup(
     name="ironforge",
-    version="1.0.0",
+    version="0.7.1",
     author="IRON Ecosystem",
     author_email="noreply@iron.dev",
     description="Archaeological discovery system for market pattern analysis",

@@ -1,0 +1,38 @@
+{
+  "analytics_suite": "Macro-Micro Relationship Analytics",
+  "run_path": "runs/real-tgat-fixed-2025-08-18",
+  "completed_analyses": [
+    {
+      "name": "Macro\u2192Micro Outcome Map",
+      "description": "HTF conditions vs trade horizon outcomes",
+      "status": "completed",
+      "key_findings": {
+        "total_buckets": 4,
+        "acceptance_passed": false,
+        "top_hit_rate_bucket": "regime_1"
+      }
+    },
+    {
+      "name": "Cross-Session Influence",
+      "description": "Yesterday\u2192today embedding similarity",
+      "status": "completed",
+      "key_findings": {
+        "total_pairs": 1,
+        "acceptance_passed": false,
+        "influence_effect": null
+      }
+    },
+    {
+      "name": "Session Prototypes",
+      "description": "Macro fingerprints for next-session payoffs",
+      "status": "completed",
+      "key_findings": {
+        "total_sessions": 2,
+        "session_transitions": 1,
+        "correlation_computed": true,
+        "proto_sim_correlation": NaN
+      }
+    }
+  ],
+  "overall_status": "completed"
+}

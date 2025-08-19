@@ -142,7 +142,7 @@ def cmd_prep_shards(source_glob: str, symbol: str, timeframe: str, timezone: str
                     if shard_dir.exists():
                         meta_file = shard_dir / "meta.json"
                         if meta_file.exists():
-                            with open(meta_file) as meta_f:
+                            with open(meta_file, 'r') as meta_f:
                                 metadata = json.load(meta_f)
                                 manifest_entry = {
                                     "shard_dir": str(shard_dir),
