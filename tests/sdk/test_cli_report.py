@@ -303,11 +303,14 @@ class TestCLIReport:
             }
         }
 
-        with patch("ironforge.sdk.cli.json.loads", return_value=minimal_data), patch(
-            "ironforge.sdk.cli.build_session_heatmap", return_value=object()
-        ), patch(
-            "ironforge.sdk.cli.build_confluence_strip", return_value=object()
-        ) as mock_confluence, patch("ironforge.sdk.cli.write_png", return_value=Path("test.png")):
+        with (
+            patch("ironforge.sdk.cli.json.loads", return_value=minimal_data),
+            patch("ironforge.sdk.cli.build_session_heatmap", return_value=object()),
+            patch(
+                "ironforge.sdk.cli.build_confluence_strip", return_value=object()
+            ) as mock_confluence,
+            patch("ironforge.sdk.cli.write_png", return_value=Path("test.png")),
+        ):
             with tempfile.TemporaryDirectory() as temp_dir:
                 json_file = Path(temp_dir) / "minimal.json"
                 json_file.write_text(json.dumps(minimal_data))
@@ -328,9 +331,7 @@ class TestCLIReport:
                     # Check that defaults were used for missing fields
                     confluence_call = mock_confluence.call_args
                     confluence_scores = confluence_call[0][1]
-                    markers = (
-                        confluence_call[0][2] if len(confluence_call[0]) > 2 else None
-                    )
+                    markers = confluence_call[0][2] if len(confluence_call[0]) > 2 else None
 
                     # Should have zeros for confluence and None for markers
                     assert len(confluence_scores) == 3  # Same length as minute_bins

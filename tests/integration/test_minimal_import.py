@@ -6,14 +6,15 @@ Minimal import test to isolate timeout issues in Sprint 2 components
 import sys
 import time
 
-sys.path.append('.')
+sys.path.append(".")
+
 
 def test_import(module_name, class_name=None):
     """Test importing a specific module/class with timing"""
     start_time = time.time()
     try:
         print(f"Testing import: {module_name}" + (f".{class_name}" if class_name else ""))
-        
+
         if class_name:
             module = __import__(module_name, fromlist=[class_name])
             getattr(module, class_name)
@@ -21,17 +22,23 @@ def test_import(module_name, class_name=None):
         else:
             __import__(module_name)
             print(f"✅ {module_name} imported in {time.time() - start_time:.2f}s")
-            
+
     except Exception as e:
         elapsed = time.time() - start_time
-        print(f"❌ {module_name}" + (f".{class_name}" if class_name else "") + f" failed in {elapsed:.2f}s: {e}")
+        print(
+            f"❌ {module_name}"
+            + (f".{class_name}" if class_name else "")
+            + f" failed in {elapsed:.2f}s: {e}"
+        )
         import traceback
+
         traceback.print_exc()
+
 
 if __name__ == "__main__":
     print("🧪 Minimal Import Test for Sprint 2 Components")
     print("=" * 50)
-    
+
     # Test imports one by one - Updated for new package structure
     test_import("ironforge.learning.enhanced_graph_builder", "EnhancedGraphBuilder")
     test_import("ironforge.learning.tgat_discovery", "IRONFORGEDiscovery")
@@ -39,5 +46,5 @@ if __name__ == "__main__":
     test_import("ironforge.learning.precursor_detection", "EventPrecursorDetector")
     test_import("ironforge.utilities.performance_monitor", "PerformanceMonitor")
     test_import("ironforge.reporting.analyst_reports", "AnalystReports")
-    
+
     print("\n✅ All imports completed!")

@@ -273,9 +273,10 @@ def test_run_discovery_import_error(pipeline):
     """Test discovery with missing TGAT components."""
     with (
         patch(
-        "ironforge.learning.discovery_pipeline.get_ironforge_container",
-        side_effect=ImportError("Missing components"),
-    ), patch.object(pipeline, "load_shards") as mock_load,
+            "ironforge.learning.discovery_pipeline.get_ironforge_container",
+            side_effect=ImportError("Missing components"),
+        ),
+        patch.object(pipeline, "load_shards") as mock_load,
         patch.object(pipeline, "build_temporal_graph") as mock_build,
         patch.object(pipeline, "stitch_anchors") as mock_stitch,
         patch.object(pipeline, "create_neighbor_loader") as mock_loader,

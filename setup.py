@@ -4,6 +4,7 @@ Setup script for IRONFORGE Archaeological Discovery System
 """
 
 import os
+import re
 
 from setuptools import find_packages, setup
 
@@ -14,9 +15,18 @@ if os.path.exists(readme_path):
     with open(readme_path, encoding='utf-8') as f:
         long_description = f.read()
 
+def _read_version():
+    here = os.path.dirname(__file__)
+    with open(os.path.join(here, "ironforge", "__version__.py"), encoding="utf-8") as f:
+        m = re.search(r'__version__\s*=\s*"([^"]+)"', f.read())
+        if not m:
+            raise RuntimeError("Could not read __version__ from ironforge/__version__.py")
+        return m.group(1)
+
+
 setup(
     name="ironforge",
-    version="0.7.1",
+    version=_read_version(),
     author="IRON Ecosystem",
     author_email="noreply@iron.dev",
     description="Archaeological discovery system for market pattern analysis",

@@ -1,4 +1,16 @@
 # IRONFORGE API Reference
+**Stable Public API (v1.0)**
+
+- discovery: `ironforge.learning.discovery_pipeline:run_discovery(shard_paths, out_dir, loader_cfg)`
+- confluence: `ironforge.confluence.scoring:score_confluence(cfg)`
+- validation: `ironforge.validation.runner:validate_run(cfg)`
+- reporting: `ironforge.reporting.minidash:build_minidash(activity_df, confluence_df, motifs, out_html, out_png, ...)`
+- sdk helpers: `ironforge.sdk.config`, `ironforge.sdk.app_config`, `ironforge.sdk.io`
+
+CLI commands map to these entrypoints: `discover-temporal`, `score-session`, `validate-run`, `report-minimal`, `status`, and `prep-shards` (HTF off by default; add `--htf-context` to enable).
+
+---
+
 **Complete API Documentation for Archaeological Discovery System**
 
 ---
