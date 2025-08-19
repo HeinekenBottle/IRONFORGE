@@ -58,6 +58,10 @@ python -m ironforge.sdk.cli status            --runs runs
 
 # Open dashboard
 open runs/$(date +%F)/minidash.html
+
+# Enable Oracle (temporal non-locality predictions)
+ironforge train-oracle --symbols NQ --tf M5 --from 2025-07-20 --to 2025-08-15 --out models/oracle/v1.0.2
+ironforge discover-temporal --oracle-enabled
 ```
 
 ## Outputs (per run)

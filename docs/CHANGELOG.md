@@ -4,6 +4,29 @@
 
 ---
 
+## [1.0.2-rc1] - 2025-08-19 - Oracle Training CLI (Parquet-only, strict coverage)
+### 🎯 Oracle Temporal Non-Locality System
+- **NEW**: Complete Oracle training CLI with Parquet-native processing
+- **NEW**: Strict mode with comprehensive audit validation and zero silent skips
+- **NEW**: Reproducibility manifest with git SHA and environment tracking
+- **NEW**: 16-column sidecar schema for oracle predictions
+- **NEW**: Enhanced feature assembly adapters for Discovery/Evaluator integration
+
+### Phase 1.1 Coverage Repair (Completed)
+- **FIXED**: Discovery KeyError in EnhancedGraphBuilder feature handling
+- **FIXED**: Evaluator correction to use Discovery's pooled 44D embeddings
+- **ADDED**: Runtime validation for Discovery + Oracle integration
+- **ENHANCED**: Feature exception logging with exact missing keys and available columns
+
+### Phase 2 Clean & Harden
+- **PURGED**: Mock/demo scripts and temporary probe directories
+- **UPDATED**: .gitignore for Oracle artifacts (*.pt, *.pkl, models/**)
+- **LOCKED**: 45/51/20 architecture contracts remain green
+- **POLISHED**: CLI help text and M5⇆5 timeframe normalization
+- **DOCUMENTED**: Complete ORACLE.md with schemas, metrics, and troubleshooting
+
+---
+
 ## [2.0.0] - 2025-08-16 - Documentation Modernization
 ### 🎯 Major Documentation Overhaul
 - **BREAKING**: Complete documentation restructure with modern naming conventions
