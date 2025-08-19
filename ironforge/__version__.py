@@ -1,6 +1,6 @@
 """IRONFORGE Version Information"""
 
-__version__ = "1.0.0-rc.1"
+__version__ = "1.0.0"
 __version_info__ = (0, 9, 0)
 __release_notes__ = "Macro-Micro Analytics Suite: HTF→trade horizon quantification, cross-session influence, session prototypes, adjacent possible exploration"
 
