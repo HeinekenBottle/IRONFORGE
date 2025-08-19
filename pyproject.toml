@@ -2,6 +2,63 @@
 requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
+[project]
+name = "ironforge"
+dynamic = ["version"]
+description = "Archaeological discovery system for market pattern analysis"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "IRON Ecosystem", email = "noreply@iron.dev"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Office/Business :: Financial",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.20.0",
+    "pandas>=1.3.0", 
+    "torch>=1.9.0",
+    "matplotlib>=3.3.0",
+    "seaborn>=0.11.0",
+    "scikit-learn>=1.0.0",
+    "networkx>=2.5",
+    "tqdm>=4.60.0",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "black>=21.0",
+    "ruff>=0.6.8", 
+    "mypy>=0.800",
+    "bandit>=1.7.9",
+    "coverage>=7.3.2",
+    "pytest-benchmark>=4.0.0",
+]
+
+[project.scripts]
+ironforge = "ironforge.sdk.cli:main"
+ifg = "ironforge.sdk.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/iron-ecosystem/ironforge"
+Repository = "https://github.com/iron-ecosystem/ironforge"
+
+[tool.setuptools.packages.find]
+include = ["ironforge*"]
+
+[tool.setuptools.dynamic]
+version = {attr = "ironforge.__version__.__version__"}
+
 [tool.python]
 version = ">=3.10"
 

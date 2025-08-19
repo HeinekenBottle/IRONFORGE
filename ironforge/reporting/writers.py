@@ -25,3 +25,8 @@ def save_png(fig, path: str) -> None:  # type: ignore[no-untyped-def]
     """Save a Matplotlib figure as PNG."""
     _ensure_parent(path)
     fig.savefig(path)
+
+
+def write_report(data: Any, output_path: str) -> None:
+    """Write report data to file (JSON format)."""
+    save_json(data, output_path)

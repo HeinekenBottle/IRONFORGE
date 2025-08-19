@@ -1,13 +1,15 @@
 Metadata-Version: 2.4
 Name: ironforge
-Version: 1.0.0
+Version: 1.0.1
 Summary: Archaeological discovery system for market pattern analysis
 Home-page: https://github.com/iron-ecosystem/ironforge
 Author: IRON Ecosystem
-Author-email: noreply@iron.dev
+Author-email: IRON Ecosystem <noreply@iron.dev>
+License: MIT
+Project-URL: Homepage, https://github.com/iron-ecosystem/ironforge
+Project-URL: Repository, https://github.com/iron-ecosystem/ironforge
 Classifier: Development Status :: 4 - Beta
 Classifier: Intended Audience :: Financial and Insurance Industry
-Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
 Classifier: Programming Language :: Python :: 3
 Classifier: Programming Language :: Python :: 3.10
@@ -34,22 +36,15 @@ Requires-Dist: bandit>=1.7.9; extra == "dev"
 Requires-Dist: coverage>=7.3.2; extra == "dev"
 Requires-Dist: pytest-benchmark>=4.0.0; extra == "dev"
 Dynamic: author
-Dynamic: author-email
-Dynamic: classifier
-Dynamic: description
-Dynamic: description-content-type
 Dynamic: home-page
-Dynamic: provides-extra
-Dynamic: requires-dist
 Dynamic: requires-python
-Dynamic: summary
 
 # IRONFORGE — Graph-Based Market Archaeology (v0.9.0, Waves 0–7.2)
 ![ci](https://github.com/<org>/IRONFORGE/actions/workflows/ci.yml/badge.svg)
 
 **Archaeological discovery engine: rule-based → TGAT (single ML core) → rule-based**
 
-IRONFORGE learns temporal patterns within sessions, scores confluence, and renders minidash reports. The system operates on enhanced session data through a canonical pipeline that preserves pattern authenticity while enabling rapid discovery.
+IRONFORGE learns temporal patterns within sessions, scores confluence, and renders minidash reports. The system operates on enhanced session data through a canonical pipeline that preserves pattern authenticity while enabling rapid discovery. Optional Oracle predictions use temporal non-locality to forecast session ranges from early events.
 
 ## What It Is
 
