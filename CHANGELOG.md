@@ -170,3 +170,6 @@
 **Documentation Pages**: 4  
 **Backward Compatibility**: 100%  
 **Behavior Drift**: 0%
+
+## 1.0.1
+- Oracle temporal non-locality (sidecar parquet, optional; contracts unchanged)

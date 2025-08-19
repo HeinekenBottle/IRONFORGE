@@ -1,0 +1,78 @@
+Ready to code?                                                                                                                                    │
+│                                                                                                                                                   │
+│ Here is Claude's plan:                                                                                                                            │
+│ ╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮ │
+│ │ Oracle Temporal Non-locality Implementation Plan                                                                                              │ │
+│ │                                                                                                                                               │ │
+│ │ Branch Setup                                                                                                                                  │ │
+│ │                                                                                                                                               │ │
+│ │ 1. Create feature branch: feat/oracle-temporal-nonlocality                                                                                    │ │
+│ │ 2. Ensure all changes preserve existing 45/51/20 dimensional schemas                                                                          │ │
+│ │                                                                                                                                               │ │
+│ │ Phase 1: Expose Attention Weights (tgat_discovery.py)                                                                                         │ │
+│ │                                                                                                                                               │ │
+│ │ 1. Modify TemporalAttentionLayer.forward() to add return_attn parameter                                                                       │ │
+│ │   - Return raw attention weights alongside embeddings when requested                                                                          │ │
+│ │   - Keep default behavior unchanged (return_attn=False)                                                                                       │ │
+│ │ 2. Update IRONFORGEDiscovery.forward() to propagate attention weights                                                                         │ │
+│ │   - Add optional attention collection through layers                                                                                          │ │
+│ │   - Store final layer attention for oracle predictions                                                                                        │ │
+│ │                                                                                                                                               │ │
+│ │ Phase 2: Add Regression Head (tgat_discovery.py)                                                                                              │ │
+│ │                                                                                                                                               │ │
+│ │ 1. Add range_head module to IRONFORGEDiscovery.__init__()                                                                                     │ │
+│ │   - Simple 2-layer MLP: 44D → 32D → 2D (center, half_range)                                                                                   │ │
+│ │   - Initialize with Xavier weights for cold start                                                                                             │ │
+│ │ 2. Create predict_session_range() method                                                                                                      │ │
+│ │   - Take early_batch_pct parameter (default 0.20)                                                                                             │ │
+│ │   - Slice first k events based on percentage                                                                                                  │ │
+│ │   - Forward pass with attention weights                                                                                                       │ │
+│ │   - Attention-weighted pooling over early embeddings                                                                                          │ │
+│ │   - Pass through range_head for predictions                                                                                                   │ │
+│ │   - Return structured dict with :predictions and metadata                                                                                      │ │
+│ │                                                                                                                                               │ │
+│ │ Phase 3: Integration Pipeline (discovery_pipeline.py)                                                                                         │ │
+│ │                                                                                                                                               │ │
+│ │ 1. Check for missing infer_shard_embeddings function                                                                                          │ │
+│ │   - May need to create or import from different module                                                                                        │ │
+│ │ 2. Add oracle prediction logic after pattern discovery                                                                                        │ │
+│ │   - Check config for oracle flag (default True)                                                                                               │ │
+│ │   - Call predict_session_range() with configured early_pct                                                                                    │ │
+│ │   - Format results into DataFrame                                                                                                             │ │
+│ │   - Write oracle_predictions.parquet to run directory                                                                                         │ │
+│ │                                                                                                                                               │ │
+│ │ Phase 4: Configuration Updates (app_config.py)                                                                                                │ │
+│ │                                                                                                                                               │ │
+│ │ 1. Add OracleCfg dataclass                                                                                                                    │ │
+│ │   - enabled: bool = True                                                                                                                      │ │
+│ │   - early_pct: float = 0.20                                                                                                                   │ │
+│ │   - output_path: str = "oracle_predictions.parquet"                                                                                           │ │
+│ │ 2. Update main Config to include oracle settings                                                                                              │ │
+│ │                                                                                                                                               │ │
+│ │ Phase 5: Testing & Validation                                                                                                                 │ │
+│ │                                                                                                                                               │ │
+│ │ 1. Create quick test script                                                                                                                   │ │
+│ │   - Load sample session data                                                                                                                  │ │
+│ │   - Run oracle predictions                                                                                                                    │ │
+│ │   - Verify parquet output schema                                                                                                              │ │
+│ │ 2. Ensure smoke tests pass unchanged                                                                                                          │ │
+│ │   - Oracle should be optional/non-breaking                                                                                                    │ │
+│ │                                                                                                                                               │ │
+│ │ Key Implementation Details:                                                                                                                   │ │
+│ │                                                                                                                                               │ │
+│ │ - Attention pooling: Use softmax normalization per head, then average                                                                         │ │
+│ │ - Confidence metric: Max attention weight as proxy for prediction certainty                                                                   │ │
+│ │ - Z-score normalization for price coordinates during discovery                                                                                │ │
+│ │ - Parquet schema: run_dir, pct_seen, n_events, pred_high/low, center, half_range, confidence, ts_generated                                    │ │
+│ │                                                                                                                                               │ │
+│ │ Files to Modify:                                                                                                                              │ │
+│ │                                                                                                                                               │ │
+│ │ 1. ironforge/learning/tgat_discovery.py - Core oracle logic                                                                                   │ │
+│ │ 2. ironforge/learning/discovery_pipeline.py - Pipeline integration                                                                            │ │
+│ │ 3. ironforge/sdk/app_config.py - Configuration classes                                                                                        │ │
+│ │ 4. Create: tests/test_oracle_predictions.py - Quick validation                                                                                │ │
+│ │                                                                                                                                               │ │
+│ │ This implementation preserves all existing functionality while adding the oracle prediction capability as an optional feature that can be     │ │
+│ │ toggled via configuration.                                                                                                                    │ │
+│ ╰─────────────────────────────────
+

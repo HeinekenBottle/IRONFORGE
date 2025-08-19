@@ -1,12 +1,10 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.4
 Name: ironforge
 Version: 1.0.0
 Summary: Archaeological discovery system for market pattern analysis
 Home-page: https://github.com/iron-ecosystem/ironforge
 Author: IRON Ecosystem
 Author-email: noreply@iron.dev
-License: UNKNOWN
-Platform: UNKNOWN
 Classifier: Development Status :: 4 - Beta
 Classifier: Intended Audience :: Financial and Insurance Industry
 Classifier: License :: OSI Approved :: MIT License
@@ -18,9 +16,36 @@ Classifier: Topic :: Office/Business :: Financial
 Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
 Requires-Python: >=3.10
 Description-Content-Type: text/markdown
+Requires-Dist: numpy>=1.20.0
+Requires-Dist: pandas>=1.3.0
+Requires-Dist: torch>=1.9.0
+Requires-Dist: matplotlib>=3.3.0
+Requires-Dist: seaborn>=0.11.0
+Requires-Dist: scikit-learn>=1.0.0
+Requires-Dist: networkx>=2.5
+Requires-Dist: tqdm>=4.60.0
+Requires-Dist: PyYAML>=6.0
 Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: black>=21.0; extra == "dev"
+Requires-Dist: ruff>=0.6.8; extra == "dev"
+Requires-Dist: mypy>=0.800; extra == "dev"
+Requires-Dist: bandit>=1.7.9; extra == "dev"
+Requires-Dist: coverage>=7.3.2; extra == "dev"
+Requires-Dist: pytest-benchmark>=4.0.0; extra == "dev"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
 
-# IRONFORGE — Graph-Based Market Archaeology (v0.7.1, Waves 0–7.2)
+# IRONFORGE — Graph-Based Market Archaeology (v0.9.0, Waves 0–7.2)
+![ci](https://github.com/<org>/IRONFORGE/actions/workflows/ci.yml/badge.svg)
 
 **Archaeological discovery engine: rule-based → TGAT (single ML core) → rule-based**
 
@@ -165,8 +190,14 @@ python tests/legacy/simple_threshold_test.py
 
 ### Data Preparation
 ```bash
-# Convert enhanced sessions to shards
+# Convert enhanced sessions to shards (HTF OFF by default → 45D)
+python -m ironforge.sdk.cli prep-shards
+
+# Enable High Timeframe (HTF) context features (adds 6 features → 51D)
 python -m ironforge.sdk.cli prep-shards --htf-context
+
+# Optional: write a run manifest during reporting (env-gated, no CLI change)
+IRONFORGE_WRITE_MANIFEST=1 python -m ironforge.sdk.cli report-minimal --config configs/dev.yml
 
 # Check shard dimensions
 python -c "
@@ -180,10 +211,13 @@ print(f'Node features: {len([c for c in nodes.column_names if c.startswith(\"f\"
 - **docs/flows.md**: Schema contracts and run order
 - **docs/taxonomy_v1.md**: Authoritative event and edge taxonomy  
 - **docs/operations.md**: Daily operations and A/B adapter usage
+- **docs/migrations/0.9-to-1.0.md**: Migration notes for 1.0
 - **REFACTOR_PLAN.md**: Repository cleanup and refactor details
+
+## Project State
+- Snapshot: `docs/ops/context/codex_state_2025-08-19.md`
+- Context pack (JSON): `docs/ops/context/context_pack.json`
 
 ---
 
 **IRONFORGE v0.7.1** — Archaeological discovery through temporal graph attention
-
-

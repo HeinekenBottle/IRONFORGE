@@ -3,7 +3,7 @@
 
 **Archaeological discovery engine: rule-based → TGAT (single ML core) → rule-based**
 
-IRONFORGE learns temporal patterns within sessions, scores confluence, and renders minidash reports. The system operates on enhanced session data through a canonical pipeline that preserves pattern authenticity while enabling rapid discovery.
+IRONFORGE learns temporal patterns within sessions, scores confluence, and renders minidash reports. The system operates on enhanced session data through a canonical pipeline that preserves pattern authenticity while enabling rapid discovery. Optional Oracle predictions use temporal non-locality to forecast session ranges from early events.
 
 ## What It Is
 

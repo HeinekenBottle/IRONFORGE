@@ -29,6 +29,7 @@ iron_core/performance/container.py
 iron_core/performance/lazy_loader.py
 iron_core/validation/__init__.py
 ironforge/__init__.py
+ironforge/__version__.py
 ironforge.egg-info/PKG-INFO
 ironforge.egg-info/SOURCES.txt
 ironforge.egg-info/dependency_links.txt
@@ -59,11 +60,16 @@ ironforge/learning/enhanced_graph_builder.py
 ironforge/learning/tgat_discovery.py
 ironforge/motifs/__init__.py
 ironforge/motifs/scanner.py
+ironforge/reporting/__init__.py
+ironforge/reporting/htf_observer.py
+ironforge/reporting/minidash.py
+ironforge/reporting/writers.py
 ironforge/sdk/__init__.py
 ironforge/sdk/app_config.py
 ironforge/sdk/cli.py
 ironforge/sdk/config.py
 ironforge/sdk/io.py
+ironforge/sdk/manifest.py
 ironforge/synthesis/__init__.py
 ironforge/synthesis/pattern_graduation.py
 ironforge/synthesis/production_graduation.py
@@ -71,6 +77,7 @@ ironforge/utilities/__init__.py
 ironforge/utilities/performance_monitor.py
 ironforge/validation/__init__.py
 ironforge/validation/oos.py
+ironforge/validation/runner.py
 scripts/__init__.py
 scripts/analysis/__init__.py
 scripts/analysis/analyze_concrete_patterns.py
