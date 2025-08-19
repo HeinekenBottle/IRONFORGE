@@ -187,7 +187,7 @@ class EnhancedGraphBuilder:
 
         traditional[0] = float(price)
         traditional[1] = float(volume)
-        traditional[2] = float(timestamp % 86400)  # Time of day
+        traditional[2] = float(self._parse_timestamp_to_seconds(timestamp))  # Time of day in seconds
 
         # REPLACE SYNTHETIC FEATURES WITH REAL MARKET CALCULATIONS
 
@@ -214,12 +214,13 @@ class EnhancedGraphBuilder:
         traditional[9] = 1.0 if price > session_open else 0.0  # Above/below open flag
 
         # TEMPORAL FEATURES (indices 10-15) - Session Character
-        time_since_open = max(timestamp - session_start_time, 0)
+        timestamp_seconds = self._parse_timestamp_to_seconds(timestamp)
+        time_since_open = max(timestamp_seconds - session_start_time, 0)
         traditional[10] = float(time_since_open)  # Seconds from session start
         traditional[11] = min(time_since_open / session_duration, 1.0)  # Normalized time (0-1)
-        traditional[12] = float(timestamp // 3600 % 24)  # Hour of day (0-23)
-        traditional[13] = float((timestamp // 86400) % 7)  # Day of week (0-6)
-        traditional[14] = 1.0 if 9 <= (timestamp // 3600 % 24) <= 16 else 0.0  # Market hours flag
+        traditional[12] = float(timestamp_seconds // 3600 % 24)  # Hour of day (0-23)
+        traditional[13] = float((timestamp_seconds // 86400) % 7)  # Day of week (0-6)
+        traditional[14] = 1.0 if 9 <= (timestamp_seconds // 3600 % 24) <= 16 else 0.0  # Market hours flag
         traditional[15] = self._calculate_session_phase(time_since_open, session_duration)
 
         # ARCHAEOLOGICAL ZONE FEATURES (indices 16-21) - Theory B Implementation
@@ -332,8 +333,8 @@ class EnhancedGraphBuilder:
         traditional = torch.zeros(17)
 
         # Temporal distance
-        time1 = event1.get("timestamp", 0)
-        time2 = event2.get("timestamp", 0)
+        time1 = self._parse_timestamp_to_seconds(event1.get("timestamp", 0))
+        time2 = self._parse_timestamp_to_seconds(event2.get("timestamp", 0))
         traditional[0] = abs(time2 - time1)
 
         # Price distance
@@ -1092,3 +1093,38 @@ class EnhancedGraphBuilder:
             f"Extracted features: nodes {node_features.shape}, edges {edge_features.shape}"
         )
         return node_features, edge_features
+
+    def _parse_timestamp_to_seconds(self, timestamp) -> float:
+        """
+        Parse timestamp to seconds from start of day
+        
+        Handles multiple formats:
+        - Numeric timestamp (returned as-is % 86400)  
+        - String timestamp "HH:MM:SS" or "HH:MM"
+        - Default to 0.0 for invalid formats
+        """
+        try:
+            # If already numeric, use modulo for time of day
+            if isinstance(timestamp, (int, float)):
+                return float(timestamp % 86400)
+            
+            # If string, parse HH:MM:SS format
+            if isinstance(timestamp, str) and ":" in timestamp:
+                parts = timestamp.strip().split(":")
+                hours = int(parts[0]) if len(parts) > 0 else 0
+                minutes = int(parts[1]) if len(parts) > 1 else 0
+                seconds = int(parts[2]) if len(parts) > 2 else 0
+                
+                # Convert to seconds from start of day
+                return float(hours * 3600 + minutes * 60 + seconds)
+            
+            # Try to convert string to number
+            if isinstance(timestamp, str):
+                num_timestamp = float(timestamp)
+                return float(num_timestamp % 86400)
+                
+        except (ValueError, IndexError, TypeError):
+            # Default for invalid timestamps
+            pass
+            
+        return 0.0

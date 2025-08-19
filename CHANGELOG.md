@@ -1,5 +1,56 @@
 # IRONFORGE Changelog
 
+## [1.0.1] - 2025-08-19 - Oracle Temporal Non-locality (GA Release)
+
+### 🔮 Oracle Sidecar Predictions
+
+**Added optional Oracle temporal non-locality predictions with schema v0 locking.**
+
+#### ✅ New Features
+
+**Oracle Implementation**
+- **Oracle Predictions**: Optional sidecar system for temporal non-locality predictions
+- **Schema v0 Contract**: Exact 16-column parquet schema for downstream tool compatibility
+- **Early Event Analysis**: Predict session ranges from 20% of early session events
+- **Configuration**: Oracle disabled by default, configurable via YAML
+- **Temporal Non-locality**: Events positioned relative to eventual session completion
+
+**Schema v0 Columns (16 exactly)**
+```
+run_dir, session_date, pct_seen, n_events, pred_low, pred_high, 
+center, half_range, confidence, pattern_id, start_ts, end_ts,
+early_expansion_cnt, early_retracement_cnt, early_reversal_cnt, first_seq
+```
+
+**Distribution & Packaging**
+- **Modern Packaging**: Migrated from setup.py to pyproject.toml
+- **Dynamic Versioning**: Automatic version management from `__version__.py`  
+- **Console Scripts**: `ironforge` and `ifg` CLI entry points
+- **Wheel Distribution**: Complete Oracle components in v1.0.1 wheel
+- **Version Consistency**: Fixed `__version_info__` availability in main package
+
+#### ⚙️ Configuration
+
+**Oracle Configuration (optional)**
+```yaml
+oracle:
+  enabled: false  # Disabled by default
+  early_pct: 0.20 # Must be in (0, 0.5]
+  output_path: "oracle_predictions.parquet"
+```
+
+**Integration**
+- Oracle predictions written during `discover-temporal` when enabled
+- No schema changes to canonical pipeline
+- Backward compatible with existing configurations
+
+### 🔒 Compatibility & Versioning
+
+- **No Breaking Changes**: All existing functionality preserved
+- **Schema Stability**: Oracle uses locked schema v0 for consistency
+- **Dual Versioning**: Stable schema contracts with evolving ML models
+- **Downstream Tools**: Oracle schema v0 ensures external tool compatibility
+
 ## [0.7.1] - 2025-08-19 - Repository Refactor (Wave 7.2)
 
 ### 🧹 Repository Cleanup & Structure Improvements
