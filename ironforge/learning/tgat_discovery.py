@@ -255,7 +255,7 @@ class IRONFORGEDiscovery(nn.Module):
         Predict session range from early events using temporal non-locality
         
         Args:
-            graph: NetworkX graph with session events
+            graph: NetworkX graph with session events (via EnhancedGraphBuilder)
             early_batch_pct: Percentage of early events to use for prediction
             
         Returns:
@@ -268,6 +268,7 @@ class IRONFORGEDiscovery(nn.Module):
             - half_range: Predicted half-range width
             - confidence: Prediction confidence (0-1)
             - notes: Description of method used
+            - node_idx_used: List of early node indices for pattern linking
         """
         try:
             nodes = list(graph.nodes())
@@ -277,8 +278,8 @@ class IRONFORGEDiscovery(nn.Module):
             num_events = len(nodes)
             k = max(1, int(num_events * early_batch_pct))
             
-            # Build subgraph with only first k events
-            early_nodes = nodes[:k]
+            # DELTA A: Use early subgraph via same path as discovery
+            early_nodes = nodes[:k]  # Take first k events (temporal order)
             early_subgraph = graph.subgraph(early_nodes).copy()
             
             # Forward pass with attention weights enabled
@@ -286,6 +287,10 @@ class IRONFORGEDiscovery(nn.Module):
             
             embeddings = results["node_embeddings"]  # [k, 44]
             attention_weights = results["attention_weights"]  # [k, k] or None
+            node_idx_used = early_nodes  # Track which nodes used for pattern linking
+            
+            # DELTA C: Extract phase sequence breadcrumbs from early subgraph (read-only)
+            phase_counts = self._extract_phase_sequences(early_subgraph)
             
             # Attention-weighted pooling over early events
             if attention_weights is not None and attention_weights.size(0) > 0:
@@ -316,7 +321,9 @@ class IRONFORGEDiscovery(nn.Module):
                 "center": float(center),
                 "half_range": float(half_range),
                 "confidence": float(confidence),
-                "notes": f"attention-weighted pooling over {k} early events"
+                "notes": f"attention-weighted pooling over {k} early events",
+                "node_idx_used": list(node_idx_used),  # DELTA A: Return node indices used
+                **phase_counts  # DELTA C: Add phase sequence breadcrumbs
             }
             
         except Exception as e:
@@ -333,8 +340,58 @@ class IRONFORGEDiscovery(nn.Module):
             "center": 0.0,
             "half_range": 0.0,
             "confidence": 0.0,
-            "notes": "empty session - no predictions available"
+            "notes": "empty session - no predictions available",
+            "node_idx_used": [],  # DELTA A: Empty node list
+            # DELTA C: Empty phase counts
+            "early_expansion_cnt": 0,
+            "early_retracement_cnt": 0,
+            "early_reversal_cnt": 0,
+            "first_seq": ""
         }
+    
+    def _extract_phase_sequences(self, early_subgraph: nx.Graph) -> dict[str, Any]:
+        """DELTA C: Extract phase sequence breadcrumbs from early subgraph (read-only)"""
+        try:
+            expansion_cnt = 0
+            retracement_cnt = 0
+            reversal_cnt = 0
+            sequence_events = []
+            
+            # Analyze semantic flags in 45D node features (first 8 dimensions are semantic)
+            for node_id in sorted(early_subgraph.nodes()):
+                node_feature = early_subgraph.nodes[node_id]["feature"]
+                
+                # Check semantic event flags (indices 0-7 in 45D vector)
+                if node_feature[1] > 0.5:  # expansion_phase_flag 
+                    expansion_cnt += 1
+                    sequence_events.append("E")
+                elif node_feature[3] > 0.5:  # retracement_flag
+                    retracement_cnt += 1  
+                    sequence_events.append("R")
+                elif node_feature[4] > 0.5:  # reversal_flag
+                    reversal_cnt += 1
+                    sequence_events.append("V")
+                else:
+                    sequence_events.append("C")  # Consolidation/other
+            
+            # Build first occurrence sequence string
+            first_seq = "→".join(sequence_events[:5])  # First 5 events only
+            
+            return {
+                "early_expansion_cnt": expansion_cnt,
+                "early_retracement_cnt": retracement_cnt, 
+                "early_reversal_cnt": reversal_cnt,
+                "first_seq": first_seq
+            }
+            
+        except Exception as e:
+            logger.warning(f"Phase sequence extraction failed: {e}")
+            return {
+                "early_expansion_cnt": 0,
+                "early_retracement_cnt": 0,
+                "early_reversal_cnt": 0, 
+                "first_seq": "unknown"
+            }
 
     def discover_session_patterns(self, session_data: dict[str, Any]) -> dict[str, Any]:
         """
@@ -498,17 +555,27 @@ def infer_shard_embeddings(data, out_dir: str, loader_cfg) -> tuple[str, str]:
                     graph, early_batch_pct=early_pct
                 )
                 
-                # Add run metadata
+                # DELTA B: Add pattern linking and temporal metadata
                 oracle_predictions["run_dir"] = str(output_dir)
                 oracle_predictions["ts_generated"] = pd.Timestamp.utcnow()
+                oracle_predictions["session_date"] = pd.Timestamp.today().strftime("%Y-%m-%d")
                 
-                # Save oracle predictions
+                # Mock pattern linking (in production, would link to actual discovered patterns)
+                oracle_predictions["pattern_id"] = f"pattern_{len(oracle_predictions['node_idx_used']):03d}"
+                oracle_predictions["start_ts"] = pd.Timestamp.now().strftime("%Y-%m-%dT%H:%M:%S")
+                oracle_predictions["end_ts"] = (pd.Timestamp.now() + pd.Timedelta(minutes=oracle_predictions['n_events'])).strftime("%Y-%m-%dT%H:%M:%S")
+                
+                # DELTA B: Add oracle-distance fields (computed at report-time)
+                oracle_predictions["center_delta_to_pattern_mid"] = 0.0  # Placeholder - computed vs discovered patterns
+                oracle_predictions["range_overlap_pct"] = 0.0  # Placeholder - computed vs discovered patterns
+                
+                # Save oracle predictions with enhanced schema
                 oracle_df = pd.DataFrame([oracle_predictions])
                 oracle_path = output_dir / "oracle_predictions.parquet"
                 oracle_df.to_parquet(oracle_path, index=False)
                 
                 logger.info(f"Oracle predictions saved: {oracle_predictions['pred_high']:.2f}/{oracle_predictions['pred_low']:.2f} "
-                           f"(confidence: {oracle_predictions['confidence']:.3f})")
+                           f"(confidence: {oracle_predictions['confidence']:.3f}, pattern_id: {oracle_predictions['pattern_id']})")
             
         logger.info(f"Discovery complete: {embeddings_path}, {patterns_path}")
         return str(embeddings_path), str(patterns_path)
