@@ -1,3 +1,4 @@
+[Note] Source of truth for versions is GitHub Releases (tags). This changelog reflects historical notes and may not match package version (current tag: v0.7.0).
 # IRONFORGE Changelog
 **Version History and Breaking Changes**
 

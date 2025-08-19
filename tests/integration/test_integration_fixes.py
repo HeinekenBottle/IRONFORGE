@@ -28,7 +28,7 @@ def test_tgat_import():
         print("  ✅ Alias verification successful")
         
         # Test initialization
-        discovery = IRONFORGEDiscovery(node_features=45, hidden_dim=128, out_dim=256)
+        IRONFORGEDiscovery(node_features=45, hidden_dim=128, out_dim=256)
         print("  ✅ IRONFORGEDiscovery initialization successful")
         
         return True
@@ -93,7 +93,7 @@ def test_lattice_mapper():
         )
         
         # Test coordinate creation with objects
-        coords = mapper._create_event_coordinates([mock_event])
+        mapper._create_event_coordinates([mock_event])
         print("  ✅ Object-based coordinate creation successful")
         
         # Test with dictionary-based events
@@ -110,7 +110,7 @@ def test_lattice_mapper():
         }
         
         # Test coordinate creation with dicts
-        dict_coords = mapper._create_event_coordinates([dict_event])
+        mapper._create_event_coordinates([dict_event])
         print("  ✅ Dictionary-based coordinate creation successful")
         
         # Test lattice mapping

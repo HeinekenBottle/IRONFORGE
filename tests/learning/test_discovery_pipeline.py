@@ -172,7 +172,7 @@ def test_create_neighbor_loader(pipeline):
     with patch("ironforge.learning.discovery_pipeline.NeighborLoader") as mock_loader:
         mock_loader.return_value = Mock()
 
-        loader = pipeline.create_neighbor_loader(graph)
+        pipeline.create_neighbor_loader(graph)
 
         # Verify NeighborLoader was called with correct parameters
         mock_loader.assert_called_once()
@@ -271,25 +271,23 @@ def test_run_discovery(mock_container, pipeline):
 
 def test_run_discovery_import_error(pipeline):
     """Test discovery with missing TGAT components."""
-    with patch(
+    with (
+        patch(
         "ironforge.learning.discovery_pipeline.get_ironforge_container",
         side_effect=ImportError("Missing components"),
+    ), patch.object(pipeline, "load_shards") as mock_load,
+        patch.object(pipeline, "build_temporal_graph") as mock_build,
+        patch.object(pipeline, "stitch_anchors") as mock_stitch,
+        patch.object(pipeline, "create_neighbor_loader") as mock_loader,
     ):
 
-        with (
-            patch.object(pipeline, "load_shards") as mock_load,
-            patch.object(pipeline, "build_temporal_graph") as mock_build,
-            patch.object(pipeline, "stitch_anchors") as mock_stitch,
-            patch.object(pipeline, "create_neighbor_loader") as mock_loader,
-        ):
+        mock_load.return_value = [{"shard_id": "test"}]
+        mock_build.return_value = Mock()
+        mock_stitch.return_value = Mock()
+        mock_loader.return_value = [Mock()]
 
-            mock_load.return_value = [{"shard_id": "test"}]
-            mock_build.return_value = Mock()
-            mock_stitch.return_value = Mock()
-            mock_loader.return_value = [Mock()]
-
-            with pytest.raises(ImportError, match="Cannot import TGAT discovery components"):
-                pipeline.run_discovery()
+        with pytest.raises(ImportError, match="Cannot import TGAT discovery components"):
+            pipeline.run_discovery()
 
 
 def test_run_pipeline_output(pipeline):

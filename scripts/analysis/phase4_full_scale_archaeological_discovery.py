@@ -11,7 +11,7 @@ import glob
 import json
 import time
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 from learning.enhanced_graph_builder import EnhancedGraphBuilder
 from learning.tgat_discovery import IRONFORGEDiscovery
@@ -33,7 +33,7 @@ class FullScaleArchaeologicalDiscovery:
         self.cross_timeframe_edges = 0
         self.failed_sessions = []
         
-    def discover_all_sessions(self) -> Dict[str, Any]:
+    def discover_all_sessions(self) -> dict[str, Any]:
         """Run full scale discovery on all available clean sessions."""
         print("🏛️ IRONFORGE Phase 4a: Full Scale Archaeological Discovery")
         print("=" * 70)
@@ -60,7 +60,7 @@ class FullScaleArchaeologicalDiscovery:
             
             try:
                 # Load session data
-                with open(session_file, 'r') as f:
+                with open(session_file) as f:
                     session_data = json.load(f)
                 
                 # Build enhanced graph
@@ -106,8 +106,8 @@ class FullScaleArchaeologicalDiscovery:
         
         return results
     
-    def _analyze_session_result(self, session_name: str, graph_data: Dict, 
-                               X, edge_index, edge_attr, patterns: List) -> Dict:
+    def _analyze_session_result(self, session_name: str, graph_data: dict, 
+                               X, edge_index, edge_attr, patterns: list) -> dict:
         """Analyze individual session archaeological discovery results."""
         
         # Count scale edges (cross-timeframe)
@@ -156,7 +156,7 @@ class FullScaleArchaeologicalDiscovery:
             'success': True
         }
     
-    def _update_global_stats(self, graph_data: Dict, patterns: List):
+    def _update_global_stats(self, graph_data: dict, patterns: list):
         """Update global statistics across all sessions."""
         
         # Count timeframes
@@ -172,7 +172,7 @@ class FullScaleArchaeologicalDiscovery:
             pattern_type = pattern.get('type', 'unknown')
             self.pattern_types[pattern_type] = self.pattern_types.get(pattern_type, 0) + 1
     
-    def _generate_full_scale_results(self, session_results: List[Dict], total_time: float) -> Dict:
+    def _generate_full_scale_results(self, session_results: list[dict], total_time: float) -> dict:
         """Generate comprehensive full scale discovery results."""
         
         successful_sessions = [r for r in session_results if r['success']]
@@ -227,7 +227,7 @@ class FullScaleArchaeologicalDiscovery:
                 'timeframe_distribution': dict(self.timeframe_distribution)
             },
             'multi_day_coverage': {
-                'dates_covered': sorted(list(dates_covered)),
+                'dates_covered': sorted(dates_covered),
                 'date_span_days': len(dates_covered),
                 'multi_day_dataset': len(dates_covered) > 1
             },

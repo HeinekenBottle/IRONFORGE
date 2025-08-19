@@ -19,29 +19,24 @@ Author: IRONFORGE Archaeological Discovery System
 Date: August 15, 2025
 """
 
-import json
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
-from matplotlib.patches import FancyBboxPatch, ConnectionPatch
-import seaborn as sns
-from typing import Dict, List, Tuple, Optional, Any
-from collections import defaultdict, Counter
+import logging
+import warnings
+from collections import Counter, defaultdict
 from dataclasses import dataclass
 from pathlib import Path
-import logging
-from datetime import datetime
-import warnings
+
+import matplotlib.patches as patches
+import matplotlib.pyplot as plt
+import numpy as np
 
 # Suppress matplotlib warnings
 warnings.filterwarnings('ignore', category=UserWarning, module='matplotlib')
 
 try:
-    import plotly.graph_objects as go
     import plotly.express as px
-    from plotly.subplots import make_subplots
+    import plotly.graph_objects as go
     import plotly.offline as pyo
+    from plotly.subplots import make_subplots
     PLOTLY_AVAILABLE = True
 except ImportError:
     PLOTLY_AVAILABLE = False
@@ -49,18 +44,29 @@ except ImportError:
 
 try:
     from ..analysis.broad_spectrum_archaeology import ArchaeologicalEvent, TimeframeType
-    from ..analysis.timeframe_lattice_mapper import LatticeDataset, LatticeNode, LatticeConnection, HotZone
-    from ..analysis.temporal_clustering_engine import TemporalCluster, ClusteringAnalysis
-    from ..analysis.structural_link_analyzer import StructuralAnalysis, StructuralLink, CascadeChain, EnergyAccumulation
+    from ..analysis.structural_link_analyzer import (
+        CascadeChain,
+        EnergyAccumulation,
+        StructuralAnalysis,
+        StructuralLink,
+    )
+    from ..analysis.temporal_clustering_engine import ClusteringAnalysis, TemporalCluster
+    from ..analysis.timeframe_lattice_mapper import (
+        HotZone,
+        LatticeConnection,
+        LatticeDataset,
+        LatticeNode,
+    )
 except ImportError:
     # Fallback for direct execution
     import sys
     from pathlib import Path
     sys.path.append(str(Path(__file__).parent.parent / "analysis"))
-    from broad_spectrum_archaeology import ArchaeologicalEvent, TimeframeType
-    from timeframe_lattice_mapper import LatticeDataset, LatticeNode, LatticeConnection, HotZone
-    from temporal_clustering_engine import TemporalCluster, ClusteringAnalysis
-    from structural_link_analyzer import StructuralAnalysis, StructuralLink, CascadeChain, EnergyAccumulation
+    from structural_link_analyzer import (
+        StructuralAnalysis,
+    )
+    from temporal_clustering_engine import ClusteringAnalysis
+    from timeframe_lattice_mapper import LatticeDataset
 
 
 @dataclass
@@ -68,20 +74,20 @@ class VisualizationConfig:
     """Configuration for visualization settings"""
     
     # Figure settings
-    figure_size: Tuple[int, int] = (16, 12)
+    figure_size: tuple[int, int] = (16, 12)
     dpi: int = 150
     style: str = 'dark_background'
     
     # Color schemes
-    node_colors: Dict[str, str] = None
-    connection_colors: Dict[str, str] = None
+    node_colors: dict[str, str] = None
+    connection_colors: dict[str, str] = None
     hot_zone_color: str = '#FF6B6B'
     cascade_color: str = '#4ECDC4'
     energy_color: str = '#FFE66D'
     
     # Size settings
-    node_size_range: Tuple[int, int] = (20, 200)
-    connection_width_range: Tuple[float, float] = (0.5, 3.0)
+    node_size_range: tuple[int, int] = (20, 200)
+    connection_width_range: tuple[float, float] = (0.5, 3.0)
     
     # Interactive settings
     enable_hover: bool = True
@@ -114,7 +120,7 @@ class LatticeVisualizer:
     Comprehensive visualization system for market archaeology lattice
     """
     
-    def __init__(self, config: Optional[VisualizationConfig] = None):
+    def __init__(self, config: VisualizationConfig | None = None):
         """
         Initialize the lattice visualizer
         
@@ -134,15 +140,15 @@ class LatticeVisualizer:
             '50m': 4, '15m': 5, '5m': 6, '1m': 7
         }
         
-        print(f"🎨 Lattice Visualizer initialized")
+        print("🎨 Lattice Visualizer initialized")
         print(f"  Plotly available: {PLOTLY_AVAILABLE}")
         print(f"  Style: {self.config.style}")
     
     def create_comprehensive_visualization(self, 
                                         lattice_dataset: LatticeDataset,
-                                        clustering_analysis: Optional[ClusteringAnalysis] = None,
-                                        structural_analysis: Optional[StructuralAnalysis] = None,
-                                        output_dir: str = "visualizations") -> Dict[str, str]:
+                                        clustering_analysis: ClusteringAnalysis | None = None,
+                                        structural_analysis: StructuralAnalysis | None = None,
+                                        output_dir: str = "visualizations") -> dict[str, str]:
         """
         Create comprehensive visualization suite
         
@@ -156,7 +162,7 @@ class LatticeVisualizer:
             Dictionary mapping visualization names to file paths
         """
         
-        print(f"\n🎨 Creating comprehensive visualization suite...")
+        print("\n🎨 Creating comprehensive visualization suite...")
         
         output_path = Path(output_dir)
         output_path.mkdir(exist_ok=True)
@@ -204,7 +210,7 @@ class LatticeVisualizer:
             )
             visualization_files['interactive_dashboard'] = dashboard_file
         
-        print(f"\n✅ Visualization suite complete!")
+        print("\n✅ Visualization suite complete!")
         print(f"  Generated {len(visualization_files)} visualizations")
         
         return visualization_files
@@ -233,11 +239,11 @@ class LatticeVisualizer:
             node_labels.append(f"{node_id}\n{node.event_count} events")
         
         # Plot nodes
-        scatter = ax.scatter(x_positions, y_positions, s=node_sizes, c=node_colors, 
+        ax.scatter(x_positions, y_positions, s=node_sizes, c=node_colors, 
                            alpha=0.7, edgecolors='white', linewidth=1)
         
         # Plot connections
-        for conn_id, conn in lattice_dataset.connections.items():
+        for _conn_id, conn in lattice_dataset.connections.items():
             source_node = lattice_dataset.nodes[conn.source_node_id]
             target_node = lattice_dataset.nodes[conn.target_node_id]
             
@@ -256,10 +262,10 @@ class LatticeVisualizer:
             dx, dy = x2 - x1, y2 - y1
             if abs(dx) > 0.01 or abs(dy) > 0.01:
                 ax.annotate('', xy=(x2, y2), xytext=(x1, y1),
-                           arrowprops=dict(arrowstyle='->', color=conn_color, lw=1, alpha=0.8))
+                           arrowprops={'arrowstyle': '->', 'color': conn_color, 'lw': 1, 'alpha': 0.8})
         
         # Highlight hot zones
-        for zone_id, zone in lattice_dataset.hot_zones.items():
+        for _zone_id, zone in lattice_dataset.hot_zones.items():
             y_min, y_max = zone.timeframe_range
             x_min, x_max = zone.position_range
             
@@ -302,7 +308,7 @@ class LatticeVisualizer:
         print(f"    Lattice diagram saved to {output_path}")
         return output_path
     
-    def create_temporal_heatmaps(self, lattice_dataset: LatticeDataset, output_dir: str) -> Dict[str, str]:
+    def create_temporal_heatmaps(self, lattice_dataset: LatticeDataset, output_dir: str) -> dict[str, str]:
         """Create temporal heatmaps for different dimensions"""
         
         output_path = Path(output_dir)
@@ -314,7 +320,7 @@ class LatticeVisualizer:
         timeframe_position_data = defaultdict(lambda: defaultdict(int))
         
         # Collect data from nodes
-        for node_id, node in lattice_dataset.nodes.items():
+        for _node_id, node in lattice_dataset.nodes.items():
             for event in node.events:
                 # Absolute time (session minute buckets)
                 time_bucket = int(event.session_minute / 10) * 10
@@ -379,7 +385,7 @@ class LatticeVisualizer:
         
         # Prepare 2D data
         timeframes = sorted(timeframe_position_data.keys())
-        positions = sorted(set(pos for tf_data in timeframe_position_data.values() for pos in tf_data.keys()))
+        positions = sorted({pos for tf_data in timeframe_position_data.values() for pos in tf_data})
         
         heatmap_matrix = np.zeros((len(timeframes), len(positions)))
         
@@ -408,7 +414,7 @@ class LatticeVisualizer:
         for i in range(len(timeframes)):
             for j in range(len(positions)):
                 if heatmap_matrix[i, j] > 0:
-                    text = ax.text(j, i, int(heatmap_matrix[i, j]), ha="center", va="center",
+                    ax.text(j, i, int(heatmap_matrix[i, j]), ha="center", va="center",
                                  color="white" if heatmap_matrix[i, j] > np.max(heatmap_matrix) * 0.5 else "black")
         
         timeframe_position_file = str(output_path / "timeframe_position_heatmap.png")
@@ -427,7 +433,7 @@ class LatticeVisualizer:
         
         # Left plot: Hot zones on lattice
         # Plot all nodes as background
-        for node_id, node in lattice_dataset.nodes.items():
+        for _node_id, node in lattice_dataset.nodes.items():
             x, y = node.coordinate.cycle_position, node.coordinate.timeframe_level
             color = 'gray' if not node.hot_zone_member else self.config.hot_zone_color
             alpha = 0.3 if not node.hot_zone_member else 0.8
@@ -449,7 +455,7 @@ class LatticeVisualizer:
             center_y = (y_min + y_max) / 2
             ax1.text(center_x, center_y, f'HZ-{zone_id[-1]}', 
                     ha='center', va='center', fontweight='bold', 
-                    bbox=dict(boxstyle='round,pad=0.3', facecolor=self.config.hot_zone_color, alpha=0.7))
+                    bbox={'boxstyle': 'round,pad=0.3', 'facecolor': self.config.hot_zone_color, 'alpha': 0.7})
         
         # Customize left plot
         ax1.set_xlabel('Cycle Position', fontsize=12, fontweight='bold')
@@ -540,7 +546,7 @@ class LatticeVisualizer:
         edge_colors = []
         edge_widths = []
         
-        for conn_id, conn in lattice_dataset.connections.items():
+        for _conn_id, conn in lattice_dataset.connections.items():
             G.add_edge(conn.source_node_id, conn.target_node_id)
             
             conn_color = self.config.connection_colors.get(conn.connection_type, '#87CEEB')
@@ -563,8 +569,8 @@ class LatticeVisualizer:
             dx, dy = x2 - x1, y2 - y1
             if abs(dx) > 0.01 or abs(dy) > 0.01:
                 ax.annotate('', xy=(x2, y2), xytext=(x1, y1),
-                           arrowprops=dict(arrowstyle='->', color=edge_colors[i], 
-                                         lw=edge_widths[i], alpha=0.8))
+                           arrowprops={'arrowstyle': '->', 'color': edge_colors[i], 
+                                         'lw': edge_widths[i], 'alpha': 0.8})
         
         # Customize plot
         ax.set_xlabel('Cycle Position', fontsize=12, fontweight='bold')
@@ -596,7 +602,7 @@ class LatticeVisualizer:
         print(f"    Network visualization saved to {output_path}")
         return output_path
     
-    def create_clustering_visualizations(self, clustering_analysis: ClusteringAnalysis, output_dir: str) -> Dict[str, str]:
+    def create_clustering_visualizations(self, clustering_analysis: ClusteringAnalysis, output_dir: str) -> dict[str, str]:
         """Create visualizations for clustering analysis results"""
         
         output_path = Path(output_dir)
@@ -637,7 +643,7 @@ class LatticeVisualizer:
         significances = [cluster.average_significance for cluster in clustering_analysis.clusters]
         stabilities = [cluster.temporal_stability for cluster in clustering_analysis.clusters]
         
-        scatter = ax4.scatter(significances, stabilities, s=50, alpha=0.6, 
+        ax4.scatter(significances, stabilities, s=50, alpha=0.6, 
                             c=self.config.hot_zone_color, edgecolors='white')
         ax4.set_xlabel('Average Significance')
         ax4.set_ylabel('Temporal Stability')
@@ -697,7 +703,7 @@ class LatticeVisualizer:
         print(f"    Created {len(clustering_files)} clustering visualizations")
         return clustering_files
     
-    def create_structural_visualizations(self, structural_analysis: StructuralAnalysis, output_dir: str) -> Dict[str, str]:
+    def create_structural_visualizations(self, structural_analysis: StructuralAnalysis, output_dir: str) -> dict[str, str]:
         """Create visualizations for structural analysis results"""
         
         output_path = Path(output_dir)
@@ -829,7 +835,7 @@ class LatticeVisualizer:
             for i in range(interaction_matrix.shape[0]):
                 for j in range(interaction_matrix.shape[1]):
                     if interaction_matrix[i, j] > 0.1:
-                        text = ax.text(j, i, f'{interaction_matrix[i, j]:.1f}', 
+                        ax.text(j, i, f'{interaction_matrix[i, j]:.1f}', 
                                      ha="center", va="center", color="white", fontweight='bold')
             
             interaction_matrix_file = str(output_path / "timeframe_interaction_matrix.png")
@@ -843,8 +849,8 @@ class LatticeVisualizer:
     
     def create_interactive_dashboard(self, 
                                    lattice_dataset: LatticeDataset,
-                                   clustering_analysis: Optional[ClusteringAnalysis] = None,
-                                   structural_analysis: Optional[StructuralAnalysis] = None,
+                                   clustering_analysis: ClusteringAnalysis | None = None,
+                                   structural_analysis: StructuralAnalysis | None = None,
                                    output_path: str = "interactive_dashboard.html") -> str:
         """Create interactive dashboard using Plotly"""
         
@@ -884,8 +890,8 @@ class LatticeVisualizer:
         lattice_scatter = go.Scatter(
             x=x_positions, y=y_positions,
             mode='markers',
-            marker=dict(size=node_sizes, color=node_colors, colorscale='viridis',
-                       showscale=True, colorbar=dict(title="Significance")),
+            marker={'size': node_sizes, 'color': node_colors, 'colorscale': 'viridis',
+                       'showscale': True, 'colorbar': {'title': "Significance"}},
             text=hover_texts,
             hovertemplate='%{text}<extra></extra>',
             name='Lattice Nodes'
@@ -908,7 +914,7 @@ class LatticeVisualizer:
             edge_x = []
             edge_y = []
             
-            for conn_id, conn in lattice_dataset.connections.items():
+            for _conn_id, conn in lattice_dataset.connections.items():
                 if conn.source_node_id in lattice_dataset.nodes and conn.target_node_id in lattice_dataset.nodes:
                     source_node = lattice_dataset.nodes[conn.source_node_id]
                     target_node = lattice_dataset.nodes[conn.target_node_id]
@@ -919,7 +925,7 @@ class LatticeVisualizer:
                                   target_node.coordinate.timeframe_level, None])
             
             edge_trace = go.Scatter(x=edge_x, y=edge_y, mode='lines',
-                                  line=dict(width=1, color='lightblue'),
+                                  line={'width': 1, 'color': 'lightblue'},
                                   hoverinfo='none', showlegend=False)
             fig.add_trace(edge_trace, row=2, col=1)
             
@@ -927,7 +933,7 @@ class LatticeVisualizer:
             network_scatter = go.Scatter(
                 x=x_positions, y=y_positions,
                 mode='markers',
-                marker=dict(size=10, color='red'),
+                marker={'size': 10, 'color': 'red'},
                 showlegend=False,
                 hoverinfo='skip'
             )

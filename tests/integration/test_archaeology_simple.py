@@ -228,8 +228,8 @@ def test_temporal_clustering(events: list[SimpleEvent]):
                 'event_count': len(cluster_events),
                 'average_timing': time_bucket,
                 'average_significance': sum(e.significance_score for e in cluster_events) / len(cluster_events),
-                'timeframes': list(set(e.timeframe.value for e in cluster_events)),
-                'sessions': list(set(e.session_name for e in cluster_events))
+                'timeframes': list({e.timeframe.value for e in cluster_events}),
+                'sessions': list({e.session_name for e in cluster_events})
             }
             
             clusters.append(cluster)
@@ -258,8 +258,8 @@ def test_temporal_clustering(events: list[SimpleEvent]):
                 'event_count': len(cluster_events),
                 'average_position': pos_bucket,
                 'average_significance': sum(e.significance_score for e in cluster_events) / len(cluster_events),
-                'timeframes': list(set(e.timeframe.value for e in cluster_events)),
-                'sessions': list(set(e.session_name for e in cluster_events))
+                'timeframes': list({e.timeframe.value for e in cluster_events}),
+                'sessions': list({e.session_name for e in cluster_events})
             }
             
             clusters.append(cluster)
@@ -298,7 +298,7 @@ def test_structural_analysis(events: list[SimpleEvent]):
         
         # Look for lead-lag relationships
         for i, event1 in enumerate(sorted_events):
-            for j, event2 in enumerate(sorted_events[i+1:], i+1):
+            for _j, event2 in enumerate(sorted_events[i+1:], i+1):
                 
                 time_diff = event2.session_minute - event1.session_minute
                 
@@ -375,9 +375,9 @@ def generate_simple_summary(events, lattice_results, clustering_results, structu
         'test_type': 'simplified_archaeology_test',
         'input_data': {
             'total_events': len(events),
-            'sessions': len(set(e.session_name for e in events)),
-            'timeframes': len(set(e.timeframe.value for e in events)),
-            'event_types': len(set(e.event_type.value for e in events))
+            'sessions': len({e.session_name for e in events}),
+            'timeframes': len({e.timeframe.value for e in events}),
+            'event_types': len({e.event_type.value for e in events})
         },
         'lattice_mapping': {
             'lattice_points': len(lattice_results['lattice_points']),

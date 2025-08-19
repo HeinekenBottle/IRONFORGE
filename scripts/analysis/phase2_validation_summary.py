@@ -37,7 +37,7 @@ def validate_decontamination():
     sample_results = []
     
     for enhanced_file in enhanced_files[:5]:  # Sample first 5
-        with open(enhanced_file, 'r') as f:
+        with open(enhanced_file) as f:
             data = json.load(f)
         
         # Extract enhanced features
@@ -79,12 +79,12 @@ def validate_decontamination():
     print("HTF Carryover Strengths:")
     print(f"  Range: {min(htf_strengths):.2f} - {max(htf_strengths):.2f}")
     print(f"  Mean: {np.mean(htf_strengths):.2f} ± {np.std(htf_strengths):.2f}")
-    print(f"  Unique values: {len(set([round(x, 2) for x in htf_strengths]))}")
+    print(f"  Unique values: {len({round(x, 2) for x in htf_strengths})}")
     
     print("\nEnergy Densities:")
     print(f"  Range: {min(energy_densities):.3f} - {max(energy_densities):.3f}")
     print(f"  Mean: {np.mean(energy_densities):.3f} ± {np.std(energy_densities):.3f}")
-    print(f"  Unique values: {len(set([round(x, 3) for x in energy_densities]))}")
+    print(f"  Unique values: {len({round(x, 3) for x in energy_densities})}")
     
     print("\nLiquidity Event Counts:")
     print(f"  Range: {min(liquidity_event_counts)} - {max(liquidity_event_counts)} events")

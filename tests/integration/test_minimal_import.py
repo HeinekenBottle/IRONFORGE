@@ -16,7 +16,7 @@ def test_import(module_name, class_name=None):
         
         if class_name:
             module = __import__(module_name, fromlist=[class_name])
-            cls = getattr(module, class_name)
+            getattr(module, class_name)
             print(f"✅ {module_name}.{class_name} imported in {time.time() - start_time:.2f}s")
         else:
             __import__(module_name)

@@ -24,7 +24,7 @@ def demonstrate_htf_integration():
     # Load a real HTF-enhanced session
     htf_session_path = "/Users/jack/IRONPULSE/data/sessions/htf_enhanced/NY_PM_Lvl-1__htf.json"
     
-    with open(htf_session_path, 'r') as f:
+    with open(htf_session_path) as f:
         session_data = json.load(f)
     
     # Initialize builder and create graph

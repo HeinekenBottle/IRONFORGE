@@ -37,7 +37,7 @@ def diagnose_graph_building():
         return
     
     try:
-        with open(test_session, 'r') as f:
+        with open(test_session) as f:
             session_data = json.load(f)
         print(f"✅ Session data loaded: {len(session_data.get('price_movements', []))} movements")
     except Exception as e:

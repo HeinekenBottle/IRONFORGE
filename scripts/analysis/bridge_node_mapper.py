@@ -20,7 +20,6 @@ import sys
 from collections import Counter, defaultdict
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional
 
 import numpy as np
 
@@ -91,7 +90,7 @@ class BridgeNodeMapper:
             
             for file_path in files:
                 try:
-                    with open(file_path, 'r') as f:
+                    with open(file_path) as f:
                         session_data = json.load(f)
                     
                     # Add metadata
@@ -106,7 +105,7 @@ class BridgeNodeMapper:
             
             print(f"   {session_type}: {len(self.all_sessions[session_type])} sessions")
     
-    def _extract_date_from_filename(self, filename: str) -> Optional[str]:
+    def _extract_date_from_filename(self, filename: str) -> str | None:
         """Extract date from session filename"""
         try:
             # Look for pattern YYYY_MM_DD in filename
@@ -118,7 +117,7 @@ class BridgeNodeMapper:
             pass
         return None
     
-    def _extract_pm_belt_events(self) -> List[Dict]:
+    def _extract_pm_belt_events(self) -> list[dict]:
         """Extract PM belt events with session context"""
         
         print("\n🎯 Extracting PM belt events...")
@@ -158,7 +157,7 @@ class BridgeNodeMapper:
         
         return pm_belt_events
     
-    def _map_cascade_patterns(self, pm_belt_events: List[Dict]) -> List[Dict]:
+    def _map_cascade_patterns(self, pm_belt_events: list[dict]) -> list[dict]:
         """Map temporal cascade patterns leading to PM belt events"""
         
         print("\n🌊 Mapping cascade patterns...")
@@ -187,7 +186,7 @@ class BridgeNodeMapper:
         
         return cascade_patterns
     
-    def _find_precursor_events(self, target_date: str, pm_event: Dict) -> Dict[str, List[Dict]]:
+    def _find_precursor_events(self, target_date: str, pm_event: dict) -> dict[str, list[dict]]:
         """Find all events on target date that could precede the PM belt event"""
         
         precursor_events = {
@@ -220,7 +219,7 @@ class BridgeNodeMapper:
         
         return precursor_events
     
-    def _analyze_cascade_structure(self, precursor_events: Dict, pm_event: Dict) -> Dict:
+    def _analyze_cascade_structure(self, precursor_events: dict, pm_event: dict) -> dict:
         """Analyze the cascade structure for this specific PM event"""
         
         structure = {
@@ -291,7 +290,7 @@ class BridgeNodeMapper:
         
         return structure
     
-    def _analyze_bridge_nodes(self, cascade_patterns: List[Dict]) -> Dict:
+    def _analyze_bridge_nodes(self, cascade_patterns: list[dict]) -> dict:
         """Analyze bridge node characteristics across all cascades"""
         
         print("\n🌉 Analyzing bridge node characteristics...")
@@ -347,7 +346,7 @@ class BridgeNodeMapper:
         
         return analysis
     
-    def _extract_key_findings(self, analysis: Dict):
+    def _extract_key_findings(self, analysis: dict):
         """Extract key strategic findings from bridge analysis"""
         
         findings = []
@@ -378,7 +377,7 @@ class BridgeNodeMapper:
         
         analysis['key_findings'] = findings
     
-    def _generate_bridge_report(self, pm_belt_events: List[Dict], cascade_patterns: List[Dict], bridge_analysis: Dict):
+    def _generate_bridge_report(self, pm_belt_events: list[dict], cascade_patterns: list[dict], bridge_analysis: dict):
         """Generate comprehensive bridge node analysis report"""
         
         print("\n" + "🌉 BRIDGE NODE ANALYSIS RESULTS" + "\n" + "=" * 60)
@@ -387,7 +386,7 @@ class BridgeNodeMapper:
         print("📊 Cascade Analysis Summary:")
         print(f"   PM belt events analyzed: {len(pm_belt_events)}")
         print(f"   Complete cascade patterns: {len(cascade_patterns)}")
-        print(f"   Trading days covered: {len(set(p['trading_date'] for p in cascade_patterns if p['trading_date']))}")
+        print(f"   Trading days covered: {len({p['trading_date'] for p in cascade_patterns if p['trading_date']})}")
         
         # Bridge session frequency
         print("\n🌉 Bridge Session Analysis:")
@@ -471,7 +470,7 @@ class BridgeNodeMapper:
             'bridge_analysis': bridge_analysis
         })
     
-    def _count_post_pm_events(self, cascade_patterns: List[Dict]) -> Dict:
+    def _count_post_pm_events(self, cascade_patterns: list[dict]) -> dict:
         """Count events that occur after PM belt events (to determine terminal vs relay)"""
         
         post_pm_counts = {}
@@ -494,7 +493,7 @@ class BridgeNodeMapper:
         
         return post_pm_counts
     
-    def _export_bridge_results(self, results: Dict):
+    def _export_bridge_results(self, results: dict):
         """Export bridge analysis results"""
         
         output_path = Path("/Users/jack/IRONFORGE/deliverables/bridge_analysis_results.json")

@@ -156,11 +156,11 @@ class EnhancedAdapterDemo:
                 print(f"\n[{i}/{len(session_files)}] Processing: {session_file.name}")
                 
                 # Load enhanced session
-                with open(session_file, 'r') as f:
+                with open(session_file) as f:
                     session_data = json.load(f)
                 
                 # Show original data structure
-                original_events = len(session_data.get('price_movements', [])) + len(session_data.get('session_liquidity_events', []))
+                len(session_data.get('price_movements', [])) + len(session_data.get('session_liquidity_events', []))
                 print(f"   📋 Original data: {len(session_data.get('price_movements', []))} price movements, {len(session_data.get('session_liquidity_events', []))} liquidity events")
                 
                 # Process with adapter

@@ -19,7 +19,7 @@ Date: August 14, 2025
 import json
 from dataclasses import dataclass
 from datetime import datetime, timedelta
-from typing import Any, Dict, List
+from typing import Any
 
 import numpy as np
 
@@ -32,12 +32,12 @@ from pattern_intelligence import PatternIntelligenceEngine, analyze_market_intel
 class MarketAnalysis:
     """Daily market analysis result"""
     analysis_date: str
-    session_patterns: Dict[str, List[PatternAnalysis]]
-    dominant_pattern_types: List[str]
+    session_patterns: dict[str, list[PatternAnalysis]]
+    dominant_pattern_types: list[str]
     pattern_strength_score: float
-    cross_session_signals: List[str]
+    cross_session_signals: list[str]
     regime_status: str
-    trading_insights: List[str]
+    trading_insights: list[str]
     confidence_level: str
 
 
@@ -46,11 +46,11 @@ class SessionDiscoveryResult:
     """Real-time session discovery result"""
     session_name: str
     discovery_timestamp: str
-    patterns_found: List[PatternAnalysis]
-    strength_indicators: Dict[str, float]
-    historical_comparisons: List[str]
-    immediate_insights: List[str]
-    next_session_expectations: List[str]
+    patterns_found: list[PatternAnalysis]
+    strength_indicators: dict[str, float]
+    historical_comparisons: list[str]
+    immediate_insights: list[str]
+    next_session_expectations: list[str]
 
 
 class DailyDiscoveryWorkflows:
@@ -210,7 +210,7 @@ class DailyDiscoveryWorkflows:
         else:
             return 'UNKNOWN'
     
-    def _identify_cross_session_signals(self, patterns: List[PatternAnalysis]) -> List[str]:
+    def _identify_cross_session_signals(self, patterns: list[PatternAnalysis]) -> list[str]:
         """Identify cross-session continuation signals"""
         signals = []
         
@@ -226,7 +226,7 @@ class DailyDiscoveryWorkflows:
             by_date_session[key].append(pattern)
         
         # Look for continuation patterns
-        dates = sorted(set(p.session_date for p in patterns))
+        dates = sorted({p.session_date for p in patterns})
         for i in range(len(dates) - 1):
             current_date = dates[i]
             next_date = dates[i + 1]
@@ -237,8 +237,8 @@ class DailyDiscoveryWorkflows:
             
             if current_patterns and next_patterns:
                 # Look for similar pattern types
-                current_types = set(p.pattern_type for p in current_patterns)
-                next_types = set(p.pattern_type for p in next_patterns)
+                current_types = {p.pattern_type for p in current_patterns}
+                next_types = {p.pattern_type for p in next_patterns}
                 
                 common_types = current_types & next_types
                 if common_types:
@@ -252,7 +252,7 @@ class DailyDiscoveryWorkflows:
         
         return signals
     
-    def _assess_current_regime(self, patterns: List[PatternAnalysis]) -> str:
+    def _assess_current_regime(self, patterns: list[PatternAnalysis]) -> str:
         """Assess current market regime based on recent patterns"""
         if not patterns:
             return "Insufficient data"
@@ -272,8 +272,8 @@ class DailyDiscoveryWorkflows:
         else:
             return "Mixed pattern regime"
     
-    def _generate_trading_insights(self, session_patterns: Dict[str, List[PatternAnalysis]], 
-                                 dominant_types: List[str], strength_score: float) -> List[str]:
+    def _generate_trading_insights(self, session_patterns: dict[str, list[PatternAnalysis]], 
+                                 dominant_types: list[str], strength_score: float) -> list[str]:
         """Generate actionable trading insights"""
         insights = []
         
@@ -406,7 +406,7 @@ class DailyDiscoveryWorkflows:
             'pattern_count': len(patterns),
             'avg_confidence': np.mean([p.confidence for p in patterns]),
             'max_confidence': max(p.confidence for p in patterns),
-            'pattern_types': len(set(p.pattern_type for p in patterns)),
+            'pattern_types': len({p.pattern_type for p in patterns}),
             'temporal_span': max(p.time_span_hours for p in patterns) if patterns else 0.0
         }
         
@@ -434,8 +434,8 @@ class DailyDiscoveryWorkflows:
         
         return result
     
-    def _generate_historical_comparisons(self, patterns: List[PatternAnalysis], 
-                                       session_filter: str) -> List[str]:
+    def _generate_historical_comparisons(self, patterns: list[PatternAnalysis], 
+                                       session_filter: str) -> list[str]:
         """Generate historical pattern comparisons"""
         comparisons = []
         
@@ -452,14 +452,14 @@ class DailyDiscoveryWorkflows:
             elif current_avg_confidence < historical_avg_confidence * 0.9:
                 comparisons.append(f"Below average confidence vs historical {session_filter} sessions")
             
-            historical_pattern_count = len(similar_sessions) / len(set(p.session_name for p in similar_sessions))
+            historical_pattern_count = len(similar_sessions) / len({p.session_name for p in similar_sessions})
             if len(patterns) > historical_pattern_count * 1.2:
                 comparisons.append(f"Higher pattern density than typical {session_filter} sessions")
         
         return comparisons
     
-    def _generate_immediate_insights(self, patterns: List[PatternAnalysis], 
-                                   strength_indicators: Dict[str, float]) -> List[str]:
+    def _generate_immediate_insights(self, patterns: list[PatternAnalysis], 
+                                   strength_indicators: dict[str, float]) -> list[str]:
         """Generate immediate actionable insights"""
         insights = []
         
@@ -496,7 +496,7 @@ class DailyDiscoveryWorkflows:
         
         return insights
     
-    def _generate_next_session_expectations(self, patterns: List[PatternAnalysis]) -> List[str]:
+    def _generate_next_session_expectations(self, patterns: list[PatternAnalysis]) -> list[str]:
         """Generate expectations for next session"""
         expectations = []
         
@@ -558,7 +558,7 @@ class DailyDiscoveryWorkflows:
         
         print("\n" + "="*60)
     
-    def track_pattern_performance(self, days_lookback: int = 14) -> Dict[str, Any]:
+    def track_pattern_performance(self, days_lookback: int = 14) -> dict[str, Any]:
         """
         Track pattern performance over time
         
@@ -604,7 +604,7 @@ def hunt_patterns(session: str = "NY_PM") -> SessionDiscoveryResult:
     return workflows.hunt_session_patterns(session)
 
 
-def full_market_intel() -> Dict[str, Any]:
+def full_market_intel() -> dict[str, Any]:
     """Complete daily market intelligence workflow"""
     print("🧠 Running complete daily market intelligence workflow...")
     

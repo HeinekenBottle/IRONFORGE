@@ -13,7 +13,7 @@ Date: 2025-08-14
 import json
 import logging
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 import numpy as np
 
@@ -32,10 +32,10 @@ class FeatureAuthenticityValidator:
         self.quality_assessment_path = Path("/Users/jack/IRONPULSE/IRONFORGE/data_quality_assessment.json")
         
         # Load quality assessment
-        with open(self.quality_assessment_path, 'r') as f:
+        with open(self.quality_assessment_path) as f:
             self.quality_data = json.load(f)
     
-    def analyze_feature_distributions(self, session_files: List[str]) -> Dict[str, Any]:
+    def analyze_feature_distributions(self, session_files: list[str]) -> dict[str, Any]:
         """
         Analyze the distribution of feature values to identify contamination patterns.
         
@@ -100,19 +100,19 @@ class FeatureAuthenticityValidator:
         
         return distributions
     
-    def _extract_htf_carryover_strength(self, session_data: Dict) -> Optional[float]:
+    def _extract_htf_carryover_strength(self, session_data: dict) -> Optional[float]:
         """Extract HTF carryover strength from session data."""
         if 'contamination_analysis' in session_data:
             return session_data['contamination_analysis']['htf_contamination'].get('htf_carryover_strength')
         return None
     
-    def _extract_energy_density(self, session_data: Dict) -> Optional[float]:
+    def _extract_energy_density(self, session_data: dict) -> Optional[float]:
         """Extract energy density from session data."""
         if 'energy_state' in session_data:
             return session_data['energy_state'].get('energy_density')
         return None
     
-    def load_session_data(self, session_filename: str, enhanced: bool = False) -> Optional[Dict]:
+    def load_session_data(self, session_filename: str, enhanced: bool = False) -> Optional[dict]:
         """Load session data from file."""
         if enhanced:
             session_path = self.enhanced_path / f"enhanced_{session_filename}"
@@ -129,13 +129,13 @@ class FeatureAuthenticityValidator:
             return None
         
         try:
-            with open(session_path, 'r') as f:
+            with open(session_path) as f:
                 return json.load(f)
         except Exception as e:
             logger.error(f"Error loading {session_path}: {e}")
             return None
     
-    def compare_before_after_enhancement(self, session_filenames: List[str]) -> Dict[str, Any]:
+    def compare_before_after_enhancement(self, session_filenames: list[str]) -> dict[str, Any]:
         """
         Compare feature distributions before and after enhancement to validate decontamination.
         """
@@ -227,7 +227,7 @@ class FeatureAuthenticityValidator:
         
         return comparison_results
     
-    def _calculate_improvement_metrics(self, before: Dict, after: Dict) -> Dict[str, float]:
+    def _calculate_improvement_metrics(self, before: dict, after: dict) -> dict[str, float]:
         """Calculate improvement metrics between before/after distributions."""
         metrics = {}
         
@@ -275,7 +275,7 @@ class FeatureAuthenticityValidator:
         
         return metrics
     
-    def generate_decontamination_report(self, target_sessions: List[str]) -> Dict[str, Any]:
+    def generate_decontamination_report(self, target_sessions: list[str]) -> dict[str, Any]:
         """
         Generate comprehensive decontamination validation report.
         """
@@ -309,7 +309,7 @@ class FeatureAuthenticityValidator:
         
         return report
     
-    def _calculate_pattern_diversity(self, target_sessions: List[str]) -> Dict[str, Any]:
+    def _calculate_pattern_diversity(self, target_sessions: list[str]) -> dict[str, Any]:
         """Calculate pattern diversity metrics to detect artificial duplication."""
         # This would analyze pattern discovery output if available
         # For now, return structure for future implementation
@@ -323,7 +323,7 @@ class FeatureAuthenticityValidator:
             ]
         }
     
-    def _calculate_overall_quality_score(self, comparison_results: Dict) -> float:
+    def _calculate_overall_quality_score(self, comparison_results: dict) -> float:
         """Calculate overall decontamination quality score."""
         metrics = comparison_results['improvement_metrics']
         
@@ -335,7 +335,7 @@ class FeatureAuthenticityValidator:
         overall_score = contamination_score + diversity_score + variance_score
         return round(overall_score, 1)
     
-    def _generate_recommendations(self, comparison_results: Dict) -> List[str]:
+    def _generate_recommendations(self, comparison_results: dict) -> list[str]:
         """Generate recommendations based on validation results."""
         recommendations = []
         

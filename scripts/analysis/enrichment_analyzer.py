@@ -19,7 +19,6 @@ import sys
 from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List
 
 import numpy as np
 from scipy import stats
@@ -78,7 +77,7 @@ class EnrichmentAnalyzer:
                 print(f"❌ Lattice dataset not found at {self.lattice_dataset_path}")
                 return False
             
-            with open(self.lattice_dataset_path, 'r') as f:
+            with open(self.lattice_dataset_path) as f:
                 self.lattice_dataset = json.load(f)
             
             total_events = self.lattice_dataset['metadata']['total_events_mapped']
@@ -96,7 +95,7 @@ class EnrichmentAnalyzer:
             print(f"❌ Failed to load lattice dataset: {e}")
             return False
     
-    def _extract_pm_session_events(self) -> List[Dict]:
+    def _extract_pm_session_events(self) -> list[dict]:
         """Extract all PM session events from enhanced sessions"""
         
         print("\n📊 Extracting PM session events...")
@@ -114,7 +113,7 @@ class EnrichmentAnalyzer:
             files = glob.glob(pattern)
             for file_path in files:
                 try:
-                    with open(file_path, 'r') as f:
+                    with open(file_path) as f:
                         session_data = json.load(f)
                     
                     events = session_data.get('events', [])
@@ -129,7 +128,7 @@ class EnrichmentAnalyzer:
         print(f"✅ Extracted {len(pm_events)} PM session events")
         return pm_events
     
-    def _analyze_pm_belt_enrichment(self, pm_events: List[Dict]) -> Dict:
+    def _analyze_pm_belt_enrichment(self, pm_events: list[dict]) -> dict:
         """Analyze PM belt enrichment vs baseline PM minutes"""
         
         print("\n🎯 Analyzing PM belt enrichment...")
@@ -164,7 +163,7 @@ class EnrichmentAnalyzer:
             'enrichment_ratios': enrichment_analysis
         }
     
-    def _map_events_to_zones(self, events: List[Dict]) -> Dict:
+    def _map_events_to_zones(self, events: list[dict]) -> dict:
         """Map events to their lattice zones"""
         
         zone_counts = defaultdict(int)
@@ -199,7 +198,7 @@ class EnrichmentAnalyzer:
             'total_events': len(events)
         }
     
-    def _calculate_enrichment_ratios(self, pm_belt_zones: Dict, baseline_zones: Dict) -> Dict:
+    def _calculate_enrichment_ratios(self, pm_belt_zones: dict, baseline_zones: dict) -> dict:
         """Calculate enrichment ratios for each zone"""
         
         enrichment_ratios = {}
@@ -229,7 +228,7 @@ class EnrichmentAnalyzer:
         
         return enrichment_ratios
     
-    def _perform_statistical_tests(self, enrichment_results: Dict) -> Dict:
+    def _perform_statistical_tests(self, enrichment_results: dict) -> dict:
         """Perform statistical significance tests"""
         
         print("\n📈 Performing statistical tests...")
@@ -267,7 +266,7 @@ class EnrichmentAnalyzer:
         
         return statistical_results
     
-    def _generate_enrichment_report(self, enrichment_results: Dict, statistical_results: Dict):
+    def _generate_enrichment_report(self, enrichment_results: dict, statistical_results: dict):
         """Generate comprehensive enrichment analysis report"""
         
         print("\n" + "🎯 ENRICHMENT ANALYSIS RESULTS" + "\n" + "=" * 60)
@@ -338,7 +337,7 @@ class EnrichmentAnalyzer:
             }
         })
     
-    def _export_enrichment_results(self, results: Dict):
+    def _export_enrichment_results(self, results: dict):
         """Export enrichment analysis results"""
         
         output_path = Path("/Users/jack/IRONFORGE/deliverables/enrichment_analysis_results.json")

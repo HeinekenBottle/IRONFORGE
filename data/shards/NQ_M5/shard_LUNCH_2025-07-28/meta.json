@@ -1,0 +1,14 @@
+{
+  "session_id": "LUNCH_2025-07-28",
+  "session_type": "LUNCH",
+  "date": "2025-07-28",
+  "source_file": "data/enhanced/enhanced_rel_LUNCH_Lvl-1_2025_07_28.json",
+  "node_count": 26,
+  "edge_count": 40,
+  "symbol": "NQ",
+  "timeframe": "M5",
+  "timezone_source": "ET",
+  "timezone_target": "UTC",
+  "feature_set": "v1.0",
+  "conversion_timestamp": "2025-08-18T17:02:49.156944Z"
+}

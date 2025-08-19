@@ -48,7 +48,7 @@ class TestValidationConfig:
         """Test that report directory is created."""
         with tempfile.TemporaryDirectory() as temp_dir:
             report_path = Path(temp_dir) / "test_reports"
-            config = ValidationConfig(report_dir=report_path)
+            ValidationConfig(report_dir=report_path)
 
             assert report_path.exists()
             assert report_path.is_dir()
@@ -162,7 +162,7 @@ class TestValidationRunner:
         assert "time_shuffle" in control_results
         assert "label_perm" in control_results
 
-        for control_name, control_result in control_results.items():
+        for _control_name, control_result in control_results.items():
             assert "description" in control_result
             assert "metrics" in control_result
 
@@ -178,7 +178,7 @@ class TestValidationRunner:
         assert "htf_prox" in ablation_results
         assert "cycles" in ablation_results
 
-        for ablation_name, ablation_result in ablation_results.items():
+        for _ablation_name, ablation_result in ablation_results.items():
             assert "description" in ablation_result
             assert "ablated_features" in ablation_result
             assert "metrics" in ablation_result
@@ -261,7 +261,7 @@ class TestValidationRunner:
             config = ValidationConfig(report_dir=Path(temp_dir))
             runner = ValidationRunner(config)
 
-            results = runner.run(self.test_data)
+            runner.run(self.test_data)
 
             # Check that files were created
             report_files = list(Path(temp_dir).glob("*"))
@@ -283,7 +283,7 @@ class TestValidationRunner:
             )
             runner = ValidationRunner(config)
 
-            results = runner.run(self.test_data)
+            runner.run(self.test_data)
 
             # Read HTML file
             html_files = list(Path(temp_dir).glob("validation_summary_*.html"))

@@ -384,12 +384,12 @@ def create_causal_chain_visualization(lag_profiles, high_consistency_chains, com
     consistencies = [lag_profiles[t]['consistency_pct'] for t in transitions]
     frequencies = [lag_profiles[t]['count'] for t in transitions]
     
-    scatter = ax1.scatter(frequencies, consistencies, s=100, alpha=0.7, c=consistencies, cmap='viridis')
+    ax1.scatter(frequencies, consistencies, s=100, alpha=0.7, c=consistencies, cmap='viridis')
     
     # Highlight high-consistency chains
     if high_consistency_chains and isinstance(high_consistency_chains, dict):
-        hc_freq = [lag_profiles[t]['count'] for t in high_consistency_chains.keys()]
-        hc_cons = [lag_profiles[t]['consistency_pct'] for t in high_consistency_chains.keys()]
+        hc_freq = [lag_profiles[t]['count'] for t in high_consistency_chains]
+        hc_cons = [lag_profiles[t]['consistency_pct'] for t in high_consistency_chains]
         ax1.scatter(hc_freq, hc_cons, s=200, alpha=0.8, c='red', marker='*', label='High Consistency')
     elif high_consistency_chains and isinstance(high_consistency_chains, list):
         # high_consistency_chains is a list of tuples (transition_name, profile)
@@ -426,7 +426,6 @@ def create_causal_chain_visualization(lag_profiles, high_consistency_chains, com
     ax3 = axes[1, 0]
     
     # Simple network visualization
-    events = ['expansion_phase', 'consolidation', 'liq_sweep', 'fvg_redelivery', 'reversal', 'retracement']
     positions = {
         'expansion_phase': (0, 2),
         'consolidation': (2, 2),

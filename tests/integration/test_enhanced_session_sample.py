@@ -89,8 +89,8 @@ def test_enhanced_session_sample():
         print("\n🧠 Testing TGAT Discovery with Enhanced Session data...")
         
         # Test both import names work
-        discovery_1 = IRONFORGEDiscovery(node_features=45, hidden_dim=128, out_dim=256)
-        discovery_2 = TGATDiscovery(node_features=45, hidden_dim=128, out_dim=256)
+        IRONFORGEDiscovery(node_features=45, hidden_dim=128, out_dim=256)
+        TGATDiscovery(node_features=45, hidden_dim=128, out_dim=256)
         
         print("  ✅ Both IRONFORGEDiscovery and TGATDiscovery imports successful")
         
@@ -115,7 +115,7 @@ def test_enhanced_session_sample():
         # Analyze connections
         if lattice_dataset.connections:
             print("\n  🔗 Connection analysis:")
-            for conn_id, conn in lattice_dataset.connections.items():
+            for _conn_id, conn in lattice_dataset.connections.items():
                 print(f"    {conn.source_node_id} → {conn.target_node_id}: {conn.connection_type} (strength: {conn.strength:.3f})")
         
         # Test 3: Visualization Compatibility
@@ -135,11 +135,11 @@ def test_enhanced_session_sample():
         print(f"  ✅ Theory B events (40% zone): {len(theory_b_events)}")
         
         # Test multi-timeframe events
-        timeframes = set(e['timeframe'] for e in enhanced_session_events)
+        timeframes = {e['timeframe'] for e in enhanced_session_events}
         print(f"  ✅ Multi-timeframe coverage: {timeframes}")
         
         # Test session segregation
-        sessions = set(e['session_name'] for e in enhanced_session_events)
+        sessions = {e['session_name'] for e in enhanced_session_events}
         print(f"  ✅ Session segregation: {sessions}")
         
         # Test high authenticity scores

@@ -16,7 +16,7 @@ language with measurable information geometry.
 
 import logging
 from dataclasses import dataclass
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 import numpy as np
 
@@ -24,11 +24,11 @@ import numpy as np
 @dataclass
 class GrammarParseState:
     """Current state of grammatical parsing with Fisher correlation"""
-    partial_parse_tree: List[str]  # Current sequence of grammar symbols
-    parse_paths: List[List[str]]   # Multiple possible continuations
+    partial_parse_tree: list[str]  # Current sequence of grammar symbols
+    parse_paths: list[list[str]]   # Multiple possible continuations
     fisher_confidence: float       # Current Fisher Information level
     phrase_boundary_detected: bool # True when unique continuation found
-    deterministic_continuation: Optional[str]  # The unique next symbol
+    deterministic_continuation: str | None  # The unique next symbol
     convergence_probability: float # Probability of path convergence
 
 @dataclass
@@ -74,8 +74,8 @@ class GrammarFisherCorrelator:
         
         self.logger = logging.getLogger(__name__)
     
-    def parse_market_sequence(self, event_sequence: List[str], 
-                            fisher_values: List[float]) -> GrammarParseState:
+    def parse_market_sequence(self, event_sequence: list[str], 
+                            fisher_values: list[float]) -> GrammarParseState:
         """
         Parse market event sequence and correlate with Fisher Information
         
@@ -131,7 +131,7 @@ class GrammarFisherCorrelator:
         
         return parse_state
     
-    def _find_parse_continuations(self, partial_parse: List[str]) -> List[List[str]]:
+    def _find_parse_continuations(self, partial_parse: list[str]) -> list[list[str]]:
         """Find all possible grammatical continuations from current parse state"""
         if not partial_parse:
             return [['S']]  # Start with start symbol
@@ -148,7 +148,7 @@ class GrammarFisherCorrelator:
         # If no expansions, this might be a terminal - look for higher-level continuations
         if not continuations:
             # Try to find what could follow this sequence
-            for symbol, rules in self.grammar_rules.items():
+            for _symbol, rules in self.grammar_rules.items():
                 for rule in rules:
                     if self._sequence_matches_rule_prefix(partial_parse, rule):
                         # This sequence could be part of this rule
@@ -159,14 +159,14 @@ class GrammarFisherCorrelator:
         
         return continuations if continuations else [partial_parse]  # No continuations found
     
-    def _sequence_matches_rule_prefix(self, sequence: List[str], rule: List[str]) -> bool:
+    def _sequence_matches_rule_prefix(self, sequence: list[str], rule: list[str]) -> bool:
         """Check if sequence matches the beginning of a grammar rule"""
         if len(sequence) > len(rule):
             return False
         
         return sequence == rule[:len(sequence)]
     
-    def _detect_phrase_boundary(self, parse_paths: List[List[str]]) -> Tuple[bool, float]:
+    def _detect_phrase_boundary(self, parse_paths: list[list[str]]) -> tuple[bool, float]:
         """
         Detect phrase boundary based on parse path convergence
         
@@ -195,8 +195,8 @@ class GrammarFisherCorrelator:
         
         return boundary_detected, convergence_prob
     
-    def _find_deterministic_continuation(self, parse_paths: List[List[str]], 
-                                       convergence_prob: float) -> Optional[str]:
+    def _find_deterministic_continuation(self, parse_paths: list[list[str]], 
+                                       convergence_prob: float) -> str | None:
         """Find deterministic continuation if convergence is high enough"""
         if convergence_prob < self.DETERMINISTIC_THRESHOLD:
             return None
@@ -270,7 +270,7 @@ class GrammarFisherCorrelator:
             convergence_probability=0.0
         )
     
-    def predict_next_event(self) -> Optional[str]:
+    def predict_next_event(self) -> str | None:
         """Predict next market event based on current grammar-Fisher state"""
         if not self.current_parse_state:
             return None
@@ -286,7 +286,7 @@ class GrammarFisherCorrelator:
                 self.current_parse_state.phrase_boundary_detected and
                 self.current_parse_state.deterministic_continuation is not None)
     
-    def get_correlation_summary(self) -> Dict[str, Any]:
+    def get_correlation_summary(self) -> dict[str, Any]:
         """Get summary of Fisher-Grammar correlations"""
         if not self.correlation_history:
             return {"status": "no_correlations"}

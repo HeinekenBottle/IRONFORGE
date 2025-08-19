@@ -8,7 +8,7 @@ pattern archetypes, not all focusing on the same links.
 
 import json
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 import numpy as np
 import torch
@@ -24,7 +24,7 @@ class AttentionHeadAnalyzer:
         self.graph_builder = EnhancedGraphBuilder()
         self.tgat_discovery = IRONFORGEDiscovery()
         
-    def analyze_attention_heads(self, sessions_to_test: int = 5) -> Dict[str, Any]:
+    def analyze_attention_heads(self, sessions_to_test: int = 5) -> dict[str, Any]:
         """Analyze attention head behavior across multiple sessions."""
         print("🧠 IRONFORGE Phase 4b: 4-Head Attention Verification")
         print("=" * 70)
@@ -53,7 +53,7 @@ class AttentionHeadAnalyzer:
             
             try:
                 # Load and process session
-                with open(session_file, 'r') as f:
+                with open(session_file) as f:
                     session_data = json.load(f)
                 
                 # Build graph and convert to TGAT format
@@ -94,7 +94,7 @@ class AttentionHeadAnalyzer:
     
     def _analyze_session_attention(self, X: torch.Tensor, edge_index: torch.Tensor, 
                                  edge_times: torch.Tensor, edge_attr: torch.Tensor,
-                                 session_name: str) -> Dict[str, Any]:
+                                 session_name: str) -> dict[str, Any]:
         """Analyze attention patterns for a single session."""
         
         # Create a custom TGAT model with attention hooks
@@ -130,7 +130,7 @@ class AttentionHeadAnalyzer:
                 edge_index_input = edge_index
                 
                 # Forward pass
-                output = tgat_model(X_input, edge_index_input)
+                tgat_model(X_input, edge_index_input)
                 
         except Exception as e:
             print(f"    ⚠️ Attention analysis limited due to: {e}")
@@ -148,11 +148,10 @@ class AttentionHeadAnalyzer:
         }
     
     def _simplified_attention_analysis(self, X: torch.Tensor, edge_index: torch.Tensor,
-                                     edge_attr: torch.Tensor, session_name: str) -> Dict[str, Any]:
+                                     edge_attr: torch.Tensor, session_name: str) -> dict[str, Any]:
         """Simplified attention analysis using edge features and patterns."""
         
         # Analyze different types of connections that each head might focus on
-        timeframe_mapping = {0: '1m', 1: '5m', 2: '15m', 3: '1h', 4: 'D', 5: 'W'}
         
         # Simulate head specialization based on edge characteristics
         head_specializations = {
@@ -188,7 +187,7 @@ class AttentionHeadAnalyzer:
         }
     
     def _identify_relevant_edges(self, edge_index: torch.Tensor, edge_attr: torch.Tensor,
-                               X: torch.Tensor, specialization: str) -> List[int]:
+                               X: torch.Tensor, specialization: str) -> list[int]:
         """Identify edges relevant to each head's specialization."""
         
         relevant_edges = []
@@ -224,7 +223,7 @@ class AttentionHeadAnalyzer:
         
         return relevant_edges
     
-    def _simulate_attention_weights(self, relevant_edges: List[int], total_edges: int) -> List[float]:
+    def _simulate_attention_weights(self, relevant_edges: list[int], total_edges: int) -> list[float]:
         """Simulate attention weights for relevant edges."""
         weights = [0.1] * total_edges  # Base attention
         
@@ -233,7 +232,7 @@ class AttentionHeadAnalyzer:
         
         return weights
     
-    def _identify_patterns_from_edges(self, relevant_edges: List[int], specialization: str) -> List[str]:
+    def _identify_patterns_from_edges(self, relevant_edges: list[int], specialization: str) -> list[str]:
         """Identify patterns that each head discovers."""
         
         patterns = []
@@ -251,8 +250,8 @@ class AttentionHeadAnalyzer:
         num_patterns = min(len(patterns), max(1, len(relevant_edges) // 10))
         return np.random.choice(patterns, size=num_patterns, replace=False).tolist()
     
-    def _process_attention_weights(self, attention_weights: Dict, X: torch.Tensor, 
-                                 edge_index: torch.Tensor) -> Dict[str, Any]:
+    def _process_attention_weights(self, attention_weights: dict, X: torch.Tensor, 
+                                 edge_index: torch.Tensor) -> dict[str, Any]:
         """Process collected attention weights from hooks."""
         
         analysis = {}
@@ -287,7 +286,7 @@ class AttentionHeadAnalyzer:
         entropy = -np.sum(probs * np.log(probs + 1e-10))
         return float(entropy)
     
-    def _analyze_head_specialization(self, head_patterns: Dict, session_results: List) -> Dict[str, Any]:
+    def _analyze_head_specialization(self, head_patterns: dict, session_results: list) -> dict[str, Any]:
         """Analyze specialization across all attention heads."""
         
         print(f"\n🔬 Analyzing Head Specialization Across {len(session_results)} Sessions")

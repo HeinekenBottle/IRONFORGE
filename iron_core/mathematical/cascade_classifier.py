@@ -7,7 +7,7 @@ import json
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 import numpy as np
 
@@ -27,15 +27,15 @@ class CascadeEvent:
     cascade_type: CascadeType
     magnitude: float
     event_context: str
-    prediction_time: Optional[str] = None
-    validation_status: Optional[str] = None
-    sequence_id: Optional[str] = None
+    prediction_time: str | None = None
+    validation_status: str | None = None
+    sequence_id: str | None = None
 
 @dataclass
 class CascadeSequence:
     """Sequence of related cascade events"""
     sequence_id: str
-    events: List[CascadeEvent]
+    events: list[CascadeEvent]
     start_time: str
     end_time: str
     total_magnitude: float
@@ -61,7 +61,7 @@ class CascadeClassifier:
         self.temporal_correlation_window = 300  # 5 minutes in seconds
         self.sequence_gap_threshold = 600  # 10 minutes max gap between events
         
-    def classify_cascade(self, magnitude: float, context: Dict[str, Any] = None) -> CascadeType:
+    def classify_cascade(self, magnitude: float, context: dict[str, Any] = None) -> CascadeType:
         """
         Classify a cascade event based on magnitude and context
         
@@ -95,7 +95,7 @@ class CascadeClassifier:
             sequence_id=None  # Will be assigned during sequence analysis
         )
     
-    def analyze_temporal_sequences(self, events: List[CascadeEvent]) -> List[CascadeSequence]:
+    def analyze_temporal_sequences(self, events: list[CascadeEvent]) -> list[CascadeSequence]:
         """
         Analyze temporal sequences of cascade events
         
@@ -140,7 +140,7 @@ class CascadeClassifier:
             
         return sequences
     
-    def _create_sequence(self, events: List[CascadeEvent], sequence_id: int) -> CascadeSequence:
+    def _create_sequence(self, events: list[CascadeEvent], sequence_id: int) -> CascadeSequence:
         """Create a CascadeSequence from a list of events"""
         sequence_id_str = f"seq_{sequence_id:03d}"
         
@@ -169,7 +169,7 @@ class CascadeClassifier:
             correlation_score=correlation_score
         )
     
-    def _determine_sequence_type(self, cascade_types: List[CascadeType]) -> str:
+    def _determine_sequence_type(self, cascade_types: list[CascadeType]) -> str:
         """Determine sequence type based on constituent cascade types"""
         type_counts = {}
         for cascade_type in cascade_types:
@@ -183,7 +183,7 @@ class CascadeClassifier:
         else:
             return f"mixed_{dominant_type.value}_dominant"
     
-    def _calculate_correlation_score(self, events: List[CascadeEvent]) -> float:
+    def _calculate_correlation_score(self, events: list[CascadeEvent]) -> float:
         """Calculate correlation score for a sequence of events"""
         if len(events) < 2:
             return 0.0
@@ -236,7 +236,7 @@ class CascadeClassifier:
             print(f"Warning: Could not parse timestamp '{timestamp}': {e}")
             return datetime.now()
     
-    def get_classification_summary(self, events: List[CascadeEvent]) -> Dict[str, Any]:
+    def get_classification_summary(self, events: list[CascadeEvent]) -> dict[str, Any]:
         """Get summary statistics for classified events"""
         if not events:
             return {"total_events": 0}
@@ -259,8 +259,8 @@ class CascadeClassifier:
             }
         }
     
-    def export_analysis(self, sequences: List[CascadeSequence], 
-                       filename: str = None) -> Dict[str, Any]:
+    def export_analysis(self, sequences: list[CascadeSequence], 
+                       filename: str = None) -> dict[str, Any]:
         """Export sequence analysis results"""
         analysis_data = {
             "analysis_timestamp": datetime.now().isoformat(),

@@ -14,7 +14,7 @@ Classifies components into IRONFORGE's multi-engine architecture:
 
 import logging
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 
 class EngineClassifier:
@@ -78,7 +78,7 @@ class EngineClassifier:
             }
         }
     
-    def classify_files(self, file_analyses: Dict[str, Any]) -> Dict[str, Any]:
+    def classify_files(self, file_analyses: dict[str, Any]) -> dict[str, Any]:
         """
         Classify analyzed files into IRONFORGE engine architecture.
         
@@ -169,7 +169,7 @@ class EngineClassifier:
         
         return engine_architecture
     
-    def _classify_file(self, file_path: str, analysis: Dict[str, Any]) -> str:
+    def _classify_file(self, file_path: str, analysis: dict[str, Any]) -> str:
         """
         Classify a single file into an engine category.
         
@@ -217,14 +217,13 @@ class EngineClassifier:
         
         return None
     
-    def _keyword_in_analysis(self, keyword: str, analysis: Dict[str, Any]) -> bool:
+    def _keyword_in_analysis(self, keyword: str, analysis: dict[str, Any]) -> bool:
         """Check if keyword appears in analysis content."""
         keyword_lower = keyword.lower()
         
         # Check module docstring
-        if analysis.get('docstring'):
-            if keyword_lower in analysis['docstring'].lower():
-                return True
+        if analysis.get('docstring') and keyword_lower in analysis['docstring'].lower():
+            return True
         
         # Check class names and docstrings
         for class_info in analysis.get('classes', []):
@@ -242,7 +241,7 @@ class EngineClassifier:
         
         return False
     
-    def _class_pattern_matches(self, pattern: str, analysis: Dict[str, Any]) -> bool:
+    def _class_pattern_matches(self, pattern: str, analysis: dict[str, Any]) -> bool:
         """Check if any class matches the pattern."""
         pattern_lower = pattern.lower()
         
@@ -252,7 +251,7 @@ class EngineClassifier:
         
         return False
     
-    def _extract_component_info(self, file_path: str, analysis: Dict[str, Any]) -> Dict[str, Any]:
+    def _extract_component_info(self, file_path: str, analysis: dict[str, Any]) -> dict[str, Any]:
         """Extract component information for the engine."""
         component_name = Path(file_path).stem
         
@@ -289,7 +288,7 @@ class EngineClassifier:
             'decorators': analysis.get('decorators', [])
         }
     
-    def _calculate_coverage(self, file_analyses: Dict[str, Any], unclassified_files: List[str]) -> float:
+    def _calculate_coverage(self, file_analyses: dict[str, Any], unclassified_files: list[str]) -> float:
         """Calculate classification coverage percentage."""
         total_files = len(file_analyses)
         classified_files = total_files - len(unclassified_files)
@@ -299,7 +298,7 @@ class EngineClassifier:
         
         return round((classified_files / total_files) * 100, 2)
     
-    def get_engine_summary(self, engine_architecture: Dict[str, Any]) -> Dict[str, Any]:
+    def get_engine_summary(self, engine_architecture: dict[str, Any]) -> dict[str, Any]:
         """
         Generate a summary of the engine architecture.
         
@@ -364,7 +363,7 @@ class EngineClassifier:
         
         return summary
     
-    def _assess_distribution_balance(self, engine_sizes: List[tuple]) -> str:
+    def _assess_distribution_balance(self, engine_sizes: list[tuple]) -> str:
         """Assess if the engine distribution is balanced."""
         if not engine_sizes:
             return 'unknown'
@@ -385,7 +384,7 @@ class EngineClassifier:
         else:
             return 'imbalanced'
     
-    def suggest_refactoring_opportunities(self, engine_architecture: Dict[str, Any]) -> List[Dict[str, Any]]:
+    def suggest_refactoring_opportunities(self, engine_architecture: dict[str, Any]) -> list[dict[str, Any]]:
         """
         Suggest refactoring opportunities based on engine analysis.
         

@@ -16,8 +16,9 @@ Mathematical Foundation:
 import hashlib
 import inspect
 import time
+from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Any, Callable, Dict, List
+from typing import Any
 
 
 @dataclass
@@ -47,8 +48,8 @@ class InvariantGuard:
     """Minimal viable architectural control system"""
     
     def __init__(self):
-        self.contracts: Dict[str, Contract] = {}
-        self.drift_log: List[DriftEvent] = []
+        self.contracts: dict[str, Contract] = {}
+        self.drift_log: list[DriftEvent] = []
         self.baseline_established = False
         
     def register(self, name: str, 
@@ -156,7 +157,7 @@ class InvariantGuard:
         if len(self.drift_log) > 100:
             self.drift_log = self.drift_log[-100:]
     
-    def checkpoint(self) -> Dict[str, Any]:
+    def checkpoint(self) -> dict[str, Any]:
         """System coherence snapshot - O(1) operation"""
         total_calls = sum(c.call_count for c in self.contracts.values())
         total_drifts = sum(c.drift_count for c in self.contracts.values())
@@ -177,7 +178,7 @@ class InvariantGuard:
             ]
         }
     
-    def function_health(self, name: str) -> Dict[str, Any]:
+    def function_health(self, name: str) -> dict[str, Any]:
         """Health metrics for specific function"""
         if name not in self.contracts:
             return {'error': 'Function not registered'}
