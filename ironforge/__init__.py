@@ -3,7 +3,7 @@ IRONFORGE Archaeological Discovery System
 Package version and main exports
 """
 
-__version__ = "1.0.0"
+from .__version__ import __version__
 
 # Core exports for easy access
 from .integration.ironforge_container import (

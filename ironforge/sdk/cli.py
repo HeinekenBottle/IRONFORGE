@@ -4,6 +4,7 @@ import argparse
 import contextlib
 import importlib
 import json
+import warnings
 import sys
 from pathlib import Path
 
@@ -11,7 +12,7 @@ import pandas as pd
 
 from ironforge.reporting.minidash import build_minidash
 
-from .app_config import load_config, materialize_run_dir
+from .app_config import load_config, materialize_run_dir, validate_config
 from .io import glob_many, write_json
 
 
@@ -24,21 +25,44 @@ def _maybe(mod: str, attr: str):
 
 
 def cmd_discover(cfg):
-    fn = _maybe("ironforge.learning.tgat_discovery", "run_discovery") or _maybe(
-        "ironforge.discovery.runner", "run_discovery"
-    )
+    # Canonical entrypoint
+    fn = _maybe("ironforge.learning.discovery_pipeline", "run_discovery")
     if fn is None:
-        print("[discover] discovery engine not found; skipping (no-op).")
-        return 0
+        # Legacy fallbacks
+        legacy = _maybe("ironforge.learning.tgat_discovery", "run_discovery") or _maybe(
+            "ironforge.discovery.runner", "run_discovery"
+        )
+        if legacy is None:
+            print("[discover] discovery engine not found; skipping (no-op).")
+            return 0
+        warnings.warn(
+            "Legacy discovery entrypoint is deprecated and will be removed in 2.0; "
+            "use ironforge.learning.discovery_pipeline:run_discovery",
+            DeprecationWarning,
+            stacklevel=2,
+        )
+        fn = legacy
     return int(bool(fn(cfg)))
 
 
 def cmd_score(cfg):
-    fn = _maybe("ironforge.confluence.scorer", "score_session") or _maybe(
-        "ironforge.metrics.confluence", "score_session"
-    )
+    # Canonical entrypoint
+    fn = _maybe("ironforge.confluence.scoring", "score_confluence")
     if fn is None:
-        print("[score] scorer not found; skipping (no-op).")
+        # Legacy fallbacks
+        legacy = _maybe("ironforge.confluence.scorer", "score_session") or _maybe(
+            "ironforge.metrics.confluence", "score_session"
+        )
+        if legacy is None:
+            print("[score] scorer not found; skipping (no-op).")
+            return 0
+        warnings.warn(
+            "Legacy scoring entrypoint is deprecated and will be removed in 2.0; "
+            "use ironforge.confluence.scoring:score_confluence",
+            DeprecationWarning,
+            stacklevel=2,
+        )
+        legacy(cfg)
         return 0
     fn(cfg)
     return 0
@@ -104,12 +128,20 @@ def cmd_report(cfg):
     return 0
 
 
-def cmd_prep_shards(source_glob: str, symbol: str, timeframe: str, timezone: str, 
-                   pack_mode: str, dry_run: bool, overwrite: bool, htf_context: bool):
+def cmd_prep_shards(
+    source_glob: str,
+    symbol: str,
+    timeframe: str,
+    timezone: str,
+    pack_mode: str,
+    dry_run: bool,
+    overwrite: bool,
+    htf_context: bool,
+):
     """Prepare Parquet shards from enhanced JSON sessions."""
     try:
         from ironforge.converters.json_to_parquet import ConversionConfig, convert_enhanced_sessions
-        
+
         config = ConversionConfig(
             source_glob=source_glob,
             symbol=symbol,
@@ -118,45 +150,49 @@ def cmd_prep_shards(source_glob: str, symbol: str, timeframe: str, timezone: str
             pack_mode=pack_mode,
             dry_run=dry_run,
             overwrite=overwrite,
-            htf_context_enabled=htf_context
+            htf_context_enabled=htf_context,
         )
-        
+
         print(f"[prep-shards] Converting sessions from {source_glob}")
-        print(f"[prep-shards] Target: {symbol}_{timeframe} | Timezone: {timezone} | Pack: {pack_mode}")
-        print(f"[prep-shards] HTF Context: {'ENABLED (51D features)' if htf_context else 'DISABLED (45D features)'}")
-        
+        print(
+            f"[prep-shards] Target: {symbol}_{timeframe} | Timezone: {timezone} | Pack: {pack_mode}"
+        )
+        print(
+            f"[prep-shards] HTF Context: {'ENABLED (51D features)' if htf_context else 'DISABLED (45D features)'}"
+        )
+
         if dry_run:
             print("[prep-shards] DRY RUN MODE - no files will be written")
-        
+
         shard_dirs = convert_enhanced_sessions(config)
-        
+
         print(f"[prep-shards] ✅ Processed {len(shard_dirs)} sessions")
-        
+
         # Write manifest
         if not dry_run and shard_dirs:
             manifest_path = Path(f"data/shards/{symbol}_{timeframe}/manifest.jsonl")
             manifest_path.parent.mkdir(parents=True, exist_ok=True)
-            
-            with open(manifest_path, 'w') as f:
+
+            with open(manifest_path, "w") as f:
                 for shard_dir in shard_dirs:
                     if shard_dir.exists():
                         meta_file = shard_dir / "meta.json"
                         if meta_file.exists():
-                            with open(meta_file, 'r') as meta_f:
+                            with open(meta_file, "r") as meta_f:
                                 metadata = json.load(meta_f)
                                 manifest_entry = {
                                     "shard_dir": str(shard_dir),
                                     "session_id": metadata.get("session_id"),
                                     "node_count": metadata.get("node_count", 0),
                                     "edge_count": metadata.get("edge_count", 0),
-                                    "conversion_timestamp": metadata.get("conversion_timestamp")
+                                    "conversion_timestamp": metadata.get("conversion_timestamp"),
                                 }
                                 f.write(json.dumps(manifest_entry) + "\n")
-            
+
             print(f"[prep-shards] Wrote manifest: {manifest_path}")
-        
+
         return 0
-        
+
     except ImportError as e:
         print(f"[prep-shards] Error: Converter not available - {e}")
         return 1
@@ -195,26 +231,48 @@ def main(argv: list[str] | None = None) -> int:
     c5 = sub.add_parser("status")
     c5.add_argument("--runs", default="runs")
     c6 = sub.add_parser("prep-shards")
-    c6.add_argument("--source-glob", default="data/enhanced/enhanced_*_Lvl-1_*.json", 
-                   help="Glob pattern for enhanced JSON sessions")
+    c6.add_argument(
+        "--source-glob",
+        default="data/enhanced/enhanced_*_Lvl-1_*.json",
+        help="Glob pattern for enhanced JSON sessions",
+    )
     c6.add_argument("--symbol", default="NQ", help="Symbol for shard directory")
     c6.add_argument("--timeframe", "--tf", default="M5", help="Timeframe for shard directory")
     c6.add_argument("--timezone", "--tz", default="ET", help="Source timezone")
-    c6.add_argument("--pack", choices=["single", "pack"], default="single",
-                   help="Packing mode: single session per shard or pack multiple")
-    c6.add_argument("--dry-run", action="store_true", help="Show what would be converted without writing files")
+    c6.add_argument(
+        "--pack",
+        choices=["single", "pack"],
+        default="single",
+        help="Packing mode: single session per shard or pack multiple",
+    )
+    c6.add_argument(
+        "--dry-run", action="store_true", help="Show what would be converted without writing files"
+    )
     c6.add_argument("--overwrite", action="store_true", help="Overwrite existing shards")
-    c6.add_argument("--htf-context", action="store_true", help="Enable HTF context features (45D → 51D)")
+    c6.add_argument(
+        "--htf-context", action="store_true", help="Enable HTF context features (45D → 51D)"
+    )
 
     args = p.parse_args(argv)
     if args.cmd == "status":
         return cmd_status(Path(args.runs))
     if args.cmd == "prep-shards":
         return cmd_prep_shards(
-            args.source_glob, args.symbol, args.timeframe, args.timezone,
-            args.pack, args.dry_run, args.overwrite, args.htf_context
+            args.source_glob,
+            args.symbol,
+            args.timeframe,
+            args.timezone,
+            args.pack,
+            args.dry_run,
+            args.overwrite,
+            args.htf_context,
         )
     cfg = load_config(args.config)
+    try:
+        validate_config(cfg)
+    except Exception as e:
+        print(f"[config] invalid configuration: {e}")
+        return 2
     if args.cmd == "discover-temporal":
         return cmd_discover(cfg)
     if args.cmd == "score-session":

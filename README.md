@@ -1,4 +1,5 @@
-# IRONFORGE — Graph-Based Market Archaeology (v0.7.1, Waves 0–7.2)
+# IRONFORGE — Graph-Based Market Archaeology (v0.9.0, Waves 0–7.2)
+![ci](https://github.com/<org>/IRONFORGE/actions/workflows/ci.yml/badge.svg)
 
 **Archaeological discovery engine: rule-based → TGAT (single ML core) → rule-based**
 
@@ -143,7 +144,10 @@ python tests/legacy/simple_threshold_test.py
 
 ### Data Preparation
 ```bash
-# Convert enhanced sessions to shards
+# Convert enhanced sessions to shards (HTF OFF by default → 45D)
+python -m ironforge.sdk.cli prep-shards
+
+# Enable High Timeframe (HTF) context features (adds 6 features → 51D)
 python -m ironforge.sdk.cli prep-shards --htf-context
 
 # Check shard dimensions
@@ -158,6 +162,7 @@ print(f'Node features: {len([c for c in nodes.column_names if c.startswith(\"f\"
 - **docs/flows.md**: Schema contracts and run order
 - **docs/taxonomy_v1.md**: Authoritative event and edge taxonomy  
 - **docs/operations.md**: Daily operations and A/B adapter usage
+- **docs/migrations/0.9-to-1.0.md**: Migration notes for 1.0
 - **REFACTOR_PLAN.md**: Repository cleanup and refactor details
 
 ---

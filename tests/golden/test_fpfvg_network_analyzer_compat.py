@@ -20,7 +20,7 @@ def create_test_session_data():
                 "magnitude": 5.5,
             },
             {
-                "id": "node_2", 
+                "id": "node_2",
                 "timestamp": "2025-08-01T14:35:00",
                 "price": 23005.0,
                 "event_type": "fvg_redelivery",
@@ -28,7 +28,7 @@ def create_test_session_data():
             },
             {
                 "id": "node_3",
-                "timestamp": "2025-08-01T14:40:00", 
+                "timestamp": "2025-08-01T14:40:00",
                 "price": 23010.0,
                 "event_type": "fvg_formation",
                 "magnitude": 2.1,
@@ -41,7 +41,7 @@ def create_test_session_data():
                 "weight": 0.8,
             },
             {
-                "source": "node_2", 
+                "source": "node_2",
                 "target": "node_3",
                 "weight": 0.6,
             },
@@ -58,7 +58,7 @@ def create_test_session_data():
 def test_fpfvg_analyzer_initialization():
     """Test that FPFVGNetworkAnalyzer can be initialized without errors."""
     analyzer = FPFVGNetworkAnalyzer()
-    
+
     # Verify key attributes are set
     assert analyzer.price_epsilon == 5.0
     assert analyzer.range_pos_delta == 0.05
@@ -74,16 +74,17 @@ def test_fpfvg_analyzer_backwards_compatibility():
     """Test that old import patterns still work."""
     # Test main class import
     from ironforge.analysis.fpfvg_network_analyzer import FPFVGNetworkAnalyzer
+
     analyzer = FPFVGNetworkAnalyzer()
     assert analyzer is not None
-    
+
     # Test function imports
     from ironforge.analysis.fpfvg_network_analyzer import (
         build_chains,
         compute_chain_features,
         validate_chain,
     )
-    
+
     assert callable(build_chains)
     assert callable(validate_chain)
     assert callable(compute_chain_features)
@@ -98,28 +99,28 @@ def test_analyze_fpfvg_network_structure():
         discoveries_path = temp_path / "discoveries"
         enhanced_path.mkdir()
         discoveries_path.mkdir()
-        
+
         # Create test session file
         test_session = create_test_session_data()
         session_file = enhanced_path / "enhanced_rel_test_session.json"
-        with open(session_file, 'w') as f:
+        with open(session_file, "w") as f:
             json.dump(test_session, f)
-        
+
         # Initialize analyzer with test paths
         analyzer = FPFVGNetworkAnalyzer()
         analyzer.enhanced_path = enhanced_path
         analyzer.discoveries_path = discoveries_path
-        
+
         # Run analysis
         result = analyzer.analyze_fpfvg_network()
-        
+
         # Verify result structure
         assert isinstance(result, dict)
         assert "analysis_type" in result
         assert result["analysis_type"] == "fpfvg_network_analysis"
         assert "timestamp" in result
         assert "parameters" in result
-        
+
         # Verify parameters are preserved
         params = result["parameters"]
         assert params["price_epsilon"] == 5.0
@@ -127,13 +128,13 @@ def test_analyze_fpfvg_network_structure():
         assert params["max_temporal_gap_hours"] == 12.0
         assert params["zone_tolerance"] == 0.03
         assert params["theory_b_zones"] == [0.2, 0.4, 0.5, 0.618, 0.8]
-        
+
         # Check for main analysis sections
         if "error" not in result:
             # Only check these if analysis succeeded
             expected_sections = [
                 "candidate_validation",
-                "candidate_extraction", 
+                "candidate_extraction",
                 "network_construction",
                 "redelivery_scoring",
                 "zone_enrichment_test",
@@ -141,7 +142,7 @@ def test_analyze_fpfvg_network_structure():
                 "reproducibility_test",
                 "summary_insights",
             ]
-            
+
             for section in expected_sections:
                 assert section in result, f"Missing expected section: {section}"
 
@@ -153,17 +154,17 @@ def test_fpfvg_public_functions():
         compute_chain_features,
         validate_chain,
     )
-    
+
     # Test build_chains
     adjacency = {"A": ["B"], "B": ["C"], "C": []}
     chains = build_chains(adjacency, min_length=2)
     assert isinstance(chains, list)
-    
+
     # Test validate_chain
     candidates = [
         {
             "id": "test_1",
-            "session_id": "session_1", 
+            "session_id": "session_1",
             "event_type": "formation",
             "price_level": 23000.0,
             "range_pos": 0.5,
@@ -176,14 +177,14 @@ def test_fpfvg_public_functions():
     validation = validate_chain(candidates)
     assert isinstance(validation, dict)
     assert "valid" in validation
-    
+
     # Test compute_chain_features
     network_graph = {
         "nodes": [{"id": "1"}, {"id": "2"}],
         "edges": [
             {
                 "source": "1",
-                "target": "2", 
+                "target": "2",
                 "price_distance": 5.0,
                 "delta_range_pos": 0.1,
                 "delta_t_minutes": 30.0,
@@ -198,7 +199,7 @@ def test_fpfvg_public_functions():
 def test_module_docstring_preservation():
     """Test that module docstring is preserved for documentation."""
     import ironforge.analysis.fpfvg_network_analyzer as module
-    
+
     assert hasattr(module, "__doc__")
     assert module.__doc__ is not None
     assert "BACKWARD COMPATIBILITY" in module.__doc__
@@ -208,7 +209,7 @@ def test_module_docstring_preservation():
 def test_all_exports_available():
     """Test that all expected exports are available."""
     import ironforge.analysis.fpfvg_network_analyzer as module
-    
+
     expected_exports = [
         "FPFVGNetworkAnalyzer",
         "build_chains",
@@ -230,7 +231,7 @@ def test_all_exports_available():
         "test_reproducibility",
         "generate_summary_insights",
     ]
-    
+
     for export in expected_exports:
         assert hasattr(module, export), f"Missing export: {export}"
         assert export in module.__all__, f"Export {export} not in __all__"
@@ -240,16 +241,16 @@ def test_no_behavior_change_smoke_test():
     """Smoke test to ensure basic functionality hasn't changed."""
     # This test ensures that the refactoring hasn't broken basic usage patterns
     analyzer = FPFVGNetworkAnalyzer()
-    
+
     # Test that key methods are still callable
     assert hasattr(analyzer, "analyze_fpfvg_network")
     assert callable(analyzer.analyze_fpfvg_network)
-    
+
     # Test that configuration is still accessible
     assert hasattr(analyzer, "price_epsilon")
     assert hasattr(analyzer, "theory_b_zones")
     assert hasattr(analyzer, "scoring_weights")
-    
+
     # Test that the main analysis method returns a dict structure
     # (This will create mock data since we don't have real enhanced sessions)
     result = analyzer.analyze_fpfvg_network()

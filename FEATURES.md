@@ -4,7 +4,8 @@
 
 **Release Date**: 2025-08-18  
 **Breaking Change**: No (extends 45D → 51D)  
-**Backward Compatibility**: ✅ All v1.0 features preserved
+**Backward Compatibility**: ✅ All v1.0 features preserved  
+**Default in 1.0**: OFF (45D). Enable to get 51D.
 
 ---
 
@@ -69,7 +70,7 @@
 ### Default HTF Config (v1.1)
 ```yaml
 htf_context:
-  enabled: true                    # HTF features active by default
+  enabled: false                   # 1.0 default OFF; enable for 51D features
   timeframes: ["M15", "H1"]       # Multi-timeframe context
   sv_lookback_bars: 30            # Rolling window for SV z-scores
   sv_weights:                     # Synthetic volume formula weights
@@ -120,7 +121,7 @@ htf_context:
 
 ### Enabling HTF v1.1
 ```bash
-# Enable HTF context (default in v0.7.1+)
+# Enable HTF context (adds 6 features → 51D)
 ironforge prep-shards --htf-context
 
 # Explicit config override

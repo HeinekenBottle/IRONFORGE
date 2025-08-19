@@ -141,3 +141,37 @@ def materialize_run_dir(cfg: Config) -> Path:
     p = Path(run_dir).resolve()
     p.mkdir(parents=True, exist_ok=True)
     return p
+
+
+def validate_config(cfg: Config) -> None:
+    """Light validation for 1.0 public config surface.
+
+    Asserts basic types and ranges without being overly restrictive.
+    Raises ValueError on invalid configuration.
+    """
+    # Data
+    if not isinstance(cfg.data.symbol, str) or not cfg.data.symbol:
+        raise ValueError("data.symbol must be a non-empty string")
+    if not isinstance(cfg.data.timeframe, str) or not cfg.data.timeframe:
+        raise ValueError("data.timeframe must be a non-empty string")
+
+    # Outputs
+    if not isinstance(cfg.outputs.run_dir, str) or not cfg.outputs.run_dir:
+        raise ValueError("outputs.run_dir must be a non-empty string")
+
+    # Reporting
+    if cfg.reporting.minidash.width <= 0 or cfg.reporting.minidash.height <= 0:
+        raise ValueError("reporting.minidash width/height must be positive integers")
+
+    # Validation
+    if cfg.validation.folds < 1:
+        raise ValueError("validation.folds must be >= 1")
+    if cfg.validation.purge_bars < 0:
+        raise ValueError("validation.purge_bars must be >= 0")
+
+    # Scoring weights sanity (0..1 bounds)
+    w = cfg.scoring.weights
+    for name in ("cluster_z", "htf_prox", "structure", "cycle", "precursor"):
+        val = getattr(w, name)
+        if not (0.0 <= float(val) <= 1.0):
+            raise ValueError(f"scoring.weights.{name} must be in [0,1]")
