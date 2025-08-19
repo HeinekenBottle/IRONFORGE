@@ -12,7 +12,7 @@ def extract_lattice_summary(lattice_file):
     """Extract key summary information from lattice file"""
     
     try:
-        with open(lattice_file, 'r') as f:
+        with open(lattice_file) as f:
             lattice = json.load(f)
         
         print("🌐 GLOBAL LATTICE ANALYSIS RESULTS")

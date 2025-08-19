@@ -61,7 +61,7 @@ def main():
         
         # Display results summary
         metadata = results.get('metadata', {})
-        sweep_results = results.get('sweep_detection_results', {})
+        results.get('sweep_detection_results', {})
         cascade_analysis = results.get('cascade_analysis', {})
         
         print(f"📊 Sessions Analyzed: {metadata.get('sessions_analyzed', 0)}")

@@ -10,16 +10,16 @@ SV z-score population and archaeological discovery capabilities.
 import json
 import logging
 from pathlib import Path
-from typing import Dict, List, Any
+from typing import Any
 
-from ironforge.converters.json_to_parquet import JSONToParquetConverter, ConversionConfig
 from ironforge.converters.htf_context_processor import create_default_htf_config
+from ironforge.converters.json_to_parquet import ConversionConfig
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-def load_session_data(shard_path: str) -> Dict[str, Any]:
+def load_session_data(shard_path: str) -> dict[str, Any]:
     """Load session data from existing shard directory"""
     shard_dir = Path(shard_path)
     meta_file = shard_dir / "meta.json"
@@ -27,7 +27,7 @@ def load_session_data(shard_path: str) -> Dict[str, Any]:
     if not meta_file.exists():
         raise FileNotFoundError(f"Meta file not found: {meta_file}")
     
-    with open(meta_file, 'r') as f:
+    with open(meta_file) as f:
         meta_data = json.load(f)
     
     return meta_data
@@ -53,7 +53,7 @@ def simulate_multi_session_htf():
         htf_context_config=create_default_htf_config()
     )
     
-    print(f"📊 HTF Configuration:")
+    print("📊 HTF Configuration:")
     print(f"   Timeframes: {config.htf_context_config.timeframes}")
     print(f"   SV Lookback: {config.htf_context_config.sv_lookback_bars} bars")
     print(f"   SV Weights: {config.htf_context_config.sv_weights}")

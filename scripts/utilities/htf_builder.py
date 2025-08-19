@@ -17,7 +17,7 @@ class HTFBuilder:
     
     def aggregate_session(self, session_path):
         """Build sophisticated HTF data with pythonnodes and cross_map"""
-        with open(session_path, 'r') as f:
+        with open(session_path) as f:
             session = json.load(f)
         
         if 'price_movements' not in session:
@@ -124,7 +124,7 @@ class HTFBuilder:
         # Build mapping from 1m to each HTF
         one_min_nodes = pythonnodes.get('1m', [])
         
-        for tf_name in self.timeframes.keys():
+        for tf_name in self.timeframes:
             htf_nodes = pythonnodes.get(tf_name, [])
             if not htf_nodes:
                 continue

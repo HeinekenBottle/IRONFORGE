@@ -5,10 +5,9 @@ Tracks KPIs across runs and generates comparison reports
 
 import json
 import logging
-import os
 import time
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 import pandas as pd
 
@@ -22,7 +21,7 @@ def append_run_to_index(
     avg_out_degree: float = 0.0,
     bursts_total: int = 0,
     runtime_s: float = 0.0,
-    additional_kpis: Dict[str, Any] = None
+    additional_kpis: dict[str, Any] = None
 ) -> str:
     """
     Append run KPIs to repository-level index
@@ -110,10 +109,7 @@ def generate_run_comparison(runs_dir: str | Path = None, limit: int = 10) -> str
         Path to generated compare.html file
     """
     try:
-        if runs_dir is None:
-            runs_dir = Path("runs")
-        else:
-            runs_dir = Path(runs_dir)
+        runs_dir = Path("runs") if runs_dir is None else Path(runs_dir)
         
         index_path = runs_dir / "index.csv"
         compare_path = runs_dir / "compare.html"
@@ -226,7 +222,7 @@ def generate_run_comparison(runs_dir: str | Path = None, limit: int = 10) -> str
         return ""
 
 
-def extract_run_kpis(run_dir: str | Path) -> Dict[str, Any]:
+def extract_run_kpis(run_dir: str | Path) -> dict[str, Any]:
     """
     Extract KPIs from a completed run directory
     

@@ -15,10 +15,11 @@ Key Features:
 
 import logging
 from abc import ABC, abstractmethod
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
-from typing import Any, Callable, Dict, List, Optional
+from typing import Any
 
 import numpy as np
 
@@ -61,19 +62,19 @@ class ModelMetadata:
     description: str
     domain: MathematicalDomain
     priority: ModelPriority
-    dependencies: List[str] = field(default_factory=list)
+    dependencies: list[str] = field(default_factory=list)
     oracle_integration: bool = False
-    performance_sli: Optional[float] = None  # Service Level Indicator (ms)
+    performance_sli: float | None = None  # Service Level Indicator (ms)
     created_at: datetime = field(default_factory=datetime.now)
 
 @dataclass
 class ModelChainStep:
     """Individual step in a model execution chain"""
     model_id: str
-    input_transform: Optional[Callable] = None
-    output_transform: Optional[Callable] = None
-    parameters: Dict[str, Any] = field(default_factory=dict)
-    conditional_execution: Optional[Callable] = None
+    input_transform: Callable | None = None
+    output_transform: Callable | None = None
+    parameters: dict[str, Any] = field(default_factory=dict)
+    conditional_execution: Callable | None = None
 
 class ModelChain:
     """
@@ -84,8 +85,8 @@ class ModelChain:
     def __init__(self, chain_id: str, description: str):
         self.chain_id = chain_id
         self.description = description
-        self.steps: List[ModelChainStep] = []
-        self.execution_history: List[Dict[str, Any]] = []
+        self.steps: list[ModelChainStep] = []
+        self.execution_history: list[dict[str, Any]] = []
     
     def add_step(self, step: ModelChainStep) -> 'ModelChain':
         """Add a step to the model chain"""
@@ -94,7 +95,7 @@ class ModelChain:
     
     def add_hawkes_prediction(self, 
                              model_id: str = "hawkes_process",
-                             parameters: Optional[Dict[str, Any]] = None) -> 'ModelChain':
+                             parameters: dict[str, Any] | None = None) -> 'ModelChain':
         """Add Hawkes process prediction step"""
         
         def oracle_data_transform(data):
@@ -107,10 +108,10 @@ class ModelChain:
                     for event in events:
                         if isinstance(event, dict) and 'timestamp' in event:
                             timestamps.append(float(event['timestamp']))
-                        elif isinstance(event, (int, float)):
+                        elif isinstance(event, int | float):
                             timestamps.append(float(event))
                     return np.array(timestamps)
-            elif isinstance(data, (list, np.ndarray)):
+            elif isinstance(data, list | np.ndarray):
                 return np.array(data, dtype=float)
             return data
         
@@ -229,17 +230,17 @@ class IntegrationLayer(ABC):
         pass
     
     @abstractmethod
-    def create_model_chain(self, chain_spec: Dict[str, Any]) -> ModelChain:
+    def create_model_chain(self, chain_spec: dict[str, Any]) -> ModelChain:
         """Create chain of mathematical models based on specification"""
         pass
     
     @abstractmethod
-    def execute_prediction_pipeline(self, input_data: Dict[str, Any], chain_id: str) -> Dict[str, Any]:
+    def execute_prediction_pipeline(self, input_data: dict[str, Any], chain_id: str) -> dict[str, Any]:
         """Execute full prediction pipeline with specified chain"""
         pass
     
     @abstractmethod
-    def get_integration_status(self) -> Dict[str, IntegrationStatus]:
+    def get_integration_status(self) -> dict[str, IntegrationStatus]:
         """Get current integration status for all registered models"""
         pass
 
@@ -250,12 +251,12 @@ class MathematicalModelRegistry(IntegrationLayer):
     """
     
     def __init__(self, oracle_integration: bool = True):
-        self.models: Dict[str, CoreAlgorithmLayer] = {}
-        self.metadata: Dict[str, ModelMetadata] = {}
-        self.chains: Dict[str, ModelChain] = {}
+        self.models: dict[str, CoreAlgorithmLayer] = {}
+        self.metadata: dict[str, ModelMetadata] = {}
+        self.chains: dict[str, ModelChain] = {}
         self.oracle_integration = oracle_integration
-        self.performance_history: Dict[str, List[AlgorithmPerformanceMetrics]] = {}
-        self.integration_status: Dict[str, IntegrationStatus] = {}
+        self.performance_history: dict[str, list[AlgorithmPerformanceMetrics]] = {}
+        self.integration_status: dict[str, IntegrationStatus] = {}
         
         # Initialize with core models if available
         if oracle_integration:
@@ -387,7 +388,7 @@ class MathematicalModelRegistry(IntegrationLayer):
             self.integration_status[model_id] = IntegrationStatus.ERROR
             logger.error(f"Failed to register model {model_id}: {e}")
     
-    def create_model_chain(self, chain_spec: Dict[str, Any]) -> ModelChain:
+    def create_model_chain(self, chain_spec: dict[str, Any]) -> ModelChain:
         """Create model chain from specification"""
         
         chain_id = chain_spec.get("chain_id", f"chain_{len(self.chains)}")
@@ -431,7 +432,7 @@ class MathematicalModelRegistry(IntegrationLayer):
         
         return chain
     
-    def execute_prediction_pipeline(self, input_data: Dict[str, Any], chain_id: str) -> Dict[str, Any]:
+    def execute_prediction_pipeline(self, input_data: dict[str, Any], chain_id: str) -> dict[str, Any]:
         """Execute prediction pipeline with comprehensive error handling"""
         
         if chain_id not in self.chains:
@@ -492,10 +493,7 @@ class MathematicalModelRegistry(IntegrationLayer):
                 result = model.compute_core_function(transformed_data, execution_params)
                 
                 # Apply output transformation
-                if step.output_transform:
-                    current_data = step.output_transform(result)
-                else:
-                    current_data = result
+                current_data = step.output_transform(result) if step.output_transform else result
                 
                 step_duration = (datetime.now() - step_start).total_seconds() * 1000
                 
@@ -536,11 +534,11 @@ class MathematicalModelRegistry(IntegrationLayer):
             "execution_log": execution_log
         }
     
-    def get_integration_status(self) -> Dict[str, IntegrationStatus]:
+    def get_integration_status(self) -> dict[str, IntegrationStatus]:
         """Get current integration status for all models"""
         return self.integration_status.copy()
     
-    def get_model_performance_summary(self) -> Dict[str, Dict[str, Any]]:
+    def get_model_performance_summary(self) -> dict[str, dict[str, Any]]:
         """Get performance summary for all models"""
         summary = {}
         

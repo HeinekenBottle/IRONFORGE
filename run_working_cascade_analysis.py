@@ -21,7 +21,7 @@ import sys
 from dataclasses import dataclass
 from datetime import datetime, time
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 # Add IRONFORGE to path
 sys.path.append(str(Path(__file__).parent))
@@ -51,8 +51,8 @@ class WorkingSweepEvent:
 class WorkingCascadeLink:
     """Streamlined cascade link"""
     weekly_event: WorkingSweepEvent
-    daily_event: Optional[WorkingSweepEvent]
-    pm_event: Optional[WorkingSweepEvent]
+    daily_event: WorkingSweepEvent | None
+    pm_event: WorkingSweepEvent | None
     price_correlation: float
     time_correlation: float
     cascade_strength: float
@@ -77,7 +77,7 @@ class WorkingCascadeAnalyzer:
         self.price_tolerance = 50  # points
         self.max_time_gap_hours = 4  # hours
     
-    def analyze_working_cascades(self, sessions_limit: Optional[int] = 10) -> Dict[str, Any]:
+    def analyze_working_cascades(self, sessions_limit: int | None = 10) -> dict[str, Any]:
         """Execute working cascade analysis with proven patterns"""
         logger.info("🎯 Starting Working Cascade Analysis with proven data patterns...")
         
@@ -137,7 +137,7 @@ class WorkingCascadeAnalyzer:
                 'timestamp': datetime.now().isoformat()
             }
     
-    def _load_sessions(self, sessions_limit: Optional[int]) -> List[Dict[str, Any]]:
+    def _load_sessions(self, sessions_limit: int | None) -> list[dict[str, Any]]:
         """Load enhanced sessions for analysis"""
         enhanced_sessions_path = Path(self.config.get_enhanced_data_path())
         session_files = list(enhanced_sessions_path.glob("enhanced_rel_*.json"))
@@ -148,7 +148,7 @@ class WorkingCascadeAnalyzer:
         sessions = []
         for session_file in session_files:
             try:
-                with open(session_file, 'r') as f:
+                with open(session_file) as f:
                     session_data = json.load(f)
                     sessions.append(session_data)
             except Exception as e:
@@ -157,7 +157,7 @@ class WorkingCascadeAnalyzer:
         logger.info(f"📂 Loaded {len(sessions)} sessions for analysis")
         return sessions
     
-    def _extract_working_weekly_events(self, sessions: List[Dict[str, Any]]) -> List[WorkingSweepEvent]:
+    def _extract_working_weekly_events(self, sessions: list[dict[str, Any]]) -> list[WorkingSweepEvent]:
         """Extract Weekly events using proven patterns (level_break, etc.)"""
         weekly_events = []
         
@@ -188,7 +188,7 @@ class WorkingCascadeAnalyzer:
         
         return weekly_events
     
-    def _extract_working_daily_events(self, sessions: List[Dict[str, Any]]) -> List[WorkingSweepEvent]:
+    def _extract_working_daily_events(self, sessions: list[dict[str, Any]]) -> list[WorkingSweepEvent]:
         """Extract Daily events using proven patterns"""
         daily_events = []
         
@@ -219,7 +219,7 @@ class WorkingCascadeAnalyzer:
         
         return daily_events
     
-    def _extract_working_pm_events(self, sessions: List[Dict[str, Any]]) -> List[WorkingSweepEvent]:
+    def _extract_working_pm_events(self, sessions: list[dict[str, Any]]) -> list[WorkingSweepEvent]:
         """Extract PM events using relaxed timing (19:xx-21:xx based on data)"""
         pm_events = []
         
@@ -264,9 +264,9 @@ class WorkingCascadeAnalyzer:
             pass
         return False
     
-    def _link_working_cascades(self, weekly_events: List[WorkingSweepEvent],
-                             daily_events: List[WorkingSweepEvent],
-                             pm_events: List[WorkingSweepEvent]) -> List[WorkingCascadeLink]:
+    def _link_working_cascades(self, weekly_events: list[WorkingSweepEvent],
+                             daily_events: list[WorkingSweepEvent],
+                             pm_events: list[WorkingSweepEvent]) -> list[WorkingCascadeLink]:
         """Link cascades using streamlined criteria"""
         cascade_links = []
         
@@ -330,10 +330,7 @@ class WorkingCascadeAnalyzer:
             return True
         
         # Same session check (simplified time correlation)
-        if event1.session_id == event2.session_id:
-            return True
-        
-        return False
+        return event1.session_id == event2.session_id
     
     def _calculate_price_correlation(self, event1: WorkingSweepEvent, event2: WorkingSweepEvent) -> float:
         """Calculate price correlation between events"""
@@ -346,8 +343,8 @@ class WorkingCascadeAnalyzer:
         return 0.8  # Placeholder - would implement actual time diff calculation
     
     def _calculate_cascade_strength(self, weekly: WorkingSweepEvent, 
-                                  daily: Optional[WorkingSweepEvent],
-                                  pm: Optional[WorkingSweepEvent]) -> float:
+                                  daily: WorkingSweepEvent | None,
+                                  pm: WorkingSweepEvent | None) -> float:
         """Calculate overall cascade strength"""
         strength = weekly.intensity  # Base from weekly intensity
         
@@ -358,9 +355,9 @@ class WorkingCascadeAnalyzer:
         
         return min(1.0, strength)  # Cap at 1.0
     
-    def _calculate_working_metrics(self, cascade_links: List[WorkingCascadeLink],
-                                 weekly_events: List[WorkingSweepEvent],
-                                 pm_events: List[WorkingSweepEvent]) -> Dict[str, Any]:
+    def _calculate_working_metrics(self, cascade_links: list[WorkingCascadeLink],
+                                 weekly_events: list[WorkingSweepEvent],
+                                 pm_events: list[WorkingSweepEvent]) -> dict[str, Any]:
         """Calculate working metrics for cascade analysis"""
         if not weekly_events:
             return {'error': 'No weekly events for metrics calculation'}
@@ -387,8 +384,8 @@ class WorkingCascadeAnalyzer:
             }
         }
     
-    def _generate_working_insights(self, cascade_links: List[WorkingCascadeLink],
-                                 metrics: Dict[str, Any]) -> Dict[str, Any]:
+    def _generate_working_insights(self, cascade_links: list[WorkingCascadeLink],
+                                 metrics: dict[str, Any]) -> dict[str, Any]:
         """Generate insights from working cascade analysis"""
         hit_rates = metrics.get('hit_rates', {})
         
@@ -415,7 +412,7 @@ class WorkingCascadeAnalyzer:
             ]
         }
     
-    def _serialize_working_event(self, event: WorkingSweepEvent) -> Dict[str, Any]:
+    def _serialize_working_event(self, event: WorkingSweepEvent) -> dict[str, Any]:
         """Serialize working event to dict"""
         return {
             'session_id': event.session_id,
@@ -427,7 +424,7 @@ class WorkingCascadeAnalyzer:
             'sweep_classification': event.sweep_classification
         }
     
-    def _serialize_cascade_link(self, cascade: WorkingCascadeLink) -> Dict[str, Any]:
+    def _serialize_cascade_link(self, cascade: WorkingCascadeLink) -> dict[str, Any]:
         """Serialize cascade link to dict"""
         return {
             'weekly_event': self._serialize_working_event(cascade.weekly_event),
@@ -438,7 +435,7 @@ class WorkingCascadeAnalyzer:
             'cascade_strength': cascade.cascade_strength
         }
     
-    def _save_working_results(self, results: Dict[str, Any]) -> None:
+    def _save_working_results(self, results: dict[str, Any]) -> None:
         """Save working results"""
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         filename = f"working_cascade_analysis_{timestamp}.json"

@@ -3,11 +3,13 @@
 Cross-Session Influence: Yesterday→today embedding similarity
 Goal: find yesterday→today influence via embedding similarity—not wiring
 """
-import pandas as pd
-import numpy as np
 import json
 from pathlib import Path
+
+import numpy as np
+import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
+
 
 def load_embeddings_and_metadata(run_path: Path):
     """Load zone embeddings and session metadata."""
@@ -152,8 +154,8 @@ def find_cross_session_candidates(embeddings_df: pd.DataFrame, session_df: pd.Da
     print(f"Using {len(embedding_cols)} embedding dimensions for similarity analysis")
     
     # Find end-of-session zones (S) and start-of-next-session zones (S+1)
-    end_session_zones = merged_df[merged_df["is_end_session"] == True].copy()
-    start_session_zones = merged_df[merged_df["is_start_session"] == True].copy()
+    end_session_zones = merged_df[merged_df["is_end_session"] is True].copy()
+    start_session_zones = merged_df[merged_df["is_start_session"] is True].copy()
     
     print(f"End-session zones: {len(end_session_zones)}, Start-session zones: {len(start_session_zones)}")
     
@@ -288,7 +290,7 @@ def analyze_cross_session_influence(run_path: Path):
         print("❌ No cross-session candidates found")
         return None
     
-    print(f"\n=== Cross-Session Influence Results ===")
+    print("\n=== Cross-Session Influence Results ===")
     print(f"Generated {len(candidates_df)} candidate pairs")
     
     # Analyze influence patterns
@@ -301,11 +303,11 @@ def analyze_cross_session_influence(run_path: Path):
     session_baseline = session_df["hit_+100_12b"].mean()
     
     # Analyze S+1 outcomes where S had high hit rate
-    high_performing_s = candidates_df[candidates_df["s_hit_+100_12b"] == True]
+    high_performing_s = candidates_df[candidates_df["s_hit_+100_12b"] is True]
     
     if len(high_performing_s) > 0:
         s1_hit_rate = high_performing_s["s1_hit_+100_12b"].mean()
-        print(f"\n=== Influence Analysis ===")
+        print("\n=== Influence Analysis ===")
         print(f"Session baseline P(hit_+100_12b): {session_baseline:.3f}")
         print(f"S+1 hit rate when S hit target: {s1_hit_rate:.3f}")
         print(f"Influence effect: {s1_hit_rate - session_baseline:+.3f}")
@@ -316,7 +318,7 @@ def analyze_cross_session_influence(run_path: Path):
             print("❌ No positive cross-session influence")
     
     # Show top similarity pairs
-    print(f"\n=== Top Cross-Session Pairs ===")
+    print("\n=== Top Cross-Session Pairs ===")
     top_pairs = candidates_df.nlargest(5, "similarity")
     for _, pair in top_pairs.iterrows():
         print(f"  {pair['s_zone_id']} → {pair['s1_zone_id']}: "

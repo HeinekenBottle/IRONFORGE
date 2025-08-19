@@ -7,12 +7,10 @@ Production workflow for HTF-enhanced archaeological discovery.
 Runs the complete pipeline: prep-shards → discover → score → validate → report
 """
 
+import logging
 import subprocess
 import sys
 import time
-import logging
-from pathlib import Path
-from typing import List, Dict, Any
 
 from ironforge.reporting.htf_observer import HTFObserver
 
@@ -33,7 +31,7 @@ class DailyHTFWorkflow:
         
         print("🏛️ IRONFORGE Daily HTF Workflow")
         print("=" * 50)
-        print(f"Version: v0.7.1 (HTF Context Enabled)")
+        print("Version: v0.7.1 (HTF Context Enabled)")
         print(f"Run ID: {self.run_id}")
         print(f"Config: {self.config_file}")
         print()
@@ -153,7 +151,7 @@ class DailyHTFWorkflow:
             logger.error(f"HTF observability failed: {e}")
             return False
     
-    def _run_subprocess(self, cmd: List[str], step_name: str, timeout: int = 300) -> bool:
+    def _run_subprocess(self, cmd: list[str], step_name: str, timeout: int = 300) -> bool:
         """Run subprocess with timeout and error handling"""
         
         try:

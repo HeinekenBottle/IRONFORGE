@@ -3,8 +3,10 @@
 Test enhanced confluence scoring with zone_nodes.parquet emission
 """
 
-from ironforge.confluence.scoring import score_confluence
 from pathlib import Path
+
+from ironforge.confluence.scoring import score_confluence
+
 
 def main():
     print("🧪 Testing Enhanced Confluence Scoring")
@@ -32,7 +34,7 @@ def main():
         zone_nodes = pd.read_parquet(zone_nodes_path)
         print(f"   ✅ zone_nodes.parquet created: {len(zone_nodes)} entries")
         print(f"   Columns: {list(zone_nodes.columns)}")
-        print(f"   Sample data:")
+        print("   Sample data:")
         print(zone_nodes.head(3).to_string(index=False))
     else:
         print("   ❌ zone_nodes.parquet not created")

@@ -8,17 +8,21 @@ Implements the specification for transforming event-based JSON into nodes/edges 
 
 import json
 import logging
+from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 import numpy as np
 import pandas as pd
 import pytz
-from dataclasses import dataclass
 
-from ironforge.data_engine.parquet_writer import write_nodes, write_edges
-from ironforge.converters.htf_context_processor import HTFContextProcessor, HTFContextConfig, create_default_htf_config
+from ironforge.converters.htf_context_processor import (
+    HTFContextConfig,
+    HTFContextProcessor,
+    create_default_htf_config,
+)
+from ironforge.data_engine.parquet_writer import write_edges, write_nodes
 
 logger = logging.getLogger(__name__)
 
@@ -36,7 +40,7 @@ class ConversionConfig:
     dry_run: bool = False
     # HTF Context Configuration
     htf_context_enabled: bool = True  # Enable HTF context features (45D → 51D) - v0.7.1 default
-    htf_context_config: Optional[HTFContextConfig] = None
+    htf_context_config: HTFContextConfig | None = None
 
 
 class TimeProcessor:
@@ -69,11 +73,11 @@ class TimeProcessor:
 class FeatureExtractor:
     """Extracts node features (45D base + optional 6D HTF context) and 20D edge features from session events."""
     
-    def __init__(self, htf_processor: Optional[HTFContextProcessor] = None):
+    def __init__(self, htf_processor: HTFContextProcessor | None = None):
         self.htf_processor = htf_processor
         
-    def extract_node_features(self, event: Dict[str, Any], session_context: Dict[str, Any], 
-                             htf_features: Optional[Dict[str, float]] = None) -> np.ndarray:
+    def extract_node_features(self, event: dict[str, Any], session_context: dict[str, Any], 
+                             htf_features: dict[str, float] | None = None) -> np.ndarray:
         """Extract feature vector for a node (45D base + optional 6D HTF = 51D max)."""
         base_features = 45
         htf_features_count = 6 if self.htf_processor else 0
@@ -112,8 +116,8 @@ class FeatureExtractor:
             
         return features
     
-    def extract_edge_features(self, src_event: Dict[str, Any], dst_event: Dict[str, Any], 
-                            etype: int, session_context: Dict[str, Any]) -> np.ndarray:
+    def extract_edge_features(self, src_event: dict[str, Any], dst_event: dict[str, Any], 
+                            etype: int, session_context: dict[str, Any]) -> np.ndarray:
         """Extract 20D feature vector for an edge."""
         features = np.full(20, np.nan, dtype=np.float32)
         
@@ -136,43 +140,43 @@ class FeatureExtractor:
             
         return features
     
-    def _get_fvg_redelivery_flag(self, event: Dict[str, Any], session_context: Dict[str, Any]) -> float:
+    def _get_fvg_redelivery_flag(self, event: dict[str, Any], session_context: dict[str, Any]) -> float:
         """Check if event relates to FVG redelivery."""
         movement_type = event.get("movement_type", "")
         return 1.0 if "fpfvg" in movement_type or "rebalance" in movement_type else 0.0
     
-    def _get_expansion_phase_flag(self, event: Dict[str, Any], session_context: Dict[str, Any]) -> float:
+    def _get_expansion_phase_flag(self, event: dict[str, Any], session_context: dict[str, Any]) -> float:
         """Check if event occurs during expansion phase."""
         movement_type = event.get("movement_type", "")
         return 1.0 if "expansion" in movement_type or "break" in movement_type else 0.0
     
-    def _get_consolidation_flag(self, event: Dict[str, Any], session_context: Dict[str, Any]) -> float:
+    def _get_consolidation_flag(self, event: dict[str, Any], session_context: dict[str, Any]) -> float:
         """Check if event occurs during consolidation."""
         movement_type = event.get("movement_type", "")
         return 1.0 if "consolidation" in movement_type or "range" in movement_type else 0.0
     
-    def _get_retracement_flag(self, event: Dict[str, Any], session_context: Dict[str, Any]) -> float:
+    def _get_retracement_flag(self, event: dict[str, Any], session_context: dict[str, Any]) -> float:
         """Check if event is a retracement."""
         movement_type = event.get("movement_type", "")
         return 1.0 if "retracement" in movement_type or "pullback" in movement_type else 0.0
     
-    def _get_reversal_flag(self, event: Dict[str, Any], session_context: Dict[str, Any]) -> float:
+    def _get_reversal_flag(self, event: dict[str, Any], session_context: dict[str, Any]) -> float:
         """Check if event indicates reversal."""
         movement_type = event.get("movement_type", "")
         return 1.0 if "reversal" in movement_type or movement_type in ["session_high", "session_low"] else 0.0
     
-    def _get_liq_sweep_flag(self, event: Dict[str, Any], session_context: Dict[str, Any]) -> float:
+    def _get_liq_sweep_flag(self, event: dict[str, Any], session_context: dict[str, Any]) -> float:
         """Check if event involves liquidity sweep."""
         movement_type = event.get("movement_type", "")
         event_type = event.get("event_type", "")
         return 1.0 if "sweep" in movement_type or "liquidity" in event_type else 0.0
     
-    def _get_pd_array_interaction_flag(self, event: Dict[str, Any], session_context: Dict[str, Any]) -> float:
+    def _get_pd_array_interaction_flag(self, event: dict[str, Any], session_context: dict[str, Any]) -> float:
         """Check if event interacts with premium/discount arrays."""
         movement_type = event.get("movement_type", "")
         return 1.0 if "premium" in movement_type or "discount" in movement_type else 0.0
     
-    def _get_movement_type_code(self, movement_type: Optional[str]) -> float:
+    def _get_movement_type_code(self, movement_type: str | None) -> float:
         """Convert movement type to numeric code."""
         if not movement_type:
             return 0.0
@@ -184,18 +188,18 @@ class FeatureExtractor:
         }
         return type_codes.get(movement_type, 0.0)
     
-    def _get_session_relative_time(self, event: Dict[str, Any], session_context: Dict[str, Any]) -> float:
+    def _get_session_relative_time(self, event: dict[str, Any], session_context: dict[str, Any]) -> float:
         """Get normalized position within session (0.0 to 1.0)."""
         # This would require session start/end times - placeholder for now
         return 0.5
     
-    def _get_price_relativity(self, event: Dict[str, Any], session_context: Dict[str, Any]) -> float:
+    def _get_price_relativity(self, event: dict[str, Any], session_context: dict[str, Any]) -> float:
         """Get price relative to session range."""
         # This would require session high/low calculation - placeholder
         return 0.5
     
-    def _get_event_causality(self, src_event: Dict[str, Any], dst_event: Dict[str, Any], 
-                           session_context: Dict[str, Any]) -> float:
+    def _get_event_causality(self, src_event: dict[str, Any], dst_event: dict[str, Any], 
+                           session_context: dict[str, Any]) -> float:
         """Estimate causal relationship strength between events."""
         src_type = src_event.get("movement_type", "")
         dst_type = dst_event.get("movement_type", "")
@@ -208,7 +212,7 @@ class FeatureExtractor:
         else:
             return 0.3
     
-    def _get_movement_similarity(self, src_event: Dict[str, Any], dst_event: Dict[str, Any]) -> float:
+    def _get_movement_similarity(self, src_event: dict[str, Any], dst_event: dict[str, Any]) -> float:
         """Calculate movement type similarity."""
         src_type = src_event.get("movement_type", "")
         dst_type = dst_event.get("movement_type", "")
@@ -226,7 +230,7 @@ class NodeIDManager:
         """Load the current ID counter from file."""
         if self.id_counter_path.exists():
             try:
-                with open(self.id_counter_path, 'r') as f:
+                with open(self.id_counter_path) as f:
                     data = json.load(f)
                     return data.get("next_id", 1)
             except Exception as e:
@@ -242,7 +246,7 @@ class NodeIDManager:
         except Exception as e:
             logger.error(f"Failed to save ID counter: {e}")
     
-    def get_next_ids(self, count: int) -> List[int]:
+    def get_next_ids(self, count: int) -> list[int]:
         """Get the next N unique IDs."""
         ids = list(range(self.current_id, self.current_id + count))
         self.current_id += count
@@ -267,13 +271,13 @@ class JSONToParquetConverter:
         self.feature_extractor = FeatureExtractor(self.htf_processor)
         self.node_id_manager = NodeIDManager()
         
-    def convert_session(self, json_path: Path) -> Optional[Path]:
+    def convert_session(self, json_path: Path) -> Path | None:
         """Convert a single enhanced JSON session to Parquet shard."""
         logger.info(f"Converting session: {json_path}")
         
         try:
             # Load session data
-            with open(json_path, 'r') as f:
+            with open(json_path) as f:
                 session_data = json.load(f)
             
             # Extract session metadata
@@ -324,7 +328,7 @@ class JSONToParquetConverter:
             logger.error(f"Failed to convert {json_path}: {e}")
             return None
     
-    def _extract_session_info(self, json_path: Path, session_data: Dict[str, Any]) -> Optional[Dict[str, str]]:
+    def _extract_session_info(self, json_path: Path, session_data: dict[str, Any]) -> dict[str, str] | None:
         """Extract session information from filename and metadata."""
         try:
             # Parse filename: enhanced_<SESSION_TYPE>_Lvl-1_YYYY_MM_DD.json
@@ -359,13 +363,13 @@ class JSONToParquetConverter:
             logger.error(f"Failed to extract session info from {json_path}: {e}")
             return None
     
-    def _get_shard_directory(self, session_info: Dict[str, str]) -> Path:
+    def _get_shard_directory(self, session_info: dict[str, str]) -> Path:
         """Generate shard directory path."""
         symbol_tf = f"{self.config.symbol}_{self.config.timeframe}"
         shard_name = f"shard_{session_info['session_type']}_{session_info['date']}"
         return Path(f"data/shards/{symbol_tf}/{shard_name}")
     
-    def _convert_events_to_graph(self, session_data: Dict[str, Any], session_info: Dict[str, str]) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    def _convert_events_to_graph(self, session_data: dict[str, Any], session_info: dict[str, str]) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
         """Convert session events to nodes and edges DataFrames."""
         
         # Extract events from session
@@ -432,7 +436,7 @@ class JSONToParquetConverter:
         nodes_data = []
         node_map_data = []
         
-        for i, (event, node_id) in enumerate(zip(all_events, node_ids)):
+        for i, (event, node_id) in enumerate(zip(all_events, node_ids, strict=False)):
             # Prepare HTF features for this event
             htf_features_for_event = None
             if self.htf_processor and htf_feature_arrays:
@@ -484,8 +488,8 @@ class JSONToParquetConverter:
         
         return nodes_df, edges_df, node_map_df
     
-    def _estimate_price_for_liquidity_event(self, liq_event: Dict[str, Any], 
-                                           price_movements: List[Dict[str, Any]]) -> float:
+    def _estimate_price_for_liquidity_event(self, liq_event: dict[str, Any], 
+                                           price_movements: list[dict[str, Any]]) -> float:
         """Estimate price for liquidity event from nearby price movements."""
         liq_time = liq_event["timestamp"]
         
@@ -511,7 +515,7 @@ class JSONToParquetConverter:
         except:
             return float('inf')
     
-    def _get_node_kind(self, event: Dict[str, Any]) -> int:
+    def _get_node_kind(self, event: dict[str, Any]) -> int:
         """
         Determine node kind enum value using Taxonomy v1.0.
         
@@ -567,8 +571,8 @@ class JSONToParquetConverter:
         else:
             return 0  # Default to EXPANSION
     
-    def _create_edges(self, events: List[Dict[str, Any]], node_ids: List[int], 
-                     session_data: Dict[str, Any]) -> pd.DataFrame:
+    def _create_edges(self, events: list[dict[str, Any]], node_ids: list[int], 
+                     session_data: dict[str, Any]) -> pd.DataFrame:
         """Create edges DataFrame from events."""
         edges_data = []
         
@@ -668,9 +672,9 @@ class JSONToParquetConverter:
         
         return pd.DataFrame(edges_data)
     
-    def _create_empty_dataframes(self) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    def _create_empty_dataframes(self) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
         """Create empty DataFrames with correct schemas."""
-        from ironforge.data_engine.schemas import NODE_COLS, EDGE_COLS
+        from ironforge.data_engine.schemas import EDGE_COLS, NODE_COLS
         
         # Empty nodes DataFrame
         nodes_df = pd.DataFrame(columns=NODE_COLS + ["session_id", "symbol", "tf", "price"])
@@ -702,7 +706,7 @@ class JSONToParquetConverter:
             return False
         
         # Check for required columns
-        from ironforge.data_engine.schemas import NODE_COLS, EDGE_COLS
+        from ironforge.data_engine.schemas import EDGE_COLS, NODE_COLS
         
         missing_node_cols = [col for col in NODE_COLS if col not in nodes_df.columns]
         if missing_node_cols:
@@ -752,7 +756,7 @@ class JSONToParquetConverter:
         
         return True
     
-    def _write_metadata(self, shard_dir: Path, session_info: Dict[str, str], 
+    def _write_metadata(self, shard_dir: Path, session_info: dict[str, str], 
                        source_path: Path, node_count: int, edge_count: int) -> None:
         """Write metadata file for the shard."""
         metadata = {
@@ -774,7 +778,7 @@ class JSONToParquetConverter:
             json.dump(metadata, f, indent=2)
 
 
-def convert_enhanced_sessions(config: ConversionConfig) -> List[Path]:
+def convert_enhanced_sessions(config: ConversionConfig) -> list[Path]:
     """Convert all enhanced sessions matching the glob pattern."""
     from glob import glob
     

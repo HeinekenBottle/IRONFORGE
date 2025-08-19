@@ -3,10 +3,12 @@
 Create Demo A/B Test Data
 Generate realistic synthetic data to demonstrate adapter validation methodology
 """
-import pandas as pd
-import numpy as np
 import json
 from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
 
 def create_demo_data():
     """Create realistic demo data for A/B testing."""
@@ -131,7 +133,7 @@ def run_demo_ab_test():
     ret_lift = enhanced_row["med_ret_12b"] - baseline_row["med_ret_12b"]
     var_change = enhanced_row["var(conf)"] - baseline_row["var(conf)"]
     
-    print(f"\\n=== Performance Lift Analysis ===")
+    print("\\n=== Performance Lift Analysis ===")
     print(f"Hit Rate Lift: {hit_rate_lift:+.4f} ({hit_rate_lift/baseline_row['P(hit+100)']*100:+.1f}%)")
     print(f"Return Lift: {ret_lift:+.4f} ({ret_lift/abs(baseline_row['med_ret_12b'])*100:+.1f}%)")
     print(f"Confidence Var Change: {var_change:+.2e}")
@@ -141,7 +143,7 @@ def run_demo_ab_test():
     accept_returns = ret_lift > 0 or abs(ret_lift) < 0.02  # Positive or minimal degradation
     accept_variance = var_change < 0.01  # Variance doesn't increase dramatically
     
-    print(f"\\n=== Acceptance Criteria ===")
+    print("\\n=== Acceptance Criteria ===")
     print(f"✅ Hit Rate Improvement: {accept_hit_rate} (lift: {hit_rate_lift:+.4f})")
     print(f"✅ Returns Acceptable: {accept_returns} (lift: {ret_lift:+.4f})")  
     print(f"✅ Variance Healthy: {accept_variance} (change: {var_change:+.2e})")
@@ -158,8 +160,8 @@ def run_demo_ab_test():
         print("\\n📊 Recommendation: Keep adapters OFF - insufficient evidence of improvement")
     
     # Show comparison details
-    print(f"\\n=== Detailed Comparison ===")
-    print(f"Confidence score changes:")
+    print("\\n=== Detailed Comparison ===")
+    print("Confidence score changes:")
     conf_changes = enhanced_scores['confidence'] - baseline_scores['confidence']
     print(f"  Mean change: {conf_changes.mean():+.4f}")
     print(f"  Max boost: {conf_changes.max():+.4f}")

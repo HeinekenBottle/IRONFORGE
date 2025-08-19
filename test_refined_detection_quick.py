@@ -42,7 +42,7 @@ def quick_test_refined_detection():
         enhanced_sessions = []
         for session_file in session_files:
             try:
-                with open(session_file, 'r') as f:
+                with open(session_file) as f:
                     session_data = json.load(f)
                     enhanced_sessions.append(session_data)
             except Exception as e:

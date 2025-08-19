@@ -4,10 +4,11 @@ Enhanced Discovery Analysis with Proper ID Alignment
 Finds burst-linked liquidity patterns using fixed data lineage.
 """
 
-import pandas as pd
-import numpy as np
-from pathlib import Path
 import json
+from pathlib import Path
+
+import pandas as pd
+
 
 def main():
     run_dir = "runs/real-tgat-fixed-2025-08-18"
@@ -210,7 +211,7 @@ def main():
     else:
         print("   ⚠️  Low confidence variance - check threshold tuning")
     
-    print(f"\n✅ Enhanced analysis complete!")
+    print("\n✅ Enhanced analysis complete!")
     print(f"   Results: {analysis_path}")
     print(f"   JSONL: {jsonl_path}")
 

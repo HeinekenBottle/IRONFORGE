@@ -6,14 +6,14 @@ Canonical data contracts and taxonomy definitions for archaeological discovery.
 """
 
 from .taxonomy_v1 import (
-    EventType,
-    EdgeType, 
+    TAXONOMY_V1,
     Direction,
+    EdgeType,
+    EventRelationship,
+    EventType,
     Location,
     MarketEvent,
-    EventRelationship,
     TaxonomyMetadata,
-    TAXONOMY_V1
 )
 
 __all__ = [

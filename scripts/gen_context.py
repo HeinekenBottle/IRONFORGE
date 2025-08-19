@@ -7,7 +7,9 @@ Writes: docs/context.json
 - Falls back to NQ/M5 defaults if config not present.
 """
 from __future__ import annotations
-import json, sys
+
+import json
+import sys
 from pathlib import Path
 
 DEFAULTS = {

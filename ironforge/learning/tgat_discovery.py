@@ -357,8 +357,9 @@ class IRONFORGEDiscovery(nn.Module):
         k: int = 5
     ) -> str:
         """Persist top-k attention neighborhoods for scored zones"""
-        import pandas as pd
         from pathlib import Path
+
+        import pandas as pd
         
         try:
             # Create embeddings output directory
@@ -376,7 +377,7 @@ class IRONFORGEDiscovery(nn.Module):
                 # Get top-k attention targets
                 topk_values, topk_indices = torch.topk(zone_attention, min(k, num_nodes), dim=0)
                 
-                for rank, (neighbor_idx, weight) in enumerate(zip(topk_indices, topk_values)):
+                for rank, (neighbor_idx, weight) in enumerate(zip(topk_indices, topk_values, strict=False)):
                     neighbor_idx = neighbor_idx.item()
                     weight = weight.item()
                     neighbor_id = nodes[neighbor_idx] if neighbor_idx < len(nodes) else f"node_{neighbor_idx}"
@@ -438,9 +439,10 @@ def infer_shard_embeddings(data, out_dir: str, loader_cfg, persist_attention: bo
         tuple: (embeddings_path, patterns_path)
     """
     import os
-    import pandas as pd
-    import numpy as np
     from pathlib import Path
+
+    import numpy as np
+    import pandas as pd
     
     Path(out_dir).mkdir(parents=True, exist_ok=True)
     

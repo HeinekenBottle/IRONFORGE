@@ -18,7 +18,7 @@ import os
 import statistics
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any
 
 
 class SessionQualityAssessor:
@@ -27,7 +27,7 @@ class SessionQualityAssessor:
         self.quality_scores = {}
         self.detailed_analysis = {}
         
-    def assess_session_quality(self, session_data: Dict[str, Any], session_file: str) -> Dict[str, Any]:
+    def assess_session_quality(self, session_data: dict[str, Any], session_file: str) -> dict[str, Any]:
         """
         Comprehensive quality assessment for a single session.
         Returns score (0-100) and detailed analysis.
@@ -73,7 +73,7 @@ class SessionQualityAssessor:
         
         return analysis
     
-    def _assess_metadata_quality(self, session_data: Dict[str, Any], analysis: Dict[str, Any]) -> int:
+    def _assess_metadata_quality(self, session_data: dict[str, Any], analysis: dict[str, Any]) -> int:
         """Assess session metadata completeness and consistency (0-25 points)"""
         score = 0
         
@@ -103,7 +103,7 @@ class SessionQualityAssessor:
         
         # Session duration consistency (5 points)
         duration = metadata.get("session_duration", 0)
-        if isinstance(duration, (int, float)) and duration > 0:
+        if isinstance(duration, int | float) and duration > 0:
             score += 5
             analysis["strengths"].append(f"Valid session duration: {duration} minutes")
         else:
@@ -119,7 +119,7 @@ class SessionQualityAssessor:
         
         return score
     
-    def _assess_temporal_coherence(self, session_data: Dict[str, Any], analysis: Dict[str, Any]) -> int:
+    def _assess_temporal_coherence(self, session_data: dict[str, Any], analysis: dict[str, Any]) -> int:
         """Assess temporal relationships and chronological ordering (0-25 points)"""
         score = 0
         
@@ -201,7 +201,7 @@ class SessionQualityAssessor:
         
         return score
     
-    def _assess_price_data_quality(self, session_data: Dict[str, Any], analysis: Dict[str, Any]) -> int:
+    def _assess_price_data_quality(self, session_data: dict[str, Any], analysis: dict[str, Any]) -> int:
         """Assess price data consistency and realism (0-25 points)"""
         score = 0
         
@@ -211,7 +211,7 @@ class SessionQualityAssessor:
         price_levels = []
         for pm in price_movements:
             price = pm.get("price_level") or pm.get("price")
-            if price and isinstance(price, (int, float)) and price > 0:
+            if price and isinstance(price, int | float) and price > 0:
                 price_levels.append(price)
         
         if price_levels:
@@ -259,7 +259,7 @@ class SessionQualityAssessor:
         
         return score
     
-    def _assess_feature_authenticity(self, session_data: Dict[str, Any], analysis: Dict[str, Any]) -> int:
+    def _assess_feature_authenticity(self, session_data: dict[str, Any], analysis: dict[str, Any]) -> int:
         """Assess whether features are genuine vs artificial/default (0-25 points)"""
         score = 0
         
@@ -331,12 +331,12 @@ class SessionQualityAssessor:
         else:
             return "Unusable"
     
-    def analyze_all_sessions(self) -> Dict[str, Any]:
+    def analyze_all_sessions(self) -> dict[str, Any]:
         """Analyze all sessions and return comprehensive quality report"""
         all_files = []
         
         # Collect all JSON files
-        for root, dirs, files in os.walk(self.data_path):
+        for root, _dirs, files in os.walk(self.data_path):
             for file in files:
                 if file.endswith('.json'):
                     all_files.append(os.path.join(root, file))
@@ -354,7 +354,7 @@ class SessionQualityAssessor:
         
         for file_path in all_files:
             try:
-                with open(file_path, 'r') as f:
+                with open(file_path) as f:
                     session_data = json.load(f)
                 
                 session_name = os.path.basename(file_path)

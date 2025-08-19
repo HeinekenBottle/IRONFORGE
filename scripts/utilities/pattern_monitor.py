@@ -77,7 +77,7 @@ class PatternMonitor:
             print(f"🔍 Analyzing new session: {session_file}")
             
             # Load session data
-            with open(os.path.join(self.watch_dir, session_file), 'r') as f:
+            with open(os.path.join(self.watch_dir, session_file)) as f:
                 session_data = json.load(f)
             
             # Build graph and analyze

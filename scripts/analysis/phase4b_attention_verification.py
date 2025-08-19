@@ -9,7 +9,7 @@ pattern archetypes, not all focusing on the same links.
 import glob
 import json
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 import numpy as np
 import torch
@@ -25,7 +25,7 @@ class AttentionHeadAnalyzer:
         self.graph_builder = EnhancedGraphBuilder()
         self.tgat_discovery = IRONFORGEDiscovery()
         
-    def analyze_attention_heads(self, sessions_to_test: int = 5) -> Dict[str, Any]:
+    def analyze_attention_heads(self, sessions_to_test: int = 5) -> dict[str, Any]:
         """Analyze attention head behavior across multiple sessions."""
         print("🧠 IRONFORGE Phase 4b: 4-Head Attention Verification")
         print("=" * 70)
@@ -53,7 +53,7 @@ class AttentionHeadAnalyzer:
             
             try:
                 # Load and process session
-                with open(session_file, 'r') as f:
+                with open(session_file) as f:
                     session_data = json.load(f)
                 
                 # Build graph and convert to TGAT format
@@ -94,7 +94,7 @@ class AttentionHeadAnalyzer:
     
     def _analyze_session_attention(self, X: torch.Tensor, edge_index: torch.Tensor, 
                                  edge_times: torch.Tensor, edge_attr: torch.Tensor,
-                                 session_name: str) -> Dict[str, Any]:
+                                 session_name: str) -> dict[str, Any]:
         """Analyze attention patterns for a single session using simplified approach."""
         
         # Simulate head specialization based on edge characteristics
@@ -131,7 +131,7 @@ class AttentionHeadAnalyzer:
         }
     
     def _identify_relevant_edges(self, edge_index: torch.Tensor, edge_attr: torch.Tensor,
-                               X: torch.Tensor, specialization: str) -> List[int]:
+                               X: torch.Tensor, specialization: str) -> list[int]:
         """Identify edges relevant to each head's specialization."""
         
         relevant_edges = []
@@ -166,7 +166,7 @@ class AttentionHeadAnalyzer:
         
         return relevant_edges
     
-    def _simulate_attention_weights(self, relevant_edges: List[int], total_edges: int) -> List[float]:
+    def _simulate_attention_weights(self, relevant_edges: list[int], total_edges: int) -> list[float]:
         """Simulate attention weights for relevant edges."""
         weights = [0.1] * total_edges  # Base attention
         
@@ -175,7 +175,7 @@ class AttentionHeadAnalyzer:
         
         return weights
     
-    def _identify_patterns_from_edges(self, relevant_edges: List[int], specialization: str) -> List[str]:
+    def _identify_patterns_from_edges(self, relevant_edges: list[int], specialization: str) -> list[str]:
         """Identify patterns that each head discovers."""
         
         patterns = []
@@ -193,7 +193,7 @@ class AttentionHeadAnalyzer:
         num_patterns = min(len(patterns), max(1, len(relevant_edges) // 10))
         return np.random.choice(patterns, size=num_patterns, replace=False).tolist()
     
-    def _analyze_head_specialization(self, head_patterns: Dict, session_results: List) -> Dict[str, Any]:
+    def _analyze_head_specialization(self, head_patterns: dict, session_results: list) -> dict[str, Any]:
         """Analyze specialization across all attention heads."""
         
         print(f"\n🔬 Analyzing Head Specialization Across {len(session_results)} Sessions")

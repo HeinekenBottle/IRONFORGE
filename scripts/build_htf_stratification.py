@@ -3,10 +3,11 @@
 AUX: HTF-Phase Stratification
 Find where patterns pay - phase, not seconds.
 """
-import pandas as pd
-import numpy as np
-from pathlib import Path
 import json
+from pathlib import Path
+
+import pandas as pd
+
 
 def stratify_by_htf_phase(trajectories, market_data):
     """Stratify zones by HTF phase characteristics."""
@@ -136,7 +137,7 @@ def main():
     print(f"Saved HTF phase stats to {phase_stats_path}")
     
     # Print summary
-    print(f"\n=== HTF Phase Stratification Summary ===")
+    print("\n=== HTF Phase Stratification Summary ===")
     print(f"Total buckets: {len(filtered_buckets)}")
     
     # Show top buckets by hit probability
@@ -146,7 +147,7 @@ def main():
     hit_100_buckets = [b for b in bucket_list if 'P_hit_+100_12b' in b]
     if hit_100_buckets:
         hit_100_buckets.sort(key=lambda x: x['P_hit_+100_12b'], reverse=True)
-        print(f"\nTop buckets by P(hit_+100_12b):")
+        print("\nTop buckets by P(hit_+100_12b):")
         for bucket in hit_100_buckets[:5]:
             print(f"  {bucket['bucket_name']}: {bucket['P_hit_+100_12b']:.2f} (n={bucket['count']})")
     
@@ -154,7 +155,7 @@ def main():
     ret_12b_buckets = [b for b in bucket_list if 'median_fwd_ret_12b' in b]
     if ret_12b_buckets:
         ret_12b_buckets.sort(key=lambda x: abs(x['median_fwd_ret_12b']), reverse=True)
-        print(f"\nTop buckets by |median_fwd_ret_12b|:")
+        print("\nTop buckets by |median_fwd_ret_12b|:")
         for bucket in ret_12b_buckets[:5]:
             print(f"  {bucket['bucket_name']}: {bucket['median_fwd_ret_12b']:.3f}% (n={bucket['count']})")
     

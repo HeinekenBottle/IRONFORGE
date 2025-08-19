@@ -3,13 +3,17 @@
 AUX: Post-Zone Trajectories (trade horizons)
 Build trader-relevant trajectories from TGAT zone discoveries.
 """
-import pandas as pd
-import numpy as np
-from pathlib import Path
 import sys
+from pathlib import Path
 
-def calculate_forward_returns(df, price_col='price', periods=[3, 12, 24]):
+import numpy as np
+import pandas as pd
+
+
+def calculate_forward_returns(df, price_col='price', periods=None):
     """Calculate forward returns over specified periods (bars)."""
+    if periods is None:
+        periods = [3, 12, 24]
     results = {}
     
     for period in periods:
@@ -30,8 +34,10 @@ def calculate_forward_returns(df, price_col='price', periods=[3, 12, 24]):
     
     return pd.DataFrame(results, index=df.index)
 
-def calculate_hit_targets(df, price_col='price', targets=[50, 100, 200], period=12):
+def calculate_hit_targets(df, price_col='price', targets=None, period=12):
     """Calculate if price hits specific tick targets within period."""
+    if targets is None:
+        targets = [50, 100, 200]
     results = {}
     
     for target in targets:
@@ -140,7 +146,7 @@ def build_trajectories(run_path):
     ], axis=1)
     
     # Add zone_id mapping
-    zone_mapping = dict(zip(zone_nodes.node_id, zone_nodes.zone_id))
+    zone_mapping = dict(zip(zone_nodes.node_id, zone_nodes.zone_id, strict=False))
     trajectories['zone_id'] = trajectories['node_id'].map(zone_mapping)
     trajectories['center_node_id'] = trajectories['node_id']
     
@@ -172,12 +178,12 @@ def main():
         print(f"Saved trajectories to {output_path}")
         
         # Print summary
-        print(f"\n=== Trajectory Summary ===")
+        print("\n=== Trajectory Summary ===")
         print(f"Zones analyzed: {len(trajectories)}")
         print(f"Forward return columns: {[c for c in trajectories.columns if 'fwd_ret' in c]}")
         print(f"Hit target columns: {[c for c in trajectories.columns if 'hit_' in c][:6]}...")
         
-        print(f"\n=== Sample Trajectories ===")
+        print("\n=== Sample Trajectories ===")
         print(trajectories[['zone_id', 'center_node_id', 'fwd_ret_12b', 'hit_+100_12b']].head())
         
         return True

@@ -7,11 +7,10 @@ CI/smoke tests for HTF context features ensuring temporal integrity,
 feature completeness, and archaeological discovery functionality.
 """
 
-import sys
 import logging
+import sys
 from pathlib import Path
-from typing import Dict, List, Any, Tuple
-import numpy as np
+
 import pandas as pd
 
 logging.basicConfig(level=logging.INFO)
@@ -139,10 +138,9 @@ class HTFSmokeTest:
         for feature in barpos_features:
             if feature in df.columns:
                 values = df[feature].dropna()
-                if len(values) > 0:
-                    if not values.between(0, 1).all():
-                        logger.error(f"Barpos feature {feature} has values outside [0,1]")
-                        return False
+                if len(values) > 0 and not values.between(0, 1).all():
+                    logger.error(f"Barpos feature {feature} has values outside [0,1]")
+                    return False
         
         return True
     
@@ -166,10 +164,9 @@ class HTFSmokeTest:
         for feature, name, validator in validations:
             if feature in df.columns:
                 values = df[feature].dropna()
-                if len(values) > 0:
-                    if not validator(values):
-                        logger.error(f"Feature {feature} ({name}) failed range validation")
-                        return False
+                if len(values) > 0 and not validator(values):
+                    logger.error(f"Feature {feature} ({name}) failed range validation")
+                    return False
         
         return True
     

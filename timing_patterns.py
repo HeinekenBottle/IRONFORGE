@@ -4,10 +4,10 @@ Simple Timing Pattern Discovery for IRONFORGE
 Focus on timing first, before semantics and archetypes
 """
 
-import pandas as pd
 import json
 from pathlib import Path
-from datetime import datetime
+
+import pandas as pd
 
 
 def analyze_session_timing(nodes_df, edges_df, output_dir=None):
@@ -252,7 +252,7 @@ def main():
     print(f"\n✅ Timing analysis complete! Results saved to {output_path}")
     
     # Summary statistics
-    print(f"\n📊 SUMMARY ACROSS SESSIONS:")
+    print("\n📊 SUMMARY ACROSS SESSIONS:")
     total_events = sum(r['session_info']['total_events'] for r in all_results.values())
     total_bursts = sum(r['timing_patterns']['bursts']['count'] for r in all_results.values())
     avg_duration = sum(r['session_info']['duration_minutes'] for r in all_results.values()) / len(all_results)

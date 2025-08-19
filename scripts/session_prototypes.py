@@ -3,12 +3,13 @@
 Session Prototypes: Macro fingerprints for next-session payoffs
 Goal: relate "macro state" to next-session micro payoffs
 """
-import pandas as pd
-import numpy as np
 import json
 from pathlib import Path
+
+import numpy as np
+import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
-from collections import Counter
+
 
 def load_session_data(run_path: Path):
     """Load embeddings, zone metadata, and create session structure."""
@@ -291,7 +292,7 @@ def compute_prototype_correlation(prototype_df: pd.DataFrame):
         }
     }
     
-    print(f"\n=== Prototype Correlation Analysis ===")
+    print("\n=== Prototype Correlation Analysis ===")
     print(f"Prototype similarity vs next-session hit rate: {proto_sim_vs_hit_corr:.3f} ({correlation_analysis['proto_sim_vs_next_hit_rate']['strength']} {correlation_analysis['proto_sim_vs_next_hit_rate']['interpretation']})")
     print(f"Prototype similarity vs hit rate change: {proto_sim_vs_delta_corr:.3f} ({correlation_analysis['proto_sim_vs_delta_hit_rate']['strength']} {correlation_analysis['proto_sim_vs_delta_hit_rate']['interpretation']})")
     print(f"Intent similarity vs next-session hit rate: {intent_sim_vs_hit_corr:.3f} ({correlation_analysis['intent_sim_vs_next_hit_rate']['strength']} {correlation_analysis['intent_sim_vs_next_hit_rate']['interpretation']})")
@@ -344,7 +345,7 @@ def analyze_session_prototypes(run_path: Path):
         return None
     
     # Show top session transitions
-    print(f"\n=== Top Session Prototype Transitions ===")
+    print("\n=== Top Session Prototype Transitions ===")
     top_transitions = prototype_df.nlargest(3, "proto_similarity")
     for _, transition in top_transitions.iterrows():
         print(f"  S{transition['session_s']} → S{transition['session_s1']}: "
@@ -409,9 +410,9 @@ def main():
     # Check acceptance criteria
     acceptance = result["acceptance_criteria"]
     if acceptance["passes"]:
-        print(f"\n🎯 ✅ ACCEPTANCE: Correlation analysis computed and sign reported")
+        print("\n🎯 ✅ ACCEPTANCE: Correlation analysis computed and sign reported")
     else:
-        print(f"\n🎯 ❌ ACCEPTANCE: Failed to compute correlation analysis")
+        print("\n🎯 ❌ ACCEPTANCE: Failed to compute correlation analysis")
     
     return True
 

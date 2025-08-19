@@ -7,10 +7,10 @@ Safely processes the full IRONFORGE session archive with HTF context enabled,
 maintaining both baseline and HTF-enhanced shards for reproducibility.
 """
 
-import subprocess
 import logging
-from pathlib import Path
+import subprocess
 import time
+from pathlib import Path
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -97,7 +97,7 @@ def run_prep_shards_htf():
             print(f"✅ HTF processing completed in {elapsed:.1f}s")
             print("📊 HTF-Enhanced Shards Created:")
             print(f"   Location: {htf_shards_dir}")
-            print(f"   Features: 51D nodes (45 base + 6 HTF)")
+            print("   Features: 51D nodes (45 base + 6 HTF)")
             
             # Parse output for statistics
             if "Successfully converted" in stdout:
@@ -122,7 +122,7 @@ def run_prep_shards_htf():
         # Check manifest file
         manifest_file = htf_shards_dir / "manifest.jsonl"
         if manifest_file.exists():
-            with open(manifest_file, 'r') as f:
+            with open(manifest_file) as f:
                 manifest_lines = f.readlines()
             print(f"✅ Manifest: {len(manifest_lines)} sessions processed")
         else:
@@ -171,7 +171,6 @@ def validate_htf_features():
     
     try:
         import pandas as pd
-        import numpy as np
         
         # Find a sample HTF shard
         htf_shards_dir = Path("/Users/jack/IRONFORGE/data/shards/NQ_M5_htf")

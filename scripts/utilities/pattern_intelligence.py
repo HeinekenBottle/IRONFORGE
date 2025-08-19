@@ -18,7 +18,7 @@ import json
 from collections import Counter, defaultdict
 from dataclasses import asdict, dataclass
 from datetime import datetime, timedelta
-from typing import Any, Dict, List, Tuple
+from typing import Any
 
 import numpy as np
 
@@ -35,7 +35,7 @@ class PatternTrend:
     pattern_type: str
     trend_strength: float  # -1 to 1, negative = decreasing, positive = increasing
     significance: float   # p-value from trend test
-    occurrences_by_day: Dict[str, int]
+    occurrences_by_day: dict[str, int]
     avg_confidence_trend: float
     description: str
 
@@ -45,8 +45,8 @@ class MarketRegime:
     """Identified market regime based on pattern clustering"""
     regime_id: str
     regime_name: str
-    characteristic_patterns: List[str]
-    sessions: List[str]
+    characteristic_patterns: list[str]
+    sessions: list[str]
     start_date: str
     end_date: str
     confidence: float
@@ -58,7 +58,7 @@ class PatternAlert:
     """Real-time pattern alert"""
     alert_id: str
     pattern_match: PatternAnalysis
-    historical_matches: List[PatternAnalysis]
+    historical_matches: list[PatternAnalysis]
     confidence: float
     alert_type: str  # "strong_match", "regime_shift", "rare_pattern"
     timestamp: str
@@ -80,9 +80,9 @@ class PatternIntelligenceEngine:
     def __init__(self, sdk: IRONFORGEDiscoverySDK):
         """Initialize with discovery SDK for pattern data access"""
         self.sdk = sdk
-        self.pattern_trends: Dict[str, PatternTrend] = {}
-        self.market_regimes: List[MarketRegime] = []
-        self.pattern_alerts: List[PatternAlert] = []
+        self.pattern_trends: dict[str, PatternTrend] = {}
+        self.market_regimes: list[MarketRegime] = []
+        self.pattern_alerts: list[PatternAlert] = []
         
         # Intelligence cache
         self.intelligence_cache = self.sdk.discovery_cache_path / "pattern_intelligence"
@@ -110,7 +110,7 @@ class PatternIntelligenceEngine:
             }
         }
     
-    def analyze_pattern_trends(self, days_lookback: int = 30) -> Dict[str, PatternTrend]:
+    def analyze_pattern_trends(self, days_lookback: int = 30) -> dict[str, PatternTrend]:
         """
         Analyze temporal trends in pattern occurrence
         
@@ -195,7 +195,7 @@ class PatternIntelligenceEngine:
         
         return f"{strength.capitalize()} {direction} trend {conf_dir}"
     
-    def identify_market_regimes(self, min_sessions: int = 3) -> List[MarketRegime]:
+    def identify_market_regimes(self, min_sessions: int = 3) -> list[MarketRegime]:
         """
         Identify market regimes based on pattern clustering
         
@@ -218,7 +218,7 @@ class PatternIntelligenceEngine:
         
         # Convert to matrix
         session_names = list(sessions_data.keys())
-        pattern_types = list(set(p.pattern_type for p in self.sdk.pattern_database.values()))
+        pattern_types = list({p.pattern_type for p in self.sdk.pattern_database.values()})
         
         feature_matrix = []
         for session in session_names:
@@ -294,7 +294,7 @@ class PatternIntelligenceEngine:
     
     def find_pattern_matches(self, target_pattern: PatternAnalysis, 
                            similarity_threshold: float = 0.8,
-                           max_matches: int = 10) -> List[Tuple[PatternAnalysis, float]]:
+                           max_matches: int = 10) -> list[tuple[PatternAnalysis, float]]:
         """
         Find historical patterns similar to target pattern
         
@@ -351,7 +351,7 @@ class PatternIntelligenceEngine:
         
         return total_similarity
     
-    def generate_pattern_alerts(self, new_patterns: List[PatternAnalysis]) -> List[PatternAlert]:
+    def generate_pattern_alerts(self, new_patterns: list[PatternAnalysis]) -> list[PatternAlert]:
         """
         Generate alerts for new patterns based on historical analysis
         
@@ -400,7 +400,7 @@ class PatternIntelligenceEngine:
         self.pattern_alerts.extend(alerts)
         return alerts
     
-    def get_intelligence_summary(self) -> Dict[str, Any]:
+    def get_intelligence_summary(self) -> dict[str, Any]:
         """Get comprehensive pattern intelligence summary"""
         return {
             'pattern_trends_count': len(self.pattern_trends),
@@ -412,7 +412,7 @@ class PatternIntelligenceEngine:
                 key=lambda x: x[1],
                 default=("none", 0)
             )[0],
-            'pattern_taxonomy_coverage': len(set(p.pattern_type for p in self.sdk.pattern_database.values()) 
+            'pattern_taxonomy_coverage': len({p.pattern_type for p in self.sdk.pattern_database.values()} 
                                            & set(self.pattern_taxonomy.keys())),
             'cache_location': str(self.intelligence_cache)
         }
@@ -462,7 +462,7 @@ Generated: {datetime.now().isoformat()}
 
 
 # Practical workflow functions
-def analyze_market_intelligence() -> Dict[str, Any]:
+def analyze_market_intelligence() -> dict[str, Any]:
     """Complete market intelligence analysis workflow"""
     print("🧠 Starting comprehensive market intelligence analysis")
     
@@ -492,7 +492,7 @@ def analyze_market_intelligence() -> Dict[str, Any]:
     }
 
 
-def find_similar_patterns(session_name: str, pattern_index: int = 0) -> List[Tuple[PatternAnalysis, float]]:
+def find_similar_patterns(session_name: str, pattern_index: int = 0) -> list[tuple[PatternAnalysis, float]]:
     """Find patterns similar to a specific pattern from a session"""
     sdk = IRONFORGEDiscoverySDK()
     intel_engine = PatternIntelligenceEngine(sdk)

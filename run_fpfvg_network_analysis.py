@@ -156,7 +156,7 @@ def main():
                 print("-" * 23)
                 
                 observed_in = zone_test.get('observed_in_zones', 0)
-                observed_out = zone_test.get('observed_outside_zones', 0)
+                zone_test.get('observed_outside_zones', 0)
                 expected_in = zone_test.get('expected_in_zones', 0)
                 odds_ratio = zone_test.get('odds_ratio', 1.0)
                 p_value = zone_test.get('p_value', 1.0)

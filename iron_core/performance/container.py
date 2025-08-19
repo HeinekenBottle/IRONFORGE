@@ -17,7 +17,7 @@ Features:
 import logging
 import threading
 import time
-from typing import Any, Dict
+from typing import Any
 
 from .lazy_loader import LazyComponent, LazyLoadingManager, initialize_lazy_loading
 
@@ -35,7 +35,7 @@ class IRONContainer:
         self._lazy_manager = initialize_lazy_loading()
         
         # Performance tracking
-        self._performance_metrics: Dict[str, float] = {}
+        self._performance_metrics: dict[str, float] = {}
         self._initialization_time = time.time()
         
         # Set up logging
@@ -61,7 +61,7 @@ class IRONContainer:
         """Register a new component for lazy loading."""
         return self._lazy_manager.register_component(name, module_path, class_name, validation_func)
         
-    def get_performance_metrics(self) -> Dict[str, Any]:
+    def get_performance_metrics(self) -> dict[str, Any]:
         """Get comprehensive performance metrics."""
         lazy_report = self._lazy_manager.get_performance_report()
         container_uptime = time.time() - self._initialization_time

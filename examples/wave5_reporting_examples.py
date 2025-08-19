@@ -189,7 +189,7 @@ def example_2_confluence_strip_with_markers():
     # Add some high-confluence zones
     high_zones = [60, 120, 180, 240]  # Minutes with high confluence
     for zone_minute in high_zones:
-        zone_idx = np.abs(minute_bins - zone_minute).argmin()
+        np.abs(minute_bins - zone_minute).argmin()
         # Create gaussian peak around high-confluence zones
         influence = np.exp(-((minute_bins - zone_minute) / 15) ** 2)
         base_scores += influence * 30
@@ -648,7 +648,7 @@ def example_6_production_monitoring_integration():
         logger.info(f"  Output: {output_dir}")
         
         # Load discovery data
-        with open(discovery_file_path, 'r') as f:
+        with open(discovery_file_path) as f:
             discovery_data = json.load(f)
         
         patterns = discovery_data.get("patterns", [])

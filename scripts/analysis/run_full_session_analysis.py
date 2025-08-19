@@ -22,7 +22,7 @@ import os
 import warnings
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any
 
 import numpy as np
 import pandas as pd
@@ -58,7 +58,7 @@ class SessionAnalyzer:
         Path("visualizations").mkdir(exist_ok=True)
         Path("reports").mkdir(exist_ok=True)
         
-    def analyze_all_sessions(self) -> Dict[str, Any]:
+    def analyze_all_sessions(self) -> dict[str, Any]:
         """Run IRONFORGE analysis on all sessions"""
         
         logger.info("🚀 Starting comprehensive session analysis...")
@@ -111,12 +111,12 @@ class SessionAnalyzer:
         
         return summary
     
-    def _load_session(self, session_file: str) -> Dict[str, Any]:
+    def _load_session(self, session_file: str) -> dict[str, Any]:
         """Load session data from file"""
-        with open(os.path.join(self.sessions_dir, session_file), 'r') as f:
+        with open(os.path.join(self.sessions_dir, session_file)) as f:
             return json.load(f)
     
-    def _analyze_single_session(self, session_file: str, session_data: Dict[str, Any]) -> Dict[str, Any]:
+    def _analyze_single_session(self, session_file: str, session_data: dict[str, Any]) -> dict[str, Any]:
         """Analyze a single session and extract all relevant data"""
         
         # Build rich graph
@@ -150,7 +150,7 @@ class SessionAnalyzer:
             'enhanced_metadata': enhanced_metadata
         }
     
-    def _extract_semantic_patterns(self, graph: Dict, metadata: Dict) -> Dict[str, Any]:
+    def _extract_semantic_patterns(self, graph: dict, metadata: dict) -> dict[str, Any]:
         """Extract semantic event patterns from the graph"""
         
         nodes = graph['rich_node_features']
@@ -202,7 +202,7 @@ class SessionAnalyzer:
             'total_semantic_events': fvg_events + expansion_events + consolidation_events + retracement_events + reversal_events + liquidity_sweeps + pd_array_interactions
         }
     
-    def _extract_timing_analysis(self, graph: Dict, metadata: Dict) -> Dict[str, Any]:
+    def _extract_timing_analysis(self, graph: dict, metadata: dict) -> dict[str, Any]:
         """Extract timing and temporal analysis"""
         
         nodes = graph['rich_node_features']
@@ -228,7 +228,7 @@ class SessionAnalyzer:
             }
         }
     
-    def _extract_market_analysis(self, graph: Dict, metadata: Dict, enhanced_metadata: Dict) -> Dict[str, Any]:
+    def _extract_market_analysis(self, graph: dict, metadata: dict, enhanced_metadata: dict) -> dict[str, Any]:
         """Extract market characteristics and analysis"""
         
         nodes = graph['rich_node_features']

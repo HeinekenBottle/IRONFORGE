@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-import os
 from pathlib import Path
 from typing import Any
 
@@ -115,7 +114,7 @@ def load_aux_trader_data(run_dir: Path) -> dict[str, Any]:
                 }
             }
         
-    except Exception as e:
+    except Exception:
         # Graceful fallback on any errors
         pass
     
@@ -240,7 +239,7 @@ def build_minidash(
         stats_path = Path(run_dir) / "confluence" / "stats.json"
         if stats_path.exists():
             try:
-                with open(stats_path, 'r') as f:
+                with open(stats_path) as f:
                     stats = json.load(f)
                 scale = stats.get("scale", "")
                 threshold = stats.get("threshold", None)
@@ -264,7 +263,7 @@ def build_minidash(
                     health_text = f"Health: ✗ Fail (cov={coverage:.1%}, var={variance:.2e})"
                 else:
                     health_color = "#ffc107"  # yellow
-                    health_text = f"Health: ? Unknown"
+                    health_text = "Health: ? Unknown"
                 
                 health_badge = f'<span style="background:{health_color};color:white;padding:2px 6px;border-radius:3px;margin-left:10px">{health_text}</span>'
                 

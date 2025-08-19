@@ -7,14 +7,16 @@ Tests TGAT archaeological discovery using HTF-enhanced 51D node features
 to demonstrate the enhanced discovery capabilities with temporal context.
 """
 
-import json
 import logging
-import numpy as np
-from pathlib import Path
-from typing import Dict, List, Any, Tuple
 from dataclasses import dataclass
+from typing import Any
 
-from ironforge.converters.htf_context_processor import HTFContextProcessor, create_default_htf_config
+import numpy as np
+
+from ironforge.converters.htf_context_processor import (
+    HTFContextProcessor,
+    create_default_htf_config,
+)
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -24,11 +26,11 @@ logger = logging.getLogger(__name__)
 class ArchaeologicalZone:
     """Represents a discovered archaeological zone"""
     zone_id: str
-    timestamp_range: Tuple[int, int]
+    timestamp_range: tuple[int, int]
     price_level: float
     zone_type: str  # 'resistance', 'support', 'pivot', 'breakout'
     confidence: float
-    htf_context: Dict[str, float]
+    htf_context: dict[str, float]
     theoretical_basis: str  # Theory A or Theory B
 
 
@@ -38,8 +40,8 @@ class ArchaeologicalDiscoverer:
     def __init__(self):
         self.htf_processor = HTFContextProcessor(create_default_htf_config())
     
-    def discover_archaeological_zones(self, session_events: List[Dict], 
-                                    session_metadata: Dict) -> List[ArchaeologicalZone]:
+    def discover_archaeological_zones(self, session_events: list[dict], 
+                                    session_metadata: dict) -> list[ArchaeologicalZone]:
         """Discover archaeological zones using HTF-enhanced features"""
         
         print(f"🏛️ Archaeological Discovery: {session_metadata.get('session_id', 'Unknown')}")
@@ -73,8 +75,8 @@ class ArchaeologicalDiscoverer:
         
         return validated_zones
     
-    def _discover_dimensional_anchoring(self, events: List[Dict], 
-                                      htf_features: Dict) -> List[ArchaeologicalZone]:
+    def _discover_dimensional_anchoring(self, events: list[dict], 
+                                      htf_features: dict) -> list[ArchaeologicalZone]:
         """Discover Theory B dimensional anchoring zones"""
         
         zones = []
@@ -86,7 +88,7 @@ class ArchaeologicalDiscoverer:
         target_distances = [-0.6, -0.4, 0.4, 0.6]
         
         for i, (event, dist, barpos, regime) in enumerate(zip(
-            events, daily_mid_distances, barpos_m15, htf_regimes
+            events, daily_mid_distances, barpos_m15, htf_regimes, strict=False
         )):
             # Skip if missing data
             if np.isnan(dist) or np.isnan(barpos) or np.isnan(regime):
@@ -118,8 +120,8 @@ class ArchaeologicalDiscoverer:
         print(f"   Dimensional Anchoring: {len(zones)} zones discovered")
         return zones
     
-    def _discover_regime_shift_markers(self, events: List[Dict], 
-                                     htf_features: Dict) -> List[ArchaeologicalZone]:
+    def _discover_regime_shift_markers(self, events: list[dict], 
+                                     htf_features: dict) -> list[ArchaeologicalZone]:
         """Discover HTF regime shift archaeological markers"""
         
         zones = []
@@ -167,8 +169,8 @@ class ArchaeologicalDiscoverer:
         print(f"   Regime Shift Markers: {len(zones)} zones discovered")
         return zones
     
-    def _discover_sv_anomaly_sites(self, events: List[Dict], 
-                                 htf_features: Dict) -> List[ArchaeologicalZone]:
+    def _discover_sv_anomaly_sites(self, events: list[dict], 
+                                 htf_features: dict) -> list[ArchaeologicalZone]:
         """Discover synthetic volume anomaly archaeological sites"""
         
         zones = []
@@ -217,7 +219,7 @@ class ArchaeologicalDiscoverer:
         print(f"   SV Anomaly Sites: {len(zones)} zones discovered")
         return zones
     
-    def _validate_zones_with_htf_context(self, zones: List[ArchaeologicalZone]) -> List[ArchaeologicalZone]:
+    def _validate_zones_with_htf_context(self, zones: list[ArchaeologicalZone]) -> list[ArchaeologicalZone]:
         """Validate discovered zones using HTF context"""
         
         validated_zones = []
@@ -237,10 +239,9 @@ class ArchaeologicalDiscoverer:
                         zone.confidence = min(1.0, base_confidence + 0.15)
             
             # Boost confidence for Theory B dimensional anchoring
-            if zone.theoretical_basis == 'Theory B':
-                if 'theoretical_zone' in htf_ctx:
-                    if htf_ctx['theoretical_zone'] in ['40%', '60%']:  # Key zones
-                        zone.confidence = min(1.0, base_confidence + 0.1)
+            if zone.theoretical_basis == 'Theory B' and 'theoretical_zone' in htf_ctx:
+                if htf_ctx['theoretical_zone'] in ['40%', '60%']:  # Key zones
+                    zone.confidence = min(1.0, base_confidence + 0.1)
             
             # Filter out low-confidence zones
             if zone.confidence >= 0.6:
@@ -249,7 +250,7 @@ class ArchaeologicalDiscoverer:
         print(f"   Validated Zones: {len(validated_zones)} / {len(zones)} zones passed validation")
         return validated_zones
     
-    def generate_discovery_report(self, zones: List[ArchaeologicalZone]) -> Dict[str, Any]:
+    def generate_discovery_report(self, zones: list[ArchaeologicalZone]) -> dict[str, Any]:
         """Generate comprehensive archaeological discovery report"""
         
         if not zones:

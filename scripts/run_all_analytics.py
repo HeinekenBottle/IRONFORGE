@@ -3,10 +3,11 @@
 Run All Analytics: Comprehensive validation of macro-micro relationship analytics
 Executes all three analyses: HTF→trade horizons, cross-session influence, session prototypes
 """
+import json
 import subprocess
 import sys
 from pathlib import Path
-import json
+
 
 def run_analysis(script_name: str, description: str):
     """Run an analysis script and return success status."""
@@ -166,7 +167,7 @@ def create_summary_report(run_path: Path):
     print(f"✅ Summary report saved: {summary_path}")
     
     # Display summary
-    print(f"\n📊 ANALYTICS SUITE SUMMARY")
+    print("\n📊 ANALYTICS SUITE SUMMARY")
     print(f"Run Path: {run_path}")
     print(f"Completed Analyses: {len(summary_data['completed_analyses'])}/3")
     
@@ -207,7 +208,7 @@ def main():
     validation_success = validate_outputs(run_path)
     
     # Create summary report
-    summary_data = create_summary_report(run_path)
+    create_summary_report(run_path)
     
     # Final assessment
     total_success = sum(results)
@@ -221,11 +222,11 @@ def main():
     print(f"Overall Success: {'✅' if overall_success else '❌'}")
     
     if overall_success:
-        print(f"\n🎯 SUCCESS: All macro-micro analytics completed successfully")
+        print("\n🎯 SUCCESS: All macro-micro analytics completed successfully")
         print(f"📁 Results available in: {run_path}/aux/")
         print(f"📋 Summary report: {run_path}/aux/analytics_suite_summary.json")
     else:
-        print(f"\n❌ Some analyses failed or outputs missing")
+        print("\n❌ Some analyses failed or outputs missing")
     
     return overall_success
 

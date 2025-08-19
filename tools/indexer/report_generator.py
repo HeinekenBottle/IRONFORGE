@@ -15,7 +15,7 @@ import json
 import logging
 import time
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 
 class ReportGenerator:
@@ -33,7 +33,7 @@ class ReportGenerator:
     def __init__(self):
         self.logger = logging.getLogger('ironforge.indexer.report')
     
-    def generate_reports(self, analysis_results: Dict[str, Any], output_dir: Path) -> Dict[str, str]:
+    def generate_reports(self, analysis_results: dict[str, Any], output_dir: Path) -> dict[str, str]:
         """
         Generate all report types from analysis results.
         
@@ -71,7 +71,7 @@ class ReportGenerator:
         self.logger.info(f"Generated {len(report_paths)} reports in {output_dir}")
         return report_paths
     
-    def _generate_json_report(self, analysis_results: Dict[str, Any], output_path: Path) -> None:
+    def _generate_json_report(self, analysis_results: dict[str, Any], output_path: Path) -> None:
         """Generate comprehensive JSON report optimized for AI assistants."""
         # Extract key sections
         project_overview = analysis_results.get('project_overview', {})
@@ -134,7 +134,7 @@ class ReportGenerator:
         
         self.logger.info(f"Generated AI-optimized JSON report: {output_path}")
     
-    def _generate_markdown_summary(self, analysis_results: Dict[str, Any], output_path: Path) -> None:
+    def _generate_markdown_summary(self, analysis_results: dict[str, Any], output_path: Path) -> None:
         """Generate human-readable Markdown summary."""
         project_overview = analysis_results.get('project_overview', {})
         engine_architecture = analysis_results.get('engine_architecture', {})
@@ -152,9 +152,9 @@ class ReportGenerator:
         
         self.logger.info(f"Generated Markdown summary: {output_path}")
     
-    def _build_markdown_content(self, project_overview: Dict, engine_architecture: Dict, 
-                              dependency_map: Dict, complexity_analysis: Dict, 
-                              metadata: Dict) -> str:
+    def _build_markdown_content(self, project_overview: dict, engine_architecture: dict, 
+                              dependency_map: dict, complexity_analysis: dict, 
+                              metadata: dict) -> str:
         """Build the Markdown content."""
         
         # Header and overview
@@ -244,13 +244,13 @@ IRONFORGE follows a multi-engine architecture pattern with clear separation of c
         
         return md
     
-    def _format_list(self, items: List[str]) -> str:
+    def _format_list(self, items: list[str]) -> str:
         """Format a list as Markdown bullet points."""
         if not items:
             return "- None"
         return "\n".join(f"- {item}" for item in items)
     
-    def _format_components(self, components: List[Dict]) -> str:
+    def _format_components(self, components: list[dict]) -> str:
         """Format components list."""
         if not components:
             return "- No components found"
@@ -264,7 +264,7 @@ IRONFORGE follows a multi-engine architecture pattern with clear separation of c
         
         return "\n".join(formatted)
     
-    def _format_key_classes(self, classes: List[Dict]) -> str:
+    def _format_key_classes(self, classes: list[dict]) -> str:
         """Format key classes list."""
         if not classes:
             return "- No public classes found"
@@ -278,7 +278,7 @@ IRONFORGE follows a multi-engine architecture pattern with clear separation of c
         
         return "\n".join(formatted)
     
-    def _format_cross_engine_flows(self, flows: Dict) -> str:
+    def _format_cross_engine_flows(self, flows: dict) -> str:
         """Format cross-engine dependency flows."""
         if not flows.get('flow_summary'):
             return "No significant cross-engine dependencies detected."
@@ -289,7 +289,7 @@ IRONFORGE follows a multi-engine architecture pattern with clear separation of c
         
         return "\n".join(formatted)
     
-    def _format_circular_dependencies(self, cycles: List[Dict]) -> str:
+    def _format_circular_dependencies(self, cycles: list[dict]) -> str:
         """Format circular dependencies."""
         if not cycles:
             return "✅ No circular dependencies detected."
@@ -304,7 +304,7 @@ IRONFORGE follows a multi-engine architecture pattern with clear separation of c
         
         return "\n".join(formatted)
     
-    def _format_hub_modules(self, hubs: List[Dict]) -> str:
+    def _format_hub_modules(self, hubs: list[dict]) -> str:
         """Format hub modules."""
         if not hubs:
             return "No significant hub modules identified."
@@ -315,7 +315,7 @@ IRONFORGE follows a multi-engine architecture pattern with clear separation of c
         
         return "\n".join(formatted)
     
-    def _format_complexity_hotspots(self, hotspots: List[Dict]) -> str:
+    def _format_complexity_hotspots(self, hotspots: list[dict]) -> str:
         """Format complexity hotspots."""
         if not hotspots:
             return "No high-complexity functions detected."
@@ -326,7 +326,7 @@ IRONFORGE follows a multi-engine architecture pattern with clear separation of c
         
         return "\n".join(formatted)
     
-    def _generate_health_assessment(self, engine_architecture: Dict, dependency_map: Dict, complexity_analysis: Dict) -> str:
+    def _generate_health_assessment(self, engine_architecture: dict, dependency_map: dict, complexity_analysis: dict) -> str:
         """Generate architecture health assessment."""
         assessments = []
         
@@ -368,7 +368,7 @@ IRONFORGE follows a multi-engine architecture pattern with clear separation of c
         
         return "\n".join(assessments)
     
-    def _generate_recommendations(self, engine_architecture: Dict, dependency_map: Dict, complexity_analysis: Dict) -> str:
+    def _generate_recommendations(self, engine_architecture: dict, dependency_map: dict, complexity_analysis: dict) -> str:
         """Generate architecture improvement recommendations."""
         recommendations = []
         
@@ -402,7 +402,7 @@ IRONFORGE follows a multi-engine architecture pattern with clear separation of c
         
         return "\n".join(recommendations)
     
-    def _process_engine_architecture_for_ai(self, engine_architecture: Dict) -> Dict[str, Any]:
+    def _process_engine_architecture_for_ai(self, engine_architecture: dict) -> dict[str, Any]:
         """Process engine architecture data for AI consumption."""
         ai_engines = {}
         
@@ -438,7 +438,7 @@ IRONFORGE follows a multi-engine architecture pattern with clear separation of c
         
         return ai_engines
     
-    def _simplify_import_graph(self, import_graph: Dict) -> Dict[str, Any]:
+    def _simplify_import_graph(self, import_graph: dict) -> dict[str, Any]:
         """Simplify import graph for AI consumption."""
         simplified = {}
         
@@ -451,7 +451,7 @@ IRONFORGE follows a multi-engine architecture pattern with clear separation of c
         
         return simplified
     
-    def _organize_public_interfaces(self, public_interfaces: Dict) -> Dict[str, Any]:
+    def _organize_public_interfaces(self, public_interfaces: dict) -> dict[str, Any]:
         """Organize public interfaces by engine for AI consumption."""
         organized = {}
         
@@ -477,7 +477,7 @@ IRONFORGE follows a multi-engine architecture pattern with clear separation of c
         
         return organized
     
-    def _generate_architecture_insights(self, analysis_results: Dict[str, Any]) -> Dict[str, Any]:
+    def _generate_architecture_insights(self, analysis_results: dict[str, Any]) -> dict[str, Any]:
         """Generate high-level architecture insights."""
         insights = {
             'design_patterns': [],
@@ -513,7 +513,7 @@ IRONFORGE follows a multi-engine architecture pattern with clear separation of c
         
         # Identify strengths
         engine_architecture = analysis_results.get('engine_architecture', {})
-        engine_count = len([e for e in engine_architecture.keys() if e != 'metadata'])
+        engine_count = len([e for e in engine_architecture if e != 'metadata'])
         
         if engine_count >= 5:
             insights['strengths'].append({
@@ -523,7 +523,7 @@ IRONFORGE follows a multi-engine architecture pattern with clear separation of c
         
         return insights
     
-    def _generate_ai_guidance(self, analysis_results: Dict[str, Any]) -> Dict[str, Any]:
+    def _generate_ai_guidance(self, analysis_results: dict[str, Any]) -> dict[str, Any]:
         """Generate guidance specifically for AI assistants."""
         guidance = {
             'primary_entry_points': [],
@@ -566,14 +566,14 @@ IRONFORGE follows a multi-engine architecture pattern with clear separation of c
         
         return guidance
     
-    def _generate_engine_report(self, analysis_results: Dict[str, Any], output_path: Path) -> None:
+    def _generate_engine_report(self, analysis_results: dict[str, Any], output_path: Path) -> None:
         """Generate engine-specific detailed report."""
         engine_architecture = analysis_results.get('engine_architecture', {})
         
         engine_report = {
             'engines': engine_architecture,
             'summary': {
-                'total_engines': len([e for e in engine_architecture.keys() if e != 'metadata']),
+                'total_engines': len([e for e in engine_architecture if e != 'metadata']),
                 'total_components': sum(
                     len(data.get('components', [])) 
                     for data in engine_architecture.values() 
@@ -590,7 +590,7 @@ IRONFORGE follows a multi-engine architecture pattern with clear separation of c
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(engine_report, f, indent=2, ensure_ascii=False)
     
-    def _generate_dependency_report(self, analysis_results: Dict[str, Any], output_path: Path) -> None:
+    def _generate_dependency_report(self, analysis_results: dict[str, Any], output_path: Path) -> None:
         """Generate dependency-specific detailed report."""
         dependency_map = analysis_results.get('dependency_map', {})
         

@@ -24,7 +24,6 @@ import json
 import os
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Dict, List
 
 
 class EnhancedSessionRelativityProcessor:
@@ -37,7 +36,7 @@ class EnhancedSessionRelativityProcessor:
         self.session_count = 0
         self.processed_files = []
         
-    def calculate_session_statistics(self, session_data: Dict) -> Dict:
+    def calculate_session_statistics(self, session_data: dict) -> dict:
         """
         Calculate session-wide statistics for normalization from enhanced sessions
         """
@@ -123,7 +122,7 @@ class EnhancedSessionRelativityProcessor:
             
         return stats
     
-    def add_relativity_to_price_movements(self, price_movements: List, stats: Dict) -> List:
+    def add_relativity_to_price_movements(self, price_movements: list, stats: dict) -> list:
         """
         Add relativity features to price_movements array in enhanced sessions
         """
@@ -277,7 +276,7 @@ class EnhancedSessionRelativityProcessor:
                 
         return enhanced_movements
     
-    def process_session(self, session_data: Dict) -> Dict:
+    def process_session(self, session_data: dict) -> dict:
         """
         Process a single enhanced session to add price relativity features
         """
@@ -323,7 +322,7 @@ class EnhancedSessionRelativityProcessor:
         
         return enhanced_session
     
-    def process_all_enhanced_sessions(self, input_dir: str, output_dir: str) -> Dict:
+    def process_all_enhanced_sessions(self, input_dir: str, output_dir: str) -> dict:
         """
         Process all enhanced sessions to add price relativity features
         """
@@ -353,7 +352,7 @@ class EnhancedSessionRelativityProcessor:
             
             try:
                 # Load enhanced session data
-                with open(filepath, 'r') as f:
+                with open(filepath) as f:
                     session_data = json.load(f)
                 
                 # Add relativity features
@@ -424,7 +423,7 @@ class EnhancedSessionRelativityProcessor:
         
         return results
     
-    def _validate_enhanced_data(self, enhanced_data: Dict, filename: str) -> None:
+    def _validate_enhanced_data(self, enhanced_data: dict, filename: str) -> None:
         """
         Validate that enhanced data has all required relativity features
         """

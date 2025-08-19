@@ -3,11 +3,11 @@
 A/B Test: Measure real lift from phase/chain adapters
 Goal: prove phase/chain adapters help at trade horizons.
 """
-import pandas as pd
 import json
-import glob
 import os
-from pathlib import Path
+
+import pandas as pd
+
 
 def simulate_adapter_effects(baseline_scores_df: pd.DataFrame, trajectories_df: pd.DataFrame, enable_adapters: bool = True) -> pd.DataFrame:
     """Simulate the effect of adapters on confluence scores."""
@@ -163,7 +163,7 @@ def run_ab_test():
         ret_lift = enhanced_row["med_ret_12b"] - baseline_row["med_ret_12b"]
         var_change = enhanced_row["var(conf)"] - baseline_row["var(conf)"]
         
-        print(f"\\n=== Performance Lift Analysis ===")
+        print("\\n=== Performance Lift Analysis ===")
         print(f"Hit Rate Lift: {hit_rate_lift:+.4f} ({hit_rate_lift/baseline_row['P(hit+100)']*100:+.1f}%)")
         print(f"Return Lift: {ret_lift:+.4f} ({ret_lift/abs(baseline_row['med_ret_12b'])*100:+.1f}% if baseline != 0)")
         print(f"Confidence Var Change: {var_change:+.2e}")
@@ -173,7 +173,7 @@ def run_ab_test():
         accept_returns = ret_lift > 0 or abs(ret_lift) < 0.01  # Accept if positive or minimal degradation
         accept_variance = var_change < 0.01  # Accept if variance doesn't increase dramatically
         
-        print(f"\\n=== Acceptance Criteria ===")
+        print("\\n=== Acceptance Criteria ===")
         print(f"✅ Hit Rate Improvement: {accept_hit_rate} (lift: {hit_rate_lift:+.4f})")
         print(f"✅ Returns Acceptable: {accept_returns} (lift: {ret_lift:+.4f})")
         print(f"✅ Variance Healthy: {accept_variance} (change: {var_change:+.2e})")

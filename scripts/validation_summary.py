@@ -3,9 +3,11 @@
 WAF-NEXT Validation Summary
 Demonstrates completed implementation of 3-task validation plan
 """
-import pandas as pd
 import json
 from pathlib import Path
+
+import pandas as pd
+
 
 def check_ab_test_framework():
     """Check A/B test validation framework."""
@@ -16,7 +18,7 @@ def check_ab_test_framework():
     enhanced_config = Path("configs/ab_test_enhanced.yml")
     
     if baseline_config.exists() and enhanced_config.exists():
-        print(f"✅ A/B test configs created:")
+        print("✅ A/B test configs created:")
         print(f"   - Baseline (adapters OFF): {baseline_config}")
         print(f"   - Enhanced (adapters ON): {enhanced_config}")
     
@@ -37,7 +39,7 @@ def check_ab_test_framework():
             with open(demo_results) as f:
                 results = json.load(f)
             
-            print(f"✅ Demo A/B test results available:")
+            print("✅ Demo A/B test results available:")
             baseline = results["baseline"]
             enhanced = results["enhanced"]
             acceptance = results["acceptance"]
@@ -49,15 +51,15 @@ def check_ab_test_framework():
         except Exception as e:
             print(f"⚠️  Demo results exist but couldn't parse: {e}")
     
-    print(f"📋 A/B Test Framework includes:")
-    print(f"   - Baseline vs Enhanced config comparison")
-    print(f"   - P(hit_+100_12b), fwd_ret_12b median, var(confidence) metrics")
-    print(f"   - Acceptance criteria with health gates")
-    print(f"   - Synthetic data for methodology demonstration")
+    print("📋 A/B Test Framework includes:")
+    print("   - Baseline vs Enhanced config comparison")
+    print("   - P(hit_+100_12b), fwd_ret_12b median, var(confidence) metrics")
+    print("   - Acceptance criteria with health gates")
+    print("   - Synthetic data for methodology demonstration")
 
 def check_watchlist():
     """Check watchlist creation and integration."""
-    print(f"\\n=== 2. Watchlist Creation ✅ ===")
+    print("\\n=== 2. Watchlist Creation ✅ ===")
     
     # Check watchlist script
     watchlist_script = Path("scripts/create_watchlist.py")
@@ -90,14 +92,14 @@ def check_watchlist():
             except Exception as e:
                 print(f"⚠️  Watchlist exists but couldn't parse: {e}")
     
-    print(f"📋 Watchlist Features:")
-    print(f"   - zone_id, ts, center_node_id, confidence, cohesion, in_burst")
-    print(f"   - chain_tag, fwd_ret_12b, hit_+100_12b, time_to_+100_bars")
-    print(f"   - phase_bucket, phase_hit_rate, trading_score, HTF context")
+    print("📋 Watchlist Features:")
+    print("   - zone_id, ts, center_node_id, confidence, cohesion, in_burst")
+    print("   - chain_tag, fwd_ret_12b, hit_+100_12b, time_to_+100_bars")
+    print("   - phase_bucket, phase_hit_rate, trading_score, HTF context")
 
 def check_minidash_integration():
     """Check minidash watchlist panel integration."""
-    print(f"\\n=== 3. Minidash Integration ✅ ===")
+    print("\\n=== 3. Minidash Integration ✅ ===")
     
     # Check if minidash has watchlist function
     minidash_file = Path("ironforge/reporting/minidash.py")
@@ -105,13 +107,13 @@ def check_minidash_integration():
         try:
             minidash_content = minidash_file.read_text()
             if "load_watchlist_data" in minidash_content:
-                print(f"✅ Watchlist loading function added to minidash")
+                print("✅ Watchlist loading function added to minidash")
             
             if "🎯 Watchlist" in minidash_content:
-                print(f"✅ Watchlist panel template added to minidash")
+                print("✅ Watchlist panel template added to minidash")
             
             if "watchlist_panel" in minidash_content:
-                print(f"✅ Watchlist panel integration complete")
+                print("✅ Watchlist panel integration complete")
                 
         except Exception as e:
             print(f"⚠️  Could not check minidash: {e}")
@@ -126,14 +128,14 @@ def check_minidash_integration():
         try:
             html_content = test_output.read_text()
             if "🎯 Watchlist" in html_content:
-                print(f"✅ Test minidash generated with watchlist panel")
+                print("✅ Test minidash generated with watchlist panel")
             
         except Exception as e:
             print(f"⚠️  Test output exists but couldn't parse: {e}")
 
 def check_transparency_logging():
     """Check adapter transparency logging."""
-    print(f"\\n=== 4. Transparency Logging ✅ ===")
+    print("\\n=== 4. Transparency Logging ✅ ===")
     
     # Check confluence scoring for adapter logging
     scoring_file = Path("ironforge/confluence/scoring.py")
@@ -142,13 +144,13 @@ def check_transparency_logging():
             scoring_content = scoring_file.read_text()
             
             if '"phase_weighting": phase_weighting' in scoring_content:
-                print(f"✅ Phase weighting status logged in stats.json")
+                print("✅ Phase weighting status logged in stats.json")
             
             if '"chain_bonus": chain_bonus' in scoring_content:
-                print(f"✅ Chain bonus status logged in stats.json")
+                print("✅ Chain bonus status logged in stats.json")
             
             if 'phase_weight_mean' in scoring_content:
-                print(f"✅ Adapter-specific statistics logged")
+                print("✅ Adapter-specific statistics logged")
                 
         except Exception as e:
             print(f"⚠️  Could not check confluence scoring: {e}")
@@ -175,14 +177,14 @@ def check_transparency_logging():
 
 def check_stability_framework():
     """Check stability testing framework (pending)."""
-    print(f"\\n=== 5. Stability Testing Framework (Pending) ===")
-    print(f"📋 Stability Sweep Requirements:")
+    print("\\n=== 5. Stability Testing Framework (Pending) ===")
+    print("📋 Stability Sweep Requirements:")
     print(f"   - Re-run TGAT with seeds = {7, 13, 42}")
     print(f"   - Test window_bars = {128, 192, 256}")
-    print(f"   - Compare top-10 zones' embedding cohesion")
-    print(f"   - Calculate watchlist overlap (Jaccard)")
-    print(f"   - Accept: ≥60% overlap across seeds; cohesion stable (±0.05)")
-    print(f"🏗️  This can be implemented when real TGAT discovery is operational")
+    print("   - Compare top-10 zones' embedding cohesion")
+    print("   - Calculate watchlist overlap (Jaccard)")
+    print("   - Accept: ≥60% overlap across seeds; cohesion stable (±0.05)")
+    print("🏗️  This can be implemented when real TGAT discovery is operational")
 
 def main():
     """Run complete validation summary."""
@@ -195,20 +197,20 @@ def main():
     check_transparency_logging()
     check_stability_framework()
     
-    print(f"\\n" + "=" * 50)
-    print(f"🎯 COMPLETION STATUS:")
-    print(f"✅ Task 1: A/B Test Framework - COMPLETE")
-    print(f"✅ Task 2: Watchlist Creation - COMPLETE")  
-    print(f"✅ Task 3: Minidash Integration - COMPLETE")
-    print(f"✅ Task 4: Transparency Logging - COMPLETE")
-    print(f"🏗️  Task 5: Stability Testing - Framework ready, pending real TGAT")
+    print("\\n" + "=" * 50)
+    print("🎯 COMPLETION STATUS:")
+    print("✅ Task 1: A/B Test Framework - COMPLETE")
+    print("✅ Task 2: Watchlist Creation - COMPLETE")  
+    print("✅ Task 3: Minidash Integration - COMPLETE")
+    print("✅ Task 4: Transparency Logging - COMPLETE")
+    print("🏗️  Task 5: Stability Testing - Framework ready, pending real TGAT")
     
-    print(f"\\n📊 RECOMMENDATIONS:")
-    print(f"- A/B test methodology demonstrates proper validation approach")
-    print(f"- Watchlist provides daily trader-focused zone shortlist")
-    print(f"- Minidash integration gives visual watchlist access")
-    print(f"- Adapter transparency ensures config audit trail")
-    print(f"- Ready for production deployment when TGAT discovery is operational")
+    print("\\n📊 RECOMMENDATIONS:")
+    print("- A/B test methodology demonstrates proper validation approach")
+    print("- Watchlist provides daily trader-focused zone shortlist")
+    print("- Minidash integration gives visual watchlist access")
+    print("- Adapter transparency ensures config audit trail")
+    print("- Ready for production deployment when TGAT discovery is operational")
     
     return True
 

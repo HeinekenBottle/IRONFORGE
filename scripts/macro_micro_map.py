@@ -3,11 +3,12 @@
 Macro→Micro Outcome Map: HTF→Trade horizons quantification
 Goal: quantify how HTF phase (f47–f50, f49) conditions zone outcomes over 3/12/24 bars
 """
-import pandas as pd
-import numpy as np
 import json
 from pathlib import Path
-from collections import defaultdict
+
+import numpy as np
+import pandas as pd
+
 
 def load_zone_data(run_path: Path):
     """Load zone cards with HTF snapshots and merge with trajectory outcomes."""
@@ -269,7 +270,7 @@ def analyze_macro_micro_outcomes(run_path: Path):
     zones_df = create_htf_buckets(zones_df)
     
     # Show HTF feature distributions
-    print(f"\n=== HTF Feature Distributions ===")
+    print("\n=== HTF Feature Distributions ===")
     for feature in ["f50_regime", "f49_dist_mid", "f47_bar_pos"]:
         if feature in zones_df.columns:
             print(f"{feature}: {zones_df[feature].describe().round(3).to_dict()}")
@@ -281,7 +282,7 @@ def analyze_macro_micro_outcomes(run_path: Path):
         print("❌ No valid bucket outcomes computed")
         return None
     
-    print(f"\n=== Bucket Analysis Results ===")
+    print("\n=== Bucket Analysis Results ===")
     print(f"Generated {len(bucket_outcomes)} HTF→outcome buckets")
     
     # Filter to buckets with meaningful sample sizes
@@ -295,7 +296,7 @@ def analyze_macro_micro_outcomes(run_path: Path):
     # Top-3 buckets by hit rate
     top_hit_rate = significant_buckets.nlargest(3, "P_hit_+100_12b")
     
-    print(f"\n=== Top-3 Buckets by P(hit_+100_12b) ===")
+    print("\n=== Top-3 Buckets by P(hit_+100_12b) ===")
     for _, bucket in top_hit_rate.iterrows():
         print(f"  {bucket['bucket_name']}: "
               f"P(hit)={bucket['P_hit_+100_12b']:.3f}, "
@@ -305,7 +306,7 @@ def analyze_macro_micro_outcomes(run_path: Path):
     # Top-3 buckets by returns
     top_returns = significant_buckets.nlargest(3, "median_fwd_ret_12b")
     
-    print(f"\n=== Top-3 Buckets by Median Returns ===")
+    print("\n=== Top-3 Buckets by Median Returns ===")
     for _, bucket in top_returns.iterrows():
         print(f"  {bucket['bucket_name']}: "
               f"ret={bucket['median_fwd_ret_12b']:.3f}%, "

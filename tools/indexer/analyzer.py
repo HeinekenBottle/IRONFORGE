@@ -14,7 +14,7 @@ Deep AST-based analysis of Python source code to extract:
 import ast
 import logging
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Set
+from typing import Any
 
 
 class CodeAnalyzer:
@@ -32,7 +32,7 @@ class CodeAnalyzer:
     def __init__(self):
         self.logger = logging.getLogger('ironforge.indexer.analyzer')
     
-    def analyze_file(self, file_path: Path, quick_mode: bool = False) -> Dict[str, Any]:
+    def analyze_file(self, file_path: Path, quick_mode: bool = False) -> dict[str, Any]:
         """
         Analyze a single Python file using AST parsing.
         
@@ -44,7 +44,7 @@ class CodeAnalyzer:
             Dictionary containing analysis results
         """
         try:
-            with open(file_path, 'r', encoding='utf-8') as f:
+            with open(file_path, encoding='utf-8') as f:
                 source_code = f.read()
             
             # Parse AST
@@ -72,7 +72,7 @@ class CodeAnalyzer:
             self.logger.error(f"Failed to analyze {file_path}: {e}")
             return {'error': str(e), 'file_path': str(file_path)}
     
-    def _extract_imports(self, tree: ast.AST) -> List[Dict[str, Any]]:
+    def _extract_imports(self, tree: ast.AST) -> list[dict[str, Any]]:
         """Extract import statements and dependencies."""
         imports = []
         
@@ -99,7 +99,7 @@ class CodeAnalyzer:
         
         return imports
     
-    def _extract_classes(self, tree: ast.AST, source_code: str, quick_mode: bool) -> List[Dict[str, Any]]:
+    def _extract_classes(self, tree: ast.AST, source_code: str, quick_mode: bool) -> list[dict[str, Any]]:
         """Extract class definitions and their metadata."""
         classes = []
         
@@ -127,7 +127,7 @@ class CodeAnalyzer:
         
         return classes
     
-    def _extract_functions(self, tree: ast.AST, source_code: str, quick_mode: bool) -> List[Dict[str, Any]]:
+    def _extract_functions(self, tree: ast.AST, source_code: str, quick_mode: bool) -> list[dict[str, Any]]:
         """Extract function definitions and their metadata."""
         functions = []
         
@@ -156,12 +156,12 @@ class CodeAnalyzer:
         
         return functions
     
-    def _extract_methods(self, class_node: ast.ClassDef, source_code: str) -> List[Dict[str, Any]]:
+    def _extract_methods(self, class_node: ast.ClassDef, source_code: str) -> list[dict[str, Any]]:
         """Extract methods from a class definition."""
         methods = []
         
         for node in class_node.body:
-            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            if isinstance(node, ast.FunctionDef | ast.AsyncFunctionDef):
                 method_info = {
                     'name': node.name,
                     'line_number': node.lineno,
@@ -181,7 +181,7 @@ class CodeAnalyzer:
         
         return methods
     
-    def _extract_constants(self, tree: ast.AST) -> List[Dict[str, Any]]:
+    def _extract_constants(self, tree: ast.AST) -> list[dict[str, Any]]:
         """Extract module-level constants."""
         constants = []
         
@@ -197,18 +197,18 @@ class CodeAnalyzer:
         
         return constants
     
-    def _extract_decorators(self, tree: ast.AST) -> Set[str]:
+    def _extract_decorators(self, tree: ast.AST) -> set[str]:
         """Extract all unique decorators used in the file."""
         decorators = set()
         
         for node in ast.walk(tree):
-            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+            if isinstance(node, ast.FunctionDef | ast.AsyncFunctionDef | ast.ClassDef):
                 for decorator in node.decorator_list:
                     decorators.add(self._get_decorator_name(decorator))
         
         return list(decorators)
     
-    def _calculate_metrics(self, tree: ast.AST, source_code: str) -> Dict[str, Any]:
+    def _calculate_metrics(self, tree: ast.AST, source_code: str) -> dict[str, Any]:
         """Calculate various code metrics."""
         lines = source_code.split('\n')
         
@@ -220,10 +220,10 @@ class CodeAnalyzer:
             'complexity_total': self._calculate_total_complexity(tree),
             'class_count': len([n for n in ast.walk(tree) if isinstance(n, ast.ClassDef)]),
             'function_count': len([n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef)]),
-            'import_count': len([n for n in ast.walk(tree) if isinstance(n, (ast.Import, ast.ImportFrom))])
+            'import_count': len([n for n in ast.walk(tree) if isinstance(n, ast.Import | ast.ImportFrom)])
         }
     
-    def _detect_patterns(self, tree: ast.AST, source_code: str) -> List[Dict[str, Any]]:
+    def _detect_patterns(self, tree: ast.AST, source_code: str) -> list[dict[str, Any]]:
         """Detect common design patterns in the code."""
         patterns = []
         
@@ -276,9 +276,8 @@ class CodeAnalyzer:
             if isinstance(node, ast.FunctionDef):
                 if 'create' in node.name.lower() or 'factory' in node.name.lower():
                     return True
-            elif isinstance(node, ast.ClassDef):
-                if 'factory' in node.name.lower():
-                    return True
+            elif isinstance(node, ast.ClassDef) and 'factory' in node.name.lower():
+                return True
         return False
     
     def _detect_builder_pattern(self, tree: ast.AST) -> bool:
@@ -357,7 +356,7 @@ class CodeAnalyzer:
             return f"{self._get_decorator_name(decorator.value)}.{decorator.attr}"
         return str(decorator)
     
-    def _get_annotation(self, annotation: Optional[ast.expr]) -> Optional[str]:
+    def _get_annotation(self, annotation: ast.expr | None) -> str | None:
         """Extract type annotation string."""
         if annotation is None:
             return None
@@ -371,7 +370,7 @@ class CodeAnalyzer:
         
         return ast.unparse(annotation) if hasattr(ast, 'unparse') else str(annotation)
     
-    def _extract_parameters(self, func_node: ast.FunctionDef) -> List[Dict[str, Any]]:
+    def _extract_parameters(self, func_node: ast.FunctionDef) -> list[dict[str, Any]]:
         """Extract function parameters with type hints."""
         params = []
         args = func_node.args
@@ -416,7 +415,7 @@ class CodeAnalyzer:
         complexity = 1  # Base complexity
         
         for node in ast.walk(func_node):
-            if isinstance(node, (ast.If, ast.While, ast.For, ast.ExceptHandler)):
+            if isinstance(node, ast.If | ast.While | ast.For | ast.ExceptHandler):
                 complexity += 1
             elif isinstance(node, ast.BoolOp):
                 complexity += len(node.values) - 1
@@ -443,7 +442,7 @@ class CodeAnalyzer:
         
         return total_complexity
     
-    def _extract_module_docstring(self, tree: ast.AST) -> Optional[str]:
+    def _extract_module_docstring(self, tree: ast.AST) -> str | None:
         """Extract module-level docstring."""
         try:
             return ast.get_docstring(tree)
@@ -474,17 +473,13 @@ class CodeAnalyzer:
     def _is_method(self, func_node: ast.FunctionDef, tree: ast.AST) -> bool:
         """Check if function is a method (inside a class)."""
         for node in ast.walk(tree):
-            if isinstance(node, ast.ClassDef):
-                if func_node in node.body:
-                    return True
+            if isinstance(node, ast.ClassDef) and func_node in node.body:
+                return True
         return False
     
     def _is_generator(self, func_node: ast.FunctionDef) -> bool:
         """Check if function is a generator."""
-        for node in ast.walk(func_node):
-            if isinstance(node, (ast.Yield, ast.YieldFrom)):
-                return True
-        return False
+        return any(isinstance(node, ast.Yield | ast.YieldFrom) for node in ast.walk(func_node))
     
     def _is_abstract_class(self, class_node: ast.ClassDef) -> bool:
         """Check if class is abstract."""
@@ -529,7 +524,7 @@ class CodeAnalyzer:
             for dec in method_node.decorator_list
         )
     
-    def _extract_class_variables(self, class_node: ast.ClassDef) -> List[Dict[str, Any]]:
+    def _extract_class_variables(self, class_node: ast.ClassDef) -> list[dict[str, Any]]:
         """Extract class-level variables."""
         variables = []
         
@@ -545,18 +540,17 @@ class CodeAnalyzer:
         
         return variables
     
-    def _extract_properties(self, class_node: ast.ClassDef) -> List[str]:
+    def _extract_properties(self, class_node: ast.ClassDef) -> list[str]:
         """Extract property names from class."""
         properties = []
         
         for node in class_node.body:
-            if isinstance(node, ast.FunctionDef):
-                if self._is_property(node):
-                    properties.append(node.name)
+            if isinstance(node, ast.FunctionDef) and self._is_property(node):
+                properties.append(node.name)
         
         return properties
     
-    def _extract_function_calls(self, func_node: ast.FunctionDef) -> List[str]:
+    def _extract_function_calls(self, func_node: ast.FunctionDef) -> list[str]:
         """Extract function calls made within a function."""
         calls = []
         
@@ -569,7 +563,7 @@ class CodeAnalyzer:
         
         return list(set(calls))  # Remove duplicates
     
-    def _extract_local_variables(self, func_node: ast.FunctionDef) -> List[str]:
+    def _extract_local_variables(self, func_node: ast.FunctionDef) -> list[str]:
         """Extract local variable names."""
         variables = []
         
@@ -598,7 +592,7 @@ class CodeAnalyzer:
         else:
             return 'unknown'
     
-    def _safe_get_docstring(self, node: ast.AST) -> Optional[str]:
+    def _safe_get_docstring(self, node: ast.AST) -> str | None:
         """Safely extract docstring from AST node."""
         try:
             return ast.get_docstring(node)

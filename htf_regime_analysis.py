@@ -7,17 +7,19 @@ Analyzes HTF context features across different market regimes to understand
 their archaeological discovery potential and behavioral patterns.
 """
 
-import json
 import logging
-import numpy as np
-from pathlib import Path
-from typing import Dict, List, Any, Tuple
 from collections import defaultdict
 from dataclasses import dataclass
+from typing import Any
+
+import numpy as np
 
 from ironforge.converters.htf_context_processor import (
-    HTFContextProcessor, create_default_htf_config,
-    TimeFrameManager, SyntheticVolumeCalculator, HTFRegimeClassifier
+    HTFContextProcessor,
+    HTFRegimeClassifier,
+    SyntheticVolumeCalculator,
+    TimeFrameManager,
+    create_default_htf_config,
 )
 
 logging.basicConfig(level=logging.INFO)
@@ -45,7 +47,7 @@ class HTFRegimeAnalyzer:
         self.sv_calculator = SyntheticVolumeCalculator(self.config)
         self.regime_classifier = HTFRegimeClassifier(self.config)
     
-    def analyze_regime_patterns(self) -> Dict[str, Any]:
+    def analyze_regime_patterns(self) -> dict[str, Any]:
         """Analyze HTF regime patterns across different market conditions"""
         
         print("🏛️ HTF Regime Analysis for Archaeological Discovery")
@@ -82,14 +84,14 @@ class HTFRegimeAnalyzer:
             print(f"   Discovery Potential: {zone_potential['discovery_score']:.2f}/5.0")
         
         # Comparative analysis
-        print(f"\n🔬 Comparative Regime Analysis")
+        print("\n🔬 Comparative Regime Analysis")
         print("=" * 60)
         
         self._comparative_analysis(analysis_results)
         
         return analysis_results
     
-    def _generate_regime_scenarios(self) -> Dict[str, Dict[str, Any]]:
+    def _generate_regime_scenarios(self) -> dict[str, dict[str, Any]]:
         """Generate synthetic market scenarios for different regimes"""
         
         base_time = 1753372800000  # Sample UTC timestamp
@@ -169,7 +171,7 @@ class HTFRegimeAnalyzer:
         
         return scenarios
     
-    def _calculate_regime_characteristics(self, events: List[Dict], features: Dict) -> RegimeCharacteristics:
+    def _calculate_regime_characteristics(self, events: list[dict], features: dict) -> RegimeCharacteristics:
         """Calculate characteristics for the regime"""
         
         prices = [float(e.get('price_level', 0)) for e in events]
@@ -198,7 +200,7 @@ class HTFRegimeAnalyzer:
         )
     
     def _assess_archaeological_potential(self, characteristics: RegimeCharacteristics, 
-                                       features: Dict) -> Dict[str, Any]:
+                                       features: dict) -> dict[str, Any]:
         """Assess archaeological discovery potential for the regime"""
         
         # Zone estimation based on event density and volatility
@@ -249,7 +251,7 @@ class HTFRegimeAnalyzer:
             'regime_clarity': dominant_regime_ratio if regime_counts else 0.0
         }
     
-    def _get_regime_distribution(self, features: Dict) -> Dict[int, int]:
+    def _get_regime_distribution(self, features: dict) -> dict[int, int]:
         """Get distribution of regime codes"""
         regime_counts = defaultdict(int)
         for regime in features.get('f50_htf_regime', []):
@@ -257,7 +259,7 @@ class HTFRegimeAnalyzer:
                 regime_counts[int(regime)] += 1
         return dict(regime_counts)
     
-    def _get_feature_coverage(self, features: Dict, feature_name: str) -> float:
+    def _get_feature_coverage(self, features: dict, feature_name: str) -> float:
         """Get coverage ratio for a feature (non-NaN values)"""
         values = features.get(feature_name, [])
         if not values:
@@ -265,7 +267,7 @@ class HTFRegimeAnalyzer:
         non_nan_count = sum(1 for v in values if not np.isnan(v))
         return non_nan_count / len(values)
     
-    def _get_barpos_variance(self, features: Dict) -> float:
+    def _get_barpos_variance(self, features: dict) -> float:
         """Calculate variance in bar position features"""
         m15_barpos = [v for v in features.get('f47_barpos_m15', []) if not np.isnan(v)]
         h1_barpos = [v for v in features.get('f48_barpos_h1', []) if not np.isnan(v)]
@@ -273,7 +275,7 @@ class HTFRegimeAnalyzer:
         all_barpos = m15_barpos + h1_barpos
         return np.var(all_barpos) if all_barpos else 0.0
     
-    def _summarize_features(self, features: Dict) -> Dict[str, Any]:
+    def _summarize_features(self, features: dict) -> dict[str, Any]:
         """Summarize HTF features for the regime"""
         summary = {}
         
@@ -296,7 +298,7 @@ class HTFRegimeAnalyzer:
         
         return summary
     
-    def _comparative_analysis(self, analysis_results: Dict) -> None:
+    def _comparative_analysis(self, analysis_results: dict) -> None:
         """Perform comparative analysis across regimes"""
         
         print("Regime Discovery Potential Ranking:")
@@ -321,7 +323,7 @@ class HTFRegimeAnalyzer:
         print("\nKey Insights:")
         
         # Compare volatility patterns
-        volatilities = [r['characteristics'].avg_volatility for r in analysis_results.values()]
+        [r['characteristics'].avg_volatility for r in analysis_results.values()]
         max_vol_regime = max(analysis_results.items(), key=lambda x: x[1]['characteristics'].avg_volatility)
         min_vol_regime = min(analysis_results.items(), key=lambda x: x[1]['characteristics'].avg_volatility)
         
@@ -333,8 +335,8 @@ class HTFRegimeAnalyzer:
         print(f"   Total Archaeological Zones: {total_zones}")
         
         # Feature effectiveness
-        print(f"   HTF Features: All 6 features operational across regimes")
-        print(f"   Temporal Integrity: Maintained (no leakage detected)")
+        print("   HTF Features: All 6 features operational across regimes")
+        print("   Temporal Integrity: Maintained (no leakage detected)")
 
 
 def main():
@@ -342,10 +344,10 @@ def main():
     analyzer = HTFRegimeAnalyzer()
     results = analyzer.analyze_regime_patterns()
     
-    print(f"\n✅ HTF Regime Analysis Complete")
+    print("\n✅ HTF Regime Analysis Complete")
     print(f"📊 {len(results)} market regimes analyzed")
-    print(f"🏛️ Archaeological discovery patterns identified")
-    print(f"⚡ Ready for TGAT archaeological discovery integration")
+    print("🏛️ Archaeological discovery patterns identified")
+    print("⚡ Ready for TGAT archaeological discovery integration")
 
 
 if __name__ == "__main__":

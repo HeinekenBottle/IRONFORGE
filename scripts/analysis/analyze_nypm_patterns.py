@@ -83,7 +83,7 @@ def analyze_nypm_patterns():
                     # Look for price clustering
                     prices = [p['price'] for p in patterns]
                     if prices:
-                        price_range = max(prices) - min(prices)
+                        max(prices) - min(prices)
                         avg_price = sum(prices) / len(prices)
                         print(f"     Price range: {min(prices):.0f} - {max(prices):.0f} (avg: {avg_price:.0f})")
                         

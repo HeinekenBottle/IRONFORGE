@@ -3,10 +3,11 @@
 Curate it: Archetype pack v0 (AUX only)
 Promote top 5 motif candidates to enhanced cards with trader context.
 """
-import pandas as pd
-import numpy as np
 import json
 from pathlib import Path
+
+import pandas as pd
+
 
 def load_aux_context(aux_dir: Path, zone_id: str, center_node_id: int):
     """Load AUX context for enhanced archetype cards."""
@@ -290,7 +291,7 @@ def main():
         index_path = run_path / "motifs" / "cards_index.csv"
         if index_path.exists():
             index_df = pd.read_csv(index_path)
-            print(f"\n=== Archetype Pack Summary ===")
+            print("\n=== Archetype Pack Summary ===")
             print(index_df.to_string(index=False))
     else:
         print("❌ Failed to build archetype pack")

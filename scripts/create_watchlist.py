@@ -3,10 +3,12 @@
 Promote 3-5 best cards to a "watchlist" (AUX)
 Goal: give yourself a daily shortlist with horizon stats.
 """
-import pandas as pd
-import numpy as np
 import json
 from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
 
 def load_archetype_cards(run_path: Path):
     """Load enhanced archetype cards and their index."""
@@ -97,7 +99,7 @@ def create_watchlist(run_path: Path, top_n: int = 5):
     print(f"   {len(watchlist_df)} zones selected")
     
     # Display summary
-    print(f"\\n=== Watchlist Summary ===")
+    print("\\n=== Watchlist Summary ===")
     for _, row in watchlist_df.iterrows():
         zone_id = row['zone_id']
         confidence = row['confidence']
@@ -160,7 +162,7 @@ def create_synthetic_watchlist(run_path: Path, top_n: int = 5):
     print(f"   {len(watchlist_df)} demo zones")
     
     # Display summary
-    print(f"\\n=== Synthetic Watchlist Summary ===")
+    print("\\n=== Synthetic Watchlist Summary ===")
     for _, row in watchlist_df.iterrows():
         zone_id = row['zone_id']
         confidence = row['confidence']

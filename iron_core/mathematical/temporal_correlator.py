@@ -5,7 +5,7 @@ Handles prediction-validation correlation and sequence analysis
 
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 import numpy as np
 
@@ -14,11 +14,11 @@ import numpy as np
 class CorrelationResult:
     """Result from temporal correlation analysis"""
     prediction_time: str
-    closest_event_time: Optional[str]
+    closest_event_time: str | None
     time_error_minutes: float
     correlation_strength: float
     validation_status: str
-    contextual_matches: List[Dict[str, Any]]
+    contextual_matches: list[dict[str, Any]]
 
 class TemporalCorrelationEngine:
     """Engine for correlating predictions with validation data across sequences"""
@@ -28,8 +28,8 @@ class TemporalCorrelationEngine:
         self.temporal_window_minutes = 15
         self.correlation_history = []
         
-    def correlate_prediction_validation(self, prediction_time: str, actual_events: List[Any], 
-                                      prediction_context: Optional[Dict] = None) -> CorrelationResult:
+    def correlate_prediction_validation(self, prediction_time: str, actual_events: list[Any], 
+                                      prediction_context: dict | None = None) -> CorrelationResult:
         """
         Correlate a prediction time with actual validation events
         
@@ -115,7 +115,7 @@ class TemporalCorrelationEngine:
             return float('inf')
     
     def _calculate_correlation_strength(self, time_diff: float, event: Any, 
-                                      prediction_context: Optional[Dict]) -> float:
+                                      prediction_context: dict | None) -> float:
         """Calculate correlation strength based on temporal and contextual factors"""
         if time_diff == float('inf'):
             return 0.0
@@ -156,8 +156,8 @@ class TemporalCorrelationEngine:
             else:
                 return "poor_correlation"
     
-    def _find_contextual_matches(self, prediction_context: Optional[Dict], 
-                               actual_events: List[Any]) -> List[Dict[str, Any]]:
+    def _find_contextual_matches(self, prediction_context: dict | None, 
+                               actual_events: list[Any]) -> list[dict[str, Any]]:
         """Find events that match prediction context"""
         if not prediction_context:
             return []
@@ -179,7 +179,7 @@ class TemporalCorrelationEngine:
         
         return sorted(matches, key=lambda x: x['match_score'], reverse=True)
     
-    def get_correlation_statistics(self) -> Dict[str, Any]:
+    def get_correlation_statistics(self) -> dict[str, Any]:
         """Get statistics from correlation history"""
         if not self.correlation_history:
             return {"total_correlations": 0}
@@ -195,7 +195,7 @@ class TemporalCorrelationEngine:
             "correlation_success_rate": len([c for c in correlations if c.correlation_strength >= self.correlation_threshold]) / len(correlations)
         }
     
-    def _get_status_distribution(self, correlations: List[CorrelationResult]) -> Dict[str, int]:
+    def _get_status_distribution(self, correlations: list[CorrelationResult]) -> dict[str, int]:
         """Get distribution of validation statuses"""
         distribution = {}
         for correlation in correlations:
@@ -215,7 +215,7 @@ class SequencePatternAnalyzer:
             'reversal': ['major', 'primer']
         }
         
-    def analyze_sequence_pattern(self, sequence_events: List[Any]) -> Dict[str, Any]:
+    def analyze_sequence_pattern(self, sequence_events: list[Any]) -> dict[str, Any]:
         """Analyze a sequence for known patterns"""
         if len(sequence_events) < 2:
             return {"pattern": "insufficient_data", "confidence": 0.0}
@@ -245,8 +245,8 @@ class SequencePatternAnalyzer:
             "sequence_length": len(cascade_types)
         }
     
-    def _calculate_pattern_match(self, actual_sequence: List[str], 
-                               pattern_sequence: List[str]) -> float:
+    def _calculate_pattern_match(self, actual_sequence: list[str], 
+                               pattern_sequence: list[str]) -> float:
         """Calculate how well an actual sequence matches a known pattern"""
         if len(actual_sequence) != len(pattern_sequence):
             # Partial matching for different lengths
@@ -261,7 +261,7 @@ class SequencePatternAnalyzer:
             matches = sum(1 for a, p in zip(actual_sequence, pattern_sequence, strict=False) if a == p)
             return matches / len(pattern_sequence)
     
-    def detect_emerging_patterns(self, all_sequences: List[List[Any]]) -> Dict[str, Any]:
+    def detect_emerging_patterns(self, all_sequences: list[list[Any]]) -> dict[str, Any]:
         """Detect emerging patterns across multiple sequences"""
         if not all_sequences:
             return {"emerging_patterns": []}
@@ -386,8 +386,8 @@ class HTFMasterController:
         self.beta_h = 0.00442 # Decay rate (16.7-hour half-life)
         
         self.activation_threshold = activation_threshold
-        self.htf_events: List[HTFEvent] = []
-        self.intensity_history: List[HTFIntensity] = []
+        self.htf_events: list[HTFEvent] = []
+        self.intensity_history: list[HTFIntensity] = []
         
     def add_htf_event(self, event_type: str, timestamp: str, magnitude: float = 1.0, 
                       session_context: str = "unknown") -> None:
@@ -453,7 +453,7 @@ class HTFMasterController:
         self.intensity_history.append(intensity)
         return intensity
         
-    def generate_activation_signal(self, htf_intensity: HTFIntensity) -> Dict[str, Any]:
+    def generate_activation_signal(self, htf_intensity: HTFIntensity) -> dict[str, Any]:
         """Generate activation signal for subordinate session processors"""
         
         if not htf_intensity.activated:

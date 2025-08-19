@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 def get_contaminated_sessions():
     """Get list of contaminated sessions that need enhancement."""
-    with open('data_quality_assessment.json', 'r') as f:
+    with open('data_quality_assessment.json') as f:
         data = json.load(f)
     
     contaminated_sessions = []

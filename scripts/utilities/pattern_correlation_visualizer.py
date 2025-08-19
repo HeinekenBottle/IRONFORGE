@@ -14,7 +14,6 @@ Features:
 """
 
 from pathlib import Path
-from typing import Dict, List
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -40,7 +39,7 @@ class PatternCorrelationVisualizer:
             'session_boundary': '#2C3E50' # Dark blue for boundaries
         }
     
-    def generate_correlation_visualizations(self, analysis_results: List[Dict]) -> None:
+    def generate_correlation_visualizations(self, analysis_results: list[dict]) -> None:
         """Generate all pattern correlation visualizations"""
         
         print("🎨 Generating pattern correlation visualizations...")
@@ -69,7 +68,7 @@ class PatternCorrelationVisualizer:
         
         print(f"✅ Pattern correlation visualizations saved to {self.output_dir}/")
     
-    def _prepare_correlation_dataframe(self, analysis_results: List[Dict]) -> pd.DataFrame:
+    def _prepare_correlation_dataframe(self, analysis_results: list[dict]) -> pd.DataFrame:
         """Prepare data for correlation analysis"""
         
         correlation_data = []
@@ -309,7 +308,7 @@ class PatternCorrelationVisualizer:
         # Add flow arrows between stages
         for i in range(len(stages) - 1):
             ax.annotate('', xy=(max(values) * 0.8, i), xytext=(max(values) * 0.8, i + 1),
-                       arrowprops=dict(arrowstyle='->', lw=2, color='gray', alpha=0.6))
+                       arrowprops={"arrowstyle": '->', "lw": 2, "color": 'gray', "alpha": 0.6})
         
         plt.tight_layout()
         plt.savefig(self.output_dir / 'sequential_pattern_analysis.png', dpi=300, bbox_inches='tight')

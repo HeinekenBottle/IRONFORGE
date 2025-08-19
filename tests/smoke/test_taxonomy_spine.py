@@ -5,12 +5,11 @@ Taxonomy Spine Smoke Tests
 Smoke tests for Wave 7.x taxonomy standardization and discovery spine.
 """
 
-import pytest
 
 def test_engine_imports():
     """Test that all three engine entrypoints are importable and callable"""
-    from ironforge.temporal_engine import run_discovery
     from ironforge.semantic_engine import score_confluence
+    from ironforge.temporal_engine import run_discovery
     from ironforge.validation_engine import validate_run
     
     assert callable(run_discovery)
@@ -19,9 +18,7 @@ def test_engine_imports():
 
 def test_taxonomy_contracts():
     """Test that taxonomy contracts are properly defined"""
-    from ironforge.contracts.taxonomy_v1 import (
-        EventType, EdgeType, MarketEvent, TAXONOMY_V1
-    )
+    from ironforge.contracts.taxonomy_v1 import TAXONOMY_V1, EdgeType, EventType
     
     # Check event types
     assert len(EventType) == 6
@@ -47,8 +44,8 @@ def test_cli_commands_exist():
     
 def test_converter_taxonomy_mapping():
     """Test that converter maps taxonomy correctly"""  
-    from ironforge.converters.json_to_parquet import SessionConverter
     from ironforge.converters.htf_context_processor import create_default_htf_config
+    from ironforge.converters.json_to_parquet import SessionConverter
     
     config = create_default_htf_config()
     converter = SessionConverter(config)
@@ -63,7 +60,7 @@ def test_converter_taxonomy_mapping():
     
     expected_kinds = [0, 1, 4, 5]
     
-    for event, expected in zip(test_events, expected_kinds):
+    for event, expected in zip(test_events, expected_kinds, strict=False):
         kind = converter._get_node_kind(event)
         assert kind == expected, f"Event {event} should map to kind {expected}, got {kind}"
 

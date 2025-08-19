@@ -11,7 +11,7 @@ import sys
 from collections import Counter
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 import numpy as np
 import torch
@@ -32,9 +32,9 @@ def make_serializable(obj) -> Any:
     """
     if obj is None:
         return None
-    elif isinstance(obj, (str, int, float, bool)):
+    elif isinstance(obj, str | int | float | bool):
         return obj
-    elif isinstance(obj, (list, tuple)):
+    elif isinstance(obj, list | tuple):
         return [make_serializable(item) for item in obj]
     elif isinstance(obj, dict):
         return {key: make_serializable(value) for key, value in obj.items()}
@@ -132,16 +132,16 @@ class Phase5DirectTGATValidator:
             'enhanced_rel_LONDON_Lvl-1_2025_07_25.json'
         ]
         
-    def load_enhanced_session(self, session_filename: str) -> Dict[str, Any]:
+    def load_enhanced_session(self, session_filename: str) -> dict[str, Any]:
         """Load enhanced session data"""
         session_path = self.enhanced_sessions_path / session_filename
         
-        with open(session_path, 'r') as f:
+        with open(session_path) as f:
             session_data = json.load(f)
             
         return session_data
         
-    def build_session_graph(self, session_data: Dict[str, Any]) -> Dict[str, Any]:
+    def build_session_graph(self, session_data: dict[str, Any]) -> dict[str, Any]:
         """Build enhanced graph from session data"""
         try:
             # Extract price movements for graph building
@@ -167,7 +167,7 @@ class Phase5DirectTGATValidator:
                 'error': str(e)
             }
             
-    def run_tgat_discovery_direct(self, session_data: Dict[str, Any], session_name: str) -> Dict[str, Any]:
+    def run_tgat_discovery_direct(self, session_data: dict[str, Any], session_name: str) -> dict[str, Any]:
         """Run TGAT discovery directly on session"""
         print(f"🔍 Running direct TGAT discovery on {session_name}...")
         
@@ -195,7 +195,7 @@ class Phase5DirectTGATValidator:
             # Extract edges from the edges dict and convert to edge_index format
             all_edges = []
             edges_dict = graph.get('edges', {})
-            for edge_type, edge_list in edges_dict.items():
+            for _edge_type, edge_list in edges_dict.items():
                 if isinstance(edge_list, list) and edge_list:
                     for edge in edge_list:
                         if 'source' in edge and 'target' in edge:
@@ -256,7 +256,7 @@ class Phase5DirectTGATValidator:
                 'patterns': []
             }
             
-    def analyze_pattern_quality(self, all_patterns: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def analyze_pattern_quality(self, all_patterns: list[dict[str, Any]]) -> dict[str, Any]:
         """Analyze pattern quality for archaeological authenticity"""
         if not all_patterns:
             return {
@@ -340,7 +340,7 @@ class Phase5DirectTGATValidator:
         }
         
     def calculate_authenticity_score(self, duplication_rate: float, 
-                                   time_spans: Dict, sessions_count: int) -> float:
+                                   time_spans: dict, sessions_count: int) -> float:
         """Calculate archaeological authenticity score (0-100)"""
         # Penalize high duplication (96.8% = very poor, <20% = excellent)
         duplication_penalty = max(0, duplication_rate - 20) / 80.0  # 0-1 scale
@@ -356,7 +356,7 @@ class Phase5DirectTGATValidator:
         total_score = duplication_score + time_span_score + session_score
         return min(100.0, max(0.0, total_score))
         
-    def run_validation(self) -> Dict[str, Any]:
+    def run_validation(self) -> dict[str, Any]:
         """Execute Phase 5 validation"""
         print("🏛️ PHASE 5: DIRECT TGAT ARCHAEOLOGICAL DISCOVERY VALIDATION")
         print("=" * 65)

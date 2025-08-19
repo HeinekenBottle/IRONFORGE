@@ -8,9 +8,9 @@ Reversal, Liquidity Taken, Redelivery within TGAT pipeline.
 """
 
 from __future__ import annotations
+
 from dataclasses import dataclass
 from enum import IntEnum
-from typing import Optional
 
 
 class EventType(IntEnum):
@@ -63,13 +63,13 @@ class MarketEvent:
     source: str               # Detection source
     
     # Optional context
-    strength: Optional[float] = None      # [0.0-1.0] event magnitude
-    direction: Optional[Direction] = None # Market bias
-    location: Optional[Location] = None   # Session location context
+    strength: float | None = None      # [0.0-1.0] event magnitude
+    direction: Direction | None = None # Market bias
+    location: Location | None = None   # Session location context
     
     # Archaeological context
-    htf_regime: Optional[int] = None      # HTF regime (0=consol, 1=trans, 2=expan)
-    zone_anchor: Optional[float] = None   # 40%/60% dimensional relationship
+    htf_regime: int | None = None      # HTF regime (0=consol, 1=trans, 2=expan)
+    zone_anchor: float | None = None   # 40%/60% dimensional relationship
     
     def to_node_kind(self) -> int:
         """Convert event type to Node.kind uint8 code"""
@@ -95,7 +95,7 @@ class EventRelationship:
     target_event_id: str
     relationship_type: EdgeType
     strength: float = 1.0
-    temporal_distance: Optional[int] = None  # Milliseconds between events
+    temporal_distance: int | None = None  # Milliseconds between events
     
     def to_edge_type(self) -> int:
         """Convert relationship to Edge.etype uint8 code"""

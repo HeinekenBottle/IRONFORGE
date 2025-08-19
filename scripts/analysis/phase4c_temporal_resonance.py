@@ -11,7 +11,6 @@ import json
 from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Tuple
 
 import numpy as np
 from learning.enhanced_graph_builder import EnhancedGraphBuilder
@@ -27,7 +26,7 @@ class TemporalResonanceAnalyzer:
         self.tgat_discovery = IRONFORGEDiscovery()
         self.timeframe_mapping = {0: '1m', 1: '5m', 2: '15m', 3: '1h', 4: 'D', 5: 'W'}
         
-    def build_cross_session_test_set(self, min_sessions: int = 8) -> List[str]:
+    def build_cross_session_test_set(self, min_sessions: int = 8) -> list[str]:
         """C4c-1: Build cross-session test set spanning multiple days."""
         print("🔗 Phase 4c-1: Building Cross-Session Test Set")
         print("=" * 60)
@@ -86,7 +85,7 @@ class TemporalResonanceAnalyzer:
         validated_sessions = []
         for session_file in selected_sessions:
             try:
-                with open(session_file, 'r') as f:
+                with open(session_file) as f:
                     session_data = json.load(f)
                 
                 # Quick validation
@@ -114,7 +113,7 @@ class TemporalResonanceAnalyzer:
         
         return validated_sessions
     
-    def implement_anchor_projection(self, session_data: Dict) -> Dict:
+    def implement_anchor_projection(self, session_data: dict) -> dict:
         """C4c-2: Implement anchor projection linking via D/W HTF nodes."""
         print("⚓ Implementing anchor projection linking...")
         
@@ -180,8 +179,8 @@ class TemporalResonanceAnalyzer:
             'tensor_data': (X, edge_index, edge_times, metadata, edge_attr)
         }
     
-    def compute_resonance_scores(self, session_a: Dict, session_b: Dict, 
-                               session_a_name: str, session_b_name: str) -> Dict:
+    def compute_resonance_scores(self, session_a: dict, session_b: dict, 
+                               session_a_name: str, session_b_name: str) -> dict:
         """C4c-3: Define and compute resonance scores between session pairs."""
         
         anchors_a = session_a['anchor_nodes']
@@ -288,8 +287,8 @@ class TemporalResonanceAnalyzer:
             'min_edges': min_edges
         }
     
-    def extract_resonant_motifs(self, high_resonance_pairs: List[Tuple], 
-                              session_data_map: Dict) -> Tuple[List[Dict], Dict]:
+    def extract_resonant_motifs(self, high_resonance_pairs: list[tuple], 
+                              session_data_map: dict) -> tuple[list[dict], dict]:
         """C4c-4: Run TGAT and extract top-k resonant motifs."""
         print("🧬 Extracting resonant motifs from high-resonance pairs...")
         
@@ -347,7 +346,7 @@ class TemporalResonanceAnalyzer:
         
         return top_motifs, dict(motif_archetypes)
     
-    def analyze_head_attribution(self, motifs: List[Dict], session_data_map: Dict) -> Dict:
+    def analyze_head_attribution(self, motifs: list[dict], session_data_map: dict) -> dict:
         """C4c-5: Head attribution analysis for resonant motifs."""
         print("🧠 Analyzing attention head attribution for motifs...")
         
@@ -376,7 +375,7 @@ class TemporalResonanceAnalyzer:
             'total_motifs': len(motifs)
         }
     
-    def run_temporal_resonance_analysis(self) -> Tuple[Dict, bool]:
+    def run_temporal_resonance_analysis(self) -> tuple[dict, bool]:
         """Run complete temporal resonance analysis."""
         print("🔗 IRONFORGE Phase 4c: Temporal Resonance Testing")
         print("=" * 70)
@@ -395,7 +394,7 @@ class TemporalResonanceAnalyzer:
             print(f"  📝 Session {i}/{len(test_sessions)}: {session_name}")
             
             try:
-                with open(session_file, 'r') as f:
+                with open(session_file) as f:
                     session_data = json.load(f)
                 
                 projected_data = self.implement_anchor_projection(session_data)
@@ -418,7 +417,7 @@ class TemporalResonanceAnalyzer:
         pair_count = 0
         
         for i, session_a in enumerate(session_names):
-            for j, session_b in enumerate(session_names[i+1:], i+1):
+            for _j, session_b in enumerate(session_names[i+1:], i+1):
                 pair_count += 1
                 print(f"  🔍 Pair {pair_count}/{total_pairs}: {Path(session_a).stem} ↔ {Path(session_b).stem}")
                 

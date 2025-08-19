@@ -21,7 +21,7 @@ import sys
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from typing import Any, Dict
+from typing import Any
 
 # Setup logging
 logging.basicConfig(
@@ -37,7 +37,7 @@ class ThreadSafetyValidator:
     """Comprehensive thread safety validation for iron_core singletons."""
     
     def __init__(self):
-        self.results: Dict[str, Any] = {
+        self.results: dict[str, Any] = {
             'container_instances': set(),
             'lazy_manager_instances': set(), 
             'timing_results': [],
@@ -46,7 +46,7 @@ class ThreadSafetyValidator:
         }
         self.results_lock = threading.Lock()
         
-    def test_container_singleton(self, thread_id: int) -> Dict[str, Any]:
+    def test_container_singleton(self, thread_id: int) -> dict[str, Any]:
         """Test IRONContainer singleton thread safety."""
         start_time = time.time()
         thread_name = f"container_test_{thread_id}"
@@ -94,7 +94,7 @@ class ThreadSafetyValidator:
                 'error': str(e)
             }
             
-    def test_lazy_manager_singleton(self, thread_id: int) -> Dict[str, Any]:
+    def test_lazy_manager_singleton(self, thread_id: int) -> dict[str, Any]:
         """Test LazyLoadingManager singleton thread safety."""
         start_time = time.time()
         
@@ -138,7 +138,7 @@ class ThreadSafetyValidator:
                 'error': str(e)
             }
             
-    def test_lazy_component_thread_safety(self, thread_id: int) -> Dict[str, Any]:
+    def test_lazy_component_thread_safety(self, thread_id: int) -> dict[str, Any]:
         """Test LazyComponent thread safety."""
         start_time = time.time()
         
@@ -188,7 +188,7 @@ class ThreadSafetyValidator:
                 'error': str(e)
             }
             
-    def run_concurrent_tests(self, num_threads: int = 20) -> Dict[str, Any]:
+    def run_concurrent_tests(self, num_threads: int = 20) -> dict[str, Any]:
         """Run comprehensive concurrent tests."""
         logger.info(f"🧪 Starting thread safety validation with {num_threads} threads")
         
@@ -235,7 +235,7 @@ class ThreadSafetyValidator:
             'summary': self.results
         }
         
-    def analyze_results(self, test_results: Dict[str, Any]) -> Dict[str, Any]:
+    def analyze_results(self, test_results: dict[str, Any]) -> dict[str, Any]:
         """Analyze thread safety test results."""
         analysis = {
             'thread_safety_status': 'PASS',

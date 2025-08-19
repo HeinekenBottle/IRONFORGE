@@ -36,7 +36,7 @@ def test_orchestrator_37d():
     
     total_patterns = 0
     
-    for i, session_file in enumerate(session_files):
+    for _i, session_file in enumerate(session_files):
         print(f"\n🔍 Processing {session_file.name}...")
         
         try:

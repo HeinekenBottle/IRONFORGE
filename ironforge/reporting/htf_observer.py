@@ -9,10 +9,11 @@ and regime monitoring for archaeological discovery insights.
 
 import json
 import logging
-from pathlib import Path
-from typing import Dict, List, Any, Optional
-from dataclasses import dataclass, asdict
 from collections import defaultdict
+from dataclasses import asdict, dataclass
+from pathlib import Path
+from typing import Any
+
 import numpy as np
 
 logger = logging.getLogger(__name__)
@@ -27,15 +28,15 @@ class HTFRunSummary:
     avg_confidence: float
     
     # HTF-specific metrics
-    regime_distribution: Dict[str, int]  # {consolidation, transition, expansion}
-    htf_feature_coverage: Dict[str, float]  # Coverage % for each HTF feature
+    regime_distribution: dict[str, int]  # {consolidation, transition, expansion}
+    htf_feature_coverage: dict[str, float]  # Coverage % for each HTF feature
     barpos_coherence: float  # Temporal coherence metric
     sv_anomaly_rate: float  # Rate of SV anomalies detected
     
     # Archaeological discovery metrics
     theory_b_zones: int
     dimensional_anchor_rate: float
-    discovery_density_by_regime: Dict[str, float]
+    discovery_density_by_regime: dict[str, float]
     
     # Quality metrics
     temporal_integrity_score: float
@@ -54,7 +55,7 @@ class HTFObserver:
         self.regime_names = {0: "consolidation", 1: "transition", 2: "expansion"}
     
     def analyze_htf_run(self, run_id: str, shards_dir: str, 
-                       zones_data: Optional[List[Dict]] = None) -> HTFRunSummary:
+                       zones_data: list[dict] | None = None) -> HTFRunSummary:
         """Analyze HTF features and archaeological discovery for a run"""
         
         logger.info(f"Analyzing HTF run: {run_id}")
@@ -140,7 +141,7 @@ class HTFObserver:
         
         return summary
     
-    def _analyze_session_htf(self, shard_dir: Path) -> Optional[Dict[str, Any]]:
+    def _analyze_session_htf(self, shard_dir: Path) -> dict[str, Any] | None:
         """Analyze HTF features for a single session"""
         
         nodes_file = shard_dir / "nodes.parquet"
@@ -164,7 +165,7 @@ class HTFObserver:
             feature_coverage = {}
             feature_names = ['sv_m15_z', 'sv_h1_z', 'barpos_m15', 'barpos_h1', 'dist_daily_mid', 'htf_regime']
             
-            for feature, name in zip(htf_features, feature_names):
+            for feature, name in zip(htf_features, feature_names, strict=False):
                 non_nan_count = df[feature].notna().sum()
                 coverage = non_nan_count / len(df) if len(df) > 0 else 0.0
                 feature_coverage[name] = coverage
@@ -194,7 +195,7 @@ class HTFObserver:
             logger.error(f"Error analyzing {shard_dir.name}: {e}")
             return None
     
-    def _calculate_temporal_integrity_score(self, session_stats: List[Dict]) -> float:
+    def _calculate_temporal_integrity_score(self, session_stats: list[dict]) -> float:
         """Calculate temporal integrity score across sessions"""
         
         if not session_stats:
@@ -209,7 +210,7 @@ class HTFObserver:
         
         return min(1.0, integrity_score)
     
-    def _calculate_feature_completeness_score(self, feature_coverage: Dict[str, float]) -> float:
+    def _calculate_feature_completeness_score(self, feature_coverage: dict[str, float]) -> float:
         """Calculate feature completeness score"""
         
         if not feature_coverage:
@@ -235,7 +236,7 @@ class HTFObserver:
         
         return weighted_score / total_weight if total_weight > 0 else 0.0
     
-    def _calculate_barpos_coherence(self, session_stats: List[Dict]) -> float:
+    def _calculate_barpos_coherence(self, session_stats: list[dict]) -> float:
         """Calculate overall barpos coherence metric"""
         
         if not session_stats:
@@ -248,7 +249,7 @@ class HTFObserver:
         coherence = 1.0 / (1.0 + avg_variance)
         return min(1.0, coherence)
     
-    def _calculate_sv_anomaly_rate(self, session_stats: List[Dict]) -> float:
+    def _calculate_sv_anomaly_rate(self, session_stats: list[dict]) -> float:
         """Calculate SV anomaly rate across sessions"""
         
         if not session_stats:
@@ -259,8 +260,8 @@ class HTFObserver:
         
         return total_anomalies / total_nodes if total_nodes > 0 else 0.0
     
-    def _calculate_discovery_density_by_regime(self, regime_counts: Dict[str, int], 
-                                             total_zones: int) -> Dict[str, float]:
+    def _calculate_discovery_density_by_regime(self, regime_counts: dict[str, int], 
+                                             total_zones: int) -> dict[str, float]:
         """Calculate archaeological discovery density by regime"""
         
         total_events = sum(regime_counts.values())
@@ -290,7 +291,7 @@ class HTFObserver:
         except Exception as e:
             logger.error(f"Error saving HTF summary: {e}")
     
-    def generate_regime_ribbon_data(self, run_id: str) -> Dict[str, Any]:
+    def generate_regime_ribbon_data(self, run_id: str) -> dict[str, Any]:
         """Generate data for minidash regime ribbon visualization"""
         
         summary_file = self.output_dir / f"htf_summary_{run_id}.json"
@@ -298,7 +299,7 @@ class HTFObserver:
             return {}
         
         try:
-            with open(summary_file, 'r') as f:
+            with open(summary_file) as f:
                 summary = json.load(f)
             
             # Prepare regime ribbon data

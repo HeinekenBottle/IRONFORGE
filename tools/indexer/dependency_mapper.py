@@ -13,7 +13,7 @@ Maps and analyzes dependencies between IRONFORGE components:
 
 import logging
 from collections import defaultdict
-from typing import Any, Dict, List, Optional, Set
+from typing import Any
 
 
 class DependencyMapper:
@@ -31,7 +31,7 @@ class DependencyMapper:
     def __init__(self):
         self.logger = logging.getLogger('ironforge.indexer.dependency')
     
-    def build_dependency_map(self, file_analyses: Dict[str, Any]) -> Dict[str, Any]:
+    def build_dependency_map(self, file_analyses: dict[str, Any]) -> dict[str, Any]:
         """
         Build comprehensive dependency map from file analyses.
         
@@ -77,7 +77,7 @@ class DependencyMapper:
             'leaf_modules': self._identify_leaf_modules(import_graph)
         }
     
-    def _build_import_graph(self, file_analyses: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
+    def _build_import_graph(self, file_analyses: dict[str, Any]) -> dict[str, dict[str, Any]]:
         """
         Build directed graph of import relationships.
         
@@ -136,7 +136,7 @@ class DependencyMapper:
         
         return module_path
     
-    def _resolve_import_module(self, import_info: Dict[str, Any], current_file: str) -> Optional[str]:
+    def _resolve_import_module(self, import_info: dict[str, Any], current_file: str) -> str | None:
         """
         Resolve import to actual module name.
         
@@ -170,7 +170,7 @@ class DependencyMapper:
         
         return None
     
-    def _analyze_dependency_flows(self, import_graph: Dict[str, Any], file_analyses: Dict[str, Any]) -> Dict[str, Any]:
+    def _analyze_dependency_flows(self, import_graph: dict[str, Any], file_analyses: dict[str, Any]) -> dict[str, Any]:
         """Analyze patterns in dependency flows."""
         flows = {
             'linear_chains': [],
@@ -222,7 +222,7 @@ class DependencyMapper:
         
         return flows
     
-    def _trace_linear_chain(self, start_module: str, import_graph: Dict[str, Any]) -> List[str]:
+    def _trace_linear_chain(self, start_module: str, import_graph: dict[str, Any]) -> list[str]:
         """Trace a linear dependency chain from a starting module."""
         chain = [start_module]
         current = start_module
@@ -257,9 +257,9 @@ class DependencyMapper:
         
         return chain
     
-    def _calculate_dependency_depth(self, module: str, import_graph: Dict[str, Any]) -> int:
+    def _calculate_dependency_depth(self, module: str, import_graph: dict[str, Any]) -> int:
         """Calculate the maximum dependency depth from a module."""
-        def dfs_depth(current: str, visited: Set[str]) -> int:
+        def dfs_depth(current: str, visited: set[str]) -> int:
             if current not in import_graph or current in visited:
                 return 0
             
@@ -275,13 +275,13 @@ class DependencyMapper:
         
         return dfs_depth(module, set())
     
-    def _detect_circular_dependencies(self, import_graph: Dict[str, Any]) -> List[Dict[str, Any]]:
+    def _detect_circular_dependencies(self, import_graph: dict[str, Any]) -> list[dict[str, Any]]:
         """Detect circular dependencies using DFS."""
         cycles = []
         visited = set()
         rec_stack = set()
         
-        def dfs_cycle_detection(module: str, path: List[str]) -> None:
+        def dfs_cycle_detection(module: str, path: list[str]) -> None:
             if module in rec_stack:
                 # Found a cycle
                 cycle_start = path.index(module)
@@ -313,7 +313,7 @@ class DependencyMapper:
         
         return cycles
     
-    def _calculate_coupling_metrics(self, import_graph: Dict[str, Any], file_analyses: Dict[str, Any]) -> Dict[str, Any]:
+    def _calculate_coupling_metrics(self, import_graph: dict[str, Any], file_analyses: dict[str, Any]) -> dict[str, Any]:
         """Calculate various coupling metrics."""
         metrics = {
             'afferent_coupling': {},  # How many modules depend on this one
@@ -361,7 +361,7 @@ class DependencyMapper:
         
         return metrics
     
-    def _find_orphaned_modules(self, import_graph: Dict[str, Any], file_analyses: Dict[str, Any]) -> List[Dict[str, Any]]:
+    def _find_orphaned_modules(self, import_graph: dict[str, Any], file_analyses: dict[str, Any]) -> list[dict[str, Any]]:
         """Find modules with no dependencies (potential candidates for removal)."""
         orphaned = []
         
@@ -387,7 +387,7 @@ class DependencyMapper:
         
         return orphaned
     
-    def _analyze_cross_engine_flows(self, import_graph: Dict[str, Any], file_analyses: Dict[str, Any]) -> Dict[str, Any]:
+    def _analyze_cross_engine_flows(self, import_graph: dict[str, Any], file_analyses: dict[str, Any]) -> dict[str, Any]:
         """Analyze dependencies that cross engine boundaries."""
         # Engine classification patterns
         engine_patterns = {
@@ -432,7 +432,7 @@ class DependencyMapper:
             'recommended_flow_pattern': 'analysis -> learning -> synthesis'
         }
     
-    def _classify_module_engine(self, module: str, engine_patterns: Dict[str, List[str]]) -> str:
+    def _classify_module_engine(self, module: str, engine_patterns: dict[str, list[str]]) -> str:
         """Classify a module into an engine based on patterns."""
         module_lower = module.lower()
         
@@ -443,7 +443,7 @@ class DependencyMapper:
         
         return 'unknown'
     
-    def _identify_problematic_flows(self, flow_summary: Dict[str, int]) -> List[Dict[str, Any]]:
+    def _identify_problematic_flows(self, flow_summary: dict[str, int]) -> list[dict[str, Any]]:
         """Identify potentially problematic cross-engine flows."""
         problematic = []
         
@@ -472,7 +472,7 @@ class DependencyMapper:
         
         return problematic
     
-    def _generate_dependency_statistics(self, import_graph: Dict[str, Any], file_analyses: Dict[str, Any]) -> Dict[str, Any]:
+    def _generate_dependency_statistics(self, import_graph: dict[str, Any], file_analyses: dict[str, Any]) -> dict[str, Any]:
         """Generate overall dependency statistics."""
         total_modules = len(import_graph)
         total_dependencies = sum(data['import_count'] for data in import_graph.values())
@@ -504,12 +504,12 @@ class DependencyMapper:
             'modules_with_zero_dependencies': len([m for m, d in import_graph.items() if d['import_count'] == 0])
         }
     
-    def _find_critical_paths(self, import_graph: Dict[str, Any]) -> List[Dict[str, Any]]:
+    def _find_critical_paths(self, import_graph: dict[str, Any]) -> list[dict[str, Any]]:
         """Find critical dependency paths in the system."""
         critical_paths = []
         
         # Find longest dependency chains
-        def find_longest_path(start_module: str, visited: Set[str] = None) -> List[str]:
+        def find_longest_path(start_module: str, visited: set[str] = None) -> list[str]:
             if visited is None:
                 visited = set()
             
@@ -546,7 +546,7 @@ class DependencyMapper:
         
         return critical_paths
     
-    def _identify_hub_modules(self, import_graph: Dict[str, Any]) -> List[Dict[str, Any]]:
+    def _identify_hub_modules(self, import_graph: dict[str, Any]) -> list[dict[str, Any]]:
         """Identify hub modules (high centrality in dependency graph)."""
         hubs = []
         
@@ -565,7 +565,7 @@ class DependencyMapper:
         
         return sorted(hubs, key=lambda x: x['centrality'], reverse=True)
     
-    def _classify_hub_type(self, module_data: Dict[str, Any]) -> str:
+    def _classify_hub_type(self, module_data: dict[str, Any]) -> str:
         """Classify the type of hub based on dependency patterns."""
         imports = module_data['import_count']
         imported_by = module_data['imported_by_count']
@@ -577,7 +577,7 @@ class DependencyMapper:
         else:
             return 'mediator_hub'  # Balanced import/export
     
-    def _identify_leaf_modules(self, import_graph: Dict[str, Any]) -> List[Dict[str, Any]]:
+    def _identify_leaf_modules(self, import_graph: dict[str, Any]) -> list[dict[str, Any]]:
         """Identify leaf modules (endpoints in dependency graph)."""
         leaves = []
         

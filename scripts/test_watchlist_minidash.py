@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 """Test the watchlist panel in minidash"""
-import pandas as pd
-from pathlib import Path
 import sys
+from pathlib import Path
+
+import pandas as pd
+
 sys.path.append(str(Path(__file__).parent.parent))
 
 from ironforge.reporting.minidash import build_minidash, load_watchlist_data
+
 
 def test_watchlist_panel():
     """Test watchlist panel functionality."""

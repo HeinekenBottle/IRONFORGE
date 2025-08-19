@@ -142,9 +142,9 @@ def cmd_report(cfg):
         from ironforge.reporting.run_comparison import auto_index_run
         success = auto_index_run(run_dir)
         if success:
-            print(f"[report] indexed run and updated comparison")
+            print("[report] indexed run and updated comparison")
         else:
-            print(f"[report] failed to index run")
+            print("[report] failed to index run")
     except Exception as e:
         print(f"[report] warning: could not update run comparison: {e}")
     
@@ -190,7 +190,7 @@ def cmd_prep_shards(source_glob: str, symbol: str, timeframe: str, timezone: str
                     if shard_dir.exists():
                         meta_file = shard_dir / "meta.json"
                         if meta_file.exists():
-                            with open(meta_file, 'r') as meta_f:
+                            with open(meta_file) as meta_f:
                                 metadata = json.load(meta_f)
                                 manifest_entry = {
                                     "shard_dir": str(shard_dir),

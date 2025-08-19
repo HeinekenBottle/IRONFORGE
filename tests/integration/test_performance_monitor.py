@@ -121,7 +121,7 @@ def test_performance_metrics_collection():
     assert metrics.feature_dimension_count == 37, "Should track 37D features"
     assert metrics.edge_type_count == 4, "Should track 4 edge types"
     assert metrics.validation_accuracy == 1.0, "Should achieve 100% validation accuracy"
-    assert metrics.tgat_compatibility == True, "Should be TGAT compatible"
+    assert metrics.tgat_compatibility is True, "Should be TGAT compatible"
     
     print("   ✅ Performance metrics collection working correctly")
     return metrics
@@ -224,8 +224,8 @@ def test_regression_detection_fail():
     
     # Should raise RuntimeError due to NO FALLBACKS policy
     try:
-        analysis = monitor.analyze_performance_regression(current_metrics, baseline)
-        assert False, "Should have raised RuntimeError for regression"
+        monitor.analyze_performance_regression(current_metrics, baseline)
+        raise AssertionError("Should have raised RuntimeError for regression")
     except RuntimeError as e:
         assert "PERFORMANCE REGRESSION DETECTED" in str(e), "Should indicate regression"
         print("   ✅ Regression detection correctly fails fast on poor performance")
@@ -268,7 +268,7 @@ def test_quality_gates():
     
     try:
         analysis = monitor.analyze_performance_regression(bad_metrics, None)
-        assert False, "Should have raised RuntimeError for quality gate failures"
+        raise AssertionError("Should have raised RuntimeError for quality gate failures")
     except RuntimeError as e:
         assert "Quality Gate Failures" in str(e), "Should indicate quality gate failures"
         print("   ✅ Quality gates correctly enforce requirements")

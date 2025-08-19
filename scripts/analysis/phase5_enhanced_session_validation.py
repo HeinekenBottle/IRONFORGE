@@ -8,7 +8,6 @@ Test TGAT pattern discovery on enhanced sessions and validate quality improvemen
 import json
 import sys
 from pathlib import Path
-from typing import Dict, List
 
 import numpy as np
 import torch
@@ -17,7 +16,7 @@ import torch
 ironforge_root = Path(__file__).parent
 sys.path.insert(0, str(ironforge_root))
 
-def create_mock_graph_from_session(session_data: Dict) -> tuple:
+def create_mock_graph_from_session(session_data: dict) -> tuple:
     """
     Convert enhanced session data to graph format for TGAT
     Returns: (X, edge_index, edge_times, edge_attr, metadata)
@@ -98,7 +97,7 @@ def test_enhanced_session_pattern_discovery():
         
         try:
             # Load session data
-            with open(session_file, 'r') as f:
+            with open(session_file) as f:
                 session_data = json.load(f)
             
             # Convert to graph format
@@ -154,7 +153,7 @@ def test_enhanced_session_pattern_discovery():
     
     return {'status': 'success', 'results': results}
 
-def analyze_pattern_quality_improvement(results: List[Dict]):
+def analyze_pattern_quality_improvement(results: list[dict]):
     """Analyze if enhanced sessions show improved pattern quality"""
     print("\n📊 PATTERN QUALITY ANALYSIS")
     print("=" * 30)

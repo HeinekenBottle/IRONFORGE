@@ -7,14 +7,16 @@ Tests TGAT archaeological discovery using HTF-enhanced 51D node features
 to demonstrate the enhanced discovery capabilities with temporal context.
 """
 
-import json
 import logging
-import numpy as np
-from pathlib import Path
-from typing import Dict, List, Any, Tuple
 from dataclasses import dataclass
+from typing import Any
 
-from ironforge.converters.htf_context_processor import HTFContextProcessor, create_default_htf_config
+import numpy as np
+
+from ironforge.converters.htf_context_processor import (
+    HTFContextProcessor,
+    create_default_htf_config,
+)
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -24,11 +26,11 @@ logger = logging.getLogger(__name__)
 class ArchaeologicalZone:
     """Represents a discovered archaeological zone"""
     zone_id: str
-    timestamp_range: Tuple[int, int]
+    timestamp_range: tuple[int, int]
     price_level: float
     zone_type: str  # 'resistance', 'support', 'pivot', 'breakout'
     confidence: float
-    htf_context: Dict[str, float]
+    htf_context: dict[str, float]
     theoretical_basis: str  # Theory A or Theory B
 
 
@@ -39,7 +41,7 @@ class ArchaeologicalDiscoverer:
         self.htf_processor = HTFContextProcessor(create_default_htf_config())
         self.discovery_patterns = self._initialize_discovery_patterns()
     
-    def _initialize_discovery_patterns(self) -> Dict[str, Any]:
+    def _initialize_discovery_patterns(self) -> dict[str, Any]:
         """Initialize archaeological discovery patterns"""
         return {
             'dimensional_anchoring': {
@@ -68,8 +70,8 @@ class ArchaeologicalDiscoverer:
             }
         }
     
-    def discover_archaeological_zones(self, session_events: List[Dict], 
-                                    session_metadata: Dict) -> List[ArchaeologicalZone]:
+    def discover_archaeological_zones(self, session_events: list[dict], 
+                                    session_metadata: dict) -> list[ArchaeologicalZone]:
         """Discover archaeological zones using HTF-enhanced features"""
         
         print(f"🏛️ Archaeological Discovery: {session_metadata.get('session_id', 'Unknown')}")
@@ -103,8 +105,8 @@ class ArchaeologicalDiscoverer:
         
         return validated_zones
     
-    def _discover_dimensional_anchoring(self, events: List[Dict], 
-                                      htf_features: Dict) -> List[ArchaeologicalZone]:
+    def _discover_dimensional_anchoring(self, events: list[dict], 
+                                      htf_features: dict) -> list[ArchaeologicalZone]:
         """Discover Theory B dimensional anchoring zones"""
         
         zones = []
@@ -116,7 +118,7 @@ class ArchaeologicalDiscoverer:
         target_distances = pattern['trigger_conditions']['dist_daily_mid']
         
         for i, (event, dist, barpos, regime) in enumerate(zip(
-            events, daily_mid_distances, barpos_m15, htf_regimes
+            events, daily_mid_distances, barpos_m15, htf_regimes, strict=False
         )):
             # Skip if missing data
             if np.isnan(dist) or np.isnan(barpos) or np.isnan(regime):
@@ -149,8 +151,8 @@ class ArchaeologicalDiscoverer:
         print(f"   Dimensional Anchoring: {len(zones)} zones discovered")
         return zones
     
-    def _discover_regime_shift_markers(self, events: List[Dict], 
-                                     htf_features: Dict) -> List[ArchaeologicalZone]:
+    def _discover_regime_shift_markers(self, events: list[dict], 
+                                     htf_features: dict) -> list[ArchaeologicalZone]:
         """Discover HTF regime shift archaeological markers"""
         
         zones = []
@@ -159,4 +161,277 @@ class ArchaeologicalDiscoverer:
         sv_h1_z = htf_features.get('f46_sv_h1_z', [])
         
         pattern = self.discovery_patterns['htf_regime_shifts']
-        sv_threshold = pattern['trigger_conditions']['sv_threshold']\n        \n        # Detect regime changes\n        for i in range(1, len(htf_regimes)):\n            current_regime = htf_regimes[i]\n            previous_regime = htf_regimes[i-1]\n            \n            if (not np.isnan(current_regime) and not np.isnan(previous_regime) and\n                current_regime != previous_regime):\n                \n                # Check for high synthetic volume\n                sv_m15 = sv_m15_z[i] if i < len(sv_m15_z) else np.nan\n                sv_h1 = sv_h1_z[i] if i < len(sv_h1_z) else np.nan\n                \n                max_sv = max(\n                    sv_m15 if not np.isnan(sv_m15) else -999,\n                    sv_h1 if not np.isnan(sv_h1) else -999\n                )\n                \n                if max_sv > sv_threshold:\n                    zone = ArchaeologicalZone(\n                        zone_id=f\"REG_{i:03d}\",\n                        timestamp_range=(events[i-1]['t'], events[i]['t']),\n                        price_level=float(events[i].get('price_level', 0)),\n                        zone_type='regime_shift',\n                        confidence=0.7 + min(0.3, (max_sv - sv_threshold) * 0.1),\n                        htf_context={\n                            'regime_from': previous_regime,\n                            'regime_to': current_regime,\n                            'sv_m15_z': sv_m15,\n                            'sv_h1_z': sv_h1,\n                            'max_sv_z': max_sv\n                        },\n                        theoretical_basis='HTF Transition Theory'\n                    )\n                    zones.append(zone)\n        \n        print(f\"   Regime Shift Markers: {len(zones)} zones discovered\")\n        return zones\n    \n    def _discover_sv_anomaly_sites(self, events: List[Dict], \n                                 htf_features: Dict) -> List[ArchaeologicalZone]:\n        \"\"\"Discover synthetic volume anomaly archaeological sites\"\"\"\n        \n        zones = []\n        sv_m15_z = htf_features.get('f45_sv_m15_z', [])\n        sv_h1_z = htf_features.get('f46_sv_h1_z', [])\n        barpos_m15 = htf_features.get('f47_barpos_m15', [])\n        barpos_h1 = htf_features.get('f48_barpos_h1', [])\n        \n        pattern = self.discovery_patterns['sv_anomaly_zones']\n        sv_threshold = pattern['trigger_conditions']['sv_z_score_threshold']\n        \n        for i, event in enumerate(events):\n            sv_m15 = sv_m15_z[i] if i < len(sv_m15_z) else np.nan\n            sv_h1 = sv_h1_z[i] if i < len(sv_h1_z) else np.nan\n            bp_m15 = barpos_m15[i] if i < len(barpos_m15) else np.nan\n            bp_h1 = barpos_h1[i] if i < len(barpos_h1) else np.nan\n            \n            # Check for significant SV anomaly\n            max_sv_z = max(\n                sv_m15 if not np.isnan(sv_m15) else -999,\n                sv_h1 if not np.isnan(sv_h1) else -999\n            )\n            \n            if max_sv_z > sv_threshold:\n                # Check for temporal coherence (barpos clustering)\n                barpos_coherence = self._calculate_barpos_coherence(\n                    bp_m15, bp_h1, i, barpos_m15, barpos_h1\n                )\n                \n                if barpos_coherence > pattern['trigger_conditions']['barpos_coherence']:\n                    zone = ArchaeologicalZone(\n                        zone_id=f\"SV_{i:03d}\",\n                        timestamp_range=(event['t'], event['t'] + 900000),  # 15-min window\n                        price_level=float(event.get('price_level', 0)),\n                        zone_type='sv_anomaly',\n                        confidence=0.6 + min(0.4, (max_sv_z - sv_threshold) * 0.2),\n                        htf_context={\n                            'sv_m15_z': sv_m15,\n                            'sv_h1_z': sv_h1,\n                            'max_sv_z': max_sv_z,\n                            'barpos_coherence': barpos_coherence,\n                            'barpos_m15': bp_m15,\n                            'barpos_h1': bp_h1\n                        },\n                        theoretical_basis='SV Anomaly Theory'\n                    )\n                    zones.append(zone)\n        \n        print(f\"   SV Anomaly Sites: {len(zones)} zones discovered\")\n        return zones\n    \n    def _calculate_barpos_coherence(self, bp_m15: float, bp_h1: float, \n                                  current_idx: int, all_barpos_m15: List[float], \n                                  all_barpos_h1: List[float]) -> float:\n        \"\"\"Calculate temporal coherence of bar positions\"\"\"\n        \n        if np.isnan(bp_m15) or np.isnan(bp_h1):\n            return 0.0\n        \n        # Look at nearby events for clustering\n        window_size = 3\n        start_idx = max(0, current_idx - window_size)\n        end_idx = min(len(all_barpos_m15), current_idx + window_size + 1)\n        \n        nearby_m15 = [bp for bp in all_barpos_m15[start_idx:end_idx] if not np.isnan(bp)]\n        nearby_h1 = [bp for bp in all_barpos_h1[start_idx:end_idx] if not np.isnan(bp)]\n        \n        if not nearby_m15 or not nearby_h1:\n            return 0.0\n        \n        # Calculate coherence as inverse of variance (lower variance = higher coherence)\n        m15_var = np.var(nearby_m15) if len(nearby_m15) > 1 else 0\n        h1_var = np.var(nearby_h1) if len(nearby_h1) > 1 else 0\n        \n        coherence = 1.0 / (1.0 + m15_var + h1_var)\n        return min(1.0, coherence)\n    \n    def _validate_zones_with_htf_context(self, zones: List[ArchaeologicalZone]) -> List[ArchaeologicalZone]:\n        \"\"\"Validate discovered zones using HTF context\"\"\"\n        \n        validated_zones = []\n        \n        for zone in zones:\n            # HTF context validation criteria\n            htf_ctx = zone.htf_context\n            base_confidence = zone.confidence\n            \n            # Boost confidence for multi-timeframe confirmation\n            if 'sv_m15_z' in htf_ctx and 'sv_h1_z' in htf_ctx:\n                m15_sv = htf_ctx.get('sv_m15_z', np.nan)\n                h1_sv = htf_ctx.get('sv_h1_z', np.nan)\n                \n                if not np.isnan(m15_sv) and not np.isnan(h1_sv):\n                    if abs(m15_sv) > 1.0 and abs(h1_sv) > 1.0:  # Both timeframes active\n                        zone.confidence = min(1.0, base_confidence + 0.15)\n            \n            # Boost confidence for Theory B dimensional anchoring\n            if zone.theoretical_basis == 'Theory B':\n                if 'theoretical_zone' in htf_ctx:\n                    if htf_ctx['theoretical_zone'] in ['40%', '60%']:  # Key zones\n                        zone.confidence = min(1.0, base_confidence + 0.1)\n            \n            # Filter out low-confidence zones\n            if zone.confidence >= 0.6:\n                validated_zones.append(zone)\n        \n        print(f\"   Validated Zones: {len(validated_zones)} / {len(zones)} zones passed validation\")\n        return validated_zones\n    \n    def generate_discovery_report(self, zones: List[ArchaeologicalZone]) -> Dict[str, Any]:\n        \"\"\"Generate comprehensive archaeological discovery report\"\"\"\n        \n        if not zones:\n            return {'status': 'No archaeological zones discovered'}\n        \n        # Group zones by type\n        zone_types = {}\n        for zone in zones:\n            zone_type = zone.zone_type\n            if zone_type not in zone_types:\n                zone_types[zone_type] = []\n            zone_types[zone_type].append(zone)\n        \n        # Calculate discovery statistics\n        total_zones = len(zones)\n        avg_confidence = np.mean([z.confidence for z in zones])\n        theory_b_zones = len([z for z in zones if z.theoretical_basis == 'Theory B'])\n        \n        # Price level distribution\n        price_levels = [z.price_level for z in zones]\n        price_range = max(price_levels) - min(price_levels) if price_levels else 0\n        \n        report = {\n            'total_zones': total_zones,\n            'zone_types': {k: len(v) for k, v in zone_types.items()},\n            'avg_confidence': avg_confidence,\n            'theory_b_zones': theory_b_zones,\n            'price_range': price_range,\n            'htf_enhanced': True,\n            'discovery_patterns': list(zone_types.keys()),\n            'zones_detail': [{\n                'zone_id': z.zone_id,\n                'zone_type': z.zone_type,\n                'confidence': z.confidence,\n                'price_level': z.price_level,\n                'theoretical_basis': z.theoretical_basis,\n                'htf_context_keys': list(z.htf_context.keys())\n            } for z in zones[:10]]  # First 10 zones for detail\n        }\n        \n        return report\n\n\ndef test_archaeological_discovery():\n    \"\"\"Test archaeological discovery with HTF-enhanced features\"\"\"\n    \n    print(\"🏛️ IRONFORGE Archaeological Discovery Test\")\n    print(\"=\"*60)\n    print(\"Testing TGAT discovery with HTF-enhanced 51D node features\")\n    print()\n    \n    discoverer = ArchaeologicalDiscoverer()\n    \n    # Generate test scenario with archaeological potential\n    base_time = 1722628800000  # August 2nd, 2024 (high activity period)\n    test_events = []\n    \n    # Simulate a session with Theory B 40% zone events\n    daily_high = 23150\n    daily_low = 22950\n    daily_mid = (daily_high + daily_low) / 2\n    target_40_zone = daily_low + 0.4 * (daily_high - daily_low)  # 40% zone price\n    \n    for i in range(60):  # Extended session\n        if i in [15, 32, 48]:  # Theory B 40% zone events\n            price = target_40_zone + np.random.normal(0, 2)\n            event_type = 'dimensional_anchor'\n        elif i in [20, 35]:  # Regime shift events\n            price = daily_mid + np.random.normal(10, 5)  # Breakout\n            event_type = 'regime_shift'\n        else:\n            price = daily_mid + np.random.normal(0, 15)  # Normal activity\n            event_type = 'normal'\n        \n        event = {\n            't': base_time + (i * 5 * 60 * 1000),  # 5-minute intervals\n            'price_level': price,\n            'timestamp': f\"{9 + (i//12):02d}:{(i*5)%60:02d}:00\",\n            'source_type': 'price_movement' if i % 3 != 0 else 'liquidity_event',\n            'movement_type': event_type,\n            'volume_weight': 0.5 + np.random.random() * 0.4\n        }\n        test_events.append(event)\n    \n    session_metadata = {\n        'session_id': 'TEST_ARCHAEOLOGICAL_DISCOVERY',\n        'session_type': 'expansion',\n        'daily_high': daily_high,\n        'daily_low': daily_low,\n        'theory_b_target': target_40_zone\n    }\n    \n    # Run archaeological discovery\n    discovered_zones = discoverer.discover_archaeological_zones(test_events, session_metadata)\n    \n    # Generate report\n    report = discoverer.generate_discovery_report(discovered_zones)\n    \n    print()\n    print(\"🎯 Archaeological Discovery Results:\")\n    print(\"-\" * 40)\n    print(f\"Total Zones Discovered: {report['total_zones']}\")\n    print(f\"Average Confidence: {report['avg_confidence']:.2f}\")\n    print(f\"Theory B Zones: {report['theory_b_zones']}\")\n    print(f\"Zone Types: {report['zone_types']}\")\n    print(f\"Price Range Coverage: {report['price_range']:.1f} points\")\n    print(f\"HTF Enhanced: {report['htf_enhanced']}\")\n    \n    if report['zones_detail']:\n        print(\"\\n📋 Zone Details (First 5):\")\n        for zone in report['zones_detail'][:5]:\n            print(f\"   {zone['zone_id']}: {zone['zone_type']} (conf: {zone['confidence']:.2f}, {zone['theoretical_basis']})\")\n    \n    print()\n    print(\"✅ Archaeological Discovery Test Complete\")\n    print(\"🏛️ HTF context successfully enhances TGAT discovery capabilities\")\n    print(\"⚡ Ready for production archaeological discovery workflow\")\n    \n    return report\n\n\nif __name__ == \"__main__\":\n    test_archaeological_discovery()
+        sv_threshold = pattern['trigger_conditions']['sv_threshold']
+        
+        # Detect regime changes
+        for i in range(1, len(htf_regimes)):
+            current_regime = htf_regimes[i]
+            previous_regime = htf_regimes[i-1]
+            
+            if (not np.isnan(current_regime) and not np.isnan(previous_regime) and
+                current_regime != previous_regime):
+                
+                # Check for high synthetic volume
+                sv_m15 = sv_m15_z[i] if i < len(sv_m15_z) else np.nan
+                sv_h1 = sv_h1_z[i] if i < len(sv_h1_z) else np.nan
+                
+                max_sv = max(
+                    sv_m15 if not np.isnan(sv_m15) else -999,
+                    sv_h1 if not np.isnan(sv_h1) else -999
+                )
+                
+                if max_sv > sv_threshold:
+                    zone = ArchaeologicalZone(
+                        zone_id=f"REG_{i:03d}",
+                        timestamp_range=(events[i-1]['t'], events[i]['t']),
+                        price_level=float(events[i].get('price_level', 0)),
+                        zone_type='regime_shift',
+                        confidence=0.7 + min(0.3, (max_sv - sv_threshold) * 0.1),
+                        htf_context={
+                            'regime_from': previous_regime,
+                            'regime_to': current_regime,
+                            'sv_m15_z': sv_m15,
+                            'sv_h1_z': sv_h1,
+                            'max_sv_z': max_sv
+                        },
+                        theoretical_basis='HTF Transition Theory'
+                    )
+                    zones.append(zone)
+        
+        print(f"   Regime Shift Markers: {len(zones)} zones discovered")
+        return zones
+    
+    def _discover_sv_anomaly_sites(self, events: list[dict], 
+                                 htf_features: dict) -> list[ArchaeologicalZone]:
+        """Discover synthetic volume anomaly archaeological sites"""
+        
+        zones = []
+        sv_m15_z = htf_features.get('f45_sv_m15_z', [])
+        sv_h1_z = htf_features.get('f46_sv_h1_z', [])
+        barpos_m15 = htf_features.get('f47_barpos_m15', [])
+        barpos_h1 = htf_features.get('f48_barpos_h1', [])
+        
+        pattern = self.discovery_patterns['sv_anomaly_zones']
+        sv_threshold = pattern['trigger_conditions']['sv_z_score_threshold']
+        
+        for i, event in enumerate(events):
+            sv_m15 = sv_m15_z[i] if i < len(sv_m15_z) else np.nan
+            sv_h1 = sv_h1_z[i] if i < len(sv_h1_z) else np.nan
+            bp_m15 = barpos_m15[i] if i < len(barpos_m15) else np.nan
+            bp_h1 = barpos_h1[i] if i < len(barpos_h1) else np.nan
+            
+            # Check for significant SV anomaly
+            max_sv_z = max(
+                sv_m15 if not np.isnan(sv_m15) else -999,
+                sv_h1 if not np.isnan(sv_h1) else -999
+            )
+            
+            if max_sv_z > sv_threshold:
+                # Check for temporal coherence (barpos clustering)
+                barpos_coherence = self._calculate_barpos_coherence(
+                    bp_m15, bp_h1, i, barpos_m15, barpos_h1
+                )
+                
+                if barpos_coherence > pattern['trigger_conditions']['barpos_coherence']:
+                    zone = ArchaeologicalZone(
+                        zone_id=f"SV_{i:03d}",
+                        timestamp_range=(event['t'], event['t'] + 900000),  # 15-min window
+                        price_level=float(event.get('price_level', 0)),
+                        zone_type='sv_anomaly',
+                        confidence=0.6 + min(0.4, (max_sv_z - sv_threshold) * 0.2),
+                        htf_context={
+                            'sv_m15_z': sv_m15,
+                            'sv_h1_z': sv_h1,
+                            'max_sv_z': max_sv_z,
+                            'barpos_coherence': barpos_coherence,
+                            'barpos_m15': bp_m15,
+                            'barpos_h1': bp_h1
+                        },
+                        theoretical_basis='SV Anomaly Theory'
+                    )
+                    zones.append(zone)
+        
+        print(f"   SV Anomaly Sites: {len(zones)} zones discovered")
+        return zones
+    
+    def _calculate_barpos_coherence(self, bp_m15: float, bp_h1: float, 
+                                  current_idx: int, all_barpos_m15: list[float], 
+                                  all_barpos_h1: list[float]) -> float:
+        """Calculate temporal coherence of bar positions"""
+        
+        if np.isnan(bp_m15) or np.isnan(bp_h1):
+            return 0.0
+        
+        # Look at nearby events for clustering
+        window_size = 3
+        start_idx = max(0, current_idx - window_size)
+        end_idx = min(len(all_barpos_m15), current_idx + window_size + 1)
+        
+        nearby_m15 = [bp for bp in all_barpos_m15[start_idx:end_idx] if not np.isnan(bp)]
+        nearby_h1 = [bp for bp in all_barpos_h1[start_idx:end_idx] if not np.isnan(bp)]
+        
+        if not nearby_m15 or not nearby_h1:
+            return 0.0
+        
+        # Calculate coherence as inverse of variance (lower variance = higher coherence)
+        m15_var = np.var(nearby_m15) if len(nearby_m15) > 1 else 0
+        h1_var = np.var(nearby_h1) if len(nearby_h1) > 1 else 0
+        
+        coherence = 1.0 / (1.0 + m15_var + h1_var)
+        return min(1.0, coherence)
+    
+    def _validate_zones_with_htf_context(self, zones: list[ArchaeologicalZone]) -> list[ArchaeologicalZone]:
+        """Validate discovered zones using HTF context"""
+        
+        validated_zones = []
+        
+        for zone in zones:
+            # HTF context validation criteria
+            htf_ctx = zone.htf_context
+            base_confidence = zone.confidence
+            
+            # Boost confidence for multi-timeframe confirmation
+            if 'sv_m15_z' in htf_ctx and 'sv_h1_z' in htf_ctx:
+                m15_sv = htf_ctx.get('sv_m15_z', np.nan)
+                h1_sv = htf_ctx.get('sv_h1_z', np.nan)
+                
+                if not np.isnan(m15_sv) and not np.isnan(h1_sv):
+                    if abs(m15_sv) > 1.0 and abs(h1_sv) > 1.0:  # Both timeframes active
+                        zone.confidence = min(1.0, base_confidence + 0.15)
+            
+            # Boost confidence for Theory B dimensional anchoring
+            if zone.theoretical_basis == 'Theory B' and 'theoretical_zone' in htf_ctx:
+                if htf_ctx['theoretical_zone'] in ['40%', '60%']:  # Key zones
+                    zone.confidence = min(1.0, base_confidence + 0.1)
+            
+            # Filter out low-confidence zones
+            if zone.confidence >= 0.6:
+                validated_zones.append(zone)
+        
+        print(f"   Validated Zones: {len(validated_zones)} / {len(zones)} zones passed validation")
+        return validated_zones
+    
+    def generate_discovery_report(self, zones: list[ArchaeologicalZone]) -> dict[str, Any]:
+        """Generate comprehensive archaeological discovery report"""
+        
+        if not zones:
+            return {'status': 'No archaeological zones discovered'}
+        
+        # Group zones by type
+        zone_types = {}
+        for zone in zones:
+            zone_type = zone.zone_type
+            if zone_type not in zone_types:
+                zone_types[zone_type] = []
+            zone_types[zone_type].append(zone)
+        
+        # Calculate discovery statistics
+        total_zones = len(zones)
+        avg_confidence = np.mean([z.confidence for z in zones])
+        theory_b_zones = len([z for z in zones if z.theoretical_basis == 'Theory B'])
+        
+        # Price level distribution
+        price_levels = [z.price_level for z in zones]
+        price_range = max(price_levels) - min(price_levels) if price_levels else 0
+        
+        report = {
+            'total_zones': total_zones,
+            'zone_types': {k: len(v) for k, v in zone_types.items()},
+            'avg_confidence': avg_confidence,
+            'theory_b_zones': theory_b_zones,
+            'price_range': price_range,
+            'htf_enhanced': True,
+            'discovery_patterns': list(zone_types.keys()),
+            'zones_detail': [{
+                'zone_id': z.zone_id,
+                'zone_type': z.zone_type,
+                'confidence': z.confidence,
+                'price_level': z.price_level,
+                'theoretical_basis': z.theoretical_basis,
+                'htf_context_keys': list(z.htf_context.keys())
+            } for z in zones[:10]]  # First 10 zones for detail
+        }
+        
+        return report
+
+
+def test_archaeological_discovery():
+    """Test archaeological discovery with HTF-enhanced features"""
+    
+    print("🏛️ IRONFORGE Archaeological Discovery Test")
+    print("="*60)
+    print("Testing TGAT discovery with HTF-enhanced 51D node features")
+    print()
+    
+    discoverer = ArchaeologicalDiscoverer()
+    
+    # Generate test scenario with archaeological potential
+    base_time = 1722628800000  # August 2nd, 2024 (high activity period)
+    test_events = []
+    
+    # Simulate a session with Theory B 40% zone events
+    daily_high = 23150
+    daily_low = 22950
+    daily_mid = (daily_high + daily_low) / 2
+    target_40_zone = daily_low + 0.4 * (daily_high - daily_low)  # 40% zone price
+    
+    for i in range(60):  # Extended session
+        if i in [15, 32, 48]:  # Theory B 40% zone events
+            price = target_40_zone + np.random.normal(0, 2)
+            event_type = 'dimensional_anchor'
+        elif i in [20, 35]:  # Regime shift events
+            price = daily_mid + np.random.normal(10, 5)  # Breakout
+            event_type = 'regime_shift'
+        else:
+            price = daily_mid + np.random.normal(0, 15)  # Normal activity
+            event_type = 'normal'
+        
+        event = {
+            't': base_time + (i * 5 * 60 * 1000),  # 5-minute intervals
+            'price_level': price,
+            'timestamp': f"{9 + (i//12):02d}:{(i*5)%60:02d}:00",
+            'source_type': 'price_movement' if i % 3 != 0 else 'liquidity_event',
+            'movement_type': event_type,
+            'volume_weight': 0.5 + np.random.random() * 0.4
+        }
+        test_events.append(event)
+    
+    session_metadata = {
+        'session_id': 'TEST_ARCHAEOLOGICAL_DISCOVERY',
+        'session_type': 'expansion',
+        'daily_high': daily_high,
+        'daily_low': daily_low,
+        'theory_b_target': target_40_zone
+    }
+    
+    # Run archaeological discovery
+    discovered_zones = discoverer.discover_archaeological_zones(test_events, session_metadata)
+    
+    # Generate report
+    report = discoverer.generate_discovery_report(discovered_zones)
+    
+    print()
+    print("🎯 Archaeological Discovery Results:")
+    print("-" * 40)
+    print(f"Total Zones Discovered: {report['total_zones']}")
+    print(f"Average Confidence: {report['avg_confidence']:.2f}")
+    print(f"Theory B Zones: {report['theory_b_zones']}")
+    print(f"Zone Types: {report['zone_types']}")
+    print(f"Price Range Coverage: {report['price_range']:.1f} points")
+    print(f"HTF Enhanced: {report['htf_enhanced']}")
+    
+    if report['zones_detail']:
+        print("\n📋 Zone Details (First 5):")
+        for zone in report['zones_detail'][:5]:
+            print(f"   {zone['zone_id']}: {zone['zone_type']} (conf: {zone['confidence']:.2f}, {zone['theoretical_basis']})")
+    
+    print()
+    print("✅ Archaeological Discovery Test Complete")
+    print("🏛️ HTF context successfully enhances TGAT discovery capabilities")
+    print("⚡ Ready for production archaeological discovery workflow")
+    
+    return report
+
+
+if __name__ == "__main__":
+    test_archaeological_discovery()

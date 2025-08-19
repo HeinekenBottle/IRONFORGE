@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import json
 import logging
-import os
 from collections.abc import Mapping, Sequence
 from pathlib import Path
 
@@ -127,7 +126,7 @@ def score_confluence(
     """
     # Accept both scales: if user passes 65 on a 0–1 scale, make it 0.65.
     original_threshold = threshold
-    if isinstance(threshold, (int, float)) and threshold > 1.0:
+    if isinstance(threshold, int | float) and threshold > 1.0:
         threshold = float(threshold) / 100.0
         logging.info(f"[confluence] normalized threshold {original_threshold}→{threshold} (0–1 scale)")
     
@@ -171,7 +170,7 @@ def score_confluence(
     health_reasons = []
     
     try:
-        pattern_count = len(pattern_paths)
+        len(pattern_paths)
         var = float(scores_df["confidence"].var(ddof=0)) if "confidence" in scores_df else None
         
         # Check coverage gate (≥90% of nodes have embeddings)
@@ -250,7 +249,6 @@ def score_confluence(
 def score_session(cfg) -> None:
     """CLI-compatible wrapper for score_confluence"""
     # Extract patterns from shards directory
-    from pathlib import Path
     import glob
     
     # Default pattern paths from config or fallback

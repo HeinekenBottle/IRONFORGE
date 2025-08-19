@@ -3,9 +3,11 @@
 AUX: Event-Chain Miner (within session, no new labels)
 Find "adjacent possible" over minutes, not seconds.
 """
-import pandas as pd
-import numpy as np
 from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
 
 def identify_event_types(node_data):
     """Identify event types from existing node features."""
@@ -58,7 +60,6 @@ def find_event_chains(events_df, chain_patterns):
         start_events = events_df[events_df['event_type'] == start_type]
         
         for _, start_event in start_events.iterrows():
-            start_idx = start_event.name
             start_bar = start_event['bar_index']
             
             # Look for end events within max_bars
@@ -114,7 +115,7 @@ def main():
     
     # Count event types
     event_counts = events['event_type'].value_counts()
-    print(f"Event type distribution:")
+    print("Event type distribution:")
     for event_type, count in event_counts.items():
         print(f"  {event_type}: {count}")
     
@@ -162,7 +163,7 @@ def main():
     if 'subsequent_ret_12b' in chains.columns:
         valid_returns = chains['subsequent_ret_12b'].dropna()
         if len(valid_returns) > 0:
-            print(f"\n=== Subsequent Return Distribution ===")
+            print("\n=== Subsequent Return Distribution ===")
             print(f"Count: {len(valid_returns)}")
             print(f"Mean: {valid_returns.mean():.3f}%")
             print(f"Median: {valid_returns.median():.3f}%")
@@ -171,14 +172,14 @@ def main():
             print(f"Max: {valid_returns.max():.3f}%")
     
     # Print chain summary
-    print(f"\n=== Chain Summary ===")
+    print("\n=== Chain Summary ===")
     if len(chains) > 0:
         chain_counts = chains['chain'].value_counts()
-        print(f"Chain types found:")
+        print("Chain types found:")
         for chain_type, count in chain_counts.items():
             print(f"  {chain_type}: {count}")
             
-        print(f"\nSpan statistics:")
+        print("\nSpan statistics:")
         print(f"  Mean span: {chains['span_bars'].mean():.1f} bars ({chains['span_minutes'].mean():.1f} min)")
         print(f"  Median span: {chains['span_bars'].median():.1f} bars ({chains['span_minutes'].median():.1f} min)")
     
