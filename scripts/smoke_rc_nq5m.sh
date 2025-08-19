@@ -35,5 +35,8 @@ python -m ironforge.sdk.cli status --runs runs || true
 python scripts/validate_contracts.py "${RUN_A}" --expect-node-dims 45 --name "${SYM}_${TF}m_45d"
 python scripts/validate_contracts.py "${RUN_B}" --expect-node-dims 51 --name "${SYM}_${TF}m_51d"
 
-echo "== Smoke complete =="
+# Manifests
+python scripts/make_run_manifest.py "${RUN_A}" --window-bars "$WIN" || true
+python scripts/make_run_manifest.py "${RUN_B}" --window-bars "$WIN" || true
 
+echo "== Smoke complete =="
