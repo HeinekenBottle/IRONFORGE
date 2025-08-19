@@ -67,7 +67,7 @@ class QuickPatternDiscovery:
             
             try:
                 # Load and analyze
-                with open(os.path.join(sessions_dir, session_file), 'r') as f:
+                with open(os.path.join(sessions_dir, session_file)) as f:
                     session_data = json.load(f)
                 
                 graph, metadata = self.builder.build_rich_graph(session_data)

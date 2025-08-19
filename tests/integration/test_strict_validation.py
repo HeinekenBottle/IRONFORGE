@@ -564,7 +564,7 @@ def _validate_regime_label_structure(regime_data: Dict) -> bool:
         return False
     
     # Check that regime IDs are integers
-    for pattern_id, regime_id in regime_labels.items():
+    for _pattern_id, regime_id in regime_labels.items():
         if not isinstance(regime_id, int):
             return False
     
@@ -591,20 +591,16 @@ def _validate_precursor_index_structure(precursor_index: Dict) -> bool:
     # Check that all values are numeric and in valid range [0, 1]
     for key, value in precursor_index.items():
         # Check data type
-        if not isinstance(value, (int, float)):
+        if not isinstance(value, int | float):
             return False
         
         # Check range for probability fields
-        if 'probability' in key or 'activity' in key:
-            if not (0.0 <= value <= 1.0):
-                return False
+        if ('probability' in key or 'activity' in key) and not (0.0 <= value <= 1.0):
+            return False
     
     # Check for at least one probability field
-    probability_fields = [k for k in precursor_index.keys() if 'probability' in k]
-    if not probability_fields:
-        return False
-    
-    return True
+    probability_fields = [k for k in precursor_index if 'probability' in k]
+    return probability_fields
 
 def main():
     """Main test execution"""

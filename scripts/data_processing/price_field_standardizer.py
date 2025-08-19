@@ -10,7 +10,7 @@ Final fix for TGAT Model Quality Recovery Plan Phase 5 validation.
 
 import json
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any
 
 
 class PriceFieldStandardizer:
@@ -25,13 +25,13 @@ class PriceFieldStandardizer:
             'validation_errors': []
         }
     
-    def standardize_session_file(self, session_path: Path) -> Dict[str, Any]:
+    def standardize_session_file(self, session_path: Path) -> dict[str, Any]:
         """Standardize price fields in a single session file."""
         print(f"Processing: {session_path.name}")
         
         try:
             # Load session data
-            with open(session_path, 'r') as f:
+            with open(session_path) as f:
                 session_data = json.load(f)
             
             # Process price movements
@@ -80,7 +80,7 @@ class PriceFieldStandardizer:
                 'success': False
             }
     
-    def validate_standardization(self) -> Dict[str, Any]:
+    def validate_standardization(self) -> dict[str, Any]:
         """Validate all enhanced sessions have consistent price_level fields."""
         print("\n🔍 Validating standardization across all sessions...")
         
@@ -97,7 +97,7 @@ class PriceFieldStandardizer:
             validation_results['total_sessions'] += 1
             
             try:
-                with open(session_path, 'r') as f:
+                with open(session_path) as f:
                     session_data = json.load(f)
                 
                 price_movements = session_data.get('price_movements', [])
@@ -125,7 +125,7 @@ class PriceFieldStandardizer:
         
         return validation_results
     
-    def run_standardization(self) -> Dict[str, Any]:
+    def run_standardization(self) -> dict[str, Any]:
         """Execute complete price field standardization process."""
         print("🚀 PRICE FIELD STANDARDIZATION")
         print("=" * 50)

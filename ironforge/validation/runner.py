@@ -7,12 +7,11 @@ Implements quality gates and validation rails for archaeological discovery.
 """
 
 import json
-import logging
 from pathlib import Path
-from typing import Dict, List, Any, Optional
+from typing import Any
 
 
-def validate_run(run_dir: str, config: Optional[Dict] = None) -> Dict[str, Any]:
+def validate_run(run_dir: str, config: dict | None = None) -> dict[str, Any]:
     """
     Validate a complete IRONFORGE run for quality and consistency.
     
@@ -58,7 +57,7 @@ def validate_run(run_dir: str, config: Optional[Dict] = None) -> Dict[str, Any]:
     }
 
 
-def _validate_embeddings(embeddings_dir: Path) -> Dict[str, Any]:
+def _validate_embeddings(embeddings_dir: Path) -> dict[str, Any]:
     """Validate TGAT embeddings output"""
     
     if not embeddings_dir.exists():
@@ -88,7 +87,7 @@ def _validate_embeddings(embeddings_dir: Path) -> Dict[str, Any]:
     }
 
 
-def _validate_patterns(patterns_dir: Path) -> Dict[str, Any]:
+def _validate_patterns(patterns_dir: Path) -> dict[str, Any]:
     """Validate discovered patterns"""
     
     if not patterns_dir.exists():
@@ -113,7 +112,7 @@ def _validate_patterns(patterns_dir: Path) -> Dict[str, Any]:
     }
 
 
-def _validate_confluence(confluence_dir: Path) -> Dict[str, Any]:
+def _validate_confluence(confluence_dir: Path) -> dict[str, Any]:
     """Validate confluence scoring results"""
     
     if not confluence_dir.exists():
@@ -165,7 +164,7 @@ def _validate_confluence(confluence_dir: Path) -> Dict[str, Any]:
     }
 
 
-def _validate_minidash(run_dir: Path) -> Dict[str, Any]:
+def _validate_minidash(run_dir: Path) -> dict[str, Any]:
     """Validate minidash output"""
     
     checks = {}
@@ -192,7 +191,7 @@ def _validate_minidash(run_dir: Path) -> Dict[str, Any]:
     }
 
 
-def _generate_summary(validations: Dict[str, Any]) -> Dict[str, Any]:
+def _generate_summary(validations: dict[str, Any]) -> dict[str, Any]:
     """Generate validation summary"""
     
     total_checks = sum(len(v.get("checks", {})) for v in validations.values())

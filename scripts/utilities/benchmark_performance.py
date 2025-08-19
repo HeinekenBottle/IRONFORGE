@@ -98,7 +98,7 @@ def benchmark_container_loading():
         for component_name in components_to_test:
             start_time = time.perf_counter()
             try:
-                component = getattr(container, f'get_{component_name}')()
+                getattr(container, f'get_{component_name}')()
                 access_time = time.perf_counter() - start_time
                 component_times.append(access_time)
                 print(f"✅ {component_name}: {access_time*1000:.2f}ms")

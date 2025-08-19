@@ -2,7 +2,7 @@
 
 import logging
 from dataclasses import dataclass
-from typing import Any, Dict, Optional, Tuple
+from typing import Any
 
 import numpy as np
 
@@ -105,7 +105,7 @@ class RGScaler:
             
         return clamped_scale
     
-    def classify_density_regime(self, density: float) -> Tuple[str, float]:
+    def classify_density_regime(self, density: float) -> tuple[str, float]:
         """
         Classify the current market density regime
         
@@ -124,7 +124,7 @@ class RGScaler:
         else:
             return 'extreme', 1.0
     
-    def transform(self, events_in_minutes: np.ndarray) -> Optional[RGScalingResult]:
+    def transform(self, events_in_minutes: np.ndarray) -> RGScalingResult | None:
         """
         THE UNIVERSAL LENS: Transform raw events to optimal scale
         
@@ -186,7 +186,7 @@ class RGScaler:
         
         return result
     
-    def transform_session_data(self, session_data: Dict[str, Any]) -> Optional[RGScalingResult]:
+    def transform_session_data(self, session_data: dict[str, Any]) -> RGScalingResult | None:
         """
         Transform session data through RG scaling
         
@@ -218,7 +218,7 @@ class RGScaler:
         event_times = np.array(sorted(event_times))
         return self.transform(event_times)
     
-    def _parse_timestamp_to_minutes(self, timestamp: str) -> Optional[float]:
+    def _parse_timestamp_to_minutes(self, timestamp: str) -> float | None:
         """
         Parse timestamp to minutes from session start
         
@@ -248,7 +248,7 @@ class RGScaler:
             self.logger.warning(f"RG Scaler: Invalid timestamp format: {timestamp}")
             return None
     
-    def get_scaling_statistics(self) -> Dict[str, Any]:
+    def get_scaling_statistics(self) -> dict[str, Any]:
         """
         Get statistics about the RG scaling configuration
         
@@ -270,7 +270,7 @@ class RGScaler:
 
 
 # Production factory function
-def create_production_rg_scaler(config: Optional[Dict] = None) -> RGScaler:
+def create_production_rg_scaler(config: dict | None = None) -> RGScaler:
     """
     Create production-ready RG Scaler instance
     

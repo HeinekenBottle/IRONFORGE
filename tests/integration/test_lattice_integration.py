@@ -247,7 +247,7 @@ class LatticeIntegrationTest:
             valid_coordinates = 0
             total_nodes = len(lattice_dataset.nodes)
             
-            for node_id, node in lattice_dataset.nodes.items():
+            for _node_id, node in lattice_dataset.nodes.items():
                 coord = node.coordinate
                 
                 # Check coordinate bounds

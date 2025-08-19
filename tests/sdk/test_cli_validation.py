@@ -188,7 +188,7 @@ class TestValidationCLI:
         """Test main function with validation failure."""
         with tempfile.TemporaryDirectory() as temp_dir:
             with patch("ironforge.sdk.cli.ValidationRunner") as mock_runner_class:
-                with patch("ironforge.sdk.cli.ValidationConfig") as mock_config_class:
+                with patch("ironforge.sdk.cli.ValidationConfig"):
                     # Setup mocks for failure
                     mock_runner = mock_runner_class.return_value
                     mock_runner.run.return_value = {
@@ -212,7 +212,7 @@ class TestValidationCLI:
     def test_validate_subprocess_execution(self):
         """Test validation command via subprocess."""
         # This test ensures the CLI can be invoked as a subprocess
-        with tempfile.TemporaryDirectory() as temp_dir:
+        with tempfile.TemporaryDirectory():
             try:
                 result = subprocess.run(
                     [sys.executable, "-m", "ironforge.sdk.cli", "validate", "--help"],
@@ -418,7 +418,7 @@ def test_validate_output_formatting():
             captured_output = io.StringIO()
 
             with redirect_stdout(captured_output):
-                result = main(["validate", "--data-path", "/tmp", "--mode", "oos"])
+                main(["validate", "--data-path", "/tmp", "--mode", "oos"])
 
             output = captured_output.getvalue()
 

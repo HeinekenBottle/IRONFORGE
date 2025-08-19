@@ -23,7 +23,7 @@ import sys
 from collections import Counter
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 # Add IRONFORGE to path for component access
 ironforge_root = Path(__file__).parent
@@ -65,14 +65,14 @@ class Phase5ArchaeologicalValidator:
         
         self.enhanced_sessions_path = ironforge_root / 'enhanced_sessions'
         
-    def load_enhanced_session(self, session_filename: str) -> Dict[str, Any]:
+    def load_enhanced_session(self, session_filename: str) -> dict[str, Any]:
         """Load and validate enhanced session data"""
         session_path = self.enhanced_sessions_path / session_filename
         
         if not session_path.exists():
             raise FileNotFoundError(f"Enhanced session not found: {session_path}")
             
-        with open(session_path, 'r') as f:
+        with open(session_path) as f:
             session_data = json.load(f)
             
         # Validate this is an authentic enhanced session
@@ -85,7 +85,7 @@ class Phase5ArchaeologicalValidator:
             
         return session_data
         
-    def validate_feature_authenticity(self, session_data: Dict[str, Any]) -> Dict[str, Any]:
+    def validate_feature_authenticity(self, session_data: dict[str, Any]) -> dict[str, Any]:
         """Validate that critical features have been decontaminated"""
         validation = {
             'htf_carryover_authentic': False,
@@ -124,7 +124,7 @@ class Phase5ArchaeologicalValidator:
         
         return validation
         
-    def run_tgat_discovery(self, session_data: Dict[str, Any], session_name: str) -> Dict[str, Any]:
+    def run_tgat_discovery(self, session_data: dict[str, Any], session_name: str) -> dict[str, Any]:
         """Run TGAT archaeological discovery on enhanced session"""
         print(f"🔍 Running TGAT discovery on {session_name}...")
         
@@ -160,7 +160,7 @@ class Phase5ArchaeologicalValidator:
                 'discovery_timestamp': datetime.now().isoformat()
             }
     
-    def analyze_pattern_quality(self, all_patterns: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def analyze_pattern_quality(self, all_patterns: list[dict[str, Any]]) -> dict[str, Any]:
         """Analyze pattern quality metrics for archaeological authenticity"""
         if not all_patterns:
             return {
@@ -224,7 +224,7 @@ class Phase5ArchaeologicalValidator:
         }
         
     def calculate_authenticity_score(self, duplication_rate: float, 
-                                   time_spans: Dict, sessions_count: int) -> float:
+                                   time_spans: dict, sessions_count: int) -> float:
         """Calculate archaeological authenticity score (0-100)"""
         # Penalize high duplication (96.8% = very poor, <20% = excellent)
         duplication_penalty = max(0, duplication_rate - 20) / 80.0  # 0-1 scale
@@ -240,7 +240,7 @@ class Phase5ArchaeologicalValidator:
         total_score = duplication_score + time_span_score + session_score
         return min(100.0, max(0.0, total_score))
         
-    def run_comparative_analysis(self, current_results: Dict[str, Any]) -> Dict[str, Any]:
+    def run_comparative_analysis(self, current_results: dict[str, Any]) -> dict[str, Any]:
         """Compare enhanced results vs previous contaminated baseline"""
         
         # Previous contaminated baseline (from Phase 1 assessment)
@@ -270,7 +270,7 @@ class Phase5ArchaeologicalValidator:
             'success_threshold_met': improvement_analysis['duplication_improvement'] > 46.8  # >50% reduction from 96.8%
         }
         
-    def run_validation(self) -> Dict[str, Any]:
+    def run_validation(self) -> dict[str, Any]:
         """Execute complete Phase 5 archaeological discovery validation"""
         print("🏛️ PHASE 5: ARCHAEOLOGICAL DISCOVERY VALIDATION")
         print("=" * 60)
@@ -427,7 +427,7 @@ def main():
         with open(summary_path, 'w') as f:
             assessment = results['authenticity_assessment']
             quality = results['quality_metrics']
-            comparative = results['comparative_analysis']
+            results['comparative_analysis']
             
             f.write("# Phase 5: Archaeological Discovery Validation - Executive Summary\n\n")
             f.write(f"**Validation Date**: {results['validation_timestamp']}\n")

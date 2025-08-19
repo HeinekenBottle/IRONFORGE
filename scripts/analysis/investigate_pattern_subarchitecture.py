@@ -27,7 +27,7 @@ def load_tgat_patterns():
     patterns_file = "/Users/jack/IRONPULSE/IRONFORGE/IRONFORGE/preservation/discovered_patterns.json"
     
     try:
-        with open(patterns_file, 'r') as f:
+        with open(patterns_file) as f:
             patterns = json.load(f)
         
         print(f"📊 Loaded {len(patterns)} TGAT patterns")
@@ -109,9 +109,11 @@ def analyze_pattern_archetypes(patterns):
     
     return type_counts, type_features
 
-def discover_sub_patterns(features, pattern_metadata, n_clusters_range=[3, 5, 7]):
+def discover_sub_patterns(features, pattern_metadata, n_clusters_range=None):
     """Discover sub-patterns using k-means clustering on 38D feature space"""
     
+    if n_clusters_range is None:
+        n_clusters_range = [3, 5, 7]
     print("\n🔬 SUB-PATTERN DISCOVERY")
     print("=" * 60)
     
@@ -268,7 +270,7 @@ def characterize_sub_patterns(cluster_analysis, features, cluster_labels):
         top_feature_indices = np.argsort(np.abs(centroid))[-5:]
         
         print("   🔬 Distinctive Features (Top 5):")
-        for i, feat_idx in enumerate(reversed(top_feature_indices)):
+        for _i, feat_idx in enumerate(reversed(top_feature_indices)):
             feat_val = centroid[feat_idx]
             feat_var = variance[feat_idx]
             print(f"      Feature {feat_idx}: {feat_val:.3f} ± {np.sqrt(feat_var):.3f}")
@@ -320,7 +322,7 @@ def main():
         return
     
     # Visualize results
-    features_2d = visualize_sub_patterns(features, best_clustering['labels'], best_clustering['analysis'])
+    visualize_sub_patterns(features, best_clustering['labels'], best_clustering['analysis'])
     
     # Characterize sub-patterns
     characterize_sub_patterns(best_clustering['analysis'], features, best_clustering['labels'])

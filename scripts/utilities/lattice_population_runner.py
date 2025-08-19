@@ -19,7 +19,6 @@ import sys
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List
 
 # Add current directory to path for imports
 sys.path.append(str(Path(__file__).parent))
@@ -91,7 +90,7 @@ class LatticePopulationRunner:
         
         return lattice_dataset
     
-    def _discover_enhanced_sessions(self) -> List[Path]:
+    def _discover_enhanced_sessions(self) -> list[Path]:
         """Discover all enhanced session files"""
         
         search_patterns = [
@@ -114,7 +113,7 @@ class LatticePopulationRunner:
         
         return unique_files
     
-    def _process_session_file(self, session_file: Path) -> List[Dict]:
+    def _process_session_file(self, session_file: Path) -> list[dict]:
         """Process a single enhanced session file"""
         
         session_start = time.time()
@@ -123,7 +122,7 @@ class LatticePopulationRunner:
             print(f"📄 Processing: {session_file.name}")
             
             # Load session data
-            with open(session_file, 'r') as f:
+            with open(session_file) as f:
                 session_data = json.load(f)
             
             # Extract events
@@ -159,7 +158,7 @@ class LatticePopulationRunner:
             print(f"   ❌ Failed: {e}")
             return []
     
-    def _generate_complete_lattice(self, all_events: List[Dict]):
+    def _generate_complete_lattice(self, all_events: list[dict]):
         """Generate the complete lattice from all events"""
         
         lattice_start = time.time()

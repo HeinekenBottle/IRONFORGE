@@ -7,10 +7,9 @@ Validates IRONFORGE schema contracts using file inspection and pattern matching.
 Works without pandas/pyarrow dependencies.
 """
 
-import os
 import glob
+import os
 import subprocess
-import sys
 
 
 def check_parquet_schema_with_file_command(file_path):
@@ -80,7 +79,7 @@ def validate_module_imports_basic():
         if os.path.exists(file_path):
             # Try to check if the file has the expected function
             try:
-                with open(file_path, 'r') as f:
+                with open(file_path) as f:
                     content = f.read()
                 
                 # Look for expected function names
@@ -123,7 +122,7 @@ def validate_cli_structure():
         return False
     
     try:
-        with open(cli_file, 'r') as f:
+        with open(cli_file) as f:
             content = f.read()
         
         # Check for expected CLI commands

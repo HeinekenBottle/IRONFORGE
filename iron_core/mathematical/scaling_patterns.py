@@ -19,10 +19,11 @@ import asyncio
 import concurrent.futures
 import logging
 from abc import ABC, abstractmethod
+from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Callable, Dict, List, Optional, Tuple
+from typing import Any
 
 import numpy as np
 import psutil
@@ -68,12 +69,12 @@ class ScalingPattern(ABC):
     """Abstract base class for scaling patterns"""
     
     @abstractmethod
-    async def execute(self, computation: Callable, data: Any, config: ScalingConfig) -> Tuple[Any, ScalingMetrics]:
+    async def execute(self, computation: Callable, data: Any, config: ScalingConfig) -> tuple[Any, ScalingMetrics]:
         """Execute computation with scaling pattern"""
         pass
     
     @abstractmethod
-    def estimate_resources(self, data_size: int, complexity: ComputationComplexity) -> Dict[str, float]:
+    def estimate_resources(self, data_size: int, complexity: ComputationComplexity) -> dict[str, float]:
         """Estimate resource requirements"""
         pass
 
@@ -83,7 +84,7 @@ class HorizontalScalingPattern(ScalingPattern):
     def __init__(self):
         self.logger = logging.getLogger(__name__)
     
-    async def execute(self, computation: Callable, data: Any, config: ScalingConfig) -> Tuple[Any, ScalingMetrics]:
+    async def execute(self, computation: Callable, data: Any, config: ScalingConfig) -> tuple[Any, ScalingMetrics]:
         """Execute computation with horizontal scaling"""
         start_time = datetime.now()
         
@@ -104,7 +105,7 @@ class HorizontalScalingPattern(ScalingPattern):
         
         return combined_result, metrics
     
-    def estimate_resources(self, data_size: int, complexity: ComputationComplexity) -> Dict[str, float]:
+    def estimate_resources(self, data_size: int, complexity: ComputationComplexity) -> dict[str, float]:
         """Estimate resource requirements for horizontal scaling"""
         complexity_multipliers = {
             ComputationComplexity.LOW: 1.0,
@@ -122,9 +123,9 @@ class HorizontalScalingPattern(ScalingPattern):
             "recommended_workers": min(psutil.cpu_count(), max(2, data_size // 1000))
         }
     
-    def _partition_data(self, data: Any, chunk_size: int) -> List[Any]:
+    def _partition_data(self, data: Any, chunk_size: int) -> list[Any]:
         """Partition data into chunks for parallel processing"""
-        if isinstance(data, (list, tuple)):
+        if isinstance(data, list | tuple):
             return [data[i:i + chunk_size] for i in range(0, len(data), chunk_size)]
         elif isinstance(data, np.ndarray):
             return np.array_split(data, max(1, len(data) // chunk_size))
@@ -132,12 +133,12 @@ class HorizontalScalingPattern(ScalingPattern):
             # For other data types, return as single chunk
             return [data]
     
-    def _combine_results(self, results: List[Any]) -> Any:
+    def _combine_results(self, results: list[Any]) -> Any:
         """Combine results from parallel computations"""
         if not results:
             return None
         
-        if isinstance(results[0], (list, tuple)):
+        if isinstance(results[0], list | tuple):
             combined = []
             for result in results:
                 combined.extend(result)
@@ -178,7 +179,7 @@ class VerticalScalingPattern(ScalingPattern):
     def __init__(self):
         self.logger = logging.getLogger(__name__)
     
-    async def execute(self, computation: Callable, data: Any, config: ScalingConfig) -> Tuple[Any, ScalingMetrics]:
+    async def execute(self, computation: Callable, data: Any, config: ScalingConfig) -> tuple[Any, ScalingMetrics]:
         """Execute computation with vertical scaling"""
         start_time = datetime.now()
         
@@ -194,7 +195,7 @@ class VerticalScalingPattern(ScalingPattern):
         
         return result, metrics
     
-    def estimate_resources(self, data_size: int, complexity: ComputationComplexity) -> Dict[str, float]:
+    def estimate_resources(self, data_size: int, complexity: ComputationComplexity) -> dict[str, float]:
         """Estimate resource requirements for vertical scaling"""
         complexity_multipliers = {
             ComputationComplexity.LOW: 0.5,
@@ -253,7 +254,7 @@ class AdaptiveScalingManager:
     
     async def execute_with_optimal_scaling(self, computation: Callable, data: Any, 
                                          complexity: ComputationComplexity = ComputationComplexity.MEDIUM,
-                                         config: Optional[ScalingConfig] = None) -> Tuple[Any, ScalingMetrics]:
+                                         config: ScalingConfig | None = None) -> tuple[Any, ScalingMetrics]:
         """Execute computation with optimal scaling strategy"""
         
         if config is None:
@@ -296,7 +297,7 @@ class AdaptiveScalingManager:
             else:
                 return ScalingStrategy.VERTICAL
     
-    def get_performance_summary(self) -> Dict[str, Any]:
+    def get_performance_summary(self) -> dict[str, Any]:
         """Get performance summary across all executions"""
         if not self.performance_history:
             return {"status": "no_data"}

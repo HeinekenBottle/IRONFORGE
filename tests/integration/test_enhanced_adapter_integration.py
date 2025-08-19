@@ -245,7 +245,6 @@ class TestArchaeologySystemPatch(unittest.TestCase):
         
         # Create enhanced session data
         enhanced_data = {"price_movements": [], "session_liquidity_events": []}
-        regular_data = {"events": []}
         
         # Test enhanced session detection (mock the adapter call)
         with patch.object(self.mock_archaeology.adapter, 'adapt_enhanced_session') as mock_adapt:

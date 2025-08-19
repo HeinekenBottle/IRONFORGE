@@ -17,7 +17,7 @@ import warnings
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from decimal import Decimal, getcontext
-from typing import Any, Dict
+from typing import Any
 
 import numpy as np
 import scipy.fft
@@ -44,17 +44,17 @@ class CoreAlgorithmLayer(ABC):
     """
     
     @abstractmethod
-    def initialize_parameters(self, config: Dict[str, Any]) -> MathematicalParameters:
+    def initialize_parameters(self, config: dict[str, Any]) -> MathematicalParameters:
         """Initialize algorithm parameters with validation"""
         pass
     
     @abstractmethod
-    def compute_core_function(self, input_data: np.ndarray, parameters: Dict[str, Any]) -> np.ndarray:
+    def compute_core_function(self, input_data: np.ndarray, parameters: dict[str, Any]) -> np.ndarray:
         """Core mathematical computation with optimizations"""
         pass
     
     @abstractmethod
-    def optimize_parameters(self, training_data: np.ndarray) -> Dict[str, Any]:
+    def optimize_parameters(self, training_data: np.ndarray) -> dict[str, Any]:
         """Optimize parameters using advanced algorithms"""
         pass
     
@@ -75,7 +75,7 @@ class HawkesAlgorithmImplementation(CoreAlgorithmLayer):
         self.domain = MathematicalDomain.POINT_PROCESSES
         getcontext().prec = precision
     
-    def initialize_parameters(self, config: Dict[str, Any]) -> MathematicalParameters[Decimal]:
+    def initialize_parameters(self, config: dict[str, Any]) -> MathematicalParameters[Decimal]:
         """Initialize with high-precision parameters"""
         
         # Oracle system validated defaults
@@ -115,7 +115,7 @@ class HawkesAlgorithmImplementation(CoreAlgorithmLayer):
             domain=self.domain
         )
     
-    def compute_core_function(self, events: np.ndarray, parameters: Dict[str, Any]) -> np.ndarray:
+    def compute_core_function(self, events: np.ndarray, parameters: dict[str, Any]) -> np.ndarray:
         """
         Optimized Hawkes intensity computation.
         
@@ -196,7 +196,7 @@ class HawkesAlgorithmImplementation(CoreAlgorithmLayer):
         
         return np.array(intensities)
     
-    def optimize_parameters(self, training_data: np.ndarray) -> Dict[str, Any]:
+    def optimize_parameters(self, training_data: np.ndarray) -> dict[str, Any]:
         """
         Parameter optimization using validated COBYLA method from Oracle system.
         Maximizes log-likelihood with stability constraints.
@@ -227,7 +227,7 @@ class HawkesAlgorithmImplementation(CoreAlgorithmLayer):
                 
                 # Approximate integral using trapezoidal rule
                 if len(training_data) > 1:
-                    time_span = training_data[-1] - training_data[0]
+                    training_data[-1] - training_data[0]
                     integral_approximation = np.trapz(intensities, training_data)
                 else:
                     integral_approximation = intensities[0] * (training_data[0] if len(training_data) > 0 else 1.0)
@@ -328,7 +328,7 @@ class FFTOptimizedCorrelator(CoreAlgorithmLayer):
         self.use_gpu = use_gpu
         self.domain = MathematicalDomain.SIGNAL_PROCESSING
     
-    def initialize_parameters(self, config: Dict[str, Any]) -> MathematicalParameters:
+    def initialize_parameters(self, config: dict[str, Any]) -> MathematicalParameters:
         """Initialize FFT correlation parameters"""
         
         defaults = {
@@ -356,7 +356,7 @@ class FFTOptimizedCorrelator(CoreAlgorithmLayer):
             domain=self.domain
         )
     
-    def compute_core_function(self, input_data: np.ndarray, parameters: Dict[str, Any]) -> np.ndarray:
+    def compute_core_function(self, input_data: np.ndarray, parameters: dict[str, Any]) -> np.ndarray:
         """
         FFT-based cross-correlation computation.
         
@@ -398,7 +398,7 @@ class FFTOptimizedCorrelator(CoreAlgorithmLayer):
         # Return relevant portion (remove zero-padding effects)
         return correlation[:min_length]
     
-    def optimize_parameters(self, training_data: np.ndarray) -> Dict[str, Any]:
+    def optimize_parameters(self, training_data: np.ndarray) -> dict[str, Any]:
         """Optimize FFT correlation parameters"""
         
         # For FFT correlation, optimization typically involves:
@@ -452,7 +452,7 @@ class QuantumInspiredOptimizer(CoreAlgorithmLayer):
         self.quantum_temperature = quantum_temperature
         self.domain = MathematicalDomain.OPTIMIZATION
     
-    def initialize_parameters(self, config: Dict[str, Any]) -> MathematicalParameters:
+    def initialize_parameters(self, config: dict[str, Any]) -> MathematicalParameters:
         """Initialize quantum-inspired optimizer parameters"""
         
         defaults = {
@@ -482,7 +482,7 @@ class QuantumInspiredOptimizer(CoreAlgorithmLayer):
             domain=self.domain
         )
     
-    def compute_core_function(self, objective_function: callable, parameters: Dict[str, Any]) -> Dict[str, Any]:
+    def compute_core_function(self, objective_function: callable, parameters: dict[str, Any]) -> dict[str, Any]:
         """
         Quantum-inspired optimization using simulated annealing with tunneling.
         
@@ -508,7 +508,7 @@ class QuantumInspiredOptimizer(CoreAlgorithmLayer):
         
         temperature = T_init
         
-        for iteration in range(max_iter):
+        for _iteration in range(max_iter):
             # Generate neighbor state
             perturbation = np.random.randn(3) * 0.1
             
@@ -543,7 +543,7 @@ class QuantumInspiredOptimizer(CoreAlgorithmLayer):
             "iterations": max_iter
         }
     
-    def optimize_parameters(self, training_data: np.ndarray) -> Dict[str, Any]:
+    def optimize_parameters(self, training_data: np.ndarray) -> dict[str, Any]:
         """Optimize using quantum-inspired algorithm"""
         
         # Define objective function for demonstration
@@ -590,7 +590,7 @@ class QuantumInspiredOptimizer(CoreAlgorithmLayer):
             optimization_success=result["optimization_success"]
         )
 
-def create_algorithm_factory() -> Dict[str, type]:
+def create_algorithm_factory() -> dict[str, type]:
     """Factory for creating algorithm implementations"""
     return {
         "hawkes_process": HawkesAlgorithmImplementation,
@@ -598,7 +598,7 @@ def create_algorithm_factory() -> Dict[str, type]:
         "quantum_optimizer": QuantumInspiredOptimizer
     }
 
-def benchmark_all_algorithms() -> Dict[str, AlgorithmPerformanceMetrics]:
+def benchmark_all_algorithms() -> dict[str, AlgorithmPerformanceMetrics]:
     """Benchmark all algorithm implementations"""
     
     factory = create_algorithm_factory()

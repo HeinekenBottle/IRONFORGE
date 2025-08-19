@@ -7,7 +7,7 @@ from collections import deque
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 import numpy as np
 
@@ -44,9 +44,9 @@ class HookContext:
     hook_type: HookType
     model_id: str
     timestamp: datetime
-    data: Dict[str, Any]
-    metadata: Dict[str, Any] = field(default_factory=dict)
-    correlation_id: Optional[str] = None
+    data: dict[str, Any]
+    metadata: dict[str, Any] = field(default_factory=dict)
+    correlation_id: str | None = None
 
 @dataclass
 class AlertEvent:
@@ -56,10 +56,10 @@ class AlertEvent:
     message: str
     model_id: str
     timestamp: datetime
-    context: Dict[str, Any]
+    context: dict[str, Any]
     recovery_action: RecoveryAction
     resolved: bool = False
-    resolution_time: Optional[datetime] = None
+    resolution_time: datetime | None = None
 
 class MathematicalHook(ABC):
     """Base class for mathematical model hooks"""
@@ -68,15 +68,15 @@ class MathematicalHook(ABC):
         self.hook_id = hook_id
         self.enabled = enabled
         self.execution_count = 0
-        self.last_execution: Optional[datetime] = None
+        self.last_execution: datetime | None = None
         self.execution_history: deque = deque(maxlen=100)
     
     @abstractmethod
-    async def execute(self, context: HookContext) -> Dict[str, Any]:
+    async def execute(self, context: HookContext) -> dict[str, Any]:
         """Execute hook logic"""
         pass
     
-    async def safe_execute(self, context: HookContext) -> Dict[str, Any]:
+    async def safe_execute(self, context: HookContext) -> dict[str, Any]:
         """Execute hook with error handling and monitoring"""
         if not self.enabled:
             return {"status": "disabled", "hook_id": self.hook_id}
@@ -137,10 +137,10 @@ class ParameterDriftHook(MathematicalHook):
         super().__init__("parameter_drift_detector")
         self.drift_threshold = drift_threshold
         self.window_size = window_size
-        self.parameter_history: Dict[str, deque] = {}
-        self.drift_alerts: List[AlertEvent] = []
+        self.parameter_history: dict[str, deque] = {}
+        self.drift_alerts: list[AlertEvent] = []
     
-    async def execute(self, context: HookContext) -> Dict[str, Any]:
+    async def execute(self, context: HookContext) -> dict[str, Any]:
         """Detect parameter drift and trigger alerts"""
         
         current_params = context.data.get("parameters", {})
@@ -172,7 +172,7 @@ class ParameterDriftHook(MathematicalHook):
         drifted_parameters = []
         
         for param_name, current_value in current_params.items():
-            if not isinstance(current_value, (int, float)):
+            if not isinstance(current_value, int | float):
                 continue  # Skip non-numeric parameters
             
             # Extract historical values for this parameter
@@ -236,7 +236,7 @@ class ParameterDriftHook(MathematicalHook):
             "drift_analysis": drift_analysis
         }
     
-    def _calculate_parameter_drift(self, historical_values: List[float], current_value: float) -> float:
+    def _calculate_parameter_drift(self, historical_values: list[float], current_value: float) -> float:
         """
         Calculate parameter drift score using statistical methods.
         
@@ -295,9 +295,9 @@ class PerformanceDegradationHook(MathematicalHook):
         self.execution_time_threshold = execution_time_threshold
         self.memory_threshold = memory_threshold
         self.accuracy_threshold = accuracy_threshold
-        self.performance_history: Dict[str, deque] = {}
+        self.performance_history: dict[str, deque] = {}
     
-    async def execute(self, context: HookContext) -> Dict[str, Any]:
+    async def execute(self, context: HookContext) -> dict[str, Any]:
         """Monitor performance metrics and detect degradation"""
         
         model_id = context.model_id
@@ -384,7 +384,7 @@ class PerformanceDegradationHook(MathematicalHook):
             "performance_score": self._calculate_performance_score(current_metrics)
         }
     
-    def _analyze_performance_trends(self, history: deque) -> Dict[str, Any]:
+    def _analyze_performance_trends(self, history: deque) -> dict[str, Any]:
         """Analyze performance trends over time"""
         
         if len(history) < 5:
@@ -426,7 +426,7 @@ class PerformanceDegradationHook(MathematicalHook):
         
         return trends
     
-    def _recommend_recovery_action(self, issues: List[Dict[str, Any]]) -> str:
+    def _recommend_recovery_action(self, issues: list[dict[str, Any]]) -> str:
         """Recommend recovery action based on performance issues"""
         
         critical_issues = [i for i in issues if i["severity"] == "critical"]
@@ -446,7 +446,7 @@ class PerformanceDegradationHook(MathematicalHook):
         
         return "performance_monitoring_continue"
     
-    def _calculate_performance_score(self, metrics: Dict[str, Any]) -> float:
+    def _calculate_performance_score(self, metrics: dict[str, Any]) -> float:
         """Calculate overall performance score (0-1, higher is better)"""
         
         execution_score = max(0, 1 - metrics["execution_time_ms"] / (self.execution_time_threshold * 2))
@@ -470,9 +470,9 @@ class MathematicalInvariantValidationHook(MathematicalHook):
     
     def __init__(self):
         super().__init__("mathematical_invariant_validator")
-        self.validation_failures: List[AlertEvent] = []
+        self.validation_failures: list[AlertEvent] = []
     
-    async def execute(self, context: HookContext) -> Dict[str, Any]:
+    async def execute(self, context: HookContext) -> dict[str, Any]:
         """Validate mathematical invariants"""
         
         model_id = context.model_id
@@ -537,7 +537,7 @@ class MathematicalInvariantValidationHook(MathematicalHook):
             "validation_details": validation_results
         }
     
-    def _validate_hawkes_invariants(self, parameters: Dict[str, Any], results: Dict[str, Any]) -> Dict[str, Any]:
+    def _validate_hawkes_invariants(self, parameters: dict[str, Any], results: dict[str, Any]) -> dict[str, Any]:
         """Validate Hawkes process mathematical invariants"""
         
         violations = []
@@ -565,7 +565,7 @@ class MathematicalInvariantValidationHook(MathematicalHook):
         # Invariant 5: Non-negative intensity values
         if "intensities" in results:
             intensities = results["intensities"]
-            if isinstance(intensities, (list, np.ndarray)):
+            if isinstance(intensities, list | np.ndarray):
                 if np.any(np.array(intensities) < 0):
                     violations.append("negative_intensity_values")
         
@@ -577,7 +577,7 @@ class MathematicalInvariantValidationHook(MathematicalHook):
             "stability_ratio": alpha / beta if beta > 0 else float('inf')
         }
     
-    def _validate_htf_invariants(self, parameters: Dict[str, Any], results: Dict[str, Any]) -> Dict[str, Any]:
+    def _validate_htf_invariants(self, parameters: dict[str, Any], results: dict[str, Any]) -> dict[str, Any]:
         """Validate HTF system mathematical invariants"""
         
         violations = []
@@ -603,14 +603,14 @@ class MathematicalInvariantValidationHook(MathematicalHook):
             "timescale_ratio": beta_h / beta_s if beta_s > 0 else 0
         }
     
-    def _validate_general_constraints(self, parameters: Dict[str, Any], results: Dict[str, Any]) -> Dict[str, Any]:
+    def _validate_general_constraints(self, parameters: dict[str, Any], results: dict[str, Any]) -> dict[str, Any]:
         """Validate general mathematical constraints"""
         
         violations = []
         
         # Check for NaN or infinite values in parameters
         for param_name, param_value in parameters.items():
-            if isinstance(param_value, (int, float)):
+            if isinstance(param_value, int | float):
                 if np.isnan(param_value):
                     violations.append(f"parameter_{param_name}_is_nan")
                 elif np.isinf(param_value):
@@ -619,7 +619,7 @@ class MathematicalInvariantValidationHook(MathematicalHook):
         # Check for NaN or infinite values in results
         if "intensities" in results:
             intensities = results["intensities"]
-            if isinstance(intensities, (list, np.ndarray)):
+            if isinstance(intensities, list | np.ndarray):
                 intensity_array = np.array(intensities)
                 if np.any(np.isnan(intensity_array)):
                     violations.append("result_contains_nan")
@@ -640,10 +640,10 @@ class HookManager:
     """
     
     def __init__(self):
-        self.hooks: Dict[HookType, List[MathematicalHook]] = {}
+        self.hooks: dict[HookType, list[MathematicalHook]] = {}
         self.hook_history: deque = deque(maxlen=1000)
-        self.active_alerts: List[AlertEvent] = []
-        self.recovery_actions_log: List[Dict[str, Any]] = []
+        self.active_alerts: list[AlertEvent] = []
+        self.recovery_actions_log: list[dict[str, Any]] = []
     
     def register_hook(self, hook_type: HookType, hook: MathematicalHook) -> None:
         """Register a hook for specific events"""
@@ -653,7 +653,7 @@ class HookManager:
         
         logger.info(f"Registered hook {hook.hook_id} for {hook_type.value}")
     
-    async def trigger_hooks(self, context: HookContext) -> List[Dict[str, Any]]:
+    async def trigger_hooks(self, context: HookContext) -> list[dict[str, Any]]:
         """Execute all hooks for a given context"""
         
         if context.hook_type not in self.hooks:
@@ -715,7 +715,7 @@ class HookManager:
         
         logger.info("Standard mathematical hooks setup completed")
     
-    def get_active_alerts(self, model_id: Optional[str] = None) -> List[AlertEvent]:
+    def get_active_alerts(self, model_id: str | None = None) -> list[AlertEvent]:
         """Get active alerts, optionally filtered by model"""
         
         alerts = [alert for alert in self.active_alerts if not alert.resolved]
@@ -725,7 +725,7 @@ class HookManager:
         
         return alerts
     
-    def get_hook_performance_summary(self) -> Dict[str, Any]:
+    def get_hook_performance_summary(self) -> dict[str, Any]:
         """Get performance summary for all hooks"""
         
         summary = {

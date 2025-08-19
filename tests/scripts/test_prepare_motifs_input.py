@@ -454,7 +454,7 @@ class TestEdgeCases:
             assert len(output_data) == 100
 
             # Verify structure is preserved
-            for session_id, session_data in output_data.items():
+            for _session_id, session_data in output_data.items():
                 assert "events" in session_data
                 assert "confluence" in session_data
                 assert len(session_data["events"]) == 10

@@ -12,7 +12,6 @@ import json
 import time
 import tracemalloc
 from pathlib import Path
-from typing import Dict, List, Tuple
 
 import psutil
 import torch
@@ -62,7 +61,7 @@ class PerformanceProfiler:
             'initial_gpu': initial_gpu
         }
     
-    def create_workload_sets(self) -> Dict[str, List[str]]:
+    def create_workload_sets(self) -> dict[str, list[str]]:
         """D4d-2: Create target workloads (Small/Medium/Large)."""
         print("\n📦 Phase 4d-2: Creating Target Workloads")
         print("=" * 60)
@@ -75,7 +74,7 @@ class PerformanceProfiler:
         validated_sessions = []
         for session_file in htf_files:
             try:
-                with open(session_file, 'r') as f:
+                with open(session_file) as f:
                     session_data = json.load(f)
                 
                 # Quick validation
@@ -109,7 +108,7 @@ class PerformanceProfiler:
         
         return workloads
     
-    def profile_session(self, session_file: str, profiling_context: Dict) -> Dict:
+    def profile_session(self, session_file: str, profiling_context: dict) -> dict:
         """Profile a single session with full metrics."""
         session_name = Path(session_file).stem
         
@@ -126,7 +125,7 @@ class PerformanceProfiler:
         
         try:
             # Load session data
-            with open(session_file, 'r') as f:
+            with open(session_file) as f:
                 session_data = json.load(f)
             
             # Build enhanced graph (37D nodes + 17D edges)
@@ -155,10 +154,9 @@ class PerformanceProfiler:
             
             if profiling_context['gpu_available']:
                 gpu_peak = torch.cuda.max_memory_allocated() / (1024 * 1024)
-                gpu_after = torch.cuda.memory_allocated() / (1024 * 1024)
+                torch.cuda.memory_allocated() / (1024 * 1024)
             else:
                 gpu_peak = 0
-                gpu_after = 0
             
             # Calculate metrics
             cpu_peak_mb = max(cpu_before, cpu_after)
@@ -198,8 +196,8 @@ class PerformanceProfiler:
             'error': error_msg
         }
     
-    def run_workload(self, workload_name: str, sessions: List[str], 
-                    profiling_context: Dict) -> Tuple[List[Dict], Dict]:
+    def run_workload(self, workload_name: str, sessions: list[str], 
+                    profiling_context: dict) -> tuple[list[dict], dict]:
         """Run and profile a complete workload."""
         print(f"\n🚀 Running {workload_name.upper()} workload: {len(sessions)} sessions")
         print("=" * 60)
@@ -242,7 +240,7 @@ class PerformanceProfiler:
         
         # Check for chunking/caps violations
         no_chunking = all(r['node_dims'] == 37 and r['edge_dims'] == 17 for r in successful_sessions)
-        no_caps = len(sessions) == len([s for s in sessions])  # No artificial session limits
+        no_caps = len(sessions) == len(list(sessions))  # No artificial session limits
         
         workload_summary = {
             'workload_name': workload_name,
@@ -265,7 +263,7 @@ class PerformanceProfiler:
         
         return session_results, workload_summary
     
-    def check_acceptance_targets(self, workload_summaries: Dict[str, Dict]) -> Dict[str, bool]:
+    def check_acceptance_targets(self, workload_summaries: dict[str, dict]) -> dict[str, bool]:
         """D4d-3: Check acceptance targets."""
         print("\n🎯 Phase 4d-3: Checking Acceptance Targets")
         print("=" * 60)
@@ -353,7 +351,7 @@ class PerformanceProfiler:
         
         return results
     
-    def run_performance_validation(self) -> Tuple[Dict, bool]:
+    def run_performance_validation(self) -> tuple[dict, bool]:
         """Run complete performance validation."""
         print("🚀 IRONFORGE Phase 4d: Performance Validation")
         print("=" * 70)
@@ -450,7 +448,7 @@ def run_phase4d_performance_validation():
     
     return results, success and all_targets_passed
 
-def save_profile_csv(results: Dict):
+def save_profile_csv(results: dict):
     """Save profiling results to CSV."""
     csv_file = "/Users/jack/IRONPULSE/IRONFORGE/phase4d_profile.csv"
     

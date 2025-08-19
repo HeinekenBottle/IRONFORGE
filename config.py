@@ -17,7 +17,7 @@ import json
 import logging
 import os
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any
 
 
 class IRONFORGEConfig:
@@ -27,7 +27,7 @@ class IRONFORGEConfig:
     Eliminates hardcoded paths and provides environment-specific configuration.
     """
     
-    def __init__(self, config_file: Optional[str] = None):
+    def __init__(self, config_file: str | None = None):
         self.logger = logging.getLogger('ironforge.config')
         
         # Default configuration - updated for new directory structure
@@ -51,7 +51,7 @@ class IRONFORGEConfig:
         # Validate and create directories
         self._validate_and_create_paths()
     
-    def _load_config(self, config_file: Optional[str] = None) -> Dict[str, Any]:
+    def _load_config(self, config_file: str | None = None) -> dict[str, Any]:
         """Load configuration from environment variables and config file."""
         config = self._defaults.copy()
         
@@ -80,7 +80,7 @@ class IRONFORGEConfig:
         # Load from config file if provided
         if config_file and os.path.exists(config_file):
             try:
-                with open(config_file, 'r') as f:
+                with open(config_file) as f:
                     file_config = json.load(f)
                 config.update(file_config)
                 self.logger.info(f"Loaded configuration from {config_file}")
@@ -185,7 +185,7 @@ class IRONFORGEConfig:
         """Get workspace root directory."""
         return self.get_path('workspace_root')
     
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Get configuration as dictionary."""
         return self.config.copy()
     
@@ -201,9 +201,9 @@ class IRONFORGEConfig:
 
 
 # Global configuration instance
-_config: Optional[IRONFORGEConfig] = None
+_config: IRONFORGEConfig | None = None
 
-def get_config(config_file: Optional[str] = None) -> IRONFORGEConfig:
+def get_config(config_file: str | None = None) -> IRONFORGEConfig:
     """Get or create global IRONFORGE configuration."""
     global _config
     
@@ -212,7 +212,7 @@ def get_config(config_file: Optional[str] = None) -> IRONFORGEConfig:
     
     return _config
 
-def initialize_config(config_file: Optional[str] = None) -> IRONFORGEConfig:
+def initialize_config(config_file: str | None = None) -> IRONFORGEConfig:
     """Initialize IRONFORGE configuration system."""
     global _config
     _config = IRONFORGEConfig(config_file)

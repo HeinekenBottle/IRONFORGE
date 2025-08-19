@@ -137,7 +137,7 @@ def analyze_market_mechanics():
     patterns_file = "/Users/jack/IRONPULSE/IRONFORGE/IRONFORGE/preservation/discovered_patterns.json"
     
     try:
-        with open(patterns_file, 'r') as f:
+        with open(patterns_file) as f:
             patterns = json.load(f)
         
         print(f"📊 Analyzing {len(patterns)} TGAT patterns for concrete mechanics...")
@@ -207,7 +207,7 @@ def analyze_specific_examples():
     patterns_file = "/Users/jack/IRONPULSE/IRONFORGE/IRONFORGE/preservation/discovered_patterns.json"
     
     try:
-        with open(patterns_file, 'r') as f:
+        with open(patterns_file) as f:
             patterns = json.load(f)
         
         # Group by pattern type and show concrete examples

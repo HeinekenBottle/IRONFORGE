@@ -145,7 +145,7 @@ def main():
             # Archaeological zones
             zones = belt_lattice.get('archaeological_zones', {})
             if zones:
-                zone_id = zones.get('zone_identification', {})
+                zones.get('zone_identification', {})
                 zone_chars = zones.get('zone_characteristics', {})
                 
                 if zone_chars:

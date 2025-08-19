@@ -24,7 +24,7 @@ from collections import Counter
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any
 
 import torch
 
@@ -47,8 +47,8 @@ class PatternAnalysis:
     temporal_position: int
     time_span_hours: float
     session_date: str
-    enhanced_features: Dict[str, float]
-    discovery_metadata: Dict[str, Any]
+    enhanced_features: dict[str, float]
+    discovery_metadata: dict[str, Any]
 
 
 @dataclass
@@ -96,8 +96,8 @@ class IRONFORGEDiscoverySDK:
         self._initialize_discovery_engine()
         
         # Pattern database
-        self.pattern_database: Dict[str, PatternAnalysis] = {}
-        self.cross_session_links: List[CrossSessionLink] = []
+        self.pattern_database: dict[str, PatternAnalysis] = {}
+        self.cross_session_links: list[CrossSessionLink] = []
         
         # Discovery statistics
         self.discovery_stats = {
@@ -137,7 +137,7 @@ class IRONFORGEDiscoverySDK:
             self.logger.error(f"❌ Failed to initialize discovery engine: {e}")
             raise RuntimeError(f"Discovery engine initialization failed: {e}")
     
-    def discover_session_patterns(self, session_file: Path) -> List[PatternAnalysis]:
+    def discover_session_patterns(self, session_file: Path) -> list[PatternAnalysis]:
         """
         Discover patterns in a single enhanced session
         
@@ -148,7 +148,7 @@ class IRONFORGEDiscoverySDK:
             List of discovered patterns with full analysis
         """
         try:
-            with open(session_file, 'r') as f:
+            with open(session_file) as f:
                 session_data = json.load(f)
             
             # Create graph from enhanced session
@@ -193,7 +193,7 @@ class IRONFORGEDiscoverySDK:
             self.logger.error(f"Pattern discovery failed for {session_file.name}: {e}")
             return []
     
-    def _create_graph_from_session(self, session_data: Dict) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, Dict]:
+    def _create_graph_from_session(self, session_data: dict) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, dict]:
         """Convert enhanced session data to TGAT graph format"""
         price_movements = session_data.get('price_movements', [])
         
@@ -237,7 +237,7 @@ class IRONFORGEDiscoverySDK:
         
         return X, edge_index, edge_times, edge_attr, metadata
     
-    def discover_all_sessions(self, max_workers: int = 4) -> Dict[str, Any]:
+    def discover_all_sessions(self, max_workers: int = 4) -> dict[str, Any]:
         """
         Systematic discovery across all 57 enhanced sessions
         
@@ -308,17 +308,17 @@ class IRONFORGEDiscoverySDK:
         
         return results
     
-    def _analyze_pattern_types(self, patterns: List[PatternAnalysis]) -> Dict[str, int]:
+    def _analyze_pattern_types(self, patterns: list[PatternAnalysis]) -> dict[str, int]:
         """Analyze distribution of pattern types"""
         type_counts = Counter(p.pattern_type for p in patterns)
         return dict(type_counts)
     
-    def _analyze_patterns_by_session(self, patterns: List[PatternAnalysis]) -> Dict[str, int]:
+    def _analyze_patterns_by_session(self, patterns: list[PatternAnalysis]) -> dict[str, int]:
         """Analyze pattern distribution by session"""
         session_counts = Counter(p.session_name for p in patterns)
         return dict(session_counts)
     
-    def _calculate_quality_metrics(self, patterns: List[PatternAnalysis]) -> Dict[str, float]:
+    def _calculate_quality_metrics(self, patterns: list[PatternAnalysis]) -> dict[str, float]:
         """Calculate pattern quality metrics"""
         if not patterns:
             return {'duplication_rate': 0.0, 'avg_confidence': 0.0, 'unique_descriptions': 0}
@@ -343,7 +343,7 @@ class IRONFORGEDiscoverySDK:
             'patterns_with_temporal_span': len(temporal_spans)
         }
     
-    def find_cross_session_links(self, min_similarity: float = 0.7) -> List[CrossSessionLink]:
+    def find_cross_session_links(self, min_similarity: float = 0.7) -> list[CrossSessionLink]:
         """
         Discover relationships between patterns across different sessions
         
@@ -439,14 +439,14 @@ class IRONFORGEDiscoverySDK:
         else:
             return "cross_pattern_relationship"
     
-    def get_discovery_summary(self) -> Dict[str, Any]:
+    def get_discovery_summary(self) -> dict[str, Any]:
         """Get comprehensive discovery summary"""
         return {
             'discovery_statistics': self.discovery_stats,
             'pattern_database_size': len(self.pattern_database),
             'cross_session_links': len(self.cross_session_links),
-            'pattern_types': list(set(p.pattern_type for p in self.pattern_database.values())),
-            'session_coverage': len(set(p.session_name for p in self.pattern_database.values())),
+            'pattern_types': list({p.pattern_type for p in self.pattern_database.values()}),
+            'session_coverage': len({p.session_name for p in self.pattern_database.values()}),
             'cache_location': str(self.discovery_cache_path)
         }
     
@@ -473,7 +473,7 @@ Generated: {datetime.now().isoformat()}
 
 🔗 Cross-Session Intelligence:
 - Links Discovered: {len(self.cross_session_links)}
-- Link Types: {len(set(link.link_type for link in self.cross_session_links))} distinct types
+- Link Types: {len({link.link_type for link in self.cross_session_links})} distinct types
 
 💾 Cache Location: {summary['cache_location']}
 """
@@ -481,7 +481,7 @@ Generated: {datetime.now().isoformat()}
 
 
 # Convenience functions for quick access
-def quick_discover_all_sessions() -> Dict[str, Any]:
+def quick_discover_all_sessions() -> dict[str, Any]:
     """Quick function to run discovery on all sessions"""
     sdk = IRONFORGEDiscoverySDK()
     results = sdk.discover_all_sessions()
@@ -489,7 +489,7 @@ def quick_discover_all_sessions() -> Dict[str, Any]:
     return results
 
 
-def analyze_session_patterns(session_name: str) -> List[PatternAnalysis]:
+def analyze_session_patterns(session_name: str) -> list[PatternAnalysis]:
     """Quick function to analyze patterns in a specific session"""
     sdk = IRONFORGEDiscoverySDK()
     session_files = list(sdk.enhanced_sessions_path.glob(f'*{session_name}*.json'))

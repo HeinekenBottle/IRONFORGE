@@ -9,7 +9,6 @@ import os
 import pickle
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
 
 import torch
 
@@ -25,8 +24,8 @@ from ironforge.synthesis.pattern_graduation import PatternGraduation
 class IRONFORGE:
     """Main orchestrator for discovery system"""
     
-    def __init__(self, data_path: Optional[str] = None, use_enhanced: bool = True,
-                 enable_performance_monitoring: bool = True, config_file: Optional[str] = None):
+    def __init__(self, data_path: str | None = None, use_enhanced: bool = True,
+                 enable_performance_monitoring: bool = True, config_file: str | None = None):
         # Initialize configuration system (NO HARDCODED PATHS)
         self.config = get_config(config_file)
 
@@ -52,7 +51,7 @@ class IRONFORGE:
         self.embeddings_path = self.config.get_embeddings_path()
         
         # Performance monitoring for Sprint 2
-        self.performance_monitor: Optional['PerformanceMonitor'] = None
+        self.performance_monitor: PerformanceMonitor | None = None
         if enable_performance_monitoring:
             try:
                 from performance_monitor import PerformanceMonitor, create_graph_analysis
@@ -97,7 +96,7 @@ class IRONFORGE:
             self._graduation_pipeline = PatternGraduation()
         return self._graduation_pipeline
         
-    def process_sessions(self, session_files: List[str]) -> Dict:
+    def process_sessions(self, session_files: list[str]) -> dict:
         """Process multiple session files through IRONFORGE at full capability"""
         results = {
             'sessions_processed': 0,
@@ -117,7 +116,7 @@ class IRONFORGE:
             print(f"Processing session {i+1}/{len(session_files)}: {Path(session_file).name}")
             
             try:
-                with open(session_file, 'r') as f:
+                with open(session_file) as f:
                     session_data = json.load(f)
                 
                 # Build full-preservation graph (enhanced or basic)
@@ -175,12 +174,12 @@ class IRONFORGE:
         
         return results
     
-    def validate_discoveries(self, historical_sessions: List[str]) -> Dict:
+    def validate_discoveries(self, historical_sessions: list[str]) -> dict:
         """Validate discovered patterns against baseline"""
         # Load historical data
         historical_data = []
         for session_file in historical_sessions:
-            with open(session_file, 'r') as f:
+            with open(session_file) as f:
                 session_data = json.load(f)
             if self.enhanced_mode:
                 graph = self.graph_builder.build_rich_graph(session_data, session_file_path=session_file)
@@ -207,7 +206,7 @@ class IRONFORGE:
             'results': validation_results
         }
     
-    def _preserve_graph(self, graph: Dict, source_file: str) -> str:
+    def _preserve_graph(self, graph: dict, source_file: str) -> str:
         """
         Preserve complete graph data
         
@@ -268,10 +267,10 @@ class IRONFORGE:
         return validated_features
     
     def generate_performance_report(self, 
-                                  orchestrator_results: Dict,
-                                  validation_results: Optional[Dict] = None,
-                                  processed_graphs: Optional[List] = None,
-                                  save_report: bool = True) -> Optional[Dict]:
+                                  orchestrator_results: dict,
+                                  validation_results: dict | None = None,
+                                  processed_graphs: list | None = None,
+                                  save_report: bool = True) -> dict | None:
         """
         Generate comprehensive Sprint 2 performance report with regression analysis
         
@@ -338,7 +337,7 @@ class IRONFORGE:
                 self.performance_monitor.logger.error(f"Performance report generation failed: {e}")
             return None
     
-    def _print_performance_summary(self, report: Dict) -> None:
+    def _print_performance_summary(self, report: dict) -> None:
         """Print concise performance summary to console"""
         print("\n" + "="*60)
         print("🚀 IRONFORGE SPRINT 2 PERFORMANCE SUMMARY")
@@ -387,7 +386,7 @@ class IRONFORGE:
         
         print("="*60)
     
-    def _analyze_time_patterns(self, graph: Dict, session_file: str) -> Dict:
+    def _analyze_time_patterns(self, graph: dict, session_file: str) -> dict:
         """
         Analyze time patterns in session events with cross-TF mapping
         
@@ -404,7 +403,7 @@ class IRONFORGE:
         # NO FALLBACKS: If this fails, we need to fix the root cause
         return analyze_time_patterns(graph, session_file, time_bin_minutes=5)
     
-    def _batch_process_to_tgat_format(self, session_graphs: List[Dict]) -> List[Tuple]:
+    def _batch_process_to_tgat_format(self, session_graphs: list[dict]) -> list[tuple]:
         """
         Apply global constant feature filtering and convert to TGAT format
         
@@ -474,7 +473,7 @@ class IRONFORGE:
         print(f"✅ All sessions processed with consistent {expected_features}D features")
         return tgat_graphs
     
-    def _detect_global_constant_features(self, all_raw_features: List[torch.Tensor]) -> torch.Tensor:
+    def _detect_global_constant_features(self, all_raw_features: list[torch.Tensor]) -> torch.Tensor:
         """
         Detect features that are constant across ALL sessions
         

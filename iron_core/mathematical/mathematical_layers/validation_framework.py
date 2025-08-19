@@ -19,7 +19,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 import numpy as np
 import scipy.stats as stats
@@ -73,7 +73,7 @@ class ValidationResult:
     test_type: str
     result: TestResult
     message: str
-    details: Dict[str, Any] = field(default_factory=dict)
+    details: dict[str, Any] = field(default_factory=dict)
     execution_time_ms: float = 0.0
     timestamp: datetime = field(default_factory=datetime.now)
 
@@ -81,9 +81,9 @@ class ValidationResult:
 class ValidationSuite:
     """Collection of validation results"""
     suite_name: str
-    results: List[ValidationResult] = field(default_factory=list)
+    results: list[ValidationResult] = field(default_factory=list)
     start_time: datetime = field(default_factory=datetime.now)
-    end_time: Optional[datetime] = None
+    end_time: datetime | None = None
     
     def add_result(self, result: ValidationResult):
         """Add validation result to suite"""
@@ -93,7 +93,7 @@ class ValidationSuite:
         """Finalize validation suite"""
         self.end_time = datetime.now()
     
-    def get_summary(self) -> Dict[str, Any]:
+    def get_summary(self) -> dict[str, Any]:
         """Get summary statistics for validation suite"""
         if not self.results:
             return {"total": 0, "pass": 0, "fail": 0, "warning": 0, "skip": 0, "success_rate": 0.0}
@@ -170,7 +170,7 @@ class MathematicalPropertyTest:
         suite.finalize()
         return suite
     
-    def _hawkes_property_tests(self, model: Any, level: ValidationLevel) -> List[ValidationResult]:
+    def _hawkes_property_tests(self, model: Any, level: ValidationLevel) -> list[ValidationResult]:
         """Property tests for Hawkes process implementations"""
         
         results = []
@@ -362,7 +362,7 @@ class MathematicalPropertyTest:
             
             # Analyze stability results
             stable_cases = [r for r in stability_results if r.get("theoretically_stable", False)]
-            unstable_cases = [r for r in stability_results if not r.get("theoretically_stable", True)]
+            [r for r in stability_results if not r.get("theoretically_stable", True)]
             
             stable_success_rate = np.mean([r["computation_success"] for r in stable_cases]) if stable_cases else 1.0
             
@@ -402,7 +402,7 @@ class MathematicalPropertyTest:
         
         return results
     
-    def _htf_property_tests(self, model: Any, level: ValidationLevel) -> List[ValidationResult]:
+    def _htf_property_tests(self, model: Any, level: ValidationLevel) -> list[ValidationResult]:
         """Property tests for HTF coupling implementations"""
         
         results = []
@@ -456,7 +456,7 @@ class MathematicalPropertyTest:
         
         return results
     
-    def _fft_property_tests(self, model: Any, level: ValidationLevel) -> List[ValidationResult]:
+    def _fft_property_tests(self, model: Any, level: ValidationLevel) -> list[ValidationResult]:
         """Property tests for FFT correlator implementations"""
         
         results = []
@@ -565,7 +565,7 @@ class NumericalStabilityTest:
         suite.finalize()
         return suite
     
-    def _test_extreme_parameters(self, model: Any, level: ValidationLevel) -> List[ValidationResult]:
+    def _test_extreme_parameters(self, model: Any, level: ValidationLevel) -> list[ValidationResult]:
         """Test with extreme parameter values"""
         
         results = []
@@ -634,7 +634,7 @@ class NumericalStabilityTest:
         
         return results
     
-    def _test_boundary_conditions(self, model: Any, level: ValidationLevel) -> List[ValidationResult]:
+    def _test_boundary_conditions(self, model: Any, level: ValidationLevel) -> list[ValidationResult]:
         """Test boundary conditions and edge cases"""
         
         results = []
@@ -696,7 +696,7 @@ class NumericalStabilityTest:
         
         return results
     
-    def _test_numerical_precision(self, model: Any, level: ValidationLevel) -> List[ValidationResult]:
+    def _test_numerical_precision(self, model: Any, level: ValidationLevel) -> list[ValidationResult]:
         """Test numerical precision and consistency"""
         
         results = []
@@ -764,7 +764,7 @@ class NumericalStabilityTest:
         
         return results
     
-    def _test_large_data_handling(self, model: Any, level: ValidationLevel) -> List[ValidationResult]:
+    def _test_large_data_handling(self, model: Any, level: ValidationLevel) -> list[ValidationResult]:
         """Test handling of large datasets"""
         
         results = []
@@ -869,7 +869,7 @@ class PerformanceBenchmarkTest:
         suite.finalize()
         return suite
     
-    def _benchmark_execution_time(self, model: Any, level: ValidationLevel) -> List[ValidationResult]:
+    def _benchmark_execution_time(self, model: Any, level: ValidationLevel) -> list[ValidationResult]:
         """Benchmark execution time performance"""
         
         results = []
@@ -890,7 +890,7 @@ class PerformanceBenchmarkTest:
                 execution_times = []
                 for _ in range(5):
                     start_time = datetime.now()
-                    result = model.compute_core_function(test_events, test_params)
+                    model.compute_core_function(test_events, test_params)
                     end_time = datetime.now()
                     
                     execution_time = (end_time - start_time).total_seconds() * 1000
@@ -948,7 +948,7 @@ class PerformanceBenchmarkTest:
         
         return results
     
-    def _benchmark_memory_usage(self, model: Any, level: ValidationLevel) -> List[ValidationResult]:
+    def _benchmark_memory_usage(self, model: Any, level: ValidationLevel) -> list[ValidationResult]:
         """Benchmark memory usage"""
         
         results = []
@@ -1028,7 +1028,7 @@ class PerformanceBenchmarkTest:
         
         return results
     
-    def _benchmark_scalability(self, model: Any, level: ValidationLevel) -> List[ValidationResult]:
+    def _benchmark_scalability(self, model: Any, level: ValidationLevel) -> list[ValidationResult]:
         """Benchmark computational scalability"""
         
         results = []
@@ -1046,7 +1046,7 @@ class PerformanceBenchmarkTest:
                     test_params = {"mu": 0.02, "alpha": 1.0, "beta": 0.1}  # Stable parameters
                     
                     start_time = datetime.now()
-                    result = model.compute_core_function(test_events, test_params)
+                    model.compute_core_function(test_events, test_params)
                     end_time = datetime.now()
                     
                     execution_time = (end_time - start_time).total_seconds()
@@ -1124,7 +1124,7 @@ class MathematicalValidationFramework(ValidationLayer):
         self.property_tester = None  # Will be set based on model type
         self.stability_tester = NumericalStabilityTest()
         self.performance_tester = PerformanceBenchmarkTest()
-        self.validation_history: List[ValidationSuite] = []
+        self.validation_history: list[ValidationSuite] = []
     
     def validate_mathematical_invariants(self, model: Any, model_type: str = "hawkes_process") -> ValidationSuite:
         """Validate mathematical invariants for given model"""
@@ -1264,7 +1264,7 @@ class MathematicalValidationFramework(ValidationLayer):
         suite.finalize()
         return suite
     
-    def comprehensive_validation(self, model: Any, model_type: str = "hawkes_process", test_data: Optional[Dict[str, Any]] = None) -> Dict[str, ValidationSuite]:
+    def comprehensive_validation(self, model: Any, model_type: str = "hawkes_process", test_data: dict[str, Any] | None = None) -> dict[str, ValidationSuite]:
         """Run comprehensive validation including all test types"""
         
         validation_results = {}
@@ -1289,12 +1289,12 @@ class MathematicalValidationFramework(ValidationLayer):
             )
         
         # Store validation history
-        for suite_name, suite in validation_results.items():
+        for _suite_name, suite in validation_results.items():
             self.validation_history.append(suite)
         
         return validation_results
     
-    def generate_validation_report(self, validation_results: Dict[str, ValidationSuite]) -> str:
+    def generate_validation_report(self, validation_results: dict[str, ValidationSuite]) -> str:
         """Generate comprehensive validation report"""
         
         report_lines = []

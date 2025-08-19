@@ -25,7 +25,7 @@ import logging
 import warnings
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 import numpy as np
 from scipy import optimize
@@ -37,9 +37,9 @@ warnings.filterwarnings('ignore', category=RuntimeWarning)
 class AdaptiveRGParameters:
     """Optimized RG parameters for current market regime"""
     coupling_matrix: np.ndarray
-    scale_transitions: Dict[str, float]
-    fisher_thresholds: Dict[str, float]
-    volatility_coefficients: Dict[str, float]
+    scale_transitions: dict[str, float]
+    fisher_thresholds: dict[str, float]
+    volatility_coefficients: dict[str, float]
     regime_classification: str
     optimization_confidence: float
     last_calibration_timestamp: str
@@ -47,18 +47,18 @@ class AdaptiveRGParameters:
 @dataclass
 class ThresholdOptimizationResult:
     """Result from information-theoretic threshold optimization"""
-    optimal_thresholds: Dict[str, float]
+    optimal_thresholds: dict[str, float]
     entropy_maximization_score: float
     coupling_strength_distribution: np.ndarray
-    regime_transition_probabilities: Dict[str, float]
+    regime_transition_probabilities: dict[str, float]
     mathematical_validity: bool
 
 @dataclass
 class ScalingCalibrationResult:
     """Result from RG scaling exponent calibration"""
-    scaling_exponents: Dict[str, float]
+    scaling_exponents: dict[str, float]
     transition_eigenvalues: np.ndarray
-    power_law_parameters: Dict[str, float]
+    power_law_parameters: dict[str, float]
     scale_invariance_score: float
     calibration_residuals: np.ndarray
 
@@ -71,7 +71,7 @@ class AdaptiveRGOptimizer:
     fisher_information_monitor.py, and constraints.py.
     """
     
-    def __init__(self, historical_data_path: Optional[str] = None):
+    def __init__(self, historical_data_path: str | None = None):
         """Initialize adaptive RG optimizer with mathematical foundations"""
         
         self.logger = logging.getLogger(__name__)
@@ -119,8 +119,8 @@ class AdaptiveRGOptimizer:
         self.logger.info("   Mathematical validation: Information conservation + Power law + Eigenvalue convergence")
         
     def optimize_information_theoretic_thresholds(self, 
-                                                 coupling_strength_history: List[float],
-                                                 regime_transition_data: List[Dict]) -> ThresholdOptimizationResult:
+                                                 coupling_strength_history: list[float],
+                                                 regime_transition_data: list[dict]) -> ThresholdOptimizationResult:
         """
         Phase 1: Replace fixed thresholds with Fisher Information Matrix optimization
         
@@ -138,7 +138,7 @@ class AdaptiveRGOptimizer:
         
         # Calculate coupling strength distribution
         hist, bin_edges = np.histogram(coupling_strengths, bins=50, density=True)
-        bin_centers = (bin_edges[:-1] + bin_edges[1:]) / 2
+        (bin_edges[:-1] + bin_edges[1:]) / 2
         
         # Remove zero entries for entropy calculation
         non_zero_hist = hist[hist > 0]
@@ -146,7 +146,7 @@ class AdaptiveRGOptimizer:
             raise ValueError("Coupling strength distribution has no valid data points")
         
         # Calculate entropy of coupling strength distribution
-        coupling_entropy = entropy(non_zero_hist)
+        entropy(non_zero_hist)
         
         # Maximum entropy threshold optimization
         def entropy_objective(threshold_params):
@@ -251,8 +251,8 @@ class AdaptiveRGOptimizer:
         return optimization_result
     
     def calibrate_rg_scaling_exponents(self, 
-                                     historical_transition_data: List[Dict],
-                                     target_eigenvalues: Optional[np.ndarray] = None) -> ScalingCalibrationResult:
+                                     historical_transition_data: list[dict],
+                                     target_eigenvalues: np.ndarray | None = None) -> ScalingCalibrationResult:
         """
         Phase 2: Replace uniform coupling matrix with λ^α F(t) scaling law
         
@@ -479,7 +479,7 @@ class AdaptiveRGOptimizer:
         
         return coupling_matrix
     
-    def integrate_historical_data(self) -> Dict[str, Any]:
+    def integrate_historical_data(self) -> dict[str, Any]:
         """
         Phase 4: Mine 66+ Level-1 sessions for empirical calibration
         
@@ -525,7 +525,7 @@ class AdaptiveRGOptimizer:
         
         for session_file in calibration_files:
             try:
-                with open(session_file, 'r') as f:
+                with open(session_file) as f:
                     session_data = json.load(f)
                 
                 # Extract session metadata
@@ -632,7 +632,7 @@ class AdaptiveRGOptimizer:
         
         return historical_data
     
-    def refactor_and_eliminate_fallbacks(self) -> Dict[str, Any]:
+    def refactor_and_eliminate_fallbacks(self) -> dict[str, Any]:
         """
         Phase 5: Remove fallback mechanisms and optimize architecture
         
@@ -692,7 +692,7 @@ class AdaptiveRGOptimizer:
         return refactor_actions
     
     def optimize_complete_system(self, 
-                                current_market_data: Dict[str, Any]) -> AdaptiveRGParameters:
+                                current_market_data: dict[str, Any]) -> AdaptiveRGParameters:
         """
         Complete system optimization combining all phases
         
@@ -738,7 +738,7 @@ class AdaptiveRGOptimizer:
         )
         
         # Phase 5: Refactor and eliminate fallbacks
-        refactor_result = self.refactor_and_eliminate_fallbacks()
+        self.refactor_and_eliminate_fallbacks()
         
         # Combine all results into production parameters
         optimized_parameters = AdaptiveRGParameters(
@@ -771,7 +771,7 @@ class AdaptiveRGOptimizer:
         
         return optimized_parameters
 
-def create_adaptive_rg_optimizer(historical_data_path: Optional[str] = None) -> AdaptiveRGOptimizer:
+def create_adaptive_rg_optimizer(historical_data_path: str | None = None) -> AdaptiveRGOptimizer:
     """Factory function for production adaptive RG optimizer"""
     return AdaptiveRGOptimizer(historical_data_path)
 

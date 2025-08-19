@@ -12,17 +12,12 @@ Implements the minimal HTF context specification:
 - 6 new features: f45-f50 (45D → 51D nodes)
 """
 
-import json
 import logging
-from datetime import datetime, timedelta
-from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple, Union
 from collections import defaultdict
-import math
+from dataclasses import dataclass
+from typing import Any
 
 import numpy as np
-import pandas as pd
-from dataclasses import dataclass
 
 # Try to import from iron_core, fallback to local constants if not available
 try:
@@ -41,11 +36,11 @@ logger = logging.getLogger(__name__)
 class HTFContextConfig:
     """Configuration for HTF context processing"""
     enabled: bool = True
-    timeframes: List[str] = None
+    timeframes: list[str] = None
     sv_lookback_bars: int = 30
-    sv_weights: Dict[str, float] = None
-    anchors: Dict[str, bool] = None
-    regime: Dict[str, float] = None
+    sv_weights: dict[str, float] = None
+    anchors: dict[str, bool] = None
+    regime: dict[str, float] = None
     
     def __post_init__(self):
         if self.timeframes is None:
@@ -64,9 +59,9 @@ class HTFBar:
     timeframe: str
     bar_start: int  # UTC milliseconds
     bar_end: int    # UTC milliseconds
-    events: List[Dict[str, Any]]
+    events: list[dict[str, Any]]
     sv_raw: float
-    sv_z_score: Optional[float] = None
+    sv_z_score: float | None = None
     regime_code: int = 1  # 0=consolidation, 1=transition, 2=expansion
 
 
@@ -89,7 +84,7 @@ class TimeFrameManager:
         return timestamp_ms // duration
     
     @classmethod
-    def get_bar_bounds(cls, bar_index: int, timeframe: str) -> Tuple[int, int]:
+    def get_bar_bounds(cls, bar_index: int, timeframe: str) -> tuple[int, int]:
         """Get bar start/end times for given bar index"""
         duration = cls.TF_DURATIONS.get(timeframe)
         if not duration:
@@ -100,7 +95,7 @@ class TimeFrameManager:
         return bar_start, bar_end
     
     @classmethod
-    def get_closed_bar_index(cls, timestamp_ms: int, timeframe: str) -> Optional[int]:
+    def get_closed_bar_index(cls, timestamp_ms: int, timeframe: str) -> int | None:
         """Get most recent closed bar index (bar_end <= timestamp)"""
         duration = cls.TF_DURATIONS.get(timeframe)
         if not duration:
@@ -127,7 +122,7 @@ class SyntheticVolumeCalculator:
         self.config = config
         self.weights = config.sv_weights
         
-    def calculate_raw_sv(self, events: List[Dict[str, Any]]) -> float:
+    def calculate_raw_sv(self, events: list[dict[str, Any]]) -> float:
         """
         Calculate raw Synthetic Volume for a closed HTF bar
         
@@ -165,7 +160,7 @@ class SyntheticVolumeCalculator:
             logger.warning(f"Error calculating raw SV: {e}")
             return 0.0
     
-    def calculate_z_score(self, current_sv: float, historical_sv: List[float]) -> Optional[float]:
+    def calculate_z_score(self, current_sv: float, historical_sv: list[float]) -> float | None:
         """Calculate z-score over last N bars with minimum bar requirement"""
         if len(historical_sv) < 10:  # Minimum 10 bars required
             return None
@@ -194,7 +189,7 @@ class HTFRegimeClassifier:
         self.lower_threshold = config.regime["lower"]
         
     def classify_regime(self, sv_raw: float, volatility_raw: float, 
-                       sv_history: List[float], vol_history: List[float]) -> int:
+                       sv_history: list[float], vol_history: list[float]) -> int:
         """
         Classify regime code using percentiles
         Returns: 0=consolidation, 1=transition, 2=expansion
@@ -222,7 +217,7 @@ class HTFRegimeClassifier:
             logger.warning(f"Error classifying regime: {e}")
             return 1
     
-    def _calculate_percentile(self, value: float, history: List[float]) -> float:
+    def _calculate_percentile(self, value: float, history: list[float]) -> float:
         """Calculate percentile of value within history"""
         if not history:
             return 0.5
@@ -242,8 +237,8 @@ class DailyAnchorCalculator:
     """Calculates distance to daily anchors for archaeological context"""
     
     @staticmethod
-    def calculate_daily_mid_distance(current_price: float, session_events: List[Dict[str, Any]],
-                                   previous_day_data: Optional[Dict] = None) -> Optional[float]:
+    def calculate_daily_mid_distance(current_price: float, session_events: list[dict[str, Any]],
+                                   previous_day_data: dict | None = None) -> float | None:
         """
         Calculate normalized distance to previous day midpoint
         Formula: (price - daily_mid) / max(ε, PDH - PDL)
@@ -274,7 +269,7 @@ class DailyAnchorCalculator:
             return None
     
     @staticmethod
-    def _extract_daily_range_from_events(events: List[Dict[str, Any]]) -> Tuple[float, float]:
+    def _extract_daily_range_from_events(events: list[dict[str, Any]]) -> tuple[float, float]:
         """Extract daily high/low from session events"""
         prices = [float(e.get('price_level', 0)) for e in events if e.get('price_level')]
         
@@ -304,8 +299,8 @@ class HTFContextProcessor:
         self.sv_history = defaultdict(list)  # {timeframe: [sv_raw, ...]}
         self.vol_history = defaultdict(list)  # {timeframe: [volatility, ...]}
         
-    def process_session(self, session_events: List[Dict[str, Any]], 
-                       session_metadata: Dict[str, Any]) -> Dict[str, List[float]]:
+    def process_session(self, session_events: list[dict[str, Any]], 
+                       session_metadata: dict[str, Any]) -> dict[str, list[float]]:
         """
         Process a session and generate HTF context features for all events
         
@@ -343,7 +338,7 @@ class HTFContextProcessor:
         logger.info(f"Generated HTF context features for {len(session_events)} events")
         return feature_arrays
     
-    def _build_htf_bars(self, events: List[Dict[str, Any]], timeframe: str) -> None:
+    def _build_htf_bars(self, events: list[dict[str, Any]], timeframe: str) -> None:
         """Build HTF bars for given timeframe"""
         if timeframe not in self.config.timeframes:
             return
@@ -400,7 +395,7 @@ class HTFContextProcessor:
         self.sv_history[timeframe] = sv_values
         self.vol_history[timeframe] = vol_values
     
-    def _calculate_bar_volatility(self, events: List[Dict[str, Any]]) -> float:
+    def _calculate_bar_volatility(self, events: list[dict[str, Any]]) -> float:
         """Calculate volatility (sum of absolute returns) for bar"""
         if len(events) < 2:
             return 0.0
@@ -409,9 +404,9 @@ class HTFContextProcessor:
         volatility = sum(abs(prices[i] - prices[i-1]) for i in range(1, len(prices)))
         return volatility
     
-    def _extract_event_features(self, event: Dict[str, Any], 
-                               session_events: List[Dict[str, Any]],
-                               session_metadata: Dict[str, Any]) -> Dict[str, float]:
+    def _extract_event_features(self, event: dict[str, Any], 
+                               session_events: list[dict[str, Any]],
+                               session_metadata: dict[str, Any]) -> dict[str, float]:
         """Extract HTF context features for a single event"""
         timestamp = event.get('t', 0)
         price = float(event.get('price_level', 0))
@@ -474,7 +469,7 @@ class HTFContextProcessor:
         
         return features
     
-    def _create_empty_features(self, event_count: int) -> Dict[str, List[float]]:
+    def _create_empty_features(self, event_count: int) -> dict[str, list[float]]:
         """Create empty feature arrays when HTF processing is disabled"""
         return {
             'f45_sv_m15_z': [np.nan] * event_count,
@@ -485,7 +480,7 @@ class HTFContextProcessor:
             'f50_htf_regime': [1] * event_count  # Default transition
         }
     
-    def get_feature_names(self) -> List[str]:
+    def get_feature_names(self) -> list[str]:
         """Get list of HTF feature names"""
         return [
             'f45_sv_m15_z',
@@ -496,7 +491,7 @@ class HTFContextProcessor:
             'f50_htf_regime'
         ]
     
-    def validate_temporal_integrity(self, events: List[Dict[str, Any]]) -> Dict[str, bool]:
+    def validate_temporal_integrity(self, events: list[dict[str, Any]]) -> dict[str, bool]:
         """
         Validate that HTF features maintain temporal integrity (no leakage)
         Returns validation results

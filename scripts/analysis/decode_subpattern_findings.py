@@ -229,10 +229,10 @@ def main():
     print("=" * 80)
     
     # Decode the key feature
-    feature_7_name = decode_feature_7()
+    decode_feature_7()
     
     # Decode other significant features
-    key_features = decode_feature_clusters()
+    decode_feature_clusters()
     
     # Decode each sub-pattern
     decode_sub_pattern_0()

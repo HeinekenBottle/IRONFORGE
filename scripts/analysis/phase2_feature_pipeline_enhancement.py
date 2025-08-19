@@ -23,7 +23,7 @@ import json
 import logging
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 import numpy as np
 
@@ -46,7 +46,7 @@ class FeaturePipelineEnhancer:
         self.enhanced_sessions_path.mkdir(exist_ok=True)
         
         # Load quality assessment
-        with open(self.quality_assessment_path, 'r') as f:
+        with open(self.quality_assessment_path) as f:
             self.quality_data = json.load(f)
         
         # Get high-quality sessions (90+ score first, then 85+, then 80+)
@@ -55,7 +55,7 @@ class FeaturePipelineEnhancer:
         logger.info("Initialized Feature Pipeline Enhancer")
         logger.info(f"Target sessions for decontamination: {len(self.target_sessions)}")
     
-    def _get_target_sessions(self) -> List[Dict[str, Any]]:
+    def _get_target_sessions(self) -> list[dict[str, Any]]:
         """Get sessions prioritized by quality score for decontamination."""
         tgat_ready_sessions = [
             session for session in self.quality_data['session_assessments'] 
@@ -68,13 +68,13 @@ class FeaturePipelineEnhancer:
         logger.info(f"Found {len(tgat_ready_sessions)} TGAT-ready sessions")
         return tgat_ready_sessions
     
-    def calculate_authentic_htf_carryover_strength(self, session_data: Dict, session_metadata: Dict) -> float:
+    def calculate_authentic_htf_carryover_strength(self, session_data: dict, session_metadata: dict) -> float:
         """
         Calculate authentic HTF carryover strength based on temporal relationships and cross-session interactions.
         
         Replaces universal 0.3 default with session-specific temporal calculations.
         """
-        session_date = datetime.strptime(session_metadata['session_date'], '%Y-%m-%d')
+        datetime.strptime(session_metadata['session_date'], '%Y-%m-%d')
         session_type = session_metadata['session_type'].lower()
         
         # Base carryover strength depends on session position in daily cycle
@@ -127,7 +127,7 @@ class FeaturePipelineEnhancer:
         
         return round(authentic_strength, 2)
     
-    def calculate_authentic_energy_density(self, session_data: Dict, session_metadata: Dict) -> float:
+    def calculate_authentic_energy_density(self, session_data: dict, session_metadata: dict) -> float:
         """
         Calculate authentic energy density based on session volatility and price movements.
         
@@ -183,7 +183,7 @@ class FeaturePipelineEnhancer:
         
         return round(authentic_density, 3)
     
-    def generate_authentic_liquidity_events(self, session_data: Dict, session_metadata: Dict) -> List[Dict]:
+    def generate_authentic_liquidity_events(self, session_data: dict, session_metadata: dict) -> list[dict]:
         """
         Generate authentic session liquidity events from price movement analysis.
         
@@ -196,7 +196,7 @@ class FeaturePipelineEnhancer:
         generated_events = []
         
         # Analyze price movements for significant events
-        for i, movement in enumerate(price_movements):
+        for _i, movement in enumerate(price_movements):
             event_type = None
             magnitude = 'low'
             
@@ -263,7 +263,7 @@ class FeaturePipelineEnhancer:
         logger.debug(f"Generated {len(generated_events)} liquidity events from {len(price_movements)} price movements")
         return generated_events
     
-    def validate_feature_authenticity(self, session_data: Dict) -> Dict[str, Any]:
+    def validate_feature_authenticity(self, session_data: dict) -> dict[str, Any]:
         """
         Validate that session features are authentic and not contaminated with defaults.
         
@@ -316,7 +316,7 @@ class FeaturePipelineEnhancer:
         
         return authenticity_report
     
-    def enhance_session(self, session_filename: str) -> Dict[str, Any]:
+    def enhance_session(self, session_filename: str) -> dict[str, Any]:
         """
         Enhance a single session by replacing contaminated features with authentic calculations.
         
@@ -336,7 +336,7 @@ class FeaturePipelineEnhancer:
         logger.info(f"Enhancing session: {session_filename}")
         
         # Load session data
-        with open(session_path, 'r') as f:
+        with open(session_path) as f:
             session_data = json.load(f)
         
         # Pre-enhancement authenticity check
@@ -424,7 +424,7 @@ class FeaturePipelineEnhancer:
         
         return enhancement_report
     
-    def run_batch_enhancement(self, max_sessions: int = 15) -> Dict[str, Any]:
+    def run_batch_enhancement(self, max_sessions: int = 15) -> dict[str, Any]:
         """
         Run batch enhancement on highest quality sessions first.
         

@@ -255,7 +255,7 @@ class TestValidationPerformance:
                 "feature_groups": {},
             }
 
-            results = runner.run(test_data)
+            runner.run(test_data)
 
             # Each run should be fast
             batch_time = time.time() - start_time
@@ -326,7 +326,7 @@ class TestValidationPerformance:
             "feature_groups": {},
         }
 
-        results = runner.run(minimal_data)
+        runner.run(minimal_data)
 
         elapsed_time = time.time() - start_time
         memory_used = self.check_memory_budget(50.0)
@@ -367,7 +367,7 @@ class TestValidationPerformance:
 
         start_time = time.time()
 
-        results = runner.run(test_data)
+        runner.run(test_data)
 
         elapsed_time = time.time() - start_time
         memory_used = self.check_memory_budget(150.0)
@@ -403,7 +403,7 @@ def test_scalability_performance(n_samples, expected_time):
 
     start_time = time.time()
 
-    results = runner.run(test_data)
+    runner.run(test_data)
 
     elapsed_time = time.time() - start_time
 
@@ -436,7 +436,7 @@ def test_report_generation_performance():
 
         start_time = time.time()
 
-        results = runner.run(test_data)
+        runner.run(test_data)
 
         elapsed_time = time.time() - start_time
 
