@@ -150,6 +150,9 @@ python -m ironforge.sdk.cli prep-shards
 # Enable High Timeframe (HTF) context features (adds 6 features → 51D)
 python -m ironforge.sdk.cli prep-shards --htf-context
 
+# Optional: write a run manifest during reporting (env-gated, no CLI change)
+IRONFORGE_WRITE_MANIFEST=1 python -m ironforge.sdk.cli report-minimal --config configs/dev.yml
+
 # Check shard dimensions
 python -c "
 import pyarrow.parquet as pq

@@ -125,6 +125,20 @@ def cmd_report(cfg):
         height=cfg.reporting.minidash.height,
     )
     print(f"[report] wrote {out_html} and {out_png}")
+    # Optional manifest writer (env-gated, backward-compatible)
+    import os as _os
+    if _os.getenv("IRONFORGE_WRITE_MANIFEST") == "1":
+        try:
+            import ironforge as _pkg
+            from . import manifest as _mf
+
+            _mf.write_for_run(
+                run_dir=str(run_dir),
+                window_bars=512,  # default; use helper script for richer manifests
+                version=getattr(_pkg, "__version__", "unknown"),
+            )
+        except Exception as e:  # pragma: no cover
+            warnings.warn(f"Manifest write failed: {e}", RuntimeWarning, stacklevel=2)
     return 0
 
 
