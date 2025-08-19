@@ -57,8 +57,8 @@ class ValidationCfg:
 
 @dataclass
 class OracleCfg:
-    enabled: bool = True
-    early_pct: float = 0.20
+    enabled: bool = False  # Disabled by default
+    early_pct: float = 0.20  # Must be in (0, 0.5]
     output_path: str = "oracle_predictions.parquet"
 
 

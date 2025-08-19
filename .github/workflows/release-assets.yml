@@ -2,7 +2,7 @@ name: release-assets
 
 on:
   release:
-    types: [published]
+    types: [published, created]
 
 jobs:
   build-and-attach:

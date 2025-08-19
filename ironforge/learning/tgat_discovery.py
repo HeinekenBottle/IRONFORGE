@@ -43,7 +43,8 @@ class TemporalAttentionLayer(nn.Module):
 
         logger.info(f"Temporal Attention Layer: {input_dim}D -> {hidden_dim}D, {num_heads} heads")
 
-    def forward(self, node_features, _edge_features, temporal_distances, return_attn=True):
+    def forward(self, node_features: torch.Tensor, _edge_features: torch.Tensor, 
+                temporal_distances: torch.Tensor | None, return_attn: bool = False) -> tuple[torch.Tensor, torch.Tensor | None]:
         """
         Forward pass with temporal attention
 
@@ -163,7 +164,7 @@ class IRONFORGEDiscovery(nn.Module):
             f"IRONFORGE Discovery initialized: {node_dim}D nodes, {edge_dim}D edges, {num_layers} layers"
         )
 
-    def forward(self, graph: nx.Graph, return_attn=True) -> dict[str, torch.Tensor]:
+    def forward(self, graph: nx.Graph, return_attn: bool = False) -> dict[str, torch.Tensor]:
         """
         Discover archaeological patterns in session graph
 
@@ -256,23 +257,23 @@ class IRONFORGEDiscovery(nn.Module):
         
         Args:
             graph: NetworkX graph with session events (via EnhancedGraphBuilder)
-            early_batch_pct: Percentage of early events to use for prediction
+            early_batch_pct: Percentage of early events to use for prediction (0, 0.5]
             
         Returns:
-            Dictionary containing:
-            - pct_seen: Percentage of session events analyzed  
-            - n_events: Number of events used for prediction
-            - pred_high: Predicted session high
-            - pred_low: Predicted session low
-            - center: Predicted range center
-            - half_range: Predicted half-range width
-            - confidence: Prediction confidence (0-1)
-            - notes: Description of method used
-            - node_idx_used: List of early node indices for pattern linking
+            Dictionary containing oracle predictions and metadata
         """
         try:
+            # Validate early_batch_pct
+            if not (0 < early_batch_pct <= 0.5):
+                raise ValueError(f"early_batch_pct must be in (0, 0.5], got {early_batch_pct}")
+            
             nodes = list(graph.nodes())
             if len(nodes) == 0:
+                return self._empty_oracle_result()
+            
+            # Guard for tiny sessions (need at least 3 events)
+            if len(nodes) < 3:
+                logger.warning(f"Session too small for oracle predictions: {len(nodes)} events < 3 minimum")
                 return self._empty_oracle_result()
                 
             num_events = len(nodes)
@@ -326,6 +327,9 @@ class IRONFORGEDiscovery(nn.Module):
                 **phase_counts  # DELTA C: Add phase sequence breadcrumbs
             }
             
+        except ValueError as e:
+            # Re-raise validation errors
+            raise e
         except Exception as e:
             logger.error(f"Oracle prediction failed: {e}")
             return self._empty_oracle_result()
@@ -555,27 +559,38 @@ def infer_shard_embeddings(data, out_dir: str, loader_cfg) -> tuple[str, str]:
                     graph, early_batch_pct=early_pct
                 )
                 
-                # DELTA B: Add pattern linking and temporal metadata
+                # Add required schema v0 fields in exact order
                 oracle_predictions["run_dir"] = str(output_dir)
-                oracle_predictions["ts_generated"] = pd.Timestamp.utcnow()
                 oracle_predictions["session_date"] = pd.Timestamp.today().strftime("%Y-%m-%d")
-                
-                # Mock pattern linking (in production, would link to actual discovered patterns)
                 oracle_predictions["pattern_id"] = f"pattern_{len(oracle_predictions['node_idx_used']):03d}"
                 oracle_predictions["start_ts"] = pd.Timestamp.now().strftime("%Y-%m-%dT%H:%M:%S")
                 oracle_predictions["end_ts"] = (pd.Timestamp.now() + pd.Timedelta(minutes=oracle_predictions['n_events'])).strftime("%Y-%m-%dT%H:%M:%S")
                 
-                # DELTA B: Add oracle-distance fields (computed at report-time)
-                oracle_predictions["center_delta_to_pattern_mid"] = 0.0  # Placeholder - computed vs discovered patterns
-                oracle_predictions["range_overlap_pct"] = 0.0  # Placeholder - computed vs discovered patterns
+                # Create DataFrame with exact schema v0 column order
+                schema_v0_data = {
+                    "run_dir": oracle_predictions["run_dir"],
+                    "session_date": oracle_predictions["session_date"], 
+                    "pct_seen": oracle_predictions["pct_seen"],
+                    "n_events": oracle_predictions["n_events"],
+                    "pred_low": oracle_predictions["pred_low"],
+                    "pred_high": oracle_predictions["pred_high"],
+                    "center": oracle_predictions["center"],
+                    "half_range": oracle_predictions["half_range"],
+                    "confidence": oracle_predictions["confidence"],
+                    "pattern_id": oracle_predictions["pattern_id"],
+                    "start_ts": oracle_predictions["start_ts"],
+                    "end_ts": oracle_predictions["end_ts"],
+                    "early_expansion_cnt": oracle_predictions["early_expansion_cnt"],
+                    "early_retracement_cnt": oracle_predictions["early_retracement_cnt"],
+                    "early_reversal_cnt": oracle_predictions["early_reversal_cnt"],
+                    "first_seq": oracle_predictions["first_seq"]
+                }
                 
-                # Save oracle predictions with enhanced schema
-                oracle_df = pd.DataFrame([oracle_predictions])
+                oracle_df = pd.DataFrame([schema_v0_data])
                 oracle_path = output_dir / "oracle_predictions.parquet"
                 oracle_df.to_parquet(oracle_path, index=False)
                 
-                logger.info(f"Oracle predictions saved: {oracle_predictions['pred_high']:.2f}/{oracle_predictions['pred_low']:.2f} "
-                           f"(confidence: {oracle_predictions['confidence']:.3f}, pattern_id: {oracle_predictions['pattern_id']})")
+                logger.debug(f"Oracle predictions: {oracle_predictions['pattern_id']}, confidence: {oracle_predictions['confidence']:.3f}")
             
         logger.info(f"Discovery complete: {embeddings_path}, {patterns_path}")
         return str(embeddings_path), str(patterns_path)
