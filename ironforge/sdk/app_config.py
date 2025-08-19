@@ -4,7 +4,7 @@ import datetime
 import os
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any
+from typing import Any, get_type_hints
 
 import yaml
 
@@ -112,9 +112,11 @@ def _env_overrides(prefix: str = "IFG_") -> dict[str, Any]:
 
 def _to_dc(dc, d: dict[str, Any]):
     kwargs: dict[str, Any] = {}
+    type_hints = get_type_hints(dc)
+    
     for f in dc.__dataclass_fields__:  # type: ignore[attr-defined]
         val = d.get(f)
-        field_type = getattr(dc, "__annotations__", {}).get(f)
+        field_type = type_hints.get(f)
         if val is None:
             # Use default factory by instantiating nested dataclass when available
             if hasattr(field_type, "__dataclass_fields__"):

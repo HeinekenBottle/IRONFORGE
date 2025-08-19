@@ -1,8 +1,8 @@
 """IRONFORGE Version Information"""
 
-__version__ = "1.0.1"
-__version_info__ = (1, 0, 1)
-__release_notes__ = "Macro-Micro Analytics Suite: HTF→trade horizon quantification, cross-session influence, session prototypes, adjacent possible exploration"
+__version__ = "1.0.2-rc1"
+__version_info__ = (1, 0, 2)
+__release_notes__ = "Oracle Training CLI (Parquet-only, strict coverage): Temporal non-locality predictions with comprehensive validation"
 
 # Feature version tracking
 NODE_FEATURES_VERSION = "1.1"

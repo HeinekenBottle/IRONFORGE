@@ -3,6 +3,7 @@ TGAT Discovery Engine for Archaeological Pattern Discovery
 Temporal Graph Attention Network for market pattern archaeology
 """
 
+import json
 import logging
 from pathlib import Path
 from typing import Any
@@ -163,6 +164,87 @@ class IRONFORGEDiscovery(nn.Module):
         logger.info(
             f"IRONFORGE Discovery initialized: {node_dim}D nodes, {edge_dim}D edges, {num_layers} layers"
         )
+
+    def load_calibrated_oracle_weights(self, weights_dir: Path | str) -> bool:
+        """
+        Load calibrated Oracle weights for enhanced temporal predictions
+        
+        Args:
+            weights_dir: Directory containing calibrated Oracle weights
+            
+        Returns:
+            bool: True if weights loaded successfully
+        """
+        weights_dir = Path(weights_dir)
+        weights_path = weights_dir / "weights.pt"  # Updated to match trainer output
+        manifest_path = weights_dir / "training_manifest.json"
+        
+        if not weights_path.exists():
+            # Fallback to old naming convention
+            old_weights_path = weights_dir / "oracle_range_head.pth"
+            if old_weights_path.exists():
+                weights_path = old_weights_path
+            else:
+                logger.warning(f"No calibrated Oracle weights found at {weights_path}")
+                return False
+        
+        try:
+            # Validate dimensions if manifest exists
+            if manifest_path.exists():
+                with open(manifest_path, 'r') as f:
+                    manifest = json.load(f)
+                
+                # Validate model architecture compatibility
+                model_arch = manifest.get("model_architecture", {})
+                expected_input = model_arch.get("input_dim", 44)
+                expected_output = model_arch.get("output_dim", 2)
+                
+                # Check TGAT architecture compatibility
+                actual_hidden = self.hidden_dim
+                if actual_hidden != expected_input:
+                    logger.error(f"Architecture mismatch: TGAT hidden_dim={actual_hidden}, "
+                               f"Oracle expects input_dim={expected_input}")
+                    return False
+                
+                # Check range_head output dimension
+                range_head_out = self.range_head[-1].out_features if hasattr(self.range_head[-1], 'out_features') else 2
+                if range_head_out != expected_output:
+                    logger.error(f"Range head mismatch: actual output_dim={range_head_out}, "
+                               f"expected output_dim={expected_output}")
+                    return False
+                
+                logger.info(f"Model architecture validated: {expected_input}→{expected_output}")
+            
+            # Load weights
+            state_dict = torch.load(weights_path, map_location='cpu')
+            
+            # Validate state dict keys
+            expected_keys = set(self.range_head.state_dict().keys())
+            loaded_keys = set(state_dict.keys())
+            
+            if expected_keys != loaded_keys:
+                missing_keys = expected_keys - loaded_keys
+                unexpected_keys = loaded_keys - expected_keys
+                
+                if missing_keys:
+                    logger.error(f"Missing keys in state dict: {missing_keys}")
+                    return False
+                if unexpected_keys:
+                    logger.warning(f"Unexpected keys in state dict: {unexpected_keys}")
+            
+            # Load state dict
+            self.range_head.load_state_dict(state_dict)
+            
+            # Verify loading worked by checking parameter counts
+            total_params = sum(p.numel() for p in self.range_head.parameters())
+            logger.info(f"✅ Calibrated Oracle weights loaded from {weights_path}")
+            logger.info(f"   Model: {expected_input if manifest_path.exists() else 44}→{expected_output if manifest_path.exists() else 2}, {total_params} parameters")
+            
+            return True
+            
+        except Exception as e:
+            logger.error(f"Failed to load calibrated Oracle weights: {e}")
+            return False
 
     def forward(self, graph: nx.Graph, return_attn: bool = False) -> dict[str, torch.Tensor]:
         """
@@ -598,6 +680,8 @@ def infer_shard_embeddings(data, out_dir: str, loader_cfg) -> tuple[str, str]:
     except Exception as e:
         logger.error(f"Shard inference failed: {e}")
         # Return empty paths on error
+        output_dir = Path(out_dir)  # Define output_dir in exception handler
+        output_dir.mkdir(parents=True, exist_ok=True)
         empty_embeddings = output_dir / "embeddings_empty.parquet"  
         empty_patterns = output_dir / "patterns_empty.parquet"
         
