@@ -279,7 +279,7 @@ class NodeIDManager:
         try:
             self.id_counter_path.parent.mkdir(parents=True, exist_ok=True)
             with open(self.id_counter_path, "w") as f:
-                json.dump({"next_id": self.current_id}, f)
+                json.dump({"next_id": self.current_id}, f, indent=2)
                 f.write("\n")
         except Exception as e:
             logger.error(f"Failed to save ID counter: {e}")
