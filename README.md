@@ -165,6 +165,10 @@ print(f'Node features: {len([c for c in nodes.column_names if c.startswith(\"f\"
 - **docs/migrations/0.9-to-1.0.md**: Migration notes for 1.0
 - **REFACTOR_PLAN.md**: Repository cleanup and refactor details
 
+## Project State
+- Snapshot: `docs/ops/context/codex_state_2025-08-19.md`
+- Context pack (JSON): `docs/ops/context/context_pack.json`
+
 ---
 
 **IRONFORGE v0.7.1** — Archaeological discovery through temporal graph attention

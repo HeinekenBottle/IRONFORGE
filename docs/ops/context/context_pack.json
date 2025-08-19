@@ -1,0 +1,15 @@
+{
+  "date": "2025-08-19",
+  "version": "0.9.0",
+  "htf_default": false,
+  "invariants": {"events": 6, "intents": 4, "node_dims_off": 45, "node_dims_on": 51, "edges": 20, "htf_sampling": "last_closed"},
+  "public_api": {
+    "cli": ["discover-temporal", "score-session", "validate-run", "report-minimal", "status", "prep-shards"],
+    "python": ["learning.discovery_pipeline.run_discovery", "confluence.scoring.score_confluence", "validation.runner.validate_run", "reporting.minidash.build_minidash"]
+  },
+  "deprecations": {"legacy_cli_imports": "warn_in_1_0_remove_in_2_0"},
+  "milestone": "1.0.0",
+  "open_prs": ["#30"],
+  "next": ["M4_RC_hardening", "M5_GA"]
+}
+
