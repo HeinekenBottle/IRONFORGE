@@ -17,8 +17,9 @@ Based on Computational Tactical Engineer analysis:
 import logging
 import threading
 import time
+from collections.abc import Callable
 from functools import wraps
-from typing import Any, Callable, Dict, Optional
+from typing import Any
 
 
 class LazyComponent:
@@ -32,7 +33,7 @@ class LazyComponent:
     def __init__(self, 
                  module_path: str, 
                  class_name: str,
-                 validation_func: Optional[Callable] = None,
+                 validation_func: Callable | None = None,
                  cache_enabled: bool = True):
         self._module_path = module_path
         self._class_name = class_name  
@@ -97,12 +98,12 @@ class LazyComponent:
         return self._instance is not None
         
     @property
-    def load_time(self) -> Optional[float]:
+    def load_time(self) -> float | None:
         """Get component load time in seconds."""
         return self._load_time
         
     @property
-    def validation_passed(self) -> Optional[bool]:
+    def validation_passed(self) -> bool | None:
         """Check if component passed validation."""
         return self._validation_passed
 
@@ -137,7 +138,7 @@ class MathematicalComponentLoader:
             if hasattr(instance, 'calculate_fisher_information'):
                 test_data = [1.0, 2.0, 3.0, 4.0, 5.0]
                 result = instance.calculate_fisher_information(test_data)
-                return result is not None and (isinstance(result, (int, float)) or result > 0)
+                return result is not None and (isinstance(result, int | float) or result > 0)
         except Exception:
             pass
         return False
@@ -177,8 +178,8 @@ class LazyLoadingManager:
     """
     
     def __init__(self):
-        self._components: Dict[str, LazyComponent] = {}
-        self._performance_metrics: Dict[str, Dict[str, Any]] = {}
+        self._components: dict[str, LazyComponent] = {}
+        self._performance_metrics: dict[str, dict[str, Any]] = {}
         self._cache_stats = {'hits': 0, 'misses': 0}
         self._logger = logging.getLogger('iron_core.lazy_manager')
         
@@ -186,7 +187,7 @@ class LazyLoadingManager:
                           name: str,
                           module_path: str, 
                           class_name: str,
-                          validation_func: Optional[Callable] = None) -> LazyComponent:
+                          validation_func: Callable | None = None) -> LazyComponent:
         """Register component for lazy loading."""
         lazy_component = LazyComponent(
             module_path=module_path,
@@ -224,7 +225,7 @@ class LazyLoadingManager:
             
         return instance
         
-    def get_performance_report(self) -> Dict[str, Any]:
+    def get_performance_report(self) -> dict[str, Any]:
         """Get comprehensive performance report."""
         total_components = len(self._components)
         loaded_components = sum(1 for c in self._components.values() if c.is_loaded)
@@ -330,7 +331,7 @@ def get_lazy_manager() -> LazyLoadingManager:
     
     return _lazy_manager
 
-def lazy_load(name: str, module_path: str, class_name: str, validation_func: Optional[Callable] = None):
+def lazy_load(name: str, module_path: str, class_name: str, validation_func: Callable | None = None):
     """Decorator for lazy loading components (thread-safe)."""
     def decorator(func):
         @wraps(func)

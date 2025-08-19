@@ -10,7 +10,7 @@ Coordinates AST analysis, engine classification, and report generation.
 import logging
 import time
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from .analyzer import CodeAnalyzer
 from .dependency_mapper import DependencyMapper
@@ -30,7 +30,7 @@ class IRONFORGEIndexer:
     - Pattern detection
     """
     
-    def __init__(self, project_root: Optional[str] = None):
+    def __init__(self, project_root: str | None = None):
         """Initialize the indexer with project root path."""
         self.project_root = Path(project_root) if project_root else Path.cwd()
         self.logger = self._setup_logging()
@@ -54,7 +54,7 @@ class IRONFORGEIndexer:
         )
         return logging.getLogger('ironforge.indexer')
     
-    def discover_python_files(self) -> List[Path]:
+    def discover_python_files(self) -> list[Path]:
         """
         Discover all Python files in the project.
         
@@ -109,7 +109,7 @@ class IRONFORGEIndexer:
         file_str = str(file_path)
         return any(pattern in file_str for pattern in skip_patterns)
     
-    def analyze_codebase(self, include_tests: bool = False) -> Dict[str, Any]:
+    def analyze_codebase(self, include_tests: bool = False) -> dict[str, Any]:
         """
         Perform comprehensive analysis of the IRONFORGE codebase.
         
@@ -185,7 +185,7 @@ class IRONFORGEIndexer:
             '/tests/' in str(file_path)
         )
     
-    def _generate_project_overview(self, file_analyses: Dict, python_files: List[Path]) -> Dict[str, Any]:
+    def _generate_project_overview(self, file_analyses: dict, python_files: list[Path]) -> dict[str, Any]:
         """Generate high-level project overview."""
         total_lines = sum(
             analysis.get('metrics', {}).get('lines_of_code', 0)
@@ -224,7 +224,7 @@ class IRONFORGEIndexer:
             'analysis_scope': list(file_analyses.keys())[:10]  # Sample of analyzed files
         }
     
-    def _generate_complexity_analysis(self, file_analyses: Dict) -> Dict[str, Any]:
+    def _generate_complexity_analysis(self, file_analyses: dict) -> dict[str, Any]:
         """Generate complexity analysis across the codebase."""
         complexity_by_file = {}
         complexity_hotspots = []
@@ -269,7 +269,7 @@ class IRONFORGEIndexer:
             }
         }
     
-    def _extract_public_interfaces(self, file_analyses: Dict, engine_architecture: Dict) -> Dict[str, Any]:
+    def _extract_public_interfaces(self, file_analyses: dict, engine_architecture: dict) -> dict[str, Any]:
         """Extract public interfaces for each engine."""
         public_interfaces = {}
         
@@ -316,7 +316,7 @@ class IRONFORGEIndexer:
         
         return public_interfaces
     
-    def generate_reports(self, output_dir: Optional[str] = None) -> Dict[str, str]:
+    def generate_reports(self, output_dir: str | None = None) -> dict[str, str]:
         """
         Generate JSON and Markdown reports.
         
@@ -340,7 +340,7 @@ class IRONFORGEIndexer:
         self.logger.info(f"Generated reports: {list(report_paths.keys())}")
         return report_paths
     
-    def quick_analysis(self, focus: str = 'engines') -> Dict[str, Any]:
+    def quick_analysis(self, focus: str = 'engines') -> dict[str, Any]:
         """
         Perform quick analysis focused on specific aspects.
         

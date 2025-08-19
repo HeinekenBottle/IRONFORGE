@@ -13,7 +13,7 @@ adapter = EnhancedSessionAdapter()
 mapper = TimeframeLatticeMapper()
 
 # Load one session
-with open('/Users/jack/IRONFORGE/adapted_enhanced_sessions/adapted_enhanced_rel_NY_PM_Lvl-1_2025_08_05.json', 'r') as f:
+with open('/Users/jack/IRONFORGE/adapted_enhanced_sessions/adapted_enhanced_rel_NY_PM_Lvl-1_2025_08_05.json') as f:
     session_data = json.load(f)
 
 events = session_data['events'][:5]  # Test with 5 events

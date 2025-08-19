@@ -13,7 +13,7 @@ import time
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any
 
 import numpy as np
 import psutil
@@ -52,7 +52,7 @@ class PerformanceMonitor:
         self.current_session_metrics = None
         self.process = psutil.Process()
         
-    def start_monitoring(self, session_name: str = "session") -> Dict[str, Any]:
+    def start_monitoring(self, session_name: str = "session") -> dict[str, Any]:
         """Start performance monitoring for a session"""
         
         start_time = time.time()
@@ -68,8 +68,8 @@ class PerformanceMonitor:
         self.logger.info(f"Started monitoring session: {session_name}")
         return monitoring_context
     
-    def end_monitoring(self, monitoring_context: Dict[str, Any], 
-                      result_data: Dict[str, Any]) -> PerformanceMetrics:
+    def end_monitoring(self, monitoring_context: dict[str, Any], 
+                      result_data: dict[str, Any]) -> PerformanceMetrics:
         """End performance monitoring and calculate metrics"""
         
         end_time = time.time()
@@ -107,7 +107,7 @@ class PerformanceMonitor:
         self.logger.info(f"Completed monitoring: {processing_time:.1f}ms, {memory_usage:.1f}MB")
         return metrics
     
-    def check_performance_regression(self, current_metrics: PerformanceMetrics) -> Dict[str, Any]:
+    def check_performance_regression(self, current_metrics: PerformanceMetrics) -> dict[str, Any]:
         """Check if current performance shows regression vs baseline"""
         
         if not self.baseline_metrics:
@@ -160,7 +160,7 @@ class PerformanceMonitor:
             )
         }
     
-    def analyze_sprint2_impact(self, current_metrics: PerformanceMetrics) -> Dict[str, Any]:
+    def analyze_sprint2_impact(self, current_metrics: PerformanceMetrics) -> dict[str, Any]:
         """Analyze Sprint 2 impact on system performance"""
         
         # Expected Sprint 2 enhancements
@@ -205,7 +205,7 @@ class PerformanceMonitor:
         return analysis
     
     def generate_performance_report(self, metrics: PerformanceMetrics, 
-                                  include_regression_check=True) -> Dict[str, Any]:
+                                  include_regression_check=True) -> dict[str, Any]:
         """Generate comprehensive performance report"""
         
         report = {
@@ -272,7 +272,7 @@ class PerformanceMonitor:
         """Load baseline metrics from file"""
         
         try:
-            with open(baseline_file, 'r') as f:
+            with open(baseline_file) as f:
                 baseline_data = json.load(f)
             
             self.baseline_metrics = PerformanceMetrics(
@@ -339,8 +339,8 @@ class PerformanceMonitor:
         
         return True
 
-def monitor_ironforge_session(session_data: Dict, orchestrator_func, 
-                            baseline_file: str = None) -> Dict[str, Any]:
+def monitor_ironforge_session(session_data: dict, orchestrator_func, 
+                            baseline_file: str = None) -> dict[str, Any]:
     """
     Convenience function to monitor a complete IRONFORGE session
     

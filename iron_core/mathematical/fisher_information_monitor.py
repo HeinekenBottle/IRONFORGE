@@ -21,7 +21,7 @@ Critical Implementation:
 import logging
 import warnings
 from dataclasses import dataclass
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 import numpy as np
 
@@ -45,7 +45,7 @@ class FisherSpikeResult:
     regime_state: str  # 'probabilistic', 'transitional', 'deterministic'
     alert_level: str   # 'normal', 'yellow', 'red'
     confidence: float
-    time_to_crystallization: Optional[float]  # minutes until predicted crystallization
+    time_to_crystallization: float | None  # minutes until predicted crystallization
 
 @dataclass
 class RegimeTransition:
@@ -55,7 +55,7 @@ class RegimeTransition:
     to_regime: str
     fisher_trigger_value: float
     transition_confidence: float
-    predicted_cascade_window: Tuple[float, float]  # (min_minutes, max_minutes)
+    predicted_cascade_window: tuple[float, float]  # (min_minutes, max_minutes)
 
 class FisherInformationMonitor:
     """
@@ -88,8 +88,8 @@ class FisherInformationMonitor:
         
         self.logger = logging.getLogger(__name__)
     
-    def calculate_fisher_information(self, price_series: List[float], 
-                                   timestamps: Optional[List[str]] = None) -> FisherSpikeResult:
+    def calculate_fisher_information(self, price_series: list[float], 
+                                   timestamps: list[str] | None = None) -> FisherSpikeResult:
         """
         Calculate Fisher Information and detect spikes
         
@@ -137,7 +137,7 @@ class FisherInformationMonitor:
         
         return result
     
-    def _compute_fisher_information(self, price_series: List[float]) -> float:
+    def _compute_fisher_information(self, price_series: list[float]) -> float:
         """
         Compute Fisher Information using maximum likelihood estimation
         
@@ -156,7 +156,7 @@ class FisherInformationMonitor:
                 return 0.0
             
             # Estimate parameters for normal distribution
-            mu = np.mean(log_returns)
+            np.mean(log_returns)
             sigma_squared = np.var(log_returns, ddof=1)
             
             if sigma_squared <= 1e-10:  # Avoid division by zero
@@ -214,7 +214,7 @@ class FisherInformationMonitor:
         
         return min(1.0, confidence)
     
-    def _estimate_crystallization_time(self, fisher_value: float, regime_state: str) -> Optional[float]:
+    def _estimate_crystallization_time(self, fisher_value: float, regime_state: str) -> float | None:
         """Estimate time until crystallization point"""
         if regime_state == 'deterministic':
             return 0.0  # Already crystallized
@@ -274,7 +274,7 @@ class FisherInformationMonitor:
                 f"(F={result.fisher_value:.1f}, Alert={result.alert_level})"
             )
     
-    def _create_insufficient_data_result(self, timestamps: Optional[List[str]]) -> FisherSpikeResult:
+    def _create_insufficient_data_result(self, timestamps: list[str] | None) -> FisherSpikeResult:
         """Create result for insufficient data case"""
         return FisherSpikeResult(
             timestamp=timestamps[-1] if timestamps else "unknown",
@@ -294,7 +294,7 @@ class FisherInformationMonitor:
         """Get current market regime"""
         return self.current_regime
     
-    def get_monitoring_summary(self) -> Dict[str, Any]:
+    def get_monitoring_summary(self) -> dict[str, Any]:
         """Get comprehensive monitoring summary"""
         if not self.spike_history:
             return {"status": "no_data"}

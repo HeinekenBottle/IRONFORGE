@@ -151,8 +151,8 @@ def test_pattern_extraction():
         return {
             'tgat_working': True,
             'patterns_found': len(patterns),
-            'unique_patterns': len(set(p.get('description', 'unknown') for p in patterns)),
-            'duplication_rate': ((len(patterns) - len(set(p.get('description', 'unknown') for p in patterns))) / max(1, len(patterns))) * 100.0,
+            'unique_patterns': len({p.get('description', 'unknown') for p in patterns}),
+            'duplication_rate': ((len(patterns) - len({p.get('description', 'unknown') for p in patterns})) / max(1, len(patterns))) * 100.0,
             'sample_patterns': patterns[:5]  # First 5 for inspection
         }
         
@@ -175,7 +175,7 @@ def test_enhanced_session_processing():
         # Load one enhanced session
         enhanced_session_path = Path(__file__).parent / 'enhanced_sessions' / 'enhanced_NY_PM_Lvl-1_2025_07_29.json'
         
-        with open(enhanced_session_path, 'r') as f:
+        with open(enhanced_session_path) as f:
             session_data = json.load(f)
             
         print(f"✅ Loaded enhanced session: {enhanced_session_path.name}")

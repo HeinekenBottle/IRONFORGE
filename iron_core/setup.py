@@ -19,7 +19,7 @@ from setuptools import find_packages, setup
 # Read the README file for long description
 readme_path = Path(__file__).parent / "README.md"
 if readme_path.exists():
-    with open(readme_path, "r", encoding="utf-8") as f:
+    with open(readme_path, encoding="utf-8") as f:
         long_description = f.read()
 else:
     long_description = "Shared infrastructure for IRON ecosystem"

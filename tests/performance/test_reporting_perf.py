@@ -355,7 +355,7 @@ class TestReportingPerformance:
         assert len(results) == 4
         
         # Verify all images were generated successfully
-        for session_id, heatmap, strip in results:
+        for _session_id, heatmap, strip in results:
             assert heatmap.size == (1024, 160)
             assert strip.size == (1024, 54)
 

@@ -18,7 +18,6 @@ import json
 import os
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Dict, List
 
 
 class PriceRelativityGenerator:
@@ -30,7 +29,7 @@ class PriceRelativityGenerator:
         self.session_count = 0
         self.processed_files = []
         
-    def calculate_session_statistics(self, session_data: Dict) -> Dict:
+    def calculate_session_statistics(self, session_data: dict) -> dict:
         """
         Calculate session-wide statistics for normalization
         
@@ -84,7 +83,7 @@ class PriceRelativityGenerator:
         
         # From pythonnodes (HTF structure)
         pythonnodes = session_data.get('pythonnodes', {})
-        for tf_name, nodes in pythonnodes.items():
+        for _tf_name, nodes in pythonnodes.items():
             for node in nodes:
                 try:
                     # Try different price fields
@@ -134,7 +133,7 @@ class PriceRelativityGenerator:
             
         return stats
     
-    def add_relativity_to_price_movements(self, price_movements: List, stats: Dict) -> List:
+    def add_relativity_to_price_movements(self, price_movements: list, stats: dict) -> list:
         """
         Add relativity features to price_movements array
         
@@ -273,7 +272,7 @@ class PriceRelativityGenerator:
                 
         return enhanced_movements
     
-    def add_relativity_to_pythonnodes(self, pythonnodes: Dict, stats: Dict, htf_cross_map: Dict) -> Dict:
+    def add_relativity_to_pythonnodes(self, pythonnodes: dict, stats: dict, htf_cross_map: dict) -> dict:
         """
         Add relativity features to pythonnodes (HTF structure)
         """
@@ -390,7 +389,7 @@ class PriceRelativityGenerator:
                     
         return enhanced_nodes
     
-    def process_session(self, session_data: Dict) -> Dict:
+    def process_session(self, session_data: dict) -> dict:
         """
         Process a single session to add price relativity features
         """
@@ -426,7 +425,7 @@ class PriceRelativityGenerator:
         
         return enhanced_session
     
-    def process_all_sessions(self, input_dir: str, output_dir: str) -> Dict:
+    def process_all_sessions(self, input_dir: str, output_dir: str) -> dict:
         """
         Process all HTF-enhanced sessions to add relativity features
         """
@@ -454,7 +453,7 @@ class PriceRelativityGenerator:
             
             try:
                 # Load session data
-                with open(filepath, 'r') as f:
+                with open(filepath) as f:
                     session_data = json.load(f)
                 
                 # Add relativity features
@@ -507,7 +506,7 @@ class PriceRelativityGenerator:
         
         return results
     
-    def _validate_enhanced_data(self, enhanced_data: Dict, filename: str) -> None:
+    def _validate_enhanced_data(self, enhanced_data: dict, filename: str) -> None:
         """
         Validate that enhanced data has all required relativity features
         

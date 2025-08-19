@@ -21,7 +21,6 @@ legacy and current data formats.
 import json
 import sys
 import traceback
-from typing import Dict
 
 from schema_normalizer import SchemaNormalizer
 
@@ -42,7 +41,7 @@ class SchemaMigrationTester:
             'test_details': []
         }
     
-    def create_test_cases(self) -> Dict[str, Dict]:
+    def create_test_cases(self) -> dict[str, dict]:
         """Create comprehensive test cases for schema validation and migration"""
         
         # Base node structure with full features
@@ -274,7 +273,7 @@ class SchemaMigrationTester:
         
         return test_cases
     
-    def run_schema_detection_tests(self) -> Dict:
+    def run_schema_detection_tests(self) -> dict:
         """Test schema detection accuracy across all test cases"""
         print("🔍 Testing Schema Detection System")
         print("=" * 45)
@@ -334,7 +333,7 @@ class SchemaMigrationTester:
         
         return detection_results
     
-    def run_temporal_cycle_calculation_tests(self) -> Dict:
+    def run_temporal_cycle_calculation_tests(self) -> dict:
         """Test temporal cycle feature calculation accuracy"""
         print("\n\n🕒 Testing Temporal Cycle Calculation")
         print("=" * 45)
@@ -421,7 +420,7 @@ class SchemaMigrationTester:
         
         return cycle_results
     
-    def run_migration_tests(self) -> Dict:
+    def run_migration_tests(self) -> dict:
         """Test 34D → 37D migration functionality"""
         print("\n\n🔄 Testing 34D → 37D Migration")
         print("=" * 45)
@@ -515,7 +514,7 @@ class SchemaMigrationTester:
         
         return migration_results
     
-    def run_error_handling_tests(self) -> Dict:
+    def run_error_handling_tests(self) -> dict:
         """Test error handling and NO FALLBACKS policy compliance"""
         print("\n\n❌ Testing Error Handling & NO FALLBACKS Policy")
         print("=" * 55)
@@ -630,7 +629,7 @@ class SchemaMigrationTester:
         
         return error_results
     
-    def run_comprehensive_test_suite(self) -> Dict:
+    def run_comprehensive_test_suite(self) -> dict:
         """Run all test suites and generate comprehensive report"""
         print("🔧 TECHNICAL DEBT SURGEON - Schema Migration Test Suite")
         print("=" * 65)
@@ -686,7 +685,7 @@ class SchemaMigrationTester:
         
         return overall_results
     
-    def print_comprehensive_report(self, results: Dict):
+    def print_comprehensive_report(self, results: dict):
         """Print comprehensive test results report"""
         print("\n" + "=" * 70)
         print("📊 COMPREHENSIVE TEST RESULTS REPORT")

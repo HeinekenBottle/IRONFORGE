@@ -138,9 +138,11 @@ def extract_liquidity_sweep_sequences():
     
     return liq_sweep_sequences, session_sequences, liq_sweep_stats
 
-def analyze_immediate_responses(liq_sweep_sequences, time_windows=[1, 3, 5, 10, 15, 30]):
+def analyze_immediate_responses(liq_sweep_sequences, time_windows=None):
     """Analyze what happens immediately after liq_sweep events"""
     
+    if time_windows is None:
+        time_windows = [1, 3, 5, 10, 15, 30]
     print("\n⚡ IMMEDIATE RESPONSE ANALYSIS")
     print("-" * 50)
     print("Analyzing what events trigger immediately after liq_sweep...")
@@ -524,7 +526,7 @@ def create_catalyst_visualization(liq_sweep_sequences, window_responses, chain_p
     session_positions = [seq['sweep_session_position'] for seq in liq_sweep_sequences]
     response_strengths = [len(seq['following_events']) for seq in liq_sweep_sequences]
     
-    scatter = ax3.scatter(session_positions, response_strengths, alpha=0.7, s=60)
+    ax3.scatter(session_positions, response_strengths, alpha=0.7, s=60)
     ax3.set_xlabel('Session Position (0=start, 1=end)')
     ax3.set_ylabel('Response Strength (# events)')
     ax3.set_title('Catalyst Effectiveness vs Timing')
@@ -651,7 +653,7 @@ def main():
         sorted_hypotheses = sorted(hypotheses_results.items(), 
                                  key=lambda x: x[1]['occurrences'], reverse=True)
         
-        for i, (h_name, h_data) in enumerate(sorted_hypotheses[:3]):
+        for i, (_h_name, h_data) in enumerate(sorted_hypotheses[:3]):
             rate = (h_data['occurrences'] / catalyst_sequences * 100) if catalyst_sequences > 0 else 0
             print(f"   #{i+1}: {h_data['name']}")
             print(f"       Success rate: {h_data['occurrences']}/{catalyst_sequences} ({rate:.1f}%)")

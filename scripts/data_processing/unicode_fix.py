@@ -27,7 +27,7 @@ def load_clean_sessions():
     
     for filepath in files:
         try:
-            with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+            with open(filepath, encoding='utf-8', errors='ignore') as f:
                 data = json.load(f)
                 clean_data = sanitize_session_data(data)
                 sessions.append((filepath, clean_data))

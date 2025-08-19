@@ -56,31 +56,31 @@ def test_sprint2_lazy_integration():
         
         # Test TGAT discovery
         comp_start = time.time()
-        discovery = container.get_tgat_discovery()
+        container.get_tgat_discovery()
         component_times['tgat_discovery'] = time.time() - comp_start  
         print(f"✅ TGAT discovery loaded in {component_times['tgat_discovery']:.3f}s")
         
         # Test regime segmentation
         comp_start = time.time()
-        regime_seg = container.get_regime_segmentation()
+        container.get_regime_segmentation()
         component_times['regime_segmentation'] = time.time() - comp_start
         print(f"✅ Regime segmentation loaded in {component_times['regime_segmentation']:.3f}s")
         
         # Test precursor detection  
         comp_start = time.time()
-        precursor_det = container.get_precursor_detection()
+        container.get_precursor_detection()
         component_times['precursor_detection'] = time.time() - comp_start
         print(f"✅ Precursor detection loaded in {component_times['precursor_detection']:.3f}s")
         
         # Test performance monitor
         comp_start = time.time()
-        perf_monitor = container.get_performance_monitor()
+        container.get_performance_monitor()
         component_times['performance_monitor'] = time.time() - comp_start
         print(f"✅ Performance monitor loaded in {component_times['performance_monitor']:.3f}s")
         
         # Test analyst reports
         comp_start = time.time()  
-        analyst = container.get_analyst_reports()
+        container.get_analyst_reports()
         component_times['analyst_reports'] = time.time() - comp_start
         print(f"✅ Analyst reports loaded in {component_times['analyst_reports']:.3f}s")
         

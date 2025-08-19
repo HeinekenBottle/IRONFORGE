@@ -11,7 +11,7 @@ import json
 import logging
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any
 
 
 class SchemaNormalizer:
@@ -39,7 +39,7 @@ class SchemaNormalizer:
             "normalized_time",
         ]
 
-    def migrate_legacy_to_37d(self, session_data: Dict) -> Dict:
+    def migrate_legacy_to_37d(self, session_data: dict) -> dict:
         """
         Migrate legacy 34D session data to current 37D schema
 
@@ -61,7 +61,7 @@ class SchemaNormalizer:
 
         return enhanced_session
 
-    def _validate_legacy_structure(self, session_data: Dict) -> None:
+    def _validate_legacy_structure(self, session_data: dict) -> None:
         """Validate legacy data structure before migration"""
 
         # Check required session metadata
@@ -109,7 +109,7 @@ class SchemaNormalizer:
                 "SOLUTION: This data appears to already be 37D schema. No migration needed."
             )
 
-    def _extract_session_date(self, session_data: Dict) -> datetime:
+    def _extract_session_date(self, session_data: dict) -> datetime:
         """Extract session date from metadata for temporal cycle calculation"""
 
         session_metadata = session_data["session_metadata"]
@@ -152,7 +152,7 @@ class SchemaNormalizer:
                 "SOLUTION: Use YYYY-MM-DD format for session_date"
             ) from e
 
-    def _calculate_temporal_cycles(self, session_date: datetime) -> Dict[str, int]:
+    def _calculate_temporal_cycles(self, session_date: datetime) -> dict[str, int]:
         """Calculate temporal cycle features from session date"""
 
         # Week of month: 1-5 (which week of the month)
@@ -171,8 +171,8 @@ class SchemaNormalizer:
         }
 
     def _add_temporal_cycle_features(
-        self, session_data: Dict, temporal_cycles: Dict[str, int]
-    ) -> Dict:
+        self, session_data: dict, temporal_cycles: dict[str, int]
+    ) -> dict:
         """Add temporal cycle features to all price movements"""
 
         enhanced_session = session_data.copy()
@@ -194,7 +194,7 @@ class SchemaNormalizer:
 
         return enhanced_session
 
-    def _validate_migrated_structure(self, enhanced_session: Dict) -> None:
+    def _validate_migrated_structure(self, enhanced_session: dict) -> None:
         """Validate the migrated 37D structure"""
 
         price_movements = enhanced_session["price_movements"]
@@ -259,7 +259,7 @@ class SchemaNormalizer:
 
         try:
             # Load legacy session data
-            with open(input_path, "r") as f:
+            with open(input_path) as f:
                 legacy_data = json.load(f)
 
             # Migrate to 37D schema
@@ -282,7 +282,7 @@ class SchemaNormalizer:
             self.logger.error(f"Unexpected error migrating {input_path.name}: {e}")
             raise
 
-    def batch_migrate_directory(self, input_dir: Path, output_dir: Path) -> Dict[str, Any]:
+    def batch_migrate_directory(self, input_dir: Path, output_dir: Path) -> dict[str, Any]:
         """
         Migrate all session files in a directory
 

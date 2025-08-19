@@ -80,7 +80,7 @@ def extract_htf_ltf_relationships():
                 htf_context['session_character'] = getattr(feature, 'session_character', 0.0)
                 
                 # Check if we have meaningful HTF context
-                htf_signal_strength = sum(abs(v) for v in htf_context.values() if isinstance(v, (int, float)))
+                htf_signal_strength = sum(abs(v) for v in htf_context.values() if isinstance(v, int | float))
                 
                 # Check if we have meaningful LTF events
                 ltf_event_present = any(ltf_characteristics[f] > 0.0 for f in [
@@ -710,7 +710,7 @@ def main():
     inheritance_rules = discover_htf_inheritance_rules(htf_ltf_data)
     
     # Step 4: Analyze event type preferences
-    event_preferences = analyze_event_type_htf_preferences(htf_ltf_data)
+    analyze_event_type_htf_preferences(htf_ltf_data)
     
     # Step 5: Test coherence hypothesis
     coherence_results = test_htf_coherence_hypothesis(htf_ltf_data)
@@ -755,7 +755,7 @@ def main():
         sorted_rules = sorted(inheritance_rules.items(), 
                             key=lambda x: x[1]['difference'], reverse=True)
         
-        for i, (rule_name, rule_data) in enumerate(sorted_rules[:3]):
+        for i, (_rule_name, rule_data) in enumerate(sorted_rules[:3]):
             print(f"   #{i+1}: {rule_data['rule']}")
             print(f"       Strength: {rule_data['significance']} (diff: {rule_data['difference']:.3f})")
     

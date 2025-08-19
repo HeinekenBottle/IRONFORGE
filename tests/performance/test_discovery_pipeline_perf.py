@@ -376,7 +376,7 @@ def test_memory_efficiency_large_dataset():
         try:
             # Stage 1: Load shards
             start_snapshot = tracemalloc.take_snapshot()
-            shards = pipeline.load_shards()
+            pipeline.load_shards()
             load_snapshot = tracemalloc.take_snapshot()
 
             load_memory = (

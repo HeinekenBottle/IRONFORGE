@@ -18,7 +18,7 @@ def run_direct_discovery():
     
     for filepath in files:
         try:
-            with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+            with open(filepath, encoding='utf-8', errors='ignore') as f:
                 data = json.load(f)
                 
             # Basic pattern extraction (simulating discovery)

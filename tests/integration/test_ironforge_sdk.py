@@ -238,7 +238,7 @@ def test_convenience_functions():
         print("   Testing morning prep convenience function...")
         start_time = time.time()
         prep_result = morning_prep(days_back=2)  # Limited for speed
-        prep_time = time.time() - start_time
+        time.time() - start_time
         
         print(f"✅ Morning prep completed in {quick_time:.2f}s")
         print(f"   Confidence: {prep_result.confidence_level}")

@@ -18,7 +18,7 @@ import json
 import logging
 from abc import ABC, abstractmethod
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 # FastAPI imports (optional dependency)
 try:
@@ -46,9 +46,9 @@ logger = logging.getLogger(__name__)
 class PredictionRequest(BaseModel):
     """Request schema for mathematical predictions"""
     model_type: str = Field(..., description="Type of mathematical model to use")
-    session_data: Dict[str, Any] = Field(..., description="Session data for prediction")
-    parameters: Optional[Dict[str, Any]] = Field(default={}, description="Model parameters")
-    performance_target: Optional[Dict[str, float]] = Field(
+    session_data: dict[str, Any] = Field(..., description="Session data for prediction")
+    parameters: dict[str, Any] | None = Field(default={}, description="Model parameters")
+    performance_target: dict[str, float] | None = Field(
         default={"max_execution_time_seconds": 5.0, "min_accuracy": 0.85},
         description="Performance requirements"
     )
@@ -56,16 +56,16 @@ class PredictionRequest(BaseModel):
 class PredictionResponse(BaseModel):
     """Response schema for mathematical predictions"""
     success: bool = Field(..., description="Whether prediction was successful")
-    prediction_result: Optional[Dict[str, Any]] = Field(default=None, description="Prediction results")
+    prediction_result: dict[str, Any] | None = Field(default=None, description="Prediction results")
     execution_time_ms: float = Field(..., description="Execution time in milliseconds")
-    model_info: Dict[str, str] = Field(..., description="Information about the model used")
-    error_message: Optional[str] = Field(default=None, description="Error message if failed")
+    model_info: dict[str, str] = Field(..., description="Information about the model used")
+    error_message: str | None = Field(default=None, description="Error message if failed")
 
 class ValidationRequest(BaseModel):
     """Request schema for model validation"""
     model_type: str = Field(..., description="Type of mathematical model to validate")
     validation_level: str = Field(default="standard", description="Validation thoroughness level")
-    test_data: Optional[Dict[str, Any]] = Field(default=None, description="Test data for validation")
+    test_data: dict[str, Any] | None = Field(default=None, description="Test data for validation")
 
 class ValidationResponse(BaseModel):
     """Response schema for model validation"""
@@ -77,21 +77,21 @@ class ValidationResponse(BaseModel):
 class OptimizationRequest(BaseModel):
     """Request schema for parameter optimization"""
     model_type: str = Field(..., description="Type of mathematical model to optimize")
-    training_data: Dict[str, Any] = Field(..., description="Training data for optimization")
+    training_data: dict[str, Any] = Field(..., description="Training data for optimization")
     optimization_target: str = Field(default="accuracy", description="Optimization objective")
 
 class OptimizationResponse(BaseModel):
     """Response schema for parameter optimization"""
     success: bool = Field(..., description="Whether optimization was successful")
-    optimized_parameters: Dict[str, Any] = Field(..., description="Optimized model parameters")
-    optimization_metrics: Dict[str, Any] = Field(..., description="Optimization performance metrics")
+    optimized_parameters: dict[str, Any] = Field(..., description="Optimized model parameters")
+    optimization_metrics: dict[str, Any] = Field(..., description="Optimization performance metrics")
     execution_time_ms: float = Field(..., description="Optimization execution time")
 
 class StatusResponse(BaseModel):
     """Response schema for system status"""
     system_status: str = Field(..., description="Overall system health status")
-    components: Dict[str, str] = Field(..., description="Status of system components")
-    performance_metrics: Dict[str, Any] = Field(..., description="System performance metrics")
+    components: dict[str, str] = Field(..., description="Status of system components")
+    performance_metrics: dict[str, Any] = Field(..., description="System performance metrics")
     timestamp: str = Field(..., description="Status check timestamp")
 
 class APIInterfaceLayer(ABC):
@@ -106,7 +106,7 @@ class APIInterfaceLayer(ABC):
         pass
     
     @abstractmethod
-    def health_check_endpoint(self) -> Dict[str, Any]:
+    def health_check_endpoint(self) -> dict[str, Any]:
         """Mathematical model health check endpoint"""
         pass
     
@@ -121,11 +121,11 @@ class MathematicalModelAPI(APIInterfaceLayer):
     Provides comprehensive API endpoints for all mathematical operations.
     """
     
-    def __init__(self, model_registry: MathematicalModelRegistry, hook_manager: Optional[HookManager] = None):
+    def __init__(self, model_registry: MathematicalModelRegistry, hook_manager: HookManager | None = None):
         self.model_registry = model_registry
         self.hook_manager = hook_manager
         self.app = None
-        self.websocket_connections: List[WebSocket] = []
+        self.websocket_connections: list[WebSocket] = []
         self.request_count = 0
         self.start_time = datetime.now()
         
@@ -250,7 +250,7 @@ class MathematicalModelAPI(APIInterfaceLayer):
                 )
         
         @self.app.post("/batch_predict")
-        async def batch_predict(requests: List[PredictionRequest]):
+        async def batch_predict(requests: list[PredictionRequest]):
             """Batch prediction endpoint for multiple requests"""
             
             results = []
@@ -359,7 +359,7 @@ class MathematicalModelAPI(APIInterfaceLayer):
                     for event in request.training_data["events"]:
                         if isinstance(event, dict) and "timestamp" in event:
                             training_events.append(event["timestamp"])
-                        elif isinstance(event, (int, float)):
+                        elif isinstance(event, int | float):
                             training_events.append(event)
                 elif isinstance(request.training_data, list):
                     training_events = request.training_data
@@ -382,7 +382,7 @@ class MathematicalModelAPI(APIInterfaceLayer):
                     success=optimization_result.get("optimization_success", False),
                     optimized_parameters={
                         k: v for k, v in optimization_result.items()
-                        if k in ["mu", "alpha", "beta"] and isinstance(v, (int, float))
+                        if k in ["mu", "alpha", "beta"] and isinstance(v, int | float)
                     },
                     optimization_metrics={
                         "method": optimization_result.get("method", "unknown"),
@@ -416,7 +416,7 @@ class MathematicalModelAPI(APIInterfaceLayer):
             
             models_info = {}
             
-            for model_id, model in self.model_registry.models.items():
+            for model_id, _model in self.model_registry.models.items():
                 metadata = self.model_registry.metadata.get(model_id)
                 integration_status = self.model_registry.integration_status.get(model_id)
                 
@@ -557,7 +557,7 @@ class MathematicalModelAPI(APIInterfaceLayer):
         except Exception as e:
             logger.warning(f"Hook logging failed: {e}")
     
-    async def _broadcast_prediction_result(self, model_type: str, prediction_result: Dict[str, Any]):
+    async def _broadcast_prediction_result(self, model_type: str, prediction_result: dict[str, Any]):
         """Broadcast prediction result to WebSocket clients"""
         
         if not self.websocket_connections:
@@ -589,7 +589,7 @@ class MathematicalModelAPI(APIInterfaceLayer):
         # This is handled in _setup_fastapi_app()
         pass
     
-    def health_check_endpoint(self) -> Dict[str, Any]:
+    def health_check_endpoint(self) -> dict[str, Any]:
         """Mathematical model health check endpoint"""
         
         # Check model registry status
@@ -651,7 +651,7 @@ class MathematicalModelAPI(APIInterfaceLayer):
             access_log=True
         )
 
-def create_mathematical_api(model_registry: MathematicalModelRegistry, hook_manager: Optional[HookManager] = None) -> MathematicalModelAPI:
+def create_mathematical_api(model_registry: MathematicalModelRegistry, hook_manager: HookManager | None = None) -> MathematicalModelAPI:
     """Create mathematical model API with registry and hooks"""
     
     api = MathematicalModelAPI(model_registry, hook_manager)

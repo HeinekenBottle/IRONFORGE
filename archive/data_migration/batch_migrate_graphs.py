@@ -28,7 +28,6 @@ import shutil
 import traceback
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
 
 from schema_normalizer import SchemaNormalizer
 
@@ -55,7 +54,7 @@ class BatchGraphMigrator:
             "end_time": None,
         }
 
-    def discover_graph_files(self, input_dir: str, patterns: List[str] = None) -> List[Path]:
+    def discover_graph_files(self, input_dir: str, patterns: list[str] = None) -> list[Path]:
         """
         Discover graph files in input directory
 
@@ -88,7 +87,7 @@ class BatchGraphMigrator:
 
         return sorted(graph_files)
 
-    def create_backup(self, input_dir: str, backup_dir: Optional[str] = None) -> str:
+    def create_backup(self, input_dir: str, backup_dir: str | None = None) -> str:
         """
         Create backup of input directory before migration
 
@@ -110,7 +109,7 @@ class BatchGraphMigrator:
         except Exception as e:
             raise ValueError(f"Backup creation failed: {str(e)}") from e
 
-    def analyze_batch_requirements(self, graph_files: List[Path]) -> Dict:
+    def analyze_batch_requirements(self, graph_files: list[Path]) -> dict:
         """
         Analyze batch of files to determine migration requirements
 
@@ -144,7 +143,7 @@ class BatchGraphMigrator:
 
                 # Quick schema detection (load and analyze first few nodes)
                 if file_path.suffix.lower() == ".json":
-                    with open(file_path, "r") as f:
+                    with open(file_path) as f:
                         # Load just enough to detect schema
                         content = f.read(10000)  # First 10KB
                         if len(content) >= 9999:  # File is larger, load properly
@@ -195,7 +194,7 @@ class BatchGraphMigrator:
 
     def migrate_single_file(
         self, input_file: Path, output_dir: Path, create_backup: bool = True
-    ) -> Tuple[bool, str, Dict]:
+    ) -> tuple[bool, str, dict]:
         """
         Migrate single graph file with comprehensive error handling
 
@@ -224,7 +223,7 @@ class BatchGraphMigrator:
 
             # Load graph data
             if input_file.suffix.lower() == ".json":
-                with open(input_file, "r") as f:
+                with open(input_file) as f:
                     json.load(f)  # Validate JSON format
             else:
                 return False, f"Unsupported file format: {input_file.suffix}", result_info
@@ -258,7 +257,7 @@ class BatchGraphMigrator:
                 output_dir.mkdir(parents=True, exist_ok=True)
 
                 # Load the migrated data from the temp file or from memory
-                with open(input_file, "r") as f:
+                with open(input_file) as f:
                     migrated_data = json.load(f)  # This should now be the migrated version
 
                 # Save to output location
@@ -280,7 +279,7 @@ class BatchGraphMigrator:
             result_info["processing_time"] = (datetime.now() - start_time).total_seconds()
             return False, error_msg, result_info
 
-    def migrate_batch(self, input_dir: str, output_dir: str, create_backups: bool = True) -> Dict:
+    def migrate_batch(self, input_dir: str, output_dir: str, create_backups: bool = True) -> dict:
         """
         Migrate entire batch of graph files
 
@@ -375,7 +374,7 @@ class BatchGraphMigrator:
 
         return self.batch_stats
 
-    def print_batch_report(self, successful_migrations: List, failed_migrations: List):
+    def print_batch_report(self, successful_migrations: list, failed_migrations: list):
         """Print comprehensive batch migration report"""
         processing_time = (
             self.batch_stats["end_time"] - self.batch_stats["start_time"]

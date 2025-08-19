@@ -14,7 +14,7 @@ def debug_feature_dimensions():
     test_session = "/Users/jack/IRONPULSE/data/sessions/htf_relativity/NY_PM_Lvl-1_2025_08_04_htf_rel.json"
     
     # Load session data
-    with open(test_session, 'r') as f:
+    with open(test_session) as f:
         session_data = json.load(f)
     
     print(f"📁 Loaded: {test_session}")

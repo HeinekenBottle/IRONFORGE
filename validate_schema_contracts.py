@@ -7,10 +7,9 @@ Validates actual shard schema against documented contracts without requiring pan
 Uses only Python standard library to check parquet file structure.
 """
 
-import os
 import glob
+import os
 import struct
-import json
 
 
 def read_parquet_schema_basic(file_path):
@@ -115,8 +114,8 @@ def validate_schema_contracts():
                 print("✅ Node schema matches contract (51D: f0..f50)")
                 results["nodes_schema_valid"] = True
             else:
-                print(f"❌ Node schema mismatch:")
-                print(f"   Expected: 51 features (f0..f50)")
+                print("❌ Node schema mismatch:")
+                print("   Expected: 51 features (f0..f50)")
                 print(f"   Found: {len(node_features)} features")
                 if missing_features:
                     print(f"   Missing: {missing_features[:5]}{'...' if len(missing_features) > 5 else ''}")
@@ -155,8 +154,8 @@ def validate_schema_contracts():
                 print("✅ Edge schema matches contract (20D: e0..e19)")
                 results["edges_schema_valid"] = True
             else:
-                print(f"❌ Edge schema mismatch:")
-                print(f"   Expected: 20 features (e0..e19)")
+                print("❌ Edge schema mismatch:")
+                print("   Expected: 20 features (e0..e19)")
                 print(f"   Found: {len(edge_features)} features")
                 if missing_features:
                     print(f"   Missing: {missing_features[:5]}{'...' if len(missing_features) > 5 else ''}")

@@ -68,7 +68,7 @@ def analyze_discovered_patterns():
     patterns_file = "/Users/jack/IRONPULSE/IRONFORGE/IRONFORGE/preservation/discovered_patterns.json"
     
     try:
-        with open(patterns_file, 'r') as f:
+        with open(patterns_file) as f:
             patterns = json.load(f)
         
         print(f"📊 Loaded {len(patterns)} discovered patterns")

@@ -19,7 +19,6 @@ from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
 from pathlib import Path
-from typing import Dict, List
 
 import numpy as np
 
@@ -77,7 +76,7 @@ class DemoArchaeologicalEvent:
     structural_role: str
     pattern_family: str
     confidence_score: float
-    enhanced_features: Dict[str, float]
+    enhanced_features: dict[str, float]
 
 
 def setup_demonstration_environment():
@@ -102,7 +101,7 @@ def setup_demonstration_environment():
     print("  ✅ Demonstration directories created")
 
 
-def generate_synthetic_archaeological_events() -> List[DemoArchaeologicalEvent]:
+def generate_synthetic_archaeological_events() -> list[DemoArchaeologicalEvent]:
     """Generate comprehensive synthetic archaeological events"""
     
     print("\n🎲 Generating Enhanced Synthetic Archaeological Events")
@@ -124,7 +123,7 @@ def generate_synthetic_archaeological_events() -> List[DemoArchaeologicalEvent]:
     
     timeframes = list(DemoTimeframe)
     event_types = list(DemoEventType)
-    session_phases = list(DemoSessionPhase)
+    list(DemoSessionPhase)
     
     # Pattern families for realistic clustering
     pattern_families = ["fvg_family", "sweep_family", "expansion_family", "consolidation_family"]
@@ -215,7 +214,7 @@ def generate_synthetic_archaeological_events() -> List[DemoArchaeologicalEvent]:
     return events
 
 
-def demonstrate_lattice_mapping(events: List[DemoArchaeologicalEvent]):
+def demonstrate_lattice_mapping(events: list[DemoArchaeologicalEvent]):
     """Demonstrate lattice mapping capabilities"""
     
     print("\n🗺️  Demonstrating Lattice Mapping & Hot Zone Detection")
@@ -282,7 +281,7 @@ def demonstrate_lattice_mapping(events: List[DemoArchaeologicalEvent]):
                 'dominant_event_type': dominant_event_type,
                 'dominant_pattern_family': dominant_pattern_family,
                 'events': [e.event_id for e in group_events],
-                'sessions_involved': list(set(e.session_name for e in group_events)),
+                'sessions_involved': list({e.session_name for e in group_events}),
                 'hot_zone_member': avg_significance > 0.7 and len(group_events) >= 4
             }
             
@@ -376,7 +375,7 @@ def demonstrate_lattice_mapping(events: List[DemoArchaeologicalEvent]):
     return lattice_dataset, lattice_file
 
 
-def demonstrate_temporal_clustering(events: List[DemoArchaeologicalEvent]):
+def demonstrate_temporal_clustering(events: list[DemoArchaeologicalEvent]):
     """Demonstrate temporal clustering analysis"""
     
     print("\n🕰️  Demonstrating Temporal Clustering Analysis")
@@ -440,10 +439,10 @@ def demonstrate_temporal_clustering(events: List[DemoArchaeologicalEvent]):
                 'event_count': len(cluster_events),
                 'average_timing': time_bucket,
                 'average_significance': np.mean([e.significance_score for e in cluster_events]),
-                'timeframes_involved': list(set(e.timeframe.value for e in cluster_events)),
-                'sessions_involved': list(set(e.session_name for e in cluster_events)),
-                'recurrence_rate': len(set(e.session_name for e in cluster_events)) / 8,
-                'pattern_consistency': len(set(e.event_type.value for e in cluster_events)) / len(cluster_events),
+                'timeframes_involved': list({e.timeframe.value for e in cluster_events}),
+                'sessions_involved': list({e.session_name for e in cluster_events}),
+                'recurrence_rate': len({e.session_name for e in cluster_events}) / 8,
+                'pattern_consistency': len({e.event_type.value for e in cluster_events}) / len(cluster_events),
                 'temporal_stability': 1.0 - (np.std([e.session_minute for e in cluster_events]) / max(time_bucket, 1))
             }
             
@@ -462,10 +461,10 @@ def demonstrate_temporal_clustering(events: List[DemoArchaeologicalEvent]):
                 'event_count': len(cluster_events),
                 'average_position': pos_bucket,
                 'average_significance': np.mean([e.significance_score for e in cluster_events]),
-                'timeframes_involved': list(set(e.timeframe.value for e in cluster_events)),
-                'sessions_involved': list(set(e.session_name for e in cluster_events)),
-                'recurrence_rate': len(set(e.session_name for e in cluster_events)) / 8,
-                'pattern_consistency': len(set(e.event_type.value for e in cluster_events)) / len(cluster_events),
+                'timeframes_involved': list({e.timeframe.value for e in cluster_events}),
+                'sessions_involved': list({e.session_name for e in cluster_events}),
+                'recurrence_rate': len({e.session_name for e in cluster_events}) / 8,
+                'pattern_consistency': len({e.event_type.value for e in cluster_events}) / len(cluster_events),
                 'temporal_stability': 1.0 - (np.std([e.relative_cycle_position for e in cluster_events]) / max(pos_bucket, 0.1))
             }
             
@@ -474,7 +473,7 @@ def demonstrate_temporal_clustering(events: List[DemoArchaeologicalEvent]):
     
     # Process cross-session clusters
     for signature, cluster_events in cross_session_clusters.items():
-        sessions_involved = set(e.session_name for e in cluster_events)
+        sessions_involved = {e.session_name for e in cluster_events}
         if len(cluster_events) >= 2 and len(sessions_involved) >= 2:
             
             cluster = {
@@ -484,10 +483,10 @@ def demonstrate_temporal_clustering(events: List[DemoArchaeologicalEvent]):
                 'events': [e.event_id for e in cluster_events],
                 'event_count': len(cluster_events),
                 'average_significance': np.mean([e.significance_score for e in cluster_events]),
-                'timeframes_involved': list(set(e.timeframe.value for e in cluster_events)),
+                'timeframes_involved': list({e.timeframe.value for e in cluster_events}),
                 'sessions_involved': list(sessions_involved),
                 'recurrence_rate': len(sessions_involved) / 8,
-                'pattern_consistency': len(set(e.event_type.value for e in cluster_events)) / len(cluster_events),
+                'pattern_consistency': len({e.event_type.value for e in cluster_events}) / len(cluster_events),
                 'cross_session_strength': len(sessions_involved) / len(cluster_events)
             }
             
@@ -540,7 +539,7 @@ def demonstrate_temporal_clustering(events: List[DemoArchaeologicalEvent]):
     return clustering_analysis, clustering_file
 
 
-def demonstrate_structural_analysis(events: List[DemoArchaeologicalEvent]):
+def demonstrate_structural_analysis(events: list[DemoArchaeologicalEvent]):
     """Demonstrate structural relationship analysis"""
     
     print("\n🔗 Demonstrating Structural Relationship Analysis")
@@ -563,7 +562,7 @@ def demonstrate_structural_analysis(events: List[DemoArchaeologicalEvent]):
         
         # Look for temporal relationships
         for i, event1 in enumerate(sorted_events):
-            for j, event2 in enumerate(sorted_events[i+1:], i+1):
+            for _j, event2 in enumerate(sorted_events[i+1:], i+1):
                 
                 time_diff = event2.session_minute - event1.session_minute
                 
@@ -698,7 +697,7 @@ def demonstrate_structural_analysis(events: List[DemoArchaeologicalEvent]):
                     'average_significance': avg_significance,
                     'accumulation_rate': total_energy / max(np.std([e.session_minute for e in zone_events]), 1),
                     'release_probability': min(energy_density / 1.5, 1.0),
-                    'sessions_involved': list(set(e.session_name for e in zone_events))
+                    'sessions_involved': list({e.session_name for e in zone_events})
                 }
                 
                 energy_accumulations.append(accumulation)
@@ -781,7 +780,7 @@ def create_demonstration_visualizations(lattice_dataset, clustering_analysis, st
         fig, ax = plt.subplots(figsize=(16, 12), dpi=150)
         
         # Plot lattice nodes
-        for node_id, node in lattice_dataset['nodes'].items():
+        for _node_id, node in lattice_dataset['nodes'].items():
             x = node['coordinate']['cycle_position']
             y = node['coordinate']['timeframe_level']
             size = max(20, node['event_count'] * 15)
@@ -795,7 +794,7 @@ def create_demonstration_visualizations(lattice_dataset, clustering_analysis, st
                        fontsize=8, fontweight='bold', color='white')
         
         # Plot connections
-        for conn_id, conn in lattice_dataset['connections'].items():
+        for _conn_id, conn in lattice_dataset['connections'].items():
             source_node = lattice_dataset['nodes'][conn['source_node_id'].replace('lattice_node_', '')]
             target_node = lattice_dataset['nodes'][conn['target_node_id'].replace('lattice_node_', '')]
             
@@ -805,7 +804,7 @@ def create_demonstration_visualizations(lattice_dataset, clustering_analysis, st
             ax.plot([x1, x2], [y1, y2], color='#87CEEB', linewidth=conn['strength']*2, alpha=0.6)
         
         # Highlight hot zones
-        for zone_id, zone in lattice_dataset['hot_zones'].items():
+        for _zone_id, zone in lattice_dataset['hot_zones'].items():
             center = zone['center_coordinate']
             rect = patches.Circle((center['cycle_position'], center['timeframe_level']), 
                                 0.1, linewidth=2, edgecolor='#FF6B6B', 
@@ -836,9 +835,9 @@ def create_demonstration_visualizations(lattice_dataset, clustering_analysis, st
         # Absolute time heatmap
         abs_time_data = clustering_analysis['temporal_heatmap_data']['absolute_time']
         if abs_time_data:
-            times = [int(k) for k in abs_time_data.keys()]
+            times = [int(k) for k in abs_time_data]
             counts = list(abs_time_data.values())
-            bars = ax1.bar(times, counts, width=8, alpha=0.7, color='#FFE66D', edgecolor='white')
+            ax1.bar(times, counts, width=8, alpha=0.7, color='#FFE66D', edgecolor='white')
             ax1.set_title('Absolute Time Distribution', fontweight='bold')
             ax1.set_xlabel('Session Minute')
             ax1.set_ylabel('Event Count')
@@ -847,9 +846,9 @@ def create_demonstration_visualizations(lattice_dataset, clustering_analysis, st
         # Relative position heatmap
         rel_pos_data = clustering_analysis['temporal_heatmap_data']['relative_position']
         if rel_pos_data:
-            positions = [float(k) for k in rel_pos_data.keys()]
+            positions = [float(k) for k in rel_pos_data]
             counts = list(rel_pos_data.values())
-            bars = ax2.bar(positions, counts, width=0.08, alpha=0.7, color='#4ECDC4', edgecolor='white')
+            ax2.bar(positions, counts, width=0.08, alpha=0.7, color='#4ECDC4', edgecolor='white')
             ax2.set_title('Relative Position Distribution', fontweight='bold')
             ax2.set_xlabel('Cycle Position')
             ax2.set_ylabel('Event Count')
@@ -859,7 +858,7 @@ def create_demonstration_visualizations(lattice_dataset, clustering_analysis, st
         phase_data = clustering_analysis['temporal_heatmap_data']['session_phase']
         phases = list(phase_data.keys())
         counts = list(phase_data.values())
-        bars = ax3.bar(phases, counts, alpha=0.7, color='#FF6B6B', edgecolor='white')
+        ax3.bar(phases, counts, alpha=0.7, color='#FF6B6B', edgecolor='white')
         ax3.set_title('Session Phase Distribution', fontweight='bold')
         ax3.set_xlabel('Session Phase')
         ax3.set_ylabel('Event Count')
@@ -875,7 +874,7 @@ def create_demonstration_visualizations(lattice_dataset, clustering_analysis, st
             cluster_stats['cross_session_clusters'],
             cluster_stats['high_quality_clusters']
         ]
-        bars = ax4.bar(metrics, values, alpha=0.7, color='#9370DB', edgecolor='white')
+        ax4.bar(metrics, values, alpha=0.7, color='#9370DB', edgecolor='white')
         ax4.set_title('Cluster Analysis Summary', fontweight='bold')
         ax4.set_ylabel('Cluster Count')
         ax4.grid(True, alpha=0.3)
@@ -922,7 +921,7 @@ def create_demonstration_visualizations(lattice_dataset, clustering_analysis, st
         risk_data = structural_analysis['risk_assessment']
         risk_types = ['Cascade Risk', 'Energy Risk', 'Overall Risk']
         risk_values = [risk_data['cascade_risk'], risk_data['energy_release_risk'], risk_data['overall_risk']]
-        bars = ax4.bar(risk_types, risk_values, alpha=0.7, color='#FF6B6B', edgecolor='white')
+        ax4.bar(risk_types, risk_values, alpha=0.7, color='#FF6B6B', edgecolor='white')
         ax4.set_title('Risk Assessment', fontweight='bold')
         ax4.set_ylabel('Risk Score')
         ax4.set_ylim(0, 1)
@@ -967,10 +966,10 @@ def generate_demonstration_report(events, lattice_results, clustering_results, s
         
         'demonstration_data': {
             'synthetic_events_generated': len(events),
-            'sessions_simulated': len(set(e.session_name for e in events)),
-            'timeframes_covered': len(set(e.timeframe.value for e in events)),
-            'event_types_represented': len(set(e.event_type.value for e in events)),
-            'average_events_per_session': len(events) / len(set(e.session_name for e in events)),
+            'sessions_simulated': len({e.session_name for e in events}),
+            'timeframes_covered': len({e.timeframe.value for e in events}),
+            'event_types_represented': len({e.event_type.value for e in events}),
+            'average_events_per_session': len(events) / len({e.session_name for e in events}),
             'enhanced_features_per_event': len(events[0].enhanced_features) if events else 0
         },
         

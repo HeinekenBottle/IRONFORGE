@@ -16,7 +16,7 @@ import json
 import os
 import random
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any
 
 
 def generate_authentic_htf_carryover(price_volatility: float, session_type: str) -> float:
@@ -43,7 +43,7 @@ def generate_authentic_htf_carryover(price_volatility: float, session_type: str)
     
     return max(0.75, min(0.99, base + adjustment))
 
-def generate_authentic_energy_density(price_movements: List[Dict], session_duration: int) -> float:
+def generate_authentic_energy_density(price_movements: list[dict], session_duration: int) -> float:
     """Calculate authentic energy density based on actual market activity."""
     if not price_movements:
         return 0.85
@@ -63,7 +63,7 @@ def generate_authentic_energy_density(price_movements: List[Dict], session_durat
     variation = random.uniform(-0.02, 0.03)
     return max(0.83, min(0.95, base_density + variation))
 
-def generate_liquidity_events(price_movements: List[Dict], session_type: str) -> List[Dict]:
+def generate_liquidity_events(price_movements: list[dict], session_type: str) -> list[dict]:
     """Generate realistic liquidity events based on session characteristics."""
     if not price_movements:
         return []
@@ -108,7 +108,7 @@ def generate_liquidity_events(price_movements: List[Dict], session_type: str) ->
     
     return events
 
-def enhance_session_features(session_data: Dict[str, Any]) -> Dict[str, Any]:
+def enhance_session_features(session_data: dict[str, Any]) -> dict[str, Any]:
     """Enhance a single session with authentic feature calculations."""
     enhanced = session_data.copy()
     
@@ -144,7 +144,7 @@ def process_remaining_sessions():
     """Process all remaining TGAT-ready sessions for complete Phase 2 coverage."""
     
     # Load quality assessment to get TGAT-ready sessions
-    with open('data_quality_assessment.json', 'r') as f:
+    with open('data_quality_assessment.json') as f:
         assessment = json.load(f)
     
     tgat_ready = set(assessment['tgat_ready_sessions'])
@@ -158,7 +158,7 @@ def process_remaining_sessions():
                 enhanced_files.append(original_name)
     
     enhanced_set = set(enhanced_files)
-    missing_sessions = sorted(list(tgat_ready - enhanced_set))
+    missing_sessions = sorted(tgat_ready - enhanced_set)
     
     print("🔧 PHASE 2 FEATURE DECONTAMINATION - COMPLETION")
     print("=" * 60)
@@ -211,7 +211,7 @@ def process_remaining_sessions():
                 })
                 continue
             
-            with open(session_path, 'r') as f:
+            with open(session_path) as f:
                 session_data = json.load(f)
             
             # Enhance the session

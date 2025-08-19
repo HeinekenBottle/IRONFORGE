@@ -14,9 +14,10 @@ To run the legacy script:
     python scripts/analysis/legacy_runners/run_specialized_lattice.py
 """
 
-import sys
 import subprocess
+import sys
 from pathlib import Path
+
 
 def main():
     print("⚠️  DEPRECATED: run_specialized_lattice.py")

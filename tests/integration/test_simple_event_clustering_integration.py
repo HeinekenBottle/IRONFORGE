@@ -234,7 +234,7 @@ def test_orchestrator_integration():
         
         # Validate error handling
         empty_graph = {'nodes': [], 'metadata': {}}
-        empty_result = forge._analyze_time_patterns(empty_graph, "empty_test.json")
+        forge._analyze_time_patterns(empty_graph, "empty_test.json")
         print("✅ Error handling: empty graph handled gracefully")
         
         return True
@@ -278,7 +278,7 @@ def test_performance_overhead():
         times = []
         for i in range(10):
             start_time = time.time()
-            result = analyze_time_patterns(test_graph, f"perf_test_{i}.json")
+            analyze_time_patterns(test_graph, f"perf_test_{i}.json")
             end_time = time.time()
             times.append(end_time - start_time)
         
@@ -401,7 +401,7 @@ def test_output_data_quality():
         print("✅ Analysis metadata structure valid")
         
         # Validate data content - analyzer extracts from both nodes and metadata.semantic_events
-        expected_events = len(events) * 2  # Events appear in both nodes and metadata.semantic_events
+        len(events) * 2  # Events appear in both nodes and metadata.semantic_events
         actual_events = result['analysis_metadata']['total_events_analyzed']
         
         if actual_events < len(events):  # Should find at least the direct events

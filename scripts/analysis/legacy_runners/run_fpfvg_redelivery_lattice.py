@@ -83,7 +83,7 @@ def main():
                 
                 tested = theory_b.get('total_fvg_formations_tested', 0)
                 high_precision = theory_b.get('high_precision_formations', 0)
-                medium_precision = theory_b.get('medium_precision_formations', 0)
+                theory_b.get('medium_precision_formations', 0)
                 avg_accuracy = theory_b.get('avg_completion_prediction_accuracy', 0)
                 
                 print(f"Formations tested: {tested}")

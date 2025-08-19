@@ -11,7 +11,7 @@ from setuptools import find_packages, setup
 readme_path = os.path.join(os.path.dirname(__file__), 'README.md')
 long_description = ""
 if os.path.exists(readme_path):
-    with open(readme_path, 'r', encoding='utf-8') as f:
+    with open(readme_path, encoding='utf-8') as f:
         long_description = f.read()
 
 setup(

@@ -11,7 +11,7 @@ These constants are IMMUTABLE during migration to preserve mathematical integrit
 import math
 from decimal import Decimal, getcontext
 from enum import Enum
-from typing import Dict, List, NamedTuple, Optional
+from typing import NamedTuple
 
 # Set high precision for all calculations
 getcontext().prec = 50
@@ -171,7 +171,7 @@ class CASCADE_TYPES_V1:
         }
     
     @classmethod
-    def classify_cascade(cls, magnitude: Decimal) -> Optional[CascadeType]:
+    def classify_cascade(cls, magnitude: Decimal) -> CascadeType | None:
         """Classify a cascade by its magnitude"""
         for cascade_type in cls.get_all_types().values():
             if cascade_type.threshold_min <= magnitude < cascade_type.threshold_max:
@@ -258,7 +258,7 @@ class BusinessRules:
         return SystemConstants.POWER_LAW_K / (distance ** float(SystemConstants.POWER_LAW_ALPHA))
     
     @staticmethod
-    def calculate_htf_intensity(t: Decimal, events: List[Dict], parameters: Dict = None) -> Decimal:
+    def calculate_htf_intensity(t: Decimal, events: list[dict], parameters: dict = None) -> Decimal:
         """
         Calculate HTF intensity using Hawkes process
         Formula: λ_HTF(t) = μ_h + Σ α_h · exp(-β_h (t - t_j)) · magnitude_j
@@ -311,7 +311,7 @@ class BusinessRules:
         return intensity > HTFConstants.THRESHOLD_H
     
     @staticmethod
-    def calculate_synthetic_volume_detection_score(volume_data: List[Dict]) -> Decimal:
+    def calculate_synthetic_volume_detection_score(volume_data: list[dict]) -> Decimal:
         """
         Calculate synthetic volume detection score for contamination filtering
         Returns score between 0.0 (natural) and 1.0 (synthetic)
@@ -348,7 +348,7 @@ class ValidationRules:
         return Decimal('10') <= half_life <= Decimal('25')
 
 # System Integrity Check
-def perform_system_integrity_check() -> Dict[str, bool]:
+def perform_system_integrity_check() -> dict[str, bool]:
     """
     Perform complete system integrity check on all constants
     Returns dict of validation results

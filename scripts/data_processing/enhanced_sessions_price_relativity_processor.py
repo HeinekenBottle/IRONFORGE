@@ -14,7 +14,6 @@ import json
 import os
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Dict, List
 
 
 class EnhancedSessionsRelativityProcessor:
@@ -27,7 +26,7 @@ class EnhancedSessionsRelativityProcessor:
         self.output_path = Path('/Users/jack/IRONPULSE/IRONFORGE/enhanced_sessions_relativity')
         self.output_path.mkdir(exist_ok=True)
         
-    def calculate_session_statistics(self, session_data: Dict) -> Dict:
+    def calculate_session_statistics(self, session_data: dict) -> dict:
         """Calculate session-wide statistics for normalization"""
         stats = {
             'session_high': None,
@@ -113,7 +112,7 @@ class EnhancedSessionsRelativityProcessor:
             
         return stats
     
-    def add_relativity_to_price_movements(self, price_movements: List, stats: Dict) -> List:
+    def add_relativity_to_price_movements(self, price_movements: list, stats: dict) -> list:
         """Add relativity features to price_movements array"""
         enhanced_movements = []
         
@@ -169,7 +168,7 @@ class EnhancedSessionsRelativityProcessor:
                 
         return enhanced_movements
     
-    def add_relativity_to_fpfvg(self, fpfvg_data: Dict, stats: Dict) -> Dict:
+    def add_relativity_to_fpfvg(self, fpfvg_data: dict, stats: dict) -> dict:
         """Add relativity features to FPFVG formation data"""
         enhanced_fpfvg = fpfvg_data.copy()
         
@@ -217,7 +216,7 @@ class EnhancedSessionsRelativityProcessor:
         
         return enhanced_fpfvg
     
-    def add_relativity_to_liquidity_events(self, liquidity_events: List, stats: Dict) -> List:
+    def add_relativity_to_liquidity_events(self, liquidity_events: list, stats: dict) -> list:
         """Add relativity features to liquidity events"""
         enhanced_events = []
         
@@ -237,7 +236,7 @@ class EnhancedSessionsRelativityProcessor:
         
         return enhanced_events
     
-    def process_enhanced_session(self, session_data: Dict) -> Dict:
+    def process_enhanced_session(self, session_data: dict) -> dict:
         """Process a single enhanced session to add price relativity features"""
         # Calculate session statistics
         stats = self.calculate_session_statistics(session_data)
@@ -277,7 +276,7 @@ class EnhancedSessionsRelativityProcessor:
         
         return enhanced_session
     
-    def process_all_enhanced_sessions(self) -> Dict:
+    def process_all_enhanced_sessions(self) -> dict:
         """Process all enhanced sessions to add relativity features"""
         pattern = str(self.enhanced_sessions_path / 'enhanced_*.json')
         files = glob.glob(pattern)
@@ -298,7 +297,7 @@ class EnhancedSessionsRelativityProcessor:
             
             try:
                 # Load enhanced session data
-                with open(filepath, 'r') as f:
+                with open(filepath) as f:
                     session_data = json.load(f)
                 
                 # Add relativity features

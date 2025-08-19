@@ -36,7 +36,7 @@ def simple_detection_test():
             return False
         
         # Load first session
-        with open(session_files[0], 'r') as f:
+        with open(session_files[0]) as f:
             session = json.load(f)
         
         session_name = session.get('session_name', 'unknown')
@@ -84,14 +84,13 @@ def simple_detection_test():
                 
                 # Very permissive PM detection - any time with PM or 14:xx
                 if ('14:' in timestamp or 'pm' in str(event).lower() or 
-                    '13:' in timestamp or '15:' in timestamp):
-                    if price and float(price) > 0:
-                        pm_candidates.append({
-                            'source': source,
-                            'event': event,
-                            'price': float(price),
-                            'timestamp': timestamp
-                        })
+                    '13:' in timestamp or '15:' in timestamp) and price and float(price) > 0:
+                    pm_candidates.append({
+                        'source': source,
+                        'event': event,
+                        'price': float(price),
+                        'timestamp': timestamp
+                    })
         
         print(f"⏰ PM candidates found: {len(pm_candidates)}")
         if pm_candidates:
@@ -169,7 +168,7 @@ def show_event_structure():
             print("❌ No session files found")
             return
         
-        with open(session_files[0], 'r') as f:
+        with open(session_files[0]) as f:
             session = json.load(f)
         
         print(f"📊 Session keys: {list(session.keys())}")

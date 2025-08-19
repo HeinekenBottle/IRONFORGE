@@ -50,7 +50,7 @@ def main():
             print("=" * 40)
             
             # Extract key metrics
-            metadata = global_lattice.get('lattice_metadata', {})
+            global_lattice.get('lattice_metadata', {})
             nodes = global_lattice.get('global_nodes', [])
             edges = global_lattice.get('global_edges', [])
             hot_zones = global_lattice.get('hot_zones', [])

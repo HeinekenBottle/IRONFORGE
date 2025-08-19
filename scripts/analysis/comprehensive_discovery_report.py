@@ -30,7 +30,7 @@ def analyze_all_sessions():
     total_semantic_events = 0
     total_nodes = 0
     
-    for i, graph_file in enumerate(graph_files[:10]):  # Analyze top 10 recent sessions
+    for _i, graph_file in enumerate(graph_files[:10]):  # Analyze top 10 recent sessions
         session_name = Path(graph_file).stem.replace('_graph_', '_').split('_202')[0]
         
         try:
@@ -276,7 +276,7 @@ def analyze_discovered_patterns():
     
     try:
         patterns_file = "/Users/jack/IRONPULSE/IRONFORGE/IRONFORGE/preservation/discovered_patterns.json"
-        with open(patterns_file, 'r') as f:
+        with open(patterns_file) as f:
             patterns = json.load(f)
         
         print(f"📊 TGAT discovered {len(patterns)} patterns")
@@ -317,7 +317,7 @@ def main():
     session_results = analyze_all_sessions()
     
     # TGAT pattern analysis
-    tgat_patterns = analyze_discovered_patterns()
+    analyze_discovered_patterns()
     
     # Final insights
     print("\n🎯 KEY INSIGHTS:")

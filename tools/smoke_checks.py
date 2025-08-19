@@ -11,12 +11,12 @@ Lightweight validation script that asserts core system functionality:
 - Attention data includes required fields or logs rank proxy
 """
 
-import json
 import glob
-import sys
+import json
 import subprocess
-from pathlib import Path
+import sys
 from importlib import import_module
+from pathlib import Path
 
 
 def check_entrypoint_imports():
@@ -35,7 +35,7 @@ def check_entrypoint_imports():
     for module_name, function_name in entrypoints:
         try:
             module = import_module(module_name)
-            func = getattr(module, function_name)
+            getattr(module, function_name)
             print(f"  ✅ {module_name}:{function_name}")
         except Exception as e:
             print(f"  ❌ {module_name}:{function_name} - {e}")

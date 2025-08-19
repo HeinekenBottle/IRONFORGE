@@ -84,10 +84,7 @@ def test_scale_edges_with_fixed_data():
             source_idx = 0
             target_idx = 0
         
-        if edge_type > 0:
-            edge_type_name = "temporal"
-        else:
-            edge_type_name = "structural"
+        edge_type_name = "temporal" if edge_type > 0 else "structural"
             
         edge_types[edge_type_name] = edge_types.get(edge_type_name, 0) + 1
         

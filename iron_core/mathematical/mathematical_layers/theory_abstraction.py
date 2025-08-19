@@ -16,7 +16,7 @@ This layer focuses on:
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from enum import Enum
-from typing import Any, Dict, Generic, List, Tuple, TypeVar
+from typing import Any, Generic, TypeVar
 
 T = TypeVar('T')
 
@@ -32,10 +32,10 @@ class MathematicalDomain(Enum):
 @dataclass
 class MathematicalParameters(Generic[T]):
     """Type-safe mathematical parameter container with constraints"""
-    values: Dict[str, T]
-    constraints: Dict[str, Any]
-    metadata: Dict[str, str]
-    validation_rules: List[str]
+    values: dict[str, T]
+    constraints: dict[str, Any]
+    metadata: dict[str, str]
+    validation_rules: list[str]
     domain: MathematicalDomain
 
 class MathematicalModel(ABC):
@@ -50,7 +50,7 @@ class MathematicalModel(ABC):
         pass
     
     @abstractmethod
-    def parameter_space(self) -> Dict[str, Tuple[float, float]]:
+    def parameter_space(self) -> dict[str, tuple[float, float]]:
         """Return parameter bounds (min, max) for each parameter"""
         pass
     
@@ -60,7 +60,7 @@ class MathematicalModel(ABC):
         pass
     
     @abstractmethod
-    def mathematical_properties(self) -> List[str]:
+    def mathematical_properties(self) -> list[str]:
         """Return list of mathematical properties this model satisfies"""
         pass
 
@@ -71,12 +71,12 @@ class TheoryAbstractionLayer(ABC):
     """
     
     @abstractmethod
-    def define_mathematical_model(self) -> Dict[str, Any]:
+    def define_mathematical_model(self) -> dict[str, Any]:
         """Define the complete mathematical model structure"""
         pass
     
     @abstractmethod
-    def specify_constraints(self) -> List[str]:
+    def specify_constraints(self) -> list[str]:
         """Define mathematical constraints and stability conditions"""
         pass
     
@@ -86,7 +86,7 @@ class TheoryAbstractionLayer(ABC):
         pass
     
     @abstractmethod
-    def derive_theoretical_properties(self) -> Dict[str, Any]:
+    def derive_theoretical_properties(self) -> dict[str, Any]:
         """Derive theoretical properties from mathematical definition"""
         pass
 
@@ -114,7 +114,7 @@ class HawkesTheoryAbstraction(TheoryAbstractionLayer, MathematicalModel):
         \end{align}
         """
     
-    def parameter_space(self) -> Dict[str, Tuple[float, float]]:
+    def parameter_space(self) -> dict[str, tuple[float, float]]:
         """Parameter bounds for Hawkes process based on Oracle validation"""
         return {
             "mu": (0.001, 1.0),      # Baseline intensity bounds
@@ -126,7 +126,7 @@ class HawkesTheoryAbstraction(TheoryAbstractionLayer, MathematicalModel):
         """Computational complexity for n events"""
         return "O(n²) for pairwise event interactions"
     
-    def mathematical_properties(self) -> List[str]:
+    def mathematical_properties(self) -> list[str]:
         """Mathematical properties of Hawkes processes"""
         return [
             "self_exciting",
@@ -137,7 +137,7 @@ class HawkesTheoryAbstraction(TheoryAbstractionLayer, MathematicalModel):
             "stationary_if_stable"
         ]
     
-    def define_mathematical_model(self) -> Dict[str, Any]:
+    def define_mathematical_model(self) -> dict[str, Any]:
         """Complete mathematical model definition"""
         return {
             "name": "hawkes_process",
@@ -168,7 +168,7 @@ class HawkesTheoryAbstraction(TheoryAbstractionLayer, MathematicalModel):
             "theoretical_foundation": "Hawkes (1971) self-exciting point processes"
         }
     
-    def specify_constraints(self) -> List[str]:
+    def specify_constraints(self) -> list[str]:
         """Mathematical constraints for Hawkes process stability"""
         return [
             "μ > 0",  # Positive baseline intensity
@@ -204,15 +204,12 @@ class HawkesTheoryAbstraction(TheoryAbstractionLayer, MathematicalModel):
                 return False
             if not (param_space["alpha"][0] <= alpha <= param_space["alpha"][1]):
                 return False  
-            if not (param_space["beta"][0] <= beta <= param_space["beta"][1]):
-                return False
-                
-            return True
+            return param_space['beta'][0] <= beta <= param_space['beta'][1]
             
         except Exception:
             return False
     
-    def derive_theoretical_properties(self) -> Dict[str, Any]:
+    def derive_theoretical_properties(self) -> dict[str, Any]:
         """Derive theoretical properties from Hawkes definition"""
         return {
             "stationary_intensity": "μ / (1 - α/β)",  # If α/β < 1
@@ -246,7 +243,7 @@ class HTFTheoryAbstraction(TheoryAbstractionLayer, MathematicalModel):
         \end{align}
         """
     
-    def parameter_space(self) -> Dict[str, Tuple[float, float]]:
+    def parameter_space(self) -> dict[str, tuple[float, float]]:
         """Parameter bounds for HTF system"""
         return {
             "mu_h": (0.001, 0.1),      # HTF baseline
@@ -260,7 +257,7 @@ class HTFTheoryAbstraction(TheoryAbstractionLayer, MathematicalModel):
         """Computational complexity for HTF system"""
         return "O(n_session² + n_HTF²) for coupled processes"
     
-    def mathematical_properties(self) -> List[str]:
+    def mathematical_properties(self) -> list[str]:
         """Mathematical properties of HTF system"""
         return [
             "multi_scale_coupling",
@@ -270,7 +267,7 @@ class HTFTheoryAbstraction(TheoryAbstractionLayer, MathematicalModel):
             "scale_separation"
         ]
     
-    def define_mathematical_model(self) -> Dict[str, Any]:
+    def define_mathematical_model(self) -> dict[str, Any]:
         """Complete HTF mathematical model"""
         return {
             "name": "htf_coupling_system", 
@@ -284,7 +281,7 @@ class HTFTheoryAbstraction(TheoryAbstractionLayer, MathematicalModel):
             "mathematical_properties": self.mathematical_properties()
         }
     
-    def specify_constraints(self) -> List[str]:
+    def specify_constraints(self) -> list[str]:
         """HTF system constraints"""
         return [
             "β_h << β_s",  # HTF has longer memory than session
@@ -302,12 +299,9 @@ class HTFTheoryAbstraction(TheoryAbstractionLayer, MathematicalModel):
             
         # Check coupling positivity
         gamma_base = 0.5
-        if gamma_base < 0:
-            return False
-            
-        return True
+        return not gamma_base < 0
     
-    def derive_theoretical_properties(self) -> Dict[str, Any]:
+    def derive_theoretical_properties(self) -> dict[str, Any]:
         """Theoretical properties of HTF coupling"""
         return {
             "effective_memory": "max(1/β_h, 1/β_s)",
@@ -336,7 +330,7 @@ class InformationTheoreticModel(TheoryAbstractionLayer, MathematicalModel):
         \end{align}
         """
     
-    def parameter_space(self) -> Dict[str, Tuple[float, float]]:
+    def parameter_space(self) -> dict[str, tuple[float, float]]:
         """Parameter bounds for information-theoretic model"""
         return {
             "entropy_threshold": (0.0, 5.0),
@@ -348,7 +342,7 @@ class InformationTheoreticModel(TheoryAbstractionLayer, MathematicalModel):
         """Computational complexity for information measures"""
         return "O(n log n) for entropy calculation, O(n²) for mutual information"
     
-    def mathematical_properties(self) -> List[str]:
+    def mathematical_properties(self) -> list[str]:
         """Information-theoretic properties"""
         return [
             "entropy_maximization",
@@ -357,7 +351,7 @@ class InformationTheoreticModel(TheoryAbstractionLayer, MathematicalModel):
             "uncertainty_quantification"
         ]
     
-    def define_mathematical_model(self) -> Dict[str, Any]:
+    def define_mathematical_model(self) -> dict[str, Any]:
         """Complete information-theoretic model"""
         return {
             "name": "information_theoretic_consensus",
@@ -366,7 +360,7 @@ class InformationTheoreticModel(TheoryAbstractionLayer, MathematicalModel):
             "constraints": "Probability simplex for oracle weights"
         }
     
-    def specify_constraints(self) -> List[str]:
+    def specify_constraints(self) -> list[str]:
         """Information-theoretic constraints"""
         return [
             "Σ w_i = 1",  # Weight normalization
@@ -379,7 +373,7 @@ class InformationTheoreticModel(TheoryAbstractionLayer, MathematicalModel):
         """Validate information theory consistency"""
         return True  # Information theory is well-established
     
-    def derive_theoretical_properties(self) -> Dict[str, Any]:
+    def derive_theoretical_properties(self) -> dict[str, Any]:
         """Information-theoretic properties"""
         return {
             "optimal_weights": "Proportional to oracle mutual information",
@@ -387,7 +381,7 @@ class InformationTheoreticModel(TheoryAbstractionLayer, MathematicalModel):
             "information_gain": "Reduction in conditional entropy"
         }
 
-def create_mathematical_model_factory() -> Dict[str, type]:
+def create_mathematical_model_factory() -> dict[str, type]:
     """Factory for creating mathematical model instances"""
     return {
         "hawkes_process": HawkesTheoryAbstraction,
@@ -395,7 +389,7 @@ def create_mathematical_model_factory() -> Dict[str, type]:
         "information_theoretic": InformationTheoreticModel
     }
 
-def validate_all_mathematical_models() -> Dict[str, bool]:
+def validate_all_mathematical_models() -> dict[str, bool]:
     """Validate consistency of all mathematical models"""
     factory = create_mathematical_model_factory()
     results = {}

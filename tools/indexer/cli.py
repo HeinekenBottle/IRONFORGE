@@ -307,7 +307,7 @@ Examples:
         
         # Engine summary
         print("\\n🏗️  ENGINE ARCHITECTURE")
-        engine_count = len([e for e in engine_arch.keys() if e != 'metadata'])
+        engine_count = len([e for e in engine_arch if e != 'metadata'])
         print(f"   Total Engines: {engine_count}")
         
         for engine_name, engine_data in engine_arch.items():
@@ -441,7 +441,7 @@ Examples:
             'mode': 'summary',
             'project_overview': results.get('project_overview', {}),
             'engine_count': len([
-                e for e in results.get('engine_architecture', {}).keys() 
+                e for e in results.get('engine_architecture', {}) 
                 if e != 'metadata'
             ]),
             'total_dependencies': results.get('dependency_map', {}).get('dependency_statistics', {}).get('total_dependencies', 0),

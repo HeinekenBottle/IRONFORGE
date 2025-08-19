@@ -19,7 +19,7 @@ import logging
 import sys
 from datetime import time
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 from scipy.stats import chi2_contingency, fisher_exact
 
@@ -49,7 +49,7 @@ class SimpleFPFVGAnalyzer:
         self.pm_belt_start = time(14, 35, 0)
         self.pm_belt_end = time(14, 38, 59)
     
-    def analyze(self) -> Dict[str, Any]:
+    def analyze(self) -> dict[str, Any]:
         """Execute simplified FPFVG analysis"""
         logger.info("Starting simplified FPFVG analysis...")
         
@@ -72,7 +72,7 @@ class SimpleFPFVGAnalyzer:
         
         return results
     
-    def _load_fpfvg_candidates(self) -> List[Dict[str, Any]]:
+    def _load_fpfvg_candidates(self) -> list[dict[str, Any]]:
         """Load FPFVG candidates from lattice data"""
         candidates = []
         
@@ -85,7 +85,7 @@ class SimpleFPFVGAnalyzer:
         latest_file = sorted(fpfvg_files, key=lambda x: x.stat().st_mtime)[-1]
         
         try:
-            with open(latest_file, 'r') as f:
+            with open(latest_file) as f:
                 fpfvg_data = json.load(f)
             
             networks = fpfvg_data.get('fvg_networks', [])
@@ -111,7 +111,7 @@ class SimpleFPFVGAnalyzer:
         logger.info(f"Loaded {len(candidates)} FPFVG candidates")
         return candidates
     
-    def _create_candidate(self, event_data: Dict[str, Any], session_id: str, event_type: str) -> Dict[str, Any]:
+    def _create_candidate(self, event_data: dict[str, Any], session_id: str, event_type: str) -> dict[str, Any]:
         """Create simplified candidate record"""
         timestamp = event_data.get('timestamp', '')
         price = self._safe_float(event_data.get('price_level', event_data.get('target_price', 0)))
@@ -176,10 +176,7 @@ class SimpleFPFVGAnalyzer:
     
     def _is_in_theory_b_zone(self, range_pos: float) -> bool:
         """Check if range position is near any Theory B zone"""
-        for zone in self.theory_b_zones:
-            if abs(range_pos - zone) <= self.zone_tolerance:
-                return True
-        return False
+        return any(abs(range_pos - zone) <= self.zone_tolerance for zone in self.theory_b_zones)
     
     def _get_closest_zone(self, range_pos: float) -> float:
         """Get closest Theory B zone"""
@@ -189,7 +186,7 @@ class SimpleFPFVGAnalyzer:
         """Get distance to specific zone"""
         return abs(range_pos - zone)
     
-    def _analyze_candidates(self, candidates: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def _analyze_candidates(self, candidates: list[dict[str, Any]]) -> dict[str, Any]:
         """Generate basic candidate statistics"""
         stats = {
             'total': len(candidates),
@@ -222,7 +219,7 @@ class SimpleFPFVGAnalyzer:
         
         return stats
     
-    def _test_zone_enrichment(self, candidates: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def _test_zone_enrichment(self, candidates: list[dict[str, Any]]) -> dict[str, Any]:
         """Test if redeliveries are enriched in Theory B zones"""
         redeliveries = [c for c in candidates if c['event_type'] == 'redelivery']
         
@@ -261,7 +258,7 @@ class SimpleFPFVGAnalyzer:
         except Exception as e:
             return {'error': f'Statistical test failed: {e}'}
     
-    def _test_pm_belt_interaction(self, candidates: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def _test_pm_belt_interaction(self, candidates: list[dict[str, Any]]) -> dict[str, Any]:
         """Test PM belt interaction patterns"""
         # Group by session
         sessions = {}
@@ -332,7 +329,7 @@ class SimpleFPFVGAnalyzer:
         except Exception as e:
             return {'error': f'Statistical test failed: {e}'}
     
-    def _generate_summary(self, candidates: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def _generate_summary(self, candidates: list[dict[str, Any]]) -> dict[str, Any]:
         """Generate analysis summary"""
         formations = [c for c in candidates if c['event_type'] == 'formation']
         redeliveries = [c for c in candidates if c['event_type'] == 'redelivery']
@@ -358,7 +355,7 @@ class SimpleFPFVGAnalyzer:
             'key_insight': 'Statistical validation of FPFVG redelivery alignment with Theory B zones and PM belt timing'
         }
     
-    def _save_results(self, results: Dict[str, Any]) -> None:
+    def _save_results(self, results: dict[str, Any]) -> None:
         """Save analysis results"""
         from datetime import datetime
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")

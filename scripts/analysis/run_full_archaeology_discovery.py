@@ -523,7 +523,7 @@ def main():
     print(f"Discovery initiated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
     # Setup production environment
-    log_file = setup_production_environment()
+    setup_production_environment()
     
     total_start_time = time.time()
     discovery_results = {}

@@ -19,7 +19,7 @@ import logging
 import math
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 import numpy as np
 
@@ -48,7 +48,7 @@ class HawkesEngine:
     while preserving all validated domain knowledge.
     """
     
-    def __init__(self, parameters: Optional[HawkesParameters] = None):
+    def __init__(self, parameters: HawkesParameters | None = None):
         self.params = parameters or HawkesParameters()
         self.events = []
         self.intensity_history = []
@@ -63,7 +63,7 @@ class HawkesEngine:
         self.dimensions = ['temporal', 'magnitude', 'frequency']
         self.dimension_weights = {'temporal': 0.5, 'magnitude': 0.3, 'frequency': 0.2}
         
-    def calculate_intensity(self, t: float, events: Optional[List[HawkesEvent]] = None) -> float:
+    def calculate_intensity(self, t: float, events: list[HawkesEvent] | None = None) -> float:
         """
         Calculate Hawkes intensity at time t
         
@@ -86,7 +86,7 @@ class HawkesEngine:
         return intensity
     
     def calculate_multi_dimensional_intensity(self, t: float, 
-                                            events: Optional[List[HawkesEvent]] = None) -> Dict[str, float]:
+                                            events: list[HawkesEvent] | None = None) -> dict[str, float]:
         """
         Calculate multi-dimensional Hawkes intensity
         
@@ -154,7 +154,7 @@ class HawkesEngine:
         self.logger.debug(f"Added event: {event_type} at {timestamp} with magnitude {magnitude}")
     
     def predict_next_event_time(self, current_time: float, 
-                               prediction_horizon: float = 60.0) -> Tuple[float, float]:
+                               prediction_horizon: float = 60.0) -> tuple[float, float]:
         """
         Predict time and probability of next event
         
@@ -181,7 +181,7 @@ class HawkesEngine:
         
         return predicted_time, probability
     
-    def calculate_htf_coupling(self, htf_events: List[Dict[str, Any]]) -> float:
+    def calculate_htf_coupling(self, htf_events: list[dict[str, Any]]) -> float:
         """
         Calculate HTF (Higher Time Frame) coupling intensity
         
@@ -218,7 +218,7 @@ class HawkesEngine:
         """
         return previous_session_energy * self.energy_carryover_rate
     
-    def get_process_statistics(self) -> Dict[str, Any]:
+    def get_process_statistics(self) -> dict[str, Any]:
         """Get comprehensive statistics about the Hawkes process"""
         if not self.events:
             return {"status": "no_events"}
