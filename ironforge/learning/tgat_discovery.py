@@ -4,10 +4,12 @@ Temporal Graph Attention Network for market pattern archaeology
 """
 
 import logging
+from pathlib import Path
 from typing import Any
 
 import networkx as nx
 import numpy as np
+import pandas as pd
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -41,7 +43,7 @@ class TemporalAttentionLayer(nn.Module):
 
         logger.info(f"Temporal Attention Layer: {input_dim}D -> {hidden_dim}D, {num_heads} heads")
 
-    def forward(self, node_features, _edge_features, temporal_distances):
+    def forward(self, node_features, _edge_features, temporal_distances, return_attn=True):
         """
         Forward pass with temporal attention
 
@@ -49,10 +51,11 @@ class TemporalAttentionLayer(nn.Module):
             node_features: [N, 45] node feature tensor
             edge_features: [E, 20] edge feature tensor
             temporal_distances: [E, 1] temporal distance tensor
+            return_attn: bool, whether to return attention weights for oracle predictions
 
         Returns:
             attended_features: [N, 44] attended node features
-            attention_weights: [N, N] attention weight matrix
+            attention_weights: [N, N] attention weight matrix (if return_attn=True)
         """
         _batch_size, seq_len = node_features.size(0), node_features.size(0)
 
@@ -94,9 +97,11 @@ class TemporalAttentionLayer(nn.Module):
         output = self.output_projection(attended)  # [N, 44]
 
         # Return average attention weights across heads for interpretability
-        avg_attention = attention_weights.mean(dim=0)  # [N, N]
-
-        return output, avg_attention
+        if return_attn:
+            avg_attention = attention_weights.mean(dim=0)  # [N, N]
+            return output, avg_attention
+        else:
+            return output, None
 
 
 class IRONFORGEDiscovery(nn.Module):
@@ -142,21 +147,34 @@ class IRONFORGEDiscovery(nn.Module):
             nn.Sigmoid(),
         )
 
+        # Oracle session range prediction head
+        self.range_head = nn.Sequential(
+            nn.Linear(hidden_dim, 32),
+            nn.ReLU(),
+            nn.Linear(32, 2)  # -> (center, half_range)
+        )
+        
+        # Initialize range_head with Xavier normal for stable cold start
+        for layer in self.range_head:
+            if isinstance(layer, nn.Linear):
+                nn.init.xavier_normal_(layer.weight)
+
         logger.info(
             f"IRONFORGE Discovery initialized: {node_dim}D nodes, {edge_dim}D edges, {num_layers} layers"
         )
 
-    def forward(self, graph: nx.Graph) -> dict[str, torch.Tensor]:
+    def forward(self, graph: nx.Graph, return_attn=True) -> dict[str, torch.Tensor]:
         """
         Discover archaeological patterns in session graph
 
         Args:
             graph: NetworkX graph with rich features
+            return_attn: bool, whether to return attention weights (for oracle predictions)
 
         Returns:
             Dictionary containing:
             - pattern_scores: [N, 16] pattern type probabilities
-            - attention_weights: [N, N] attention weight matrix
+            - attention_weights: [N, N] attention weight matrix (if return_attn=True)
             - significance_scores: [N, 1] archaeological significance
             - node_embeddings: [N, 44] final node embeddings
         """
@@ -194,7 +212,7 @@ class IRONFORGEDiscovery(nn.Module):
 
             for i, layer in enumerate(self.attention_layers):
                 current_features, attention_weights = layer(
-                    current_features, edge_features, temporal_distances
+                    current_features, edge_features, temporal_distances, return_attn
                 )
                 logger.debug(f"Layer {i+1} output shape: {current_features.shape}")
 
@@ -230,6 +248,92 @@ class IRONFORGEDiscovery(nn.Module):
             "significance_scores": torch.zeros(0, 1),
             "node_embeddings": torch.zeros(0, self.hidden_dim),
             "session_name": "empty",
+        }
+
+    def predict_session_range(self, graph: nx.Graph, early_batch_pct: float = 0.20) -> dict[str, Any]:
+        """
+        Predict session range from early events using temporal non-locality
+        
+        Args:
+            graph: NetworkX graph with session events
+            early_batch_pct: Percentage of early events to use for prediction
+            
+        Returns:
+            Dictionary containing:
+            - pct_seen: Percentage of session events analyzed  
+            - n_events: Number of events used for prediction
+            - pred_high: Predicted session high
+            - pred_low: Predicted session low
+            - center: Predicted range center
+            - half_range: Predicted half-range width
+            - confidence: Prediction confidence (0-1)
+            - notes: Description of method used
+        """
+        try:
+            nodes = list(graph.nodes())
+            if len(nodes) == 0:
+                return self._empty_oracle_result()
+                
+            num_events = len(nodes)
+            k = max(1, int(num_events * early_batch_pct))
+            
+            # Build subgraph with only first k events
+            early_nodes = nodes[:k]
+            early_subgraph = graph.subgraph(early_nodes).copy()
+            
+            # Forward pass with attention weights enabled
+            results = self.forward(early_subgraph, return_attn=True)
+            
+            embeddings = results["node_embeddings"]  # [k, 44]
+            attention_weights = results["attention_weights"]  # [k, k] or None
+            
+            # Attention-weighted pooling over early events
+            if attention_weights is not None and attention_weights.size(0) > 0:
+                # Use attention to weight embeddings
+                attn_scores = attention_weights.sum(dim=0)  # Sum attention received by each node
+                attn_weights = F.softmax(attn_scores, dim=0)  # Normalize to probabilities
+                pooled = (attn_weights.unsqueeze(-1) * embeddings).sum(dim=0)  # [44]
+                
+                # Calculate confidence as max attention weight
+                confidence = float(attn_weights.max().item())
+            else:
+                # Fallback to simple mean pooling
+                pooled = embeddings.mean(dim=0)  # [44]
+                confidence = 0.5
+                
+            # Map pooled embedding to range prediction
+            range_pred = self.range_head(pooled.unsqueeze(0))  # [1, 2]
+            center, half_range = range_pred[0, 0].item(), abs(range_pred[0, 1].item())
+            
+            pred_high = center + half_range
+            pred_low = center - half_range
+            
+            return {
+                "pct_seen": round(k / num_events, 4),
+                "n_events": int(k),
+                "pred_high": float(pred_high),
+                "pred_low": float(pred_low),
+                "center": float(center),
+                "half_range": float(half_range),
+                "confidence": float(confidence),
+                "notes": f"attention-weighted pooling over {k} early events"
+            }
+            
+        except Exception as e:
+            logger.error(f"Oracle prediction failed: {e}")
+            return self._empty_oracle_result()
+    
+    def _empty_oracle_result(self) -> dict[str, Any]:
+        """Return empty oracle prediction result"""
+        return {
+            "pct_seen": 0.0,
+            "n_events": 0,
+            "pred_high": 0.0,
+            "pred_low": 0.0,
+            "center": 0.0,
+            "half_range": 0.0,
+            "confidence": 0.0,
+            "notes": "empty session - no predictions available"
         }
 
     def discover_session_patterns(self, session_data: dict[str, Any]) -> dict[str, Any]:
@@ -336,3 +440,86 @@ class IRONFORGEDiscovery(nn.Module):
         # Calculate entropy
         entropy = -torch.sum(attention_dist * torch.log(attention_dist + 1e-10))
         return entropy.item()
+
+
+def infer_shard_embeddings(data, out_dir: str, loader_cfg) -> tuple[str, str]:
+    """
+    Process shard data through TGAT discovery engine with oracle predictions
+    
+    Args:
+        data: PyG graph data containing session information
+        out_dir: Output directory for results
+        loader_cfg: Configuration for data loading
+        
+    Returns:
+        Tuple[str, str]: (embeddings_path, patterns_path)
+    """
+    try:
+        from ironforge.graph_builder.pyg_converters import pyg_to_networkx
+        
+        output_dir = Path(out_dir)
+        output_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Convert PyG data back to NetworkX for processing
+        graph = pyg_to_networkx(data)
+        
+        # Initialize discovery engine
+        discovery_engine = IRONFORGEDiscovery()
+        discovery_engine.eval()  # Set to evaluation mode
+        
+        # Run pattern discovery
+        with torch.no_grad():
+            discovery_results = discovery_engine.forward(graph, return_attn=True)
+            
+            # Extract embeddings and patterns
+            embeddings = discovery_results["node_embeddings"]
+            pattern_scores = discovery_results["pattern_scores"]
+            significance_scores = discovery_results["significance_scores"]
+            
+            # Save embeddings
+            embeddings_path = output_dir / "embeddings.parquet"
+            emb_df = pd.DataFrame(embeddings.numpy())
+            emb_df.to_parquet(embeddings_path, index=False)
+            
+            # Save patterns 
+            patterns_path = output_dir / "patterns.parquet"
+            patterns_df = pd.DataFrame({
+                "pattern_scores": pattern_scores.tolist(),
+                "significance_scores": significance_scores.flatten().tolist(),
+            })
+            patterns_df.to_parquet(patterns_path, index=False)
+            
+            # NEW: Oracle predictions with configuration check
+            oracle_enabled = getattr(loader_cfg, 'oracle', True)
+            early_pct = getattr(loader_cfg, 'oracle_early_pct', 0.20)
+            
+            if oracle_enabled:
+                oracle_predictions = discovery_engine.predict_session_range(
+                    graph, early_batch_pct=early_pct
+                )
+                
+                # Add run metadata
+                oracle_predictions["run_dir"] = str(output_dir)
+                oracle_predictions["ts_generated"] = pd.Timestamp.utcnow()
+                
+                # Save oracle predictions
+                oracle_df = pd.DataFrame([oracle_predictions])
+                oracle_path = output_dir / "oracle_predictions.parquet"
+                oracle_df.to_parquet(oracle_path, index=False)
+                
+                logger.info(f"Oracle predictions saved: {oracle_predictions['pred_high']:.2f}/{oracle_predictions['pred_low']:.2f} "
+                           f"(confidence: {oracle_predictions['confidence']:.3f})")
+            
+        logger.info(f"Discovery complete: {embeddings_path}, {patterns_path}")
+        return str(embeddings_path), str(patterns_path)
+        
+    except Exception as e:
+        logger.error(f"Shard inference failed: {e}")
+        # Return empty paths on error
+        empty_embeddings = output_dir / "embeddings_empty.parquet"  
+        empty_patterns = output_dir / "patterns_empty.parquet"
+        
+        pd.DataFrame().to_parquet(empty_embeddings)
+        pd.DataFrame().to_parquet(empty_patterns)
+        
+        return str(empty_embeddings), str(empty_patterns)

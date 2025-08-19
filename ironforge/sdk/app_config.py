@@ -56,6 +56,13 @@ class ValidationCfg:
 
 
 @dataclass
+class OracleCfg:
+    enabled: bool = True
+    early_pct: float = 0.20
+    output_path: str = "oracle_predictions.parquet"
+
+
+@dataclass
 class Config:
     workspace: str | None = None
     data: DataCfg = field(default_factory=DataCfg)
@@ -63,6 +70,7 @@ class Config:
     scoring: ScoringCfg = field(default_factory=ScoringCfg)
     reporting: ReportingCfg = field(default_factory=ReportingCfg)
     validation: ValidationCfg = field(default_factory=ValidationCfg)
+    oracle: OracleCfg = field(default_factory=OracleCfg)
 
 
 def _coerce(value: str) -> Any:
