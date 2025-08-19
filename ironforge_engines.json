@@ -11,7 +11,7 @@
             "extract_lattice_summary"
           ],
           "patterns": [],
-          "lines_of_code": 161,
+          "lines_of_code": 162,
           "complexity": 19,
           "class_count": 0,
           "function_count": 1,
@@ -34,12 +34,12 @@
           ],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 482,
+          "lines_of_code": 484,
           "complexity": 57,
           "class_count": 8,
           "function_count": 17,
           "docstring": "Temporal Correlator - Extracted from cascade classifier for modular integration\nHandles prediction-validation correlation and sequence analysis...",
-          "imports": 11,
+          "imports": 9,
           "decorators": [
             "dataclass"
           ]
@@ -50,26 +50,12 @@
           "primary_classes": [],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 14,
+          "lines_of_code": 15,
           "complexity": 0,
           "class_count": 0,
           "function_count": 0,
           "docstring": "IRONFORGE Archaeological Discovery System\nPackage version and main exports...",
           "imports": 2,
-          "decorators": []
-        },
-        {
-          "name": "__init__",
-          "file": "ironforge/analysis/__init__.py",
-          "primary_classes": [],
-          "primary_functions": [],
-          "patterns": [],
-          "lines_of_code": 28,
-          "complexity": 0,
-          "class_count": 0,
-          "function_count": 0,
-          "docstring": "Analysis components for pattern analysis...",
-          "imports": 3,
           "decorators": []
         },
         {
@@ -80,12 +66,12 @@
           ],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 47,
+          "lines_of_code": 49,
           "complexity": 3,
           "class_count": 1,
           "function_count": 2,
           "docstring": "Broad Spectrum Archaeology\nComprehensive pattern discovery across market sessions...",
-          "imports": 5,
+          "imports": 2,
           "decorators": []
         },
         {
@@ -96,225 +82,12 @@
           ],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 47,
+          "lines_of_code": 49,
           "complexity": 3,
           "class_count": 1,
           "function_count": 2,
           "docstring": "Enhanced Session Adapter\nAdapts session data for archaeological analysis...",
-          "imports": 5,
-          "decorators": []
-        },
-        {
-          "name": "__init__",
-          "file": "ironforge/analysis/fpfvg/__init__.py",
-          "primary_classes": [],
-          "primary_functions": [],
-          "patterns": [],
-          "lines_of_code": 2,
-          "complexity": 0,
-          "class_count": 0,
-          "function_count": 0,
-          "docstring": "FPFVG Network Analysis Package....",
-          "imports": 0,
-          "decorators": []
-        },
-        {
-          "name": "chain_builder",
-          "file": "ironforge/analysis/fpfvg/chain_builder.py",
-          "primary_classes": [],
-          "primary_functions": [
-            "construct_directed_network",
-            "calculate_network_density",
-            "identify_network_motifs",
-            "find_chains",
-            "dfs_chain"
-          ],
-          "patterns": [
-            "Factory"
-          ],
-          "lines_of_code": 291,
-          "complexity": 54,
-          "class_count": 0,
-          "function_count": 11,
-          "docstring": "FPFVG Network Chain Builder - Pure DFS/Graph Construction Logic....",
-          "imports": 3,
-          "decorators": []
-        },
-        {
-          "name": "features",
-          "file": "ironforge/analysis/fpfvg/features.py",
-          "primary_classes": [],
-          "primary_functions": [
-            "score_redelivery_strength",
-            "calculate_price_proximity_score",
-            "calculate_range_pos_proximity_score",
-            "calculate_zone_confluence_score",
-            "calculate_temporal_penalty_score",
-            "analyze_score_distribution",
-            "calculate_range_position",
-            "get_zone_proximity",
-            "extract_magnitude",
-            "get_candidate_summary_stats",
-            "test_zone_enrichment",
-            "test_pm_belt_interaction",
-            "test_reproducibility",
-            "generate_summary_insights"
-          ],
-          "patterns": [],
-          "lines_of_code": 613,
-          "complexity": 66,
-          "class_count": 0,
-          "function_count": 14,
-          "docstring": "FPFVG Feature Extraction and Scoring Logic....",
-          "imports": 5,
-          "decorators": []
-        },
-        {
-          "name": "runner",
-          "file": "ironforge/analysis/fpfvg/runner.py",
-          "primary_classes": [
-            "FPFVGNetworkAnalyzer"
-          ],
-          "primary_functions": [
-            "build_chains",
-            "validate_chain",
-            "compute_chain_features"
-          ],
-          "patterns": [],
-          "lines_of_code": 352,
-          "complexity": 21,
-          "class_count": 1,
-          "function_count": 8,
-          "docstring": "FPFVG Analysis Runner - Thin Orchestration and I/O Logic....",
-          "imports": 26,
-          "decorators": []
-        },
-        {
-          "name": "validators",
-          "file": "ironforge/analysis/fpfvg/validators.py",
-          "primary_classes": [],
-          "primary_functions": [
-            "validate_candidates",
-            "validate_network_graph",
-            "is_in_pm_belt",
-            "safe_float"
-          ],
-          "patterns": [],
-          "lines_of_code": 415,
-          "complexity": 70,
-          "class_count": 0,
-          "function_count": 10,
-          "docstring": "FPFVG Data Validation and Consistency Checks....",
-          "imports": 3,
-          "decorators": []
-        },
-        {
-          "name": "fpfvg_network_analyzer",
-          "file": "ironforge/analysis/fpfvg_network_analyzer.py",
-          "primary_classes": [
-            "FPFVGNetworkAnalyzer"
-          ],
-          "primary_functions": [
-            "dfs_chain"
-          ],
-          "patterns": [
-            "Factory"
-          ],
-          "lines_of_code": 1297,
-          "complexity": 144,
-          "class_count": 1,
-          "function_count": 37,
-          "docstring": "🔄 IRONFORGE FPFVG Redelivery Network Analyzer (Step 3A)\n========================================================\n\nMicro Mechanism Analysis: Prove FVGs form networks whose re-deliveries align with Theo...",
-          "imports": 17,
-          "decorators": []
-        },
-        {
-          "name": "fpfvg_redelivery_lattice",
-          "file": "ironforge/analysis/fpfvg_redelivery_lattice.py",
-          "primary_classes": [
-            "FPFVGRedeliveryLattice"
-          ],
-          "primary_functions": [],
-          "patterns": [],
-          "lines_of_code": 1229,
-          "complexity": 180,
-          "class_count": 1,
-          "function_count": 46,
-          "docstring": "🔄 IRONFORGE FPFVG Redelivery Network Lattice\n============================================\n\nTheory B Testing Framework: \"Zones Know Their Completion\"\nTests whether FVG redelivery events position themse...",
-          "imports": 12,
-          "decorators": []
-        },
-        {
-          "name": "global_lattice_builder",
-          "file": "ironforge/analysis/global_lattice_builder.py",
-          "primary_classes": [
-            "GlobalLatticeBuilder"
-          ],
-          "primary_functions": [],
-          "patterns": [
-            "Factory",
-            "Builder"
-          ],
-          "lines_of_code": 610,
-          "complexity": 83,
-          "class_count": 1,
-          "function_count": 24,
-          "docstring": "IRONFORGE Global Lattice Builder\n===============================\n\nCreates comprehensive Monthly→1m lattice mappings across all enhanced sessions.\nBuilds the global terrain map with nodes, edges, hot z...",
-          "imports": 16,
-          "decorators": []
-        },
-        {
-          "name": "lattice_terrain_analyzer",
-          "file": "ironforge/analysis/lattice_terrain_analyzer.py",
-          "primary_classes": [
-            "LatticeTerrainAnalyzer"
-          ],
-          "primary_functions": [],
-          "patterns": [],
-          "lines_of_code": 387,
-          "complexity": 11,
-          "class_count": 1,
-          "function_count": 9,
-          "docstring": "IRONFORGE Lattice Terrain Analyzer\n==================================\n\nAnalyzes the global lattice results and identifies key terrain features.\nSTEP 2: Hot zone identification and cascade analysis....",
-          "imports": 16,
-          "decorators": []
-        },
-        {
-          "name": "refined_sweep_detector",
-          "file": "ironforge/analysis/refined_sweep_detector.py",
-          "primary_classes": [
-            "RefinedSweepEvent",
-            "RefinedSweepDetector"
-          ],
-          "primary_functions": [],
-          "patterns": [],
-          "lines_of_code": 696,
-          "complexity": 110,
-          "class_count": 2,
-          "function_count": 27,
-          "docstring": "🔧 IRONFORGE Refined Sweep Detector\n==================================\n\nImmediate refinements to fix \"framework complete but data empty\" issue.\n\nKey Fixes:\n1. Weekly Sweep Detection: Lower thresholds, ...",
-          "imports": 8,
-          "decorators": [
-            "dataclass"
-          ]
-        },
-        {
-          "name": "specialized_lattice_builder",
-          "file": "ironforge/analysis/specialized_lattice_builder.py",
-          "primary_classes": [
-            "SpecializedLatticeBuilder"
-          ],
-          "primary_functions": [],
-          "patterns": [
-            "Factory",
-            "Builder"
-          ],
-          "lines_of_code": 570,
-          "complexity": 56,
-          "class_count": 1,
-          "function_count": 13,
-          "docstring": "IRONFORGE Specialized Lattice Builder\n====================================\n\nSTEP 3: Builds specialized lattice views based on global terrain findings.\nFocuses on candidate areas identified in the terr...",
-          "imports": 16,
+          "imports": 2,
           "decorators": []
         },
         {
@@ -325,86 +98,96 @@
           ],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 228,
+          "lines_of_code": 245,
           "complexity": 24,
           "class_count": 1,
           "function_count": 6,
           "docstring": "Timeframe Lattice Mapper\nPattern analysis component for timeframe relationships...",
-          "imports": 5,
+          "imports": 2,
           "decorators": []
         },
         {
-          "name": "weekly_daily_sweep_cascade_analyzer",
-          "file": "ironforge/analysis/weekly_daily_sweep_cascade_analyzer.py",
-          "primary_classes": [
-            "SweepEvent",
-            "CascadeLink",
-            "WeeklyDailySweepCascadeAnalyzer"
+          "name": "scoring",
+          "file": "ironforge/confluence/scoring.py",
+          "primary_classes": [],
+          "primary_functions": [
+            "score_confluence",
+            "score_session"
           ],
-          "primary_functions": [],
-          "patterns": [
-            "Factory"
-          ],
-          "lines_of_code": 996,
-          "complexity": 113,
-          "class_count": 3,
-          "function_count": 38,
-          "docstring": "📈 IRONFORGE Weekly→Daily Liquidity Sweep Cascade Analyzer (Step 3B)\n=====================================================================\n\nMacro Driver Analysis: Weekly dominance verification through ...",
-          "imports": 10,
-          "decorators": [
-            "dataclass"
-          ]
-        },
-        {
-          "name": "weekly_daily_sweep_cascade_lattice",
-          "file": "ironforge/analysis/weekly_daily_sweep_cascade_lattice.py",
-          "primary_classes": [
-            "WeeklyDailySweepCascadeLattice"
-          ],
-          "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 967,
-          "complexity": 139,
-          "class_count": 1,
-          "function_count": 44,
-          "docstring": "📈 IRONFORGE Weekly→Daily Liquidity Sweep Cascade Lattice\n=========================================================\n\nMacro-Level Cascade Pattern Discovery Framework\nMaps higher timeframe (Weekly→Daily)...",
-          "imports": 13,
+          "lines_of_code": 62,
+          "complexity": 4,
+          "class_count": 0,
+          "function_count": 2,
+          "docstring": "",
+          "imports": 8,
           "decorators": []
         },
         {
           "name": "__init__",
-          "file": "ironforge/metrics/__init__.py",
+          "file": "ironforge/contracts/__init__.py",
           "primary_classes": [],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 14,
+          "lines_of_code": 28,
           "complexity": 0,
           "class_count": 0,
           "function_count": 0,
-          "docstring": "IRONFORGE Metrics Module\n========================\nAdvanced metrics for temporal pattern analysis and confluence scoring....",
-          "imports": 3,
+          "docstring": "IRONFORGE Contracts\n===================\n\nCanonical data contracts and taxonomy definitions for archaeological discovery....",
+          "imports": 8,
           "decorators": []
         },
         {
-          "name": "scanner",
-          "file": "ironforge/motifs/scanner.py",
-          "primary_classes": [
-            "MotifMatch"
-          ],
+          "name": "cli",
+          "file": "ironforge/sdk/cli.py",
+          "primary_classes": [],
           "primary_functions": [
-            "scan_session_for_cards",
-            "run_cli_scan"
+            "cmd_discover",
+            "cmd_score",
+            "cmd_validate",
+            "cmd_report",
+            "cmd_prep_shards",
+            "cmd_status",
+            "main"
           ],
           "patterns": [],
-          "lines_of_code": 139,
-          "complexity": 25,
-          "class_count": 1,
-          "function_count": 4,
+          "lines_of_code": 241,
+          "complexity": 38,
+          "class_count": 0,
+          "function_count": 9,
           "docstring": "",
-          "imports": 7,
-          "decorators": [
-            "dataclass"
-          ]
+          "imports": 16,
+          "decorators": []
+        },
+        {
+          "name": "__init__",
+          "file": "ironforge/semantic_engine/__init__.py",
+          "primary_classes": [],
+          "primary_functions": [],
+          "patterns": [],
+          "lines_of_code": 11,
+          "complexity": 0,
+          "class_count": 0,
+          "function_count": 0,
+          "docstring": "IRONFORGE Semantic Engine  \n=========================\n\nSemantic confluence scoring for archaeological significance assessment.\nThin re-export layer for canonical import paths....",
+          "imports": 1,
+          "decorators": []
+        },
+        {
+          "name": "__init__",
+          "file": "ironforge/temporal_engine/__init__.py",
+          "primary_classes": [],
+          "primary_functions": [
+            "run_discovery"
+          ],
+          "patterns": [],
+          "lines_of_code": 25,
+          "complexity": 1,
+          "class_count": 0,
+          "function_count": 1,
+          "docstring": "IRONFORGE Temporal Engine\n========================\n\nTemporal discovery engine for archaeological pattern discovery via TGAT.\nThin re-export layer for canonical import paths....",
+          "imports": 2,
+          "decorators": []
         },
         {
           "name": "run_fpfvg_network_analysis",
@@ -439,7 +222,7 @@
           "class_count": 1,
           "function_count": 16,
           "docstring": "🔄 IRONFORGE FPFVG Network Analysis (Step 3A) - Simplified\n==========================================================\n\nFocused implementation to prove FVG redelivery alignment with Theory B zones and P...",
-          "imports": 13,
+          "imports": 12,
           "decorators": []
         },
         {
@@ -574,7 +357,7 @@
             "main"
           ],
           "patterns": [],
-          "lines_of_code": 342,
+          "lines_of_code": 344,
           "complexity": 56,
           "class_count": 0,
           "function_count": 5,
@@ -595,7 +378,7 @@
           "class_count": 0,
           "function_count": 1,
           "docstring": "Analyze NY PM session patterns from IRONFORGE discoveries...",
-          "imports": 6,
+          "imports": 5,
           "decorators": []
         },
         {
@@ -609,12 +392,12 @@
             "convert_numpy_types"
           ],
           "patterns": [],
-          "lines_of_code": 544,
+          "lines_of_code": 545,
           "complexity": 82,
           "class_count": 1,
           "function_count": 15,
           "docstring": "IRONFORGE Bridge Node Mapper\n============================\n\nMaps cascade pathways from HTF events → PM belt events to identify:\n1. Whether PM belt events are terminal nodes or relay points\n2. Which HTF...",
-          "imports": 15,
+          "imports": 12,
           "decorators": []
         },
         {
@@ -634,7 +417,7 @@
           "patterns": [
             "Factory"
           ],
-          "lines_of_code": 354,
+          "lines_of_code": 356,
           "complexity": 53,
           "class_count": 0,
           "function_count": 8,
@@ -679,7 +462,7 @@
           "class_count": 1,
           "function_count": 11,
           "docstring": "IRONFORGE Enrichment Analyzer\n=============================\n\nTests the hypothesis: Do events in the 14:35-38pm PM belt disproportionately \nmap to specific lattice zones (like the 40% dimensional ancho...",
-          "imports": 14,
+          "imports": 10,
           "decorators": []
         },
         {
@@ -694,7 +477,7 @@
             "main"
           ],
           "patterns": [],
-          "lines_of_code": 258,
+          "lines_of_code": 259,
           "complexity": 37,
           "class_count": 0,
           "function_count": 5,
@@ -718,12 +501,12 @@
           "patterns": [
             "Factory"
           ],
-          "lines_of_code": 441,
+          "lines_of_code": 440,
           "complexity": 55,
           "class_count": 0,
           "function_count": 7,
           "docstring": "RANK 1: Cross-Session Temporal Synchronization Investigation\n===========================================================\nDiscover if events cluster at consistent intraday times across different calend...",
-          "imports": 12,
+          "imports": 7,
           "decorators": []
         },
         {
@@ -743,12 +526,12 @@
           "patterns": [
             "Factory"
           ],
-          "lines_of_code": 786,
+          "lines_of_code": 784,
           "complexity": 78,
           "class_count": 0,
           "function_count": 8,
           "docstring": "RANK 6: Cross-Timeframe Structural Inheritance Investigation\n===========================================================\nInvestigating how events inherit structural properties from higher timeframes,\n...",
-          "imports": 16,
+          "imports": 10,
           "decorators": []
         },
         {
@@ -767,7 +550,7 @@
             "main"
           ],
           "patterns": [],
-          "lines_of_code": 343,
+          "lines_of_code": 345,
           "complexity": 30,
           "class_count": 0,
           "function_count": 9,
@@ -790,7 +573,7 @@
           "class_count": 1,
           "function_count": 9,
           "docstring": "IRONFORGE Phase 2: Feature Pipeline Enhancement\n============================================\n\nTGAT Model Quality Recovery - Phase 2 Implementation\n\nCONTEXT: Phase 1 breakthrough confirmed TGAT archite...",
-          "imports": 12,
+          "imports": 8,
           "decorators": []
         },
         {
@@ -803,7 +586,7 @@
             "run_phase4a_full_scale"
           ],
           "patterns": [],
-          "lines_of_code": 323,
+          "lines_of_code": 325,
           "complexity": 20,
           "class_count": 1,
           "function_count": 6,
@@ -823,12 +606,12 @@
             "hook_fn"
           ],
           "patterns": [],
-          "lines_of_code": 428,
+          "lines_of_code": 430,
           "complexity": 53,
           "class_count": 1,
           "function_count": 13,
           "docstring": "Phase 4b: 4-Head Attention Verification\n======================================\nVerify that each of the 4 TGAT attention heads discovers different\npattern archetypes, not all focusing on the same links...",
-          "imports": 13,
+          "imports": 12,
           "decorators": []
         },
         {
@@ -841,12 +624,12 @@
             "run_phase4b_attention_analysis"
           ],
           "patterns": [],
-          "lines_of_code": 334,
+          "lines_of_code": 336,
           "complexity": 35,
           "class_count": 1,
           "function_count": 8,
           "docstring": "Phase 4b: 4-Head Attention Verification\n======================================\nVerify that each of the 4 TGAT attention heads discovers different\npattern archetypes, not all focusing on the same links...",
-          "imports": 13,
+          "imports": 11,
           "decorators": []
         },
         {
@@ -860,12 +643,12 @@
             "extract_date"
           ],
           "patterns": [],
-          "lines_of_code": 591,
+          "lines_of_code": 592,
           "complexity": 83,
           "class_count": 1,
           "function_count": 9,
           "docstring": "Phase 4c: Temporal Resonance Testing (Cross-Session Links)\n=========================================================\nProve IRONFORGE discovers permanent, cross-session structures.\nBuild multi-session ...",
-          "imports": 15,
+          "imports": 12,
           "decorators": []
         },
         {
@@ -878,12 +661,12 @@
             "main"
           ],
           "patterns": [],
-          "lines_of_code": 461,
+          "lines_of_code": 460,
           "complexity": 26,
           "class_count": 1,
           "function_count": 9,
           "docstring": "Phase 5: Archaeological Discovery Validation\n==========================================\nTest TGAT model pattern discovery capability on authentic enhanced features \nafter Phase 2 decontamination to va...",
-          "imports": 13,
+          "imports": 9,
           "decorators": []
         },
         {
@@ -902,7 +685,7 @@
           "class_count": 1,
           "function_count": 9,
           "docstring": "Phase 5: Direct TGAT Discovery Validation\n========================================\nDirect test of TGAT archaeological discovery on enhanced sessions\nto validate pattern quality vs contaminated baselin...",
-          "imports": 14,
+          "imports": 13,
           "decorators": []
         },
         {
@@ -918,12 +701,12 @@
           "patterns": [
             "Factory"
           ],
-          "lines_of_code": 259,
+          "lines_of_code": 258,
           "complexity": 25,
           "class_count": 0,
           "function_count": 4,
           "docstring": "Phase 5: Enhanced Session TGAT Validation\n=========================================\nTest TGAT pattern discovery on enhanced sessions and validate quality improvement....",
-          "imports": 11,
+          "imports": 8,
           "decorators": []
         },
         {
@@ -935,7 +718,7 @@
             "analyze_all_time_patterns"
           ],
           "patterns": [],
-          "lines_of_code": 169,
+          "lines_of_code": 171,
           "complexity": 18,
           "class_count": 0,
           "function_count": 2,
@@ -958,7 +741,7 @@
           "class_count": 1,
           "function_count": 3,
           "docstring": "IRONFORGE Quick Pattern Discovery\n=================================\n\nFast pattern discovery script for immediate insights.\nAnalyzes top sessions and shows key patterns quickly.\n\nUsage:\n    python3 qui...",
-          "imports": 6,
+          "imports": 5,
           "decorators": []
         },
         {
@@ -970,7 +753,7 @@
             "find_real_patterns"
           ],
           "patterns": [],
-          "lines_of_code": 113,
+          "lines_of_code": 114,
           "complexity": 15,
           "class_count": 0,
           "function_count": 2,
@@ -1001,12 +784,12 @@
           "patterns": [
             "Factory"
           ],
-          "lines_of_code": 1260,
+          "lines_of_code": 1258,
           "complexity": 92,
           "class_count": 4,
           "function_count": 9,
           "docstring": "IRONFORGE Archaeological Discovery Demonstration\n===============================================\n\nComplete demonstration of the broad-spectrum market archaeology system\nusing enhanced synthetic data t...",
-          "imports": 20,
+          "imports": 14,
           "decorators": [
             "dataclass"
           ]
@@ -1020,7 +803,7 @@
             "main"
           ],
           "patterns": [],
-          "lines_of_code": 74,
+          "lines_of_code": 75,
           "complexity": 12,
           "class_count": 0,
           "function_count": 2,
@@ -1045,7 +828,7 @@
           "class_count": 1,
           "function_count": 12,
           "docstring": "Enhanced Session Adapter Live Demonstration System\n==================================================\n\nDemonstrates the Enhanced Session Adapter with real IRONFORGE enhanced\nsessions, showing the dram...",
-          "imports": 14,
+          "imports": 11,
           "decorators": []
         },
         {
@@ -1065,12 +848,12 @@
           "patterns": [
             "Factory"
           ],
-          "lines_of_code": 616,
+          "lines_of_code": 614,
           "complexity": 22,
           "class_count": 0,
           "function_count": 8,
           "docstring": "IRONFORGE Full Archaeological Discovery Workflow\n===============================================\n\nProduction workflow for running complete broad-spectrum market archaeology\non IRONFORGE's 57 enhanced ...",
-          "imports": 20,
+          "imports": 16,
           "decorators": []
         },
         {
@@ -1081,12 +864,12 @@
             "run_full_scale_discovery"
           ],
           "patterns": [],
-          "lines_of_code": 197,
+          "lines_of_code": 196,
           "complexity": 13,
           "class_count": 0,
           "function_count": 1,
           "docstring": "IRONFORGE Full-Scale Archaeological Discovery\n============================================\nRuns Sprint 2 discovery system on all 66 sessions to achieve 2,800+ pattern discoveries.\n\nFeatures:\n- 37D tem...",
-          "imports": 13,
+          "imports": 10,
           "decorators": []
         },
         {
@@ -1102,7 +885,7 @@
           "class_count": 1,
           "function_count": 9,
           "docstring": "IRONFORGE Full Session Analysis\n===============================\n\nComprehensive analysis script to run IRONFORGE over all logged sessions\nand extract patterns, data, timing analysis, and generate visua...",
-          "imports": 17,
+          "imports": 12,
           "decorators": []
         },
         {
@@ -1113,7 +896,7 @@
             "main"
           ],
           "patterns": [],
-          "lines_of_code": 81,
+          "lines_of_code": 83,
           "complexity": 6,
           "class_count": 0,
           "function_count": 1,
@@ -1131,12 +914,12 @@
             "main"
           ],
           "patterns": [],
-          "lines_of_code": 289,
+          "lines_of_code": 290,
           "complexity": 28,
           "class_count": 1,
           "function_count": 8,
           "docstring": "IRONFORGE Lattice Population Runner\n==================================\n\nProcesses all enhanced session events through the fixed TimeframeLatticeMapper\nto generate a comprehensive multi-timeframe latti...",
-          "imports": 12,
+          "imports": 10,
           "decorators": []
         },
         {
@@ -1145,7 +928,7 @@
           "primary_classes": [],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 60,
+          "lines_of_code": 72,
           "complexity": 0,
           "class_count": 0,
           "function_count": 0,
@@ -1175,9 +958,9 @@
           ]
         }
       ],
-      "file_count": 62,
-      "total_lines": 24778,
-      "complexity_score": 2653,
+      "file_count": 51,
+      "total_lines": 16588,
+      "complexity_score": 1624,
       "key_classes": [
         {
           "name": "CorrelationResult",
@@ -1230,74 +1013,9 @@
           "docstring": "Adapts raw session data for enhanced archaeological analysis\nProvides session context and enhancemen..."
         },
         {
-          "name": "FPFVGNetworkAnalyzer",
-          "file": "ironforge/analysis/fpfvg/runner.py",
-          "docstring": "FPFVG Redelivery Network Analyzer - Main orchestration class\n\nCoordinates the analysis pipeline whil..."
-        },
-        {
-          "name": "FPFVGNetworkAnalyzer",
-          "file": "ironforge/analysis/fpfvg_network_analyzer.py",
-          "docstring": "FPFVG Redelivery Network Analyzer\n\nImplements comprehensive network analysis to prove FPFVG redelive..."
-        },
-        {
-          "name": "FPFVGRedeliveryLattice",
-          "file": "ironforge/analysis/fpfvg_redelivery_lattice.py",
-          "docstring": "FPFVG (Fair Value Gap) Redelivery Network Lattice Builder\n\nConstructs specialized lattice views focu..."
-        },
-        {
-          "name": "GlobalLatticeBuilder",
-          "file": "ironforge/analysis/global_lattice_builder.py",
-          "docstring": "Global lattice builder for comprehensive Monthly→1m analysis across all sessions.\n\nFeatures:\n- Multi..."
-        },
-        {
-          "name": "LatticeTerrainAnalyzer",
-          "file": "ironforge/analysis/lattice_terrain_analyzer.py",
-          "docstring": "Analyzes global lattice terrain to identify hot zones and cascade patterns.\n\nBased on the successful..."
-        },
-        {
-          "name": "RefinedSweepEvent",
-          "file": "ironforge/analysis/refined_sweep_detector.py",
-          "docstring": "Enhanced sweep event with refined detection..."
-        },
-        {
-          "name": "RefinedSweepDetector",
-          "file": "ironforge/analysis/refined_sweep_detector.py",
-          "docstring": "Refined sweep detector with relaxed thresholds and enhanced detection..."
-        },
-        {
-          "name": "SpecializedLatticeBuilder",
-          "file": "ironforge/analysis/specialized_lattice_builder.py",
-          "docstring": "Builds specialized lattice views for deep archaeological analysis.\n\nFocus Areas:\n1. NY PM Archaeolog..."
-        },
-        {
           "name": "TimeframeLatticeMapper",
           "file": "ironforge/analysis/timeframe_lattice_mapper.py",
           "docstring": "Maps discovered patterns across different timeframes\nAnalyzes multi-timeframe pattern relationships..."
-        },
-        {
-          "name": "SweepEvent",
-          "file": "ironforge/analysis/weekly_daily_sweep_cascade_analyzer.py",
-          "docstring": "Structured sweep event representation..."
-        },
-        {
-          "name": "CascadeLink",
-          "file": "ironforge/analysis/weekly_daily_sweep_cascade_analyzer.py",
-          "docstring": "Cascade relationship between events..."
-        },
-        {
-          "name": "WeeklyDailySweepCascadeAnalyzer",
-          "file": "ironforge/analysis/weekly_daily_sweep_cascade_analyzer.py",
-          "docstring": "Weekly→Daily Liquidity Sweep Cascade Analyzer (Step 3B)\n\nImplements comprehensive macro driver analy..."
-        },
-        {
-          "name": "WeeklyDailySweepCascadeLattice",
-          "file": "ironforge/analysis/weekly_daily_sweep_cascade_lattice.py",
-          "docstring": "Weekly→Daily Liquidity Sweep Cascade Lattice Builder\n\nMaps macro-level cascade patterns where Weekly..."
-        },
-        {
-          "name": "MotifMatch",
-          "file": "ironforge/motifs/scanner.py",
-          "docstring": ""
         },
         {
           "name": "SimpleFPFVGAnalyzer",
@@ -1428,178 +1146,64 @@
           "docstring": "Extract key summary information from lattice file..."
         },
         {
-          "name": "construct_directed_network",
-          "file": "ironforge/analysis/fpfvg/chain_builder.py",
+          "name": "score_confluence",
+          "file": "ironforge/confluence/scoring.py",
           "parameters": 4,
-          "docstring": "Construct directed network of FPFVG events\n\nNetwork Rules:\n- Node = FPFVG instance (formation or red..."
+          "docstring": "Stub confluence scorer.\n\nCreates a simple dataframe with scores and writes it to a parquet file.\nRet..."
         },
         {
-          "name": "calculate_network_density",
-          "file": "ironforge/analysis/fpfvg/chain_builder.py",
+          "name": "score_session",
+          "file": "ironforge/confluence/scoring.py",
           "parameters": 1,
-          "docstring": "Calculate network density (edges / max_possible_edges)..."
+          "docstring": "CLI-compatible wrapper for score_confluence..."
         },
         {
-          "name": "identify_network_motifs",
-          "file": "ironforge/analysis/fpfvg/chain_builder.py",
+          "name": "cmd_discover",
+          "file": "ironforge/sdk/cli.py",
           "parameters": 1,
-          "docstring": "Identify common network motifs (chains, convergences, divergences)..."
-        },
-        {
-          "name": "find_chains",
-          "file": "ironforge/analysis/fpfvg/chain_builder.py",
-          "parameters": 2,
-          "docstring": "Find chains in the network using DFS..."
-        },
-        {
-          "name": "dfs_chain",
-          "file": "ironforge/analysis/fpfvg/chain_builder.py",
-          "parameters": 3,
           "docstring": ""
         },
         {
-          "name": "score_redelivery_strength",
-          "file": "ironforge/analysis/fpfvg/features.py",
-          "parameters": 6,
-          "docstring": "Score re-delivery strength using weighted factors\n\nFormula: w1·(price proximity) + w2·(range_pos pro..."
-        },
-        {
-          "name": "calculate_price_proximity_score",
-          "file": "ironforge/analysis/fpfvg/features.py",
-          "parameters": 2,
-          "docstring": "Calculate price proximity score (1.0 = identical prices)..."
-        },
-        {
-          "name": "calculate_range_pos_proximity_score",
-          "file": "ironforge/analysis/fpfvg/features.py",
-          "parameters": 2,
-          "docstring": "Calculate range position proximity score..."
-        },
-        {
-          "name": "calculate_zone_confluence_score",
-          "file": "ironforge/analysis/fpfvg/features.py",
-          "parameters": 2,
-          "docstring": "Calculate zone confluence score..."
-        },
-        {
-          "name": "calculate_temporal_penalty_score",
-          "file": "ironforge/analysis/fpfvg/features.py",
-          "parameters": 2,
-          "docstring": "Calculate temporal penalty score (higher for longer delays)..."
-        },
-        {
-          "name": "analyze_score_distribution",
-          "file": "ironforge/analysis/fpfvg/features.py",
+          "name": "cmd_score",
+          "file": "ironforge/sdk/cli.py",
           "parameters": 1,
-          "docstring": "Analyze distribution of redelivery scores..."
-        },
-        {
-          "name": "calculate_range_position",
-          "file": "ironforge/analysis/fpfvg/features.py",
-          "parameters": 3,
-          "docstring": "Calculate range position (0-1) for a price level within session range\n\nArgs:\n    price_level: Price ..."
-        },
-        {
-          "name": "get_zone_proximity",
-          "file": "ironforge/analysis/fpfvg/features.py",
-          "parameters": 3,
-          "docstring": "Calculate proximity to Theory B zones\n\nArgs:\n    range_pos: Range position (0-1)\n    theory_b_zones:..."
-        },
-        {
-          "name": "extract_magnitude",
-          "file": "ironforge/analysis/fpfvg/features.py",
-          "parameters": 1,
-          "docstring": "Extract magnitude/importance of event from event data..."
-        },
-        {
-          "name": "get_candidate_summary_stats",
-          "file": "ironforge/analysis/fpfvg/features.py",
-          "parameters": 1,
-          "docstring": "Calculate summary statistics for FPFVG candidates..."
-        },
-        {
-          "name": "test_zone_enrichment",
-          "file": "ironforge/analysis/fpfvg/features.py",
-          "parameters": 4,
-          "docstring": "Test zone enrichment: are redeliveries enriched in Theory B zones?\n\nUses Fisher exact test to compar..."
-        },
-        {
-          "name": "test_pm_belt_interaction",
-          "file": "ironforge/analysis/fpfvg/features.py",
-          "parameters": 3,
-          "docstring": "Test PM-belt interaction: P(redelivery hits 14:35-:38 | prior FVG in session) vs baseline\n\nH0: No in..."
-        },
-        {
-          "name": "test_reproducibility",
-          "file": "ironforge/analysis/fpfvg/features.py",
-          "parameters": 4,
-          "docstring": "Test reproducibility with per-session bootstrap analysis\n\nGoal: Validate that findings are reproduci..."
-        },
-        {
-          "name": "generate_summary_insights",
-          "file": "ironforge/analysis/fpfvg/features.py",
-          "parameters": 1,
-          "docstring": "Generate high-level insights from analysis results..."
-        },
-        {
-          "name": "build_chains",
-          "file": "ironforge/analysis/fpfvg/runner.py",
-          "parameters": 2,
-          "docstring": "Build chains from adjacency list (re-exported from chain_builder)..."
-        },
-        {
-          "name": "validate_chain",
-          "file": "ironforge/analysis/fpfvg/runner.py",
-          "parameters": 1,
-          "docstring": "Validate FPFVG chain data (re-exported from validators)..."
-        },
-        {
-          "name": "compute_chain_features",
-          "file": "ironforge/analysis/fpfvg/runner.py",
-          "parameters": 1,
-          "docstring": "Compute chain features (re-exported from features)..."
-        },
-        {
-          "name": "validate_candidates",
-          "file": "ironforge/analysis/fpfvg/validators.py",
-          "parameters": 1,
-          "docstring": "Validate FPFVG candidates for required fields and data consistency\n\nReturns validation results with ..."
-        },
-        {
-          "name": "validate_network_graph",
-          "file": "ironforge/analysis/fpfvg/validators.py",
-          "parameters": 1,
-          "docstring": "Validate network graph structure and consistency..."
-        },
-        {
-          "name": "is_in_pm_belt",
-          "file": "ironforge/analysis/fpfvg/validators.py",
-          "parameters": 3,
-          "docstring": "Check if timestamp falls within PM belt window\n\nArgs:\n    timestamp: ISO timestamp string\n    pm_bel..."
-        },
-        {
-          "name": "safe_float",
-          "file": "ironforge/analysis/fpfvg/validators.py",
-          "parameters": 2,
-          "docstring": "Safely convert value to float with fallback..."
-        },
-        {
-          "name": "dfs_chain",
-          "file": "ironforge/analysis/fpfvg_network_analyzer.py",
-          "parameters": 3,
           "docstring": ""
         },
         {
-          "name": "scan_session_for_cards",
-          "file": "ironforge/motifs/scanner.py",
-          "parameters": 5,
+          "name": "cmd_validate",
+          "file": "ironforge/sdk/cli.py",
+          "parameters": 1,
           "docstring": ""
         },
         {
-          "name": "run_cli_scan",
-          "file": "ironforge/motifs/scanner.py",
-          "parameters": 4,
+          "name": "cmd_report",
+          "file": "ironforge/sdk/cli.py",
+          "parameters": 1,
           "docstring": ""
+        },
+        {
+          "name": "cmd_prep_shards",
+          "file": "ironforge/sdk/cli.py",
+          "parameters": 8,
+          "docstring": "Prepare Parquet shards from enhanced JSON sessions...."
+        },
+        {
+          "name": "cmd_status",
+          "file": "ironforge/sdk/cli.py",
+          "parameters": 1,
+          "docstring": ""
+        },
+        {
+          "name": "main",
+          "file": "ironforge/sdk/cli.py",
+          "parameters": 1,
+          "docstring": ""
+        },
+        {
+          "name": "run_discovery",
+          "file": "ironforge/temporal_engine/__init__.py",
+          "parameters": 2,
+          "docstring": "Stub function when discovery pipeline is not available..."
         },
         {
           "name": "main",
@@ -2244,25 +1848,99 @@
           "docstring": "Run the complete lattice population..."
         }
       ],
-      "avg_complexity": 42.79
+      "avg_complexity": 31.84
     },
     "learning": {
       "description": "Machine learning, TGAT discovery, and graph building",
       "components": [
         {
-          "name": "contracts",
-          "file": "ironforge/contracts.py",
+          "name": "archaeological_discovery_clean",
+          "file": "archaeological_discovery_clean.py",
           "primary_classes": [
-            "DiscoveryResult"
+            "ArchaeologicalZone",
+            "ArchaeologicalDiscoverer"
+          ],
+          "primary_functions": [
+            "test_archaeological_discovery"
+          ],
+          "patterns": [],
+          "lines_of_code": 375,
+          "complexity": 44,
+          "class_count": 2,
+          "function_count": 8,
+          "docstring": "Archaeological Discovery Test with HTF Context\n==============================================\n\nTests TGAT archaeological discovery using HTF-enhanced 51D node features\nto demonstrate the enhanced disc...",
+          "imports": 11,
+          "decorators": [
+            "dataclass"
+          ]
+        },
+        {
+          "name": "htf_regime_analysis",
+          "file": "htf_regime_analysis.py",
+          "primary_classes": [
+            "RegimeCharacteristics",
+            "HTFRegimeAnalyzer"
+          ],
+          "primary_functions": [
+            "main"
+          ],
+          "patterns": [],
+          "lines_of_code": 352,
+          "complexity": 31,
+          "class_count": 2,
+          "function_count": 11,
+          "docstring": "HTF Regime Analysis for Archaeological Discovery\n==============================================\n\nAnalyzes HTF context features across different market regimes to understand\ntheir archaeological discov...",
+          "imports": 15,
+          "decorators": [
+            "dataclass"
+          ]
+        },
+        {
+          "name": "taxonomy_v1",
+          "file": "ironforge/contracts/taxonomy_v1.py",
+          "primary_classes": [
+            "EventType",
+            "EdgeType",
+            "Direction",
+            "Location",
+            "MarketEvent",
+            "EventRelationship",
+            "TaxonomyMetadata"
           ],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 11,
-          "complexity": 0,
-          "class_count": 1,
-          "function_count": 0,
-          "docstring": "",
-          "imports": 2,
+          "lines_of_code": 119,
+          "complexity": 6,
+          "class_count": 7,
+          "function_count": 4,
+          "docstring": "Event Taxonomy v1.0 Contracts\n=============================\n\nCanonical dataclasses for IRONFORGE event taxonomy standardization.\nSupports the original taxonomy: Expansion, Consolidation, Retracement, ...",
+          "imports": 4,
+          "decorators": [
+            "dataclass"
+          ]
+        },
+        {
+          "name": "json_to_parquet",
+          "file": "ironforge/converters/json_to_parquet.py",
+          "primary_classes": [
+            "ConversionConfig",
+            "TimeProcessor",
+            "FeatureExtractor",
+            "NodeIDManager",
+            "JSONToParquetConverter"
+          ],
+          "primary_functions": [
+            "convert_enhanced_sessions"
+          ],
+          "patterns": [
+            "Factory"
+          ],
+          "lines_of_code": 836,
+          "complexity": 142,
+          "class_count": 5,
+          "function_count": 35,
+          "docstring": "Enhanced JSON to Parquet Shard Converter\n========================================\n\nConverts IRONFORGE enhanced session JSON files to Parquet shards suitable for TGAT discovery.\nImplements the specific...",
+          "imports": 24,
           "decorators": [
             "dataclass"
           ]
@@ -2277,7 +1955,7 @@
           "complexity": 0,
           "class_count": 0,
           "function_count": 0,
-          "docstring": "Graph builders for igraph and PyG conversion....",
+          "docstring": "",
           "imports": 0,
           "decorators": []
         },
@@ -2290,11 +1968,11 @@
           ],
           "patterns": [],
           "lines_of_code": 15,
-          "complexity": 1,
+          "complexity": 3,
           "class_count": 0,
           "function_count": 1,
-          "docstring": "Build igraph Graph objects from Parquet DataFrames....",
-          "imports": 2,
+          "docstring": "",
+          "imports": 3,
           "decorators": []
         },
         {
@@ -2305,12 +1983,12 @@
             "igraph_to_pyg"
           ],
           "patterns": [],
-          "lines_of_code": 11,
+          "lines_of_code": 8,
           "complexity": 1,
           "class_count": 0,
           "function_count": 1,
-          "docstring": "Convert igraph objects to PyTorch Geometric format....",
-          "imports": 2,
+          "docstring": "",
+          "imports": 1,
           "decorators": []
         },
         {
@@ -2319,30 +1997,28 @@
           "primary_classes": [],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 35,
+          "lines_of_code": 26,
           "complexity": 0,
           "class_count": 0,
           "function_count": 0,
           "docstring": "Learning components for archaeological discovery...",
-          "imports": 4,
+          "imports": 5,
           "decorators": []
         },
         {
           "name": "discovery_pipeline",
           "file": "ironforge/learning/discovery_pipeline.py",
-          "primary_classes": [
-            "TemporalDiscoveryPipeline"
+          "primary_classes": [],
+          "primary_functions": [
+            "run_discovery"
           ],
-          "primary_functions": [],
-          "patterns": [
-            "Factory"
-          ],
-          "lines_of_code": 645,
-          "complexity": 62,
-          "class_count": 1,
-          "function_count": 12,
-          "docstring": "Temporal Discovery Pipeline for IRONFORGE (Wave 3)\n=================================================\nShard‑aware pipeline for temporal TGAT discovery.  This class will load\nParquet shards, construct t...",
-          "imports": 20,
+          "patterns": [],
+          "lines_of_code": 39,
+          "complexity": 2,
+          "class_count": 0,
+          "function_count": 1,
+          "docstring": "",
+          "imports": 7,
           "decorators": []
         },
         {
@@ -2360,12 +2036,12 @@
             "Factory",
             "Builder"
           ],
-          "lines_of_code": 996,
+          "lines_of_code": 1095,
           "complexity": 199,
           "class_count": 3,
           "function_count": 31,
           "docstring": "Enhanced Graph Builder for 45D/20D architecture\nArchaeological discovery graph construction with semantic features...",
-          "imports": 9,
+          "imports": 4,
           "decorators": []
         },
         {
@@ -2377,28 +2053,12 @@
           ],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 315,
+          "lines_of_code": 339,
           "complexity": 17,
           "class_count": 2,
           "function_count": 8,
           "docstring": "TGAT Discovery Engine for Archaeological Pattern Discovery\nTemporal Graph Attention Network for market pattern archaeology...",
-          "imports": 12,
-          "decorators": []
-        },
-        {
-          "name": "cli",
-          "file": "ironforge/sdk/cli.py",
-          "primary_classes": [],
-          "primary_functions": [
-            "main"
-          ],
-          "patterns": [],
-          "lines_of_code": 445,
-          "complexity": 23,
-          "class_count": 0,
-          "function_count": 2,
-          "docstring": "IRONFORGE SDK Command‑Line Interface (Waves 3-6)\n==================================================\nProvides CLI subcommands for:\n- ``discover‑temporal``: Run TGAT discovery on Parquet shards (Wave 3)...",
-          "imports": 16,
+          "imports": 8,
           "decorators": []
         },
         {
@@ -2409,30 +2069,100 @@
           ],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 585,
+          "lines_of_code": 586,
           "complexity": 56,
           "class_count": 1,
           "function_count": 14,
           "docstring": "IRONFORGE Main Orchestrator\nCoordinates learning, preservation, and synthesis\nEnhanced with Performance Monitor for Sprint 2 tracking...",
-          "imports": 24,
+          "imports": 23,
           "decorators": [
             "property"
           ]
         }
       ],
-      "file_count": 10,
-      "total_lines": 3059,
-      "complexity_score": 359,
+      "file_count": 12,
+      "total_lines": 3791,
+      "complexity_score": 501,
       "key_classes": [
         {
-          "name": "DiscoveryResult",
-          "file": "ironforge/contracts.py",
-          "docstring": ""
+          "name": "ArchaeologicalZone",
+          "file": "archaeological_discovery_clean.py",
+          "docstring": "Represents a discovered archaeological zone..."
         },
         {
-          "name": "TemporalDiscoveryPipeline",
-          "file": "ironforge/learning/discovery_pipeline.py",
-          "docstring": "Shard‑aware pipeline for temporal TGAT discovery.\n\nParameters\n----------\ndata_path : str or Path\n   ..."
+          "name": "ArchaeologicalDiscoverer",
+          "file": "archaeological_discovery_clean.py",
+          "docstring": "Enhanced archaeological discovery using HTF context features..."
+        },
+        {
+          "name": "RegimeCharacteristics",
+          "file": "htf_regime_analysis.py",
+          "docstring": "Characteristics of a market regime..."
+        },
+        {
+          "name": "HTFRegimeAnalyzer",
+          "file": "htf_regime_analysis.py",
+          "docstring": "Analyzes HTF features across different market regimes..."
+        },
+        {
+          "name": "EventType",
+          "file": "ironforge/contracts/taxonomy_v1.py",
+          "docstring": "Canonical event types for archaeological discovery..."
+        },
+        {
+          "name": "EdgeType",
+          "file": "ironforge/contracts/taxonomy_v1.py",
+          "docstring": "Graph edge relationship types..."
+        },
+        {
+          "name": "Direction",
+          "file": "ironforge/contracts/taxonomy_v1.py",
+          "docstring": "Market direction classification..."
+        },
+        {
+          "name": "Location",
+          "file": "ironforge/contracts/taxonomy_v1.py",
+          "docstring": "Price location within session context..."
+        },
+        {
+          "name": "MarketEvent",
+          "file": "ironforge/contracts/taxonomy_v1.py",
+          "docstring": "Canonical market event structure for TGAT discovery pipeline\n\nRequired fields for all events within ..."
+        },
+        {
+          "name": "EventRelationship",
+          "file": "ironforge/contracts/taxonomy_v1.py",
+          "docstring": "Relationship between two market events for graph edges\n\nMaps directly to Edge.etype for graph repres..."
+        },
+        {
+          "name": "TaxonomyMetadata",
+          "file": "ironforge/contracts/taxonomy_v1.py",
+          "docstring": "Version and compatibility information..."
+        },
+        {
+          "name": "ConversionConfig",
+          "file": "ironforge/converters/json_to_parquet.py",
+          "docstring": "Configuration for JSON to Parquet conversion...."
+        },
+        {
+          "name": "TimeProcessor",
+          "file": "ironforge/converters/json_to_parquet.py",
+          "docstring": "Handles timestamp conversion from session-local to UTC milliseconds...."
+        },
+        {
+          "name": "FeatureExtractor",
+          "file": "ironforge/converters/json_to_parquet.py",
+          "docstring": "Extracts node features (45D base + optional 6D HTF context) and 20D edge features from session event..."
+        },
+        {
+          "name": "NodeIDManager",
+          "file": "ironforge/converters/json_to_parquet.py",
+          "docstring": "Manages global unique node IDs across sessions...."
+        },
+        {
+          "name": "JSONToParquetConverter",
+          "file": "ironforge/converters/json_to_parquet.py",
+          "docstring": "Main converter class for transforming enhanced JSON sessions to Parquet shards...."
         },
         {
           "name": "RichNodeFeature",
@@ -2467,31 +2197,49 @@
       ],
       "public_interfaces": [
         {
+          "name": "test_archaeological_discovery",
+          "file": "archaeological_discovery_clean.py",
+          "parameters": 0,
+          "docstring": "Test archaeological discovery with HTF-enhanced features..."
+        },
+        {
+          "name": "main",
+          "file": "htf_regime_analysis.py",
+          "parameters": 0,
+          "docstring": "Run HTF regime analysis..."
+        },
+        {
+          "name": "convert_enhanced_sessions",
+          "file": "ironforge/converters/json_to_parquet.py",
+          "parameters": 1,
+          "docstring": "Convert all enhanced sessions matching the glob pattern...."
+        },
+        {
           "name": "from_parquet",
           "file": "ironforge/graph_builder/igraph_builder.py",
           "parameters": 2,
-          "docstring": "Create igraph Graph from nodes and edges DataFrames...."
+          "docstring": "Build a directed NetworkX graph from node and edge dataframes...."
         },
         {
           "name": "igraph_to_pyg",
           "file": "ironforge/graph_builder/pyg_converters.py",
           "parameters": 1,
-          "docstring": "Convert igraph Graph to PyTorch Geometric Data object...."
+          "docstring": ""
+        },
+        {
+          "name": "run_discovery",
+          "file": "ironforge/learning/discovery_pipeline.py",
+          "parameters": 3,
+          "docstring": "Run discovery over a list of shard directories.\n\nParameters\n----------\nshard_paths: iterable of str\n..."
         },
         {
           "name": "get_zone",
           "file": "ironforge/learning/enhanced_graph_builder.py",
           "parameters": 1,
           "docstring": ""
-        },
-        {
-          "name": "main",
-          "file": "ironforge/sdk/cli.py",
-          "parameters": 1,
-          "docstring": "Entry point for the `ironforge` CLI...."
         }
       ],
-      "avg_complexity": 35.9
+      "avg_complexity": 41.75
     },
     "synthesis": {
       "description": "Pattern validation and production graduation",
@@ -2502,12 +2250,12 @@
           "primary_classes": [],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 21,
+          "lines_of_code": 15,
           "complexity": 0,
           "class_count": 0,
           "function_count": 0,
           "docstring": "Synthesis components for pattern validation...",
-          "imports": 2,
+          "imports": 3,
           "decorators": []
         },
         {
@@ -2518,12 +2266,12 @@
           ],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 210,
+          "lines_of_code": 213,
           "complexity": 15,
           "class_count": 1,
           "function_count": 6,
           "docstring": "Pattern Graduation System\n87% threshold validation pipeline for discovered patterns...",
-          "imports": 8,
+          "imports": 4,
           "decorators": []
         },
         {
@@ -2534,60 +2282,18 @@
           ],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 271,
+          "lines_of_code": 268,
           "complexity": 32,
           "class_count": 1,
           "function_count": 8,
           "docstring": "Production Graduation System\nBridge validated patterns to production features...",
-          "imports": 14,
+          "imports": 9,
           "decorators": []
-        },
-        {
-          "name": "metrics",
-          "file": "ironforge/validation/metrics.py",
-          "primary_classes": [],
-          "primary_functions": [
-            "precision_at_k",
-            "temporal_auc",
-            "motif_half_life",
-            "pattern_stability_score",
-            "archaeological_significance",
-            "compute_validation_metrics"
-          ],
-          "patterns": [],
-          "lines_of_code": 352,
-          "complexity": 30,
-          "class_count": 0,
-          "function_count": 6,
-          "docstring": "Validation Metrics for IRONFORGE (Wave 4)\n==========================================\nCore metrics for evaluating temporal pattern discovery with emphasis on\nstability, temporal consistency, and archae...",
-          "imports": 5,
-          "decorators": []
-        },
-        {
-          "name": "runner",
-          "file": "ironforge/validation/runner.py",
-          "primary_classes": [
-            "ValidationConfig",
-            "ValidationRunner"
-          ],
-          "primary_functions": [],
-          "patterns": [
-            "Factory"
-          ],
-          "lines_of_code": 680,
-          "complexity": 50,
-          "class_count": 2,
-          "function_count": 16,
-          "docstring": "Validation Runner for IRONFORGE (Wave 4)\n=========================================\nOrchestrates validation experiments with splits, controls, ablations,\nand comprehensive reporting for temporal patter...",
-          "imports": 16,
-          "decorators": [
-            "dataclass"
-          ]
         }
       ],
-      "file_count": 5,
-      "total_lines": 1534,
-      "complexity_score": 127,
+      "file_count": 3,
+      "total_lines": 496,
+      "complexity_score": 47,
       "key_classes": [
         {
           "name": "PatternGraduation",
@@ -2598,57 +2304,10 @@
           "name": "ProductionGraduation",
           "file": "ironforge/synthesis/production_graduation.py",
           "docstring": "Production feature export for graduated patterns\nConverts validated archaeological discoveries into ..."
-        },
-        {
-          "name": "ValidationConfig",
-          "file": "ironforge/validation/runner.py",
-          "docstring": "Configuration for validation experiments.\n\nParameters\n----------\nmode : str\n    Validation mode: \"oo..."
-        },
-        {
-          "name": "ValidationRunner",
-          "file": "ironforge/validation/runner.py",
-          "docstring": "Orchestrates comprehensive validation experiments...."
         }
       ],
-      "public_interfaces": [
-        {
-          "name": "precision_at_k",
-          "file": "ironforge/validation/metrics.py",
-          "parameters": 3,
-          "docstring": "Calculate precision at top-k predictions.\n\nParameters\n----------\ny_true : Sequence[int]\n    True bin..."
-        },
-        {
-          "name": "temporal_auc",
-          "file": "ironforge/validation/metrics.py",
-          "parameters": 3,
-          "docstring": "AUC computed with chronological tie-breaking to reduce look-ahead bias.\n\nParameters\n----------\ny_tru..."
-        },
-        {
-          "name": "motif_half_life",
-          "file": "ironforge/validation/metrics.py",
-          "parameters": 1,
-          "docstring": "Estimate stability/decay using exponential fit on inter-hit intervals.\n\nParameters\n----------\nhits_t..."
-        },
-        {
-          "name": "pattern_stability_score",
-          "file": "ironforge/validation/metrics.py",
-          "parameters": 3,
-          "docstring": "Measure temporal stability of pattern scores across time windows.\n\nParameters\n----------\ny_score : S..."
-        },
-        {
-          "name": "archaeological_significance",
-          "file": "ironforge/validation/metrics.py",
-          "parameters": 3,
-          "docstring": "Calculate archaeological significance metrics for discovered patterns.\n\nParameters\n----------\npatter..."
-        },
-        {
-          "name": "compute_validation_metrics",
-          "file": "ironforge/validation/metrics.py",
-          "parameters": 5,
-          "docstring": "Compute comprehensive validation metrics for pattern discovery.\n\nParameters\n----------\ny_true : Sequ..."
-        }
-      ],
-      "avg_complexity": 25.4
+      "public_interfaces": [],
+      "avg_complexity": 15.67
     },
     "integration": {
       "description": "System integration, configuration, and dependency injection",
@@ -2680,7 +2339,7 @@
           "primary_classes": [],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 34,
+          "lines_of_code": 39,
           "complexity": 0,
           "class_count": 0,
           "function_count": 0,
@@ -2732,12 +2391,12 @@
           "patterns": [
             "Factory"
           ],
-          "lines_of_code": 812,
+          "lines_of_code": 814,
           "complexity": 78,
           "class_count": 4,
           "function_count": 9,
           "docstring": "Adaptive RG Optimizer - Mathematical Physics Engine\n===================================================\n\nTransforms IRONPULSE from heuristic pattern matching to mathematical physics\nsimulation by impl...",
-          "imports": 13,
+          "imports": 12,
           "decorators": [
             "dataclass"
           ]
@@ -2755,12 +2414,12 @@
           "patterns": [
             "Factory"
           ],
-          "lines_of_code": 324,
+          "lines_of_code": 326,
           "complexity": 33,
           "class_count": 4,
           "function_count": 10,
           "docstring": "Cascade Classification and Sequential Analysis System\nAdvanced system to detect, classify, and correlate cascade types across temporal sequences...",
-          "imports": 11,
+          "imports": 9,
           "decorators": [
             "dataclass"
           ]
@@ -2793,8 +2452,8 @@
           "docstring": "Mathematical Constants and Business Rules - Unified Source of Truth\n\nThis module contains ALL mathematical constants and business rules extracted from the \nproven grok-claude-automation system (91.1% ...",
           "imports": 8,
           "decorators": [
-            "staticmethod",
-            "classmethod"
+            "classmethod",
+            "staticmethod"
           ]
         },
         {
@@ -2809,7 +2468,7 @@
           "patterns": [
             "Factory"
           ],
-          "lines_of_code": 376,
+          "lines_of_code": 378,
           "complexity": 33,
           "class_count": 3,
           "function_count": 14,
@@ -2831,12 +2490,12 @@
           "patterns": [
             "Factory"
           ],
-          "lines_of_code": 359,
+          "lines_of_code": 360,
           "complexity": 43,
           "class_count": 3,
           "function_count": 12,
           "docstring": "Grammar-Fisher Correlation Engine\n=================================\n\nImplements the critical discovery that Fisher spikes correspond to grammatical phrase \nboundaries - moments when partial parse tree...",
-          "imports": 10,
+          "imports": 9,
           "decorators": [
             "dataclass"
           ]
@@ -2851,12 +2510,12 @@
           ],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 306,
+          "lines_of_code": 307,
           "complexity": 25,
           "class_count": 3,
           "function_count": 9,
           "docstring": "Enhanced Multi-Dimensional Hawkes Process Engine\n\nINHERITANCE-BASED ENHANCEMENT APPROACH:\n- Inherits from proven grok-claude-automation HawkesCascadePredictor (91.1% accuracy)\n- Adds multi-dimensional...",
-          "imports": 12,
+          "imports": 10,
           "decorators": [
             "dataclass"
           ]
@@ -2876,15 +2535,15 @@
             "wrapper"
           ],
           "patterns": [],
-          "lines_of_code": 291,
+          "lines_of_code": 290,
           "complexity": 34,
           "class_count": 3,
           "function_count": 11,
           "docstring": "Invariant Guards - Lightweight Architectural Control System\n==========================================================\n\nFeature drift occurs when implementation entropy exceeds semantic binding energy...",
-          "imports": 10,
+          "imports": 8,
           "decorators": [
-            "guard.register",
-            "dataclass"
+            "dataclass",
+            "guard.register"
           ]
         },
         {
@@ -2913,7 +2572,7 @@
           "class_count": 10,
           "function_count": 17,
           "docstring": "",
-          "imports": 19,
+          "imports": 16,
           "decorators": [
             "dataclass",
             "abstractmethod"
@@ -2955,18 +2614,18 @@
           "patterns": [
             "Factory"
           ],
-          "lines_of_code": 707,
+          "lines_of_code": 705,
           "complexity": 49,
           "class_count": 11,
           "function_count": 14,
           "docstring": "Layer 5: API Interface Layer\n============================\n\nClean external APIs for mathematical models and integration endpoints.\nProvides REST API, WebSocket, and programmatic interfaces for mathemat...",
-          "imports": 31,
+          "imports": 27,
           "decorators": [
             "self.app.websocket",
-            "self.app.get",
-            "self.app.post",
             "self.app.middleware",
-            "abstractmethod"
+            "self.app.get",
+            "abstractmethod",
+            "self.app.post"
           ]
         },
         {
@@ -2989,12 +2648,12 @@
           "patterns": [
             "Factory"
           ],
-          "lines_of_code": 669,
+          "lines_of_code": 670,
           "complexity": 63,
           "class_count": 5,
           "function_count": 26,
           "docstring": "Layer 2: Core Algorithms\n========================\n\nHigh-performance implementations of mathematical models with numerical optimization.\nTranslates theoretical models from Layer 1 into efficient, produ...",
-          "imports": 23,
+          "imports": 18,
           "decorators": [
             "dataclass",
             "abstractmethod"
@@ -3025,12 +2684,12 @@
             "Factory",
             "Builder"
           ],
-          "lines_of_code": 660,
+          "lines_of_code": 659,
           "complexity": 77,
           "class_count": 7,
           "function_count": 27,
           "docstring": "Layer 3: Integration Layer\n=========================\n\nConnects mathematical models to business logic and existing Oracle systems.\nProvides model composition, chaining, and seamless integration with Or...",
-          "imports": 27,
+          "imports": 23,
           "decorators": [
             "dataclass",
             "abstractmethod"
@@ -3055,12 +2714,12 @@
           "patterns": [
             "Factory"
           ],
-          "lines_of_code": 436,
+          "lines_of_code": 434,
           "complexity": 47,
           "class_count": 7,
           "function_count": 37,
           "docstring": "Layer 1: Theory Abstraction\n===========================\n\nPure mathematical formulations without implementation details.\nDefines mathematical models, constraints, and theoretical properties.\n\nThis laye...",
-          "imports": 13,
+          "imports": 10,
           "decorators": [
             "dataclass",
             "abstractmethod"
@@ -3079,12 +2738,12 @@
           "patterns": [
             "Factory"
           ],
-          "lines_of_code": 354,
+          "lines_of_code": 356,
           "complexity": 28,
           "class_count": 2,
           "function_count": 9,
           "docstring": "",
-          "imports": 8,
+          "imports": 7,
           "decorators": [
             "dataclass"
           ]
@@ -3111,7 +2770,7 @@
           "class_count": 8,
           "function_count": 14,
           "docstring": "Scaling Patterns for Mathematical Computations\n==============================================\n\nHorizontal and vertical scaling patterns with intelligent data partitioning\nfor mathematical model comput...",
-          "imports": 21,
+          "imports": 17,
           "decorators": [
             "dataclass",
             "abstractmethod"
@@ -3123,7 +2782,7 @@
           "primary_classes": [],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 20,
+          "lines_of_code": 25,
           "complexity": 0,
           "class_count": 0,
           "function_count": 0,
@@ -3144,12 +2803,12 @@
           "patterns": [
             "Container/DI"
           ],
-          "lines_of_code": 151,
+          "lines_of_code": 153,
           "complexity": 13,
           "class_count": 1,
           "function_count": 8,
           "docstring": "IRON-Core Container Architecture\n===============================\n\nUnified dependency injection container for the entire IRON ecosystem.\nProvides shared infrastructure for IRONPULSE, IRONFORGE, and fut...",
-          "imports": 9,
+          "imports": 8,
           "decorators": []
         },
         {
@@ -3168,16 +2827,16 @@
             "wrapper"
           ],
           "patterns": [],
-          "lines_of_code": 352,
+          "lines_of_code": 349,
           "complexity": 51,
           "class_count": 3,
           "function_count": 21,
           "docstring": "IRONPULSE Lazy Loading Architecture\n==================================\n\nImplements lazy loading for mathematical components to achieve:\n- <5 second system initialization (vs 120+ current)\n- 95% memory...",
-          "imports": 14,
+          "imports": 9,
           "decorators": [
             "wraps",
-            "property",
-            "staticmethod"
+            "staticmethod",
+            "property"
           ]
         },
         {
@@ -3186,7 +2845,7 @@
           "primary_classes": [],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 125,
+          "lines_of_code": 126,
           "complexity": 0,
           "class_count": 0,
           "function_count": 0,
@@ -3195,12 +2854,43 @@
           "decorators": []
         },
         {
+          "name": "htf_context_processor",
+          "file": "ironforge/converters/htf_context_processor.py",
+          "primary_classes": [
+            "HTFContextConfig",
+            "HTFBar",
+            "TimeFrameManager",
+            "SyntheticVolumeCalculator",
+            "HTFRegimeClassifier",
+            "DailyAnchorCalculator",
+            "HTFContextProcessor",
+            "HTFConstants"
+          ],
+          "primary_functions": [
+            "create_default_htf_config"
+          ],
+          "patterns": [
+            "Factory"
+          ],
+          "lines_of_code": 578,
+          "complexity": 74,
+          "class_count": 8,
+          "function_count": 21,
+          "docstring": "HTF Context Processor for IRONFORGE Archaeological Discovery\n==========================================================\n\nAdds Higher Timeframe context features to M5 base events while preserving \nfund...",
+          "imports": 18,
+          "decorators": [
+            "classmethod",
+            "staticmethod",
+            "dataclass"
+          ]
+        },
+        {
           "name": "__init__",
           "file": "ironforge/integration/__init__.py",
           "primary_classes": [],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 12,
+          "lines_of_code": 13,
           "complexity": 0,
           "class_count": 0,
           "function_count": 0,
@@ -3221,18 +2911,69 @@
           "patterns": [
             "Container/DI"
           ],
-          "lines_of_code": 72,
+          "lines_of_code": 81,
           "complexity": 10,
           "class_count": 1,
           "function_count": 6,
           "docstring": "IRONFORGE Container for lazy loading and dependency injection...",
           "imports": 5,
           "decorators": []
+        },
+        {
+          "name": "app_config",
+          "file": "ironforge/sdk/app_config.py",
+          "primary_classes": [
+            "DataCfg",
+            "OutputsCfg",
+            "WeightsCfg",
+            "ScoringCfg",
+            "MinidashCfg",
+            "ReportingCfg",
+            "ValidationCfg",
+            "Config"
+          ],
+          "primary_functions": [
+            "load_config",
+            "materialize_run_dir"
+          ],
+          "patterns": [],
+          "lines_of_code": 154,
+          "complexity": 26,
+          "class_count": 8,
+          "function_count": 6,
+          "docstring": "",
+          "imports": 9,
+          "decorators": [
+            "dataclass"
+          ]
+        },
+        {
+          "name": "config",
+          "file": "ironforge/sdk/config.py",
+          "primary_classes": [
+            "LoaderCfg",
+            "Paths",
+            "ConfluenceCfg",
+            "RunCfg"
+          ],
+          "primary_functions": [
+            "load_cfg"
+          ],
+          "patterns": [],
+          "lines_of_code": 63,
+          "complexity": 4,
+          "class_count": 4,
+          "function_count": 3,
+          "docstring": "",
+          "imports": 5,
+          "decorators": [
+            "dataclass"
+          ]
         }
       ],
-      "file_count": 25,
-      "total_lines": 7959,
-      "complexity_score": 736,
+      "file_count": 28,
+      "total_lines": 8779,
+      "complexity_score": 840,
       "key_classes": [
         {
           "name": "IRONFORGEConfig",
@@ -3670,9 +3411,109 @@
           "docstring": "Manager for lazy loading of IRON ecosystem mathematical components.\n\nImplements performance optimiza..."
         },
         {
+          "name": "HTFContextConfig",
+          "file": "ironforge/converters/htf_context_processor.py",
+          "docstring": "Configuration for HTF context processing..."
+        },
+        {
+          "name": "HTFBar",
+          "file": "ironforge/converters/htf_context_processor.py",
+          "docstring": "Represents a closed HTF bar with computed metrics..."
+        },
+        {
+          "name": "TimeFrameManager",
+          "file": "ironforge/converters/htf_context_processor.py",
+          "docstring": "Manages HTF timeframe calculations with leakage prevention..."
+        },
+        {
+          "name": "SyntheticVolumeCalculator",
+          "file": "ironforge/converters/htf_context_processor.py",
+          "docstring": "Calculates Synthetic Volume following mathematical foundations\nPreserves the SV calculation framewor..."
+        },
+        {
+          "name": "HTFRegimeClassifier",
+          "file": "ironforge/converters/htf_context_processor.py",
+          "docstring": "Classifies HTF regime using SV and volatility percentiles..."
+        },
+        {
+          "name": "DailyAnchorCalculator",
+          "file": "ironforge/converters/htf_context_processor.py",
+          "docstring": "Calculates distance to daily anchors for archaeological context..."
+        },
+        {
+          "name": "HTFContextProcessor",
+          "file": "ironforge/converters/htf_context_processor.py",
+          "docstring": "Main HTF context processor that adds 6 contextual features to M5 base events\n\nFeatures added: f45_sv..."
+        },
+        {
+          "name": "HTFConstants",
+          "file": "ironforge/converters/htf_context_processor.py",
+          "docstring": ""
+        },
+        {
           "name": "IRONFORGEContainer",
           "file": "ironforge/integration/ironforge_container.py",
           "docstring": "Container for lazy loading IRONFORGE components\n\nNOTE: Components are created fresh for each session..."
+        },
+        {
+          "name": "DataCfg",
+          "file": "ironforge/sdk/app_config.py",
+          "docstring": ""
+        },
+        {
+          "name": "OutputsCfg",
+          "file": "ironforge/sdk/app_config.py",
+          "docstring": ""
+        },
+        {
+          "name": "WeightsCfg",
+          "file": "ironforge/sdk/app_config.py",
+          "docstring": ""
+        },
+        {
+          "name": "ScoringCfg",
+          "file": "ironforge/sdk/app_config.py",
+          "docstring": ""
+        },
+        {
+          "name": "MinidashCfg",
+          "file": "ironforge/sdk/app_config.py",
+          "docstring": ""
+        },
+        {
+          "name": "ReportingCfg",
+          "file": "ironforge/sdk/app_config.py",
+          "docstring": ""
+        },
+        {
+          "name": "ValidationCfg",
+          "file": "ironforge/sdk/app_config.py",
+          "docstring": ""
+        },
+        {
+          "name": "Config",
+          "file": "ironforge/sdk/app_config.py",
+          "docstring": ""
+        },
+        {
+          "name": "LoaderCfg",
+          "file": "ironforge/sdk/config.py",
+          "docstring": ""
+        },
+        {
+          "name": "Paths",
+          "file": "ironforge/sdk/config.py",
+          "docstring": ""
+        },
+        {
+          "name": "ConfluenceCfg",
+          "file": "ironforge/sdk/config.py",
+          "docstring": ""
+        },
+        {
+          "name": "RunCfg",
+          "file": "ironforge/sdk/config.py",
+          "docstring": ""
         }
       ],
       "public_interfaces": [
@@ -3881,6 +3722,12 @@
           "docstring": ""
         },
         {
+          "name": "create_default_htf_config",
+          "file": "ironforge/converters/htf_context_processor.py",
+          "parameters": 0,
+          "docstring": "Create default HTF context configuration..."
+        },
+        {
           "name": "get_ironforge_container",
           "file": "ironforge/integration/ironforge_container.py",
           "parameters": 0,
@@ -3891,9 +3738,27 @@
           "file": "ironforge/integration/ironforge_container.py",
           "parameters": 0,
           "docstring": "Initialize IRONFORGE lazy loading system..."
+        },
+        {
+          "name": "load_config",
+          "file": "ironforge/sdk/app_config.py",
+          "parameters": 2,
+          "docstring": ""
+        },
+        {
+          "name": "materialize_run_dir",
+          "file": "ironforge/sdk/app_config.py",
+          "parameters": 1,
+          "docstring": ""
+        },
+        {
+          "name": "load_cfg",
+          "file": "ironforge/sdk/config.py",
+          "parameters": 1,
+          "docstring": "Load a run configuration from YAML...."
         }
       ],
-      "avg_complexity": 29.44
+      "avg_complexity": 30.0
     },
     "validation": {
       "description": "Testing, validation, and quality assurance",
@@ -3927,7 +3792,7 @@
           "class_count": 11,
           "function_count": 35,
           "docstring": "Layer 4: Validation Framework\n============================\n\nComprehensive mathematical testing framework with property-based validation.\nEnsures mathematical accuracy, numerical stability, and perform...",
-          "imports": 25,
+          "imports": 19,
           "decorators": [
             "staticmethod",
             "dataclass",
@@ -3949,116 +3814,49 @@
           "decorators": []
         },
         {
-          "name": "cards",
-          "file": "ironforge/motifs/cards.py",
-          "primary_classes": [
-            "MotifStep",
-            "MotifCard"
-          ],
-          "primary_functions": [
-            "default_cards"
-          ],
-          "patterns": [],
-          "lines_of_code": 63,
-          "complexity": 1,
-          "class_count": 2,
-          "function_count": 1,
-          "docstring": "",
-          "imports": 2,
-          "decorators": [
-            "dataclass"
-          ]
-        },
-        {
           "name": "__init__",
           "file": "ironforge/validation/__init__.py",
           "primary_classes": [],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 72,
+          "lines_of_code": 1,
           "complexity": 0,
           "class_count": 0,
           "function_count": 0,
-          "docstring": "IRONFORGE Validation Framework (Waves 1-4)\n==========================================\n\nComprehensive validation, testing, and quality assurance framework for IRONFORGE.\n\nCore Framework Components:\n- S...",
-          "imports": 21,
+          "docstring": "",
+          "imports": 0,
           "decorators": []
         },
         {
-          "name": "controls",
-          "file": "ironforge/validation/controls.py",
+          "name": "oos",
+          "file": "ironforge/validation/oos.py",
           "primary_classes": [],
           "primary_functions": [
-            "time_shuffle_edges",
-            "label_permutation",
-            "node_feature_shuffle",
-            "edge_direction_shuffle",
-            "temporal_block_shuffle",
-            "create_control_variants"
+            "run_oos"
           ],
-          "patterns": [
-            "Factory"
-          ],
-          "lines_of_code": 302,
-          "complexity": 20,
+          "patterns": [],
+          "lines_of_code": 16,
+          "complexity": 1,
           "class_count": 0,
-          "function_count": 6,
-          "docstring": "Negative Controls for IRONFORGE Validation (Wave 4)\n===================================================\nImplements negative controls and synthetic shuffles to establish baselines\nand detect spurious p...",
-          "imports": 4,
+          "function_count": 1,
+          "docstring": "",
+          "imports": 3,
           "decorators": []
         },
         {
-          "name": "performance_monitor",
-          "file": "ironforge/validation/performance_monitor.py",
-          "primary_classes": [
-            "PerformanceMonitor"
-          ],
-          "primary_functions": [],
-          "patterns": [],
-          "lines_of_code": 694,
-          "complexity": 45,
-          "class_count": 1,
-          "function_count": 16,
-          "docstring": "IRONFORGE Performance Monitoring Framework\n==========================================\n\nPerformance benchmarking and monitoring system to track system performance,\ndetect regressions, and ensure optima...",
-          "imports": 27,
-          "decorators": [
-            "contextmanager"
-          ]
-        },
-        {
-          "name": "splits",
-          "file": "ironforge/validation/splits.py",
-          "primary_classes": [
-            "PurgedKFold"
-          ],
+          "name": "__init__",
+          "file": "ironforge/validation_engine/__init__.py",
+          "primary_classes": [],
           "primary_functions": [
-            "oos_split",
-            "temporal_train_test_split"
+            "validate_run"
           ],
           "patterns": [],
-          "lines_of_code": 176,
-          "complexity": 6,
-          "class_count": 1,
-          "function_count": 3,
-          "docstring": "Time-Series Safe Data Splitting for IRONFORGE (Wave 4)\n======================================================\nImplements purged K-fold with embargo and out-of-sample splits to prevent\nlook-ahead bias ...",
-          "imports": 5,
-          "decorators": [
-            "dataclass"
-          ]
-        },
-        {
-          "name": "statistical_validator",
-          "file": "ironforge/validation/statistical_validator.py",
-          "primary_classes": [
-            "StatisticalValidator"
-          ],
-          "primary_functions": [],
-          "patterns": [],
-          "lines_of_code": 562,
-          "complexity": 65,
-          "class_count": 1,
-          "function_count": 13,
-          "docstring": "IRONFORGE Statistical Validation Framework\n==========================================\n\nComprehensive statistical validation for pattern quality, authenticity, and archaeological significance.\nEnsures ...",
-          "imports": 15,
+          "lines_of_code": 25,
+          "complexity": 1,
+          "class_count": 0,
+          "function_count": 1,
+          "docstring": "IRONFORGE Validation Engine\n===========================\n\nArchaeological discovery validation and quality assurance.\nThin re-export layer for canonical import paths....",
+          "imports": 2,
           "decorators": []
         },
         {
@@ -4076,11 +3874,28 @@
           "docstring": "📈 IRONFORGE Weekly→Daily Liquidity Sweep Cascade Analysis (Step 3B) - Execution\n================================================================================\n\nMacro Driver Analysis: Weekly dominanc...",
           "imports": 4,
           "decorators": []
+        },
+        {
+          "name": "validate_ci_setup",
+          "file": "validate_ci_setup.py",
+          "primary_classes": [],
+          "primary_functions": [
+            "run_command",
+            "main"
+          ],
+          "patterns": [],
+          "lines_of_code": 82,
+          "complexity": 11,
+          "class_count": 0,
+          "function_count": 2,
+          "docstring": "Local CI Validation Script\n==========================\nTest the same commands that CI will run to ensure local/CI parity....",
+          "imports": 3,
+          "decorators": []
         }
       ],
-      "file_count": 9,
-      "total_lines": 3520,
-      "complexity_score": 310,
+      "file_count": 7,
+      "total_lines": 1775,
+      "complexity_score": 186,
       "key_classes": [
         {
           "name": "ValidationLevel",
@@ -4136,31 +3951,6 @@
           "name": "st",
           "file": "iron_core/mathematical/mathematical_layers/validation_framework.py",
           "docstring": ""
-        },
-        {
-          "name": "MotifStep",
-          "file": "ironforge/motifs/cards.py",
-          "docstring": "One step in a motif sequence...."
-        },
-        {
-          "name": "MotifCard",
-          "file": "ironforge/motifs/cards.py",
-          "docstring": ""
-        },
-        {
-          "name": "PerformanceMonitor",
-          "file": "ironforge/validation/performance_monitor.py",
-          "docstring": "Performance monitoring and benchmarking system for IRONFORGE.\n\nMonitors:\n- Execution time performanc..."
-        },
-        {
-          "name": "PurgedKFold",
-          "file": "ironforge/validation/splits.py",
-          "docstring": "Time-ordered, leakage-safe K-fold splits with embargo period.\n\nParameters\n----------\nn_splits : int\n..."
-        },
-        {
-          "name": "StatisticalValidator",
-          "file": "ironforge/validation/statistical_validator.py",
-          "docstring": "Statistical validation framework for IRONFORGE pattern quality assessment.\n\nValidates patterns again..."
         }
       ],
       "public_interfaces": [
@@ -4183,207 +3973,145 @@
           "docstring": ""
         },
         {
-          "name": "default_cards",
-          "file": "ironforge/motifs/cards.py",
-          "parameters": 0,
-          "docstring": "Three thin, testable cards derived from research notes...."
+          "name": "run_oos",
+          "file": "ironforge/validation/oos.py",
+          "parameters": 1,
+          "docstring": "Stub out-of-sample validation that writes a report...."
         },
         {
-          "name": "time_shuffle_edges",
-          "file": "ironforge/validation/controls.py",
-          "parameters": 3,
-          "docstring": "Shuffle edge times across edges to break temporal signal.\n\nThis negative control destroys temporal r..."
-        },
-        {
-          "name": "label_permutation",
-          "file": "ironforge/validation/controls.py",
+          "name": "validate_run",
+          "file": "ironforge/validation_engine/__init__.py",
           "parameters": 2,
-          "docstring": "Permute labels as a negative control baseline.\n\nThis control destroys the relationship between featu..."
-        },
-        {
-          "name": "node_feature_shuffle",
-          "file": "ironforge/validation/controls.py",
-          "parameters": 3,
-          "docstring": "Shuffle node features within or across feature groups.\n\nParameters\n----------\nnode_features : np.nda..."
-        },
-        {
-          "name": "edge_direction_shuffle",
-          "file": "ironforge/validation/controls.py",
-          "parameters": 2,
-          "docstring": "Randomly flip edge directions to test directional sensitivity.\n\nParameters\n----------\nedge_index : n..."
-        },
-        {
-          "name": "temporal_block_shuffle",
-          "file": "ironforge/validation/controls.py",
-          "parameters": 3,
-          "docstring": "Shuffle temporal blocks to preserve local structure but break global patterns.\n\nParameters\n---------..."
-        },
-        {
-          "name": "create_control_variants",
-          "file": "ironforge/validation/controls.py",
-          "parameters": 6,
-          "docstring": "Create multiple negative control variants for comprehensive testing.\n\nParameters\n----------\nedge_ind..."
-        },
-        {
-          "name": "oos_split",
-          "file": "ironforge/validation/splits.py",
-          "parameters": 2,
-          "docstring": "Simple out-of-sample split based on timestamp cutoff.\n\nParameters\n----------\ntimestamps : Sequence[i..."
-        },
-        {
-          "name": "temporal_train_test_split",
-          "file": "ironforge/validation/splits.py",
-          "parameters": 3,
-          "docstring": "Train-test split with temporal ordering and embargo period.\n\nParameters\n----------\ntimestamps : Sequ..."
+          "docstring": "Stub function when validation runner is not available..."
         },
         {
           "name": "main",
           "file": "run_weekly_daily_sweep_cascade_step_3b.py",
           "parameters": 0,
           "docstring": "Execute Weekly→Daily Liquidity Sweep Cascade Analysis (Step 3B)..."
+        },
+        {
+          "name": "run_command",
+          "file": "validate_ci_setup.py",
+          "parameters": 2,
+          "docstring": "Run a command and return True if successful...."
+        },
+        {
+          "name": "main",
+          "file": "validate_ci_setup.py",
+          "parameters": 0,
+          "docstring": ""
         }
       ],
-      "avg_complexity": 34.44
+      "avg_complexity": 26.57
     },
     "reporting": {
       "description": "Report generation and data visualization",
       "components": [
         {
-          "name": "__init__",
-          "file": "ironforge/reporting/__init__.py",
-          "primary_classes": [],
-          "primary_functions": [],
-          "patterns": [],
-          "lines_of_code": 22,
-          "complexity": 0,
-          "class_count": 0,
-          "function_count": 0,
-          "docstring": "IRONFORGE Wave 5 Reporting System\n==================================\nVisualization and reporting components for temporal pattern discovery.\n\nProvides:\n- Timeline heatmap generation for session density...",
-          "imports": 4,
-          "decorators": []
-        },
-        {
-          "name": "confluence",
-          "file": "ironforge/reporting/confluence.py",
+          "name": "htf_observer",
+          "file": "ironforge/reporting/htf_observer.py",
           "primary_classes": [
-            "ConfluenceStripSpec"
+            "HTFRunSummary",
+            "HTFObserver"
           ],
           "primary_functions": [
-            "build_confluence_strip"
+            "test_htf_observer"
           ],
           "patterns": [],
-          "lines_of_code": 58,
-          "complexity": 8,
-          "class_count": 1,
+          "lines_of_code": 374,
+          "complexity": 38,
+          "class_count": 2,
+          "function_count": 12,
+          "docstring": "HTF Context Observability\n========================\n\nLight observability for HTF context features with run-level summaries\nand regime monitoring for archaeological discovery insights....",
+          "imports": 12,
+          "decorators": [
+            "dataclass"
+          ]
+        },
+        {
+          "name": "minidash",
+          "file": "ironforge/reporting/minidash.py",
+          "primary_classes": [],
+          "primary_functions": [
+            "build_minidash"
+          ],
+          "patterns": [],
+          "lines_of_code": 99,
+          "complexity": 5,
+          "class_count": 0,
           "function_count": 1,
           "docstring": "",
           "imports": 5,
-          "decorators": [
-            "dataclass"
-          ]
-        },
-        {
-          "name": "heatmap",
-          "file": "ironforge/reporting/heatmap.py",
-          "primary_classes": [
-            "TimelineHeatmapSpec"
-          ],
-          "primary_functions": [
-            "build_session_heatmap"
-          ],
-          "patterns": [],
-          "lines_of_code": 61,
-          "complexity": 6,
-          "class_count": 1,
-          "function_count": 2,
-          "docstring": "",
-          "imports": 5,
-          "decorators": [
-            "dataclass"
-          ]
-        },
-        {
-          "name": "html",
-          "file": "ironforge/reporting/html.py",
-          "primary_classes": [],
-          "primary_functions": [
-            "build_report_html"
-          ],
-          "patterns": [],
-          "lines_of_code": 26,
-          "complexity": 3,
-          "class_count": 0,
-          "function_count": 2,
-          "docstring": "",
-          "imports": 3,
           "decorators": []
         },
         {
-          "name": "writer",
-          "file": "ironforge/reporting/writer.py",
+          "name": "writers",
+          "file": "ironforge/reporting/writers.py",
           "primary_classes": [],
           "primary_functions": [
-            "write_png",
-            "write_html"
+            "save_json",
+            "save_html",
+            "save_png"
           ],
           "patterns": [],
-          "lines_of_code": 16,
-          "complexity": 2,
+          "lines_of_code": 28,
+          "complexity": 4,
           "class_count": 0,
-          "function_count": 2,
+          "function_count": 4,
           "docstring": "",
-          "imports": 2,
+          "imports": 4,
           "decorators": []
         }
       ],
-      "file_count": 5,
-      "total_lines": 183,
-      "complexity_score": 19,
+      "file_count": 3,
+      "total_lines": 501,
+      "complexity_score": 47,
       "key_classes": [
         {
-          "name": "ConfluenceStripSpec",
-          "file": "ironforge/reporting/confluence.py",
-          "docstring": ""
+          "name": "HTFRunSummary",
+          "file": "ironforge/reporting/htf_observer.py",
+          "docstring": "Summary statistics for HTF features across a discovery run..."
         },
         {
-          "name": "TimelineHeatmapSpec",
-          "file": "ironforge/reporting/heatmap.py",
-          "docstring": ""
+          "name": "HTFObserver",
+          "file": "ironforge/reporting/htf_observer.py",
+          "docstring": "Light observability for HTF context features..."
         }
       ],
       "public_interfaces": [
         {
-          "name": "build_confluence_strip",
-          "file": "ironforge/reporting/confluence.py",
-          "parameters": 4,
-          "docstring": "Render a 0–100 confluence strip with optional event markers...."
+          "name": "test_htf_observer",
+          "file": "ironforge/reporting/htf_observer.py",
+          "parameters": 0,
+          "docstring": "Test HTF observer with sample data..."
         },
         {
-          "name": "build_session_heatmap",
-          "file": "ironforge/reporting/heatmap.py",
-          "parameters": 3,
-          "docstring": "Render a single-session timeline heatmap.\nminute_bins: shape (T,), minute offsets from session open...."
+          "name": "build_minidash",
+          "file": "ironforge/reporting/minidash.py",
+          "parameters": 8,
+          "docstring": ""
         },
         {
-          "name": "build_report_html",
-          "file": "ironforge/reporting/html.py",
-          "parameters": 2,
-          "docstring": "images: List of (caption, PIL.Image)..."
-        },
-        {
-          "name": "write_png",
-          "file": "ironforge/reporting/writer.py",
+          "name": "save_json",
+          "file": "ironforge/reporting/writers.py",
           "parameters": 2,
           "docstring": ""
         },
         {
-          "name": "write_html",
-          "file": "ironforge/reporting/writer.py",
+          "name": "save_html",
+          "file": "ironforge/reporting/writers.py",
           "parameters": 2,
           "docstring": ""
+        },
+        {
+          "name": "save_png",
+          "file": "ironforge/reporting/writers.py",
+          "parameters": 2,
+          "docstring": "Save a Matplotlib figure as PNG...."
         }
       ],
-      "avg_complexity": 3.8
+      "avg_complexity": 15.67
     },
     "utilities": {
       "description": "Utility functions, scripts, and support tools",
@@ -4400,12 +4128,12 @@
           "patterns": [
             "Factory"
           ],
-          "lines_of_code": 506,
+          "lines_of_code": 550,
           "complexity": 58,
           "class_count": 1,
           "function_count": 8,
           "docstring": "IRONFORGE Batch Graph Schema Migration\n======================================\n\nTechnical Debt Surgeon: Batch processing script for migrating\nlegacy 34D graph files to current 37D schema format while\nm...",
-          "imports": 16,
+          "imports": 11,
           "decorators": []
         },
         {
@@ -4418,57 +4146,12 @@
             "main"
           ],
           "patterns": [],
-          "lines_of_code": 383,
+          "lines_of_code": 386,
           "complexity": 47,
           "class_count": 1,
           "function_count": 10,
           "docstring": "IRONFORGE Schema Normalization - Technical Debt Surgeon Implementation\n====================================================================\n\nMigrates legacy 34D data to current 37D schema while mainta...",
-          "imports": 10,
-          "decorators": []
-        },
-        {
-          "name": "__init__",
-          "file": "ironforge/scripts/__init__.py",
-          "primary_classes": [],
-          "primary_functions": [],
-          "patterns": [],
-          "lines_of_code": 6,
-          "complexity": 0,
-          "class_count": 0,
-          "function_count": 0,
-          "docstring": "IRONFORGE Scripts Module\n========================\nUtility scripts for data processing and system integration....",
-          "imports": 0,
-          "decorators": []
-        },
-        {
-          "name": "prepare_motifs_input",
-          "file": "ironforge/scripts/prepare_motifs_input.py",
-          "primary_classes": [],
-          "primary_functions": [
-            "build_motifs_input",
-            "main"
-          ],
-          "patterns": [],
-          "lines_of_code": 91,
-          "complexity": 16,
-          "class_count": 0,
-          "function_count": 5,
-          "docstring": "",
-          "imports": 6,
-          "decorators": []
-        },
-        {
-          "name": "__init__",
-          "file": "ironforge/sdk/__init__.py",
-          "primary_classes": [],
-          "primary_functions": [],
-          "patterns": [],
-          "lines_of_code": 2,
-          "complexity": 0,
-          "class_count": 0,
-          "function_count": 0,
-          "docstring": "IRONFORGE SDK - Command-line interface and developer tools....",
-          "imports": 0,
+          "imports": 7,
           "decorators": []
         },
         {
@@ -4477,12 +4160,12 @@
           "primary_classes": [],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 14,
+          "lines_of_code": 12,
           "complexity": 0,
           "class_count": 0,
           "function_count": 0,
           "docstring": "Core utilities and helpers...",
-          "imports": 1,
+          "imports": 2,
           "decorators": []
         },
         {
@@ -4493,12 +4176,12 @@
           ],
           "primary_functions": [],
           "patterns": [],
-          "lines_of_code": 67,
+          "lines_of_code": 69,
           "complexity": 6,
           "class_count": 1,
           "function_count": 3,
           "docstring": "Performance Monitor\nUtility for monitoring IRONFORGE component performance...",
-          "imports": 7,
+          "imports": 4,
           "decorators": [
             "contextmanager"
           ]
@@ -4548,7 +4231,7 @@
           "class_count": 0,
           "function_count": 5,
           "docstring": "Complete Phase 2 Feature Decontamination\n=======================================\nProcesses all remaining TGAT-ready sessions to achieve 100% coverage.\n\nEnhances the remaining 24 sessions with authenti...",
-          "imports": 8,
+          "imports": 7,
           "decorators": []
         },
         {
@@ -4567,12 +4250,12 @@
           "patterns": [
             "Factory"
           ],
-          "lines_of_code": 594,
+          "lines_of_code": 591,
           "complexity": 82,
           "class_count": 0,
           "function_count": 7,
           "docstring": "RANK 2: Multi-Event Causal Chain Investigation\n===============================================\nDiscover predictable sequences: expansion_phase → consolidation → liq_sweep\nwith consistent lag profiles ...",
-          "imports": 14,
+          "imports": 8,
           "decorators": []
         },
         {
@@ -4591,12 +4274,12 @@
           "patterns": [
             "Factory"
           ],
-          "lines_of_code": 673,
+          "lines_of_code": 671,
           "complexity": 79,
           "class_count": 0,
           "function_count": 7,
           "docstring": "Liquidity Sweep Catalyst Investigation\n======================================\nInvestigating liq_sweep as initiating event rather than terminal event.\nFocus on discovering what causal chains liq_sweep ...",
-          "imports": 13,
+          "imports": 8,
           "decorators": []
         },
         {
@@ -4609,12 +4292,12 @@
             "main"
           ],
           "patterns": [],
-          "lines_of_code": 414,
+          "lines_of_code": 412,
           "complexity": 55,
           "class_count": 1,
           "function_count": 12,
           "docstring": "IRONFORGE Phase 2: Feature Authenticity Validation Framework\n=========================================================\n\nValidates that decontamination successfully removed artificial default values\nan...",
-          "imports": 12,
+          "imports": 8,
           "decorators": []
         },
         {
@@ -4625,12 +4308,12 @@
             "validate_decontamination"
           ],
           "patterns": [],
-          "lines_of_code": 127,
+          "lines_of_code": 128,
           "complexity": 5,
           "class_count": 0,
           "function_count": 1,
           "docstring": "Phase 2 Validation Summary: Before vs After Enhancement\n======================================================\n\nQuick validation showing the transformation from contaminated to authentic features....",
-          "imports": 4,
+          "imports": 3,
           "decorators": []
         },
         {
@@ -4646,12 +4329,12 @@
           "patterns": [
             "Factory"
           ],
-          "lines_of_code": 539,
+          "lines_of_code": 541,
           "complexity": 45,
           "class_count": 1,
           "function_count": 9,
           "docstring": "Phase 4d: Performance Validation (Full Capability, No Caps)\n==========================================================\nDemonstrate stable end-to-end runs at full sophistication without chunking/caps.\n...",
-          "imports": 15,
+          "imports": 14,
           "decorators": []
         },
         {
@@ -4662,7 +4345,7 @@
             "run_direct_discovery"
           ],
           "patterns": [],
-          "lines_of_code": 70,
+          "lines_of_code": 71,
           "complexity": 7,
           "class_count": 0,
           "function_count": 1,
@@ -4678,12 +4361,30 @@
             "run_full_discovery"
           ],
           "patterns": [],
-          "lines_of_code": 49,
+          "lines_of_code": 52,
           "complexity": 1,
           "class_count": 0,
           "function_count": 1,
           "docstring": "Manual IRONFORGE runner with Unicode fix...",
           "imports": 4,
+          "decorators": []
+        },
+        {
+          "name": "daily_htf_workflow",
+          "file": "scripts/daily_htf_workflow.py",
+          "primary_classes": [
+            "DailyHTFWorkflow"
+          ],
+          "primary_functions": [
+            "main"
+          ],
+          "patterns": [],
+          "lines_of_code": 200,
+          "complexity": 19,
+          "class_count": 1,
+          "function_count": 10,
+          "docstring": "Daily HTF Workflow\n================\n\nProduction workflow for HTF-enhanced archaeological discovery.\nRuns the complete pipeline: prep-shards → discover → score → validate → report...",
+          "imports": 9,
           "decorators": []
         },
         {
@@ -4715,7 +4416,7 @@
           "class_count": 1,
           "function_count": 7,
           "docstring": "IRONFORGE Enhanced Session Relativity Processor\n===============================================\n\nTransforms absolute price patterns in enhanced sessions into permanent structural relationships.\n\nCriti...",
-          "imports": 11,
+          "imports": 8,
           "decorators": []
         },
         {
@@ -4733,7 +4434,7 @@
           "class_count": 1,
           "function_count": 8,
           "docstring": "Enhanced Sessions Price Relativity Processor\n==========================================\n\nApplies price relativity features to the 57 enhanced sessions from Phase 2\nto enable permanent structural patte...",
-          "imports": 11,
+          "imports": 8,
           "decorators": []
         },
         {
@@ -4746,12 +4447,12 @@
             "main"
           ],
           "patterns": [],
-          "lines_of_code": 199,
+          "lines_of_code": 198,
           "complexity": 23,
           "class_count": 1,
           "function_count": 5,
           "docstring": "Price Field Standardizer\n========================\nStandardizes price movement field names across all enhanced sessions.\nConverts 'price' fields to 'price_level' for graph builder compatibility.\n\nFinal...",
-          "imports": 6,
+          "imports": 4,
           "decorators": []
         },
         {
@@ -4769,7 +4470,7 @@
           "class_count": 1,
           "function_count": 8,
           "docstring": "IRONFORGE Price Relativity Feature Generator\n============================================\n\nTransforms absolute price patterns into permanent structural relationships.\n\nCritical Problem Solved:\n- Curre...",
-          "imports": 11,
+          "imports": 8,
           "decorators": []
         },
         {
@@ -4782,12 +4483,12 @@
             "main"
           ],
           "patterns": [],
-          "lines_of_code": 438,
+          "lines_of_code": 439,
           "complexity": 77,
           "class_count": 1,
           "function_count": 9,
           "docstring": "Level 1 Session Quality Assessment Tool\n=====================================\n\nSystematically analyzes Level 1 session data quality to identify artificial patterns\ncausing 96.8% duplication in TGAT mo...",
-          "imports": 11,
+          "imports": 7,
           "decorators": []
         },
         {
@@ -4799,12 +4500,46 @@
             "load_clean_sessions"
           ],
           "patterns": [],
-          "lines_of_code": 42,
+          "lines_of_code": 43,
           "complexity": 7,
           "class_count": 0,
           "function_count": 2,
           "docstring": "Quick fix for Unicode issues in session data...",
           "imports": 3,
+          "decorators": []
+        },
+        {
+          "name": "gen_context",
+          "file": "scripts/gen_context.py",
+          "primary_classes": [],
+          "primary_functions": [
+            "load_cfg_defaults",
+            "main"
+          ],
+          "patterns": [],
+          "lines_of_code": 114,
+          "complexity": 21,
+          "class_count": 0,
+          "function_count": 2,
+          "docstring": "Generate a small machine-readable fact sheet for agents.\n\nWrites: docs/context.json\n- Reads configs/dev.yml if available (PyYAML optional).\n- Falls back to NQ/M5 defaults if config not present....",
+          "imports": 5,
+          "decorators": []
+        },
+        {
+          "name": "process_full_corpus_htf",
+          "file": "scripts/process_full_corpus_htf.py",
+          "primary_classes": [],
+          "primary_functions": [
+            "run_prep_shards_htf",
+            "validate_htf_features"
+          ],
+          "patterns": [],
+          "lines_of_code": 236,
+          "complexity": 21,
+          "class_count": 0,
+          "function_count": 2,
+          "docstring": "Process Full Corpus with HTF Context\n===================================\n\nSafely processes the full IRONFORGE session archive with HTF context enabled,\nmaintaining both baseline and HTF-enhanced shard...",
+          "imports": 6,
           "decorators": []
         },
         {
@@ -4832,12 +4567,12 @@
             "main"
           ],
           "patterns": [],
-          "lines_of_code": 164,
+          "lines_of_code": 163,
           "complexity": 19,
           "class_count": 0,
           "function_count": 4,
           "docstring": "IRONFORGE Performance Benchmark\n==============================\nMeasures import times and system performance to validate refactoring claims....",
-          "imports": 5,
+          "imports": 3,
           "decorators": []
         },
         {
@@ -4854,12 +4589,12 @@
             "full_market_intel"
           ],
           "patterns": [],
-          "lines_of_code": 647,
+          "lines_of_code": 642,
           "complexity": 91,
           "class_count": 3,
           "function_count": 17,
           "docstring": "IRONFORGE Daily Discovery Workflows\n===================================\nPractical daily-use workflows for pattern discovery and market analysis.\nDesigned for systematic pattern hunting with actionable...",
-          "imports": 18,
+          "imports": 12,
           "decorators": [
             "dataclass"
           ]
@@ -4872,12 +4607,12 @@
             "debug_feature_dimensions"
           ],
           "patterns": [],
-          "lines_of_code": 89,
+          "lines_of_code": 90,
           "complexity": 13,
           "class_count": 0,
           "function_count": 1,
           "docstring": "Debug Price Relativity Feature Dimensions...",
-          "imports": 4,
+          "imports": 3,
           "decorators": []
         },
         {
@@ -4888,7 +4623,7 @@
             "debug_graph_structure"
           ],
           "patterns": [],
-          "lines_of_code": 106,
+          "lines_of_code": 108,
           "complexity": 18,
           "class_count": 0,
           "function_count": 1,
@@ -4918,7 +4653,7 @@
             "debug_tgat_initialization"
           ],
           "patterns": [],
-          "lines_of_code": 42,
+          "lines_of_code": 43,
           "complexity": 2,
           "class_count": 0,
           "function_count": 1,
@@ -4934,7 +4669,7 @@
             "demonstrate_htf_integration"
           ],
           "patterns": [],
-          "lines_of_code": 157,
+          "lines_of_code": 159,
           "complexity": 25,
           "class_count": 0,
           "function_count": 1,
@@ -4950,12 +4685,12 @@
             "diagnose_graph_building"
           ],
           "patterns": [],
-          "lines_of_code": 121,
+          "lines_of_code": 120,
           "complexity": 11,
           "class_count": 0,
           "function_count": 1,
           "docstring": "Graph Builder Diagnostic\n========================\nDebug the graph building process to understand 'node_features' error....",
-          "imports": 7,
+          "imports": 6,
           "decorators": []
         },
         {
@@ -4969,12 +4704,12 @@
             "Factory",
             "Builder"
           ],
-          "lines_of_code": 246,
+          "lines_of_code": 244,
           "complexity": 48,
           "class_count": 1,
           "function_count": 12,
           "docstring": "HTF Builder Improved - Build sophisticated multi-timeframe data for IRONFORGE\nGenerates pythonnodes arrays and htf_cross_map for graph builder integration...",
-          "imports": 7,
+          "imports": 3,
           "decorators": []
         },
         {
@@ -4992,12 +4727,12 @@
           "patterns": [
             "Factory"
           ],
-          "lines_of_code": 522,
+          "lines_of_code": 519,
           "complexity": 40,
           "class_count": 3,
           "function_count": 16,
           "docstring": "IRONFORGE Discovery SDK\n======================\nProduction-ready SDK for systematic pattern discovery across 57 enhanced sessions.\nBridges validated archaeological capability into practical daily-use w...",
-          "imports": 24,
+          "imports": 15,
           "decorators": [
             "dataclass"
           ]
@@ -5017,7 +4752,7 @@
           "class_count": 1,
           "function_count": 8,
           "docstring": "IRONFORGE Pattern Correlation Visualizer\n========================================\n\nAdvanced visualization system for pattern correlation analysis.\nReplaces generic statistical charts with actionable t...",
-          "imports": 12,
+          "imports": 7,
           "decorators": []
         },
         {
@@ -5034,12 +4769,12 @@
             "find_similar_patterns"
           ],
           "patterns": [],
-          "lines_of_code": 537,
+          "lines_of_code": 534,
           "complexity": 43,
           "class_count": 4,
           "function_count": 11,
           "docstring": "IRONFORGE Pattern Intelligence Layer\n===================================\nAdvanced pattern classification, trending analysis, and relationship mapping.\nProvides actionable intelligence from discovered ...",
-          "imports": 23,
+          "imports": 17,
           "decorators": [
             "dataclass"
           ]
@@ -5054,7 +4789,7 @@
             "main"
           ],
           "patterns": [],
-          "lines_of_code": 250,
+          "lines_of_code": 251,
           "complexity": 23,
           "class_count": 1,
           "function_count": 9,
@@ -5078,20 +4813,38 @@
           "patterns": [
             "Factory"
           ],
-          "lines_of_code": 481,
+          "lines_of_code": 483,
           "complexity": 44,
           "class_count": 2,
           "function_count": 14,
           "docstring": "IRONFORGE Performance Monitor - Sprint 2 Enhancement\n===================================================\n\nMonitors 37D + 4 edge types performance vs baseline to ensure Sprint 2 \nstructural intelligenc...",
-          "imports": 15,
+          "imports": 12,
           "decorators": [
             "dataclass"
           ]
+        },
+        {
+          "name": "validate-ci",
+          "file": "scripts/validate-ci.py",
+          "primary_classes": [],
+          "primary_functions": [
+            "run_command",
+            "check_tool_availability",
+            "main"
+          ],
+          "patterns": [],
+          "lines_of_code": 111,
+          "complexity": 15,
+          "class_count": 0,
+          "function_count": 3,
+          "docstring": "Pre-commit validation script to ensure CI will pass.\nRun this before pushing changes to avoid CI failures.\n\nUsage:\n    python scripts/validate-ci.py...",
+          "imports": 4,
+          "decorators": []
         }
       ],
-      "file_count": 39,
-      "total_lines": 9772,
-      "complexity_score": 1127,
+      "file_count": 40,
+      "total_lines": 10376,
+      "complexity_score": 1187,
       "key_classes": [
         {
           "name": "BatchGraphMigrator",
@@ -5117,6 +4870,11 @@
           "name": "PerformanceProfiler",
           "file": "scripts/analysis/phase4d_profile_run.py",
           "docstring": "Performance profiling harness for IRONFORGE workloads...."
+        },
+        {
+          "name": "DailyHTFWorkflow",
+          "file": "scripts/daily_htf_workflow.py",
+          "docstring": "Daily production workflow for HTF archaeological discovery..."
         },
         {
           "name": "EnhancedSessionRelativityProcessor",
@@ -5231,18 +4989,6 @@
           "file": "data_migration/schema_normalizer.py",
           "parameters": 0,
           "docstring": "Command-line interface for schema migration..."
-        },
-        {
-          "name": "build_motifs_input",
-          "file": "ironforge/scripts/prepare_motifs_input.py",
-          "parameters": 2,
-          "docstring": ""
-        },
-        {
-          "name": "main",
-          "file": "ironforge/scripts/prepare_motifs_input.py",
-          "parameters": 1,
-          "docstring": ""
         },
         {
           "name": "generate_authentic_htf_carryover",
@@ -5396,6 +5142,12 @@
         },
         {
           "name": "main",
+          "file": "scripts/daily_htf_workflow.py",
+          "parameters": 0,
+          "docstring": "Main entry point for daily workflow..."
+        },
+        {
+          "name": "main",
           "file": "scripts/data_processing/enhanced_session_relativity_processor.py",
           "parameters": 0,
           "docstring": "Main execution: Transform all enhanced sessions to use price relativity..."
@@ -5435,6 +5187,30 @@
           "file": "scripts/data_processing/unicode_fix.py",
           "parameters": 0,
           "docstring": "Load all sessions with sanitization..."
+        },
+        {
+          "name": "load_cfg_defaults",
+          "file": "scripts/gen_context.py",
+          "parameters": 0,
+          "docstring": ""
+        },
+        {
+          "name": "main",
+          "file": "scripts/gen_context.py",
+          "parameters": 0,
+          "docstring": ""
+        },
+        {
+          "name": "run_prep_shards_htf",
+          "file": "scripts/process_full_corpus_htf.py",
+          "parameters": 0,
+          "docstring": "Process full corpus with HTF context enabled..."
+        },
+        {
+          "name": "validate_htf_features",
+          "file": "scripts/process_full_corpus_htf.py",
+          "parameters": 0,
+          "docstring": "Quick validation of HTF feature integrity..."
         },
         {
           "name": "measure_import_time",
@@ -5561,16 +5337,34 @@
           "file": "scripts/utilities/performance_monitor.py",
           "parameters": 1,
           "docstring": "Synthetic processing function for testing..."
+        },
+        {
+          "name": "run_command",
+          "file": "scripts/validate-ci.py",
+          "parameters": 2,
+          "docstring": "Run a command and return success/failure...."
+        },
+        {
+          "name": "check_tool_availability",
+          "file": "scripts/validate-ci.py",
+          "parameters": 0,
+          "docstring": "Check if all required tools are available...."
+        },
+        {
+          "name": "main",
+          "file": "scripts/validate-ci.py",
+          "parameters": 0,
+          "docstring": "Main validation workflow...."
         }
       ],
-      "avg_complexity": 28.9
+      "avg_complexity": 29.68
     },
     "data": {
       "description": "Data storage and preservation",
       "components": [
         {
           "name": "__init__",
-          "file": "ironforge/data_engine/__init__.py",
+          "file": "ironforge/converters/__init__.py",
           "primary_classes": [],
           "primary_functions": [],
           "patterns": [],
@@ -5578,8 +5372,41 @@
           "complexity": 0,
           "class_count": 0,
           "function_count": 0,
-          "docstring": "Data engine for Parquet shards and validated storage....",
+          "docstring": "Converters for transforming data between formats in IRONFORGE pipeline....",
           "imports": 0,
+          "decorators": []
+        },
+        {
+          "name": "__init__",
+          "file": "ironforge/data_engine/__init__.py",
+          "primary_classes": [],
+          "primary_functions": [
+            "write_nodes",
+            "write_edges"
+          ],
+          "patterns": [],
+          "lines_of_code": 37,
+          "complexity": 2,
+          "class_count": 0,
+          "function_count": 2,
+          "docstring": "Data engine utilities for IRONFORGE.\n\nThis module re-exports the authoritative data engine implementation\nlocated in the legacy `IRONFORGE` package so that consumers can import\n`ironforge.data_engine`...",
+          "imports": 7,
+          "decorators": []
+        },
+        {
+          "name": "parquet_reader",
+          "file": "ironforge/data_engine/parquet_reader.py",
+          "primary_classes": [],
+          "primary_functions": [
+            "read_nodes_edges"
+          ],
+          "patterns": [],
+          "lines_of_code": 14,
+          "complexity": 1,
+          "class_count": 0,
+          "function_count": 1,
+          "docstring": "",
+          "imports": 3,
           "decorators": []
         },
         {
@@ -5591,12 +5418,12 @@
             "write_edges"
           ],
           "patterns": [],
-          "lines_of_code": 37,
-          "complexity": 7,
+          "lines_of_code": 58,
+          "complexity": 10,
           "class_count": 0,
-          "function_count": 4,
-          "docstring": "Validated Parquet writers for nodes and edges....",
-          "imports": 6,
+          "function_count": 5,
+          "docstring": "Validated Parquet writers for nodes and edges.\n\nThis implementation mirrors the original utilities but guards the\noptional ``pyarrow`` dependency so that importing the module does not\nraise when ``pya...",
+          "imports": 7,
           "decorators": []
         },
         {
@@ -5614,11 +5441,29 @@
           "decorators": []
         }
       ],
-      "file_count": 3,
-      "total_lines": 54,
-      "complexity_score": 7,
+      "file_count": 5,
+      "total_lines": 126,
+      "complexity_score": 13,
       "key_classes": [],
       "public_interfaces": [
+        {
+          "name": "write_nodes",
+          "file": "ironforge/data_engine/__init__.py",
+          "parameters": 2,
+          "docstring": ""
+        },
+        {
+          "name": "write_edges",
+          "file": "ironforge/data_engine/__init__.py",
+          "parameters": 2,
+          "docstring": ""
+        },
+        {
+          "name": "read_nodes_edges",
+          "file": "ironforge/data_engine/parquet_reader.py",
+          "parameters": 1,
+          "docstring": "Read node and edge Parquet files for a shard directory...."
+        },
         {
           "name": "write_nodes",
           "file": "ironforge/data_engine/parquet_writer.py",
@@ -5632,41 +5477,43 @@
           "docstring": "Write edges DataFrame to Parquet with validation...."
         }
       ],
-      "avg_complexity": 2.33
+      "avg_complexity": 2.6
     },
     "metadata": {
-      "total_files_classified": 158,
+      "total_files_classified": 149,
       "unclassified_files": [
-        "__init__.py",
-        "ironforge/metrics/confluence.py",
+        "ironforge/__version__.py",
+        "ironforge/confluence/__init__.py",
         "ironforge/motifs/__init__.py",
-        "ironforge/sdk/__main__.py"
+        "ironforge/motifs/scanner.py",
+        "ironforge/sdk/__init__.py",
+        "ironforge/sdk/io.py"
       ],
-      "classification_coverage": 97.53,
+      "classification_coverage": 96.13,
       "engine_distribution": {
-        "analysis": 62,
-        "learning": 10,
-        "synthesis": 5,
-        "integration": 25,
-        "validation": 9,
-        "reporting": 5,
-        "utilities": 39,
-        "data": 3
+        "analysis": 51,
+        "learning": 12,
+        "synthesis": 3,
+        "integration": 28,
+        "validation": 7,
+        "reporting": 3,
+        "utilities": 40,
+        "data": 5
       }
     }
   },
   "summary": {
     "total_engines": 8,
-    "total_components": 158,
+    "total_components": 149,
     "engine_distribution": {
-      "analysis": 62,
-      "learning": 10,
-      "synthesis": 5,
-      "integration": 25,
-      "validation": 9,
-      "reporting": 5,
-      "utilities": 39,
-      "data": 3
+      "analysis": 51,
+      "learning": 12,
+      "synthesis": 3,
+      "integration": 28,
+      "validation": 7,
+      "reporting": 3,
+      "utilities": 40,
+      "data": 5
     }
   }
 }

@@ -56,6 +56,18 @@ class ValidationCfg:
 
 
 @dataclass
+class TgatCfg:
+    hidden_dim: int = 64
+    num_layers: int = 3
+    time_encoding: str = "fourier"
+    dropout: float = 0.1
+    batch_size: int = 4096
+    window_bars: int = 512
+    max_edges_per_node: int = 16
+    seed: int = 42
+
+
+@dataclass
 class Config:
     workspace: str | None = None
     data: DataCfg = field(default_factory=DataCfg)
@@ -63,6 +75,7 @@ class Config:
     scoring: ScoringCfg = field(default_factory=ScoringCfg)
     reporting: ReportingCfg = field(default_factory=ReportingCfg)
     validation: ValidationCfg = field(default_factory=ValidationCfg)
+    tgat: TgatCfg = field(default_factory=TgatCfg)
 
 
 def _coerce(value: str) -> Any:

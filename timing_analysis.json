@@ -1,0 +1,395 @@
+{
+  "shard_ASIA_2025-07-24": {
+    "session_info": {
+      "session_id": "ASIA_2025-07-24",
+      "total_events": 22,
+      "duration_minutes": 719.0,
+      "start_time": "2025-07-24T16:00:00",
+      "end_time": "2025-07-25T03:59:00"
+    },
+    "timing_stats": {
+      "mean_gap_seconds": 2054.285714285714,
+      "median_gap_seconds": 0.0,
+      "min_gap_seconds": 0.0,
+      "max_gap_seconds": 23400.0
+    },
+    "event_frequency": {
+      "EXPANSION": 11,
+      "CONSOLIDATION": 11
+    },
+    "timing_behaviors": {
+      "rapid_events": 15,
+      "normal_events": 2,
+      "delayed_events": 4,
+      "immediate_events": 15
+    },
+    "timing_patterns": {
+      "bursts": {
+        "count": 4,
+        "events_in_bursts": 18,
+        "burst_details": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            8,
+            9,
+            10,
+            11
+          ],
+          [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21
+          ]
+        ]
+      },
+      "rhythm": {
+        "dominant_gap_minutes": null,
+        "rhythm_strength": 0.7142857142857143,
+        "gap_distribution": {
+          "0.0": 15,
+          "30.0": 1,
+          "390.0": 1,
+          "5.0": 1,
+          "140.0": 1
+        }
+      },
+      "transitions": {
+        "0\u21921": {
+          "count": 6,
+          "avg_gap": 0.0
+        },
+        "0\u21920": {
+          "count": 5,
+          "avg_gap": 60.0
+        },
+        "1\u21921": {
+          "count": 5,
+          "avg_gap": 4692.0
+        },
+        "1\u21920": {
+          "count": 5,
+          "avg_gap": 3876.0
+        }
+      }
+    }
+  },
+  "shard_ASIA_2025-07-29": {
+    "session_info": {
+      "session_id": "ASIA_2025-07-29",
+      "total_events": 30,
+      "duration_minutes": 719.0,
+      "start_time": "2025-07-29T16:00:00",
+      "end_time": "2025-07-30T03:59:00"
+    },
+    "timing_stats": {
+      "mean_gap_seconds": 1487.5862068965516,
+      "median_gap_seconds": 0.0,
+      "min_gap_seconds": 0.0,
+      "max_gap_seconds": 23400.0
+    },
+    "event_frequency": {
+      "EXPANSION": 16,
+      "CONSOLIDATION": 14
+    },
+    "timing_behaviors": {
+      "rapid_events": 17,
+      "normal_events": 3,
+      "delayed_events": 9,
+      "immediate_events": 17
+    },
+    "timing_patterns": {
+      "bursts": {
+        "count": 3,
+        "events_in_bursts": 16,
+        "burst_details": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ]
+        ]
+      },
+      "rhythm": {
+        "dominant_gap_minutes": null,
+        "rhythm_strength": 0.5862068965517241,
+        "gap_distribution": {
+          "0.0": 17,
+          "1.0": 2,
+          "30.0": 1,
+          "390.0": 1,
+          "71.0": 1
+        }
+      },
+      "transitions": {
+        "0\u21921": {
+          "count": 10,
+          "avg_gap": 0.0
+        },
+        "1\u21920": {
+          "count": 9,
+          "avg_gap": 3873.3333333333335
+        },
+        "0\u21920": {
+          "count": 6,
+          "avg_gap": 1370.0
+        },
+        "1\u21921": {
+          "count": 4,
+          "avg_gap": 15.0
+        }
+      }
+    }
+  },
+  "shard_ASIA_2025-07-30": {
+    "session_info": {
+      "session_id": "ASIA_2025-07-30",
+      "total_events": 26,
+      "duration_minutes": 719.0,
+      "start_time": "2025-07-30T16:00:00",
+      "end_time": "2025-07-31T03:59:00"
+    },
+    "timing_stats": {
+      "mean_gap_seconds": 1725.6,
+      "median_gap_seconds": 0.0,
+      "min_gap_seconds": 0.0,
+      "max_gap_seconds": 23400.0
+    },
+    "event_frequency": {
+      "EXPANSION": 13,
+      "CONSOLIDATION": 13
+    },
+    "timing_behaviors": {
+      "rapid_events": 13,
+      "normal_events": 7,
+      "delayed_events": 5,
+      "immediate_events": 13
+    },
+    "timing_patterns": {
+      "bursts": {
+        "count": 1,
+        "events_in_bursts": 8,
+        "burst_details": [
+          [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ]
+        ]
+      },
+      "rhythm": {
+        "dominant_gap_minutes": null,
+        "rhythm_strength": 0.52,
+        "gap_distribution": {
+          "0.0": 13,
+          "2.0": 2,
+          "30.0": 1,
+          "390.0": 1,
+          "1.0": 1
+        }
+      },
+      "transitions": {
+        "0\u21921": {
+          "count": 12,
+          "avg_gap": 0.0
+        },
+        "1\u21920": {
+          "count": 11,
+          "avg_gap": 3829.090909090909
+        },
+        "1\u21921": {
+          "count": 1,
+          "avg_gap": 240.0
+        },
+        "0\u21920": {
+          "count": 1,
+          "avg_gap": 780.0
+        }
+      }
+    }
+  },
+  "shard_ASIA_2025-08-05": {
+    "session_info": {
+      "session_id": "ASIA_2025-08-05",
+      "total_events": 46,
+      "duration_minutes": 299.0,
+      "start_time": "2025-08-05T23:00:00",
+      "end_time": "2025-08-06T03:59:00"
+    },
+    "timing_stats": {
+      "mean_gap_seconds": 398.6666666666667,
+      "median_gap_seconds": 240.0,
+      "min_gap_seconds": 0.0,
+      "max_gap_seconds": 4680.0
+    },
+    "event_frequency": {
+      "EXPANSION": 35,
+      "CONSOLIDATION": 11
+    },
+    "timing_behaviors": {
+      "rapid_events": 11,
+      "normal_events": 27,
+      "delayed_events": 7,
+      "immediate_events": 11
+    },
+    "timing_patterns": {
+      "bursts": {
+        "count": 3,
+        "events_in_bursts": 13,
+        "burst_details": [
+          [
+            2,
+            3,
+            4,
+            5
+          ],
+          [
+            12,
+            13,
+            14,
+            15
+          ],
+          [
+            18,
+            19,
+            20,
+            21,
+            22
+          ]
+        ]
+      },
+      "rhythm": {
+        "dominant_gap_minutes": null,
+        "rhythm_strength": 0.24444444444444444,
+        "gap_distribution": {
+          "0.0": 11,
+          "1.0": 6,
+          "2.0": 4,
+          "5.0": 4,
+          "8.0": 3
+        }
+      },
+      "transitions": {
+        "0\u21920": {
+          "count": 24,
+          "avg_gap": 652.5
+        },
+        "0\u21921": {
+          "count": 10,
+          "avg_gap": 0.0
+        },
+        "1\u21920": {
+          "count": 10,
+          "avg_gap": 210.0
+        },
+        "1\u21921": {
+          "count": 1,
+          "avg_gap": 180.0
+        }
+      }
+    }
+  },
+  "shard_ASIA_2025-08-06": {
+    "session_info": {
+      "session_id": "ASIA_2025-08-06",
+      "total_events": 31,
+      "duration_minutes": 299.0,
+      "start_time": "2025-08-06T23:00:00",
+      "end_time": "2025-08-07T03:59:00"
+    },
+    "timing_stats": {
+      "mean_gap_seconds": 598.0,
+      "median_gap_seconds": 0.0,
+      "min_gap_seconds": 0.0,
+      "max_gap_seconds": 4560.0
+    },
+    "event_frequency": {
+      "EXPANSION": 16,
+      "CONSOLIDATION": 15
+    },
+    "timing_behaviors": {
+      "rapid_events": 16,
+      "normal_events": 3,
+      "delayed_events": 11,
+      "immediate_events": 16
+    },
+    "timing_patterns": {
+      "bursts": {
+        "count": 1,
+        "events_in_bursts": 4,
+        "burst_details": [
+          [
+            2,
+            3,
+            4,
+            5
+          ]
+        ]
+      },
+      "rhythm": {
+        "dominant_gap_minutes": null,
+        "rhythm_strength": 0.5333333333333333,
+        "gap_distribution": {
+          "0.0": 16,
+          "12.0": 2,
+          "7.0": 1,
+          "11.0": 1,
+          "14.0": 1
+        }
+      },
+      "transitions": {
+        "0\u21921": {
+          "count": 12,
+          "avg_gap": 0.0
+        },
+        "1\u21920": {
+          "count": 12,
+          "avg_gap": 1250.0
+        },
+        "0\u21920": {
+          "count": 3,
+          "avg_gap": 520.0
+        },
+        "1\u21921": {
+          "count": 3,
+          "avg_gap": 460.0
+        }
+      }
+    }
+  }
+}

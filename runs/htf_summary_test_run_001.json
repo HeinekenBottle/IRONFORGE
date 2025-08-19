@@ -1,0 +1,27 @@
+{
+  "run_id": "test_run_001",
+  "total_sessions": 51,
+  "total_zones": 3,
+  "avg_confidence": 0.85,
+  "regime_distribution": {
+    "transition": 1751
+  },
+  "htf_feature_coverage": {
+    "sv_m15_z": 0.016658962120072396,
+    "sv_h1_z": 0.0,
+    "barpos_m15": 1.0,
+    "barpos_h1": 1.0,
+    "dist_daily_mid": 1.0,
+    "htf_regime": 1.0
+  },
+  "barpos_coherence": 1.0,
+  "sv_anomaly_rate": 0.004568817818389492,
+  "theory_b_zones": 2,
+  "dimensional_anchor_rate": 0.6666666666666666,
+  "discovery_density_by_regime": {
+    "transition": 0.0017133066818960593
+  },
+  "temporal_integrity_score": 1.0,
+  "feature_completeness_score": 0.7024988443180108,
+  "overall_quality_score": 0.8512494221590055
+}

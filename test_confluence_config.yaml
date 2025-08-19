@@ -1,0 +1,16 @@
+# Test configuration with confluence adapters
+data:
+  shards_glob: "data/shards/NQ_M5/shard_*"
+
+scoring:
+  weights:
+    cluster_z: 0.30
+    htf_prox: 0.25
+  threshold: 0.7
+
+confluence:
+  phase_weighting: true
+  chain_bonus: true
+
+outputs:
+  run_dir: "runs/test_confluence_adapters"

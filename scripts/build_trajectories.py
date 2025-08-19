@@ -156,7 +156,7 @@ def build_trajectories(run_path):
     return trajectories
 
 def main():
-    run_path = Path("runs/real-tgat-fixed-2025-08-18")
+    run_path = Path("runs/2025-08-19")
     
     # Build trajectories
     trajectories = build_trajectories(run_path)

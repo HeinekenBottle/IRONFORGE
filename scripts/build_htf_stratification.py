@@ -97,7 +97,7 @@ def create_bucket_stats(group, bucket_name):
     return stats
 
 def main():
-    run_path = Path("runs/real-tgat-fixed-2025-08-18")
+    run_path = Path("runs/2025-08-19")
     
     # Load trajectories
     trajectories_path = run_path / "aux" / "trajectories.parquet"

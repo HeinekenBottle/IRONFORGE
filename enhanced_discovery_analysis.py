@@ -10,7 +10,7 @@ from pathlib import Path
 import json
 
 def main():
-    run_dir = "runs/2025-08-18"
+    run_dir = "runs/real-tgat-fixed-2025-08-18"
     
     print("🔍 Enhanced Discovery Analysis - Wave 7.x")
     print("=" * 50)
@@ -42,7 +42,7 @@ def main():
     # Load attention neighborhoods with proper node_id mapping
     print("🧠 Loading attention neighborhoods...")
     try:
-        attention_path = f"{run_dir}/embeddings/embeddings/attention_topk.parquet"
+        attention_path = f"{run_dir}/embeddings/attention_topk.parquet"
         if Path(attention_path).exists():
             attention_data = pd.read_parquet(attention_path)
             print(f"   Loaded attention data: {len(attention_data)} edges")

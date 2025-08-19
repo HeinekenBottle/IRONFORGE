@@ -1,0 +1,29 @@
+{
+  "baseline": {
+    "run": "baseline_adapters_OFF",
+    "P(hit+100)": 0.4,
+    "med_ret_12b": -0.14780820195381206,
+    "var(conf)": 0.00875571841472174,
+    "threshold": 65,
+    "zones": 20
+  },
+  "enhanced": {
+    "run": "enhanced_adapters_ON",
+    "P(hit+100)": 0.4,
+    "med_ret_12b": -0.14780820195381206,
+    "var(conf)": 0.01872411689957703,
+    "threshold": 65,
+    "zones": 20
+  },
+  "lift_analysis": {
+    "hit_rate_lift": 0.0,
+    "return_lift": 0.0,
+    "variance_change": 0.00996839848485529
+  },
+  "acceptance": {
+    "hit_rate_ok": false,
+    "returns_ok": true,
+    "variance_ok": true,
+    "overall_pass": false
+  }
+}

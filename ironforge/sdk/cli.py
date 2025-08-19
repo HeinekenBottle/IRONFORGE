@@ -31,7 +31,32 @@ def cmd_discover(cfg):
     if fn is None:
         print("[discover] temporal discovery engine not found; skipping (no-op).")
         return 0
-    return int(bool(fn(cfg)))
+    
+    # Adapt config for discovery function signature
+    import glob
+    from pathlib import Path
+    
+    # Get shard paths from config
+    shards_glob = cfg.data.shards_glob
+    shard_paths = glob.glob(shards_glob.replace("*.parquet", "*"))
+    shard_paths = [p for p in shard_paths if Path(p).is_dir() and "shard_" in p]
+    
+    # Get output directory
+    run_dir = materialize_run_dir(cfg)
+    out_dir = str(run_dir / "embeddings")
+    
+    # Create loader config from TGAT config
+    loader_cfg = cfg.tgat
+    
+    print(f"[discover] processing {len(shard_paths)} shards -> {out_dir}")
+    
+    try:
+        result = fn(shard_paths, out_dir, loader_cfg)
+        print(f"[discover] completed: {len(result)} pattern files generated")
+        return 0
+    except Exception as e:
+        print(f"[discover] error: {e}")
+        return 1
 
 
 def cmd_score(cfg):
@@ -109,7 +134,20 @@ def cmd_report(cfg):
         out_png,
         width=cfg.reporting.minidash.width,
         height=cfg.reporting.minidash.height,
+        run_dir=run_dir,
     )
+    
+    # Auto-index run and generate comparison
+    try:
+        from ironforge.reporting.run_comparison import auto_index_run
+        success = auto_index_run(run_dir)
+        if success:
+            print(f"[report] indexed run and updated comparison")
+        else:
+            print(f"[report] failed to index run")
+    except Exception as e:
+        print(f"[report] warning: could not update run comparison: {e}")
+    
     print(f"[report] wrote {out_html} and {out_png}")
     return 0
 

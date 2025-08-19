@@ -97,7 +97,7 @@ def find_event_chains(events_df, chain_patterns):
     return pd.DataFrame(chains)
 
 def main():
-    run_path = Path("runs/real-tgat-fixed-2025-08-18")
+    run_path = Path("runs/2025-08-19")
     
     # Load market data
     market_data_path = Path("data/shards/NQ_M5/shard_ASIA_2025-08-05/nodes.parquet")

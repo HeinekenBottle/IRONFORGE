@@ -1,0 +1,5 @@
+zone_id,score,in_burst,chain_tag,phase_bucket
+zone_3,0.08450868713971989,True,demo,regime_1
+zone_2,0.053819676970593706,False,demo,regime_1
+zone_0,0.0028514342556943957,True,none,regime_1
+zone_1,0.000800015850036158,False,demo,regime_1

@@ -1,0 +1,15 @@
+{
+  "min": 0.75,
+  "max": 0.75,
+  "mean": 0.75,
+  "std": 0.0,
+  "scale": "0-1",
+  "threshold": 0.75,
+  "original_threshold": 0.75,
+  "coverage": 1.0,
+  "variance": 0.0,
+  "health_status": "fail",
+  "health_reasons": [
+    "Low variance: 0.00e+00 < 1e-5"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "zone_id": "zone_2",
+  "center_node_id": 4391,
+  "confidence": 0.7125602670540674,
+  "cohesion": -0.0581,
+  "in_burst": false,
+  "edge_mix": {
+    "TEMPORAL_NEXT": 0.25,
+    "MOVEMENT_TRANSITION": 0.5,
+    "LIQ_LINK": 0.0,
+    "CONTEXT": 0.25
+  },
+  "liq_links_1_15m": 0,
+  "htf_snapshot": {
+    "ts": 1754435040000,
+    "price": 23325.0,
+    "f47_bar_pos": 1.0,
+    "f48_bar_pos": 1.0,
+    "f49_dist_mid": -0.2764706015586853,
+    "f50_regime": 1.0
+  },
+  "trajectory_summary": {
+    "fwd_ret_12b": null,
+    "hit_+100_12b": false,
+    "hit_+200_12b": false,
+    "time_to_+100_bars": null
+  },
+  "phase_context": {
+    "bucket_name": "regime_1",
+    "P_hit_+100_12b": 0.0,
+    "count": 10,
+    "median_fwd_ret_12b": 0
+  },
+  "chain_context": [
+    {
+      "chain_type": "demo_chain_1",
+      "role": "end",
+      "span_bars": 5,
+      "span_minutes": 70,
+      "subsequent_ret_12b": 0.08255176252630024
+    },
+    {
+      "chain_type": "demo_chain_2",
+      "role": "start",
+      "span_bars": 13,
+      "span_minutes": 26,
+      "subsequent_ret_12b": 0.44575058289936276
+    }
+  ],
+  "trading_score": 0.053819676970593706
+}

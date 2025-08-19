@@ -2,6 +2,8 @@
 
 ## Canonical Event Types
 
+**Complete canonical list**: Expansion, Consolidation, Retracement, Reversal, Liquidity Taken, Redelivery
+
 ### Core Market Events (ECRR)
 1. **EXPANSION** - Directional market movement with increasing momentum
 2. **CONSOLIDATION** - Sideways price action within defined range boundaries  

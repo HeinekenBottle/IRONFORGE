@@ -1,0 +1,11 @@
+zone_id,total_attention_edges,structural_edges,temporal_edges,max_attention_weight,avg_attention_weight,min_temporal_distance,max_temporal_distance,center_node,nodes_with_bursts,unique_burst_count,has_burst_activity,confidence_score
+zone_0,4,1,3,0.8771110889308824,0.5358941735041247,10.0,40.0,zone_0,0,-1,False,0.7
+zone_1,4,2,2,0.7778761198076926,0.579896500623667,0.0,40.0,zone_1,0,-1,False,0.7
+zone_2,4,1,3,0.7633827663789705,0.5420067040576351,0.0,40.0,zone_2,0,-1,False,0.7
+zone_3,4,1,3,0.8431954740185853,0.6305625632542103,0.0,40.0,zone_3,0,-1,False,0.7
+zone_4,4,2,2,0.8168504223092785,0.5170809116625543,0.0,30.0,zone_4,0,-1,False,0.7
+zone_5,5,2,3,0.4762579838655767,0.4048103552024462,0.0,40.0,zone_5,0,-1,False,0.7
+zone_6,5,3,2,0.45755909306299125,0.2825870468238438,0.0,40.0,zone_6,0,-1,False,0.7
+zone_7,5,2,3,0.2940368417747104,0.22915522419414658,0.0,40.0,zone_7,0,-1,False,0.7
+zone_8,5,2,3,0.775645653642678,0.6322040875675233,0.0,40.0,zone_8,0,-1,False,0.7
+zone_9,5,4,1,0.7835577727470385,0.43839584220577554,0.0,40.0,zone_9,0,-1,False,0.7
