@@ -1,221 +1,189 @@
-Metadata-Version: 2.4
+Metadata-Version: 2.1
 Name: ironforge
 Version: 1.0.0
 Summary: Archaeological discovery system for market pattern analysis
 Home-page: https://github.com/iron-ecosystem/ironforge
 Author: IRON Ecosystem
 Author-email: noreply@iron.dev
+License: UNKNOWN
+Platform: UNKNOWN
 Classifier: Development Status :: 4 - Beta
 Classifier: Intended Audience :: Financial and Insurance Industry
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
 Classifier: Programming Language :: Python :: 3
-Classifier: Programming Language :: Python :: 3.8
-Classifier: Programming Language :: Python :: 3.9
 Classifier: Programming Language :: Python :: 3.10
 Classifier: Programming Language :: Python :: 3.11
 Classifier: Topic :: Office/Business :: Financial
 Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
-Requires-Python: >=3.8
+Requires-Python: >=3.10
 Description-Content-Type: text/markdown
-Requires-Dist: numpy>=1.20.0
-Requires-Dist: pandas>=1.3.0
-Requires-Dist: torch>=1.9.0
-Requires-Dist: matplotlib>=3.3.0
-Requires-Dist: seaborn>=0.11.0
-Requires-Dist: scikit-learn>=1.0.0
-Requires-Dist: networkx>=2.5
-Requires-Dist: tqdm>=4.60.0
 Provides-Extra: dev
-Requires-Dist: pytest>=6.0; extra == "dev"
-Requires-Dist: black>=21.0; extra == "dev"
-Requires-Dist: flake8>=3.8; extra == "dev"
-Requires-Dist: mypy>=0.800; extra == "dev"
-Dynamic: author
-Dynamic: author-email
-Dynamic: classifier
-Dynamic: description
-Dynamic: description-content-type
-Dynamic: home-page
-Dynamic: provides-extra
-Dynamic: requires-dist
-Dynamic: requires-python
-Dynamic: summary
 
-# IRONFORGE 
-**Archaeological Discovery System for Market Pattern Recognition**
+# IRONFORGE — Graph-Based Market Archaeology (v0.7.1, Waves 0–7.2)
 
-<img src="./visualizations/session_dashboard.png" alt="IRONFORGE Dashboard" width="800"/>
+**Archaeological discovery engine: rule-based → TGAT (single ML core) → rule-based**
 
-## 🏛️ Overview
+IRONFORGE learns temporal patterns within sessions, scores confluence, and renders minidash reports. The system operates on enhanced session data through a canonical pipeline that preserves pattern authenticity while enabling rapid discovery.
 
-IRONFORGE is a sophisticated archaeological discovery system that uncovers hidden patterns in financial market data using advanced temporal graph attention networks (TGAT) and semantic feature analysis. The system transforms raw market sessions into rich contextual archaeological discoveries with full event preservation and session anchoring.
+## What It Is
 
-### ✅ **Mission Accomplished: Semantic Feature Retrofit (2025-08-14)**
+Archaeological discovery engine that combines:
+- **Rule-based preprocessing**: Enhanced session adapter with event detection
+- **TGAT (single ML core)**: Temporal graph attention networks for pattern learning  
+- **Rule-based scoring**: Confluence analysis and validation rails
+- **Within-session learning**: No cross-session edges, preserves session boundaries
 
-**BREAKTHROUGH ACHIEVED**: Semantic feature retrofit transforms generic patterns into rich contextual market archaeology with full event preservation and session context.
+## Canonical Contracts
 
-- **Feature Expansion**: 37D → 45D nodes (8 semantic events), 17D → 20D edges (3 semantic relationships)  
-- **Event Preservation**: ✅ FVG redelivery, expansion phases, consolidation patterns fully captured
-- **Session Context**: ✅ NY_AM/LONDON_PM/ASIA timing and characteristics preserved
-- **Archaeological Intelligence**: ✅ Permanent vs temporary pattern classification implemented
+### Events (6 types exactly)
+- **Expansion**: Market range extension
+- **Consolidation**: Range compression  
+- **Retracement**: Partial reversal within trend
+- **Reversal**: Full directional change
+- **Liquidity Taken**: Order flow absorption
+- **Redelivery**: Return to prior levels
 
-## 📁 Project Structure
+### Edge Intents (4 types exactly)  
+- **TEMPORAL_NEXT**: Sequential time progression
+- **MOVEMENT_TRANSITION**: Price movement relationships
+- **LIQ_LINK**: Liquidity flow connections
+- **CONTEXT**: Contextual relationships
 
-```
-IRONFORGE/
-├── ironforge/                    # Main application package
-│   ├── learning/                # ML/TGAT discovery engine
-│   ├── analysis/                # Pattern analysis & archaeology
-│   ├── synthesis/               # Pattern validation & graduation
-│   ├── integration/             # System integration & containers
-│   ├── utilities/               # Core utilities & monitoring
-│   └── reporting/               # Analysis reporting
-├── iron_core/                   # Infrastructure & performance
-├── data/                        # Organized data storage
-│   ├── raw/                     # Level 1 raw market data
-│   ├── enhanced/                # Enhanced/processed sessions
-│   ├── adapted/                 # Adapted sessions with relativity
-│   └── discoveries/             # Pattern discoveries
-├── scripts/                     # Utility scripts
-│   ├── analysis/                # Analysis runners
-│   ├── data_processing/         # Data pipeline scripts
-│   └── utilities/               # General utilities
-├── tests/                       # Comprehensive test suite
-├── reports/                     # Generated reports & visualizations
-└── docs/                        # Documentation
-```
+### Feature Dimensions
+- **Nodes**: 51D (f0..f50, HTF v1.1 = f45..f50 last-closed only)
+- **Edges**: 20D (e0..e19)
 
-## 🚀 Quick Start
+### Data Contracts
+- **Shards**: `data/shards/<SYMBOL_TF>/shard_*/{nodes,edges}.parquet`
+- **Runs**: `runs/YYYY-MM-DD/{embeddings,patterns,confluence,motifs,reports,minidash.*}`
 
-### Installation
+### Entrypoints + CLI
+- **discovery** → `ironforge.learning.discovery_pipeline:run_discovery`
+- **confluence** → `ironforge.confluence.scoring:score_confluence`  
+- **validation** → `ironforge.validation.runner:validate_run`
+- **reporting** → `ironforge.reporting.minidash:build_minidash`
+- **CLI**: `discover-temporal`, `score-session`, `validate-run`, `report-minimal`, `status`
+
+## Quickstart
 
 ```bash
-# Clone the repository
-git clone <repository-url>
-cd IRONFORGE
+# Install
+pip install -e .[dev]
 
-# Install dependencies
-pip install -r requirements.txt
+# Run canonical pipeline
+python -m ironforge.sdk.cli discover-temporal --config configs/dev.yml
+python -m ironforge.sdk.cli score-session     --config configs/dev.yml
+python -m ironforge.sdk.cli report-minimal    --config configs/dev.yml
+python -m ironforge.sdk.cli status            --runs runs
+
+# Open dashboard
+open runs/$(date +%F)/minidash.html
 ```
 
-### Basic Usage
+## Outputs (per run)
 
-```python
-# Import the main components
-from ironforge.integration.ironforge_container import get_ironforge_container
-from ironforge.learning.enhanced_graph_builder import EnhancedGraphBuilder
-from ironforge.learning.tgat_discovery import IRONFORGEDiscovery
+### Core Artifacts
+- **embeddings/**: TGAT model outputs and attention weights
+- **patterns/**: Discovered temporal patterns and sequences
+- **confluence/scores.**: Confluence scoring results (0-1 or 0-100 scale)
+- **confluence/stats.json**: Scale badge, health gates, summary statistics
+- **minidash.html**: Interactive dashboard with confluence strips
+- **minidash.png**: Static dashboard export
 
-# Initialize the system
-container = get_ironforge_container()
-graph_builder = container.get_enhanced_graph_builder()
-discovery_engine = container.get_tgat_discovery()
+### AUX (read-only context)
+- **aux/trajectories.parquet**: Session trajectory analysis
+- **aux/phase_stats.json**: Phase transition statistics  
+- **aux/chains.parquet**: Within-session chain analysis
+- **motifs/candidates.csv**: Pattern motif candidates
+- **motifs/cards/**: Individual motif cards and analysis
 
-# Load and process session data
-session_data = load_session_data("data/raw/session.json")
-enhanced_session = graph_builder.enhance_session(session_data)
-discoveries = discovery_engine.discover_patterns(enhanced_session)
+## AUX vs Canonical
+
+**AUX is read-only context** for analysis and reporting. Key principles:
+- No new labels or schema changes
+- No feedback into feature generation
+- Within-session analysis only
+- No cross-session edges (Wave 8 later)
+
+## Adapters (config-toggled, optional)
+
+All adapters are **off by default** but documented:
+
+- **confluence.phase_weighting**: HTF bucket weighting
+- **confluence.chain_bonus**: Within-session chain scoring bonus
+- **mt_burst_boost**: Momentum burst detection enhancement
+- **mt_dt_bounds_s**: Temporal bounds for momentum analysis
+- **liq_short_s**: Short-term liquidity analysis window
+
+## Scale Handling
+
+Automatic scale detection and normalization:
+- **0-1 normalized**: Standard confluence scoring
+- **0-100 normalized**: Percentage-based scoring  
+- **Threshold normalized**: Adaptive threshold scaling
+- **Variance watchdog**: Outlier detection and handling
+
+## Explainability
+
+### Attention Analysis
+- **embeddings/attention_topk.parquet**: Top attention weights per edge
+  - `edge_intent`: Edge type (TEMPORAL_NEXT, MOVEMENT_TRANSITION, etc.)
+  - `weight`: Attention weight magnitude
+  - `attn_rank`: Ranking within attention distribution
+  - `true_dt_s`: Real time delta in seconds (when available)
+
+### Dashboard Indicators
+- **Δt: real seconds**: Actual time deltas available
+- **Δt: rank proxy**: Using rank-based time approximation
+- **Scale badge**: 0-1, 0-100, or threshold-normalized indicator
+- **Health status**: System health and data quality gates
+
+## Guardrails
+
+**Golden Invariants** (never change):
+- Event taxonomy: exactly 6 event types
+- Edge intents: exactly 4 intent types  
+- Feature dimensions: 51D nodes, 20D edges
+- HTF rule: last-closed only (no intra-candle)
+- Session boundaries: no cross-session edges
+- Within-session learning: preserve session isolation
+
+## Development
+
+### Testing
+```bash
+# Run smoke tests
+python tools/smoke_checks.py
+
+# Full test suite
+python -m pytest tests/ -v
+
+# Legacy tests (moved during refactor)
+python tests/legacy/simple_threshold_test.py
 ```
 
-### Basic Usage
+### Data Preparation
+```bash
+# Convert enhanced sessions to shards
+python -m ironforge.sdk.cli prep-shards --htf-context
 
-```python
-from integration.ironforge_container import initialize_ironforge_lazy_loading
-from daily_discovery_workflows import discover_market_archaeology
-
-# Initialize IRONFORGE system
-container = initialize_ironforge_lazy_loading()
-
-# Run archaeological discovery on session data
-results = discover_market_archaeology(
-    session_file="path/to/session.json",
-    enable_semantics=True,
-    output_format="rich_context"
-)
-
-print(f"Discovered {len(results.patterns)} archaeological patterns")
+# Check shard dimensions
+python -c "
+import pyarrow.parquet as pq
+nodes = pq.read_table('data/shards/NQ_M5/shard_*/nodes.parquet')
+print(f'Node features: {len([c for c in nodes.column_names if c.startswith(\"f\")])}')"
 ```
 
-## Architecture
+## Documentation
 
-- **learning/** - TGAT discovery engine (no prediction)
-- **preservation/** - Stores graphs, embeddings, patterns
-- **synthesis/** - Validates patterns, bridges to production
-
-## Key Features
-
-1. **Complete Preservation**: Never loses data, graphs store raw JSON
-2. **Self-Supervised Learning**: TGAT discovers patterns without labels
-3. **Pattern Graduation**: Only patterns beating 87% baseline enter production
-4. **Clean Separation**: Learning/logging completely isolated from prediction
-5. **Semantic Feature Retrofit**: Rich contextual market event discovery
-6. **Event Preservation**: FVG redelivery, expansion phases, session anchoring
-7. **Archaeological Intelligence**: Permanent vs temporary pattern classification
-
-## Workflow
-
-1. **Data → Graphs**: `enhanced_graph_builder.py` preserves everything with semantic features (45D nodes, 20D edges)
-2. **Graphs → Patterns**: `tgat_discovery.py` learns self-supervised with rich context output
-3. **Patterns → Validation**: `pattern_graduation.py` tests against baseline
-4. **Validated → Production**: Export as rich contextual features with session anchoring
-
-## Files Created
-
-- `orchestrator.py` - Main coordinator
-- `learning/enhanced_graph_builder.py` - JSON → TGAT graphs with semantic features
-- `learning/tgat_discovery.py` - Pattern discovery engine with rich context output
-- `synthesis/pattern_graduation.py` - Validation pipeline
-- `SEMANTIC_FEATURE_RETROFIT_PLAN.md` - Implementation plan for semantic retrofit
-- `SEMANTIC_RETROFIT_IMPLEMENTATION_SUMMARY.md` - Results and completion summary
-
-## Semantic Feature Retrofit (Completed Aug 14, 2025)
-
-### Pattern Output Transformation
-
-**Before**: Generic numerical patterns
-```json
-{
-  "type": "range_position_confluence",
-  "description": "75.2% of range @ 1.8h timeframe",
-  "session": "unknown"
-}
-```
-
-**After**: Rich contextual market archaeology
-```json
-{
-  "pattern_id": "NY_session_RPC_00",
-  "session_name": "NY_session",
-  "session_start": "14:30:00",
-  "anchor_timeframe": "multi_timeframe",
-  "archaeological_significance": {
-    "archaeological_value": "low_archaeological_value",
-    "permanence_score": 0.933
-  },
-  "semantic_context": {
-    "market_regime": "transitional",
-    "event_types": ["fvg_redelivery"],
-    "relationship_type": "confluence_relationship"
-  }
-}
-```
-
-### Technical Specifications
-- **Node Features**: 45D (8 semantic + 37 previous)
-- **Edge Features**: 20D (3 semantic + 17 previous)
-- **Processing Time**: 3.153s (maintained <4.7s SLA)
-- **Constant Detection**: 100% accuracy, 0.013s filtering
-
-## Next Steps
-
-1. ✅ Semantic feature retrofit complete
-2. Deploy rich contextual discovery in production
-3. Validate archaeological significance scoring
-4. Integrate with pattern intelligence layer
+- **docs/flows.md**: Schema contracts and run order
+- **docs/taxonomy_v1.md**: Authoritative event and edge taxonomy  
+- **docs/operations.md**: Daily operations and A/B adapter usage
+- **REFACTOR_PLAN.md**: Repository cleanup and refactor details
 
 ---
-*Last Updated: August 12, 2025*  
-*Status: BREAKTHROUGH ACHIEVED*  
-*Patterns Discovered: 3,220 cross-timeframe archaeological patterns*  
-*ChatGPT's GNN Vision: FULLY REALIZED*
+
+**IRONFORGE v0.7.1** — Archaeological discovery through temporal graph attention
+
+
