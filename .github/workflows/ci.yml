@@ -20,6 +20,13 @@ jobs:
         run: pytest -q
       - name: Build & Twine check
         run: python -m build && twine check dist/*
+      - name: Upload wheel artifact
+        if: matrix.python-version == '3.11'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ironforge-wheel-${{ github.sha }}
+          path: dist/*.whl
+          if-no-files-found: error
       - name: Smoke install
         run: |
           python -m pip install dist/*.whl
