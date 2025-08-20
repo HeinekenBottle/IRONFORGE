@@ -6,7 +6,7 @@
 
 ## Executive Summary
 
-The Enhanced Temporal Query Engine (TQE) has been successfully upgraded to v2.1 with critical architectural improvements addressing fundamental timestamp processing flaws and comprehensive Experiment E liquidity/HTF analysis integration. The system now provides accurate temporal relationship analysis, validates Theory B temporal non-locality principles, and offers advanced machine learning capabilities for RD@40 path classification.
+The Enhanced Temporal Query Engine (TQE) has been successfully upgraded to v2.1 with critical architectural improvements addressing fundamental timestamp processing flaws and comprehensive Experiment E liquidity/HTF analysis integration. The system now provides accurate temporal relationship analysis, validates Theory B temporal non-locality principles, and offers exploratory analysis capabilities (off-by-default) for RD@40 pattern discovery with counts and confidence intervals.
 
 ## Critical Architectural Fix: Real Timestamp Implementation
 
@@ -145,7 +145,7 @@ def parse_event_datetime(self, event: Dict, trading_day: str) -> Optional[dateti
 ### Theory B Validation
 The timestamp fix provides empirical confirmation of Theory B temporal non-locality principles:
 - Archaeological zones position relative to FINAL session structure, not current development
-- Events demonstrate predictive intelligence about eventual market completion
+- Events demonstrate temporal positioning relative to eventual market completion (exploratory finding)
 - 40% zones show dimensional destiny rather than reactive positioning
 
 ### Trading Applications

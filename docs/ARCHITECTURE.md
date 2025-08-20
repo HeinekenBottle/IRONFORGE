@@ -40,7 +40,7 @@ IRONFORGE is a sophisticated archaeological discovery system that uncovers hidde
 ironforge/
 ├── learning/          # TGAT discovery engine and pattern learning
 ├── analysis/          # Pattern analysis and market archaeology
-├── synthesis/         # Pattern validation and production bridge
+├── synthesis/         # Pattern validation and exploratory analysis bridge
 ├── integration/       # System integration and lazy loading
 ├── utilities/         # Core utilities and monitoring
 └── reporting/         # Analysis reporting and visualization
@@ -96,7 +96,7 @@ data/
 
 **Validation Criteria**:
 - **87% Baseline Threshold**: Only high-quality patterns graduate
-- **Authenticity Scoring**: 92.3/100 authenticity for production patterns
+- **Authenticity Scoring**: 92.3/100 authenticity for exploratory pattern analysis
 - **Duplication Filtering**: <25% duplication rate (vs 96.8% contaminated baseline)
 - **Temporal Coherence**: Meaningful time spans and relationships
 
@@ -215,7 +215,7 @@ Validated Patterns → Rich Context Output → Archaeological Intelligence
 ### Performance Constraints
 - **<5s Initialization**: System must initialize in under 5 seconds
 - **<4.7s Processing**: Single session processing SLA
-- **87% Quality Threshold**: Only high-quality patterns enter production
+- **87% Quality Threshold**: High-quality patterns flagged for exploratory analysis (off-by-default)
 - **<25% Duplication**: Pattern uniqueness maintained
 
 ---
@@ -300,7 +300,7 @@ def parse_event_datetime(self, event: Dict, trading_day: str) -> Optional[dateti
 - **Analysis Throughput**: 57-session analysis with comprehensive context splits
 - **Memory Efficiency**: Maintains <100MB footprint during complex matrix analysis
 - **Statistical Rigor**: Wilson CI calculations with proper sample size handling
-- **Error Resilience**: Robust NaN handling and exception management for production reliability
+- **Error Resilience**: Robust NaN handling and exception management for exploratory reliability
 
 ### Integration with Archaeological Framework
 - **Complete Session Preservation**: All 66 sessions accessible, 57 enhanced with authentic features
@@ -329,7 +329,7 @@ def parse_event_datetime(self, event: Dict, trading_day: str) -> Optional[dateti
 ## 📊 Quality Assurance
 
 ### Pattern Quality Metrics
-- **Authenticity Score**: >90/100 for production patterns
+- **Authenticity Score**: >90/100 for exploratory pattern analysis
 - **Duplication Rate**: <25% (vs 96.8% contaminated baseline)
 - **Temporal Coherence**: >70% patterns with meaningful time spans
 - **Semantic Preservation**: 100% semantic event preservation
@@ -342,4 +342,4 @@ def parse_event_datetime(self, event: Dict, trading_day: str) -> Optional[dateti
 
 ---
 
-*This architecture enables IRONFORGE to serve as a production-ready archaeological discovery system for market pattern recognition, maintaining the highest standards of performance, quality, and semantic preservation.*
+*This architecture enables IRONFORGE to serve as an exploratory archaeological discovery system for market pattern recognition, maintaining the highest standards of performance, quality, and semantic preservation. All analytical capabilities are off-by-default with explicit reporting of counts and confidence intervals.*

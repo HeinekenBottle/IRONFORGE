@@ -1,0 +1,38 @@
+# IRONFORGE Configuration Settings
+# Fail-closed security model: exploratory analysis only
+
+# Machine Learning Controls (fail-closed)
+ml:
+  enabled: false  # ML training and prediction disabled by default
+  explore_only: true  # Only exploratory analysis permitted
+  
+# Alert System Controls (fail-closed)
+alerts:
+  enabled: false  # Alert generation disabled by default
+  explore_only: true  # Only analysis output permitted
+  
+# Analysis Configuration
+analysis:
+  explore_only: true  # Enforces exploratory mode across all components
+  report_format: "counts_and_ci"  # Report counts + confidence intervals
+  default_confidence: 0.95  # 95% confidence intervals
+  
+# News Proximity Buckets (standardized)
+news:
+  buckets:
+    high: "±120m"     # High impact: ±2 hours
+    medium: "±60m"    # Medium impact: ±1 hour  
+    low: "±30m"       # Low impact: ±30 minutes
+    quiet: "default"  # Quiet periods (no nearby events)
+    
+# Statistical Validation
+statistics:
+  min_sample_size: 5          # Merge contexts with n<5 into "Other"
+  inconclusive_threshold: 30  # CI width >30pp flagged as inconclusive
+  merge_small_samples: true   # Auto-merge n<5 samples
+  
+# Security: Fail-closed enforcement
+security:
+  fail_closed: true           # Default to disabled/safe mode
+  enforce_explore_only: true  # Block any production/predictive modes
+  require_explicit_enable: true  # Require explicit opt-in for ML/alerts

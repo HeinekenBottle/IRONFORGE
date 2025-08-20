@@ -1,0 +1,4990 @@
+{
+  "experiment_1": {
+    "HIGH_IMPACT": {
+      "rd40_events": 53,
+      "liquidity_events": 0,
+      "affected_patterns": 0,
+      "success_rate": 0.0
+    },
+    "MEDIUM_IMPACT": {
+      "rd40_events": 53,
+      "liquidity_events": 0,
+      "affected_patterns": 0,
+      "success_rate": 0.0
+    },
+    "LOW_IMPACT": {
+      "rd40_events": 53,
+      "liquidity_events": 49,
+      "affected_patterns": 53,
+      "success_rate": 0.9245283018867925
+    },
+    "NO_NEWS": {
+      "rd40_events": 53,
+      "liquidity_events": 53,
+      "affected_patterns": 53,
+      "success_rate": 1.0
+    }
+  },
+  "experiment_2": "                                      session  ...           event_type\n0     enhanced_rel_PREMARKET_Lvl-1_2025_07_31  ...       session_marker\n1     enhanced_rel_PREMARKET_Lvl-1_2025_07_31  ...     session_extremes\n2     enhanced_rel_PREMARKET_Lvl-1_2025_07_31  ...     session_extremes\n3     enhanced_rel_PREMARKET_Lvl-1_2025_07_31  ...       session_marker\n4     enhanced_rel_PREMARKET_Lvl-1_2025_07_31  ...       session_marker\n...                                       ...  ...                  ...\n1015      enhanced_rel_LUNCH_Lvl-1_2025_08_06  ...  archaeological_zone\n1016      enhanced_rel_LUNCH_Lvl-1_2025_08_06  ...  archaeological_zone\n1017      enhanced_rel_LUNCH_Lvl-1_2025_08_06  ...  archaeological_zone\n1018      enhanced_rel_LUNCH_Lvl-1_2025_08_06  ...  archaeological_zone\n1019      enhanced_rel_LUNCH_Lvl-1_2025_08_06  ...  archaeological_zone\n\n[1020 rows x 6 columns]",
+  "experiment_3": {
+    "5min": {
+      "disruptions": 0,
+      "enhancements": 0,
+      "net_effect": 0.0
+    },
+    "10min": {
+      "disruptions": 0,
+      "enhancements": 0,
+      "net_effect": 0.0
+    },
+    "15min": {
+      "disruptions": 0,
+      "enhancements": 0,
+      "net_effect": 0.0
+    },
+    "30min": {
+      "disruptions": 0,
+      "enhancements": 0,
+      "net_effect": 0.0
+    },
+    "45min": {
+      "disruptions": 0,
+      "enhancements": 0,
+      "net_effect": 0.0
+    },
+    "60min": {
+      "disruptions": 0,
+      "enhancements": 0,
+      "net_effect": 0.0
+    }
+  },
+  "experiment_4": {
+    "tqe_analysis": {
+      "query_type": "pattern_switch_analysis",
+      "total_sessions": 57,
+      "switch_diagnostics": {
+        "ASIA_Lvl-1_2025_08_05": {
+          "regime_flip_analysis": {
+            "event_10": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_16": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_21": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_23": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_25": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_55": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_56": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_58": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_59": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_61": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_10": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_16": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_21": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_23": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_25": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_55": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_56": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_58": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_59": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_61": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_10": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.1821688812687527,
+              "confluence_score": 0.5
+            },
+            "event_16": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.31076534002014616,
+              "confluence_score": 0.5
+            },
+            "event_21": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            },
+            "event_23": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.5674457446922411,
+              "confluence_score": 0.5
+            },
+            "event_25": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.8456523833481412,
+              "confluence_score": 0.5
+            },
+            "event_55": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_56": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_58": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_59": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_61": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            }
+          },
+          "gap_context_patterns": {
+            "event_10": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "False",
+              "favors_cont": "False",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_16": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_21": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_23": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_25": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_55": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_56": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_58": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_59": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_61": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_10": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_16": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_21": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_23": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_25": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_55": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_56": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_58": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_59": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_61": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "ASIA_Lvl-1_2025_08_07": {
+          "regime_flip_analysis": {
+            "event_55": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_57": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_58": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_61": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_55": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_57": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_58": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_61": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_55": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_57": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_58": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_61": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            }
+          },
+          "gap_context_patterns": {
+            "event_55": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_57": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_58": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_61": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_55": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_57": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_58": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_61": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "LONDON_Lvl-1_2025_07_30": {
+          "regime_flip_analysis": {
+            "event_49": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_51": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_49": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_51": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_49": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_51": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            }
+          },
+          "gap_context_patterns": {
+            "event_49": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_51": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_49": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_51": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "LONDON_Lvl-1_2025_08_05": {
+          "regime_flip_analysis": {
+            "event_30": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_31": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_67": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_68": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_30": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_31": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_67": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_68": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_30": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.5572344027947449,
+              "confluence_score": 0.5
+            },
+            "event_31": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.02142015636714148,
+              "confluence_score": 0.5
+            },
+            "event_67": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_68": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            }
+          },
+          "gap_context_patterns": {
+            "event_30": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_31": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "False",
+              "favors_cont": "False",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_67": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_68": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_30": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_31": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_67": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_68": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "LONDON_Lvl-1_2025_08_06": {
+          "regime_flip_analysis": {
+            "event_17": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_22": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_31": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_36": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_37": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_38": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_39": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_44": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_45": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_17": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_22": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_31": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_36": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_37": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_38": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_39": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_44": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_45": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_17": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.33418136345996297,
+              "confluence_score": 0.5
+            },
+            "event_22": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.944,
+              "confluence_score": 0.5
+            },
+            "event_31": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.8,
+              "confluence_score": 0.7
+            },
+            "event_36": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_37": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_38": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_39": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_44": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_45": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            }
+          },
+          "gap_context_patterns": {
+            "event_17": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_22": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_31": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_36": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_37": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_38": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_39": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_44": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_45": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_17": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_22": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_31": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_36": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_37": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_38": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_39": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_44": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_45": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "LONDON_Lvl-1_2025_08_07": {
+          "regime_flip_analysis": {
+            "event_17": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_18": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_27": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_28": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_68": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_69": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_73": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_74": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_17": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_18": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_27": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_28": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_68": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_69": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_73": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_74": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_17": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            },
+            "event_18": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.0,
+              "confluence_score": 0.5
+            },
+            "event_27": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.8299991487188219,
+              "confluence_score": 0.5
+            },
+            "event_28": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.2551725604440002,
+              "confluence_score": 0.5
+            },
+            "event_68": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_69": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_73": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_74": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            }
+          },
+          "gap_context_patterns": {
+            "event_17": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_18": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "False",
+              "favors_cont": "False",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_27": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_28": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "False",
+              "favors_cont": "False",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_68": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_69": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_73": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_74": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_17": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_18": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_27": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_28": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_68": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_69": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_73": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_74": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "LUNCH_Lvl-1_2025_07_25": {
+          "regime_flip_analysis": {
+            "event_11": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_11": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_11": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.5335211327720691,
+              "confluence_score": 0.5
+            }
+          },
+          "gap_context_patterns": {
+            "event_11": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_11": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "LUNCH_Lvl-1_2025_07_29": {
+          "regime_flip_analysis": {
+            "event_12": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_12": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_12": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.7501635995084034,
+              "confluence_score": 0.5
+            }
+          },
+          "gap_context_patterns": {
+            "event_12": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_12": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "LUNCH_Lvl-1_2025_07_30": {
+          "regime_flip_analysis": {
+            "event_10": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_32": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_10": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_32": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_10": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.4145716624323664,
+              "confluence_score": 0.5
+            },
+            "event_32": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            }
+          },
+          "gap_context_patterns": {
+            "event_10": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_32": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_10": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_32": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "LUNCH_Lvl-1_2025_08_04": {
+          "regime_flip_analysis": {
+            "event_10": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_16": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_21": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_22": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_35": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_37": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_43": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_51": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_53": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_55": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_56": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_58": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_60": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_61": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_65": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_67": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_10": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_16": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_21": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_22": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_35": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_37": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_43": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_51": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_53": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_55": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_56": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_58": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_60": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_61": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_65": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_67": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_10": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.16118633139909738,
+              "confluence_score": 0.5
+            },
+            "event_16": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.3867640739149119,
+              "confluence_score": 0.5
+            },
+            "event_21": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.1560753289191254,
+              "confluence_score": 0.5
+            },
+            "event_22": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.005588602346482969,
+              "confluence_score": 0.5
+            },
+            "event_35": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.938,
+              "confluence_score": 0.5
+            },
+            "event_37": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.916,
+              "confluence_score": 0.5
+            },
+            "event_43": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.8,
+              "confluence_score": 0.7
+            },
+            "event_51": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_53": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_55": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_56": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_58": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_60": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_61": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_65": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_67": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            }
+          },
+          "gap_context_patterns": {
+            "event_10": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "False",
+              "favors_cont": "False",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_16": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_21": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "False",
+              "favors_cont": "False",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_22": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "False",
+              "favors_cont": "False",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_35": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_37": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_43": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_51": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_53": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_55": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_56": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_58": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_60": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_61": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_65": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_67": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_10": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_16": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_21": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_22": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_35": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_37": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_43": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_51": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_53": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_55": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_56": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_58": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_60": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_61": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_65": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_67": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "LUNCH_Lvl-1_2025_08_05": {
+          "regime_flip_analysis": {
+            "event_16": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_20": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_23": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_31": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_41": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_48": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_49": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_50": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_56": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_57": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_59": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_62": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_63": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_16": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_20": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_23": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_31": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_41": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_48": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_49": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_50": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_56": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_57": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_59": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_62": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_63": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_16": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            },
+            "event_20": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            },
+            "event_23": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.9916250794916843,
+              "confluence_score": 0.5
+            },
+            "event_31": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.857,
+              "confluence_score": 0.5
+            },
+            "event_41": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.8,
+              "confluence_score": 0.7
+            },
+            "event_48": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_49": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_50": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_56": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_57": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_59": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_62": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_63": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            }
+          },
+          "gap_context_patterns": {
+            "event_16": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_20": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_23": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_31": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_41": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_48": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_49": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_50": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_56": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_57": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_59": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_62": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_63": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_16": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_20": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_23": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_31": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_41": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_48": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_49": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_50": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_56": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_57": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_59": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_62": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_63": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "LUNCH_Lvl-1_2025_08_06": {
+          "regime_flip_analysis": {
+            "event_18": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_53": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_55": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_18": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_53": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_55": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_18": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            },
+            "event_53": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_55": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            }
+          },
+          "gap_context_patterns": {
+            "event_18": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_53": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_55": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_18": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_53": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_55": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "MIDNIGHT_Lvl-1_2025_07_31": {
+          "regime_flip_analysis": {
+            "event_10": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_10": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_10": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.3046442490519261,
+              "confluence_score": 0.5
+            }
+          },
+          "gap_context_patterns": {
+            "event_10": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_10": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "NYAM_Lvl-1_2025_08_06": {
+          "regime_flip_analysis": {
+            "event_10": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_12": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_21": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_48": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_70": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_71": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_73": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_74": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_77": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_85": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_86": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_10": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_12": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_21": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_48": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_70": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_71": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_73": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_74": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_77": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_85": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_86": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_10": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            },
+            "event_12": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            },
+            "event_21": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            },
+            "event_48": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.934,
+              "confluence_score": 0.5
+            },
+            "event_70": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_71": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_73": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_74": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_77": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_85": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_86": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            }
+          },
+          "gap_context_patterns": {
+            "event_10": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_12": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_21": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_48": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_70": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_71": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_73": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_74": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_77": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_85": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_86": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_10": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_12": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_21": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_48": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_70": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_71": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_73": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_74": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_77": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_85": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_86": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "NYAM_Lvl-1_2025_08_07_FRESH": {
+          "regime_flip_analysis": {
+            "event_30": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_33": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_34": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_39": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_42": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_82": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_85": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_86": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_89": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_30": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_33": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_34": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_39": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_42": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_82": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_85": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_86": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_89": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_30": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            },
+            "event_33": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            },
+            "event_34": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.0,
+              "confluence_score": 0.5
+            },
+            "event_39": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            },
+            "event_42": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.7328575070099413,
+              "confluence_score": 0.5
+            },
+            "event_82": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_85": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_86": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_89": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            }
+          },
+          "gap_context_patterns": {
+            "event_30": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_33": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_34": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "False",
+              "favors_cont": "False",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_39": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_42": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_82": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_85": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_86": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_89": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_30": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_33": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_34": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_39": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_42": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_82": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_85": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_86": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_89": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "NYPM_Lvl-1_2025_08_06": {
+          "regime_flip_analysis": {
+            "event_13": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_17": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_54": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_56": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_58": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_13": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_17": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_54": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_56": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_58": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_13": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.8983957219251337,
+              "confluence_score": 0.5
+            },
+            "event_17": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.768787238131847,
+              "confluence_score": 0.5
+            },
+            "event_54": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_56": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_58": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            }
+          },
+          "gap_context_patterns": {
+            "event_13": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_17": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_54": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_56": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_58": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_13": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_17": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_54": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_56": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_58": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "NY_AM_Lvl-1_2025_07_29": {
+          "regime_flip_analysis": {
+            "event_23": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_31": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_23": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_31": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_23": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            },
+            "event_31": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            }
+          },
+          "gap_context_patterns": {
+            "event_23": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_31": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_23": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_31": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "NY_AM_Lvl-1_2025_08_04": {
+          "regime_flip_analysis": {
+            "event_108": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_109": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_108": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_109": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_108": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_109": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            }
+          },
+          "gap_context_patterns": {
+            "event_108": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_109": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_108": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_109": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "NY_AM_Lvl-1_2025_08_05": {
+          "regime_flip_analysis": {
+            "event_32": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_33": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_37": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_77": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_78": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_79": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_32": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_33": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_37": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_77": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_78": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_79": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_32": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            },
+            "event_33": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.6781485468245425,
+              "confluence_score": 0.5
+            },
+            "event_37": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            },
+            "event_77": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_78": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_79": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            }
+          },
+          "gap_context_patterns": {
+            "event_32": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_33": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_37": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_77": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_78": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_79": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_32": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_33": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_37": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_77": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_78": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_79": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "NY_PM_Lvl-1_2025_07_29": {
+          "regime_flip_analysis": {
+            "event_13": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_17": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_22": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_26": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_28": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_64": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_13": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_17": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_22": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_26": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_28": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_64": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_13": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.9793485203321268,
+              "confluence_score": 0.5
+            },
+            "event_17": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            },
+            "event_22": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.7240204429301533,
+              "confluence_score": 0.5
+            },
+            "event_26": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            },
+            "event_28": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            },
+            "event_64": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            }
+          },
+          "gap_context_patterns": {
+            "event_13": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_17": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_22": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_26": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_28": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_64": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_13": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_17": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_22": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_26": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_28": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_64": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "NY_PM_Lvl-1_2025_07_30": {
+          "regime_flip_analysis": {
+            "event_19": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_26": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_19": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_26": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_19": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            },
+            "event_26": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            }
+          },
+          "gap_context_patterns": {
+            "event_19": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_26": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_19": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_26": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "NY_PM_Lvl-1_2025_08_04": {
+          "regime_flip_analysis": {
+            "event_17": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_17": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_17": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.5692008634669702,
+              "confluence_score": 0.5
+            }
+          },
+          "gap_context_patterns": {
+            "event_17": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_17": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "NY_PM_Lvl-1_2025_08_05": {
+          "regime_flip_analysis": {
+            "event_27": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_29": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_40": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_41": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_78": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_80": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_27": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_29": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_40": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_41": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_78": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            },
+            "event_80": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": NaN
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_27": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.46411725976535095,
+              "confluence_score": 0.5
+            },
+            "event_29": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 1.0,
+              "confluence_score": 0.5
+            },
+            "event_40": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.48578800211587664,
+              "confluence_score": 0.5
+            },
+            "event_41": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.0,
+              "confluence_score": 0.5
+            },
+            "event_78": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            },
+            "event_80": {
+              "adds_accel_probability": "True",
+              "breakout_strength": 1.7000000000000002,
+              "confluence_score": 0.9
+            }
+          },
+          "gap_context_patterns": {
+            "event_27": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_29": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_40": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_41": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "False",
+              "favors_cont": "False",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_78": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_80": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_27": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_29": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_40": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_41": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_78": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_80": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "PREMARKET_Lvl-1_2025_08_05": {
+          "regime_flip_analysis": {
+            "event_10": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_10": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_10": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.08561643835616438,
+              "confluence_score": 0.5
+            }
+          },
+          "gap_context_patterns": {
+            "event_10": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "False",
+              "favors_cont": "False",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_10": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        },
+        "PREMARKET_Lvl-1_2025_08_07": {
+          "regime_flip_analysis": {
+            "event_16": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            },
+            "event_18": {
+              "pre_regime_avg": 1,
+              "post_regime_avg": 1,
+              "regime_change_magnitude": 0,
+              "flips_cont_to_mr": false,
+              "flips_mr_to_cont": false
+            }
+          },
+          "news_proximity_effects": {
+            "event_16": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            },
+            "event_18": {
+              "high_impact_detected": "False",
+              "suppresses_cont_accel": "False",
+              "boosts_mr_failure": "False",
+              "energy_density": 0.5
+            }
+          },
+          "h1_confirmation_impact": {
+            "event_16": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.8586693804859433,
+              "confluence_score": 0.5
+            },
+            "event_18": {
+              "adds_accel_probability": "False",
+              "breakout_strength": 0.688041832943443,
+              "confluence_score": 0.5
+            }
+          },
+          "gap_context_patterns": {
+            "event_16": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            },
+            "event_18": {
+              "fresh_gap_detected": "True",
+              "aligned_unresolved_rd": "True",
+              "favors_cont": "True",
+              "stale_gap_favors_mr": "False"
+            }
+          },
+          "micro_momentum_switches": {
+            "event_16": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            },
+            "event_18": {
+              "sign_changes_detected": false,
+              "predicts_mr": false,
+              "slope_sequence": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "change_count": 0
+            }
+          }
+        }
+      },
+      "regime_analysis": {
+        "regime_transitions": {
+          "cont_to_mr": 0,
+          "mr_to_cont": 0,
+          "stable": 127
+        },
+        "news_effects": {
+          "high_impact_events": 0,
+          "suppression_events": 0
+        },
+        "h1_confirmations": {
+          "positive_confirmations": 65,
+          "total_breakouts": 127
+        },
+        "transition_rates": {
+          "cont_to_mr_rate": 0.0,
+          "mr_to_cont_rate": 0.0,
+          "stability_rate": 1.0
+        }
+      },
+      "insights": [
+        "Analyzed pattern switches across 25 sessions",
+        "Regime transitions: 0 CONT\u2192MR, 0 MR\u2192CONT, 127 stable",
+        "News impact: 0 high-impact events, 0 suppression events",
+        "H1 confirmations: 65/127 positive confirmations"
+      ],
+      "total_rd40_events": 127
+    },
+    "manual_analysis": {
+      "high_energy_suppressions": 0,
+      "pattern_continuations": 53,
+      "suppression_rate": 0.0
+    }
+  },
+  "experiment_5": {
+    "Non-Farm Payrolls": {
+      "affected_rd40": 25,
+      "pattern_changes": 17,
+      "simulated_impact": 3.0
+    },
+    "FOMC Minutes": {
+      "affected_rd40": 27,
+      "pattern_changes": 18,
+      "simulated_impact": 3.0
+    },
+    "Consumer Price Index": {
+      "affected_rd40": 9,
+      "pattern_changes": 6,
+      "simulated_impact": 1.5
+    }
+  }
+}
