@@ -17,6 +17,13 @@ analysis:
   report_format: "counts_and_ci"  # Report counts + confidence intervals
   default_confidence: 0.95  # 95% confidence intervals
   
+# Calendar Configuration (Hard Fail-Safe)
+calendar:
+  enabled: true
+  path: data/calendar/events.csv      # Local CSV for now
+  tz: America/New_York  # Eastern Time to match session data
+  buckets: {high: 120, medium: 60, low: 30}  # minutes
+
 # News Proximity Buckets (standardized)
 news:
   buckets:

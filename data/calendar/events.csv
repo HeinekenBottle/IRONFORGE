@@ -1,0 +1,17 @@
+dt_et,impact,event,source
+2025-07-15 08:30:00,high,CPI,BLS
+2025-07-16 14:00:00,high,Fed Rate Decision,FOMC
+2025-07-17 09:45:00,medium,Markit PMI,S&P
+2025-07-18 08:30:00,low,Housing Starts,Census
+2025-07-22 08:30:00,high,NFP,BLS
+2025-07-24 10:00:00,medium,GDP Preliminary,BEA
+2025-07-25 08:30:00,low,Durable Goods,Census
+2025-07-28 14:00:00,high,FOMC Statement,Fed
+2025-07-29 08:30:00,medium,Core PCE,BEA
+2025-07-30 10:00:00,low,Consumer Confidence,Conference Board
+2025-07-31 08:30:00,medium,Personal Income,BEA
+2025-08-01 08:30:00,high,Employment Report,BLS
+2025-08-04 10:00:00,medium,ISM Services,ISM
+2025-08-05 08:30:00,low,Trade Balance,Census
+2025-08-06 14:00:00,high,FOMC Meeting Minutes,Fed
+2025-08-07 08:30:00,medium,Initial Claims,DOL
