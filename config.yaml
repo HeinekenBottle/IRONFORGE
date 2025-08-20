@@ -1,0 +1,15 @@
+symbol: NQ
+timeframe: 5
+paths:
+  shards_dir: data/shards/NQ_M5
+  out_dir: runs/2025-08-19/NQ_5m
+loader:
+  fanouts: [10, 10]
+  batch_size: 2048
+confluence:
+  weights: {cluster: 0.25, htf_prox: 0.25, structure: 0.20, cycle: 0.15, precursor: 0.15}
+  threshold: 65
+temporal_discovery:
+  enabled: true
+  search_depth: deep
+  theory_b_validation: true

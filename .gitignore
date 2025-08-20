@@ -52,7 +52,17 @@ oracle_probe/
 *.pkl
 dist/*.whl
 
+# Session fingerprinting artifacts (v1.0.2+ - Release assets policy)
+# NOTE: Model artifacts NOT included in release distributions due to size and optional nature
+# Production deployments should build offline library from historical data
+models/session_fingerprints/**/
+**/session_fingerprint.json
+demo_run_output/
+
 # Test and temporary directories
 test_oracle_weights/
 test_runs/
 models/oracle/test*/
+test_session_fingerprinting/
+test_offline_library_builder/
+test_online_classifier/

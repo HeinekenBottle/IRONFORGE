@@ -176,21 +176,24 @@ class OracleEvaluator:
         for symbol in test_df_copy["symbol"].unique():
             mask = test_df_copy["symbol"] == symbol
             if mask.sum() > 5:  # Only compute if enough samples
-                symbol_metrics = self.compute_metrics(y_true[mask], y_pred[mask])
+                mask_indices = torch.tensor(mask.values, dtype=torch.bool)
+                symbol_metrics = self.compute_metrics(y_true[mask_indices], y_pred[mask_indices])
                 detailed_metrics["by_symbol"][symbol] = symbol_metrics
         
         # By timeframe
         for tf in test_df_copy["tf"].unique():
             mask = test_df_copy["tf"] == tf
             if mask.sum() > 5:
-                tf_metrics = self.compute_metrics(y_true[mask], y_pred[mask])
+                mask_indices = torch.tensor(mask.values, dtype=torch.bool)
+                tf_metrics = self.compute_metrics(y_true[mask_indices], y_pred[mask_indices])
                 detailed_metrics["by_timeframe"][tf] = tf_metrics
         
         # By HTF mode
         for htf_mode in test_df_copy["htf_mode"].unique():
             mask = test_df_copy["htf_mode"] == htf_mode
             if mask.sum() > 5:
-                htf_metrics = self.compute_metrics(y_true[mask], y_pred[mask])
+                mask_indices = torch.tensor(mask.values, dtype=torch.bool)
+                htf_metrics = self.compute_metrics(y_true[mask_indices], y_pred[mask_indices])
                 detailed_metrics["by_htf_mode"][htf_mode] = htf_metrics
         
         # By confidence quartile (handle duplicate values)
@@ -204,7 +207,8 @@ class OracleEvaluator:
         for quartile in ["Q1", "Q2", "Q3", "Q4"]:
             mask = confidence_quartiles == quartile
             if mask.sum() > 5:
-                conf_metrics = self.compute_metrics(y_true[mask], y_pred[mask])
+                mask_indices = torch.tensor(mask.values, dtype=torch.bool)
+                conf_metrics = self.compute_metrics(y_true[mask_indices], y_pred[mask_indices])
                 detailed_metrics["by_confidence_quartile"][quartile] = conf_metrics
         
         # Prediction quality analysis

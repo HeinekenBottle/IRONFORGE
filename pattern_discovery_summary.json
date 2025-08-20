@@ -1,0 +1,24 @@
+{
+  "timestamp": "2025-08-20T00:11:39.732515",
+  "primary_discovery": {
+    "pattern": "f8 liquidity intensity \u2192 FPFVG redelivery",
+    "threshold": 23783.5,
+    "probability": "Very High",
+    "sample_size": 147,
+    "lead_time": "5-15 minutes"
+  },
+  "alert_levels": {
+    "normal": 23521.0,
+    "elevated": 23650.0,
+    "high": 23783.5,
+    "alert": 23783.5
+  },
+  "sessions_analyzed": 51,
+  "feature_importance": {
+    "f8": 2649030.370067886,
+    "f9": 1.1485436209568791,
+    "f4": 0.09517543103691994,
+    "f1": 0.07371533632862802,
+    "f3": 0.04634516328281047
+  }
+}
