@@ -1,5 +1,97 @@
 # IRONFORGE Changelog
 
+## [1.0.2] - 2025-08-19 - Session Fingerprinting (Optional Feature)
+
+### 🔍 Session Fingerprinting — Opt-in, No Schema Changes
+
+**Added optional real-time session classification system for early pattern recognition.**
+
+#### ✅ New Features
+
+**Session Fingerprinting Implementation**
+- **Real-time Classification**: Optional system for 30% session completion fingerprinting
+- **Archetype Assignment**: K-means clustering with pre-trained session archetypes  
+- **Confidence Scoring**: Multiple confidence calculation methods (inverse distance, softmax)
+- **Sidecar Output**: `session_fingerprint.json` with predicted characteristics
+- **Zero Pipeline Impact**: OFF by default, no effect on canonical discovery/report workflows
+
+**30-Dimensional Feature Vector**
+- **Semantic Phase Rates** (6D): Event type occurrence patterns
+- **HTF Regime Distribution** (3D): Market regime {0,1,2} proportions
+- **Range/Tempo Features** (8D): Volatility and movement characteristics  
+- **Timing Features** (8D): Time-based patterns and distributions
+- **Event Distribution** (5D): Event density and clustering patterns
+
+**Multi-Stage ML Pipeline**
+- **Stage 1**: Per-session feature extraction with A/B scaler testing
+- **Stage 2**: Offline library builder with k-means clustering (≥66 sessions)
+- **Stage 3**: Online classifier with flag-controlled activation
+- **Stage 4**: Documentation and surface-level integration
+
+#### ⚙️ Configuration
+
+**Default State**: `enabled=False` (no impact on existing systems)
+
+**Activation**:
+```python
+classifier = create_online_classifier(
+    enabled=True,  # Opt-in activation  
+    completion_threshold=30.0,  # 30% session checkpoint
+    distance_metric="euclidean",  # Distance calculation
+    confidence_method="softmax"  # Confidence scoring
+)
+```
+
+**Model Artifacts**: `models/session_fingerprints/v1.0.2/`
+- K-means clustering model, feature scaler, cluster statistics, metadata
+
+#### 📊 Sidecar Schema
+
+**Output**: `{run_directory}/session_fingerprint.json`
+```json
+{
+  "session_id": "NY_AM_2025-07-29",
+  "archetype_id": 1,
+  "confidence": 0.321,
+  "predicted_stats": {
+    "volatility_class": "medium",
+    "dominant_htf_regime": 1,
+    "session_type_probabilities": {...}
+  }
+}
+```
+
+#### 🛡️ Compatibility & Safety
+
+- **No Breaking Changes**: All existing functionality preserved
+- **Schema Stability**: Zero impact on canonical IRONFORGE schemas  
+- **Contracts Preserved**: All 6 contracts tests pass unchanged
+- **Hard-fail Error Handling**: Missing artifacts produce actionable error messages
+- **Graceful Degradation**: Insufficient events return null without pipeline disruption
+
+#### 📈 Performance & Optimization
+
+**A/B Testing Results**:
+- **Distance Metrics**: Euclidean preferred (highest confidence, efficient)
+- **Completion Thresholds**: 25% acceptable (early predictions without accuracy loss)
+- **Confidence Methods**: Softmax recommended (normalized [0,1] range)
+- **Scaler Types**: StandardScaler vs RobustScaler tested
+
+**Performance Characteristics**:
+- **Artifact Loading**: ~1-2 seconds (one-time startup)
+- **Classification**: <10ms per session at 30% completion
+- **Memory Usage**: ~15MB for loaded clustering models
+
+#### 🔧 Release Assets Policy
+
+**Model artifacts NOT included in release distributions** (size and optional nature).
+
+**Production Deployment**:
+1. Build offline library from historical data
+2. Version and store artifacts separately  
+3. Configure deployment to reference artifact location
+4. Enable via configuration flag
+
 ## [1.0.1] - 2025-08-19 - Oracle Temporal Non-locality (GA Release)
 
 ### 🔮 Oracle Sidecar Predictions
