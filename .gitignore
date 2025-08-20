@@ -66,3 +66,18 @@ models/oracle/test*/
 test_session_fingerprinting/
 test_offline_library_builder/
 test_online_classifier/
+
+# Experimental and analysis files (keep organized in experiments/)
+experiments/**/*.json
+experiments/**/temporal_engine_discoveries_*
+demo_experiment_*.py
+rd40_*.py
+test_*.py
+*_analyzer.py
+*_predictor.py
+*_framework.py
+
+# Remote agents and services (development configs)
+configs/remote_agents.yml
+setup_augment_*.sh
+ironforge/services/temp*/
