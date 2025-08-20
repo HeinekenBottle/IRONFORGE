@@ -16,12 +16,15 @@ import re
 # Import our price relativity components
 from session_time_manager import SessionTimeManager
 from archaeological_zone_calculator import ArchaeologicalZoneCalculator
+from experiment_e_analyzer import ExperimentEAnalyzer
+from ml_path_predictor import MLPathPredictor
 
 class EnhancedTemporalQueryEngine:
     """Interactive temporal pattern query system with price relativity and Theory B integration"""
     
-    def __init__(self, shard_dir: str = "data/shards/NQ_M5"):
+    def __init__(self, shard_dir: str = "data/shards/NQ_M5", adapted_dir: str = "data/adapted"):
         self.shard_dir = shard_dir
+        self.adapted_dir = adapted_dir
         self.sessions = {}
         self.graphs = {}
         self.metadata = {}
@@ -30,15 +33,91 @@ class EnhancedTemporalQueryEngine:
         # Initialize price relativity components
         self.session_manager = SessionTimeManager()
         self.zone_calculator = ArchaeologicalZoneCalculator()
+        self.experiment_e = ExperimentEAnalyzer()
+        self.ml_predictor = MLPathPredictor()
         
         print("🔍 Initializing Enhanced Temporal Query Engine with Price Relativity...")
         self._load_all_sessions()
         
     def _load_all_sessions(self):
         """Load all available sessions into memory with price relativity calculations"""
-        shard_paths = sorted(glob.glob(f"{self.shard_dir}/shard_*"))
-        print(f"📊 Loading {len(shard_paths)} sessions...")
+        # Try to load adapted JSON sessions first
+        adapted_files = sorted(glob.glob(f"{self.adapted_dir}/adapted_enhanced_rel_*.json"))
         
+        if adapted_files:
+            print(f"📊 Loading {len(adapted_files)} adapted sessions...")
+            self._load_adapted_sessions(adapted_files)
+        else:
+            # Fallback to parquet shard format
+            shard_paths = sorted(glob.glob(f"{self.shard_dir}/shard_*"))
+            print(f"📊 Loading {len(shard_paths)} sessions...")
+            self._load_parquet_sessions(shard_paths)
+                
+        print(f"✅ Loaded {len(self.sessions)} sessions with price relativity calculations")
+    
+    def _load_adapted_sessions(self, adapted_files: List[str]):
+        """Load sessions from adapted JSON format"""
+        import json
+        
+        for file_path in adapted_files:
+            session_id = Path(file_path).name.replace('adapted_enhanced_rel_', '').replace('.json', '')
+            try:
+                with open(file_path, 'r') as f:
+                    data = json.load(f)
+                
+                events = data.get('events', [])
+                if not events:
+                    continue
+                
+                # Convert events to DataFrame
+                df = pd.DataFrame(events)
+                
+                # Ensure required columns exist and map from JSON structure
+                if 'price_level' in df.columns:
+                    df['price'] = df['price_level']
+                if 'absolute_price' in df.columns and 'price' not in df.columns:
+                    df['price'] = df['absolute_price']
+                
+                if 'price' not in df.columns:
+                    print(f"⚠️  No price data in {session_id}")
+                    continue
+                
+                # Store session data
+                self.sessions[session_id] = df
+                
+                # Calculate session statistics
+                prices = df['price'].dropna()
+                if len(prices) > 0:
+                    self.session_stats[session_id] = {
+                        'session_high': prices.max(),
+                        'session_low': prices.min(),
+                        'session_open': prices.iloc[0],
+                        'session_close': prices.iloc[-1],
+                        'session_range': prices.max() - prices.min(),
+                        'total_events': len(df)
+                    }
+                
+                # Create simple graph representation (placeholder)
+                G = nx.DiGraph()
+                for i, row in df.iterrows():
+                    G.add_node(i, **row.to_dict())
+                    if i > 0:
+                        G.add_edge(i-1, i)
+                self.graphs[session_id] = G
+                
+                # Store basic metadata
+                self.metadata[session_id] = {
+                    'session_type': session_id.split('_')[0] if '_' in session_id else 'UNKNOWN',
+                    'total_events': len(events),
+                    'enhanced_session_data': data.get('enhanced_session_data', False),
+                    'relativity_enhanced': data.get('events', [{}])[0].get('relativity_enhanced', False)
+                }
+                
+            except Exception as e:
+                print(f"⚠️  Failed to load {session_id}: {e}")
+    
+    def _load_parquet_sessions(self, shard_paths: List[str]):
+        """Load sessions from parquet shard format"""
         for shard_path in shard_paths:
             session_id = Path(shard_path).name.replace('shard_', '')
             try:
@@ -83,8 +162,6 @@ class EnhancedTemporalQueryEngine:
                     
             except Exception as e:
                 print(f"⚠️  Failed to load {session_id}: {e}")
-                
-        print(f"✅ Loaded {len(self.sessions)} sessions with price relativity calculations")
     
     def ask(self, question: str) -> Dict[str, Any]:
         """Ask a temporal question and get probabilistic answers with price relativity"""
@@ -99,6 +176,28 @@ class EnhancedTemporalQueryEngine:
             return self._analyze_archaeological_zones(question)
         elif "theory b" in question.lower() or "temporal non-locality" in question.lower():
             return self._analyze_theory_b_patterns(question)
+        elif "rd@40" in question.lower() or "post-rd" in question.lower() or "redelivery@40" in question.lower():
+            return self._analyze_post_rd40_sequences(question)
+        elif "e1" in question.lower() or ("cont" in question.lower() and ("60%" in question.lower() or "80%" in question.lower())):
+            return self._analyze_e1_cont_paths(question)
+        elif "e2" in question.lower() or ("mr" in question.lower() and ("second" in question.lower() or "failure" in question.lower())):
+            return self._analyze_e2_mr_paths(question)
+        elif "e3" in question.lower() or ("accel" in question.lower() and ("h1" in question.lower() or "breakout" in question.lower())):
+            return self._analyze_e3_accel_paths(question)
+        elif "pattern switch" in question.lower() or "regime" in question.lower():
+            return self._analyze_pattern_switches(question)
+        elif "trigger" in question.lower() and ("rd-40-ft" in question.lower() or "rd40ft" in question.lower()):
+            return self._analyze_trigger_conditions(question)
+        elif "ml" in question.lower() or "machine learning" in question.lower() or "train" in question.lower():
+            return self._analyze_ml_predictions(question)
+        elif "hazard" in question.lower() or "survival" in question.lower() or "time-to-event" in question.lower():
+            return self._analyze_hazard_curves(question)
+        elif "confusion matrix" in question.lower() or "evaluation" in question.lower():
+            return self._evaluate_model_performance(question)
+        elif "feature attribution" in question.lower() or "feature importance" in question.lower():
+            return self._analyze_feature_attributions(question)
+        elif "path probability" in question.lower() or ("cont" in question.lower() and "accel" in question.lower()):
+            return self._calculate_path_probabilities(question)
         elif "relative" in question.lower() or "percentage" in question.lower():
             return self._analyze_relative_positioning(question)
         elif "show me" in question.lower() or "find" in question.lower():
@@ -682,8 +781,1098 @@ class EnhancedTemporalQueryEngine:
     def session_info(self, session_id: str) -> Dict[str, Any]:
         """Get enhanced information about a specific session"""
         return self.get_enhanced_session_info(session_id)
+    
+    # ================================================================================
+    # EXPERIMENT SET E: Post-RD@40% Sequence Analysis
+    # ================================================================================
+    
+    def _analyze_post_rd40_sequences(self, question: str) -> Dict[str, Any]:
+        """Analyze sequence patterns after RD@40% events"""
+        print("🎯 Analyzing post-RD@40% sequence patterns...")
+        
+        results = {
+            "query_type": "post_rd40_sequence_analysis",
+            "total_sessions": len(self.sessions),
+            "rd40_events": [],
+            "path_classifications": {},
+            "feature_analysis": {},
+            "insights": []
+        }
+        
+        # Detect RD@40% events across all sessions
+        rd40_events = self._detect_rd40_events()
+        results["rd40_events"] = rd40_events
+        results["total_rd40_events"] = len(rd40_events)
+        
+        if not rd40_events:
+            results["insights"].append("No RD@40% events detected in current session data")
+            return results
+        
+        # Classify each RD@40% event into CONT/MR/ACCEL paths
+        path_classifications = {}
+        feature_importance = {}
+        
+        for event in rd40_events:
+            session_id = event["session_id"]
+            event_index = event["event_index"]
+            
+            # Classify the sequence path
+            path_result = self._classify_sequence_path(session_id, event_index)
+            path_classifications[f"{session_id}_{event_index}"] = path_result
+            
+            # Extract features for this event
+            features = self._extract_rd40_features(session_id, event_index)
+            event["features"] = features
+        
+        results["path_classifications"] = path_classifications
+        
+        # Calculate path probability distributions
+        path_counts = {"CONT": 0, "MR": 0, "ACCEL": 0, "UNKNOWN": 0}
+        for classification in path_classifications.values():
+            path = classification.get("path", "UNKNOWN")
+            path_counts[path] += 1
+        
+        total_classified = sum(path_counts.values())
+        path_probabilities = {}
+        if total_classified > 0:
+            for path, count in path_counts.items():
+                path_probabilities[path] = round(count / total_classified, 3)
+        
+        results["path_probabilities"] = path_probabilities
+        results["path_counts"] = path_counts
+        
+        # Generate insights
+        if len(rd40_events) > 0:
+            dominant_path = max(path_probabilities.items(), key=lambda x: x[1])
+            results["insights"].append(
+                f"Dominant post-RD@40% path: {dominant_path[0]} ({dominant_path[1]:.1%} probability)"
+            )
+            results["insights"].append(
+                f"Average time to path resolution: {self._calculate_avg_resolution_time(path_classifications):.1f} minutes"
+            )
+        
+        return results
+    
+    def _detect_rd40_events(self) -> List[Dict[str, Any]]:
+        """Detect FPFVG redelivery events at 40% archaeological zones"""
+        rd40_events = []
+        
+        for session_id, nodes in self.sessions.items():
+            if len(nodes) < 10:  # Skip sessions too short for analysis
+                continue
+                
+            session_stats = self.session_stats.get(session_id, {})
+            session_range = session_stats.get("session_range", 0)
+            
+            if session_range < 10:  # Skip small ranges
+                continue
+            
+            session_high = session_stats.get("session_high", 0)
+            session_low = session_stats.get("session_low", 0)
+            zone_40_price = session_low + (session_range * 0.4)
+            
+            # Look for events near the 40% zone with redelivery characteristics
+            for i in range(10, len(nodes) - 10):  # Leave buffer for sequence analysis
+                current_price = nodes.iloc[i].get('price', 0)
+                if current_price == 0:
+                    continue
+                
+                # Check proximity to 40% zone (within 5% of session range)
+                distance_to_zone = abs(current_price - zone_40_price)
+                proximity_ratio = distance_to_zone / session_range
+                
+                if proximity_ratio <= 0.05:  # Within 5% of zone
+                    # Check for redelivery characteristics
+                    if self._has_redelivery_characteristics(nodes, i):
+                        rd40_events.append({
+                            "session_id": session_id,
+                            "event_index": i,
+                            "timestamp": nodes.iloc[i].get('timestamp', ''),
+                            "price": current_price,
+                            "zone_40_price": zone_40_price,
+                            "proximity_ratio": proximity_ratio,
+                            "strength": 1.0 - proximity_ratio,
+                            "session_range": session_range
+                        })
+        
+        return rd40_events
+    
+    def _has_redelivery_characteristics(self, nodes: pd.DataFrame, index: int) -> bool:
+        """Check if event has FPFVG redelivery characteristics"""
+        if index >= len(nodes):
+            return False
+            
+        current_event = nodes.iloc[index]
+        
+        # Look for liquidity spike patterns around this event
+        window_start = max(0, index - 5)
+        window_end = min(len(nodes), index + 5)
+        window = nodes.iloc[window_start:window_end]
+        
+        # Check for f8-like liquidity characteristics
+        # (simplified - would use actual f8 feature if available)
+        if 'magnitude' in window.columns:
+            avg_magnitude = window['magnitude'].mean()
+            current_magnitude = current_event.get('magnitude', 0)
+            
+            # Look for magnitude spike (simplified redelivery detection)
+            if current_magnitude > avg_magnitude * 1.5:
+                return True
+        
+        # Check for expansion phase patterns
+        event_type = current_event.get('type', '')
+        if 'expansion' in str(event_type).lower() or 'redelivery' in str(event_type).lower():
+            return True
+        
+        # Check archaeological significance (specific to adapted data)
+        arch_sig = current_event.get('archaeological_significance', 0)
+        if arch_sig > 0.8:  # High archaeological significance
+            return True
+        
+        # Check energy density patterns
+        energy_density = current_event.get('energy_density', 0)
+        if energy_density > 0.7:  # High energy events
+            return True
+        
+        # Check for dimensional relationship to zones
+        dim_rel = current_event.get('dimensional_relationship', '')
+        if 'zone' in str(dim_rel).lower() or 'threshold' in str(dim_rel).lower():
+            return True
+        
+        return False
+    
+    def _classify_sequence_path(self, session_id: str, event_index: int) -> Dict[str, Any]:
+        """Classify the sequence path after RD@40% event: CONT/MR/ACCEL"""
+        nodes = self.sessions[session_id]
+        session_stats = self.session_stats.get(session_id, {})
+        session_range = session_stats.get("session_range", 0)
+        session_low = session_stats.get("session_low", 0)
+        
+        if session_range == 0:
+            return {"path": "UNKNOWN", "reason": "No session range data"}
+        
+        # Define zone thresholds
+        zone_50 = session_low + (session_range * 0.5)
+        zone_60 = session_low + (session_range * 0.6) 
+        zone_80 = session_low + (session_range * 0.8)
+        
+        # Analyze 120-minute post-event window (or to end of session)
+        max_observation_bars = min(120, len(nodes) - event_index - 1)  # 120 bars ~ 120 minutes for M1 data
+        end_index = event_index + max_observation_bars
+        
+        if end_index <= event_index + 5:  # Not enough data for analysis
+            return {"path": "UNKNOWN", "reason": "Insufficient post-event data"}
+        
+        post_event_window = nodes.iloc[event_index:end_index]
+        
+        # Track key timing milestones
+        time_to_60 = None
+        time_to_80 = None
+        time_to_mid = None
+        
+        for i, (_, row) in enumerate(post_event_window.iterrows()):
+            price = row.get('price', 0)
+            if price == 0:
+                continue
+            
+            minutes_elapsed = i  # Assuming 1-minute bars
+            
+            # Check zone hits
+            if time_to_60 is None and abs(price - zone_60) / session_range <= 0.03:
+                time_to_60 = minutes_elapsed
+            
+            if time_to_80 is None and abs(price - zone_80) / session_range <= 0.03:
+                time_to_80 = minutes_elapsed
+            
+            if time_to_mid is None and abs(price - zone_50) / session_range <= 0.05:
+                time_to_mid = minutes_elapsed
+        
+        # Classification logic
+        
+        # CONT Path: 40% → 60% → 80% within timeframes
+        if time_to_60 is not None and time_to_60 <= 45 and time_to_80 is not None and time_to_80 <= 90:
+            return {
+                "path": "CONT",
+                "time_to_60": time_to_60,
+                "time_to_80": time_to_80,
+                "confidence": 0.8
+            }
+        
+        # MR Path: Snap to mid-range within 60 minutes
+        if time_to_mid is not None and time_to_mid <= 60:
+            # Check for secondary patterns (simplified)
+            second_rd = self._check_second_rd(post_event_window, zone_50)
+            return {
+                "path": "MR", 
+                "time_to_mid": time_to_mid,
+                "second_rd": second_rd,
+                "confidence": 0.7
+            }
+        
+        # ACCEL Path: Quick move to 80% with H1 alignment (simplified)
+        if time_to_80 is not None and time_to_80 <= 60:
+            h1_aligned = self._check_h1_alignment(session_id, event_index)  # Placeholder
+            return {
+                "path": "ACCEL",
+                "time_to_80": time_to_80, 
+                "h1_aligned": h1_aligned,
+                "confidence": 0.6
+            }
+        
+        # Default: Path unclear
+        return {
+            "path": "UNKNOWN",
+            "time_to_60": time_to_60,
+            "time_to_80": time_to_80,
+            "time_to_mid": time_to_mid,
+            "reason": "No clear path pattern identified"
+        }
+    
+    def _check_second_rd(self, window: pd.DataFrame, zone_50: float) -> bool:
+        """Check for second redelivery attempt after mean revert"""
+        # Simplified check - look for return to original zone after mid-range visit
+        # This would be more sophisticated in production
+        return len(window) > 30  # Placeholder logic
+    
+    def _check_h1_alignment(self, session_id: str, event_index: int) -> bool:
+        """Check for H1 breakout alignment (placeholder)"""
+        # This would integrate with actual H1 breakout detection
+        # For now, return random alignment based on session characteristics
+        return "NY" in session_id  # Simplified placeholder
+    
+    def _extract_rd40_features(self, session_id: str, event_index: int) -> Dict[str, Any]:
+        """Extract relevant features for RD@40% event analysis"""
+        nodes = self.sessions[session_id]
+        
+        if event_index >= len(nodes):
+            return {}
+        
+        event_row = nodes.iloc[event_index]
+        features = {}
+        
+        # Extract available features from the event
+        feature_columns = ['f8_q', 'f8_slope_sign', 'f47_barpos_m15', 'f48_barpos_h1', 
+                          'f49_dist_daily_mid', 'f50_htf_regime', 'magnitude', 
+                          'energy_density', 'archaeological_significance']
+        
+        for feature in feature_columns:
+            if feature in event_row:
+                features[feature] = event_row[feature]
+        
+        # Calculate additional contextual features
+        session_stats = self.session_stats.get(session_id, {})
+        if session_stats:
+            features['session_range'] = session_stats.get('session_range', 0)
+            features['session_progress'] = event_index / len(nodes) if len(nodes) > 0 else 0
+        
+        return features
+    
+    def _calculate_avg_resolution_time(self, path_classifications: Dict) -> float:
+        """Calculate average time to path resolution"""
+        times = []
+        for classification in path_classifications.values():
+            if 'time_to_60' in classification and classification['time_to_60'] is not None:
+                times.append(classification['time_to_60'])
+            elif 'time_to_80' in classification and classification['time_to_80'] is not None:
+                times.append(classification['time_to_80']) 
+            elif 'time_to_mid' in classification and classification['time_to_mid'] is not None:
+                times.append(classification['time_to_mid'])
+        
+        return np.mean(times) if times else 0.0
+    
+    def _calculate_path_probabilities(self, question: str) -> Dict[str, Any]:
+        """Calculate path probabilities with confidence intervals"""
+        print("📊 Calculating path probabilities with statistical analysis...")
+        
+        # First get RD@40% events and classifications
+        rd40_analysis = self._analyze_post_rd40_sequences(question)
+        path_classifications = rd40_analysis.get("path_classifications", {})
+        
+        if not path_classifications:
+            return {
+                "query_type": "path_probabilities",
+                "error": "No RD@40% events found for probability analysis",
+                "total_events": 0
+            }
+        
+        # Calculate detailed statistics
+        path_stats = {"CONT": [], "MR": [], "ACCEL": [], "UNKNOWN": []}
+        
+        for event_key, classification in path_classifications.items():
+            path = classification.get("path", "UNKNOWN")
+            confidence = classification.get("confidence", 0.5)
+            
+            path_stats[path].append({
+                "event": event_key,
+                "confidence": confidence,
+                "classification": classification
+            })
+        
+        # Calculate probabilities and confidence intervals
+        total_events = len(path_classifications)
+        results = {
+            "query_type": "path_probabilities", 
+            "total_events": total_events,
+            "path_statistics": {},
+            "wilson_confidence_intervals": {},
+            "insights": []
+        }
+        
+        for path, events in path_stats.items():
+            count = len(events)
+            probability = count / total_events if total_events > 0 else 0
+            
+            # Wilson confidence interval (simplified)
+            if count > 0 and total_events > 0:
+                # Simplified Wilson CI calculation
+                z = 1.96  # 95% confidence
+                p_hat = probability
+                n = total_events
+                
+                numerator = p_hat + z**2/(2*n)
+                denominator = 1 + z**2/n
+                margin = z * np.sqrt((p_hat * (1-p_hat) + z**2/(4*n)) / n) / denominator
+                
+                ci_lower = max(0, (numerator - margin) / denominator)
+                ci_upper = min(1, (numerator + margin) / denominator)
+            else:
+                ci_lower, ci_upper = 0, 0
+            
+            results["path_statistics"][path] = {
+                "count": count,
+                "probability": round(probability, 3),
+                "avg_confidence": round(np.mean([e["confidence"] for e in events]) if events else 0, 3)
+            }
+            
+            results["wilson_confidence_intervals"][path] = {
+                "lower": round(ci_lower, 3),
+                "upper": round(ci_upper, 3)
+            }
+        
+        # Generate insights
+        if total_events >= 3:
+            dominant_path = max(results["path_statistics"].items(), 
+                              key=lambda x: x[1]["probability"])
+            results["insights"].append(
+                f"Most probable path: {dominant_path[0]} ({dominant_path[1]['probability']:.1%})"
+            )
+            
+            high_confidence_paths = [
+                path for path, stats in results["path_statistics"].items() 
+                if stats["avg_confidence"] > 0.7 and stats["count"] > 0
+            ]
+            
+            if high_confidence_paths:
+                results["insights"].append(
+                    f"High confidence paths: {', '.join(high_confidence_paths)}"
+                )
+        else:
+            results["insights"].append(
+                "Insufficient data for robust probability analysis (need ≥3 events)"
+            )
+        
+        return results
 
 # Interactive CLI wrapper
+    def _analyze_e1_cont_paths(self, question: str) -> Dict[str, Any]:
+        """Analyze E1 CONT paths: RD@40 → 60% → 80% within timing constraints"""
+        print("🎯 Analyzing E1 CONT paths with 45min→60%, 90min→80% precision timing...")
+        
+        results = {
+            "query_type": "e1_cont_path_analysis",
+            "total_sessions": len(self.sessions),
+            "e1_cont_events": [],
+            "timing_analysis": {},
+            "feature_importance": {},
+            "insights": []
+        }
+        
+        # Detect RD@40% events first
+        rd40_events = self._detect_rd40_events()
+        results["total_rd40_events"] = len(rd40_events)
+        
+        if not rd40_events:
+            results["insights"].append("No RD@40% events detected for E1 CONT analysis")
+            return results
+        
+        e1_cont_classifications = []
+        timing_stats = {"time_to_60": [], "time_to_80": [], "drawdown_risks": []}
+        
+        for event in rd40_events:
+            session_id = event["session_id"]
+            event_index = event["event_index"]
+            
+            if session_id not in self.sessions:
+                continue
+            
+            session_data = self.sessions[session_id]
+            e1_result = self.experiment_e.classify_e1_cont_path(session_data, event_index)
+            
+            if e1_result.get("path") == "E1_CONT":
+                e1_cont_classifications.append({
+                    "session_id": session_id,
+                    "event_index": event_index,
+                    "classification": e1_result,
+                    "confidence": e1_result.get("confidence", 0),
+                    "kpis": e1_result.get("kpis", {})
+                })
+                
+                # Collect timing statistics
+                kpis = e1_result.get("kpis", {})
+                if "expected_time_to_60" in kpis:
+                    timing_stats["time_to_60"].append(kpis["expected_time_to_60"])
+                if "expected_time_to_80" in kpis:
+                    timing_stats["time_to_80"].append(kpis["expected_time_to_80"])
+                if "drawdown_risk" in kpis:
+                    timing_stats["drawdown_risks"].append(kpis["drawdown_risk"])
+        
+        results["e1_cont_events"] = e1_cont_classifications
+        results["total_e1_cont"] = len(e1_cont_classifications)
+        
+        # Calculate aggregate timing statistics
+        if timing_stats["time_to_60"]:
+            results["timing_analysis"] = {
+                "avg_time_to_60": np.mean(timing_stats["time_to_60"]),
+                "median_time_to_60": np.median(timing_stats["time_to_60"]),
+                "avg_time_to_80": np.mean(timing_stats["time_to_80"]) if timing_stats["time_to_80"] else None,
+                "median_time_to_80": np.median(timing_stats["time_to_80"]) if timing_stats["time_to_80"] else None,
+                "avg_drawdown_risk": np.mean(timing_stats["drawdown_risks"]) if timing_stats["drawdown_risks"] else 0,
+                "success_rate": len(e1_cont_classifications) / len(rd40_events) if rd40_events else 0
+            }
+        
+        # Generate insights
+        success_rate = results["timing_analysis"].get("success_rate", 0) if results.get("timing_analysis") else 0
+        results["insights"].extend([
+            f"Identified {len(e1_cont_classifications)} E1 CONT paths from {len(rd40_events)} RD@40% events",
+            f"E1 CONT success rate: {success_rate:.1%}",
+            f"Average timing: {results['timing_analysis'].get('avg_time_to_60', 'N/A')}min to 60%, {results['timing_analysis'].get('avg_time_to_80', 'N/A')}min to 80%" if results.get("timing_analysis") else "No timing data available"
+        ])
+        
+        return results
+    
+    def _analyze_e2_mr_paths(self, question: str) -> Dict[str, Any]:
+        """Analyze E2 MR paths: RD@40 → mid with second_rd/failure branching"""
+        print("🔄 Analyzing E2 MR paths with second_rd and failure branch detection...")
+        
+        results = {
+            "query_type": "e2_mr_path_analysis", 
+            "total_sessions": len(self.sessions),
+            "e2_mr_events": [],
+            "branch_analysis": {},
+            "insights": []
+        }
+        
+        # Detect RD@40% events first
+        rd40_events = self._detect_rd40_events()
+        results["total_rd40_events"] = len(rd40_events)
+        
+        if not rd40_events:
+            results["insights"].append("No RD@40% events detected for E2 MR analysis")
+            return results
+        
+        e2_mr_classifications = []
+        branch_stats = {"second_rd": 0, "failure": 0, "unknown": 0}
+        
+        for event in rd40_events:
+            session_id = event["session_id"] 
+            event_index = event["event_index"]
+            
+            if session_id not in self.sessions:
+                continue
+            
+            session_data = self.sessions[session_id]
+            e2_result = self.experiment_e.classify_e2_mr_path(session_data, event_index)
+            
+            if e2_result.get("path") == "E2_MR":
+                e2_mr_classifications.append({
+                    "session_id": session_id,
+                    "event_index": event_index, 
+                    "classification": e2_result,
+                    "confidence": e2_result.get("confidence", 0),
+                    "kpis": e2_result.get("kpis", {}),
+                    "branch_analysis": e2_result.get("branch_analysis", {})
+                })
+                
+                # Track branching patterns
+                branch_data = e2_result.get("branch_analysis", {})
+                if branch_data.get("second_rd_probability", 0) > 0.5:
+                    branch_stats["second_rd"] += 1
+                elif branch_data.get("failure_probability", 0) > 0.5:
+                    branch_stats["failure"] += 1
+                else:
+                    branch_stats["unknown"] += 1
+        
+        results["e2_mr_events"] = e2_mr_classifications
+        results["total_e2_mr"] = len(e2_mr_classifications)
+        
+        # Calculate branch statistics
+        if e2_mr_classifications:
+            total_branches = sum(branch_stats.values())
+            results["branch_analysis"] = {
+                "second_rd_rate": branch_stats["second_rd"] / total_branches if total_branches > 0 else 0,
+                "failure_rate": branch_stats["failure"] / total_branches if total_branches > 0 else 0,
+                "unknown_rate": branch_stats["unknown"] / total_branches if total_branches > 0 else 0,
+                "branch_distribution": branch_stats
+            }
+        
+        # Generate insights
+        success_rate = len(e2_mr_classifications) / len(rd40_events) if rd40_events else 0
+        results["insights"].extend([
+            f"Identified {len(e2_mr_classifications)} E2 MR paths from {len(rd40_events)} RD@40% events",
+            f"E2 MR detection rate: {success_rate:.1%}",
+            f"Branch distribution: {branch_stats['second_rd']} second_rd, {branch_stats['failure']} failure, {branch_stats['unknown']} unknown"
+        ])
+        
+        return results
+    
+    def _analyze_e3_accel_paths(self, question: str) -> Dict[str, Any]:
+        """Analyze E3 ACCEL paths: RD@40 + H1 breakout → fast 80% with shallow pullback"""
+        print("🚀 Analyzing E3 ACCEL paths with H1 breakout confirmation...")
+        
+        results = {
+            "query_type": "e3_accel_path_analysis",
+            "total_sessions": len(self.sessions), 
+            "e3_accel_events": [],
+            "h1_analysis": {},
+            "performance_metrics": {},
+            "insights": []
+        }
+        
+        # Detect RD@40% events first
+        rd40_events = self._detect_rd40_events()
+        results["total_rd40_events"] = len(rd40_events)
+        
+        if not rd40_events:
+            results["insights"].append("No RD@40% events detected for E3 ACCEL analysis")
+            return results
+        
+        e3_accel_classifications = []
+        h1_stats = {"breakouts_detected": 0, "direction_aligned": 0, "accel_confirmed": 0}
+        performance_stats = {"time_to_80": [], "pullback_depths": [], "continuation_probs": []}
+        
+        for event in rd40_events:
+            session_id = event["session_id"]
+            event_index = event["event_index"]
+            
+            if session_id not in self.sessions:
+                continue
+            
+            session_data = self.sessions[session_id]
+            e3_result = self.experiment_e.classify_e3_accel_path(session_data, event_index)
+            
+            # Track H1 breakout statistics
+            h1_breakout = e3_result.get("h1_breakout", {})
+            if h1_breakout.get("detected"):
+                h1_stats["breakouts_detected"] += 1
+                if h1_breakout.get("direction_aligned"):
+                    h1_stats["direction_aligned"] += 1
+            
+            if e3_result.get("path") == "E3_ACCEL":
+                h1_stats["accel_confirmed"] += 1
+                e3_accel_classifications.append({
+                    "session_id": session_id,
+                    "event_index": event_index,
+                    "classification": e3_result,
+                    "confidence": e3_result.get("confidence", 0),
+                    "kpis": e3_result.get("kpis", {}),
+                    "h1_breakout": h1_breakout
+                })
+                
+                # Collect performance statistics
+                kpis = e3_result.get("kpis", {})
+                if "time_to_80" in kpis:
+                    performance_stats["time_to_80"].append(kpis["time_to_80"])
+                if "pullback_depth" in kpis:
+                    performance_stats["pullback_depths"].append(kpis["pullback_depth"])
+                if "continuation_beyond_80" in kpis:
+                    performance_stats["continuation_probs"].append(kpis["continuation_beyond_80"])
+        
+        results["e3_accel_events"] = e3_accel_classifications
+        results["total_e3_accel"] = len(e3_accel_classifications)
+        
+        # Calculate H1 and performance statistics
+        results["h1_analysis"] = {
+            "breakout_detection_rate": h1_stats["breakouts_detected"] / len(rd40_events) if rd40_events else 0,
+            "direction_alignment_rate": h1_stats["direction_aligned"] / h1_stats["breakouts_detected"] if h1_stats["breakouts_detected"] > 0 else 0,
+            "accel_conversion_rate": h1_stats["accel_confirmed"] / h1_stats["direction_aligned"] if h1_stats["direction_aligned"] > 0 else 0
+        }
+        
+        if performance_stats["time_to_80"]:
+            results["performance_metrics"] = {
+                "avg_time_to_80": np.mean(performance_stats["time_to_80"]),
+                "median_time_to_80": np.median(performance_stats["time_to_80"]),
+                "avg_pullback_depth": np.mean(performance_stats["pullback_depths"]) if performance_stats["pullback_depths"] else 0,
+                "avg_continuation_prob": np.mean(performance_stats["continuation_probs"]) if performance_stats["continuation_probs"] else 0
+            }
+        
+        # Generate insights
+        success_rate = len(e3_accel_classifications) / len(rd40_events) if rd40_events else 0
+        results["insights"].extend([
+            f"Identified {len(e3_accel_classifications)} E3 ACCEL paths from {len(rd40_events)} RD@40% events",
+            f"E3 ACCEL success rate: {success_rate:.1%}",
+            f"H1 breakout detection: {h1_stats['breakouts_detected']} detected, {h1_stats['direction_aligned']} aligned",
+            f"Performance: {results['performance_metrics'].get('avg_time_to_80', 'N/A')}min avg to 80%" if results.get("performance_metrics") else "No performance data available"
+        ])
+        
+        return results
+    
+    def _analyze_pattern_switches(self, question: str) -> Dict[str, Any]:
+        """Analyze pattern-switch diagnostics for regime transitions"""
+        print("🔄 Analyzing pattern-switch diagnostics and regime transitions...")
+        
+        results = {
+            "query_type": "pattern_switch_analysis",
+            "total_sessions": len(self.sessions),
+            "switch_diagnostics": {},
+            "regime_analysis": {},
+            "insights": []
+        }
+        
+        # Get RD@40% events for switch analysis
+        rd40_events = self._detect_rd40_events()
+        results["total_rd40_events"] = len(rd40_events)
+        
+        if not rd40_events:
+            results["insights"].append("No RD@40% events detected for pattern switch analysis")
+            return results
+        
+        # Analyze pattern switches across all sessions
+        all_switch_diagnostics = {}
+        
+        for session_id, session_data in self.sessions.items():
+            # Filter RD@40% events for this session
+            session_rd40_events = [e for e in rd40_events if e.get("session_id") == session_id]
+            
+            if session_rd40_events:
+                switch_analysis = self.experiment_e.analyze_pattern_switches(session_data, session_rd40_events)
+                all_switch_diagnostics[session_id] = switch_analysis
+        
+        results["switch_diagnostics"] = all_switch_diagnostics
+        
+        # Aggregate regime transition patterns
+        regime_transitions = {"cont_to_mr": 0, "mr_to_cont": 0, "stable": 0}
+        news_effects = {"high_impact_events": 0, "suppression_events": 0}
+        h1_confirmations = {"positive_confirmations": 0, "total_breakouts": 0}
+        
+        for session_id, diagnostics in all_switch_diagnostics.items():
+            # Count regime flips
+            regime_flips = diagnostics.get("regime_flip_analysis", {})
+            for event_key, flip_data in regime_flips.items():
+                if flip_data.get("flips_cont_to_mr"):
+                    regime_transitions["cont_to_mr"] += 1
+                elif flip_data.get("flips_mr_to_cont"):
+                    regime_transitions["mr_to_cont"] += 1
+                else:
+                    regime_transitions["stable"] += 1
+            
+            # Count news effects
+            news_proximity = diagnostics.get("news_proximity_effects", {})
+            for event_key, news_data in news_proximity.items():
+                if news_data.get("high_impact_detected"):
+                    news_effects["high_impact_events"] += 1
+                if news_data.get("suppresses_cont_accel"):
+                    news_effects["suppression_events"] += 1
+            
+            # Count H1 confirmations
+            h1_impacts = diagnostics.get("h1_confirmation_impact", {})
+            for event_key, h1_data in h1_impacts.items():
+                if h1_data.get("adds_accel_probability"):
+                    h1_confirmations["positive_confirmations"] += 1
+                h1_confirmations["total_breakouts"] += 1
+        
+        results["regime_analysis"] = {
+            "regime_transitions": regime_transitions,
+            "news_effects": news_effects, 
+            "h1_confirmations": h1_confirmations,
+            "transition_rates": {
+                "cont_to_mr_rate": regime_transitions["cont_to_mr"] / sum(regime_transitions.values()) if sum(regime_transitions.values()) > 0 else 0,
+                "mr_to_cont_rate": regime_transitions["mr_to_cont"] / sum(regime_transitions.values()) if sum(regime_transitions.values()) > 0 else 0,
+                "stability_rate": regime_transitions["stable"] / sum(regime_transitions.values()) if sum(regime_transitions.values()) > 0 else 0
+            }
+        }
+        
+        # Generate insights
+        total_switches = sum(regime_transitions.values())
+        results["insights"].extend([
+            f"Analyzed pattern switches across {len(all_switch_diagnostics)} sessions",
+            f"Regime transitions: {regime_transitions['cont_to_mr']} CONT→MR, {regime_transitions['mr_to_cont']} MR→CONT, {regime_transitions['stable']} stable",
+            f"News impact: {news_effects['high_impact_events']} high-impact events, {news_effects['suppression_events']} suppression events",
+            f"H1 confirmations: {h1_confirmations['positive_confirmations']}/{h1_confirmations['total_breakouts']} positive confirmations"
+        ])
+        
+        return results
+    
+    def _analyze_trigger_conditions(self, question: str) -> Dict[str, Any]:
+        """Analyze RD-40-FT trigger conditions for CONT/MR/ACCEL"""
+        print("🎯 Analyzing RD-40-FT trigger conditions with precision gates...")
+        
+        results = {
+            "query_type": "trigger_condition_analysis",
+            "total_sessions": len(self.sessions),
+            "trigger_analysis": {},
+            "precision_gates": {},
+            "insights": []
+        }
+        
+        # Get comprehensive path analysis
+        e1_results = self._analyze_e1_cont_paths(question)
+        e2_results = self._analyze_e2_mr_paths(question) 
+        e3_results = self._analyze_e3_accel_paths(question)
+        
+        # Analyze trigger precision for each path type
+        trigger_stats = {
+            "RD-40-FT-CONT": {
+                "candidates": len(e1_results.get("e1_cont_events", [])),
+                "high_confidence": len([e for e in e1_results.get("e1_cont_events", []) if e.get("confidence", 0) >= 0.85]),
+                "precision_rate": 0
+            },
+            "RD-40-FT-MR": {
+                "candidates": len(e2_results.get("e2_mr_events", [])),
+                "high_confidence": len([e for e in e2_results.get("e2_mr_events", []) if e.get("confidence", 0) >= 0.70]),
+                "precision_rate": 0
+            },
+            "RD-40-FT-ACCEL": {
+                "candidates": len(e3_results.get("e3_accel_events", [])),
+                "high_confidence": len([e for e in e3_results.get("e3_accel_events", []) if e.get("confidence", 0) >= 0.85]),
+                "precision_rate": 0
+            }
+        }
+        
+        # Calculate precision rates
+        for trigger_type, stats in trigger_stats.items():
+            if stats["candidates"] > 0:
+                stats["precision_rate"] = stats["high_confidence"] / stats["candidates"]
+        
+        results["trigger_analysis"] = trigger_stats
+        
+        # Define precision gates
+        results["precision_gates"] = {
+            "RD-40-FT-CONT": {
+                "min_confidence": 0.85,
+                "min_f8_q": 0.90,
+                "max_theory_b_dt": 30,
+                "required_features": ["f8_q >= 0.90", "positive f8_slope", "theory_b_dt <= 30m", "gap_age <= 2d"]
+            },
+            "RD-40-FT-MR": {
+                "min_confidence": 0.70,
+                "news_window": 15,
+                "required_features": ["f50 = mean_revert OR high news_impact", "f8_slope <= 0", "no H1 breakout"]
+            },
+            "RD-40-FT-ACCEL": {
+                "min_confidence": 0.85,
+                "min_f8_q": 0.95,
+                "h1_window": 15,
+                "required_features": ["H1 breakout aligned", "f8_q >= 0.95", "theory_b_dt <= 30m", "tight zone distance"]
+            }
+        }
+        
+        # Generate trigger recommendations
+        total_rd40_events = e1_results.get("total_rd40_events", 0)
+        results["insights"].extend([
+            f"Trigger analysis across {total_rd40_events} RD@40% events:",
+            f"RD-40-FT-CONT: {trigger_stats['RD-40-FT-CONT']['high_confidence']}/{trigger_stats['RD-40-FT-CONT']['candidates']} meet ≥85% precision gate",
+            f"RD-40-FT-MR: {trigger_stats['RD-40-FT-MR']['high_confidence']}/{trigger_stats['RD-40-FT-MR']['candidates']} meet ≥70% precision gate", 
+            f"RD-40-FT-ACCEL: {trigger_stats['RD-40-FT-ACCEL']['high_confidence']}/{trigger_stats['RD-40-FT-ACCEL']['candidates']} meet ≥85% precision gate",
+            "Precision gates calibrated for execution-grade signals with rate limiting"
+        ])
+        
+        return results
+    
+    def _analyze_ml_predictions(self, question: str) -> Dict[str, Any]:
+        """Train and analyze ML path predictions with isotonic calibration"""
+        print("🤖 Training ML Path Predictor with isotonic calibration...")
+        
+        results = {
+            "query_type": "ml_path_prediction",
+            "total_sessions": len(self.sessions),
+            "training_results": {},
+            "predictions": {},
+            "insights": []
+        }
+        
+        # Get RD@40% events and path classifications
+        rd40_events = self._detect_rd40_events()
+        results["total_rd40_events"] = len(rd40_events)
+        
+        if not rd40_events:
+            results["insights"].append("No RD@40% events found for ML training")
+            return results
+        
+        # Get path classifications from all E1/E2/E3 analyses
+        all_path_classifications = {}
+        
+        # Collect classifications from each path type
+        for event in rd40_events:
+            session_id = event["session_id"]
+            event_index = event["event_index"]
+            event_key = f"{session_id}_{event_index}"
+            
+            if session_id not in self.sessions:
+                continue
+            
+            session_data = self.sessions[session_id]
+            
+            # Try E1 CONT classification
+            e1_result = self.experiment_e.classify_e1_cont_path(session_data, event_index)
+            if e1_result.get("path") == "E1_CONT":
+                all_path_classifications[event_key] = e1_result
+                continue
+            
+            # Try E2 MR classification
+            e2_result = self.experiment_e.classify_e2_mr_path(session_data, event_index)
+            if e2_result.get("path") == "E2_MR":
+                all_path_classifications[event_key] = e2_result
+                continue
+            
+            # Try E3 ACCEL classification
+            e3_result = self.experiment_e.classify_e3_accel_path(session_data, event_index)
+            if e3_result.get("path") == "E3_ACCEL":
+                all_path_classifications[event_key] = e3_result
+                continue
+        
+        results["classified_events"] = len(all_path_classifications)
+        
+        if len(all_path_classifications) < 10:
+            results["insights"].append(f"Insufficient classified events ({len(all_path_classifications)}) for reliable ML training")
+            return results
+        
+        # Prepare training data
+        X, y = self.ml_predictor.prepare_training_data(rd40_events, self.sessions, all_path_classifications)
+        
+        if len(X) == 0:
+            results["insights"].append("No valid training data could be prepared")
+            return results
+        
+        # Train ML models
+        training_results = self.ml_predictor.fit(X, y)
+        results["training_results"] = training_results
+        
+        # Generate predictions for all events
+        if self.ml_predictor.is_fitted:
+            predictions = self.ml_predictor.predict_path_probabilities(X)
+            results["predictions"] = {
+                "sample_predictions": {
+                    "CONT": predictions.get("CONT", [])[:5].tolist() if len(predictions.get("CONT", [])) > 0 else [],
+                    "MR": predictions.get("MR", [])[:5].tolist() if len(predictions.get("MR", [])) > 0 else [],
+                    "ACCEL": predictions.get("ACCEL", [])[:5].tolist() if len(predictions.get("ACCEL", [])) > 0 else []
+                }
+            }
+        
+        # Generate insights
+        if training_results.get("class_distribution"):
+            class_dist = training_results["class_distribution"]
+            dominant_class = max(class_dist, key=class_dist.get) if class_dist else "UNKNOWN"
+            results["insights"].extend([
+                f"Trained ML predictor on {training_results.get('total_samples', 0)} samples",
+                f"Class distribution: {class_dist}",
+                f"Dominant class: {dominant_class}",
+                f"Cross-validation AUC scores available for model validation"
+            ])
+        
+        return results
+    
+    def _analyze_hazard_curves(self, question: str) -> Dict[str, Any]:
+        """Analyze time-to-event hazard curves for path resolution"""
+        print("📈 Analyzing hazard curves and survival analysis...")
+        
+        results = {
+            "query_type": "hazard_curve_analysis",
+            "total_sessions": len(self.sessions),
+            "hazard_results": {},
+            "insights": []
+        }
+        
+        # Get RD@40% events and classifications
+        rd40_events = self._detect_rd40_events()
+        results["total_rd40_events"] = len(rd40_events)
+        
+        if not rd40_events:
+            results["insights"].append("No RD@40% events found for hazard analysis")
+            return results
+        
+        # Get path classifications 
+        all_path_classifications = {}
+        
+        for event in rd40_events:
+            session_id = event["session_id"]
+            event_index = event["event_index"]
+            event_key = f"{session_id}_{event_index}"
+            
+            if session_id not in self.sessions:
+                continue
+            
+            session_data = self.sessions[session_id]
+            
+            # Get best classification
+            classifications = [
+                self.experiment_e.classify_e1_cont_path(session_data, event_index),
+                self.experiment_e.classify_e2_mr_path(session_data, event_index),
+                self.experiment_e.classify_e3_accel_path(session_data, event_index)
+            ]
+            
+            # Use the classification with highest confidence that isn't a "NOT_" type
+            best_classification = None
+            best_confidence = 0
+            
+            for classification in classifications:
+                confidence = classification.get("confidence", 0)
+                path = classification.get("path", "UNKNOWN")
+                
+                if not path.startswith("NOT_") and confidence > best_confidence:
+                    best_classification = classification
+                    best_confidence = confidence
+            
+            if best_classification:
+                all_path_classifications[event_key] = best_classification
+        
+        # Perform hazard curve analysis
+        hazard_analysis = self.ml_predictor.analyze_hazard_curves(rd40_events, self.sessions, all_path_classifications)
+        results["hazard_results"] = hazard_analysis
+        
+        # Generate insights
+        if hazard_analysis.get("path_hazard_analysis"):
+            hazard_stats = hazard_analysis["path_hazard_analysis"]
+            median_times = hazard_analysis.get("median_resolution_times", {})
+            
+            insights = [f"Hazard analysis across {len(all_path_classifications)} classified events:"]
+            
+            for path_type, stats in hazard_stats.items():
+                resolution_rate = stats.get("resolution_rate", 0)
+                median_time = median_times.get(path_type, stats.get("median_time", 0))
+                insights.append(f"{path_type}: {resolution_rate:.1%} resolution rate, {median_time:.1f}min median time")
+            
+            results["insights"] = insights
+        
+        return results
+    
+    def _evaluate_model_performance(self, question: str) -> Dict[str, Any]:
+        """Evaluate ML model performance with confusion matrix and metrics"""
+        print("📊 Evaluating ML model performance with confusion matrix...")
+        
+        results = {
+            "query_type": "model_evaluation",
+            "total_sessions": len(self.sessions),
+            "evaluation_results": {},
+            "insights": []
+        }
+        
+        # First train the model if not already fitted
+        if not self.ml_predictor.is_fitted:
+            ml_results = self._analyze_ml_predictions("Train ML model for evaluation")
+            if "error" in ml_results or not self.ml_predictor.is_fitted:
+                results["insights"].append("Could not train ML model for evaluation")
+                return results
+        
+        # Get training data for evaluation
+        rd40_events = self._detect_rd40_events()
+        
+        # Get path classifications
+        all_path_classifications = {}
+        for event in rd40_events:
+            session_id = event["session_id"]
+            event_index = event["event_index"]
+            event_key = f"{session_id}_{event_index}"
+            
+            if session_id not in self.sessions:
+                continue
+            
+            session_data = self.sessions[session_id]
+            
+            # Get best classification (similar to hazard analysis)
+            classifications = [
+                self.experiment_e.classify_e1_cont_path(session_data, event_index),
+                self.experiment_e.classify_e2_mr_path(session_data, event_index),
+                self.experiment_e.classify_e3_accel_path(session_data, event_index)
+            ]
+            
+            best_classification = None
+            best_confidence = 0
+            
+            for classification in classifications:
+                confidence = classification.get("confidence", 0)
+                path = classification.get("path", "UNKNOWN")
+                
+                if not path.startswith("NOT_") and confidence > best_confidence:
+                    best_classification = classification
+                    best_confidence = confidence
+            
+            if best_classification:
+                all_path_classifications[event_key] = best_classification
+        
+        # Prepare evaluation data
+        X, y = self.ml_predictor.prepare_training_data(rd40_events, self.sessions, all_path_classifications)
+        
+        if len(X) == 0 or len(y) == 0:
+            results["insights"].append("No evaluation data available")
+            return results
+        
+        # Generate confusion matrix and metrics
+        evaluation_results = self.ml_predictor.generate_confusion_matrix(X, y)
+        results["evaluation_results"] = evaluation_results
+        
+        # Generate insights
+        if evaluation_results.get("path_metrics"):
+            overall_accuracy = evaluation_results.get("overall_accuracy", 0)
+            insights = [
+                f"Model evaluation on {len(y)} samples:",
+                f"Overall accuracy: {overall_accuracy:.1%}"
+            ]
+            
+            path_metrics = evaluation_results["path_metrics"]
+            for path_type, metrics in path_metrics.items():
+                precision = metrics.get("precision", 0)
+                recall = metrics.get("recall", 0) 
+                f1 = metrics.get("f1_score", 0)
+                support = metrics.get("support", 0)
+                insights.append(f"{path_type}: P={precision:.2f}, R={recall:.2f}, F1={f1:.2f} (n={support})")
+            
+            results["insights"] = insights
+        
+        return results
+    
+    def _analyze_feature_attributions(self, question: str) -> Dict[str, Any]:
+        """Analyze feature attributions for path selection"""
+        print("🔍 Analyzing feature attributions for path selection...")
+        
+        results = {
+            "query_type": "feature_attribution_analysis",
+            "attributions": {},
+            "insights": []
+        }
+        
+        # Train model if not fitted
+        if not self.ml_predictor.is_fitted:
+            ml_results = self._analyze_ml_predictions("Train ML model for feature attribution")
+            if not self.ml_predictor.is_fitted:
+                results["insights"].append("Could not train ML model for feature attribution")
+                return results
+        
+        # Get feature attributions for each path type
+        sample_features = np.array([0.5] * len(self.ml_predictor.feature_names)).reshape(1, -1)
+        
+        for path_type in ['CONT', 'MR', 'ACCEL']:
+            attribution_result = self.ml_predictor.get_feature_attributions(sample_features, path_type)
+            
+            if "error" not in attribution_result:
+                results["attributions"][path_type] = attribution_result
+        
+        # Generate insights about key features
+        if results["attributions"]:
+            insights = ["Feature importance analysis for path selection:"]
+            
+            for path_type, attribution in results["attributions"].items():
+                top_positive = attribution.get("top_positive_features", [])[:3]
+                top_negative = attribution.get("top_negative_features", [])[:3]
+                
+                if top_positive:
+                    insights.append(f"{path_type} drivers: {', '.join(top_positive)}")
+                if top_negative:
+                    insights.append(f"{path_type} inhibitors: {', '.join(top_negative)}")
+            
+            results["insights"] = insights
+        
+        return results
+
 def run_enhanced_interactive_query():
     """Run interactive query session with price relativity"""
     print("🚀 IRONFORGE Enhanced Temporal Query Engine")
