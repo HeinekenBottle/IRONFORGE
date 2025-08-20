@@ -24,7 +24,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:30:00 ET"
     },
     {
       "type": "liquidity_sweep",
@@ -50,7 +63,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:30:30 ET"
     },
     {
       "type": "expansion_start",
@@ -76,7 +102,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:31:00 ET"
     },
     {
       "type": "expansion",
@@ -102,7 +141,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:33:00 ET"
     },
     {
       "type": "fpfvg_premium",
@@ -128,7 +180,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:35:00 ET"
     },
     {
       "type": "expansion",
@@ -158,16 +223,16 @@
       "news_context": {
         "news_bucket": "quiet",
         "news_distance_mins": null,
-        "news_source": "sample_calendar",
-        "news_event": "No major news nearby",
-        "news_impact": "QUIET",
-        "event_time_utc": null,
-        "session_time_et": null,
-        "session_overlap": false,
-        "expected_accel_bias": 0.0,
-        "expected_mr_bias": 0.05,
-        "volatility_multiplier": 0.8
-      }
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "timestamp_et": "2025-08-04 09:37:00 ET"
     },
     {
       "type": "expansion_event",
@@ -193,7 +258,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:38:00 ET"
     },
     {
       "type": "retracement",
@@ -223,16 +301,16 @@
       "news_context": {
         "news_bucket": "quiet",
         "news_distance_mins": null,
-        "news_source": "sample_calendar",
-        "news_event": "No major news nearby",
-        "news_impact": "QUIET",
-        "event_time_utc": null,
-        "session_time_et": null,
-        "session_overlap": false,
-        "expected_accel_bias": 0.0,
-        "expected_mr_bias": 0.05,
-        "volatility_multiplier": 0.8
-      }
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "timestamp_et": "2025-08-04 09:39:00 ET"
     },
     {
       "type": "retracement_low",
@@ -258,7 +336,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:40:00 ET"
     },
     {
       "type": "expansion",
@@ -284,7 +375,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:42:00 ET"
     },
     {
       "type": "expansion",
@@ -310,7 +414,20 @@
       "dimensional_relationship": "resistance_confluence_60pct",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:44:00 ET"
     },
     {
       "type": "expansion",
@@ -336,7 +453,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:46:00 ET"
     },
     {
       "type": "expansion_event",
@@ -362,7 +492,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:47:00 ET"
     },
     {
       "type": "retracement",
@@ -388,7 +531,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:49:00 ET"
     },
     {
       "type": "retracement",
@@ -414,7 +570,20 @@
       "dimensional_relationship": "resistance_confluence_60pct",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:51:00 ET"
     },
     {
       "type": "retracement_low",
@@ -440,7 +609,20 @@
       "dimensional_relationship": "resistance_confluence_60pct",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:52:00 ET"
     },
     {
       "type": "expansion",
@@ -466,7 +648,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:53:00 ET"
     },
     {
       "type": "expansion",
@@ -492,7 +687,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:54:00 ET"
     },
     {
       "type": "expansion_event",
@@ -518,7 +726,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:55:00 ET"
     },
     {
       "type": "retracement_low",
@@ -544,7 +765,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:56:00 ET"
     },
     {
       "type": "expansion",
@@ -570,7 +804,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:57:00 ET"
     },
     {
       "type": "expansion",
@@ -596,7 +843,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:58:00 ET"
     },
     {
       "type": "expansion_event",
@@ -622,7 +882,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:00:00 ET"
     },
     {
       "type": "consolidation",
@@ -648,7 +921,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:02:00 ET"
     },
     {
       "type": "consolidation",
@@ -674,7 +960,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:04:00 ET"
     },
     {
       "type": "consolidation_event",
@@ -700,7 +999,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:06:00 ET"
     },
     {
       "type": "retracement",
@@ -726,7 +1038,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:08:00 ET"
     },
     {
       "type": "retracement_low",
@@ -752,7 +1077,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:10:00 ET"
     },
     {
       "type": "expansion",
@@ -778,7 +1116,20 @@
       "dimensional_relationship": "momentum_threshold_80pct",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:12:00 ET"
     },
     {
       "type": "expansion",
@@ -804,7 +1155,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:14:00 ET"
     },
     {
       "type": "failure_swing_high",
@@ -830,7 +1194,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:15:00 ET"
     },
     {
       "type": "consolidation",
@@ -856,7 +1233,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:17:00 ET"
     },
     {
       "type": "consolidation",
@@ -882,7 +1272,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:19:00 ET"
     },
     {
       "type": "consolidation_event",
@@ -908,7 +1311,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:21:00 ET"
     },
     {
       "type": "retracement",
@@ -934,7 +1350,20 @@
       "dimensional_relationship": "momentum_threshold_80pct",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:23:00 ET"
     },
     {
       "type": "retracement_low",
@@ -960,7 +1389,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:25:00 ET"
     },
     {
       "type": "expansion",
@@ -986,7 +1428,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:26:00 ET"
     },
     {
       "type": "expansion_event",
@@ -1012,7 +1467,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:27:00 ET"
     },
     {
       "type": "consolidation",
@@ -1038,7 +1506,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:28:00 ET"
     },
     {
       "type": "consolidation_current",
@@ -1064,7 +1545,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:30:00 ET"
     },
     {
       "type": "expansion_lower",
@@ -1090,7 +1584,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:31:00 ET"
     },
     {
       "type": "retracement",
@@ -1116,7 +1623,20 @@
       "dimensional_relationship": "momentum_threshold_80pct",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:33:00 ET"
     },
     {
       "type": "retracement",
@@ -1142,7 +1662,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:35:00 ET"
     },
     {
       "type": "retracement_high",
@@ -1168,7 +1701,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:37:00 ET"
     },
     {
       "type": "expansion_phase",
@@ -1194,7 +1740,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:38:00 ET"
     },
     {
       "type": "expansion_lower",
@@ -1220,7 +1779,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:40:00 ET"
     },
     {
       "type": "expansion_lower",
@@ -1246,7 +1818,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:42:00 ET"
     },
     {
       "type": "expansion_lower",
@@ -1272,7 +1857,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:44:00 ET"
     },
     {
       "type": "expansion_low_liquidity_sweep",
@@ -1298,7 +1896,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:45:00 ET"
     },
     {
       "type": "retracement",
@@ -1324,7 +1935,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:46:00 ET"
     },
     {
       "type": "retracement",
@@ -1350,7 +1974,20 @@
       "dimensional_relationship": "momentum_threshold_80pct",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:47:00 ET"
     },
     {
       "type": "retracement",
@@ -1376,7 +2013,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:48:00 ET"
     },
     {
       "type": "retracement_high",
@@ -1402,7 +2052,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:49:00 ET"
     },
     {
       "type": "expansion_lower",
@@ -1428,7 +2091,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:50:00 ET"
     },
     {
       "type": "expansion_event",
@@ -1454,7 +2130,20 @@
       "dimensional_relationship": "resistance_confluence_60pct",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:51:00 ET"
     },
     {
       "type": "consolidation_start",
@@ -1480,7 +2169,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:52:00 ET"
     },
     {
       "type": "consolidation",
@@ -1506,7 +2208,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:53:00 ET"
     },
     {
       "type": "consolidation_low_liquidity_sweep",
@@ -1532,7 +2247,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:54:00 ET"
     },
     {
       "type": "consolidation",
@@ -1558,7 +2286,20 @@
       "dimensional_relationship": "resistance_confluence_60pct",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:55:00 ET"
     },
     {
       "type": "consolidation",
@@ -1584,7 +2325,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:56:00 ET"
     },
     {
       "type": "consolidation",
@@ -1610,7 +2364,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:57:00 ET"
     },
     {
       "type": "consolidation",
@@ -1636,7 +2403,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:58:00 ET"
     },
     {
       "type": "consolidation_event",
@@ -1662,7 +2442,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:59:00 ET"
     },
     {
       "type": "expansion_phase",
@@ -1688,7 +2481,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:00:00 ET"
     },
     {
       "type": "expansion_event",
@@ -1714,7 +2520,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:01:00 ET"
     },
     {
       "type": "expansion_higher",
@@ -1740,7 +2559,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:03:00 ET"
     },
     {
       "type": "consolidation_event",
@@ -1766,7 +2598,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:05:00 ET"
     },
     {
       "type": "consolidation",
@@ -1792,7 +2637,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:10:00 ET"
     },
     {
       "type": "consolidation_event",
@@ -1818,7 +2676,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:15:00 ET"
     },
     {
       "type": "consolidation_event",
@@ -1844,7 +2715,20 @@
       "dimensional_relationship": "resistance_confluence_60pct",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:19:00 ET"
     },
     {
       "type": "expansion_phase",
@@ -1870,7 +2754,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:21:00 ET"
     },
     {
       "type": "expansion_higher",
@@ -1896,7 +2793,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:25:00 ET"
     },
     {
       "type": "expansion_event",
@@ -1922,7 +2832,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:27:00 ET"
     },
     {
       "type": "retracement_low",
@@ -1948,7 +2871,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:30:00 ET"
     },
     {
       "type": "expansion_higher",
@@ -1974,7 +2910,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:32:00 ET"
     },
     {
       "type": "expansion_event",
@@ -2000,7 +2949,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:37:00 ET"
     },
     {
       "type": "retracement",
@@ -2026,7 +2988,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:40:00 ET"
     },
     {
       "type": "retracement_low_liquidity_sweep",
@@ -2052,7 +3027,20 @@
       "dimensional_relationship": "resistance_confluence_60pct",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:42:00 ET"
     },
     {
       "type": "expansion_higher",
@@ -2078,7 +3066,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:45:00 ET"
     },
     {
       "type": "expansion_higher",
@@ -2104,7 +3105,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:50:00 ET"
     },
     {
       "type": "expansion_higher",
@@ -2130,7 +3144,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:55:00 ET"
     },
     {
       "type": "expansion_high_session_end",
@@ -2156,7 +3183,20 @@
       "dimensional_relationship": "transitional_zone",
       "source": "price_movements",
       "enhanced_session_data": true,
-      "relativity_enhanced": true
+      "relativity_enhanced": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 12:00:00 ET"
     },
     {
       "type": "liquidity_sweep",
@@ -2179,7 +3219,20 @@
       "structural_role": "market_participant",
       "liquidity_archetype": "liquidity_gap",
       "source": "session_liquidity_events",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:30:00 ET"
     },
     {
       "type": "liquidity_event",
@@ -2202,7 +3255,20 @@
       "structural_role": "market_participant",
       "liquidity_archetype": "volume_liquidity",
       "source": "session_liquidity_events",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:30:30 ET"
     },
     {
       "type": "liquidity_sweep",
@@ -2225,7 +3291,20 @@
       "structural_role": "market_participant",
       "liquidity_archetype": "liquidity_gap",
       "source": "session_liquidity_events",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:31:00 ET"
     },
     {
       "type": "fvg_creation",
@@ -2248,7 +3327,20 @@
       "structural_role": "market_participant",
       "liquidity_archetype": "general_liquidity",
       "source": "session_liquidity_events",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:33:00 ET"
     },
     {
       "type": "regime_shift",
@@ -2271,7 +3363,20 @@
       "structural_role": "market_participant",
       "liquidity_archetype": "general_liquidity",
       "source": "session_liquidity_events",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:35:00 ET"
     },
     {
       "type": "support_test",
@@ -2294,7 +3399,20 @@
       "structural_role": "market_participant",
       "liquidity_archetype": "general_liquidity",
       "source": "session_liquidity_events",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:37:00 ET"
     },
     {
       "type": "level_break",
@@ -2317,7 +3435,20 @@
       "structural_role": "market_participant",
       "liquidity_archetype": "general_liquidity",
       "source": "session_liquidity_events",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:38:00 ET"
     },
     {
       "type": "level_break",
@@ -2340,7 +3471,20 @@
       "structural_role": "market_participant",
       "liquidity_archetype": "general_liquidity",
       "source": "session_liquidity_events",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:39:00 ET"
     },
     {
       "type": "liquidity_sweep",
@@ -2363,7 +3507,20 @@
       "structural_role": "market_participant",
       "liquidity_archetype": "liquidity_gap",
       "source": "session_liquidity_events",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:40:00 ET"
     },
     {
       "type": "liquidity_sweep",
@@ -2386,7 +3543,20 @@
       "structural_role": "liquidity_mechanism",
       "liquidity_archetype": "general_liquidity",
       "source": "session_liquidity_events",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:42:00 ET"
     },
     {
       "type": "structural_trend",
@@ -2409,7 +3579,20 @@
       "structural_role": "market_participant",
       "liquidity_archetype": "general_liquidity",
       "source": "session_liquidity_events",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:44:00 ET"
     },
     {
       "type": "structural_trend",
@@ -2432,7 +3615,20 @@
       "structural_role": "market_participant",
       "liquidity_archetype": "general_liquidity",
       "source": "session_liquidity_events",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:46:00 ET"
     },
     {
       "type": "liquidity_sweep",
@@ -2455,7 +3651,20 @@
       "structural_role": "market_participant",
       "liquidity_archetype": "liquidity_gap",
       "source": "session_liquidity_events",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:47:00 ET"
     },
     {
       "type": "support_test",
@@ -2478,7 +3687,20 @@
       "structural_role": "market_participant",
       "liquidity_archetype": "general_liquidity",
       "source": "session_liquidity_events",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:49:00 ET"
     },
     {
       "type": "liquidity_event",
@@ -2501,7 +3723,20 @@
       "structural_role": "market_participant",
       "liquidity_archetype": "volume_liquidity",
       "source": "session_liquidity_events",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:51:00 ET"
     },
     {
       "type": "fvg_formation",
@@ -2521,7 +3756,20 @@
       "event_family": "fvg_family",
       "structural_role": "liquidity_anchor",
       "source": "session_fpfvg",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:35:00 ET"
     },
     {
       "type": "fvg_rebalance",
@@ -2540,7 +3788,20 @@
       "event_family": "fvg_family",
       "structural_role": "rebalance_mechanism",
       "source": "session_fpfvg_interactions",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:38:00 ET"
     },
     {
       "type": "fvg_rebalance",
@@ -2559,7 +3820,20 @@
       "event_family": "fvg_family",
       "structural_role": "rebalance_mechanism",
       "source": "session_fpfvg_interactions",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:47:00 ET"
     },
     {
       "type": "fvg_rebalance",
@@ -2578,7 +3852,20 @@
       "event_family": "fvg_family",
       "structural_role": "rebalance_mechanism",
       "source": "session_fpfvg_interactions",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:55:00 ET"
     },
     {
       "type": "fvg_rebalance",
@@ -2597,7 +3884,20 @@
       "event_family": "fvg_family",
       "structural_role": "rebalance_mechanism",
       "source": "session_fpfvg_interactions",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:07:00 ET"
     },
     {
       "type": "fvg_rebalance",
@@ -2616,7 +3916,20 @@
       "event_family": "fvg_family",
       "structural_role": "rebalance_mechanism",
       "source": "session_fpfvg_interactions",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:21:00 ET"
     },
     {
       "type": "fvg_rebalance",
@@ -2635,7 +3948,20 @@
       "event_family": "fvg_family",
       "structural_role": "rebalance_mechanism",
       "source": "session_fpfvg_interactions",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:38:00 ET"
     },
     {
       "type": "fvg_rebalance",
@@ -2654,7 +3980,20 @@
       "event_family": "fvg_family",
       "structural_role": "rebalance_mechanism",
       "source": "session_fpfvg_interactions",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:54:00 ET"
     },
     {
       "type": "fvg_rebalance",
@@ -2673,7 +4012,20 @@
       "event_family": "fvg_family",
       "structural_role": "rebalance_mechanism",
       "source": "session_fpfvg_interactions",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:01:00 ET"
     },
     {
       "type": "fvg_rebalance",
@@ -2692,7 +4044,20 @@
       "event_family": "fvg_family",
       "structural_role": "rebalance_mechanism",
       "source": "session_fpfvg_interactions",
-      "enhanced_session_data": true
+      "enhanced_session_data": true,
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:42:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -2715,7 +4080,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:33:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -2751,7 +4129,14 @@
         "expected_accel_bias": 0.0,
         "expected_mr_bias": 0.05,
         "volatility_multiplier": 0.8
-      }
+      },
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "timestamp_et": "2025-08-04 09:37:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -2787,7 +4172,14 @@
         "expected_accel_bias": 0.0,
         "expected_mr_bias": 0.05,
         "volatility_multiplier": 0.8
-      }
+      },
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "timestamp_et": "2025-08-04 09:39:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -2810,7 +4202,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:44:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -2833,7 +4238,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:47:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -2856,7 +4274,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:51:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -2879,7 +4310,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:52:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -2902,7 +4346,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:54:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -2925,7 +4382,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:55:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -2948,7 +4418,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:06:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -2971,7 +4454,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:12:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -2994,7 +4490,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:23:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3017,7 +4526,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:25:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3040,7 +4562,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:26:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3063,7 +4598,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:33:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3086,7 +4634,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:40:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3109,7 +4670,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:45:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3132,7 +4706,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:47:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3155,7 +4742,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:50:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3178,7 +4778,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:51:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3201,7 +4814,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:52:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3224,7 +4850,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:54:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3247,7 +4886,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:55:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3270,7 +4922,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:58:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3293,7 +4958,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:10:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3316,7 +4994,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:15:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3339,7 +5030,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:19:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3362,7 +5066,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:21:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3385,7 +5102,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:30:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3408,7 +5138,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:37:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3431,7 +5174,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:42:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3454,7 +5210,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:33:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3490,7 +5259,14 @@
         "expected_accel_bias": 0.0,
         "expected_mr_bias": 0.05,
         "volatility_multiplier": 0.8
-      }
+      },
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "timestamp_et": "2025-08-04 09:37:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3526,7 +5302,14 @@
         "expected_accel_bias": 0.0,
         "expected_mr_bias": 0.05,
         "volatility_multiplier": 0.8
-      }
+      },
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "timestamp_et": "2025-08-04 09:39:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3549,7 +5332,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:44:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3572,7 +5368,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:47:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3595,7 +5404,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:51:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3618,7 +5440,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 09:47:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3641,7 +5476,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:21:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3664,7 +5512,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:38:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3687,7 +5548,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 10:54:00 ET"
     },
     {
       "type": "archaeological_zone",
@@ -3710,7 +5584,20 @@
       "theory_b_validated": false,
       "source": "archaeological_zone_detection",
       "enhanced_session_data": true,
-      "related_event_id": "unknown"
+      "related_event_id": "unknown",
+      "day_context": {
+        "day_of_week": "Monday",
+        "trading_day": "2025-08-04",
+        "session_overlap": "within_session",
+        "is_enhanced": true
+      },
+      "news_context": {
+        "news_bucket": "quiet",
+        "news_distance_mins": null,
+        "news_impact_level": null,
+        "closest_news_event": null
+      },
+      "timestamp_et": "2025-08-04 11:42:00 ET"
     }
   ],
   "enhanced_features": {
@@ -3842,5 +5729,11 @@
     "day_of_week": "Monday",
     "trading_week_position": "first_day",
     "session_date": "2025-08-04"
+  },
+  "session_info": {
+    "trading_day": "2025-08-04",
+    "day_of_week": "Monday",
+    "session_type": "NY_AM",
+    "enhancement_timestamp": "2025-08-20T19:54:34.122054"
   }
 }
