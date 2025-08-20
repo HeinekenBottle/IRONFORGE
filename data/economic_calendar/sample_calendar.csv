@@ -1,0 +1,6 @@
+event,impact,datetime,source
+NFP - Non-Farm Payrolls,high,2025-08-01 08:30:00,BLS
+FOMC Rate Decision,high,2025-08-01 14:00:00,Fed
+Initial Jobless Claims,medium,2025-08-01 08:30:00,DOL
+Consumer Confidence,medium,2025-08-01 10:00:00,Conference Board
+Building Permits,low,2025-08-01 08:30:00,Census

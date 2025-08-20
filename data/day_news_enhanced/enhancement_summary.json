@@ -1,0 +1,18 @@
+{
+  "total_files": 57,
+  "enhanced_files": 57,
+  "failed_files": 0,
+  "rd40_events_enhanced": 209,
+  "day_profile_distribution": {
+    "reversal_setup": 15,
+    "balanced": 15,
+    "trend_continuation": 13,
+    "gap_fill_bias": 9,
+    "profit_taking": 5
+  },
+  "news_bucket_distribution": {
+    "high\u00b1120m": 26,
+    "quiet": 183
+  },
+  "errors": []
+}
