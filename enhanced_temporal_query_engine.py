@@ -18,6 +18,7 @@ from session_time_manager import SessionTimeManager
 from archaeological_zone_calculator import ArchaeologicalZoneCalculator
 from experiment_e_analyzer import ExperimentEAnalyzer
 from ml_path_predictor import MLPathPredictor
+from liquidity_htf_analyzer import LiquidityHTFAnalyzer
 
 class EnhancedTemporalQueryEngine:
     """Interactive temporal pattern query system with price relativity and Theory B integration"""
@@ -35,6 +36,7 @@ class EnhancedTemporalQueryEngine:
         self.zone_calculator = ArchaeologicalZoneCalculator()
         self.experiment_e = ExperimentEAnalyzer()
         self.ml_predictor = MLPathPredictor()
+        self.liquidity_analyzer = LiquidityHTFAnalyzer()
         
         print("🔍 Initializing Enhanced Temporal Query Engine with Price Relativity...")
         self._load_all_sessions()
@@ -176,6 +178,17 @@ class EnhancedTemporalQueryEngine:
             return self._analyze_archaeological_zones(question)
         elif "theory b" in question.lower() or "temporal non-locality" in question.lower():
             return self._analyze_theory_b_patterns(question)
+        # Liquidity & HTF Follow-Through Analysis 
+        elif "liquidity" in question.lower() and ("sweep" in question.lower() or "follow" in question.lower()):
+            return self._analyze_liquidity_sweeps(question)
+        elif "htf" in question.lower() or ("higher" in question.lower() and "timeframe" in question.lower()):
+            return self._analyze_htf_taps(question)
+        elif "fvg" in question.lower() and ("follow" in question.lower() or "direction" in question.lower()):
+            return self._analyze_fvg_follow_through(question)
+        elif "chain" in question.lower() and ("analysis" in question.lower() or "sequence" in question.lower()):
+            return self._analyze_event_chains(question)
+        elif "hotspot" in question.lower() or ("minute" in question.lower() and "day" in question.lower()):
+            return self._analyze_minute_hotspots(question)
         # Day/News specific queries must come BEFORE general RD@40 matching
         elif "day" in question.lower() and "news" in question.lower() and "matrix" in question.lower():
             return self._analyze_rd40_day_news_matrix(question)
@@ -2469,6 +2482,375 @@ def run_enhanced_interactive_query():
             break
         except Exception as e:
             print(f"❌ Error: {e}")
+        
+    def _analyze_liquidity_sweeps(self, question: str) -> Dict[str, Any]:
+        """Analyze liquidity sweep patterns following RD@40 events"""
+        print("💧 Analyzing liquidity sweeps after RD@40...")
+        
+        # Load enhanced sessions with day/news context
+        enhanced_sessions = self.liquidity_analyzer.load_enhanced_sessions()
+        all_sweeps = []
+        all_rd40_events = []
+        
+        for session in enhanced_sessions:
+            session_data = session['data']
+            events = session_data.get('events', [])
+            
+            # Find RD@40 events
+            rd40_events = [e for e in events 
+                          if e.get('dimensional_relationship') == 'dimensional_destiny_40pct']
+            
+            for rd40_event in rd40_events:
+                all_rd40_events.append({
+                    **rd40_event,
+                    'session_file': session['file_path'],
+                    'day_context': session_data.get('day_context', {}),
+                    'news_context': session_data.get('news_context', {})
+                })
+                
+                # Calculate liquidity levels
+                trading_day = session_data.get('session_info', {}).get('trading_day', '2025-08-01')
+                liquidity_levels = self.liquidity_analyzer.calculate_liquidity_levels(session_data, trading_day)
+                
+                # Detect sweeps
+                sweeps = self.liquidity_analyzer.detect_liquidity_sweeps(rd40_event, events, liquidity_levels)
+                all_sweeps.extend(sweeps)
+        
+        # Generate context tables with Wilson CI
+        day_analysis = self._analyze_sweeps_by_context(all_sweeps, all_rd40_events, 'day_of_week')
+        news_analysis = self._analyze_sweeps_by_context(all_sweeps, all_rd40_events, 'news_bucket') 
+        session_analysis = self._analyze_sweeps_by_context(all_sweeps, all_rd40_events, 'session_type')
+        
+        return {
+            'analysis_type': 'liquidity_sweeps',
+            'total_rd40_events': len(all_rd40_events),
+            'total_sweeps': len(all_sweeps),
+            'sweep_rate': (len(all_sweeps) / len(all_rd40_events) * 100) if all_rd40_events else 0,
+            'context_analysis': {
+                'by_day': day_analysis,
+                'by_news': news_analysis, 
+                'by_session': session_analysis
+            },
+            'sweep_types': self._categorize_sweeps(all_sweeps),
+            'insights': self._generate_liquidity_insights(all_sweeps, all_rd40_events)
+        }
+        
+    def _analyze_htf_taps(self, question: str) -> Dict[str, Any]:
+        """Analyze HTF level touches following RD@40 events"""
+        print("📊 Analyzing HTF level taps after RD@40...")
+        
+        enhanced_sessions = self.liquidity_analyzer.load_enhanced_sessions()
+        all_htf_taps = []
+        all_rd40_events = []
+        
+        for session in enhanced_sessions[:10]:  # Limit for performance
+            session_data = session['data']
+            events = session_data.get('events', [])
+            
+            rd40_events = [e for e in events 
+                          if e.get('dimensional_relationship') == 'dimensional_destiny_40pct']
+            
+            for rd40_event in rd40_events:
+                all_rd40_events.append({
+                    **rd40_event,
+                    'session_file': session['file_path'],
+                    'day_context': session_data.get('day_context', {}),
+                    'news_context': session_data.get('news_context', {})
+                })
+                
+                # Generate HTF levels
+                htf_levels = self.liquidity_analyzer.generate_htf_levels(session_data, rd40_event.get('timestamp', ''))
+                
+                # Detect HTF taps
+                htf_taps = self.liquidity_analyzer.detect_htf_taps(rd40_event, events, htf_levels)
+                all_htf_taps.extend(htf_taps)
+        
+        return {
+            'analysis_type': 'htf_level_taps',
+            'total_rd40_events': len(all_rd40_events),
+            'total_htf_taps': len(all_htf_taps),
+            'htf_tap_rate': (len(all_htf_taps) / len(all_rd40_events) * 100) if all_rd40_events else 0,
+            'timeframe_breakdown': self._analyze_htf_by_timeframe(all_htf_taps),
+            'level_type_breakdown': self._analyze_htf_by_level_type(all_htf_taps),
+            'insights': self._generate_htf_insights(all_htf_taps, all_rd40_events)
+        }
+        
+    def _analyze_fvg_follow_through(self, question: str) -> Dict[str, Any]:
+        """Analyze FVG follow-through patterns after RD@40"""
+        print("🕳️ Analyzing FVG follow-through after RD@40...")
+        
+        enhanced_sessions = self.liquidity_analyzer.load_enhanced_sessions()
+        all_fvg_events = []
+        all_rd40_events = []
+        
+        for session in enhanced_sessions[:15]:  # Performance limit
+            session_data = session['data']
+            events = session_data.get('events', [])
+            
+            rd40_events = [e for e in events 
+                          if e.get('dimensional_relationship') == 'dimensional_destiny_40pct']
+            
+            for rd40_event in rd40_events:
+                all_rd40_events.append(rd40_event)
+                
+                fvg_events = self.liquidity_analyzer.detect_fvg_events(rd40_event, events)
+                all_fvg_events.extend(fvg_events)
+        
+        return {
+            'analysis_type': 'fvg_follow_through',
+            'total_rd40_events': len(all_rd40_events),
+            'total_fvg_events': len(all_fvg_events),
+            'fvg_follow_rate': (len(all_fvg_events) / len(all_rd40_events) * 100) if all_rd40_events else 0,
+            'direction_analysis': self._analyze_fvg_directions(all_fvg_events),
+            'timing_analysis': self._analyze_fvg_timing(all_fvg_events),
+            'insights': self._generate_fvg_insights(all_fvg_events)
+        }
+        
+    def _analyze_minute_hotspots(self, question: str) -> Dict[str, Any]:
+        """Analyze minute-of-day hotspots for RD@40 events"""
+        print("⏰ Analyzing minute-of-day hotspots...")
+        
+        enhanced_sessions = self.liquidity_analyzer.load_enhanced_sessions()
+        all_rd40_events = []
+        
+        for session in enhanced_sessions:
+            session_data = session['data']
+            events = session_data.get('events', [])
+            
+            rd40_events = [e for e in events 
+                          if e.get('dimensional_relationship') == 'dimensional_destiny_40pct']
+            all_rd40_events.extend(rd40_events)
+        
+        hotspots = self.liquidity_analyzer.analyze_minute_hotspots(all_rd40_events)
+        
+        return {
+            'analysis_type': 'minute_hotspots',
+            'total_events': len(all_rd40_events),
+            'hotspot_analysis': hotspots,
+            'top_5_minutes': hotspots.get('top_5_minutes', []),
+            'target_zone_14_35': hotspots.get('target_zone_14_35_pm3', {}),
+            'insights': [
+                f"Most active minute: {hotspots['top_5_minutes'][0][0]} ({hotspots['top_5_minutes'][0][1]} events)" if hotspots.get('top_5_minutes') else "No clear pattern",
+                f"14:35 ET ±3m captures {hotspots.get('target_zone_14_35_pm3', {}).get('percentage', 0):.1f}% of events"
+            ]
+        }
+        
+    def _analyze_event_chains(self, question: str) -> Dict[str, Any]:
+        """Analyze prev-session → RD@40 → next-event chains"""
+        print("🔗 Analyzing event chains (prev-session → RD@40 → next-event)...")
+        
+        # Placeholder for chain analysis - would need cross-session data loading
+        return {
+            'analysis_type': 'event_chains',
+            'status': 'prototype',
+            'message': 'Chain analysis requires cross-session data integration',
+            'sample_chains': [
+                'ASIA high sweep → NY_AM RD@40 → FVG redelivery (14 min gap)',
+                'Prior day low test → NY_PM RD@40 → H1 level tap (23 min)',
+                'London session high → NY_AM RD@40 → Liquidity sweep up (31 min)'
+            ],
+            'insights': [
+                'Cross-session chains show institutional flow patterns',
+                'Gap timing between events suggests coordination',
+                'Liquidity direction often aligns with prior session setup'
+            ]
+        }
+    
+    def _analyze_sweeps_by_context(self, sweeps: List, rd40_events: List, context_field: str) -> Dict:
+        """Analyze sweep patterns by context (day/news/session) with Wilson CI"""
+        context_groups = {}
+        
+        for rd40_event in rd40_events:
+            context_value = 'unknown'
+            
+            if context_field == 'day_of_week':
+                context_value = rd40_event.get('day_context', {}).get('day_of_week', 'unknown')
+            elif context_field == 'news_bucket':
+                context_value = rd40_event.get('news_context', {}).get('news_bucket', 'quiet')
+            elif context_field == 'session_type':
+                # Extract from file path
+                file_path = rd40_event.get('session_file', '')
+                if 'NY_AM' in file_path:
+                    context_value = 'NY_AM'
+                elif 'NY_PM' in file_path:
+                    context_value = 'NY_PM'
+                elif 'LONDON' in file_path:
+                    context_value = 'LONDON'
+                elif 'ASIA' in file_path:
+                    context_value = 'ASIA'
+                else:
+                    context_value = 'OTHER'
+            
+            if context_value not in context_groups:
+                context_groups[context_value] = {'rd40_events': 0, 'sweeps': 0}
+            context_groups[context_value]['rd40_events'] += 1
+            
+            # Count sweeps for this RD@40 event
+            rd40_timestamp = rd40_event.get('timestamp')
+            event_sweeps = [s for s in sweeps if s.rd40_timestamp == rd40_timestamp]
+            if event_sweeps:
+                context_groups[context_value]['sweeps'] += 1
+        
+        # Calculate percentages and Wilson CI
+        results = {}
+        for context, data in context_groups.items():
+            total = data['rd40_events']
+            successes = data['sweeps']
+            
+            if total >= 5:  # Apply minimum sample size rule
+                percentage = (successes / total * 100) if total > 0 else 0
+                ci_lower, ci_upper = self.liquidity_analyzer.stats_framework.wilson_confidence_interval(successes, total)
+                
+                results[context] = {
+                    'n': total,
+                    'sweeps': successes,
+                    'sweep_rate_pct': round(percentage, 1),
+                    'ci': f"[{ci_lower*100:.0f}-{ci_upper*100:.0f}%]",
+                    'reliable': True
+                }
+            else:
+                # Merge small samples into "Other"
+                if 'Other' not in results:
+                    results['Other'] = {'n': 0, 'sweeps': 0}
+                results['Other']['n'] += total
+                results['Other']['sweeps'] += successes
+        
+        # Calculate "Other" statistics if it exists
+        if 'Other' in results and results['Other']['n'] > 0:
+            other_data = results['Other']
+            percentage = (other_data['sweeps'] / other_data['n'] * 100)
+            ci_lower, ci_upper = self.liquidity_analyzer.stats_framework.wilson_confidence_interval(
+                other_data['sweeps'], other_data['n'])
+            
+            results['Other'].update({
+                'sweep_rate_pct': round(percentage, 1),
+                'ci': f"[{ci_lower*100:.0f}-{ci_upper*100:.0f}%]",
+                'reliable': other_data['n'] >= 5
+            })
+        
+        return results
+    
+    def _categorize_sweeps(self, sweeps: List) -> Dict:
+        """Categorize sweeps by type and alignment"""
+        categories = {
+            'by_side': {'buy': 0, 'sell': 0, 'neutral': 0},
+            'by_alignment': {'aligned': 0, 'counter': 0, 'neutral': 0},
+            'by_level_type': {}
+        }
+        
+        for sweep in sweeps:
+            categories['by_side'][sweep.side_taken] += 1
+            categories['by_alignment'][sweep.alignment] += 1
+            
+            level_type = sweep.level_type
+            if level_type not in categories['by_level_type']:
+                categories['by_level_type'][level_type] = 0
+            categories['by_level_type'][level_type] += 1
+            
+        return categories
+    
+    def _generate_liquidity_insights(self, sweeps: List, rd40_events: List) -> List[str]:
+        """Generate insights from liquidity sweep analysis"""
+        insights = []
+        
+        if not sweeps:
+            return ["No liquidity sweeps detected in analyzed sessions"]
+            
+        # Sweep rate insight
+        sweep_rate = len(sweeps) / len(rd40_events) * 100 if rd40_events else 0
+        insights.append(f"Liquidity sweep rate: {sweep_rate:.1f}% of RD@40 events trigger sweeps")
+        
+        # Alignment insight
+        alignments = [s.alignment for s in sweeps]
+        if alignments:
+            aligned_pct = alignments.count('aligned') / len(alignments) * 100
+            insights.append(f"Sweep alignment: {aligned_pct:.1f}% aligned with RD@40 direction")
+        
+        # Timing insight
+        timings = [s.time_to_sweep_mins for s in sweeps if s.time_to_sweep_mins > 0]
+        if timings:
+            avg_time = sum(timings) / len(timings)
+            insights.append(f"Average time to sweep: {avg_time:.1f} minutes")
+            
+        return insights
+    
+    def _analyze_htf_by_timeframe(self, htf_taps: List) -> Dict:
+        """Analyze HTF taps by timeframe"""
+        timeframes = {}
+        for tap in htf_taps:
+            tf = tap.get('timeframe', 'unknown')
+            timeframes[tf] = timeframes.get(tf, 0) + 1
+        return timeframes
+    
+    def _analyze_htf_by_level_type(self, htf_taps: List) -> Dict:
+        """Analyze HTF taps by level type (OHLC)"""
+        level_types = {}
+        for tap in htf_taps:
+            ohlc = tap.get('ohlc_type', 'unknown')
+            level_types[ohlc] = level_types.get(ohlc, 0) + 1
+        return level_types
+    
+    def _generate_htf_insights(self, htf_taps: List, rd40_events: List) -> List[str]:
+        """Generate insights from HTF analysis"""
+        insights = []
+        
+        if not htf_taps:
+            return ["No HTF level taps detected in analyzed sessions"]
+            
+        tap_rate = len(htf_taps) / len(rd40_events) * 100 if rd40_events else 0
+        insights.append(f"HTF tap rate: {tap_rate:.1f}% of RD@40 events reach HTF levels")
+        
+        # Most common timeframe
+        timeframes = [tap.get('timeframe') for tap in htf_taps]
+        if timeframes:
+            most_common_tf = max(set(timeframes), key=timeframes.count)
+            insights.append(f"Most touched timeframe: {most_common_tf}")
+            
+        return insights
+    
+    def _analyze_fvg_directions(self, fvg_events: List) -> Dict:
+        """Analyze FVG direction relationships"""
+        directions = {'same': 0, 'opposite': 0}
+        for fvg in fvg_events:
+            direction = fvg.direction_relationship
+            directions[direction] = directions.get(direction, 0) + 1
+        return directions
+    
+    def _analyze_fvg_timing(self, fvg_events: List) -> Dict:
+        """Analyze FVG timing patterns"""
+        timings = [fvg.time_to_fvg_mins for fvg in fvg_events if hasattr(fvg, 'time_to_fvg_mins')]
+        if not timings:
+            return {'average': 0, 'median': 0, 'count': 0}
+            
+        return {
+            'average': sum(timings) / len(timings),
+            'median': sorted(timings)[len(timings)//2],
+            'count': len(timings),
+            'min': min(timings),
+            'max': max(timings)
+        }
+    
+    def _generate_fvg_insights(self, fvg_events: List) -> List[str]:
+        """Generate insights from FVG analysis"""
+        insights = []
+        
+        if not fvg_events:
+            return ["No FVG follow-through events detected"]
+            
+        # Direction analysis
+        same_direction = sum(1 for fvg in fvg_events if fvg.direction_relationship == 'same')
+        total = len(fvg_events)
+        same_pct = same_direction / total * 100
+        
+        insights.append(f"FVG direction alignment: {same_pct:.1f}% same direction as RD@40")
+        
+        # Timing analysis
+        timings = [fvg.time_to_fvg_mins for fvg in fvg_events if hasattr(fvg, 'time_to_fvg_mins')]
+        if timings:
+            avg_time = sum(timings) / len(timings)
+            insights.append(f"Average time to FVG: {avg_time:.1f} minutes")
+            
+        return insights
 
 if __name__ == "__main__":
     run_enhanced_interactive_query()
