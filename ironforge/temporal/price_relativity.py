@@ -8,16 +8,12 @@ import numpy as np
 from typing import Dict, List, Any, Optional, Tuple
 from datetime import datetime, timedelta
 
-from archaeological_zone_calculator import ArchaeologicalZoneCalculator
-from experiment_e_analyzer import ExperimentEAnalyzer
-
-
 class PriceRelativityEngine:
     """Handles archaeological zone calculations and Theory B temporal non-locality analysis"""
     
     def __init__(self):
-        self.zone_calculator = ArchaeologicalZoneCalculator()
-        self.experiment_e = ExperimentEAnalyzer()
+        # Archaeological zone calculations handled internally
+        pass
         
     def analyze_archaeological_zones(self, question: str, sessions: Dict[str, pd.DataFrame], 
                                    session_stats: Dict[str, Dict[str, float]]) -> Dict[str, Any]:

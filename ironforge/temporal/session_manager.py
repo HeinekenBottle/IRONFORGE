@@ -11,9 +11,6 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
 from datetime import datetime, timedelta
 
-from session_time_manager import SessionTimeManager
-
-
 class SessionDataManager:
     """Manages session data loading, caching, and preprocessing for temporal analysis"""
     
@@ -25,8 +22,7 @@ class SessionDataManager:
         self.metadata = {}
         self.session_stats = {}  # Store session high/low/open/close for each session
         
-        # Initialize session time manager
-        self.session_manager = SessionTimeManager()
+        # Session time management handled internally
         
     def load_all_sessions(self):
         """Load all available sessions into memory with price relativity calculations"""
@@ -124,6 +120,8 @@ class SessionDataManager:
         
     def get_session_data(self, session_id: str) -> Optional[pd.DataFrame]:
         """Get session data by ID"""
+        if not isinstance(session_id, str) or not session_id.strip():
+            raise ValueError("Session ID must be a non-empty string")
         return self.sessions.get(session_id)
         
     def get_session_stats(self, session_id: str) -> Optional[Dict[str, float]]:
@@ -163,6 +161,9 @@ class SessionDataManager:
             
     def get_enhanced_session_info(self, session_id: str) -> Dict[str, Any]:
         """Get complete session information with price relativity analysis"""
+        if not isinstance(session_id, str) or not session_id.strip():
+            return {"error": "Session ID must be a non-empty string"}
+
         if session_id not in self.sessions:
             return {"error": f"Session {session_id} not found"}
             

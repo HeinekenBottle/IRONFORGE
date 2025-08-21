@@ -16,9 +16,21 @@ class VisualizationManager:
     """Manages visualization, plotting, and reporting for temporal analysis"""
     
     def __init__(self):
-        # Set up plotting style
-        plt.style.use('seaborn-v0_8')
-        sns.set_palette("husl")
+        # Set up plotting style with fallback
+        try:
+            plt.style.use('seaborn-v0_8')
+        except OSError:
+            try:
+                plt.style.use('seaborn')
+            except OSError:
+                # Use default style if seaborn not available
+                pass
+
+        try:
+            sns.set_palette("husl")
+        except Exception:
+            # Continue without seaborn palette if not available
+            pass
         
     def display_query_results(self, results: Dict[str, Any]) -> None:
         """Display query results in a formatted manner"""

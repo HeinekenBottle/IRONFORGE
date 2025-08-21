@@ -136,29 +136,371 @@ class EnhancedTemporalQueryEngine:
     
     def _analyze_relative_positioning(self, question: str) -> Dict[str, Any]:
         """Analyze relative positioning patterns"""
-        return {
+        results = {
             "query_type": "relative_positioning",
-            "message": "Relative positioning analysis - implementation delegated to specialized modules",
             "total_sessions": len(self.sessions),
-            "insights": ["Relative positioning analysis available through modular architecture"]
+            "positioning_analysis": {},
+            "insights": []
         }
+
+        # Analyze positioning patterns across sessions
+        for session_id, nodes_df in self.sessions.items():
+            if session_id not in self.session_stats:
+                continue
+
+            stats = self.session_stats[session_id]
+            session_type = self._determine_session_type(session_id)
+
+            # Calculate relative positioning metrics
+            if 'price' in nodes_df.columns and len(nodes_df) > 0:
+                session_range = stats.get('range', 0)
+                session_low = stats.get('low', 0)
+
+                if session_range > 0:
+                    # Calculate position distribution
+                    relative_positions = ((nodes_df['price'] - session_low) / session_range * 100)
+
+                    positioning_metrics = {
+                        "session_type": session_type,
+                        "avg_position": relative_positions.mean(),
+                        "position_std": relative_positions.std(),
+                        "upper_quartile_events": (relative_positions > 75).sum(),
+                        "lower_quartile_events": (relative_positions < 25).sum(),
+                        "mid_range_events": ((relative_positions >= 25) & (relative_positions <= 75)).sum()
+                    }
+
+                    results["positioning_analysis"][session_id] = positioning_metrics
+
+        # Generate insights
+        if results["positioning_analysis"]:
+            avg_positions = [metrics["avg_position"] for metrics in results["positioning_analysis"].values()]
+            results["insights"] = [
+                f"Analyzed positioning patterns across {len(results['positioning_analysis'])} sessions",
+                f"Average relative position: {np.mean(avg_positions):.1f}%",
+                f"Position variability: {np.std(avg_positions):.1f}%"
+            ]
+        else:
+            results["insights"] = ["No positioning data available for analysis"]
+
+        return results
         
     def _search_patterns(self, question: str) -> Dict[str, Any]:
         """Enhanced pattern search with archaeological zones"""
-        return {
+        results = {
             "query_type": "pattern_search",
-            "message": "Pattern search - implementation delegated to specialized modules",
             "total_sessions": len(self.sessions),
-            "insights": ["Pattern search available through modular architecture"]
+            "pattern_matches": [],
+            "search_criteria": self._extract_search_criteria(question),
+            "insights": []
         }
+
+        search_criteria = results["search_criteria"]
+
+        # Search for patterns across sessions
+        for session_id, nodes_df in self.sessions.items():
+            if session_id not in self.session_stats:
+                continue
+
+            stats = self.session_stats[session_id]
+            session_type = self._determine_session_type(session_id)
+
+            # Apply search criteria
+            matches = self._find_pattern_matches(nodes_df, stats, search_criteria)
+
+            if matches:
+                results["pattern_matches"].extend([
+                    {
+                        "session_id": session_id,
+                        "session_type": session_type,
+                        "match": match
+                    } for match in matches
+                ])
+
+        # Generate insights
+        total_matches = len(results["pattern_matches"])
+        if total_matches > 0:
+            session_count = len(set(match["session_id"] for match in results["pattern_matches"]))
+            results["insights"] = [
+                f"Found {total_matches} pattern matches across {session_count} sessions",
+                f"Search criteria: {search_criteria}",
+                f"Average matches per session: {total_matches / session_count:.1f}"
+            ]
+        else:
+            results["insights"] = [
+                f"No patterns found matching criteria: {search_criteria}",
+                "Consider broadening search parameters"
+            ]
+
+        return results
+
+    def _extract_search_criteria(self, question: str) -> Dict[str, Any]:
+        """Extract search criteria from question"""
+        criteria = {
+            "pattern_type": "general",
+            "zone_filter": None,
+            "time_filter": None,
+            "volume_filter": None
+        }
+
+        question_lower = question.lower()
+
+        # Extract pattern type
+        if "liquidity" in question_lower:
+            criteria["pattern_type"] = "liquidity"
+        elif "gap" in question_lower or "fvg" in question_lower:
+            criteria["pattern_type"] = "gap"
+        elif "sweep" in question_lower:
+            criteria["pattern_type"] = "sweep"
+        elif "precision" in question_lower:
+            criteria["pattern_type"] = "precision"
+
+        # Extract zone filter
+        import re
+        zone_match = re.search(r'(\d+)%', question)
+        if zone_match:
+            criteria["zone_filter"] = int(zone_match.group(1))
+
+        return criteria
+
+    def _find_pattern_matches(self, nodes_df: pd.DataFrame, stats: Dict[str, float],
+                            criteria: Dict[str, Any]) -> List[Dict[str, Any]]:
+        """Find pattern matches in session data"""
+        matches = []
+
+        if 'price' not in nodes_df.columns or len(nodes_df) == 0:
+            return matches
+
+        session_range = stats.get('range', 0)
+        session_low = stats.get('low', 0)
+
+        if session_range == 0:
+            return matches
+
+        # Calculate relative positions
+        relative_positions = ((nodes_df['price'] - session_low) / session_range * 100)
+
+        # Apply zone filter if specified
+        if criteria.get("zone_filter"):
+            zone_pct = criteria["zone_filter"]
+            tolerance = 5  # 5% tolerance
+            zone_mask = (relative_positions >= zone_pct - tolerance) & (relative_positions <= zone_pct + tolerance)
+            candidate_events = nodes_df[zone_mask]
+        else:
+            candidate_events = nodes_df
+
+        # Find pattern-specific matches
+        pattern_type = criteria.get("pattern_type", "general")
+
+        for idx, event in candidate_events.iterrows():
+            match_score = self._calculate_pattern_score(event, pattern_type, nodes_df, idx)
+
+            if match_score > 0.5:  # Threshold for pattern match
+                matches.append({
+                    "event_index": idx,
+                    "price": event.get('price', 0),
+                    "relative_position": relative_positions.iloc[idx] if idx < len(relative_positions) else 0,
+                    "pattern_score": match_score,
+                    "pattern_type": pattern_type
+                })
+
+        return matches
+
+    def _calculate_pattern_score(self, event: pd.Series, pattern_type: str,
+                               nodes_df: pd.DataFrame, event_idx: int) -> float:
+        """Calculate pattern match score for an event"""
+        score = 0.0
+
+        # Base score for having price data
+        if 'price' in event.index and pd.notna(event['price']):
+            score += 0.3
+
+        # Pattern-specific scoring
+        if pattern_type == "liquidity":
+            if 'volume' in event.index and pd.notna(event['volume']):
+                # Higher volume indicates potential liquidity event
+                volume_percentile = (event['volume'] > nodes_df['volume']).mean() if 'volume' in nodes_df.columns else 0.5
+                score += volume_percentile * 0.4
+
+        elif pattern_type == "precision":
+            # Look for events with specific characteristics
+            if 'energy_density' in event.index and pd.notna(event['energy_density']):
+                score += event['energy_density'] * 0.4
+            else:
+                # Use price precision as proxy
+                price_precision = 1.0 - (abs(event['price'] % 1.0) if event['price'] % 1.0 != 0 else 0.1)
+                score += price_precision * 0.2
+
+        elif pattern_type == "gap":
+            # Look for price gaps (simplified)
+            if event_idx > 0 and event_idx < len(nodes_df) - 1:
+                prev_price = nodes_df.iloc[event_idx - 1].get('price', event['price'])
+                next_price = nodes_df.iloc[event_idx + 1].get('price', event['price'])
+
+                # Check for gap pattern
+                if abs(event['price'] - prev_price) > abs(next_price - event['price']):
+                    score += 0.3
+
+        # Default scoring for general patterns
+        if pattern_type == "general":
+            score += 0.5  # Base score for any event
+
+        return min(1.0, score)
         
     def _analyze_liquidity_sweeps(self, question: str) -> Dict[str, Any]:
         """Analyze liquidity sweep patterns"""
-        return {
+        results = {
             "query_type": "liquidity_sweeps",
-            "message": "Liquidity sweep analysis - implementation delegated to visualization module",
             "total_sessions": len(self.sessions),
-            "insights": ["Liquidity sweep analysis available through visualization module"]
+            "sweep_events": [],
+            "sweep_statistics": {},
+            "insights": []
+        }
+
+        # Analyze liquidity sweeps across sessions
+        for session_id, nodes_df in self.sessions.items():
+            if session_id not in self.session_stats:
+                continue
+
+            stats = self.session_stats[session_id]
+            session_type = self._determine_session_type(session_id)
+
+            # Detect liquidity sweep events
+            sweep_events = self._detect_liquidity_sweeps(nodes_df, stats)
+
+            for sweep in sweep_events:
+                sweep["session_id"] = session_id
+                sweep["session_type"] = session_type
+                results["sweep_events"].append(sweep)
+
+        # Calculate sweep statistics
+        if results["sweep_events"]:
+            results["sweep_statistics"] = self._calculate_sweep_statistics(results["sweep_events"])
+
+            # Generate insights
+            total_sweeps = len(results["sweep_events"])
+            session_count = len(set(sweep["session_id"] for sweep in results["sweep_events"]))
+
+            results["insights"] = [
+                f"Detected {total_sweeps} liquidity sweep events across {session_count} sessions",
+                f"Average sweeps per session: {total_sweeps / session_count:.1f}",
+                f"Most common sweep type: {results['sweep_statistics'].get('most_common_type', 'N/A')}"
+            ]
+        else:
+            results["insights"] = ["No liquidity sweep events detected in the analyzed sessions"]
+
+        return results
+
+    def _detect_liquidity_sweeps(self, nodes_df: pd.DataFrame, stats: Dict[str, float]) -> List[Dict[str, Any]]:
+        """Detect liquidity sweep events in session data"""
+        sweeps = []
+
+        if 'price' not in nodes_df.columns or len(nodes_df) < 3:
+            return sweeps
+
+        session_high = stats.get('high', 0)
+        session_low = stats.get('low', 0)
+        session_range = session_high - session_low
+
+        if session_range == 0:
+            return sweeps
+
+        # Look for sweep patterns
+        for i in range(1, len(nodes_df) - 1):
+            current_price = nodes_df.iloc[i]['price']
+            prev_price = nodes_df.iloc[i-1]['price']
+            next_price = nodes_df.iloc[i+1]['price']
+
+            # Calculate relative position
+            relative_pos = ((current_price - session_low) / session_range) * 100
+
+            # Detect high liquidity sweep (price spikes above 90% then retraces)
+            if (relative_pos > 90 and
+                current_price > prev_price and
+                next_price < current_price):
+
+                sweep_strength = self._calculate_sweep_strength(nodes_df, i, "high")
+
+                sweeps.append({
+                    "event_index": i,
+                    "sweep_type": "high_liquidity_sweep",
+                    "price": current_price,
+                    "relative_position": relative_pos,
+                    "sweep_strength": sweep_strength,
+                    "retracement": ((current_price - next_price) / current_price) * 100
+                })
+
+            # Detect low liquidity sweep (price drops below 10% then recovers)
+            elif (relative_pos < 10 and
+                  current_price < prev_price and
+                  next_price > current_price):
+
+                sweep_strength = self._calculate_sweep_strength(nodes_df, i, "low")
+
+                sweeps.append({
+                    "event_index": i,
+                    "sweep_type": "low_liquidity_sweep",
+                    "price": current_price,
+                    "relative_position": relative_pos,
+                    "sweep_strength": sweep_strength,
+                    "recovery": ((next_price - current_price) / current_price) * 100
+                })
+
+        return sweeps
+
+    def _calculate_sweep_strength(self, nodes_df: pd.DataFrame, event_idx: int, sweep_type: str) -> float:
+        """Calculate the strength of a liquidity sweep"""
+        strength = 0.0
+
+        # Volume-based strength (if available)
+        if 'volume' in nodes_df.columns:
+            event_volume = nodes_df.iloc[event_idx].get('volume', 0)
+            avg_volume = nodes_df['volume'].mean()
+            if avg_volume > 0:
+                volume_ratio = event_volume / avg_volume
+                strength += min(volume_ratio / 3.0, 0.5)  # Cap at 0.5
+
+        # Price movement strength
+        if event_idx > 0 and event_idx < len(nodes_df) - 1:
+            current_price = nodes_df.iloc[event_idx]['price']
+            prev_price = nodes_df.iloc[event_idx - 1]['price']
+            next_price = nodes_df.iloc[event_idx + 1]['price']
+
+            if sweep_type == "high":
+                price_move = (current_price - prev_price) / prev_price if prev_price > 0 else 0
+                retracement = (current_price - next_price) / current_price if current_price > 0 else 0
+            else:  # low sweep
+                price_move = (prev_price - current_price) / prev_price if prev_price > 0 else 0
+                retracement = (next_price - current_price) / current_price if current_price > 0 else 0
+
+            strength += min(abs(price_move) * 10, 0.3)  # Price movement component
+            strength += min(abs(retracement) * 10, 0.2)  # Retracement component
+
+        return min(strength, 1.0)
+
+    def _calculate_sweep_statistics(self, sweep_events: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Calculate statistics for liquidity sweep events"""
+        if not sweep_events:
+            return {}
+
+        # Count sweep types
+        sweep_types = {}
+        strengths = []
+        positions = []
+
+        for sweep in sweep_events:
+            sweep_type = sweep.get("sweep_type", "unknown")
+            sweep_types[sweep_type] = sweep_types.get(sweep_type, 0) + 1
+            strengths.append(sweep.get("sweep_strength", 0))
+            positions.append(sweep.get("relative_position", 0))
+
+        most_common_type = max(sweep_types, key=sweep_types.get) if sweep_types else "none"
+
+        return {
+            "sweep_type_distribution": sweep_types,
+            "most_common_type": most_common_type,
+            "average_strength": np.mean(strengths) if strengths else 0,
+            "average_position": np.mean(positions) if positions else 0,
+            "strength_std": np.std(strengths) if strengths else 0
         }
         
     def _analyze_htf_taps(self, question: str) -> Dict[str, Any]:

@@ -11,18 +11,13 @@ import re
 
 from .session_manager import SessionDataManager
 from .price_relativity import PriceRelativityEngine
-from ml_path_predictor import MLPathPredictor
-from liquidity_htf_analyzer import LiquidityHTFAnalyzer
-
-
 class TemporalQueryCore:
     """Core temporal analysis and pattern matching engine"""
     
     def __init__(self, session_manager: SessionDataManager, price_engine: PriceRelativityEngine):
         self.session_manager = session_manager
         self.price_engine = price_engine
-        self.ml_predictor = MLPathPredictor()
-        self.liquidity_analyzer = LiquidityHTFAnalyzer()
+        # ML prediction and liquidity analysis handled internally
         
     def ask(self, question: str) -> Dict[str, Any]:
         """Ask a temporal question and get probabilistic answers with price relativity"""
