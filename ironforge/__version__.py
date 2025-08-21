@@ -1,8 +1,8 @@
 """IRONFORGE Version Information"""
 
-__version__ = "1.0.2-rc1"
-__version_info__ = (1, 0, 2)
-__release_notes__ = "Oracle Training CLI (Parquet-only, strict coverage): Temporal non-locality predictions with comprehensive validation"
+__version__ = "1.1.0"
+__version_info__ = (1, 1, 0)
+__release_notes__ = "Comprehensive Refactor: Consolidated scripts, unified dependencies, overhauled documentation, and aligned with GitHub best practices"
 
 # Feature version tracking
 NODE_FEATURES_VERSION = "1.1"
