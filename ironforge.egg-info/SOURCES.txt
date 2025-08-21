@@ -30,6 +30,9 @@ ironforge/integration/ironforge_container.py
 ironforge/learning/__init__.py
 ironforge/learning/discovery_pipeline.py
 ironforge/learning/enhanced_graph_builder.py
+ironforge/learning/online_session_classifier.py
+ironforge/learning/session_clustering.py
+ironforge/learning/session_fingerprinting.py
 ironforge/learning/tgat_discovery.py
 ironforge/motifs/__init__.py
 ironforge/motifs/scanner.py
