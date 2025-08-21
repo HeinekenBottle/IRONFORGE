@@ -1,5 +1,58 @@
 # IRONFORGE Changelog
 
+## [1.1.0] - 2025-08-21 - Comprehensive Refactor Release
+
+### 🚀 Major Changes
+- **Complete script consolidation**: Removed 10+ deprecated `run_*.py` stub scripts from root directory
+- **Unified dependency management**: Consolidated all dependencies into `pyproject.toml`, removed redundant `requirements*.txt` files
+- **Version alignment**: Updated to v1.1.0 across all configuration files and documentation
+- **Documentation overhaul**: Restructured and updated all documentation to reflect current architecture
+
+### ✨ New Features
+- **Unified Script Runner**: New `scripts/unified_runner.py` provides consolidated interface for all workflows
+- **Latest dependency versions**: Updated all dependencies to latest compatible versions
+- **Enhanced CLI integration**: Improved integration with existing CLI commands
+- **Pipeline automation**: Added full pipeline runner for complete workflow execution
+
+### 🔧 Improvements
+- **Dependency updates**:
+  - numpy: 1.20.0 → 1.24.0+
+  - pandas: 1.3.0 → 2.2.0+
+  - torch: 1.9.0 → 2.0.0+
+  - scikit-learn: 1.0.0 → 1.3.0+
+  - networkx: 2.5 → 3.0+
+  - Added torch-geometric, pyarrow, orjson for enhanced functionality
+- **Development tools**:
+  - pytest: 6.0 → 8.2.0+
+  - black: 21.0 → 24.8.0
+  - mypy: 0.800 → 1.10.0
+  - coverage: 7.3.2 → 7.6.0+
+
+### 🗑️ Removed
+- **Deprecated scripts**: All `run_*.py` stub scripts from root directory
+- **Redundant files**: `README_OLD.md`, `setup.py`, `config.py`
+- **Duplicate version management**: `scripts/bump_version.py` (kept modern version)
+- **Legacy requirements**: `requirements.txt`, `requirements-dev.txt`
+
+### 📚 Documentation
+- **Updated README**: Reflects v1.1.0 and new unified dependency management
+- **Installation guide**: Simplified to use single `pip install -e .[dev]` command
+- **Workflow documentation**: Updated to reference new unified runner
+- **Version consistency**: All documentation now reflects v1.1.0
+
+### 🔄 Migration Guide
+- **For users**: Replace any `run_*.py` script calls with `scripts/unified_runner.py <workflow>`
+- **For developers**: Use `pip install -e .[dev]` instead of separate requirements files
+- **For CI/CD**: Update dependency installation to use pyproject.toml
+
+### 🎯 GitHub Alignment
+- **Branch naming**: Following conventional branch naming patterns
+- **Version tagging**: Prepared for proper semantic versioning
+- **Release notes**: Comprehensive changelog for better release management
+- **CI compatibility**: Updated configurations for modern dependency management
+
+---
+
 ## [1.0.1] - 2025-08-19 - Oracle Temporal Non-locality (GA Release)
 
 ### 🔮 Oracle Sidecar Predictions

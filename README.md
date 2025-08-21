@@ -1,4 +1,4 @@
-# IRONFORGE — Graph-Based Market Archaeology (v0.9.0, Waves 0–7.2)
+# IRONFORGE — Graph-Based Market Archaeology (v1.1.0)
 ![ci](https://github.com/<org>/IRONFORGE/actions/workflows/ci.yml/badge.svg)
 
 **Archaeological discovery engine: rule-based → TGAT (single ML core) → rule-based**
@@ -47,7 +47,7 @@ Archaeological discovery engine that combines:
 ## Quickstart
 
 ```bash
-# Install
+# Install (unified dependency management via pyproject.toml)
 pip install -e .[dev]
 
 # Run canonical pipeline
@@ -60,7 +60,7 @@ python -m ironforge.sdk.cli status            --runs runs
 open runs/$(date +%F)/minidash.html
 
 # Enable Oracle (temporal non-locality predictions)
-ironforge train-oracle --symbols NQ --tf M5 --from 2025-07-20 --to 2025-08-15 --out models/oracle/v1.0.2
+ironforge train-oracle --symbols NQ --tf M5 --from 2025-07-20 --to 2025-08-15 --out models/oracle/v1.1.0
 ironforge discover-temporal --oracle-enabled
 ```
 
@@ -178,4 +178,4 @@ print(f'Node features: {len([c for c in nodes.column_names if c.startswith(\"f\"
 
 ---
 
-**IRONFORGE v0.7.1** — Archaeological discovery through temporal graph attention
+**IRONFORGE v1.1.0** — Archaeological discovery through temporal graph attention
