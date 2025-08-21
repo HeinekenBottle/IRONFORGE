@@ -1,0 +1,46 @@
+{
+  "session_id": "NY_AM_2025-07-29",
+  "date": "2025-08-19",
+  "pct_seen": 28.767123287671232,
+  "archetype_id": 1,
+  "confidence": 0.32140421867370605,
+  "predicted_stats": {
+    "volatility_class": "medium",
+    "range_p50": -0.36019212007522583,
+    "dominant_htf_regime": 1,
+    "top_phases": [
+      [
+        "reversal_signal",
+        -0.43614283204078674
+      ],
+      [
+        "liquidity_sweep",
+        -0.606551468372345
+      ],
+      [
+        "consolidation_phase",
+        -0.6621946692466736
+      ]
+    ],
+    "session_type_probabilities": {
+      "asia": 0.12,
+      "london": 0.2,
+      "lunch": 0.2,
+      "ny_am": 0.12,
+      "ny_pm": 0.08,
+      "preasia": 0.04,
+      "premarket": 0.24
+    }
+  },
+  "artifact_path": "models/session_fingerprints/v1.0.2",
+  "notes": [
+    "Early classification at 28.8% completion"
+  ],
+  "classification_metadata": {
+    "distance_to_centroid": 19.308420181274414,
+    "distance_metric": "euclidean",
+    "confidence_method": "softmax",
+    "model_version": "1.0.2",
+    "timestamp": "2025-08-19T21:27:00.633318"
+  }
+}
