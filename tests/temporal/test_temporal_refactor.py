@@ -9,7 +9,7 @@ import traceback
 from pathlib import Path
 
 # Add the ironforge module to path
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 def test_imports():
     """Test that all modules can be imported correctly"""
