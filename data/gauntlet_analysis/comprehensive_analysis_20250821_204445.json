@@ -1,0 +1,309 @@
+{
+  "analysis_timestamp": "2025-08-21T20:44:45.401764",
+  "system_performance": {
+    "fpfvg_detection_rate": 3.125,
+    "hunt_success_rate": 1.0,
+    "sequence_completion_rate": 0.28,
+    "archaeological_confluence_rate": 0.12
+  },
+  "fpfvg_analysis": {
+    "query_type": "fpfvg_analysis",
+    "query": "Analyze all FPFVG patterns including temporal types",
+    "analysis_timestamp": "2025-08-21T20:44:45.322329",
+    "summary": {
+      "sessions_analyzed": 16,
+      "sessions_with_fpfvgs": 16,
+      "total_fpfvgs_detected": 50,
+      "avg_fpfvgs_per_session": 3.125
+    },
+    "fpfvg_type_breakdown": {
+      "formation": 4,
+      "interaction": 16,
+      "structured": 4
+    },
+    "temporal_pattern_breakdown": {
+      "midnight": 4,
+      "premarket": 6,
+      "london": 8
+    },
+    "session_results": [
+      {
+        "session_id": "enhanced_NY_AM_Lvl-1_2025_07_30",
+        "fpfvg_count": 1,
+        "avg_gap_size": 0.25
+      },
+      {
+        "session_id": "enhanced_NY_AM_Lvl-1_2025_07_31",
+        "fpfvg_count": 1,
+        "avg_gap_size": 17.75
+      },
+      {
+        "session_id": "enhanced_rel_NY_AM_Lvl-1_2025_07_29",
+        "fpfvg_count": 1,
+        "avg_gap_size": 3.0
+      },
+      {
+        "session_id": "enhanced_NY_AM_Lvl-1_2025_08_05",
+        "fpfvg_count": 18,
+        "avg_gap_size": 5.347222222222222
+      },
+      {
+        "session_id": "enhanced_rel_NY_AM_Lvl-1_2025_07_25",
+        "fpfvg_count": 1,
+        "avg_gap_size": 13.0
+      },
+      {
+        "session_id": "enhanced_rel_NY_AM_Lvl-1_2025_07_24",
+        "fpfvg_count": 1,
+        "avg_gap_size": 2.25
+      },
+      {
+        "session_id": "enhanced_NY_AM_Lvl-1_2025_08_04",
+        "fpfvg_count": 1,
+        "avg_gap_size": 15.75
+      },
+      {
+        "session_id": "enhanced_rel_NY_AM_Lvl-1_2025_07_28",
+        "fpfvg_count": 1,
+        "avg_gap_size": 1.0
+      },
+      {
+        "session_id": "enhanced_rel_NY_AM_Lvl-1_2025_07_31",
+        "fpfvg_count": 1,
+        "avg_gap_size": 17.75
+      },
+      {
+        "session_id": "enhanced_rel_NY_AM_Lvl-1_2025_07_30",
+        "fpfvg_count": 1,
+        "avg_gap_size": 0.25
+      },
+      {
+        "session_id": "enhanced_NY_AM_Lvl-1_2025_07_24",
+        "fpfvg_count": 1,
+        "avg_gap_size": 2.25
+      },
+      {
+        "session_id": "enhanced_rel_NY_AM_Lvl-1_2025_08_04",
+        "fpfvg_count": 1,
+        "avg_gap_size": 15.75
+      },
+      {
+        "session_id": "enhanced_NY_AM_Lvl-1_2025_07_28",
+        "fpfvg_count": 1,
+        "avg_gap_size": 1.0
+      },
+      {
+        "session_id": "enhanced_NY_AM_Lvl-1_2025_07_29",
+        "fpfvg_count": 1,
+        "avg_gap_size": 3.0
+      },
+      {
+        "session_id": "enhanced_rel_NY_AM_Lvl-1_2025_08_05",
+        "fpfvg_count": 18,
+        "avg_gap_size": 5.347222222222222
+      },
+      {
+        "session_id": "enhanced_NY_AM_Lvl-1_2025_07_25",
+        "fpfvg_count": 1,
+        "avg_gap_size": 13.0
+      }
+    ],
+    "insights": [
+      "Enhanced detection found 50 FPFVG patterns across multiple extraction methods",
+      "Dominant FPFVG type: interaction (16 occurrences)",
+      "Most common temporal pattern: london (8 occurrences)"
+    ],
+    "methodology": "Enhanced_Real_FPFVG_Detection_Multi_Source_Extraction"
+  },
+  "hunt_analysis": {
+    "query_type": "hunt_analysis",
+    "query": "Analyze liquidity hunt patterns and success rates",
+    "analysis_timestamp": "2025-08-21T20:44:45.322908",
+    "summary": {
+      "sessions_analyzed": 16,
+      "sessions_with_hunts": 8,
+      "total_hunts_detected": 36,
+      "hunt_success_rate": 1.0
+    },
+    "hunt_direction_breakdown": {
+      "lower": 36,
+      "higher": 0
+    },
+    "hunt_pattern_breakdown": {
+      "session_extremes:expansion_low": 18,
+      "reversal_points:delivery": 16,
+      "previous_levels:three_day": 12,
+      "session_extremes:session_low": 10,
+      "explicit_liquidity:taken": 8,
+      "previous_levels:previous_day": 8,
+      "previous_levels:midnight": 6,
+      "reversal_points:reversal_point": 2,
+      "session_extremes:expansion_high": 2
+    },
+    "average_hunt_significance": 24.12,
+    "session_results": [
+      {
+        "session_id": "enhanced_NY_AM_Lvl-1_2025_07_31",
+        "hunts_detected": 1,
+        "hunt_rate": 1.0
+      },
+      {
+        "session_id": "enhanced_rel_NY_AM_Lvl-1_2025_07_29",
+        "hunts_detected": 1,
+        "hunt_rate": 1.0
+      },
+      {
+        "session_id": "enhanced_NY_AM_Lvl-1_2025_08_05",
+        "hunts_detected": 15,
+        "hunt_rate": 0.8333333333333334
+      },
+      {
+        "session_id": "enhanced_rel_NY_AM_Lvl-1_2025_07_25",
+        "hunts_detected": 1,
+        "hunt_rate": 1.0
+      },
+      {
+        "session_id": "enhanced_rel_NY_AM_Lvl-1_2025_07_31",
+        "hunts_detected": 1,
+        "hunt_rate": 1.0
+      },
+      {
+        "session_id": "enhanced_NY_AM_Lvl-1_2025_07_29",
+        "hunts_detected": 1,
+        "hunt_rate": 1.0
+      },
+      {
+        "session_id": "enhanced_rel_NY_AM_Lvl-1_2025_08_05",
+        "hunts_detected": 15,
+        "hunt_rate": 0.8333333333333334
+      },
+      {
+        "session_id": "enhanced_NY_AM_Lvl-1_2025_07_25",
+        "hunts_detected": 1,
+        "hunt_rate": 1.0
+      }
+    ],
+    "insights": [
+      "Enhanced hunt detection identified 36 liquidity sweep patterns",
+      "Average hunt significance score: 24.119444444444444/10.0",
+      "Bearish bias detected: 36 lower hunts vs 0 higher hunts",
+      "Most common hunt pattern: session_extremes:expansion_low (18 occurrences)"
+    ],
+    "methodology": "Enhanced_Liquidity_Hunt_Detection_Pattern_Weighted_Scoring"
+  },
+  "sequence_analysis": {
+    "query_type": "statistical_analysis",
+    "query": "Complete Gauntlet sequence analysis with completion rates",
+    "analysis_timestamp": "2025-08-21T20:44:45.329334",
+    "comprehensive_statistics": {
+      "fpfvg_statistics": {
+        "sessions_analyzed": 16,
+        "sessions_with_fpfvgs": 16,
+        "total_fpfvgs_detected": 50,
+        "avg_fpfvgs_per_session": 3.125
+      },
+      "hunt_statistics": {
+        "sessions_analyzed": 16,
+        "sessions_with_hunts": 8,
+        "total_hunts_detected": 36,
+        "hunt_success_rate": 1.0
+      },
+      "sequence_statistics": {
+        "sessions_analyzed": 16,
+        "sessions_with_sequences": 16,
+        "total_gauntlet_sequences": 50,
+        "complete_sequences": 14,
+        "hunt_only_sequences": 22,
+        "overall_completion_rate": 0.28
+      },
+      "confluence_statistics": {
+        "sessions_analyzed": 16,
+        "total_events_analyzed": 50,
+        "total_confluences_detected": 6,
+        "overall_confluence_rate": 0.12,
+        "theory_b_validations": 6,
+        "theory_b_validation_rate": 0.12
+      }
+    },
+    "performance_metrics": {
+      "fpfvg_detection_rate": 3.125,
+      "hunt_success_rate": 1.0,
+      "sequence_completion_rate": 0.28,
+      "archaeological_confluence_rate": 0.12
+    },
+    "insights": [
+      "Enhanced system performance: 3.1 FPFVGs per session, 28.0% completion rate",
+      "High FPFVG detection rate indicates comprehensive pattern extraction",
+      "Gauntlet completion rate exceeds baseline expectations"
+    ],
+    "methodology": "Comprehensive_Enhanced_Gauntlet_Statistical_Analysis"
+  },
+  "archaeological_analysis": {
+    "query_type": "archaeological_confluence_analysis",
+    "query": "Theory B validation and archaeological zone analysis",
+    "analysis_timestamp": "2025-08-21T20:44:45.337085",
+    "summary": {
+      "sessions_analyzed": 16,
+      "total_events_analyzed": 50,
+      "total_confluences_detected": 6,
+      "overall_confluence_rate": 0.12,
+      "theory_b_validations": 6,
+      "theory_b_validation_rate": 0.12
+    },
+    "zone_distribution": {
+      "40%": 4,
+      "60%": 6,
+      "80%": 2,
+      "other": 38
+    },
+    "session_results": [
+      {
+        "session_id": "enhanced_NY_AM_Lvl-1_2025_07_31",
+        "confluences": 1,
+        "confluence_rate": 1.0
+      },
+      {
+        "session_id": "enhanced_rel_NY_AM_Lvl-1_2025_07_24",
+        "confluences": 1,
+        "confluence_rate": 1.0
+      },
+      {
+        "session_id": "enhanced_rel_NY_AM_Lvl-1_2025_07_28",
+        "confluences": 1,
+        "confluence_rate": 1.0
+      },
+      {
+        "session_id": "enhanced_rel_NY_AM_Lvl-1_2025_07_31",
+        "confluences": 1,
+        "confluence_rate": 1.0
+      },
+      {
+        "session_id": "enhanced_NY_AM_Lvl-1_2025_07_24",
+        "confluences": 1,
+        "confluence_rate": 1.0
+      },
+      {
+        "session_id": "enhanced_NY_AM_Lvl-1_2025_07_28",
+        "confluences": 1,
+        "confluence_rate": 1.0
+      }
+    ],
+    "insights": [
+      "Archaeological confluence rate: 12.0% (6/50)",
+      "Theory B validations: 6 events (12.0%)",
+      "Most active zone: other with 38 confluences"
+    ],
+    "methodology": "Theory_B_Temporal_Non_Locality_Archaeological_Zone_Integration"
+  },
+  "improvements": {
+    "fpfvg_detection_improvement": 3.125,
+    "sequence_detection_improvement": 12.5,
+    "baseline_comparison": {
+      "baseline_fpfvgs": 16,
+      "current_fpfvgs": 50,
+      "baseline_sequences": 4,
+      "current_sequences": 50
+    }
+  },
+  "methodology": "Enhanced_Multi_Source_FPFVG_Extraction_Pattern_Weighted_Hunt_Detection_TQE_Integration"
+}

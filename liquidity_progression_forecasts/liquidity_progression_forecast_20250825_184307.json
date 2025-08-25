@@ -1,0 +1,230 @@
+{
+  "agent_role": "Statistical Prediction Generator Agent",
+  "forecast_timestamp": "2025-08-25T18:43:07.131357",
+  "forecast_confidence": 0.0,
+  "liquidity_progression_forecast": {
+    "target_predictions": [
+      {
+        "target_type": "session_high",
+        "overall_completion_probability": 0.0,
+        "current_session_probability": 0.0,
+        "next_session_probability": 0.0,
+        "average_completion_time_minutes": null,
+        "confidence_interval": [
+          0.0,
+          0.0
+        ],
+        "sample_size": 1,
+        "statistical_significance": "insufficient_data"
+      },
+      {
+        "target_type": "session_low",
+        "overall_completion_probability": 0.0,
+        "current_session_probability": 0.0,
+        "next_session_probability": 0.0,
+        "average_completion_time_minutes": null,
+        "confidence_interval": [
+          0.0,
+          0.0
+        ],
+        "sample_size": 0,
+        "statistical_significance": "insufficient_data"
+      },
+      {
+        "target_type": "daily_high",
+        "overall_completion_probability": 0.0,
+        "current_session_probability": 0.0,
+        "next_session_probability": 0.0,
+        "average_completion_time_minutes": null,
+        "confidence_interval": [
+          0.0,
+          0.0
+        ],
+        "sample_size": 1,
+        "statistical_significance": "insufficient_data"
+      },
+      {
+        "target_type": "daily_low",
+        "overall_completion_probability": 0.0,
+        "current_session_probability": 0.0,
+        "next_session_probability": 0.0,
+        "average_completion_time_minutes": null,
+        "confidence_interval": [
+          0.0,
+          0.0
+        ],
+        "sample_size": 0,
+        "statistical_significance": "insufficient_data"
+      },
+      {
+        "target_type": "fvg_redelivery",
+        "overall_completion_probability": 0.0,
+        "current_session_probability": 0.0,
+        "next_session_probability": 0.0,
+        "average_completion_time_minutes": null,
+        "confidence_interval": [
+          0.0,
+          0.0
+        ],
+        "sample_size": 1,
+        "statistical_significance": "insufficient_data"
+      }
+    ],
+    "session_predictions": [
+      {
+        "session_type": "NY",
+        "target_completion_rate": 0.6666666666666666,
+        "preferred_targets": [
+          {
+            "target_type": "session_high",
+            "probability": 1.0
+          },
+          {
+            "target_type": "daily_high",
+            "probability": 1.0
+          },
+          {
+            "target_type": "fvg_redelivery",
+            "probability": 0.0
+          }
+        ],
+        "timing_patterns": {
+          "average_time": 102.5,
+          "median_time": 102.5,
+          "fastest": 25,
+          "slowest": 180,
+          "std_deviation": 77.5
+        },
+        "sequence_preferences": [
+          "session_high",
+          "daily_high",
+          "fvg_redelivery"
+        ],
+        "risk_factors": [
+          "limited_sample_size",
+          "inconsistent_timing"
+        ]
+      }
+    ],
+    "compound_scenarios": {
+      "session_sweep": {
+        "description": "Both session high and low completion",
+        "targets": [
+          "session_high",
+          "session_low"
+        ],
+        "probability": 0.0
+      },
+      "daily_progression": {
+        "description": "Session high followed by daily high",
+        "targets": [
+          "session_high",
+          "daily_high"
+        ],
+        "probability": 0.0
+      },
+      "fvg_with_liquidity": {
+        "description": "FVG redelivery with session high/low",
+        "targets": [
+          "fvg_redelivery",
+          "session_high"
+        ],
+        "probability": 0.0
+      },
+      "complete_targeting": {
+        "description": "All target types completed",
+        "targets": [
+          "session_high",
+          "session_low",
+          "daily_high",
+          "daily_low",
+          "fvg_redelivery"
+        ],
+        "probability": 0.0
+      }
+    },
+    "timing_intelligence": {
+      "optimal_monitoring_window": {
+        "minutes": 164,
+        "description": "90th percentile completion time"
+      },
+      "early_completion_threshold": {
+        "minutes": 63,
+        "description": "25th percentile - early completions"
+      },
+      "peak_completion_window": {
+        "start_minutes": 63,
+        "end_minutes": 141,
+        "description": "Interquartile range - highest probability window"
+      },
+      "timing_distribution": {
+        "mean": 102.5,
+        "median": 102.5,
+        "std": 77.5
+      },
+      "session_timing_preferences": {}
+    },
+    "risk_assessment": {
+      "data_quality_risks": [
+        "limited_sample_size",
+        "multiple_insufficient_targets"
+      ],
+      "statistical_risks": [
+        "low_statistical_confidence"
+      ],
+      "market_condition_risks": [
+        "session_variability"
+      ],
+      "overall_risk_level": "high"
+    },
+    "forecast_confidence": 0.0,
+    "live_trading_recommendations": {
+      "primary_targets": [],
+      "timing_strategy": {
+        "monitor_period_minutes": 164,
+        "highest_probability_window": "63-141 minutes post-touch",
+        "early_signal_threshold": 63
+      },
+      "risk_management": {
+        "overall_risk_level": "high",
+        "position_sizing_factor": 0.5,
+        "key_risks": [
+          "limited_sample_size",
+          "multiple_insufficient_targets",
+          "low_statistical_confidence"
+        ],
+        "monitoring_requirements": "enhanced"
+      },
+      "session_specific_guidance": {}
+    },
+    "forecast_timestamp": "2025-08-25T18:43:07.131357"
+  },
+  "summary_statistics": {
+    "highest_probability_targets": [
+      {
+        "target": "session_high",
+        "probability": "0.0%"
+      },
+      {
+        "target": "session_low",
+        "probability": "0.0%"
+      },
+      {
+        "target": "daily_high",
+        "probability": "0.0%"
+      }
+    ],
+    "best_performing_sessions": [
+      {
+        "session": "NY",
+        "completion_rate": "66.7%"
+      }
+    ],
+    "optimal_monitoring_window": {
+      "minutes": 164,
+      "description": "90th percentile completion time"
+    },
+    "overall_risk_level": "high",
+    "forecast_confidence": "0.0%"
+  }
+}

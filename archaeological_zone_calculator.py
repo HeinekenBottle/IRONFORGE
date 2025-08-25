@@ -261,6 +261,43 @@ class ArchaeologicalZoneCalculator:
         
         return candidates
     
+    # TODO(human): Implement RD@60% and RD@80% zone analysis functions
+    def calculate_rd60_zone(self, session_high: float, session_low: float, events: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """
+        Calculate RD@60% zone analysis with Theory B temporal non-locality validation
+        
+        Args:
+            session_high: Final session high
+            session_low: Final session low  
+            events: Session events for analysis
+            
+        Returns:
+            RD@60% zone analysis with precision metrics
+        """
+        # TODO(human): Implement RD@60% zone calculation logic
+        # Consider: Does 60% zone maintain same 7.55-point precision as 40% zone?
+        # Consider: Are there different tolerance windows needed for 60% vs 40%?
+        # Consider: How does temporal non-locality manifest at 60% level?
+        pass
+    
+    def calculate_rd80_zone(self, session_high: float, session_low: float, events: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """
+        Calculate RD@80% zone analysis with Theory B temporal non-locality validation
+        
+        Args:
+            session_high: Final session high
+            session_low: Final session low
+            events: Session events for analysis
+            
+        Returns:
+            RD@80% zone analysis with precision metrics and momentum threshold analysis
+        """
+        # TODO(human): Implement RD@80% zone calculation logic  
+        # Consider: 80% zones may show different precision characteristics (momentum thresholds)
+        # Consider: Does temporal non-locality weaken or strengthen at higher range percentages?
+        # Consider: Integration with HTF breakout confirmation for 80% momentum events
+        pass
+    
     def generate_zone_report(self, session_data: Dict[str, Any]) -> Dict[str, Any]:
         """
         Generate comprehensive archaeological zone report for a session

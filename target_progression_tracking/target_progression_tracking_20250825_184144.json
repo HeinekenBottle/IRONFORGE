@@ -1,0 +1,243 @@
+{
+  "agent_role": "Target Progression Tracker Agent",
+  "tracking_timestamp": "2025-08-25T18:41:44.850872",
+  "total_archaeological_touches": 1,
+  "tracking_results": [
+    {
+      "archaeological_touch": {
+        "timestamp": "2025-07-25 14:35:00",
+        "price": 23162.25,
+        "archaeological_40_level": 23160.0,
+        "session_type": "NY",
+        "date": "2025-07-25"
+      },
+      "pre_structure_inventory": {
+        "archaeological_touch": {
+          "timestamp": "2025-07-25 14:35:00",
+          "price": 23162.25,
+          "archaeological_40_level": 23160.0,
+          "session_type": "NY",
+          "date": "2025-07-25"
+        },
+        "session_structures": [
+          {
+            "session_type": "LONDON",
+            "session_high": 23175.0,
+            "session_low": 23155.0,
+            "is_current_session": false
+          },
+          {
+            "session_type": "NY",
+            "session_high": 23170.0,
+            "session_low": 23160.5,
+            "is_current_session": true
+          }
+        ],
+        "daily_structure": {
+          "daily_high": 23175.0,
+          "daily_low": 23145.0,
+          "current_day_high": 23175.0,
+          "current_day_low": 23155.0
+        },
+        "existing_fvgs": [
+          {
+            "fvg_id": "LONDON_FVG_1",
+            "gap_high": 23168.0,
+            "gap_low": 23165.0,
+            "gap_type": "bullish",
+            "is_filled": false,
+            "creation_session": "LONDON"
+          }
+        ],
+        "total_targets": 7
+      },
+      "target_completions": [
+        {
+          "target_type": "session_high",
+          "target_id": "LONDON_HIGH",
+          "target_price": 23175.0,
+          "completed": true,
+          "completion_timestamp": "0",
+          "completion_session": "UNKNOWN",
+          "timing_classification": "current_session",
+          "minutes_after_touch": 0,
+          "completion_details": {
+            "direction": "above",
+            "completion_price": 23421.0,
+            "accuracy": 246.0
+          }
+        },
+        {
+          "target_type": "session_low",
+          "target_id": "LONDON_LOW",
+          "target_price": 23155.0,
+          "completed": false,
+          "completion_timestamp": null,
+          "completion_session": null,
+          "timing_classification": "never",
+          "minutes_after_touch": null,
+          "completion_details": {
+            "direction": "below",
+            "closest_approach": 23330.75
+          }
+        },
+        {
+          "target_type": "session_high",
+          "target_id": "NY_HIGH",
+          "target_price": 23170.0,
+          "completed": true,
+          "completion_timestamp": "0",
+          "completion_session": "UNKNOWN",
+          "timing_classification": "current_session",
+          "minutes_after_touch": 0,
+          "completion_details": {
+            "direction": "above",
+            "completion_price": 23421.0,
+            "accuracy": 251.0
+          }
+        },
+        {
+          "target_type": "session_low",
+          "target_id": "NY_LOW",
+          "target_price": 23160.5,
+          "completed": false,
+          "completion_timestamp": null,
+          "completion_session": null,
+          "timing_classification": "never",
+          "minutes_after_touch": null,
+          "completion_details": {
+            "direction": "below",
+            "closest_approach": 23330.75
+          }
+        },
+        {
+          "target_type": "daily_high",
+          "target_id": "DAILY_HIGH",
+          "target_price": 23175.0,
+          "completed": true,
+          "completion_timestamp": "0",
+          "completion_session": "UNKNOWN",
+          "timing_classification": "current_session",
+          "minutes_after_touch": 0,
+          "completion_details": {
+            "direction": "above",
+            "completion_price": 23421.0,
+            "accuracy": 246.0
+          }
+        },
+        {
+          "target_type": "daily_low",
+          "target_id": "DAILY_LOW",
+          "target_price": 23145.0,
+          "completed": false,
+          "completion_timestamp": null,
+          "completion_session": null,
+          "timing_classification": "never",
+          "minutes_after_touch": null,
+          "completion_details": {
+            "direction": "below",
+            "closest_approach": 23330.75
+          }
+        },
+        {
+          "target_type": "fvg_redelivery",
+          "target_id": "LONDON_FVG_1",
+          "target_price": 23166.5,
+          "completed": false,
+          "completion_timestamp": null,
+          "completion_session": null,
+          "timing_classification": "never",
+          "minutes_after_touch": null,
+          "completion_details": {
+            "gap_type": "bullish",
+            "gap_range": [
+              23165.0,
+              23168.0
+            ]
+          }
+        }
+      ],
+      "session_analyses": [
+        {
+          "session_type": "LONDON",
+          "targets_in_session": 3,
+          "targets_completed": 0,
+          "completion_rate": 0.0,
+          "average_completion_time": null,
+          "completion_sequence": []
+        },
+        {
+          "session_type": "NY",
+          "targets_in_session": 2,
+          "targets_completed": 0,
+          "completion_rate": 0.0,
+          "average_completion_time": null,
+          "completion_sequence": []
+        }
+      ],
+      "overall_statistics": {
+        "total_targets": 7,
+        "completed_targets": 3,
+        "overall_completion_rate": 0.42857142857142855,
+        "current_session_completions": 3,
+        "next_session_completions": 0,
+        "timing_breakdown": {
+          "current_session": 1.0,
+          "next_session": 0.0
+        }
+      },
+      "tracking_timestamp": "2025-08-25T18:41:44.850704"
+    }
+  ],
+  "aggregate_statistics": {
+    "total_targets_tracked": 7,
+    "total_completions": 3,
+    "overall_completion_rate": 0.42857142857142855,
+    "completion_rates_by_target_type": {
+      "session_high": {
+        "total": 2,
+        "completed": 2,
+        "rate": 1.0
+      },
+      "session_low": {
+        "total": 2,
+        "completed": 0,
+        "rate": 0.0
+      },
+      "daily_high": {
+        "total": 1,
+        "completed": 1,
+        "rate": 1.0
+      },
+      "daily_low": {
+        "total": 1,
+        "completed": 0,
+        "rate": 0.0
+      },
+      "fvg_redelivery": {
+        "total": 1,
+        "completed": 0,
+        "rate": 0.0
+      }
+    },
+    "timing_distribution": {
+      "current_session": {
+        "count": 3,
+        "percentage": 0.42857142857142855
+      },
+      "next_session": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "delayed": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "never": {
+        "count": 4,
+        "percentage": 0.5714285714285714
+      }
+    },
+    "average_completion_rate_per_touch": 0.42857142857142855
+  }
+}

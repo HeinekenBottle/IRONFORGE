@@ -1,0 +1,854 @@
+{
+  "agent_role": "Pre-Structure Inventory Agent",
+  "analysis_timestamp": "2025-08-25T17:23:08.429048",
+  "total_archaeological_touches": 3,
+  "inventories": [
+    {
+      "archaeological_touch": {
+        "timestamp": "2025-07-25 14:35:00",
+        "price": 23162.25,
+        "archaeological_40_level": 23160.0,
+        "session_type": "NY",
+        "date": "2025-07-25",
+        "previous_day_high": 23175.5,
+        "previous_day_low": 23145.0
+      },
+      "session_structures": [
+        {
+          "session_type": "MIDNIGHT",
+          "session_high": 23431.75,
+          "session_high_timestamp": "MIDNIGHT_high",
+          "session_low": 0.0,
+          "session_low_timestamp": "MIDNIGHT_low",
+          "session_start": "2025-07-25 MIDNIGHT",
+          "is_current_session": false
+        },
+        {
+          "session_type": "PREMARKET",
+          "session_high": 23388.0,
+          "session_high_timestamp": "PREMARKET_high",
+          "session_low": 23346.75,
+          "session_low_timestamp": "PREMARKET_low",
+          "session_start": "2025-07-25 PREMARKET",
+          "is_current_session": false
+        },
+        {
+          "session_type": "LONDON",
+          "session_high": 23409.5,
+          "session_high_timestamp": "LONDON_high",
+          "session_low": 23348.75,
+          "session_low_timestamp": "LONDON_low",
+          "session_start": "2025-07-25 LONDON",
+          "is_current_session": false
+        },
+        {
+          "session_type": "LUNCH",
+          "session_high": 23476.0,
+          "session_high_timestamp": "LUNCH_high",
+          "session_low": 23416.0,
+          "session_low_timestamp": "LUNCH_low",
+          "session_start": "2025-07-25 LUNCH",
+          "is_current_session": false
+        },
+        {
+          "session_type": "NY",
+          "session_high": 23429.25,
+          "session_high_timestamp": "NY_high",
+          "session_low": 23330.75,
+          "session_low_timestamp": "NY_low",
+          "session_start": "2025-07-25 NY",
+          "is_current_session": true
+        }
+      ],
+      "daily_structure": {
+        "daily_high": 23476.0,
+        "daily_high_timestamp": "LUNCH_high",
+        "daily_low": 0.0,
+        "daily_low_timestamp": "MIDNIGHT_low",
+        "current_day_high": 23476.0,
+        "current_day_low": 0.0,
+        "previous_day_high": 23175.5,
+        "previous_day_low": 23145.0
+      },
+      "existing_fvgs": [
+        {
+          "fvg_id": "NY_FVG_21",
+          "gap_high": 23361.75,
+          "gap_low": 23330.75,
+          "gap_size": 31.0,
+          "creation_timestamp": "6",
+          "creation_session": "NY",
+          "gap_type": "bearish",
+          "is_filled": true,
+          "distance_from_40_level": 186.25
+        },
+        {
+          "fvg_id": "LONDON_FVG_13",
+          "gap_high": 23360.0,
+          "gap_low": 23348.75,
+          "gap_size": 11.25,
+          "creation_timestamp": "10",
+          "creation_session": "LONDON",
+          "gap_type": "bearish",
+          "is_filled": false,
+          "distance_from_40_level": 194.375
+        },
+        {
+          "fvg_id": "PREMARKET_FVG_10",
+          "gap_high": 23386.25,
+          "gap_low": 23346.75,
+          "gap_size": 39.5,
+          "creation_timestamp": "10",
+          "creation_session": "PREMARKET",
+          "gap_type": "bearish",
+          "is_filled": false,
+          "distance_from_40_level": 206.5
+        },
+        {
+          "fvg_id": "NY_FVG_22",
+          "gap_high": 23408.0,
+          "gap_low": 23330.75,
+          "gap_size": 77.25,
+          "creation_timestamp": "8",
+          "creation_session": "NY",
+          "gap_type": "bullish",
+          "is_filled": false,
+          "distance_from_40_level": 209.375
+        },
+        {
+          "fvg_id": "PREMARKET_FVG_8",
+          "gap_high": 23385.25,
+          "gap_low": 23360.75,
+          "gap_size": 24.5,
+          "creation_timestamp": "6",
+          "creation_session": "PREMARKET",
+          "gap_type": "bearish",
+          "is_filled": true,
+          "distance_from_40_level": 213.0
+        },
+        {
+          "fvg_id": "PREMARKET_FVG_9",
+          "gap_high": 23386.25,
+          "gap_low": 23360.75,
+          "gap_size": 25.5,
+          "creation_timestamp": "8",
+          "creation_session": "PREMARKET",
+          "gap_type": "bullish",
+          "is_filled": true,
+          "distance_from_40_level": 213.5
+        },
+        {
+          "fvg_id": "LONDON_FVG_12",
+          "gap_high": 23389.0,
+          "gap_low": 23360.0,
+          "gap_size": 29.0,
+          "creation_timestamp": "8",
+          "creation_session": "LONDON",
+          "gap_type": "bearish",
+          "is_filled": false,
+          "distance_from_40_level": 214.5
+        },
+        {
+          "fvg_id": "PREMARKET_FVG_7",
+          "gap_high": 23388.0,
+          "gap_low": 23385.25,
+          "gap_size": 2.75,
+          "creation_timestamp": "4",
+          "creation_session": "PREMARKET",
+          "gap_type": "bearish",
+          "is_filled": false,
+          "distance_from_40_level": 226.625
+        },
+        {
+          "fvg_id": "LONDON_FVG_11",
+          "gap_high": 23409.5,
+          "gap_low": 23389.0,
+          "gap_size": 20.5,
+          "creation_timestamp": "6",
+          "creation_session": "LONDON",
+          "gap_type": "bearish",
+          "is_filled": false,
+          "distance_from_40_level": 239.25
+        },
+        {
+          "fvg_id": "LUNCH_FVG_18",
+          "gap_high": 23421.0,
+          "gap_low": 23416.0,
+          "gap_size": 5.0,
+          "creation_timestamp": "8",
+          "creation_session": "LUNCH",
+          "gap_type": "bearish",
+          "is_filled": true,
+          "distance_from_40_level": 258.5
+        },
+        {
+          "fvg_id": "NY_FVG_23",
+          "gap_high": 23429.25,
+          "gap_low": 23408.0,
+          "gap_size": 21.25,
+          "creation_timestamp": "10",
+          "creation_session": "NY",
+          "gap_type": "bullish",
+          "is_filled": false,
+          "distance_from_40_level": 258.625
+        },
+        {
+          "fvg_id": "LUNCH_FVG_19",
+          "gap_high": 23426.5,
+          "gap_low": 23416.0,
+          "gap_size": 10.5,
+          "creation_timestamp": "10",
+          "creation_session": "LUNCH",
+          "gap_type": "bullish",
+          "is_filled": false,
+          "distance_from_40_level": 261.25
+        },
+        {
+          "fvg_id": "LUNCH_FVG_20",
+          "gap_high": 23429.25,
+          "gap_low": 23426.5,
+          "gap_size": 2.75,
+          "creation_timestamp": "12",
+          "creation_session": "LUNCH",
+          "gap_type": "bullish",
+          "is_filled": false,
+          "distance_from_40_level": 267.875
+        },
+        {
+          "fvg_id": "LUNCH_FVG_14",
+          "gap_high": 23476.0,
+          "gap_low": 23421.0,
+          "gap_size": 55.0,
+          "creation_timestamp": "1",
+          "creation_session": "LUNCH",
+          "gap_type": "bullish",
+          "is_filled": true,
+          "distance_from_40_level": 288.5
+        },
+        {
+          "fvg_id": "LUNCH_FVG_15",
+          "gap_high": 23476.0,
+          "gap_low": 23421.0,
+          "gap_size": 55.0,
+          "creation_timestamp": "2",
+          "creation_session": "LUNCH",
+          "gap_type": "bearish",
+          "is_filled": true,
+          "distance_from_40_level": 288.5
+        },
+        {
+          "fvg_id": "LUNCH_FVG_16",
+          "gap_high": 23476.0,
+          "gap_low": 23421.0,
+          "gap_size": 55.0,
+          "creation_timestamp": "3",
+          "creation_session": "LUNCH",
+          "gap_type": "bullish",
+          "is_filled": true,
+          "distance_from_40_level": 288.5
+        },
+        {
+          "fvg_id": "LUNCH_FVG_17",
+          "gap_high": 23476.0,
+          "gap_low": 23421.0,
+          "gap_size": 55.0,
+          "creation_timestamp": "4",
+          "creation_session": "LUNCH",
+          "gap_type": "bearish",
+          "is_filled": false,
+          "distance_from_40_level": 288.5
+        },
+        {
+          "fvg_id": "MIDNIGHT_FVG_2",
+          "gap_high": 23431.75,
+          "gap_low": 0.0,
+          "gap_size": 23431.75,
+          "creation_timestamp": "6",
+          "creation_session": "MIDNIGHT",
+          "gap_type": "bullish",
+          "is_filled": true,
+          "distance_from_40_level": 11444.125
+        },
+        {
+          "fvg_id": "MIDNIGHT_FVG_3",
+          "gap_high": 23431.75,
+          "gap_low": 0.0,
+          "gap_size": 23431.75,
+          "creation_timestamp": "7",
+          "creation_session": "MIDNIGHT",
+          "gap_type": "bearish",
+          "is_filled": false,
+          "distance_from_40_level": 11444.125
+        },
+        {
+          "fvg_id": "MIDNIGHT_FVG_1",
+          "gap_high": 23429.25,
+          "gap_low": 0.0,
+          "gap_size": 23429.25,
+          "creation_timestamp": "5",
+          "creation_session": "MIDNIGHT",
+          "gap_type": "bearish",
+          "is_filled": true,
+          "distance_from_40_level": 11445.375
+        },
+        {
+          "fvg_id": "MIDNIGHT_FVG_6",
+          "gap_high": 23422.5,
+          "gap_low": 0.0,
+          "gap_size": 23422.5,
+          "creation_timestamp": "10",
+          "creation_session": "MIDNIGHT",
+          "gap_type": "bullish",
+          "is_filled": false,
+          "distance_from_40_level": 11448.75
+        },
+        {
+          "fvg_id": "MIDNIGHT_FVG_4",
+          "gap_high": 23421.5,
+          "gap_low": 0.0,
+          "gap_size": 23421.5,
+          "creation_timestamp": "8",
+          "creation_session": "MIDNIGHT",
+          "gap_type": "bullish",
+          "is_filled": true,
+          "distance_from_40_level": 11449.25
+        },
+        {
+          "fvg_id": "MIDNIGHT_FVG_5",
+          "gap_high": 23421.5,
+          "gap_low": 0.0,
+          "gap_size": 23421.5,
+          "creation_timestamp": "9",
+          "creation_session": "MIDNIGHT",
+          "gap_type": "bearish",
+          "is_filled": true,
+          "distance_from_40_level": 11449.25
+        }
+      ],
+      "inventory_timestamp": "2025-08-25T17:23:08.106312",
+      "total_targets": 24,
+      "target_summary": {
+        "session_highs": 5,
+        "session_lows": 5,
+        "daily_extremes": 2,
+        "unfilled_fvgs": 12,
+        "total_targets": 24
+      }
+    },
+    {
+      "archaeological_touch": {
+        "timestamp": "2025-07-26 10:22:00",
+        "price": 23158.75,
+        "archaeological_40_level": 23157.5,
+        "session_type": "LONDON",
+        "date": "2025-07-26",
+        "previous_day_high": 23170.0,
+        "previous_day_low": 23148.0
+      },
+      "session_structures": [],
+      "daily_structure": {
+        "daily_high": 23170.0,
+        "daily_high_timestamp": "previous_day",
+        "daily_low": 23148.0,
+        "daily_low_timestamp": "previous_day",
+        "current_day_high": 0.0,
+        "current_day_low": 999999.0,
+        "previous_day_high": 23170.0,
+        "previous_day_low": 23148.0
+      },
+      "existing_fvgs": [],
+      "inventory_timestamp": "2025-08-25T17:23:08.107231",
+      "total_targets": 2,
+      "target_summary": {
+        "session_highs": 0,
+        "session_lows": 0,
+        "daily_extremes": 2,
+        "unfilled_fvgs": 0,
+        "total_targets": 2
+      }
+    },
+    {
+      "archaeological_touch": {
+        "timestamp": "2025-07-29 15:18:00",
+        "price": 23164.0,
+        "archaeological_40_level": 23163.25,
+        "session_type": "NY",
+        "date": "2025-07-29",
+        "previous_day_high": 23178.0,
+        "previous_day_low": 23152.5
+      },
+      "session_structures": [
+        {
+          "session_type": "MIDNIGHT",
+          "session_high": 23552.0,
+          "session_high_timestamp": "MIDNIGHT_high",
+          "session_low": 23542.0,
+          "session_low_timestamp": "MIDNIGHT_low",
+          "session_start": "2025-07-29 MIDNIGHT",
+          "is_current_session": false
+        },
+        {
+          "session_type": "PREMARKET",
+          "session_high": 23613.5,
+          "session_high_timestamp": "PREMARKET_high",
+          "session_low": 23578.5,
+          "session_low_timestamp": "PREMARKET_low",
+          "session_start": "2025-07-29 PREMARKET",
+          "is_current_session": false
+        },
+        {
+          "session_type": "ASIA",
+          "session_high": 23547.5,
+          "session_high_timestamp": "ASIA_high",
+          "session_low": 23516.5,
+          "session_low_timestamp": "ASIA_low",
+          "session_start": "2025-07-29 ASIA",
+          "is_current_session": false
+        },
+        {
+          "session_type": "LUNCH",
+          "session_high": 23513.75,
+          "session_high_timestamp": "LUNCH_high",
+          "session_low": 23477.25,
+          "session_low_timestamp": "LUNCH_low",
+          "session_start": "2025-07-29 LUNCH",
+          "is_current_session": false
+        },
+        {
+          "session_type": "NY",
+          "session_high": 23524.875,
+          "session_high_timestamp": "NY_high",
+          "session_low": 23421.25,
+          "session_low_timestamp": "NY_low",
+          "session_start": "2025-07-29 NY",
+          "is_current_session": true
+        }
+      ],
+      "daily_structure": {
+        "daily_high": 23613.5,
+        "daily_high_timestamp": "PREMARKET_high",
+        "daily_low": 23152.5,
+        "daily_low_timestamp": "previous_day",
+        "current_day_high": 23613.5,
+        "current_day_low": 23421.25,
+        "previous_day_high": 23178.0,
+        "previous_day_low": 23152.5
+      },
+      "existing_fvgs": [
+        {
+          "fvg_id": "NY_FVG_26",
+          "gap_high": 23513.75,
+          "gap_low": 23421.25,
+          "gap_size": 92.5,
+          "creation_timestamp": "4",
+          "creation_session": "NY",
+          "gap_type": "bearish",
+          "is_filled": true,
+          "distance_from_40_level": 304.25
+        },
+        {
+          "fvg_id": "NY_FVG_27",
+          "gap_high": 23524.875,
+          "gap_low": 23421.25,
+          "gap_size": 103.625,
+          "creation_timestamp": "8",
+          "creation_session": "NY",
+          "gap_type": "bullish",
+          "is_filled": false,
+          "distance_from_40_level": 309.8125
+        },
+        {
+          "fvg_id": "NY_FVG_33",
+          "gap_high": 23485.0,
+          "gap_low": 23462.0,
+          "gap_size": 23.0,
+          "creation_timestamp": "22",
+          "creation_session": "NY",
+          "gap_type": "bearish",
+          "is_filled": true,
+          "distance_from_40_level": 310.25
+        },
+        {
+          "fvg_id": "NY_FVG_34",
+          "gap_high": 23502.5,
+          "gap_low": 23462.0,
+          "gap_size": 40.5,
+          "creation_timestamp": "24",
+          "creation_session": "NY",
+          "gap_type": "bullish",
+          "is_filled": false,
+          "distance_from_40_level": 319.0
+        },
+        {
+          "fvg_id": "LUNCH_FVG_25",
+          "gap_high": 23494.875,
+          "gap_low": 23477.25,
+          "gap_size": 17.625,
+          "creation_timestamp": "16",
+          "creation_session": "LUNCH",
+          "gap_type": "bearish",
+          "is_filled": false,
+          "distance_from_40_level": 322.8125
+        },
+        {
+          "fvg_id": "LUNCH_FVG_24",
+          "gap_high": 23494.875,
+          "gap_low": 23482.5,
+          "gap_size": 12.375,
+          "creation_timestamp": "14",
+          "creation_session": "LUNCH",
+          "gap_type": "bullish",
+          "is_filled": true,
+          "distance_from_40_level": 325.4375
+        },
+        {
+          "fvg_id": "NY_FVG_32",
+          "gap_high": 23494.875,
+          "gap_low": 23485.0,
+          "gap_size": 9.875,
+          "creation_timestamp": "20",
+          "creation_session": "NY",
+          "gap_type": "bearish",
+          "is_filled": true,
+          "distance_from_40_level": 326.6875
+        },
+        {
+          "fvg_id": "LUNCH_FVG_23",
+          "gap_high": 23497.75,
+          "gap_low": 23482.5,
+          "gap_size": 15.25,
+          "creation_timestamp": "12",
+          "creation_session": "LUNCH",
+          "gap_type": "bearish",
+          "is_filled": false,
+          "distance_from_40_level": 326.875
+        },
+        {
+          "fvg_id": "NY_FVG_36",
+          "gap_high": 23497.75,
+          "gap_low": 23482.75,
+          "gap_size": 15.0,
+          "creation_timestamp": "28",
+          "creation_session": "NY",
+          "gap_type": "bullish",
+          "is_filled": false,
+          "distance_from_40_level": 327.0
+        },
+        {
+          "fvg_id": "NY_FVG_35",
+          "gap_high": 23502.5,
+          "gap_low": 23482.75,
+          "gap_size": 19.75,
+          "creation_timestamp": "26",
+          "creation_session": "NY",
+          "gap_type": "bearish",
+          "is_filled": false,
+          "distance_from_40_level": 329.375
+        },
+        {
+          "fvg_id": "NY_FVG_31",
+          "gap_high": 23506.25,
+          "gap_low": 23494.875,
+          "gap_size": 11.375,
+          "creation_timestamp": "18",
+          "creation_session": "NY",
+          "gap_type": "bearish",
+          "is_filled": false,
+          "distance_from_40_level": 337.3125
+        },
+        {
+          "fvg_id": "LUNCH_FVG_22",
+          "gap_high": 23513.75,
+          "gap_low": 23497.75,
+          "gap_size": 16.0,
+          "creation_timestamp": "10",
+          "creation_session": "LUNCH",
+          "gap_type": "bearish",
+          "is_filled": false,
+          "distance_from_40_level": 342.5
+        },
+        {
+          "fvg_id": "LUNCH_FVG_17",
+          "gap_high": 23513.75,
+          "gap_low": 23503.75,
+          "gap_size": 10.0,
+          "creation_timestamp": "1",
+          "creation_session": "LUNCH",
+          "gap_type": "bullish",
+          "is_filled": true,
+          "distance_from_40_level": 345.5
+        },
+        {
+          "fvg_id": "LUNCH_FVG_18",
+          "gap_high": 23513.75,
+          "gap_low": 23503.75,
+          "gap_size": 10.0,
+          "creation_timestamp": "2",
+          "creation_session": "LUNCH",
+          "gap_type": "bearish",
+          "is_filled": true,
+          "distance_from_40_level": 345.5
+        },
+        {
+          "fvg_id": "LUNCH_FVG_19",
+          "gap_high": 23513.75,
+          "gap_low": 23503.75,
+          "gap_size": 10.0,
+          "creation_timestamp": "3",
+          "creation_session": "LUNCH",
+          "gap_type": "bullish",
+          "is_filled": true,
+          "distance_from_40_level": 345.5
+        },
+        {
+          "fvg_id": "LUNCH_FVG_20",
+          "gap_high": 23513.75,
+          "gap_low": 23503.75,
+          "gap_size": 10.0,
+          "creation_timestamp": "4",
+          "creation_session": "LUNCH",
+          "gap_type": "bearish",
+          "is_filled": true,
+          "distance_from_40_level": 345.5
+        },
+        {
+          "fvg_id": "LUNCH_FVG_21",
+          "gap_high": 23513.75,
+          "gap_low": 23503.75,
+          "gap_size": 10.0,
+          "creation_timestamp": "8",
+          "creation_session": "LUNCH",
+          "gap_type": "bullish",
+          "is_filled": true,
+          "distance_from_40_level": 345.5
+        },
+        {
+          "fvg_id": "NY_FVG_29",
+          "gap_high": 23513.75,
+          "gap_low": 23506.0,
+          "gap_size": 7.75,
+          "creation_timestamp": "12",
+          "creation_session": "NY",
+          "gap_type": "bullish",
+          "is_filled": true,
+          "distance_from_40_level": 346.625
+        },
+        {
+          "fvg_id": "NY_FVG_30",
+          "gap_high": 23513.75,
+          "gap_low": 23506.0,
+          "gap_size": 7.75,
+          "creation_timestamp": "13",
+          "creation_session": "NY",
+          "gap_type": "bearish",
+          "is_filled": false,
+          "distance_from_40_level": 346.625
+        },
+        {
+          "fvg_id": "NY_FVG_28",
+          "gap_high": 23524.875,
+          "gap_low": 23506.0,
+          "gap_size": 18.875,
+          "creation_timestamp": "10",
+          "creation_session": "NY",
+          "gap_type": "bearish",
+          "is_filled": false,
+          "distance_from_40_level": 352.1875
+        },
+        {
+          "fvg_id": "ASIA_FVG_14",
+          "gap_high": 23526.0,
+          "gap_low": 23516.5,
+          "gap_size": 9.5,
+          "creation_timestamp": "8",
+          "creation_session": "ASIA",
+          "gap_type": "bullish",
+          "is_filled": false,
+          "distance_from_40_level": 358.0
+        },
+        {
+          "fvg_id": "ASIA_FVG_16",
+          "gap_high": 23529.0,
+          "gap_low": 23525.75,
+          "gap_size": 3.25,
+          "creation_timestamp": "14",
+          "creation_session": "ASIA",
+          "gap_type": "bearish",
+          "is_filled": false,
+          "distance_from_40_level": 364.125
+        },
+        {
+          "fvg_id": "ASIA_FVG_15",
+          "gap_high": 23529.0,
+          "gap_low": 23526.0,
+          "gap_size": 3.0,
+          "creation_timestamp": "12",
+          "creation_session": "ASIA",
+          "gap_type": "bullish",
+          "is_filled": true,
+          "distance_from_40_level": 364.25
+        },
+        {
+          "fvg_id": "ASIA_FVG_13",
+          "gap_high": 23547.5,
+          "gap_low": 23516.5,
+          "gap_size": 31.0,
+          "creation_timestamp": "4",
+          "creation_session": "ASIA",
+          "gap_type": "bearish",
+          "is_filled": false,
+          "distance_from_40_level": 368.75
+        },
+        {
+          "fvg_id": "MIDNIGHT_FVG_1",
+          "gap_high": 23546.75,
+          "gap_low": 23543.75,
+          "gap_size": 3.0,
+          "creation_timestamp": "4",
+          "creation_session": "MIDNIGHT",
+          "gap_type": "bullish",
+          "is_filled": true,
+          "distance_from_40_level": 382.0
+        },
+        {
+          "fvg_id": "MIDNIGHT_FVG_5",
+          "gap_high": 23552.0,
+          "gap_low": 23542.0,
+          "gap_size": 10.0,
+          "creation_timestamp": "12",
+          "creation_session": "MIDNIGHT",
+          "gap_type": "bearish",
+          "is_filled": false,
+          "distance_from_40_level": 383.75
+        },
+        {
+          "fvg_id": "MIDNIGHT_FVG_3",
+          "gap_high": 23549.0,
+          "gap_low": 23546.0,
+          "gap_size": 3.0,
+          "creation_timestamp": "8",
+          "creation_session": "MIDNIGHT",
+          "gap_type": "bearish",
+          "is_filled": true,
+          "distance_from_40_level": 384.25
+        },
+        {
+          "fvg_id": "MIDNIGHT_FVG_2",
+          "gap_high": 23549.0,
+          "gap_low": 23546.75,
+          "gap_size": 2.25,
+          "creation_timestamp": "6",
+          "creation_session": "MIDNIGHT",
+          "gap_type": "bullish",
+          "is_filled": true,
+          "distance_from_40_level": 384.625
+        },
+        {
+          "fvg_id": "MIDNIGHT_FVG_4",
+          "gap_high": 23552.0,
+          "gap_low": 23546.0,
+          "gap_size": 6.0,
+          "creation_timestamp": "10",
+          "creation_session": "MIDNIGHT",
+          "gap_type": "bullish",
+          "is_filled": true,
+          "distance_from_40_level": 385.75
+        },
+        {
+          "fvg_id": "PREMARKET_FVG_9",
+          "gap_high": 23601.875,
+          "gap_low": 23578.5,
+          "gap_size": 23.375,
+          "creation_timestamp": "10",
+          "creation_session": "PREMARKET",
+          "gap_type": "bullish",
+          "is_filled": false,
+          "distance_from_40_level": 426.9375
+        },
+        {
+          "fvg_id": "PREMARKET_FVG_8",
+          "gap_high": 23602.75,
+          "gap_low": 23578.5,
+          "gap_size": 24.25,
+          "creation_timestamp": "8",
+          "creation_session": "PREMARKET",
+          "gap_type": "bearish",
+          "is_filled": true,
+          "distance_from_40_level": 427.375
+        },
+        {
+          "fvg_id": "PREMARKET_FVG_12",
+          "gap_high": 23601.75,
+          "gap_low": 23582.5,
+          "gap_size": 19.25,
+          "creation_timestamp": "15",
+          "creation_session": "PREMARKET",
+          "gap_type": "bearish",
+          "is_filled": false,
+          "distance_from_40_level": 428.875
+        },
+        {
+          "fvg_id": "PREMARKET_FVG_6",
+          "gap_high": 23606.75,
+          "gap_low": 23599.0,
+          "gap_size": 7.75,
+          "creation_timestamp": "4",
+          "creation_session": "PREMARKET",
+          "gap_type": "bullish",
+          "is_filled": true,
+          "distance_from_40_level": 439.625
+        },
+        {
+          "fvg_id": "PREMARKET_FVG_7",
+          "gap_high": 23606.75,
+          "gap_low": 23602.75,
+          "gap_size": 4.0,
+          "creation_timestamp": "6",
+          "creation_session": "PREMARKET",
+          "gap_type": "bearish",
+          "is_filled": true,
+          "distance_from_40_level": 441.5
+        },
+        {
+          "fvg_id": "PREMARKET_FVG_10",
+          "gap_high": 23613.5,
+          "gap_low": 23601.875,
+          "gap_size": 11.625,
+          "creation_timestamp": "11",
+          "creation_session": "PREMARKET",
+          "gap_type": "bullish",
+          "is_filled": true,
+          "distance_from_40_level": 444.4375
+        },
+        {
+          "fvg_id": "PREMARKET_FVG_11",
+          "gap_high": 23613.5,
+          "gap_low": 23602.125,
+          "gap_size": 11.375,
+          "creation_timestamp": "13",
+          "creation_session": "PREMARKET",
+          "gap_type": "bearish",
+          "is_filled": false,
+          "distance_from_40_level": 444.5625
+        }
+      ],
+      "inventory_timestamp": "2025-08-25T17:23:08.428649",
+      "total_targets": 29,
+      "target_summary": {
+        "session_highs": 5,
+        "session_lows": 5,
+        "daily_extremes": 2,
+        "unfilled_fvgs": 17,
+        "total_targets": 29
+      }
+    }
+  ],
+  "inventory_summary": {
+    "total_liquidity_targets": 55,
+    "average_targets_per_touch": 18.333333333333332,
+    "total_session_structures": 10,
+    "total_fvgs_found": 59,
+    "unfilled_fvgs_available": 29,
+    "fvg_fill_rate_pre_touch": 0.5084745762711864
+  }
+}

@@ -1,0 +1,56 @@
+# IRONFORGE Project Specific Ignore File
+
+# Trading Data and Results
+*.parquet
+*.hdf5
+data/
+results/
+discoveries/
+*.json.gz
+
+# Generated Analysis Files
+*_results_*.json
+pattern_*.json
+session_*.json
+*_analysis_*.json
+liquidity_*_analysis_*.json
+
+# Performance Profiles
+*.csv
+profile_*.py
+*_profile.csv
+
+# Large Discovery Files
+discovery_direct_*.json
+archaeological_*.json
+validation_*.json
+enhanced_sessions*/
+
+# Test Data
+test_*.parquet
+mock_*.json
+sample_*.data
+
+# Temporary Analysis
+tmp/
+temp/
+scratch/
+debug_*
+investigate_*
+
+# Specific IRONFORGE sensitive files
+oracle_training_data/
+calibrated_models/
+real_calendar_data/
+live_session_*/
+
+# Multi-agent results and data files
+pre_structure_inventories/
+target_progression_tracking/
+liquidity_progression_forecasts/
+cascade_discovery_results/
+
+# Analysis artifacts and working files
+gauntlet/
+artifacts/
+dist/

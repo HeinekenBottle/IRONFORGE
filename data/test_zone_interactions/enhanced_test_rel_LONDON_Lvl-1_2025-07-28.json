@@ -1,0 +1,807 @@
+{
+  "session_metadata": {
+    "session_type": "london",
+    "session_date": "2025-07-28",
+    "session_start": "02:00:00",
+    "session_end": "04:59:00",
+    "session_duration": 179,
+    "transcription_source": "live_market_data",
+    "data_completeness": "complete_session",
+    "timezone": "ET",
+    "session_status": "completed"
+  },
+  "session_fpfvg": {
+    "fpfvg_present": false,
+    "fpfvg_formation": {
+      "formation_time": "00:00:00",
+      "premium_high": 0.0,
+      "discount_low": 0.0,
+      "gap_size": 0.0,
+      "interactions": []
+    }
+  },
+  "price_movements": [
+    {
+      "timestamp": "02:00:00",
+      "price_level": 23573.75,
+      "movement_type": "open",
+      "normalized_price": 0.7777777777777778,
+      "pct_from_open": 0.0,
+      "pct_from_high": 22.22222222222222,
+      "pct_from_low": 77.77777777777779,
+      "time_since_session_open": 0,
+      "normalized_time": 0.0,
+      "time_to_next_event": 36000,
+      "price_momentum": 0.0,
+      "range_position": 0.7777777777777778,
+      "absolute_price": 23573.75,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.542275"
+    },
+    {
+      "timestamp": "12:00:00",
+      "price_level": 23585.25,
+      "movement_type": "session_high",
+      "normalized_price": 1.0,
+      "pct_from_open": 0.048783074394188455,
+      "pct_from_high": 0.0,
+      "pct_from_low": 100.0,
+      "time_since_session_open": 36000,
+      "normalized_time": 3.35195530726257,
+      "time_to_next_event": 1800,
+      "price_momentum": 0.048783074394188455,
+      "range_position": 1.0,
+      "absolute_price": 23585.25,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.542326"
+    },
+    {
+      "timestamp": "12:30:00",
+      "price_level": 23533.5,
+      "movement_type": "session_low",
+      "normalized_price": 0.0,
+      "pct_from_open": -0.17074076037965957,
+      "pct_from_high": 100.0,
+      "pct_from_low": 0.0,
+      "time_since_session_open": 37800,
+      "normalized_time": 3.5195530726256985,
+      "time_to_next_event": -27060,
+      "price_momentum": -0.21941679651477092,
+      "range_position": 0.0,
+      "absolute_price": 23533.5,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.542371"
+    },
+    {
+      "timestamp": "04:59:00",
+      "price_level": 23536.75,
+      "movement_type": "close",
+      "normalized_price": 0.06280193236714976,
+      "pct_from_open": -0.15695423935521502,
+      "pct_from_high": 93.71980676328504,
+      "pct_from_low": 6.280193236714976,
+      "time_since_session_open": 10740,
+      "normalized_time": 1.0,
+      "time_to_next_event": -10740,
+      "price_momentum": 0.013810100495038988,
+      "range_position": 0.06280193236714976,
+      "absolute_price": 23536.75,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.542413"
+    },
+    {
+      "timestamp": "02:00:00",
+      "price_level": 23573.75,
+      "movement_type": "open",
+      "normalized_price": 0.7777777777777778,
+      "pct_from_open": 0.0,
+      "pct_from_high": 22.22222222222222,
+      "pct_from_low": 77.77777777777779,
+      "time_since_session_open": 0,
+      "normalized_time": 0.0,
+      "time_to_next_event": 36000,
+      "price_momentum": 0.1572009729465623,
+      "range_position": 0.7777777777777778,
+      "absolute_price": 23573.75,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.542455"
+    },
+    {
+      "timestamp": "12:00:00",
+      "price_level": 23585.25,
+      "movement_type": "session_high",
+      "normalized_price": 1.0,
+      "pct_from_open": 0.048783074394188455,
+      "pct_from_high": 0.0,
+      "pct_from_low": 100.0,
+      "time_since_session_open": 36000,
+      "normalized_time": 3.35195530726257,
+      "time_to_next_event": 1800,
+      "price_momentum": 0.048783074394188455,
+      "range_position": 1.0,
+      "absolute_price": 23585.25,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.542496"
+    },
+    {
+      "timestamp": "12:30:00",
+      "price_level": 23533.5,
+      "movement_type": "session_low",
+      "normalized_price": 0.0,
+      "pct_from_open": -0.17074076037965957,
+      "pct_from_high": 100.0,
+      "pct_from_low": 0.0,
+      "time_since_session_open": 37800,
+      "normalized_time": 3.5195530726256985,
+      "time_to_next_event": -27060,
+      "price_momentum": -0.21941679651477092,
+      "range_position": 0.0,
+      "absolute_price": 23533.5,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.542538"
+    },
+    {
+      "timestamp": "04:59:00",
+      "price_level": 23536.75,
+      "movement_type": "close",
+      "normalized_price": 0.06280193236714976,
+      "pct_from_open": -0.15695423935521502,
+      "pct_from_high": 93.71980676328504,
+      "pct_from_low": 6.280193236714976,
+      "time_since_session_open": 10740,
+      "normalized_time": 1.0,
+      "time_to_next_event": -10620,
+      "price_momentum": 0.013810100495038988,
+      "range_position": 0.06280193236714976,
+      "absolute_price": 23536.75,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.542580"
+    },
+    {
+      "timestamp": "02:02:00",
+      "price": 23576.25,
+      "action": "touch",
+      "context": "London first presentation FVG premium high created",
+      "normalized_price": 0.8260869565217391,
+      "pct_from_open": 0.010605016172649664,
+      "pct_from_high": 17.391304347826086,
+      "pct_from_low": 82.6086956521739,
+      "time_since_session_open": 120,
+      "normalized_time": 0.0111731843575419,
+      "time_to_next_event": 720,
+      "price_momentum": 0.1678226603078165,
+      "range_position": 0.8260869565217391,
+      "absolute_price": 23576.25,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.542621",
+      "price_level": 23576.25
+    },
+    {
+      "timestamp": "02:14:00",
+      "price": 23585.25,
+      "action": "touch",
+      "context": "London session high created, reversal point",
+      "normalized_price": 1.0,
+      "pct_from_open": 0.048783074394188455,
+      "pct_from_high": 0.0,
+      "pct_from_low": 100.0,
+      "time_since_session_open": 840,
+      "normalized_time": 0.0782122905027933,
+      "time_to_next_event": 780,
+      "price_momentum": 0.038174009861619215,
+      "range_position": 1.0,
+      "absolute_price": 23585.25,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.542662",
+      "price_level": 23585.25
+    },
+    {
+      "timestamp": "02:27:00",
+      "price": 23575.375,
+      "action": "delivery",
+      "context": "London first presentation FVG balanced and redelivered",
+      "normalized_price": 0.8091787439613527,
+      "pct_from_open": 0.006893260512222281,
+      "pct_from_high": 19.082125603864732,
+      "pct_from_low": 80.91787439613528,
+      "time_since_session_open": 1620,
+      "normalized_time": 0.15083798882681565,
+      "time_to_next_event": 1320,
+      "price_momentum": -0.04186938870692488,
+      "range_position": 0.8091787439613527,
+      "absolute_price": 23575.375,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.542703",
+      "price_level": 23575.375
+    },
+    {
+      "timestamp": "02:49:00",
+      "price": 23573.75,
+      "action": "touch",
+      "context": "Retracement touches London opening price",
+      "normalized_price": 0.7777777777777778,
+      "pct_from_open": 0.0,
+      "pct_from_high": 22.22222222222222,
+      "pct_from_low": 77.77777777777779,
+      "time_since_session_open": 2940,
+      "normalized_time": 0.2737430167597765,
+      "time_to_next_event": 840,
+      "price_momentum": -0.006892785374569863,
+      "range_position": 0.7777777777777778,
+      "absolute_price": 23573.75,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.542744",
+      "price_level": 23573.75
+    },
+    {
+      "timestamp": "03:03:00",
+      "price": 23550.875,
+      "action": "delivery",
+      "context": "Midnight Opening Range FVG redelivered during expansion lower",
+      "normalized_price": 0.3357487922705314,
+      "pct_from_open": -0.09703589797974442,
+      "pct_from_high": 66.42512077294685,
+      "pct_from_low": 33.57487922705314,
+      "time_since_session_open": 3780,
+      "normalized_time": 0.35195530726256985,
+      "time_to_next_event": 2460,
+      "price_momentum": -0.09703589797974442,
+      "range_position": 0.3357487922705314,
+      "absolute_price": 23550.875,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.542785",
+      "price_level": 23550.875
+    },
+    {
+      "timestamp": "03:44:00",
+      "price": 23533.5,
+      "action": "touch",
+      "context": "London session low created",
+      "normalized_price": 0.0,
+      "pct_from_open": -0.17074076037965957,
+      "pct_from_high": 100.0,
+      "pct_from_low": 0.0,
+      "time_since_session_open": 6240,
+      "normalized_time": 0.5810055865921788,
+      "time_to_next_event": 720,
+      "price_momentum": -0.07377645204265235,
+      "range_position": 0.0,
+      "absolute_price": 23533.5,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.542826",
+      "price_level": 23533.5
+    },
+    {
+      "timestamp": "03:56:00",
+      "price": 23550.875,
+      "action": "delivery",
+      "context": "Midnight Opening Range FVG redelivered during retracement",
+      "normalized_price": 0.3357487922705314,
+      "pct_from_open": -0.09703589797974442,
+      "pct_from_high": 66.42512077294685,
+      "pct_from_low": 33.57487922705314,
+      "time_since_session_open": 6960,
+      "normalized_time": 0.6480446927374302,
+      "time_to_next_event": 0,
+      "price_momentum": 0.07383092187732382,
+      "range_position": 0.3357487922705314,
+      "absolute_price": 23550.875,
+      "relativity_enhanced": true,
+      "enhancement_timestamp": "2025-08-14T13:06:58.542856",
+      "price_level": 23550.875
+    }
+  ],
+  "session_liquidity_events": [
+    {
+      "timestamp": "02:00:00",
+      "event_type": "interaction",
+      "liquidity_type": "internal",
+      "target_level": "session_open",
+      "magnitude": "medium",
+      "context": "generated_from_open"
+    },
+    {
+      "timestamp": "12:00:00",
+      "event_type": "rebalance",
+      "liquidity_type": "internal",
+      "target_level": "session_session_high",
+      "magnitude": "low",
+      "context": "generated_from_session_high"
+    },
+    {
+      "timestamp": "12:30:00",
+      "event_type": "redelivery",
+      "liquidity_type": "internal",
+      "target_level": "session_session_low",
+      "magnitude": "low",
+      "context": "generated_from_session_low"
+    },
+    {
+      "timestamp": "04:59:00",
+      "event_type": "interaction",
+      "liquidity_type": "internal",
+      "target_level": "session_close",
+      "magnitude": "medium",
+      "context": "generated_from_close"
+    },
+    {
+      "timestamp": "02:00:00",
+      "event_type": "interaction",
+      "liquidity_type": "internal",
+      "target_level": "session_open",
+      "magnitude": "medium",
+      "context": "generated_from_open"
+    },
+    {
+      "timestamp": "12:00:00",
+      "event_type": "rebalance",
+      "liquidity_type": "internal",
+      "target_level": "session_session_high",
+      "magnitude": "low",
+      "context": "generated_from_session_high"
+    },
+    {
+      "timestamp": "12:30:00",
+      "event_type": "redelivery",
+      "liquidity_type": "internal",
+      "target_level": "session_session_low",
+      "magnitude": "low",
+      "context": "generated_from_session_low"
+    },
+    {
+      "timestamp": "04:59:00",
+      "event_type": "interaction",
+      "liquidity_type": "internal",
+      "target_level": "session_close",
+      "magnitude": "medium",
+      "context": "generated_from_close"
+    },
+    {
+      "timestamp": "02:02:00",
+      "event_type": "rebalance",
+      "liquidity_type": "internal",
+      "target_level": "session_london first presentation fvg premium high created",
+      "magnitude": "low",
+      "context": "generated_from_london first presentation fvg premium high created"
+    },
+    {
+      "timestamp": "02:14:00",
+      "event_type": "rebalance",
+      "liquidity_type": "internal",
+      "target_level": "session_london session high created, reversal point",
+      "magnitude": "low",
+      "context": "generated_from_london session high created, reversal point"
+    },
+    {
+      "timestamp": "02:49:00",
+      "event_type": "redelivery",
+      "liquidity_type": "internal",
+      "target_level": "session_retracement touches london opening price",
+      "magnitude": "low",
+      "context": "generated_from_retracement touches london opening price"
+    },
+    {
+      "timestamp": "03:03:00",
+      "event_type": "rebalance",
+      "liquidity_type": "internal",
+      "target_level": "session_midnight opening range fvg redelivered during expansion lower",
+      "magnitude": "medium",
+      "context": "generated_from_midnight opening range fvg redelivered during expansion lower"
+    },
+    {
+      "timestamp": "03:44:00",
+      "event_type": "redelivery",
+      "liquidity_type": "internal",
+      "target_level": "session_london session low created",
+      "magnitude": "low",
+      "context": "generated_from_london session low created"
+    },
+    {
+      "timestamp": "03:56:00",
+      "event_type": "redelivery",
+      "liquidity_type": "internal",
+      "target_level": "session_midnight opening range fvg redelivered during retracement",
+      "magnitude": "medium",
+      "context": "generated_from_midnight opening range fvg redelivered during retracement"
+    }
+  ],
+  "energy_state": {
+    "energy_density": 0.839,
+    "total_accumulated": 89.5,
+    "energy_rate": 30.0,
+    "energy_source": "standardization_estimation",
+    "session_duration": 179,
+    "expansion_phases": 3,
+    "retracement_phases": 2,
+    "consolidation_phases": 2,
+    "phase_transitions": 10,
+    "session_status": "complete"
+  },
+  "contamination_analysis": {
+    "htf_contamination": {
+      "immediate_cross_session_interaction": false,
+      "htf_carryover_strength": 0.79,
+      "cross_session_inheritance": 0.3
+    },
+    "cross_session_inheritance": {
+      "energy_carryover_coefficient": 0.3
+    }
+  },
+  "phase_transitions": [
+    {
+      "phase_type": "expansion",
+      "start_time": "02:00:00",
+      "end_time": "02:14:00",
+      "high": 23585.25,
+      "low": 23572.5,
+      "description": "Initial expansion higher from session open to create session high"
+    },
+    {
+      "phase_type": "expansion",
+      "start_time": "02:14:00",
+      "end_time": "02:35:00",
+      "high": 23585.25,
+      "low": 23564.0,
+      "description": "Expansion lower with FVG redelivery"
+    },
+    {
+      "phase_type": "consolidation",
+      "start_time": "03:04:00",
+      "end_time": "03:21:00",
+      "high": 23556.0,
+      "low": 23543.25,
+      "description": "Consolidation phase after initial expansion phases"
+    },
+    {
+      "phase_type": "consolidation",
+      "start_time": "03:31:00",
+      "end_time": "03:44:00",
+      "high": 23543.5,
+      "low": 23533.5,
+      "description": "Consolidation before session low formation"
+    },
+    {
+      "phase_type": "consolidation",
+      "start_time": "04:13:00",
+      "end_time": "04:59:00",
+      "high": 23546.5,
+      "low": 23533.5,
+      "description": "Final consolidation phase to session close"
+    }
+  ],
+  "structures_identified": {
+    "fair_value_gaps": [
+      {
+        "id": "london_fpfvg_2025_07_28",
+        "formation_time": "02:02:00",
+        "type": "first_presentation",
+        "premium_high": 23576.25,
+        "discount_low": 23574.5,
+        "size_points": 1.75,
+        "formation_context": "London first presentation FVG at session start",
+        "delivery_status": "delivered",
+        "delivery_time": "02:27:00"
+      }
+    ],
+    "session_levels": [
+      {
+        "type": "session_high",
+        "level": 23585.25,
+        "formation_time": "02:14:00",
+        "touches": [
+          "02:14:00"
+        ],
+        "holds": true,
+        "context": "London session high with immediate reversal"
+      },
+      {
+        "type": "session_low",
+        "level": 23533.5,
+        "formation_time": "03:44:00",
+        "touches": [
+          "03:44:00",
+          "04:13:00"
+        ],
+        "holds": true,
+        "context": "London session low with subsequent retest"
+      }
+    ]
+  },
+  "level_interactions": [
+    {
+      "timestamp": "02:27:00",
+      "level": 23575.375,
+      "level_origin": "london_fpfvg",
+      "interaction_type": "bounce",
+      "result": "held"
+    },
+    {
+      "timestamp": "03:03:00",
+      "level": 23550.875,
+      "level_origin": "midnight_fpfvg",
+      "interaction_type": "bounce",
+      "result": "held"
+    },
+    {
+      "timestamp": "03:56:00",
+      "level": 23550.875,
+      "level_origin": "midnight_fpfvg",
+      "interaction_type": "bounce",
+      "result": "held"
+    }
+  ],
+  "consolidation_expansion_raw": {
+    "consolidation_periods": [
+      {
+        "start": "03:04:00",
+        "end": "03:21:00",
+        "range_high": 23556.0,
+        "range_low": 23543.25,
+        "touches_high": 1,
+        "touches_low": 1
+      },
+      {
+        "start": "03:31:00",
+        "end": "03:44:00",
+        "range_high": 23543.5,
+        "range_low": 23533.5,
+        "touches_high": 1,
+        "touches_low": 1
+      },
+      {
+        "start": "04:13:00",
+        "end": "04:59:00",
+        "range_high": 23546.5,
+        "range_low": 23533.5,
+        "touches_high": 1,
+        "touches_low": 2
+      }
+    ],
+    "expansion_periods": [
+      {
+        "start": "02:00:00",
+        "end": "02:14:00",
+        "direction": "up",
+        "start_price": 23572.5,
+        "end_price": 23585.25,
+        "total_distance": 12.75
+      },
+      {
+        "start": "02:14:00",
+        "end": "02:35:00",
+        "direction": "down",
+        "start_price": 23585.25,
+        "end_price": 23564.0,
+        "total_distance": 21.25
+      },
+      {
+        "start": "02:49:00",
+        "end": "03:04:00",
+        "direction": "down",
+        "start_price": 23573.75,
+        "end_price": 23548.75,
+        "total_distance": 25.0
+      }
+    ]
+  },
+  "fpfvg_observations": {
+    "session_fpfvg_created": true,
+    "previous_fpfvg_interactions": [
+      {
+        "gap_origin": "midnight_session",
+        "interaction_time": "03:03:00",
+        "interaction_type": "complete_fill",
+        "price_entered": 23550.875,
+        "result": "respected"
+      },
+      {
+        "gap_origin": "midnight_session",
+        "interaction_time": "03:56:00",
+        "interaction_type": "complete_fill",
+        "price_entered": 23550.875,
+        "result": "respected"
+      }
+    ]
+  },
+  "behavioral_observations": {
+    "session_type_observed": "trending",
+    "directional_attempts": [
+      {
+        "time": "02:00:00",
+        "direction": "up",
+        "outcome": "successful"
+      },
+      {
+        "time": "02:14:00",
+        "direction": "down",
+        "outcome": "successful"
+      },
+      {
+        "time": "03:44:00",
+        "direction": "up",
+        "outcome": "partial"
+      }
+    ],
+    "institutional_activity": "strong_directional_bias_with_redelivery_respect",
+    "session_completion": "complete"
+  },
+  "processing_metadata": {
+    "original_file": "/Users/jack/grok-claude-automation/data/sessions/level_1/LONDON_Lvl-1_2025_07_28.json",
+    "standardization_date": "2025-08-07T19:29:57.235289",
+    "conversion_type": "legacy_schema_converted",
+    "schema_version": "target_v1.0",
+    "data_recovery": {
+      "recovery_date": "2025-08-07T19:45:57.074331",
+      "corrections_applied": [
+        "Recovered 15 price movements",
+        "Added recovered price movements"
+      ],
+      "recovery_source": "backup_file_recovery"
+    },
+    "relativity_enhancement": {
+      "applied": true,
+      "timestamp": "2025-08-14T13:06:58.542865",
+      "features_added": [
+        "normalized_price",
+        "pct_from_open",
+        "pct_from_high",
+        "pct_from_low",
+        "time_since_session_open",
+        "normalized_time",
+        "time_to_next_event",
+        "price_momentum",
+        "range_position",
+        "absolute_price"
+      ],
+      "permanent_validity": true,
+      "regime_independence": true
+    }
+  },
+  "phase2_enhancement": {
+    "enhancement_date": "2025-08-14T12:15:27.180319",
+    "enhancement_version": "phase2_v1.0",
+    "features_enhanced": [
+      "htf_carryover_strength",
+      "energy_density",
+      "session_liquidity_events"
+    ],
+    "authenticity_method": "market_derived_calculations",
+    "pre_enhancement_score": 0.0,
+    "post_enhancement_score": 100.0
+  },
+  "relativity_stats": {
+    "session_high": 23585.25,
+    "session_low": 23533.5,
+    "session_open": 23573.75,
+    "session_close": 23550.875,
+    "session_range": 51.75,
+    "session_duration_seconds": 10740,
+    "normalization_applied": true,
+    "structural_relationships_enabled": true,
+    "permanent_pattern_capability": true
+  },
+  "session_features": {
+    "archaeological_zones": {
+      "zone_40_percent": {
+        "interactions": [
+          {
+            "timestamp": "2025-07-28 14:23:00",
+            "session_id": "rel_LONDON_Lvl-1_2025-07-28",
+            "price": 23561.17800315188,
+            "zone_percentage": 40,
+            "archaeological_zone_type": "dimensional",
+            "dimensional_relationship": "final_range",
+            "interaction_type": "zone_touch",
+            "temporal_significance": 0.7745985151347022,
+            "zone_precision": 6.978003151878511,
+            "forward_positioning": true,
+            "session_range_completion": 51.75,
+            "type": "archaeological_zone"
+          },
+          {
+            "timestamp": "2025-07-28 14:47:00",
+            "session_id": "rel_LONDON_Lvl-1_2025-07-28",
+            "price": 23556.92414355831,
+            "zone_percentage": 40,
+            "archaeological_zone_type": "dimensional",
+            "dimensional_relationship": "final_range",
+            "interaction_type": "zone_touch",
+            "temporal_significance": 0.9476519485135173,
+            "zone_precision": 2.7241435583091516,
+            "forward_positioning": true,
+            "session_range_completion": 51.75,
+            "type": "archaeological_zone"
+          }
+        ],
+        "zone_level": 23554.2,
+        "theory_b_validated": true
+      }
+    }
+  },
+  "session_events": [
+    {
+      "timestamp": "2025-07-28 14:37:00",
+      "price": 23583.306839966644,
+      "level": 23583.306839966644,
+      "type": "reversal",
+      "event_type": "post_zone_reaction",
+      "strength": 0.8750175487120857,
+      "significance": 0.8613865560306573,
+      "magnitude": 22.128836814765236,
+      "time_delta_minutes": 14,
+      "triggered_by_zone": "rel_LONDON_Lvl-1_2025-07-28"
+    },
+    {
+      "timestamp": "2025-07-28 14:55:00",
+      "price": 23540.82158164116,
+      "level": 23540.82158164116,
+      "type": "price_rejection",
+      "event_type": "post_zone_reaction",
+      "strength": 0.7635739187862202,
+      "significance": 0.8372510631804491,
+      "magnitude": 20.356421510718064,
+      "time_delta_minutes": 32,
+      "triggered_by_zone": "rel_LONDON_Lvl-1_2025-07-28"
+    },
+    {
+      "timestamp": "2025-07-28 15:51:00",
+      "price": 23576.281505082316,
+      "level": 23576.281505082316,
+      "type": "reversal",
+      "event_type": "post_zone_reaction",
+      "strength": 0.8851224544996117,
+      "significance": 0.7359491947645224,
+      "magnitude": 15.103501930436323,
+      "time_delta_minutes": 88,
+      "triggered_by_zone": "rel_LONDON_Lvl-1_2025-07-28"
+    },
+    {
+      "timestamp": "2025-07-28 16:10:00",
+      "price": 23569.43922481224,
+      "level": 23569.43922481224,
+      "type": "price_rejection",
+      "event_type": "post_zone_reaction",
+      "strength": 0.8056376787505601,
+      "significance": 0.7907435287239826,
+      "magnitude": 12.515081253928656,
+      "time_delta_minutes": 83,
+      "triggered_by_zone": "rel_LONDON_Lvl-1_2025-07-28"
+    },
+    {
+      "timestamp": "2025-07-28 15:14:00",
+      "price": 23575.14490106238,
+      "level": 23575.14490106238,
+      "type": "volume_spike",
+      "event_type": "post_zone_reaction",
+      "strength": 0.8318586418111746,
+      "significance": 0.7876636843698898,
+      "magnitude": 18.220757504070207,
+      "time_delta_minutes": 27,
+      "triggered_by_zone": "rel_LONDON_Lvl-1_2025-07-28"
+    },
+    {
+      "timestamp": "2025-07-28 15:29:00",
+      "price": 23573.96518797069,
+      "level": 23573.96518797069,
+      "type": "price_rejection",
+      "event_type": "post_zone_reaction",
+      "strength": 0.8370171723483213,
+      "significance": 0.7726218280843805,
+      "magnitude": 17.04104441238087,
+      "time_delta_minutes": 42,
+      "triggered_by_zone": "rel_LONDON_Lvl-1_2025-07-28"
+    },
+    {
+      "timestamp": "2025-07-28 15:20:00",
+      "price": 23539.621088725344,
+      "level": 23539.621088725344,
+      "type": "reversal",
+      "event_type": "post_zone_reaction",
+      "strength": 0.8638692574112099,
+      "significance": 0.7789718346698715,
+      "magnitude": 17.303054832966154,
+      "time_delta_minutes": 33,
+      "triggered_by_zone": "rel_LONDON_Lvl-1_2025-07-28"
+    }
+  ]
+}

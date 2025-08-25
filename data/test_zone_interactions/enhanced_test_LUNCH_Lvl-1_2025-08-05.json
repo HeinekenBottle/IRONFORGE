@@ -1,0 +1,436 @@
+{
+  "session_metadata": {
+    "session_type": "lunch",
+    "session_date": "2025-08-05",
+    "session_start": "12:00:00",
+    "session_end": "12:59:00",
+    "session_duration": 59,
+    "transcription_source": "live_market_data",
+    "data_completeness": "complete_session",
+    "timezone": "ET",
+    "session_status": "completed"
+  },
+  "session_fpfvg": {
+    "fpfvg_present": true,
+    "fpfvg_formation": {
+      "formation_time": "12:04:00",
+      "premium_high": 23174.25,
+      "discount_low": 23167.0,
+      "gap_size": 7.25,
+      "interactions": [
+        {
+          "interaction_time": "12:09:00",
+          "interaction_type": "redelivery",
+          "price_level": 23173.0,
+          "interaction_context": "lunch_fpfvg_redelivery_retracement_end"
+        },
+        {
+          "interaction_time": "12:41:00",
+          "interaction_type": "rebalance",
+          "price_level": 23174.25,
+          "interaction_context": "lunch_fpfvg_rebalance_during_retracement"
+        },
+        {
+          "interaction_time": "12:46:00",
+          "interaction_type": "previous_day_redelivery",
+          "price_level": 23150.0,
+          "interaction_context": "previous_day_am_session_fpfvg_redelivered"
+        },
+        {
+          "interaction_time": "12:51:00",
+          "interaction_type": "rebalance",
+          "price_level": 23174.25,
+          "interaction_context": "lunch_fpfvg_second_rebalance_expansion_higher"
+        }
+      ]
+    }
+  },
+  "price_movements": [
+    {
+      "timestamp": "12:00:00",
+      "price_level": 23155.75,
+      "movement_type": "open"
+    },
+    {
+      "timestamp": "12:03:00",
+      "price_level": 23153.25,
+      "movement_type": "expansion_start_lower"
+    },
+    {
+      "timestamp": "12:04:00",
+      "price_level": 23174.25,
+      "movement_type": "lunch_fpfvg_formation_premium"
+    },
+    {
+      "timestamp": "12:04:00",
+      "price_level": 23167.0,
+      "movement_type": "lunch_fpfvg_formation_discount"
+    },
+    {
+      "timestamp": "12:07:00",
+      "price_level": 23201.5,
+      "movement_type": "expansion_high"
+    },
+    {
+      "timestamp": "12:07:00",
+      "price_level": 23201.5,
+      "movement_type": "retracement_start"
+    },
+    {
+      "timestamp": "12:09:00",
+      "price_level": 23173.0,
+      "movement_type": "retracement_low_lunch_fpfvg_redelivery"
+    },
+    {
+      "timestamp": "12:09:00",
+      "price_level": 23173.0,
+      "movement_type": "expansion_start_higher"
+    },
+    {
+      "timestamp": "12:22:00",
+      "price_level": 23211.0,
+      "movement_type": "expansion_high"
+    },
+    {
+      "timestamp": "12:22:00",
+      "price_level": 23211.0,
+      "movement_type": "retracement_start"
+    },
+    {
+      "timestamp": "12:24:00",
+      "price_level": 23188.25,
+      "movement_type": "retracement_low"
+    },
+    {
+      "timestamp": "12:25:00",
+      "price_level": 23200.75,
+      "movement_type": "consolidation_start_high"
+    },
+    {
+      "timestamp": "12:27:00",
+      "price_level": 23190.5,
+      "movement_type": "consolidation_end_low"
+    },
+    {
+      "timestamp": "12:28:00",
+      "price_level": 23188.25,
+      "movement_type": "expansion_start_higher"
+    },
+    {
+      "timestamp": "12:30:00",
+      "price_level": 23225.25,
+      "movement_type": "session_high_expansion_end"
+    },
+    {
+      "timestamp": "12:30:00",
+      "price_level": 23225.25,
+      "movement_type": "retracement_start"
+    },
+    {
+      "timestamp": "12:41:00",
+      "price_level": 23174.25,
+      "movement_type": "lunch_fpfvg_rebalance"
+    },
+    {
+      "timestamp": "12:46:00",
+      "price_level": 23150.0,
+      "movement_type": "previous_day_am_fpfvg_redelivery"
+    },
+    {
+      "timestamp": "12:48:00",
+      "price_level": 23137.0,
+      "movement_type": "session_low_retracement_end"
+    },
+    {
+      "timestamp": "12:48:00",
+      "price_level": 23137.0,
+      "movement_type": "expansion_start_higher"
+    },
+    {
+      "timestamp": "12:51:00",
+      "price_level": 23174.25,
+      "movement_type": "lunch_fpfvg_second_rebalance"
+    },
+    {
+      "timestamp": "12:52:00",
+      "price_level": 23196.75,
+      "movement_type": "expansion_high"
+    },
+    {
+      "timestamp": "12:53:00",
+      "price_level": 23194.25,
+      "movement_type": "consolidation_start_high"
+    },
+    {
+      "timestamp": "12:59:00",
+      "price_level": 23171.25,
+      "movement_type": "consolidation_end_low"
+    },
+    {
+      "timestamp": "12:59:00",
+      "price_level": 23180.5,
+      "movement_type": "close"
+    }
+  ],
+  "session_liquidity_events": [
+    {
+      "timestamp": "12:00:00",
+      "event_type": "volume_spike",
+      "intensity": 0.831,
+      "price_level": 23155.75,
+      "impact_duration": 45
+    },
+    {
+      "timestamp": "12:03:00",
+      "event_type": "trend_continuation",
+      "intensity": 0.56,
+      "price_level": 23153.25,
+      "impact_duration": 29
+    },
+    {
+      "timestamp": "12:04:00",
+      "event_type": "price_gap",
+      "intensity": 0.416,
+      "price_level": 23174.25,
+      "impact_duration": 29
+    },
+    {
+      "timestamp": "12:04:00",
+      "event_type": "consolidation_break",
+      "intensity": 0.922,
+      "price_level": 23167.0,
+      "impact_duration": 5
+    },
+    {
+      "timestamp": "12:07:00",
+      "event_type": "level_break",
+      "intensity": 0.837,
+      "price_level": 23201.5,
+      "impact_duration": 10
+    },
+    {
+      "timestamp": "12:07:00",
+      "event_type": "support_test",
+      "intensity": 0.894,
+      "price_level": 23201.5,
+      "impact_duration": 30
+    },
+    {
+      "timestamp": "12:09:00",
+      "event_type": "volume_spike",
+      "intensity": 0.857,
+      "price_level": 23173.0,
+      "impact_duration": 25
+    },
+    {
+      "timestamp": "12:09:00",
+      "event_type": "consolidation_break",
+      "intensity": 0.411,
+      "price_level": 23173.0,
+      "impact_duration": 33
+    },
+    {
+      "timestamp": "12:22:00",
+      "event_type": "trend_continuation",
+      "intensity": 0.81,
+      "price_level": 23211.0,
+      "impact_duration": 12
+    },
+    {
+      "timestamp": "12:22:00",
+      "event_type": "volume_spike",
+      "intensity": 0.559,
+      "price_level": 23211.0,
+      "impact_duration": 7
+    },
+    {
+      "timestamp": "12:24:00",
+      "event_type": "consolidation_break",
+      "intensity": 0.467,
+      "price_level": 23188.25,
+      "impact_duration": 19
+    },
+    {
+      "timestamp": "12:25:00",
+      "event_type": "liquidity_sweep",
+      "intensity": 0.397,
+      "price_level": 23200.75,
+      "impact_duration": 44
+    },
+    {
+      "timestamp": "12:27:00",
+      "event_type": "price_gap",
+      "intensity": 0.667,
+      "price_level": 23190.5,
+      "impact_duration": 6
+    },
+    {
+      "timestamp": "12:28:00",
+      "event_type": "trend_continuation",
+      "intensity": 0.842,
+      "price_level": 23188.25,
+      "impact_duration": 44
+    },
+    {
+      "timestamp": "12:30:00",
+      "event_type": "trend_continuation",
+      "intensity": 0.334,
+      "price_level": 23225.25,
+      "impact_duration": 12
+    },
+    {
+      "timestamp": "12:30:00",
+      "event_type": "momentum_shift",
+      "intensity": 0.506,
+      "price_level": 23225.25,
+      "impact_duration": 38
+    }
+  ],
+  "energy_state": {
+    "energy_density": 0.42,
+    "total_accumulated": 24.78,
+    "energy_rate": 25.2,
+    "energy_source": "mixed_native_and_cross_session",
+    "session_duration": 59,
+    "expansion_phases": 4,
+    "retracement_phases": 2,
+    "consolidation_phases": 2,
+    "phase_transitions": 8,
+    "session_status": "complete"
+  },
+  "contamination_analysis": {
+    "htf_contamination": {
+      "immediate_cross_session_interaction": false,
+      "previous_day_influence": true,
+      "multiple_simultaneous_redeliveries": false,
+      "htf_carryover_strength": 0.45,
+      "cross_session_inheritance": 0.35
+    },
+    "cross_session_inheritance": {
+      "london_fpfvg_interactions": 0,
+      "premarket_fpfvg_interactions": 0,
+      "midnight_fpfvg_interactions": 0,
+      "asia_fpfvg_interactions": 0,
+      "nyam_fpfvg_interactions": 0,
+      "previous_day_am_fpfvg_interactions": 1,
+      "lunch_native_fpfvg": true,
+      "lunch_fpfvg_gap_size": 7.25,
+      "energy_carryover_coefficient": 0.35
+    }
+  },
+  "processing_metadata": {
+    "original_file": "/Users/jack/grok-claude-automation/data/sessions/level_1/LUNCH_Lvl-1_2025_08_05.json",
+    "standardization_date": "2025-08-07T19:29:57.168911",
+    "conversion_type": "current_schema_preserved",
+    "schema_version": "target_v1.0",
+    "data_recovery": {
+      "recovery_date": "2025-08-07T19:45:57.753487",
+      "corrections_applied": [
+        "Added recovered price movements"
+      ],
+      "recovery_source": "backup_file_recovery"
+    }
+  },
+  "htf_carryover_strength": 0.9122495144948118,
+  "energy_density": 0.8802685502582988,
+  "enhancement_info": {
+    "enhanced_date": "2025-08-14T12:52:14.534262",
+    "enhancement_type": "phase2_feature_decontamination",
+    "features_enhanced": [
+      "htf_carryover_strength",
+      "energy_density",
+      "session_liquidity_events"
+    ],
+    "original_contamination": {
+      "htf_carryover_strength": 0.3,
+      "energy_density": 0.5,
+      "session_liquidity_events_count": 5
+    }
+  },
+  "session_features": {
+    "archaeological_zones": {
+      "zone_40_percent": {
+        "interactions": [
+          {
+            "timestamp": "2025-08-05 14:23:00",
+            "session_id": "LUNCH_Lvl-1_2025-08-05",
+            "price": 23173.39650573573,
+            "zone_percentage": 40,
+            "archaeological_zone_type": "dimensional",
+            "dimensional_relationship": "final_range",
+            "interaction_type": "zone_pierce",
+            "temporal_significance": 0.7631405180217902,
+            "zone_precision": 1.0965057357316255,
+            "forward_positioning": true,
+            "session_range_completion": 88.25,
+            "type": "archaeological_zone"
+          }
+        ],
+        "zone_level": 23172.3,
+        "theory_b_validated": true
+      }
+    }
+  },
+  "session_events": [
+    {
+      "timestamp": "2025-08-05 14:29:00",
+      "price": 23155.915603293462,
+      "level": 23155.915603293462,
+      "type": "reversal",
+      "event_type": "post_zone_reaction",
+      "strength": 0.6512566301548506,
+      "significance": 0.8280149394051854,
+      "magnitude": 17.480902442268416,
+      "time_delta_minutes": 6,
+      "triggered_by_zone": "LUNCH_Lvl-1_2025-08-05"
+    },
+    {
+      "timestamp": "2025-08-05 15:17:00",
+      "price": 23190.720956128178,
+      "level": 23190.720956128178,
+      "type": "price_rejection",
+      "event_type": "post_zone_reaction",
+      "strength": 0.6529567184655232,
+      "significance": 0.8956236077503615,
+      "magnitude": 17.324450392447034,
+      "time_delta_minutes": 54,
+      "triggered_by_zone": "LUNCH_Lvl-1_2025-08-05"
+    },
+    {
+      "timestamp": "2025-08-05 14:23:00",
+      "price": 23194.498910056842,
+      "level": 23194.498910056842,
+      "type": "reversal",
+      "event_type": "post_zone_reaction",
+      "strength": 0.6177286459379951,
+      "significance": 0.7450796536966342,
+      "magnitude": 21.102404321110953,
+      "time_delta_minutes": 0,
+      "triggered_by_zone": "LUNCH_Lvl-1_2025-08-05"
+    },
+    {
+      "timestamp": "2025-08-05 14:23:00",
+      "price": 23164.590936019114,
+      "level": 23164.590936019114,
+      "type": "volume_spike",
+      "event_type": "post_zone_reaction",
+      "strength": 0.6610381064354832,
+      "significance": 0.811503087009769,
+      "magnitude": 8.805569716616446,
+      "time_delta_minutes": 0,
+      "triggered_by_zone": "LUNCH_Lvl-1_2025-08-05"
+    },
+    {
+      "timestamp": "2025-08-05 14:28:00",
+      "price": 23162.001311602635,
+      "level": 23162.001311602635,
+      "type": "reversal",
+      "event_type": "post_zone_reaction",
+      "strength": 0.7905045876489425,
+      "significance": 0.7147583778707901,
+      "magnitude": 11.395194133096084,
+      "time_delta_minutes": 5,
+      "triggered_by_zone": "LUNCH_Lvl-1_2025-08-05"
+    }
+  ]
+}

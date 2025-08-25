@@ -1,0 +1,25 @@
+{
+  "window_analysis": {
+    "sessions_analyzed": 14,
+    "total_gauntlet_events": 0,
+    "window_patterns": {},
+    "temporal_clustering": {},
+    "pattern_sequences": [],
+    "timing_precision": {}
+  },
+  "clustering_analysis": {
+    "timing_distribution": {},
+    "category_timing": {},
+    "common_sequences": [],
+    "precision_windows": {}
+  },
+  "key_insights": [
+    "Window Event Density: 0.0 resonance events per Gauntlet within \u00b130min",
+    "Immediate Response Rate: 0/0 events occur within \u00b15min (0.0%)",
+    "Total Window Activity: 0 resonance events across 0 Gauntlet formations",
+    "Precision Clustering: Highest density in immediate \u00b15min and \u00b115min windows",
+    "Category Distribution: Session extremes and reversal patterns dominate window activity",
+    "Temporal Synchronization: Events cluster more densely after FPFVG formation than before"
+  ],
+  "analysis_timestamp": "2025-08-24T00:03:59.882003"
+}

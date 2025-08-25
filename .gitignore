@@ -42,6 +42,8 @@ ironforge_refactor_env/
 
 # Additional Python cache
 *.egg-info/
+tests/**/__pycache__/
+**/__pycache__/
 
 # Oracle and model artifacts (Phase 2 cleanup)
 models/**/

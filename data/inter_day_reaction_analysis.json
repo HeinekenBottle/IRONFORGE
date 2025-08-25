@@ -1,0 +1,191 @@
+{
+  "analysis_metadata": {
+    "timestamp": "2025-08-25T11:26:51.000341",
+    "total_sessions_analyzed": 25,
+    "total_40_percent_interactions": 32,
+    "total_cascade_patterns": 28,
+    "analysis_time_window_minutes": 180,
+    "next_session_analysis_hours": 24
+  },
+  "zone_interactions_summary": {
+    "total_interactions": 32,
+    "by_session_phase": {
+      "ny_am": 8,
+      "premarket": 7,
+      "lunch": 8,
+      "preasia": 1,
+      "ny_pm": 1,
+      "nyam": 5,
+      "london": 2
+    },
+    "by_zone_type": {
+      "zone_40_percent": 32
+    },
+    "temporal_distribution": {
+      "peak_hour": 13,
+      "hour_distribution": {
+        "12:00": 5,
+        "13:00": 14,
+        "14:00": 13
+      }
+    }
+  },
+  "cascade_patterns_analysis": {
+    "total_cascades": 28,
+    "average_duration_hours": 1.5601190476190478,
+    "average_sessions_affected": 1.0,
+    "pattern_signatures": [
+      "zone_40_percent_ny_am_8s_0n_0sess",
+      "zone_40_percent_ny_am_5s_0n_0sess",
+      "zone_40_percent_premarket_10s_0n_0sess",
+      "zone_40_percent_premarket_11s_0n_0sess",
+      "zone_40_percent_premarket_5s_0n_0sess",
+      "zone_40_percent_lunch_5s_0n_0sess",
+      "zone_40_percent_ny_am_7s_0n_0sess",
+      "zone_40_percent_ny_am_9s_0n_0sess",
+      "zone_40_percent_premarket_5s_0n_0sess",
+      "zone_40_percent_premarket_7s_0n_0sess",
+      "zone_40_percent_premarket_4s_0n_0sess",
+      "zone_40_percent_preasia_3s_0n_0sess",
+      "zone_40_percent_lunch_9s_0n_0sess",
+      "zone_40_percent_lunch_4s_0n_0sess",
+      "zone_40_percent_lunch_8s_0n_0sess",
+      "zone_40_percent_ny_pm_5s_0n_0sess",
+      "zone_40_percent_nyam_5s_0n_0sess",
+      "zone_40_percent_nyam_10s_0n_0sess",
+      "zone_40_percent_london_7s_0n_0sess",
+      "zone_40_percent_london_6s_0n_0sess",
+      "zone_40_percent_ny_am_3s_0n_0sess",
+      "zone_40_percent_lunch_5s_0n_0sess",
+      "zone_40_percent_nyam_12s_0n_0sess",
+      "zone_40_percent_nyam_10s_0n_0sess",
+      "zone_40_percent_nyam_13s_0n_0sess",
+      "zone_40_percent_ny_am_3s_0n_0sess",
+      "zone_40_percent_lunch_3s_0n_0sess",
+      "zone_40_percent_premarket_4s_0n_0sess"
+    ],
+    "most_common_signatures": [
+      [
+        "zone_40_percent_premarket_5s_0n_0sess",
+        2
+      ],
+      [
+        "zone_40_percent_lunch_5s_0n_0sess",
+        2
+      ],
+      [
+        "zone_40_percent_premarket_4s_0n_0sess",
+        2
+      ],
+      [
+        "zone_40_percent_nyam_10s_0n_0sess",
+        2
+      ],
+      [
+        "zone_40_percent_ny_am_3s_0n_0sess",
+        2
+      ]
+    ]
+  },
+  "session_sensitivity_analysis": {
+    "OTHER": {
+      "session_type": "OTHER",
+      "reaction_frequency": 1.0,
+      "avg_reaction_time_minutes": 46.845360824742265,
+      "avg_reaction_magnitude": 16.50685033458304,
+      "cascade_probability": 0.0,
+      "timing_precision_score": 16.972620905295955
+    }
+  },
+  "timing_precision_insights": {
+    "by_session_type": {
+      "OTHER": 16.972620905295955
+    },
+    "by_zone_type": {
+      "zone_40_percent": 28.65057529044037
+    },
+    "overall_average": 16.972620905295955
+  },
+  "phenomena_classification": {
+    "immediate_reactions": 79,
+    "delayed_reactions": 107,
+    "next_session_echoes": 0,
+    "multi_session_cascades": 0,
+    "precision_events": 0
+  },
+  "predictive_indicators": {
+    "high_cascade_triggers": [
+      "zone_40_percent_ny_am",
+      "zone_40_percent_ny_am",
+      "zone_40_percent_ny_am",
+      "zone_40_percent_premarket",
+      "zone_40_percent_premarket",
+      "zone_40_percent_premarket",
+      "zone_40_percent_lunch",
+      "zone_40_percent_ny_am",
+      "zone_40_percent_ny_am",
+      "zone_40_percent_premarket",
+      "zone_40_percent_premarket",
+      "zone_40_percent_premarket",
+      "zone_40_percent_preasia",
+      "zone_40_percent_lunch",
+      "zone_40_percent_lunch",
+      "zone_40_percent_lunch",
+      "zone_40_percent_ny_pm",
+      "zone_40_percent_nyam",
+      "zone_40_percent_nyam",
+      "zone_40_percent_london",
+      "zone_40_percent_london",
+      "zone_40_percent_ny_am",
+      "zone_40_percent_lunch",
+      "zone_40_percent_nyam",
+      "zone_40_percent_nyam",
+      "zone_40_percent_nyam",
+      "zone_40_percent_ny_am",
+      "zone_40_percent_lunch",
+      "zone_40_percent_premarket"
+    ],
+    "precision_timing_zones": [],
+    "session_transition_patterns": [
+      "zone_40_percent_LUNCH_boundary",
+      "zone_40_percent_LUNCH_boundary",
+      "zone_40_percent_LUNCH_boundary",
+      "zone_40_percent_LUNCH_boundary",
+      "zone_40_percent_LUNCH_boundary",
+      "zone_40_percent_LUNCH_boundary",
+      "zone_40_percent_LUNCH_boundary",
+      "zone_40_percent_LUNCH_boundary",
+      "zone_40_percent_LUNCH_boundary"
+    ],
+    "magnitude_amplification_zones": [
+      "zone_40_percent_ny_am",
+      "zone_40_percent_ny_am",
+      "zone_40_percent_premarket",
+      "zone_40_percent_premarket",
+      "zone_40_percent_premarket",
+      "zone_40_percent_lunch",
+      "zone_40_percent_ny_am",
+      "zone_40_percent_ny_am",
+      "zone_40_percent_premarket",
+      "zone_40_percent_premarket",
+      "zone_40_percent_premarket",
+      "zone_40_percent_preasia",
+      "zone_40_percent_lunch",
+      "zone_40_percent_lunch",
+      "zone_40_percent_lunch",
+      "zone_40_percent_ny_pm",
+      "zone_40_percent_nyam",
+      "zone_40_percent_nyam",
+      "zone_40_percent_london",
+      "zone_40_percent_london",
+      "zone_40_percent_ny_am",
+      "zone_40_percent_lunch",
+      "zone_40_percent_nyam",
+      "zone_40_percent_nyam",
+      "zone_40_percent_nyam",
+      "zone_40_percent_ny_am",
+      "zone_40_percent_lunch",
+      "zone_40_percent_premarket"
+    ]
+  }
+}

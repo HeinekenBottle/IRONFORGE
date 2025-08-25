@@ -1,0 +1,4 @@
+test_scenario,amplification,amplification_ratio,directional_coherence,predicted_phase,confidence,statistical_significance
+Edge_Accumulation,25.4,0.49843014128728413,0.15,ACCUMULATION,0.6416666666666667,1.0
+Edge_Manipulation,76.5,1.5011773940345368,0.85,MANIPULATION,0.7050000000000001,1.0
+Perfect_Baseline,50.96,1.0,0.5,DISTRIBUTION,0.6236111111111111,0.6585605194187534

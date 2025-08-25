@@ -1,0 +1,64 @@
+{
+  "validation_timestamp": "2025-08-23T23:20:18.750216",
+  "session_analyzed": "enhanced_NY_AM_Lvl-1_2025_08_05",
+  "session_fpfvg_structure": {
+    "fpfvg_present": true,
+    "fpfvg_formation": {
+      "formation_time": "09:37:00",
+      "premium_high": 23341.75,
+      "discount_low": 23330.5,
+      "gap_size": 11.25,
+      "interactions": [
+        {
+          "interaction_time": "10:00:00",
+          "interaction_type": "redelivery",
+          "price_level": 23315.5,
+          "interaction_context": "multiple_fpfvg_redelivery_cluster"
+        },
+        {
+          "interaction_time": "10:11:00",
+          "interaction_type": "rebalance",
+          "price_level": 23348.0,
+          "interaction_context": "multiple_fpfvg_rebalance_cluster"
+        }
+      ]
+    }
+  },
+  "native_formations_found": [
+    {
+      "time": "09:37:00",
+      "type": "nyam_fpfvg_formation_premium",
+      "price": 23341.75
+    },
+    {
+      "time": "09:37:00",
+      "type": "nyam_fpfvg_formation_discount",
+      "price": 23330.5
+    }
+  ],
+  "previous_interactions_excluded": 9,
+  "detector_results": {
+    "session_file": "/Users/jack/IRONFORGE/data/enhanced/enhanced_NY_AM_Lvl-1_2025_08_05.json",
+    "fpfvgs_found": 1,
+    "gauntlet_sequences_detected": 1,
+    "complete_sequences": 0,
+    "hunt_only_sequences": 0,
+    "archaeological_confluences": 0,
+    "sequences": [
+      "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-05', formation_time='09:37:00', premium_high=23341.75, discount_low=23330.5, consequent_encroachment=23336.125, gap_size=11.25, session_id='2025-08-05', session_type='ny_am', formation_context='session_structured_fpfvg_interactions_2'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+    ],
+    "session_stats": {
+      "session_high": 0,
+      "session_low": 23113.5,
+      "session_open": 23348.25,
+      "session_close": 23156.25
+    }
+  },
+  "accuracy_validation": {
+    "native_fpfvg_detected": 1,
+    "matches_session_structure": true,
+    "completion_rate": 0.0,
+    "confluence_rate": 0.0
+  },
+  "methodology": "Native_Session_FPFVG_Only_Validation_Corrected_Detection"
+}

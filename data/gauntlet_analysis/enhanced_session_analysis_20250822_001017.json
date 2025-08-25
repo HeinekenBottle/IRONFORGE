@@ -1,0 +1,1365 @@
+{
+  "processing_timestamp": "2025-08-22T00:10:17.285387",
+  "sessions_processed": 114,
+  "total_fpfvgs": 44,
+  "total_gauntlet_sequences": 44,
+  "complete_sequences": 14,
+  "hunt_only_sequences": 2,
+  "archaeological_confluences": 2,
+  "session_type_breakdown": {
+    "MIDNIGHT": {
+      "sessions_count": 18,
+      "total_fpfvgs": 6,
+      "total_sequences": 6,
+      "complete_sequences": 2,
+      "archaeological_confluences": 2,
+      "fpfvg_rate": 0.3333333333333333,
+      "completion_rate": 0.3333333333333333,
+      "confluence_rate": 0.3333333333333333
+    },
+    "ASIA": {
+      "sessions_count": 14,
+      "total_fpfvgs": 6,
+      "total_sequences": 6,
+      "complete_sequences": 2,
+      "archaeological_confluences": 0,
+      "fpfvg_rate": 0.42857142857142855,
+      "completion_rate": 0.3333333333333333,
+      "confluence_rate": 0.0
+    },
+    "NY_PM": {
+      "sessions_count": 12,
+      "total_fpfvgs": 6,
+      "total_sequences": 6,
+      "complete_sequences": 2,
+      "archaeological_confluences": 0,
+      "fpfvg_rate": 0.5,
+      "completion_rate": 0.3333333333333333,
+      "confluence_rate": 0.0
+    },
+    "NY_AM": {
+      "sessions_count": 20,
+      "total_fpfvgs": 8,
+      "total_sequences": 8,
+      "complete_sequences": 4,
+      "archaeological_confluences": 0,
+      "fpfvg_rate": 0.4,
+      "completion_rate": 0.5,
+      "confluence_rate": 0.0
+    },
+    "PREMARKET": {
+      "sessions_count": 18,
+      "total_fpfvgs": 6,
+      "total_sequences": 6,
+      "complete_sequences": 2,
+      "archaeological_confluences": 0,
+      "fpfvg_rate": 0.3333333333333333,
+      "completion_rate": 0.3333333333333333,
+      "confluence_rate": 0.0
+    },
+    "LONDON": {
+      "sessions_count": 16,
+      "total_fpfvgs": 6,
+      "total_sequences": 6,
+      "complete_sequences": 2,
+      "archaeological_confluences": 0,
+      "fpfvg_rate": 0.375,
+      "completion_rate": 0.3333333333333333,
+      "confluence_rate": 0.0
+    },
+    "LUNCH": {
+      "sessions_count": 16,
+      "total_fpfvgs": 6,
+      "total_sequences": 6,
+      "complete_sequences": 0,
+      "archaeological_confluences": 0,
+      "fpfvg_rate": 0.375,
+      "completion_rate": 0.0,
+      "confluence_rate": 0.0
+    }
+  },
+  "session_results": {
+    "enhanced_MIDNIGHT_Lvl-1_2025_08_07": {
+      "session_file": "data/enhanced/enhanced_MIDNIGHT_Lvl-1_2025_08_07.json",
+      "session_type": "MIDNIGHT",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-07_MIDNIGHT', formation_time='00:02:00', premium_high=23493.0, discount_low=23492.5, consequent_encroachment=23492.75, gap_size=0.5, session_id='2025-08-07', session_type='MIDNIGHT', formation_context='session_structured_MIDNIGHT_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23489.75,
+        "session_close": 0
+      }
+    },
+    "enhanced_ASIA_Lvl-1_2025_08_06": {
+      "session_file": "data/enhanced/enhanced_ASIA_Lvl-1_2025_08_06.json",
+      "session_type": "ASIA",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-06_ASIA', formation_time='19:07:00', premium_high=23085.75, discount_low=23084.5, consequent_encroachment=23085.125, gap_size=1.25, session_id='2025-08-06', session_type='ASIA', formation_context='session_structured_ASIA_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 23170.0,
+        "session_low": 999999,
+        "session_open": 23084.5,
+        "session_close": 23166.0
+      }
+    },
+    "enhanced_rel_ASIA_Lvl-1_2025_08_05": {
+      "session_file": "data/enhanced/enhanced_rel_ASIA_Lvl-1_2025_08_05.json",
+      "session_type": "ASIA",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-05_ASIA', formation_time='19:06:00', premium_high=23330.0, discount_low=23329.0, consequent_encroachment=23329.5, gap_size=1.0, session_id='2025-08-05', session_type='ASIA', formation_context='session_structured_ASIA_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23327.25,
+        "session_close": 23342.5
+      }
+    },
+    "enhanced_NY_PM_Lvl-1_2025_07_29": {
+      "session_file": "data/enhanced/enhanced_NY_PM_Lvl-1_2025_07_29.json",
+      "session_type": "NY_PM",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native NY_PM FPFVG formations found"
+    },
+    "enhanced_NY_AM_Lvl-1_2025_07_30": {
+      "session_file": "data/enhanced/enhanced_NY_AM_Lvl-1_2025_07_30.json",
+      "session_type": "NY_AM",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native NY_AM FPFVG formations found"
+    },
+    "enhanced_rel_PREMARKET_Lvl-1_2025_07_30": {
+      "session_file": "data/enhanced/enhanced_rel_PREMARKET_Lvl-1_2025_07_30.json",
+      "session_type": "PREMARKET",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native PREMARKET FPFVG formations found"
+    },
+    "enhanced_PREMARKET_Lvl-1_2025_08_05": {
+      "session_file": "data/enhanced/enhanced_PREMARKET_Lvl-1_2025_08_05.json",
+      "session_type": "PREMARKET",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-05_PREMARKET', formation_time='07:02:00', premium_high=23383.0, discount_low=23382.0, consequent_encroachment=23382.5, gap_size=1.0, session_id='2025-08-05', session_type='PREMARKET', formation_context='session_structured_PREMARKET_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 23339.25,
+        "session_open": 23384.75,
+        "session_close": 23347.75
+      }
+    },
+    "enhanced_rel_LONDON_Lvl-1_2025_07_30": {
+      "session_file": "data/enhanced/enhanced_rel_LONDON_Lvl-1_2025_07_30.json",
+      "session_type": "LONDON",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native LONDON FPFVG formations found"
+    },
+    "enhanced_LONDON_Lvl-1_2025_07_31": {
+      "session_file": "data/enhanced/enhanced_LONDON_Lvl-1_2025_07_31.json",
+      "session_type": "LONDON",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native LONDON FPFVG formations found"
+    },
+    "enhanced_PREASIA_Lvl-1_2025_07_30": {
+      "session_file": "data/enhanced/enhanced_PREASIA_Lvl-1_2025_07_30.json",
+      "session_type": "ASIA",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native ASIA FPFVG formations found"
+    },
+    "enhanced_rel_NY_PM_Lvl-1_2025_08_05": {
+      "session_file": "data/enhanced/enhanced_rel_NY_PM_Lvl-1_2025_08_05.json",
+      "session_type": "NY_PM",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-05_NY_PM', formation_time='13:31:00', premium_high=23208.75, discount_low=23208.0, consequent_encroachment=23208.375, gap_size=0.75, session_id='2025-08-05', session_type='NY_PM', formation_context='session_structured_NY_PM_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23210.75,
+        "session_close": 23146.25
+      }
+    },
+    "enhanced_rel_NY_PM_Lvl-1_2025_08_04": {
+      "session_file": "data/enhanced/enhanced_rel_NY_PM_Lvl-1_2025_08_04.json",
+      "session_type": "NY_PM",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 1,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-04_NY_PM', formation_time='13:40:00', premium_high=23275.0, discount_low=23270.0, consequent_encroachment=23272.5, gap_size=5.0, session_id='2025-08-04', session_type='NY_PM', formation_context='session_structured_NY_PM_fpfvg'), liquidity_hunt={'hunt_time': '13:47:00', 'hunt_price': 23241.25, 'hunt_direction': 'lower', 'distance_from_fpfvg': 28.75, 'movement_type': 'session_low_liquidity_sweep', 'hunt_significance': 34.75, 'matching_patterns': ['explicit_liquidity:liquidity', 'explicit_liquidity:sweep', 'session_extremes:session_low'], 'fpfvg_direction': 'bullish'}, reversal_detected=True, reversal_time='13:47:00', ce_breach={'breach_time': '14:05:00', 'breach_price': 23283.75, 'ce_level': 23272.5, 'breach_distance': 11.25, 'movement_type': 'expansion_high', 'breach_direction': 'above', 'hunt_to_breach_distance': 42.5}, sequence_completion='complete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 23308.5,
+        "session_low": 999999,
+        "session_open": 23280.5,
+        "session_close": 23306.25
+      }
+    },
+    "enhanced_LUNCH_Lvl-1_2025_07_30": {
+      "session_file": "data/enhanced/enhanced_LUNCH_Lvl-1_2025_07_30.json",
+      "session_type": "LUNCH",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native LUNCH FPFVG formations found"
+    },
+    "enhanced_rel_LUNCH_Lvl-1_2025_08_06": {
+      "session_file": "data/enhanced/enhanced_rel_LUNCH_Lvl-1_2025_08_06.json",
+      "session_type": "LUNCH",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-06_LUNCH', formation_time='12:03:00', premium_high=23372.25, discount_low=23369.0, consequent_encroachment=23370.625, gap_size=3.25, session_id='2025-08-06', session_type='LUNCH', formation_context='session_structured_LUNCH_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23367.75,
+        "session_close": 23371.0
+      }
+    },
+    "enhanced_LONDON_Lvl-1_2025_07_30": {
+      "session_file": "data/enhanced/enhanced_LONDON_Lvl-1_2025_07_30.json",
+      "session_type": "LONDON",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native LONDON FPFVG formations found"
+    },
+    "enhanced_rel_MIDNIGHT_Lvl-1_2025_08_05": {
+      "session_file": "data/enhanced/enhanced_rel_MIDNIGHT_Lvl-1_2025_08_05.json",
+      "session_type": "MIDNIGHT",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 1,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-05_MIDNIGHT', formation_time='00:07:00', premium_high=23342.75, discount_low=23342.25, consequent_encroachment=23342.5, gap_size=0.5, session_id='2025-08-05', session_type='MIDNIGHT', formation_context='session_structured_MIDNIGHT_fpfvg'), liquidity_hunt={'hunt_time': '00:20:00', 'hunt_price': 23337.0, 'hunt_direction': 'lower', 'distance_from_fpfvg': 5.25, 'movement_type': 'session_low_consolidation_end', 'hunt_significance': 16.05, 'matching_patterns': ['session_extremes:session_low'], 'fpfvg_direction': 'bullish'}, reversal_detected=True, reversal_time='00:20:00', ce_breach={'breach_time': '00:27:00', 'breach_price': 23345.5, 'ce_level': 23342.5, 'breach_distance': 3.0, 'movement_type': 'session_high_expansion_end', 'breach_direction': 'above', 'hunt_to_breach_distance': 8.5}, sequence_completion='complete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23342.0,
+        "session_close": 23343.75
+      }
+    },
+    "enhanced_rel_PREASIA_Lvl-1_2025_07_30": {
+      "session_file": "data/enhanced/enhanced_rel_PREASIA_Lvl-1_2025_07_30.json",
+      "session_type": "ASIA",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native ASIA FPFVG formations found"
+    },
+    "enhanced_rel_LONDON_Lvl-1_2025_07_31": {
+      "session_file": "data/enhanced/enhanced_rel_LONDON_Lvl-1_2025_07_31.json",
+      "session_type": "LONDON",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native LONDON FPFVG formations found"
+    },
+    "enhanced_rel_NYPM_Lvl-1_2025_08_06": {
+      "session_file": "data/enhanced/enhanced_rel_NYPM_Lvl-1_2025_08_06.json",
+      "session_type": "NY_PM",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-06_NY_PM', formation_time='13:33:00', premium_high=23374.5, discount_low=23373.0, consequent_encroachment=23373.75, gap_size=1.5, session_id='2025-08-06', session_type='NY_PM', formation_context='session_structured_NY_PM_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'session_range': 81.75, 'fpfvg_position_pct': 12.5, 'zone_analysis': {'40%': {'level': 23396.2, 'distance': 22.450000000000728, 'confluence': False}, '60%': {'level': 23412.55, 'distance': 38.79999999999927, 'confluence': False}, '80%': {'level': 23428.9, 'distance': 55.150000000001455, 'confluence': False}}, 'closest_zone': {'zone': '40%', 'distance': 22.450000000000728, 'confluence': False}, 'theory_b_precision': False})"
+      ],
+      "session_stats": {
+        "session_high": 23445.25,
+        "session_low": 23363.5,
+        "session_open": 23377.5,
+        "session_close": 23413.0
+      }
+    },
+    "enhanced_rel_PREMARKET_Lvl-1_2025_07_31": {
+      "session_file": "data/enhanced/enhanced_rel_PREMARKET_Lvl-1_2025_07_31.json",
+      "session_type": "PREMARKET",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native PREMARKET FPFVG formations found"
+    },
+    "enhanced_NY_PM_Lvl-1_2025_07_28": {
+      "session_file": "data/enhanced/enhanced_NY_PM_Lvl-1_2025_07_28.json",
+      "session_type": "NY_PM",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native NY_PM FPFVG formations found"
+    },
+    "enhanced_NY_AM_Lvl-1_2025_07_31": {
+      "session_file": "data/enhanced/enhanced_NY_AM_Lvl-1_2025_07_31.json",
+      "session_type": "NY_AM",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native NY_AM FPFVG formations found"
+    },
+    "enhanced_ASIA_Lvl-1_2025_08_07": {
+      "session_file": "data/enhanced/enhanced_ASIA_Lvl-1_2025_08_07.json",
+      "session_type": "ASIA",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 1,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-07_ASIA', formation_time='19:01:00', premium_high=23466.25, discount_low=23466.0, consequent_encroachment=23466.125, gap_size=0.25, session_id='2025-08-07', session_type='ASIA', formation_context='session_structured_ASIA_fpfvg'), liquidity_hunt={'hunt_time': '19:18:00', 'hunt_price': 23458.0, 'hunt_direction': 'lower', 'distance_from_fpfvg': 8.0, 'movement_type': 'expansion_low', 'hunt_significance': 12.6, 'matching_patterns': ['session_extremes:expansion_low'], 'fpfvg_direction': 'bullish'}, reversal_detected=True, reversal_time='19:18:00', ce_breach={'breach_time': '19:35:00', 'breach_price': 23468.5, 'ce_level': 23466.125, 'breach_distance': 2.375, 'movement_type': 'retracement_high', 'breach_direction': 'above', 'hunt_to_breach_distance': 10.5}, sequence_completion='complete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23461.0,
+        "session_close": 23490.0
+      }
+    },
+    "enhanced_MIDNIGHT_Lvl-1_2025_08_06": {
+      "session_file": "data/enhanced/enhanced_MIDNIGHT_Lvl-1_2025_08_06.json",
+      "session_type": "MIDNIGHT",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 1,
+      "archaeological_confluences": 1,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-06_MIDNIGHT', formation_time='00:10:00', premium_high=23172.0, discount_low=23171.5, consequent_encroachment=23171.75, gap_size=0.5, session_id='2025-08-06', session_type='MIDNIGHT', formation_context='session_structured_MIDNIGHT_fpfvg'), liquidity_hunt={'hunt_time': '00:26:00', 'hunt_price': 23160.25, 'hunt_direction': 'lower', 'distance_from_fpfvg': 11.25, 'movement_type': 'session_low', 'hunt_significance': 17.25, 'matching_patterns': ['session_extremes:session_low'], 'fpfvg_direction': 'bullish'}, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='hunt_only', archaeological_context={'session_range': 13.25, 'fpfvg_position_pct': 86.8, 'zone_analysis': {'40%': {'level': 23165.55, 'distance': 6.200000000000728, 'confluence': True}, '60%': {'level': 23168.2, 'distance': 3.5499999999992724, 'confluence': True}, '80%': {'level': 23170.85, 'distance': 0.9000000000014552, 'confluence': True}}, 'closest_zone': {'zone': '80%', 'distance': 0.9000000000014552, 'confluence': True}, 'theory_b_precision': True})"
+      ],
+      "session_stats": {
+        "session_high": 23173.5,
+        "session_low": 23160.25,
+        "session_open": 23166.5,
+        "session_close": 23166.25
+      }
+    },
+    "enhanced_NYAM_Lvl-1_2025_08_06": {
+      "session_file": "data/enhanced/enhanced_NYAM_Lvl-1_2025_08_06.json",
+      "session_type": "NY_AM",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 1,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-06_NY_AM', formation_time='09:31:00', premium_high=23192.0, discount_low=23182.5, consequent_encroachment=23187.25, gap_size=9.5, session_id='2025-08-06', session_type='NY_AM', formation_context='session_structured_NY_AM_fpfvg'), liquidity_hunt={'hunt_time': '09:40:00', 'hunt_price': 23148.5, 'hunt_direction': 'lower', 'distance_from_fpfvg': 34.0, 'movement_type': 'reversal_point_expansion_higher', 'hunt_significance': 28.8, 'matching_patterns': ['session_extremes:expansion_high', 'reversal_points:reversal_point'], 'fpfvg_direction': 'bullish'}, reversal_detected=False, reversal_time=None, ce_breach={'breach_time': '09:45:00', 'breach_price': 23223.25, 'ce_level': 23187.25, 'breach_distance': 36.0, 'movement_type': 'expansion_high', 'breach_direction': 'above', 'hunt_to_breach_distance': 74.75}, sequence_completion='complete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 23375.5,
+        "session_low": 999999,
+        "session_open": 23169.25,
+        "session_close": 23368.0
+      }
+    },
+    "enhanced_rel_PREMARKET_Lvl-1_2025_08_05": {
+      "session_file": "data/enhanced/enhanced_rel_PREMARKET_Lvl-1_2025_08_05.json",
+      "session_type": "PREMARKET",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-05_PREMARKET', formation_time='07:02:00', premium_high=23383.0, discount_low=23382.0, consequent_encroachment=23382.5, gap_size=1.0, session_id='2025-08-05', session_type='PREMARKET', formation_context='session_structured_PREMARKET_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 23339.25,
+        "session_open": 23384.75,
+        "session_close": 23347.75
+      }
+    },
+    "enhanced_ASIA_Lvl-1_2025_07_29": {
+      "session_file": "data/enhanced/enhanced_ASIA_Lvl-1_2025_07_29.json",
+      "session_type": "ASIA",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native ASIA FPFVG formations found"
+    },
+    "enhanced_MIDNIGHT_Lvl-1_2025_07_28": {
+      "session_file": "data/enhanced/enhanced_MIDNIGHT_Lvl-1_2025_07_28.json",
+      "session_type": "MIDNIGHT",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native MIDNIGHT FPFVG formations found"
+    },
+    "enhanced_PREMARKET_Lvl-1_2025_07_30": {
+      "session_file": "data/enhanced/enhanced_PREMARKET_Lvl-1_2025_07_30.json",
+      "session_type": "PREMARKET",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native PREMARKET FPFVG formations found"
+    },
+    "enhanced_rel_LONDON_Lvl-1_2025_08_05": {
+      "session_file": "data/enhanced/enhanced_rel_LONDON_Lvl-1_2025_08_05.json",
+      "session_type": "LONDON",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-05_LONDON', formation_time='02:08:00', premium_high=23364.0, discount_low=23360.0, consequent_encroachment=23362.0, gap_size=4.0, session_id='2025-08-05', session_type='LONDON', formation_context='session_structured_LONDON_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23360.5,
+        "session_close": 23331.25
+      }
+    },
+    "enhanced_rel_LUNCH_Lvl-1_2025_07_24": {
+      "session_file": "data/enhanced/enhanced_rel_LUNCH_Lvl-1_2025_07_24.json",
+      "session_type": "LUNCH",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native LUNCH FPFVG formations found"
+    },
+    "enhanced_rel_MIDNIGHT_Lvl-1_2025_07_31": {
+      "session_file": "data/enhanced/enhanced_rel_MIDNIGHT_Lvl-1_2025_07_31.json",
+      "session_type": "MIDNIGHT",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native MIDNIGHT FPFVG formations found"
+    },
+    "enhanced_rel_NY_PM_Lvl-1_2025_07_30": {
+      "session_file": "data/enhanced/enhanced_rel_NY_PM_Lvl-1_2025_07_30.json",
+      "session_type": "NY_PM",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native NY_PM FPFVG formations found"
+    },
+    "enhanced_rel_NY_AM_Lvl-1_2025_07_29": {
+      "session_file": "data/enhanced/enhanced_rel_NY_AM_Lvl-1_2025_07_29.json",
+      "session_type": "NY_AM",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native NY_AM FPFVG formations found"
+    },
+    "enhanced_LUNCH_Lvl-1_2025_08_04": {
+      "session_file": "data/enhanced/enhanced_LUNCH_Lvl-1_2025_08_04.json",
+      "session_type": "LUNCH",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-04_LUNCH', formation_time='12:16:00', premium_high=23261.75, discount_low=23261.5, consequent_encroachment=23261.625, gap_size=0.25, session_id='2025-08-04', session_type='LUNCH', formation_context='session_structured_LUNCH_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23270.5,
+        "session_close": 23270.5
+      }
+    },
+    "enhanced_MIDNIGHT_Lvl-1_2025_07_24": {
+      "session_file": "data/enhanced/enhanced_MIDNIGHT_Lvl-1_2025_07_24.json",
+      "session_type": "MIDNIGHT",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native MIDNIGHT FPFVG formations found"
+    },
+    "enhanced_rel_ASIA_Lvl-1_2025_07_30": {
+      "session_file": "data/enhanced/enhanced_rel_ASIA_Lvl-1_2025_07_30.json",
+      "session_type": "ASIA",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native ASIA FPFVG formations found"
+    },
+    "enhanced_rel_LUNCH_Lvl-1_2025_07_28": {
+      "session_file": "data/enhanced/enhanced_rel_LUNCH_Lvl-1_2025_07_28.json",
+      "session_type": "LUNCH",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native LUNCH FPFVG formations found"
+    },
+    "enhanced_NY_AM_Lvl-1_2025_08_05": {
+      "session_file": "data/enhanced/enhanced_NY_AM_Lvl-1_2025_08_05.json",
+      "session_type": "NY_AM",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-05_NY_AM', formation_time='09:37:00', premium_high=23341.75, discount_low=23330.5, consequent_encroachment=23336.125, gap_size=11.25, session_id='2025-08-05', session_type='NY_AM', formation_context='session_structured_NY_AM_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 23113.5,
+        "session_open": 23348.25,
+        "session_close": 23156.25
+      }
+    },
+    "enhanced_rel_NY_AM_Lvl-1_2025_07_25": {
+      "session_file": "data/enhanced/enhanced_rel_NY_AM_Lvl-1_2025_07_25.json",
+      "session_type": "NY_AM",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native NY_AM FPFVG formations found"
+    },
+    "enhanced_rel_NY_AM_Lvl-1_2025_07_24": {
+      "session_file": "data/enhanced/enhanced_rel_NY_AM_Lvl-1_2025_07_24.json",
+      "session_type": "NY_AM",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native NY_AM FPFVG formations found"
+    },
+    "enhanced_NY_AM_Lvl-1_2025_08_04": {
+      "session_file": "data/enhanced/enhanced_NY_AM_Lvl-1_2025_08_04.json",
+      "session_type": "NY_AM",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-04_NY_AM', formation_time='09:35:00', premium_high=23146.5, discount_low=23130.75, consequent_encroachment=23138.625, gap_size=15.75, session_id='2025-08-04', session_type='NY_AM', formation_context='session_structured_NY_AM_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23094.0,
+        "session_close": 0
+      }
+    },
+    "enhanced_rel_LUNCH_Lvl-1_2025_07_29": {
+      "session_file": "data/enhanced/enhanced_rel_LUNCH_Lvl-1_2025_07_29.json",
+      "session_type": "LUNCH",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native LUNCH FPFVG formations found"
+    },
+    "enhanced_NYAM_Lvl-1_2025_08_07_FRESH": {
+      "session_file": "data/enhanced/enhanced_NYAM_Lvl-1_2025_08_07_FRESH.json",
+      "session_type": "NY_AM",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 1,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-07_NY_AM', formation_time='09:30:00', premium_high=23614.5, discount_low=23611.25, consequent_encroachment=23612.875, gap_size=3.25, session_id='2025-08-07', session_type='NY_AM', formation_context='session_structured_NY_AM_fpfvg'), liquidity_hunt={'hunt_time': '09:46:00', 'hunt_price': 23570.0, 'hunt_direction': 'lower', 'distance_from_fpfvg': 41.25, 'movement_type': 'reversal_point_expansion_higher', 'hunt_significance': 30.25, 'matching_patterns': ['session_extremes:expansion_high', 'reversal_points:reversal_point'], 'fpfvg_direction': 'bullish'}, reversal_detected=False, reversal_time=None, ce_breach={'breach_time': '09:51:00', 'breach_price': 23625.25, 'ce_level': 23612.875, 'breach_distance': 12.375, 'movement_type': 'expansion_high', 'breach_direction': 'above', 'hunt_to_breach_distance': 55.25}, sequence_completion='complete', archaeological_context={'session_range': 194.0, 'fpfvg_position_pct': 70.0, 'zone_analysis': {'40%': {'level': 23554.6, 'distance': 58.275000000001455, 'confluence': False}, '60%': {'level': 23593.4, 'distance': 19.474999999998545, 'confluence': False}, '80%': {'level': 23632.2, 'distance': 19.325000000000728, 'confluence': False}}, 'closest_zone': {'zone': '80%', 'distance': 19.325000000000728, 'confluence': False}, 'theory_b_precision': False})"
+      ],
+      "session_stats": {
+        "session_high": 23671.0,
+        "session_low": 23477.0,
+        "session_open": 23601.0,
+        "session_close": 23497.5
+      }
+    },
+    "enhanced_MIDNIGHT_Lvl-1_2025_07_25": {
+      "session_file": "data/enhanced/enhanced_MIDNIGHT_Lvl-1_2025_07_25.json",
+      "session_type": "MIDNIGHT",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native MIDNIGHT FPFVG formations found"
+    },
+    "enhanced_ASIA_Lvl-1_2025_07_24": {
+      "session_file": "data/enhanced/enhanced_ASIA_Lvl-1_2025_07_24.json",
+      "session_type": "ASIA",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native ASIA FPFVG formations found"
+    },
+    "enhanced_LUNCH_Lvl-1_2025_08_05": {
+      "session_file": "data/enhanced/enhanced_LUNCH_Lvl-1_2025_08_05.json",
+      "session_type": "LUNCH",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-05_LUNCH', formation_time='12:04:00', premium_high=23174.25, discount_low=23167.0, consequent_encroachment=23170.625, gap_size=7.25, session_id='2025-08-05', session_type='LUNCH', formation_context='session_structured_LUNCH_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23155.75,
+        "session_close": 23180.5
+      }
+    },
+    "enhanced_rel_NY_AM_Lvl-1_2025_07_28": {
+      "session_file": "data/enhanced/enhanced_rel_NY_AM_Lvl-1_2025_07_28.json",
+      "session_type": "NY_AM",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native NY_AM FPFVG formations found"
+    },
+    "enhanced_rel_MIDNIGHT_Lvl-1_2025_07_30": {
+      "session_file": "data/enhanced/enhanced_rel_MIDNIGHT_Lvl-1_2025_07_30.json",
+      "session_type": "MIDNIGHT",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native MIDNIGHT FPFVG formations found"
+    },
+    "enhanced_LONDON_Lvl-1_2025_08_05": {
+      "session_file": "data/enhanced/enhanced_LONDON_Lvl-1_2025_08_05.json",
+      "session_type": "LONDON",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-05_LONDON', formation_time='02:08:00', premium_high=23364.0, discount_low=23360.0, consequent_encroachment=23362.0, gap_size=4.0, session_id='2025-08-05', session_type='LONDON', formation_context='session_structured_LONDON_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23360.5,
+        "session_close": 23331.25
+      }
+    },
+    "enhanced_rel_LUNCH_Lvl-1_2025_07_25": {
+      "session_file": "data/enhanced/enhanced_rel_LUNCH_Lvl-1_2025_07_25.json",
+      "session_type": "LUNCH",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native LUNCH FPFVG formations found"
+    },
+    "enhanced_PREMARKET_Lvl-1_2025_07_31": {
+      "session_file": "data/enhanced/enhanced_PREMARKET_Lvl-1_2025_07_31.json",
+      "session_type": "PREMARKET",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native PREMARKET FPFVG formations found"
+    },
+    "enhanced_MIDNIGHT_Lvl-1_2025_07_29": {
+      "session_file": "data/enhanced/enhanced_MIDNIGHT_Lvl-1_2025_07_29.json",
+      "session_type": "MIDNIGHT",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native MIDNIGHT FPFVG formations found"
+    },
+    "enhanced_LUNCH_Lvl-1_2025_08_06": {
+      "session_file": "data/enhanced/enhanced_LUNCH_Lvl-1_2025_08_06.json",
+      "session_type": "LUNCH",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-06_LUNCH', formation_time='12:03:00', premium_high=23372.25, discount_low=23369.0, consequent_encroachment=23370.625, gap_size=3.25, session_id='2025-08-06', session_type='LUNCH', formation_context='session_structured_LUNCH_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23367.75,
+        "session_close": 23371.0
+      }
+    },
+    "enhanced_rel_LUNCH_Lvl-1_2025_07_30": {
+      "session_file": "data/enhanced/enhanced_rel_LUNCH_Lvl-1_2025_07_30.json",
+      "session_type": "LUNCH",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native LUNCH FPFVG formations found"
+    },
+    "enhanced_rel_MIDNIGHT_Lvl-1_2025_07_25": {
+      "session_file": "data/enhanced/enhanced_rel_MIDNIGHT_Lvl-1_2025_07_25.json",
+      "session_type": "MIDNIGHT",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native MIDNIGHT FPFVG formations found"
+    },
+    "enhanced_NY_PM_Lvl-1_2025_08_04": {
+      "session_file": "data/enhanced/enhanced_NY_PM_Lvl-1_2025_08_04.json",
+      "session_type": "NY_PM",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 1,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-04_NY_PM', formation_time='13:40:00', premium_high=23275.0, discount_low=23270.0, consequent_encroachment=23272.5, gap_size=5.0, session_id='2025-08-04', session_type='NY_PM', formation_context='session_structured_NY_PM_fpfvg'), liquidity_hunt={'hunt_time': '13:47:00', 'hunt_price': 23241.25, 'hunt_direction': 'lower', 'distance_from_fpfvg': 28.75, 'movement_type': 'session_low_liquidity_sweep', 'hunt_significance': 34.75, 'matching_patterns': ['explicit_liquidity:liquidity', 'explicit_liquidity:sweep', 'session_extremes:session_low'], 'fpfvg_direction': 'bullish'}, reversal_detected=True, reversal_time='13:47:00', ce_breach={'breach_time': '14:05:00', 'breach_price': 23283.75, 'ce_level': 23272.5, 'breach_distance': 11.25, 'movement_type': 'expansion_high', 'breach_direction': 'above', 'hunt_to_breach_distance': 42.5}, sequence_completion='complete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 23308.5,
+        "session_low": 999999,
+        "session_open": 23280.5,
+        "session_close": 23306.25
+      }
+    },
+    "enhanced_LONDON_Lvl-1_2025_08_06": {
+      "session_file": "data/enhanced/enhanced_LONDON_Lvl-1_2025_08_06.json",
+      "session_type": "LONDON",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-06_LONDON', formation_time='02:01:00', premium_high=23186.25, discount_low=23185.75, consequent_encroachment=23186.0, gap_size=0.5, session_id='2025-08-06', session_type='LONDON', formation_context='session_structured_LONDON_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 23156.0,
+        "session_open": 23184.5,
+        "session_close": 23166.25
+      }
+    },
+    "enhanced_rel_LONDON_Lvl-1_2025_08_07": {
+      "session_file": "data/enhanced/enhanced_rel_LONDON_Lvl-1_2025_08_07.json",
+      "session_type": "LONDON",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 1,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-07_LONDON', formation_time='02:05:00', premium_high=23489.75, discount_low=23485.25, consequent_encroachment=23487.5, gap_size=4.5, session_id='2025-08-07', session_type='LONDON', formation_context='session_structured_LONDON_fpfvg'), liquidity_hunt={'hunt_time': '02:15:00', 'hunt_price': 23472.5, 'hunt_direction': 'lower', 'distance_from_fpfvg': 12.75, 'movement_type': 'expansion_low_reversal_point', 'hunt_significance': 24.55, 'matching_patterns': ['session_extremes:expansion_low', 'reversal_points:reversal_point'], 'fpfvg_direction': 'bullish'}, reversal_detected=False, reversal_time=None, ce_breach={'breach_time': '02:26:00', 'breach_price': 23493.25, 'ce_level': 23487.5, 'breach_distance': 5.75, 'movement_type': 'expansion_high', 'breach_direction': 'above', 'hunt_to_breach_distance': 20.75}, sequence_completion='complete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 23574.75,
+        "session_low": 999999,
+        "session_open": 23482.25,
+        "session_close": 23554.75
+      }
+    },
+    "enhanced_rel_PREMARKET_Lvl-1_2025_08_07": {
+      "session_file": "data/enhanced/enhanced_rel_PREMARKET_Lvl-1_2025_08_07.json",
+      "session_type": "PREMARKET",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 1,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-07_PREMARKET', formation_time='07:02:00', premium_high=23623.25, discount_low=23619.25, consequent_encroachment=23621.25, gap_size=4.0, session_id='2025-08-07', session_type='PREMARKET', formation_context='session_structured_PREMARKET_fpfvg'), liquidity_hunt={'hunt_time': '07:03:00', 'hunt_price': 23611.75, 'hunt_direction': 'lower', 'distance_from_fpfvg': 7.5, 'movement_type': 'expansion_low', 'hunt_significance': 12.5, 'matching_patterns': ['session_extremes:expansion_low'], 'fpfvg_direction': 'bullish'}, reversal_detected=True, reversal_time='07:03:00', ce_breach={'breach_time': '07:20:00', 'breach_price': 23626.25, 'ce_level': 23621.25, 'breach_distance': 5.0, 'movement_type': 'retracement_high', 'breach_direction': 'above', 'hunt_to_breach_distance': 14.5}, sequence_completion='complete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23617.75,
+        "session_close": 23601.5
+      }
+    },
+    "enhanced_PREMARKET_Lvl-1_2025_07_24": {
+      "session_file": "data/enhanced/enhanced_PREMARKET_Lvl-1_2025_07_24.json",
+      "session_type": "PREMARKET",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native PREMARKET FPFVG formations found"
+    },
+    "enhanced_rel_MIDNIGHT_Lvl-1_2025_07_29": {
+      "session_file": "data/enhanced/enhanced_rel_MIDNIGHT_Lvl-1_2025_07_29.json",
+      "session_type": "MIDNIGHT",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native MIDNIGHT FPFVG formations found"
+    },
+    "enhanced_rel_NY_AM_Lvl-1_2025_07_31": {
+      "session_file": "data/enhanced/enhanced_rel_NY_AM_Lvl-1_2025_07_31.json",
+      "session_type": "NY_AM",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native NY_AM FPFVG formations found"
+    },
+    "enhanced_rel_NY_PM_Lvl-1_2025_07_28": {
+      "session_file": "data/enhanced/enhanced_rel_NY_PM_Lvl-1_2025_07_28.json",
+      "session_type": "NY_PM",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native NY_PM FPFVG formations found"
+    },
+    "enhanced_MIDNIGHT_Lvl-1_2025_07_30": {
+      "session_file": "data/enhanced/enhanced_MIDNIGHT_Lvl-1_2025_07_30.json",
+      "session_type": "MIDNIGHT",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native MIDNIGHT FPFVG formations found"
+    },
+    "enhanced_PREMARKET_Lvl-1_2025_07_28": {
+      "session_file": "data/enhanced/enhanced_PREMARKET_Lvl-1_2025_07_28.json",
+      "session_type": "PREMARKET",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native PREMARKET FPFVG formations found"
+    },
+    "enhanced_rel_ASIA_Lvl-1_2025_07_24": {
+      "session_file": "data/enhanced/enhanced_rel_ASIA_Lvl-1_2025_07_24.json",
+      "session_type": "ASIA",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native ASIA FPFVG formations found"
+    },
+    "enhanced_PREMARKET_Lvl-1_2025_07_29": {
+      "session_file": "data/enhanced/enhanced_PREMARKET_Lvl-1_2025_07_29.json",
+      "session_type": "PREMARKET",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native PREMARKET FPFVG formations found"
+    },
+    "enhanced_MIDNIGHT_Lvl-1_2025_07_31": {
+      "session_file": "data/enhanced/enhanced_MIDNIGHT_Lvl-1_2025_07_31.json",
+      "session_type": "MIDNIGHT",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native MIDNIGHT FPFVG formations found"
+    },
+    "enhanced_ASIA_Lvl-1_2025_07_30": {
+      "session_file": "data/enhanced/enhanced_ASIA_Lvl-1_2025_07_30.json",
+      "session_type": "ASIA",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native ASIA FPFVG formations found"
+    },
+    "enhanced_rel_NY_AM_Lvl-1_2025_07_30": {
+      "session_file": "data/enhanced/enhanced_rel_NY_AM_Lvl-1_2025_07_30.json",
+      "session_type": "NY_AM",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native NY_AM FPFVG formations found"
+    },
+    "enhanced_rel_NY_PM_Lvl-1_2025_07_29": {
+      "session_file": "data/enhanced/enhanced_rel_NY_PM_Lvl-1_2025_07_29.json",
+      "session_type": "NY_PM",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native NY_PM FPFVG formations found"
+    },
+    "enhanced_rel_MIDNIGHT_Lvl-1_2025_07_28": {
+      "session_file": "data/enhanced/enhanced_rel_MIDNIGHT_Lvl-1_2025_07_28.json",
+      "session_type": "MIDNIGHT",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native MIDNIGHT FPFVG formations found"
+    },
+    "enhanced_rel_PREMARKET_Lvl-1_2025_08_06": {
+      "session_file": "data/enhanced/enhanced_rel_PREMARKET_Lvl-1_2025_08_06.json",
+      "session_type": "PREMARKET",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-06_PREMARKET', formation_time='07:01:00', premium_high=23165.0, discount_low=23158.0, consequent_encroachment=23161.5, gap_size=7.0, session_id='2025-08-06', session_type='PREMARKET', formation_context='session_structured_PREMARKET_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23144.25,
+        "session_close": 23168.75
+      }
+    },
+    "enhanced_PREMARKET_Lvl-1_2025_07_25": {
+      "session_file": "data/enhanced/enhanced_PREMARKET_Lvl-1_2025_07_25.json",
+      "session_type": "PREMARKET",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native PREMARKET FPFVG formations found"
+    },
+    "enhanced_rel_ASIA_Lvl-1_2025_07_29": {
+      "session_file": "data/enhanced/enhanced_rel_ASIA_Lvl-1_2025_07_29.json",
+      "session_type": "ASIA",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native ASIA FPFVG formations found"
+    },
+    "enhanced_rel_LONDON_Lvl-1_2025_08_06": {
+      "session_file": "data/enhanced/enhanced_rel_LONDON_Lvl-1_2025_08_06.json",
+      "session_type": "LONDON",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-06_LONDON', formation_time='02:01:00', premium_high=23186.25, discount_low=23185.75, consequent_encroachment=23186.0, gap_size=0.5, session_id='2025-08-06', session_type='LONDON', formation_context='session_structured_LONDON_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 23156.0,
+        "session_open": 23184.5,
+        "session_close": 23166.25
+      }
+    },
+    "enhanced_LONDON_Lvl-1_2025_08_07": {
+      "session_file": "data/enhanced/enhanced_LONDON_Lvl-1_2025_08_07.json",
+      "session_type": "LONDON",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 1,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-07_LONDON', formation_time='02:05:00', premium_high=23489.75, discount_low=23485.25, consequent_encroachment=23487.5, gap_size=4.5, session_id='2025-08-07', session_type='LONDON', formation_context='session_structured_LONDON_fpfvg'), liquidity_hunt={'hunt_time': '02:15:00', 'hunt_price': 23472.5, 'hunt_direction': 'lower', 'distance_from_fpfvg': 12.75, 'movement_type': 'expansion_low_reversal_point', 'hunt_significance': 24.55, 'matching_patterns': ['session_extremes:expansion_low', 'reversal_points:reversal_point'], 'fpfvg_direction': 'bullish'}, reversal_detected=False, reversal_time=None, ce_breach={'breach_time': '02:26:00', 'breach_price': 23493.25, 'ce_level': 23487.5, 'breach_distance': 5.75, 'movement_type': 'expansion_high', 'breach_direction': 'above', 'hunt_to_breach_distance': 20.75}, sequence_completion='complete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 23574.75,
+        "session_low": 999999,
+        "session_open": 23482.25,
+        "session_close": 23554.75
+      }
+    },
+    "enhanced_NY_PM_Lvl-1_2025_08_05": {
+      "session_file": "data/enhanced/enhanced_NY_PM_Lvl-1_2025_08_05.json",
+      "session_type": "NY_PM",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-05_NY_PM', formation_time='13:31:00', premium_high=23208.75, discount_low=23208.0, consequent_encroachment=23208.375, gap_size=0.75, session_id='2025-08-05', session_type='NY_PM', formation_context='session_structured_NY_PM_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23210.75,
+        "session_close": 23146.25
+      }
+    },
+    "enhanced_rel_MIDNIGHT_Lvl-1_2025_07_24": {
+      "session_file": "data/enhanced/enhanced_rel_MIDNIGHT_Lvl-1_2025_07_24.json",
+      "session_type": "MIDNIGHT",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native MIDNIGHT FPFVG formations found"
+    },
+    "enhanced_NY_AM_Lvl-1_2025_07_24": {
+      "session_file": "data/enhanced/enhanced_NY_AM_Lvl-1_2025_07_24.json",
+      "session_type": "NY_AM",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native NY_AM FPFVG formations found"
+    },
+    "enhanced_LUNCH_Lvl-1_2025_07_29": {
+      "session_file": "data/enhanced/enhanced_LUNCH_Lvl-1_2025_07_29.json",
+      "session_type": "LUNCH",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native LUNCH FPFVG formations found"
+    },
+    "enhanced_rel_NY_AM_Lvl-1_2025_08_04": {
+      "session_file": "data/enhanced/enhanced_rel_NY_AM_Lvl-1_2025_08_04.json",
+      "session_type": "NY_AM",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-04_NY_AM', formation_time='09:35:00', premium_high=23146.5, discount_low=23130.75, consequent_encroachment=23138.625, gap_size=15.75, session_id='2025-08-04', session_type='NY_AM', formation_context='session_structured_NY_AM_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23094.0,
+        "session_close": 0
+      }
+    },
+    "enhanced_rel_ASIA_Lvl-1_2025_08_07": {
+      "session_file": "data/enhanced/enhanced_rel_ASIA_Lvl-1_2025_08_07.json",
+      "session_type": "ASIA",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 1,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-07_ASIA', formation_time='19:01:00', premium_high=23466.25, discount_low=23466.0, consequent_encroachment=23466.125, gap_size=0.25, session_id='2025-08-07', session_type='ASIA', formation_context='session_structured_ASIA_fpfvg'), liquidity_hunt={'hunt_time': '19:18:00', 'hunt_price': 23458.0, 'hunt_direction': 'lower', 'distance_from_fpfvg': 8.0, 'movement_type': 'expansion_low', 'hunt_significance': 12.6, 'matching_patterns': ['session_extremes:expansion_low'], 'fpfvg_direction': 'bullish'}, reversal_detected=True, reversal_time='19:18:00', ce_breach={'breach_time': '19:35:00', 'breach_price': 23468.5, 'ce_level': 23466.125, 'breach_distance': 2.375, 'movement_type': 'retracement_high', 'breach_direction': 'above', 'hunt_to_breach_distance': 10.5}, sequence_completion='complete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23461.0,
+        "session_close": 23490.0
+      }
+    },
+    "enhanced_rel_PREMARKET_Lvl-1_2025_07_28": {
+      "session_file": "data/enhanced/enhanced_rel_PREMARKET_Lvl-1_2025_07_28.json",
+      "session_type": "PREMARKET",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native PREMARKET FPFVG formations found"
+    },
+    "enhanced_MIDNIGHT_Lvl-1_2025_08_05": {
+      "session_file": "data/enhanced/enhanced_MIDNIGHT_Lvl-1_2025_08_05.json",
+      "session_type": "MIDNIGHT",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 1,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-05_MIDNIGHT', formation_time='00:07:00', premium_high=23342.75, discount_low=23342.25, consequent_encroachment=23342.5, gap_size=0.5, session_id='2025-08-05', session_type='MIDNIGHT', formation_context='session_structured_MIDNIGHT_fpfvg'), liquidity_hunt={'hunt_time': '00:20:00', 'hunt_price': 23337.0, 'hunt_direction': 'lower', 'distance_from_fpfvg': 5.25, 'movement_type': 'session_low_consolidation_end', 'hunt_significance': 16.05, 'matching_patterns': ['session_extremes:session_low'], 'fpfvg_direction': 'bullish'}, reversal_detected=True, reversal_time='00:20:00', ce_breach={'breach_time': '00:27:00', 'breach_price': 23345.5, 'ce_level': 23342.5, 'breach_distance': 3.0, 'movement_type': 'session_high_expansion_end', 'breach_direction': 'above', 'hunt_to_breach_distance': 8.5}, sequence_completion='complete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23342.0,
+        "session_close": 23343.75
+      }
+    },
+    "enhanced_rel_NYAM_Lvl-1_2025_08_06": {
+      "session_file": "data/enhanced/enhanced_rel_NYAM_Lvl-1_2025_08_06.json",
+      "session_type": "NY_AM",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 1,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-06_NY_AM', formation_time='09:31:00', premium_high=23192.0, discount_low=23182.5, consequent_encroachment=23187.25, gap_size=9.5, session_id='2025-08-06', session_type='NY_AM', formation_context='session_structured_NY_AM_fpfvg'), liquidity_hunt={'hunt_time': '09:40:00', 'hunt_price': 23148.5, 'hunt_direction': 'lower', 'distance_from_fpfvg': 34.0, 'movement_type': 'reversal_point_expansion_higher', 'hunt_significance': 28.8, 'matching_patterns': ['session_extremes:expansion_high', 'reversal_points:reversal_point'], 'fpfvg_direction': 'bullish'}, reversal_detected=False, reversal_time=None, ce_breach={'breach_time': '09:45:00', 'breach_price': 23223.25, 'ce_level': 23187.25, 'breach_distance': 36.0, 'movement_type': 'expansion_high', 'breach_direction': 'above', 'hunt_to_breach_distance': 74.75}, sequence_completion='complete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 23375.5,
+        "session_low": 999999,
+        "session_open": 23169.25,
+        "session_close": 23368.0
+      }
+    },
+    "enhanced_rel_LONDON_Lvl-1_2025_07_28": {
+      "session_file": "data/enhanced/enhanced_rel_LONDON_Lvl-1_2025_07_28.json",
+      "session_type": "LONDON",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native LONDON FPFVG formations found"
+    },
+    "enhanced_NY_AM_Lvl-1_2025_07_28": {
+      "session_file": "data/enhanced/enhanced_NY_AM_Lvl-1_2025_07_28.json",
+      "session_type": "NY_AM",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native NY_AM FPFVG formations found"
+    },
+    "enhanced_LONDON_Lvl-1_2025_07_25": {
+      "session_file": "data/enhanced/enhanced_LONDON_Lvl-1_2025_07_25.json",
+      "session_type": "LONDON",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native LONDON FPFVG formations found"
+    },
+    "enhanced_rel_LUNCH_Lvl-1_2025_08_05": {
+      "session_file": "data/enhanced/enhanced_rel_LUNCH_Lvl-1_2025_08_05.json",
+      "session_type": "LUNCH",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-05_LUNCH', formation_time='12:04:00', premium_high=23174.25, discount_low=23167.0, consequent_encroachment=23170.625, gap_size=7.25, session_id='2025-08-05', session_type='LUNCH', formation_context='session_structured_LUNCH_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23155.75,
+        "session_close": 23180.5
+      }
+    },
+    "enhanced_rel_MIDNIGHT_Lvl-1_2025_08_06": {
+      "session_file": "data/enhanced/enhanced_rel_MIDNIGHT_Lvl-1_2025_08_06.json",
+      "session_type": "MIDNIGHT",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 1,
+      "archaeological_confluences": 1,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-06_MIDNIGHT', formation_time='00:10:00', premium_high=23172.0, discount_low=23171.5, consequent_encroachment=23171.75, gap_size=0.5, session_id='2025-08-06', session_type='MIDNIGHT', formation_context='session_structured_MIDNIGHT_fpfvg'), liquidity_hunt={'hunt_time': '00:26:00', 'hunt_price': 23160.25, 'hunt_direction': 'lower', 'distance_from_fpfvg': 11.25, 'movement_type': 'session_low', 'hunt_significance': 17.25, 'matching_patterns': ['session_extremes:session_low'], 'fpfvg_direction': 'bullish'}, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='hunt_only', archaeological_context={'session_range': 13.25, 'fpfvg_position_pct': 86.8, 'zone_analysis': {'40%': {'level': 23165.55, 'distance': 6.200000000000728, 'confluence': True}, '60%': {'level': 23168.2, 'distance': 3.5499999999992724, 'confluence': True}, '80%': {'level': 23170.85, 'distance': 0.9000000000014552, 'confluence': True}}, 'closest_zone': {'zone': '80%', 'distance': 0.9000000000014552, 'confluence': True}, 'theory_b_precision': True})"
+      ],
+      "session_stats": {
+        "session_high": 23173.5,
+        "session_low": 23160.25,
+        "session_open": 23166.5,
+        "session_close": 23166.25
+      }
+    },
+    "enhanced_LUNCH_Lvl-1_2025_07_25": {
+      "session_file": "data/enhanced/enhanced_LUNCH_Lvl-1_2025_07_25.json",
+      "session_type": "LUNCH",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native LUNCH FPFVG formations found"
+    },
+    "enhanced_PREMARKET_Lvl-1_2025_08_07": {
+      "session_file": "data/enhanced/enhanced_PREMARKET_Lvl-1_2025_08_07.json",
+      "session_type": "PREMARKET",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 1,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-07_PREMARKET', formation_time='07:02:00', premium_high=23623.25, discount_low=23619.25, consequent_encroachment=23621.25, gap_size=4.0, session_id='2025-08-07', session_type='PREMARKET', formation_context='session_structured_PREMARKET_fpfvg'), liquidity_hunt={'hunt_time': '07:03:00', 'hunt_price': 23611.75, 'hunt_direction': 'lower', 'distance_from_fpfvg': 7.5, 'movement_type': 'expansion_low', 'hunt_significance': 12.5, 'matching_patterns': ['session_extremes:expansion_low'], 'fpfvg_direction': 'bullish'}, reversal_detected=True, reversal_time='07:03:00', ce_breach={'breach_time': '07:20:00', 'breach_price': 23626.25, 'ce_level': 23621.25, 'breach_distance': 5.0, 'movement_type': 'retracement_high', 'breach_direction': 'above', 'hunt_to_breach_distance': 14.5}, sequence_completion='complete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23617.75,
+        "session_close": 23601.5
+      }
+    },
+    "enhanced_rel_PREMARKET_Lvl-1_2025_07_24": {
+      "session_file": "data/enhanced/enhanced_rel_PREMARKET_Lvl-1_2025_07_24.json",
+      "session_type": "PREMARKET",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native PREMARKET FPFVG formations found"
+    },
+    "enhanced_rel_NYAM_Lvl-1_2025_08_07_FRESH": {
+      "session_file": "data/enhanced/enhanced_rel_NYAM_Lvl-1_2025_08_07_FRESH.json",
+      "session_type": "NY_AM",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 1,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-07_NY_AM', formation_time='09:30:00', premium_high=23614.5, discount_low=23611.25, consequent_encroachment=23612.875, gap_size=3.25, session_id='2025-08-07', session_type='NY_AM', formation_context='session_structured_NY_AM_fpfvg'), liquidity_hunt={'hunt_time': '09:46:00', 'hunt_price': 23570.0, 'hunt_direction': 'lower', 'distance_from_fpfvg': 41.25, 'movement_type': 'reversal_point_expansion_higher', 'hunt_significance': 30.25, 'matching_patterns': ['session_extremes:expansion_high', 'reversal_points:reversal_point'], 'fpfvg_direction': 'bullish'}, reversal_detected=False, reversal_time=None, ce_breach={'breach_time': '09:51:00', 'breach_price': 23625.25, 'ce_level': 23612.875, 'breach_distance': 12.375, 'movement_type': 'expansion_high', 'breach_direction': 'above', 'hunt_to_breach_distance': 55.25}, sequence_completion='complete', archaeological_context={'session_range': 194.0, 'fpfvg_position_pct': 70.0, 'zone_analysis': {'40%': {'level': 23554.6, 'distance': 58.275000000001455, 'confluence': False}, '60%': {'level': 23593.4, 'distance': 19.474999999998545, 'confluence': False}, '80%': {'level': 23632.2, 'distance': 19.325000000000728, 'confluence': False}}, 'closest_zone': {'zone': '80%', 'distance': 19.325000000000728, 'confluence': False}, 'theory_b_precision': False})"
+      ],
+      "session_stats": {
+        "session_high": 23671.0,
+        "session_low": 23477.0,
+        "session_open": 23601.0,
+        "session_close": 23497.5
+      }
+    },
+    "enhanced_NYPM_Lvl-1_2025_08_06": {
+      "session_file": "data/enhanced/enhanced_NYPM_Lvl-1_2025_08_06.json",
+      "session_type": "NY_PM",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-06_NY_PM', formation_time='13:33:00', premium_high=23374.5, discount_low=23373.0, consequent_encroachment=23373.75, gap_size=1.5, session_id='2025-08-06', session_type='NY_PM', formation_context='session_structured_NY_PM_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'session_range': 81.75, 'fpfvg_position_pct': 12.5, 'zone_analysis': {'40%': {'level': 23396.2, 'distance': 22.450000000000728, 'confluence': False}, '60%': {'level': 23412.55, 'distance': 38.79999999999927, 'confluence': False}, '80%': {'level': 23428.9, 'distance': 55.150000000001455, 'confluence': False}}, 'closest_zone': {'zone': '40%', 'distance': 22.450000000000728, 'confluence': False}, 'theory_b_precision': False})"
+      ],
+      "session_stats": {
+        "session_high": 23445.25,
+        "session_low": 23363.5,
+        "session_open": 23377.5,
+        "session_close": 23413.0
+      }
+    },
+    "enhanced_rel_LONDON_Lvl-1_2025_07_24": {
+      "session_file": "data/enhanced/enhanced_rel_LONDON_Lvl-1_2025_07_24.json",
+      "session_type": "LONDON",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native LONDON FPFVG formations found"
+    },
+    "enhanced_rel_LONDON_Lvl-1_2025_07_25": {
+      "session_file": "data/enhanced/enhanced_rel_LONDON_Lvl-1_2025_07_25.json",
+      "session_type": "LONDON",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native LONDON FPFVG formations found"
+    },
+    "enhanced_PREMARKET_Lvl-1_2025_08_06": {
+      "session_file": "data/enhanced/enhanced_PREMARKET_Lvl-1_2025_08_06.json",
+      "session_type": "PREMARKET",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-06_PREMARKET', formation_time='07:01:00', premium_high=23165.0, discount_low=23158.0, consequent_encroachment=23161.5, gap_size=7.0, session_id='2025-08-06', session_type='PREMARKET', formation_context='session_structured_PREMARKET_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23144.25,
+        "session_close": 23168.75
+      }
+    },
+    "enhanced_rel_PREMARKET_Lvl-1_2025_07_25": {
+      "session_file": "data/enhanced/enhanced_rel_PREMARKET_Lvl-1_2025_07_25.json",
+      "session_type": "PREMARKET",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native PREMARKET FPFVG formations found"
+    },
+    "enhanced_LUNCH_Lvl-1_2025_07_24": {
+      "session_file": "data/enhanced/enhanced_LUNCH_Lvl-1_2025_07_24.json",
+      "session_type": "LUNCH",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native LUNCH FPFVG formations found"
+    },
+    "enhanced_rel_MIDNIGHT_Lvl-1_2025_08_07": {
+      "session_file": "data/enhanced/enhanced_rel_MIDNIGHT_Lvl-1_2025_08_07.json",
+      "session_type": "MIDNIGHT",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-07_MIDNIGHT', formation_time='00:02:00', premium_high=23493.0, discount_low=23492.5, consequent_encroachment=23492.75, gap_size=0.5, session_id='2025-08-07', session_type='MIDNIGHT', formation_context='session_structured_MIDNIGHT_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23489.75,
+        "session_close": 0
+      }
+    },
+    "enhanced_rel_LUNCH_Lvl-1_2025_08_04": {
+      "session_file": "data/enhanced/enhanced_rel_LUNCH_Lvl-1_2025_08_04.json",
+      "session_type": "LUNCH",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-04_LUNCH', formation_time='12:16:00', premium_high=23261.75, discount_low=23261.5, consequent_encroachment=23261.625, gap_size=0.25, session_id='2025-08-04', session_type='LUNCH', formation_context='session_structured_LUNCH_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23270.5,
+        "session_close": 23270.5
+      }
+    },
+    "enhanced_LONDON_Lvl-1_2025_07_24": {
+      "session_file": "data/enhanced/enhanced_LONDON_Lvl-1_2025_07_24.json",
+      "session_type": "LONDON",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native LONDON FPFVG formations found"
+    },
+    "enhanced_NY_AM_Lvl-1_2025_07_29": {
+      "session_file": "data/enhanced/enhanced_NY_AM_Lvl-1_2025_07_29.json",
+      "session_type": "NY_AM",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native NY_AM FPFVG formations found"
+    },
+    "enhanced_NY_PM_Lvl-1_2025_07_30": {
+      "session_file": "data/enhanced/enhanced_NY_PM_Lvl-1_2025_07_30.json",
+      "session_type": "NY_PM",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native NY_PM FPFVG formations found"
+    },
+    "enhanced_rel_PREMARKET_Lvl-1_2025_07_29": {
+      "session_file": "data/enhanced/enhanced_rel_PREMARKET_Lvl-1_2025_07_29.json",
+      "session_type": "PREMARKET",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native PREMARKET FPFVG formations found"
+    },
+    "enhanced_rel_ASIA_Lvl-1_2025_08_06": {
+      "session_file": "data/enhanced/enhanced_rel_ASIA_Lvl-1_2025_08_06.json",
+      "session_type": "ASIA",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-06_ASIA', formation_time='19:07:00', premium_high=23085.75, discount_low=23084.5, consequent_encroachment=23085.125, gap_size=1.25, session_id='2025-08-06', session_type='ASIA', formation_context='session_structured_ASIA_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 23170.0,
+        "session_low": 999999,
+        "session_open": 23084.5,
+        "session_close": 23166.0
+      }
+    },
+    "enhanced_ASIA_Lvl-1_2025_08_05": {
+      "session_file": "data/enhanced/enhanced_ASIA_Lvl-1_2025_08_05.json",
+      "session_type": "ASIA",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-05_ASIA', formation_time='19:06:00', premium_high=23330.0, discount_low=23329.0, consequent_encroachment=23329.5, gap_size=1.0, session_id='2025-08-05', session_type='ASIA', formation_context='session_structured_ASIA_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 999999,
+        "session_open": 23327.25,
+        "session_close": 23342.5
+      }
+    },
+    "enhanced_rel_NY_AM_Lvl-1_2025_08_05": {
+      "session_file": "data/enhanced/enhanced_rel_NY_AM_Lvl-1_2025_08_05.json",
+      "session_type": "NY_AM",
+      "fpfvgs_found": 1,
+      "gauntlet_sequences_detected": 1,
+      "complete_sequences": 0,
+      "hunt_only_sequences": 0,
+      "archaeological_confluences": 0,
+      "sequences": [
+        "GauntletSequenceReal(fpfvg=IdentifiedFPFVG(id='session_fpfvg_2025-08-05_NY_AM', formation_time='09:37:00', premium_high=23341.75, discount_low=23330.5, consequent_encroachment=23336.125, gap_size=11.25, session_id='2025-08-05', session_type='NY_AM', formation_context='session_structured_NY_AM_fpfvg'), liquidity_hunt=None, reversal_detected=False, reversal_time=None, ce_breach=None, sequence_completion='incomplete', archaeological_context={'error': 'Invalid session range'})"
+      ],
+      "session_stats": {
+        "session_high": 0,
+        "session_low": 23113.5,
+        "session_open": 23348.25,
+        "session_close": 23156.25
+      }
+    },
+    "enhanced_LUNCH_Lvl-1_2025_07_28": {
+      "session_file": "data/enhanced/enhanced_LUNCH_Lvl-1_2025_07_28.json",
+      "session_type": "LUNCH",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native LUNCH FPFVG formations found"
+    },
+    "enhanced_NY_AM_Lvl-1_2025_07_25": {
+      "session_file": "data/enhanced/enhanced_NY_AM_Lvl-1_2025_07_25.json",
+      "session_type": "NY_AM",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native NY_AM FPFVG formations found"
+    },
+    "enhanced_LONDON_Lvl-1_2025_07_28": {
+      "session_file": "data/enhanced/enhanced_LONDON_Lvl-1_2025_07_28.json",
+      "session_type": "LONDON",
+      "fpfvgs_found": 0,
+      "gauntlet_sequences": [],
+      "message": "No native LONDON FPFVG formations found"
+    }
+  }
+}

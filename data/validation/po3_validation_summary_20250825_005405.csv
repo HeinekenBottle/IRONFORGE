@@ -1,0 +1,8 @@
+metric,value
+overall_accuracy,0.8
+average_confidence,0.7050394633214293
+total_samples,15.0
+ACCUMULATION_accuracy,1.0
+DISTRIBUTION_accuracy,1.0
+MANIPULATION_accuracy,1.0
+TRANSITION_accuracy,0.0

@@ -1,0 +1,537 @@
+{
+  "day_patterns": {
+    "day_distribution": {
+      "Monday": {
+        "total_sequences": 2,
+        "unique_dates": 1,
+        "sessions": [
+          {
+            "date": "2025-08-04",
+            "session_type": "NY_PM",
+            "key_time": "13:47:00",
+            "file": "enhanced_rel_NY_PM_Lvl-1_2025_08_04.json"
+          },
+          {
+            "date": "2025-08-04",
+            "session_type": "NY_PM",
+            "key_time": "13:47:00",
+            "file": "enhanced_NY_PM_Lvl-1_2025_08_04.json"
+          }
+        ]
+      },
+      "Tuesday": {
+        "total_sequences": 2,
+        "unique_dates": 1,
+        "sessions": [
+          {
+            "date": "2025-08-05",
+            "session_type": "MIDNIGHT",
+            "key_time": "00:10:00",
+            "file": "enhanced_rel_MIDNIGHT_Lvl-1_2025_08_05.json"
+          },
+          {
+            "date": "2025-08-05",
+            "session_type": "MIDNIGHT",
+            "key_time": "00:10:00",
+            "file": "enhanced_MIDNIGHT_Lvl-1_2025_08_05.json"
+          }
+        ]
+      },
+      "Thursday": {
+        "total_sequences": 8,
+        "unique_dates": 1,
+        "sessions": [
+          {
+            "date": "2025-08-07",
+            "session_type": "ASIA",
+            "key_time": "19:03:00",
+            "file": "enhanced_ASIA_Lvl-1_2025_08_07.json"
+          },
+          {
+            "date": "2025-08-07",
+            "session_type": "NY_AM",
+            "key_time": "09:34:00",
+            "file": "enhanced_NYAM_Lvl-1_2025_08_07_FRESH.json"
+          },
+          {
+            "date": "2025-08-07",
+            "session_type": "LONDON",
+            "key_time": "02:00:00",
+            "file": "enhanced_rel_LONDON_Lvl-1_2025_08_07.json"
+          },
+          {
+            "date": "2025-08-07",
+            "session_type": "PREMARKET",
+            "key_time": "07:00:00",
+            "file": "enhanced_rel_PREMARKET_Lvl-1_2025_08_07.json"
+          },
+          {
+            "date": "2025-08-07",
+            "session_type": "LONDON",
+            "key_time": "02:00:00",
+            "file": "enhanced_LONDON_Lvl-1_2025_08_07.json"
+          },
+          {
+            "date": "2025-08-07",
+            "session_type": "ASIA",
+            "key_time": "19:03:00",
+            "file": "enhanced_rel_ASIA_Lvl-1_2025_08_07.json"
+          },
+          {
+            "date": "2025-08-07",
+            "session_type": "PREMARKET",
+            "key_time": "07:00:00",
+            "file": "enhanced_PREMARKET_Lvl-1_2025_08_07.json"
+          },
+          {
+            "date": "2025-08-07",
+            "session_type": "NY_AM",
+            "key_time": "09:34:00",
+            "file": "enhanced_rel_NYAM_Lvl-1_2025_08_07_FRESH.json"
+          }
+        ]
+      },
+      "Wednesday": {
+        "total_sequences": 2,
+        "unique_dates": 1,
+        "sessions": [
+          {
+            "date": "2025-08-06",
+            "session_type": "NY_AM",
+            "key_time": "09:30:00",
+            "file": "enhanced_NYAM_Lvl-1_2025_08_06.json"
+          },
+          {
+            "date": "2025-08-06",
+            "session_type": "NY_AM",
+            "key_time": "09:30:00",
+            "file": "enhanced_rel_NYAM_Lvl-1_2025_08_06.json"
+          }
+        ]
+      }
+    },
+    "session_type_patterns": {
+      "Monday": {
+        "NY_PM": 2
+      },
+      "Tuesday": {
+        "MIDNIGHT": 2
+      },
+      "Thursday": {
+        "ASIA": 2,
+        "NY_AM": 2,
+        "LONDON": 2,
+        "PREMARKET": 2
+      },
+      "Wednesday": {
+        "NY_AM": 2
+      }
+    },
+    "temporal_insights": []
+  },
+  "timing_patterns": {
+    "session_opening_patterns": {
+      "midnight_opening": [
+        {
+          "file": "enhanced_rel_MIDNIGHT_Lvl-1_2025_08_05.json",
+          "date": "2025-08-05",
+          "session_type": "MIDNIGHT",
+          "key_time": "00:10:00"
+        },
+        {
+          "file": "enhanced_MIDNIGHT_Lvl-1_2025_08_05.json",
+          "date": "2025-08-05",
+          "session_type": "MIDNIGHT",
+          "key_time": "00:10:00"
+        }
+      ],
+      "asia_evening": [
+        {
+          "file": "enhanced_ASIA_Lvl-1_2025_08_07.json",
+          "date": "2025-08-07",
+          "session_type": "ASIA",
+          "key_time": "19:03:00"
+        },
+        {
+          "file": "enhanced_rel_ASIA_Lvl-1_2025_08_07.json",
+          "date": "2025-08-07",
+          "session_type": "ASIA",
+          "key_time": "19:03:00"
+        }
+      ],
+      "NY_AM_opening": [
+        {
+          "file": "enhanced_NYAM_Lvl-1_2025_08_06.json",
+          "date": "2025-08-06",
+          "session_type": "NY_AM",
+          "key_time": "09:30:00"
+        },
+        {
+          "file": "enhanced_NYAM_Lvl-1_2025_08_07_FRESH.json",
+          "date": "2025-08-07",
+          "session_type": "NY_AM",
+          "key_time": "09:34:00"
+        },
+        {
+          "file": "enhanced_rel_NYAM_Lvl-1_2025_08_06.json",
+          "date": "2025-08-06",
+          "session_type": "NY_AM",
+          "key_time": "09:30:00"
+        },
+        {
+          "file": "enhanced_rel_NYAM_Lvl-1_2025_08_07_FRESH.json",
+          "date": "2025-08-07",
+          "session_type": "NY_AM",
+          "key_time": "09:34:00"
+        }
+      ],
+      "london_early": [
+        {
+          "file": "enhanced_rel_LONDON_Lvl-1_2025_08_07.json",
+          "date": "2025-08-07",
+          "session_type": "LONDON",
+          "key_time": "02:00:00"
+        },
+        {
+          "file": "enhanced_LONDON_Lvl-1_2025_08_07.json",
+          "date": "2025-08-07",
+          "session_type": "LONDON",
+          "key_time": "02:00:00"
+        }
+      ]
+    },
+    "market_macro_windows": {
+      "lunch_period": [
+        {
+          "file": "enhanced_rel_NY_PM_Lvl-1_2025_08_04.json",
+          "date": "2025-08-04",
+          "session_type": "NY_PM",
+          "key_time": "13:47:00"
+        },
+        {
+          "file": "enhanced_NY_PM_Lvl-1_2025_08_04.json",
+          "date": "2025-08-04",
+          "session_type": "NY_PM",
+          "key_time": "13:47:00"
+        }
+      ],
+      "premarket_7am": [
+        {
+          "file": "enhanced_rel_PREMARKET_Lvl-1_2025_08_07.json",
+          "date": "2025-08-07",
+          "session_type": "PREMARKET",
+          "key_time": "07:00:00"
+        },
+        {
+          "file": "enhanced_PREMARKET_Lvl-1_2025_08_07.json",
+          "date": "2025-08-07",
+          "session_type": "PREMARKET",
+          "key_time": "07:00:00"
+        }
+      ]
+    },
+    "cross_session_synchronization": [
+      {
+        "date": "2025-08-04",
+        "session_count": 2,
+        "session_types": [
+          "NY_PM",
+          "NY_PM"
+        ],
+        "time_span": "13:47:00 - 13:47:00",
+        "sessions": [
+          {
+            "file": "enhanced_rel_NY_PM_Lvl-1_2025_08_04.json",
+            "date": "2025-08-04",
+            "session_type": "NY_PM",
+            "key_time": "13:47:00"
+          },
+          {
+            "file": "enhanced_NY_PM_Lvl-1_2025_08_04.json",
+            "date": "2025-08-04",
+            "session_type": "NY_PM",
+            "key_time": "13:47:00"
+          }
+        ]
+      },
+      {
+        "date": "2025-08-05",
+        "session_count": 2,
+        "session_types": [
+          "MIDNIGHT",
+          "MIDNIGHT"
+        ],
+        "time_span": "00:10:00 - 00:10:00",
+        "sessions": [
+          {
+            "file": "enhanced_rel_MIDNIGHT_Lvl-1_2025_08_05.json",
+            "date": "2025-08-05",
+            "session_type": "MIDNIGHT",
+            "key_time": "00:10:00"
+          },
+          {
+            "file": "enhanced_MIDNIGHT_Lvl-1_2025_08_05.json",
+            "date": "2025-08-05",
+            "session_type": "MIDNIGHT",
+            "key_time": "00:10:00"
+          }
+        ]
+      },
+      {
+        "date": "2025-08-07",
+        "session_count": 8,
+        "session_types": [
+          "ASIA",
+          "NY_AM",
+          "LONDON",
+          "PREMARKET",
+          "LONDON",
+          "ASIA",
+          "PREMARKET",
+          "NY_AM"
+        ],
+        "time_span": "02:00:00 - 19:03:00",
+        "sessions": [
+          {
+            "file": "enhanced_ASIA_Lvl-1_2025_08_07.json",
+            "date": "2025-08-07",
+            "session_type": "ASIA",
+            "key_time": "19:03:00"
+          },
+          {
+            "file": "enhanced_NYAM_Lvl-1_2025_08_07_FRESH.json",
+            "date": "2025-08-07",
+            "session_type": "NY_AM",
+            "key_time": "09:34:00"
+          },
+          {
+            "file": "enhanced_rel_LONDON_Lvl-1_2025_08_07.json",
+            "date": "2025-08-07",
+            "session_type": "LONDON",
+            "key_time": "02:00:00"
+          },
+          {
+            "file": "enhanced_rel_PREMARKET_Lvl-1_2025_08_07.json",
+            "date": "2025-08-07",
+            "session_type": "PREMARKET",
+            "key_time": "07:00:00"
+          },
+          {
+            "file": "enhanced_LONDON_Lvl-1_2025_08_07.json",
+            "date": "2025-08-07",
+            "session_type": "LONDON",
+            "key_time": "02:00:00"
+          },
+          {
+            "file": "enhanced_rel_ASIA_Lvl-1_2025_08_07.json",
+            "date": "2025-08-07",
+            "session_type": "ASIA",
+            "key_time": "19:03:00"
+          },
+          {
+            "file": "enhanced_PREMARKET_Lvl-1_2025_08_07.json",
+            "date": "2025-08-07",
+            "session_type": "PREMARKET",
+            "key_time": "07:00:00"
+          },
+          {
+            "file": "enhanced_rel_NYAM_Lvl-1_2025_08_07_FRESH.json",
+            "date": "2025-08-07",
+            "session_type": "NY_AM",
+            "key_time": "09:34:00"
+          }
+        ]
+      },
+      {
+        "date": "2025-08-06",
+        "session_count": 2,
+        "session_types": [
+          "NY_AM",
+          "NY_AM"
+        ],
+        "time_span": "09:30:00 - 09:30:00",
+        "sessions": [
+          {
+            "file": "enhanced_NYAM_Lvl-1_2025_08_06.json",
+            "date": "2025-08-06",
+            "session_type": "NY_AM",
+            "key_time": "09:30:00"
+          },
+          {
+            "file": "enhanced_rel_NYAM_Lvl-1_2025_08_06.json",
+            "date": "2025-08-06",
+            "session_type": "NY_AM",
+            "key_time": "09:30:00"
+          }
+        ]
+      }
+    ],
+    "precise_timing_clusters": {}
+  },
+  "news_synchronization": {
+    "dates_with_events": {
+      "2025-08-04": {
+        "day_of_week": "Monday",
+        "gauntlet_sessions": 2,
+        "session_types": [
+          "NY_PM",
+          "NY_PM"
+        ],
+        "economic_events": [
+          "Monday - Start of trading week",
+          "Potential NFP week preparation"
+        ],
+        "session_details": [
+          {
+            "file": "enhanced_rel_NY_PM_Lvl-1_2025_08_04.json",
+            "date": "2025-08-04",
+            "session_type": "NY_PM",
+            "key_time": "13:47:00"
+          },
+          {
+            "file": "enhanced_NY_PM_Lvl-1_2025_08_04.json",
+            "date": "2025-08-04",
+            "session_type": "NY_PM",
+            "key_time": "13:47:00"
+          }
+        ]
+      },
+      "2025-08-05": {
+        "day_of_week": "Tuesday",
+        "gauntlet_sessions": 2,
+        "session_types": [
+          "MIDNIGHT",
+          "MIDNIGHT"
+        ],
+        "economic_events": [
+          "Tuesday - Mid-week momentum",
+          "Potential earnings releases"
+        ],
+        "session_details": [
+          {
+            "file": "enhanced_rel_MIDNIGHT_Lvl-1_2025_08_05.json",
+            "date": "2025-08-05",
+            "session_type": "MIDNIGHT",
+            "key_time": "00:10:00"
+          },
+          {
+            "file": "enhanced_MIDNIGHT_Lvl-1_2025_08_05.json",
+            "date": "2025-08-05",
+            "session_type": "MIDNIGHT",
+            "key_time": "00:10:00"
+          }
+        ]
+      },
+      "2025-08-06": {
+        "day_of_week": "Wednesday",
+        "gauntlet_sessions": 2,
+        "session_types": [
+          "NY_AM",
+          "NY_AM"
+        ],
+        "economic_events": [
+          "Wednesday - FOMC potential",
+          "Mid-week liquidity"
+        ],
+        "session_details": [
+          {
+            "file": "enhanced_NYAM_Lvl-1_2025_08_06.json",
+            "date": "2025-08-06",
+            "session_type": "NY_AM",
+            "key_time": "09:30:00"
+          },
+          {
+            "file": "enhanced_rel_NYAM_Lvl-1_2025_08_06.json",
+            "date": "2025-08-06",
+            "session_type": "NY_AM",
+            "key_time": "09:30:00"
+          }
+        ]
+      },
+      "2025-08-07": {
+        "day_of_week": "Thursday",
+        "gauntlet_sessions": 8,
+        "session_types": [
+          "ASIA",
+          "NY_AM",
+          "LONDON",
+          "PREMARKET",
+          "LONDON",
+          "ASIA",
+          "PREMARKET",
+          "NY_AM"
+        ],
+        "economic_events": [
+          "Thursday - Weekly close preparation",
+          "High institutional activity"
+        ],
+        "session_details": [
+          {
+            "file": "enhanced_ASIA_Lvl-1_2025_08_07.json",
+            "date": "2025-08-07",
+            "session_type": "ASIA",
+            "key_time": "19:03:00"
+          },
+          {
+            "file": "enhanced_NYAM_Lvl-1_2025_08_07_FRESH.json",
+            "date": "2025-08-07",
+            "session_type": "NY_AM",
+            "key_time": "09:34:00"
+          },
+          {
+            "file": "enhanced_rel_LONDON_Lvl-1_2025_08_07.json",
+            "date": "2025-08-07",
+            "session_type": "LONDON",
+            "key_time": "02:00:00"
+          },
+          {
+            "file": "enhanced_rel_PREMARKET_Lvl-1_2025_08_07.json",
+            "date": "2025-08-07",
+            "session_type": "PREMARKET",
+            "key_time": "07:00:00"
+          },
+          {
+            "file": "enhanced_LONDON_Lvl-1_2025_08_07.json",
+            "date": "2025-08-07",
+            "session_type": "LONDON",
+            "key_time": "02:00:00"
+          },
+          {
+            "file": "enhanced_rel_ASIA_Lvl-1_2025_08_07.json",
+            "date": "2025-08-07",
+            "session_type": "ASIA",
+            "key_time": "19:03:00"
+          },
+          {
+            "file": "enhanced_PREMARKET_Lvl-1_2025_08_07.json",
+            "date": "2025-08-07",
+            "session_type": "PREMARKET",
+            "key_time": "07:00:00"
+          },
+          {
+            "file": "enhanced_rel_NYAM_Lvl-1_2025_08_07_FRESH.json",
+            "date": "2025-08-07",
+            "session_type": "NY_AM",
+            "key_time": "09:34:00"
+          }
+        ]
+      }
+    },
+    "event_proximity_analysis": [],
+    "market_context_insights": [
+      "Monday occurrences: 1 dates - Week opening momentum",
+      "Tuesday occurrences: 1 dates - Mid-week continuation",
+      "Wednesday occurrences: 1 dates - FOMC potential days",
+      "Thursday occurrences: 1 dates - Weekly close preparation"
+    ]
+  },
+  "summary_insights": [
+    "Most active day: Thursday with 8 Gauntlet sequences",
+    "Same-day cross-session synchronization: 4 dates with multiple sessions",
+    "Temporal concentration: 14 sequences across 4 unique dates",
+    "August 7th dominance: Multiple session types showing synchronized Gauntlet formation",
+    "Early market timing: Significant patterns at session openings (9:30 AM, 2:00 AM, 7:00 AM)",
+    "Cross-timezone resonance: ASIA evening (19:03) correlates with LONDON early (02:00)"
+  ],
+  "analysis_timestamp": "2025-08-23T21:04:29.901612"
+}

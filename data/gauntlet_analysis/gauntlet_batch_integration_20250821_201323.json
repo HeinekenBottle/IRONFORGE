@@ -1,0 +1,80 @@
+{
+  "batch_processing": {
+    "processing_timestamp": "2025-08-21T20:13:23.630805",
+    "sessions_requested": [
+      "NY_2025-07-29"
+    ],
+    "sessions_processed": 1,
+    "integration_results": [
+      {
+        "session_id": "NY_2025-07-29",
+        "integration_timestamp": "2025-08-21T20:13:23.628369",
+        "integration_status": "complete",
+        "session_overview": {
+          "session_range": 109.68743997901402,
+          "session_high": 23524.875,
+          "session_low": 23415.187560020986,
+          "m1_bars_analyzed": 296
+        },
+        "archaeological_zones": {
+          "session_range": 109.68743997901402,
+          "session_high": 23524.875,
+          "session_low": 23415.187560020986,
+          "zones": {
+            "20%": {
+              "level": 23437.125048016787,
+              "percentage": 0.2,
+              "distance_from_low": 21.937487995802805,
+              "is_dimensional_destiny": false
+            },
+            "40%": {
+              "level": 23459.062536012592,
+              "percentage": 0.4,
+              "distance_from_low": 43.87497599160561,
+              "is_dimensional_destiny": true
+            },
+            "60%": {
+              "level": 23481.000024008394,
+              "percentage": 0.6,
+              "distance_from_low": 65.8124639874084,
+              "is_dimensional_destiny": true
+            },
+            "80%": {
+              "level": 23502.9375120042,
+              "percentage": 0.8,
+              "distance_from_low": 87.74995198321122,
+              "is_dimensional_destiny": true
+            },
+            "100%": {
+              "level": 23524.875,
+              "percentage": 1.0,
+              "distance_from_low": 109.68743997901402,
+              "is_dimensional_destiny": false
+            }
+          },
+          "theory_b_framework": {
+            "precision_threshold": 7.55,
+            "dimensional_zones": [
+              "40%",
+              "60%",
+              "80%"
+            ],
+            "temporal_non_locality": "Events position relative to eventual completion"
+          }
+        },
+        "enhanced_fpfvg_analysis": {
+          "total_events": 0,
+          "events_with_archaeological_confluence": 0,
+          "events": []
+        },
+        "enhanced_gauntlet_sequences": {
+          "total_sequences": 0,
+          "sequences_with_archaeological_significance": 0,
+          "complete_sequences": 0,
+          "sequences": []
+        },
+        "integration_statistics": {
+          "fpfvg_detection_rate": 0.0,
+          "archaeological_confluence_rate": 0.0,
+          "gauntlet_completion_rate": 0.0,
+          "theory_b_precision_achieved": 
