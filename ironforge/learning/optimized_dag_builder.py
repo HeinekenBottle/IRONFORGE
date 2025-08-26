@@ -120,9 +120,18 @@ class OptimizedDAGBuilder(DAGGraphBuilder):
             node_feature = RichNodeFeature()
             
             # Set event-specific features efficiently
-            node_feature.set_event_type(event.get('event_type', 'unknown'))
-            node_feature.set_price_level(event.get('price_level', 0.0))
-            node_feature.set_volume_profile(event.get('volume_profile', 0.0))
+            event_type = event.get('event_type', 'unknown')
+            if event_type in ['fvg_redelivery', 'expansion_phase', 'consolidation', 
+                             'retracement', 'reversal', 'liq_sweep', 'pd_array_interaction']:
+                node_feature.set_semantic_event(f"{event_type}_flag", 1.0)
+            
+            # Set traditional features for price, volume etc.
+            traditional_features = torch.zeros(37)
+            if 'price_level' in event:
+                traditional_features[0] = event['price_level']
+            if 'volume_profile' in event:
+                traditional_features[1] = event['volume_profile']
+            node_feature.set_traditional_features(traditional_features)
             
             node_data.append((i, {
                 'event_data': event,
@@ -304,10 +313,8 @@ class OptimizedDAGBuilder(DAGGraphBuilder):
         dag_id = id(dag)
         
         # Context7: Use sparse arrays for graph data
-        if self.opt_config.use_csr_format:
-            adj_matrix = nx.adjacency_matrix(dag, format='csr')
-        else:
-            adj_matrix = nx.adjacency_matrix(dag)
+        # NetworkX adjacency_matrix returns CSR format by default in recent versions
+        adj_matrix = nx.adjacency_matrix(dag)
             
         # Cache with size limit
         if len(self._adjacency_cache) >= self.opt_config.max_cache_size:

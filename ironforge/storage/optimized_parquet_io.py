@@ -14,7 +14,7 @@ Key optimizations:
 import logging
 import json
 from pathlib import Path
-from typing import Dict, List, Optional, Any, Union, Tuple
+from typing import Dict, List, Optional, Any, Union, Tuple, Iterator
 from dataclasses import dataclass
 from concurrent.futures import ThreadPoolExecutor
 

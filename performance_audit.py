@@ -537,7 +537,7 @@ class Context7PerformanceAuditor:
         
         for _ in range(100):
             # Context7: Use sparse arrays for graph data
-            adj_matrix = nx.adjacency_matrix(dag, format='csr')
+            adj_matrix = nx.adjacency_matrix(dag)
             
             # Example sparse operations
             degrees = np.array(adj_matrix.sum(axis=1)).flatten()
@@ -648,13 +648,23 @@ class Context7PerformanceAuditor:
         temp_file = Path("temp_chunked.parquet")
         
         # Context7: Use content-defined chunking for optimal page sizes
-        pq.write_table(
-            data, temp_file,
-            use_content_defined_chunking={
-                'min_chunk_size': 256 * 1024,  # 256 KiB
-                'max_chunk_size': 1024 * 1024,  # 1 MiB
-            }
-        )
+        try:
+            pq.write_table(
+                data, temp_file,
+                use_content_defined_chunking={
+                    'min_chunk_size': 256 * 1024,  # 256 KiB
+                    'max_chunk_size': 1024 * 1024,  # 1 MiB
+                },
+                compression='zstd',
+                compression_level=3
+            )
+        except TypeError:
+            # Fallback for older PyArrow versions
+            pq.write_table(
+                data, temp_file,
+                compression='zstd',
+                compression_level=3
+            )
         read_data = pq.read_table(temp_file)
         
         wall_time = time.perf_counter() - start_time
