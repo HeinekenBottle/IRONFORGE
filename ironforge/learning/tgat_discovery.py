@@ -191,7 +191,7 @@ class IRONFORGEDiscovery(nn.Module):
         try:
             # Validate dimensions if manifest exists
             if manifest_path.exists():
-                with open(manifest_path, 'r') as f:
+                with open(manifest_path) as f:
                     manifest = json.load(f)
                 
                 # Validate model architecture compatibility

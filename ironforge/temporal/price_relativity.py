@@ -3,10 +3,11 @@
 IRONFORGE Price Relativity Engine
 Archaeological zone calculations and Theory B temporal non-locality analysis
 """
-import pandas as pd
+from typing import Any
+
 import numpy as np
-from typing import Dict, List, Any, Optional, Tuple
-from datetime import datetime, timedelta
+import pandas as pd
+
 
 class PriceRelativityEngine:
     """Handles archaeological zone calculations and Theory B temporal non-locality analysis"""
@@ -15,8 +16,8 @@ class PriceRelativityEngine:
         # Archaeological zone calculations handled internally
         pass
         
-    def analyze_archaeological_zones(self, question: str, sessions: Dict[str, pd.DataFrame], 
-                                   session_stats: Dict[str, Dict[str, float]]) -> Dict[str, Any]:
+    def analyze_archaeological_zones(self, question: str, sessions: dict[str, pd.DataFrame], 
+                                   session_stats: dict[str, dict[str, float]]) -> dict[str, Any]:
         """Analyze archaeological zone patterns and Theory B events"""
         results = {
             "query_type": "archaeological_zones",
@@ -27,7 +28,7 @@ class PriceRelativityEngine:
         }
         
         # Extract zone criteria from question
-        zone_criteria = self._parse_zone_criteria(question)
+        self._parse_zone_criteria(question)
         
         for session_id, nodes_df in sessions.items():
             if session_id not in session_stats:
@@ -50,8 +51,8 @@ class PriceRelativityEngine:
         
         return results
         
-    def analyze_theory_b_patterns(self, question: str, sessions: Dict[str, pd.DataFrame],
-                                session_stats: Dict[str, Dict[str, float]]) -> Dict[str, Any]:
+    def analyze_theory_b_patterns(self, question: str, sessions: dict[str, pd.DataFrame],
+                                session_stats: dict[str, dict[str, float]]) -> dict[str, Any]:
         """Analyze Theory B temporal non-locality patterns"""
         results = {
             "query_type": "theory_b_patterns",
@@ -88,8 +89,8 @@ class PriceRelativityEngine:
         
         return results
         
-    def analyze_post_rd40_sequences(self, question: str, sessions: Dict[str, pd.DataFrame],
-                                  session_stats: Dict[str, Dict[str, float]]) -> Dict[str, Any]:
+    def analyze_post_rd40_sequences(self, question: str, sessions: dict[str, pd.DataFrame],
+                                  session_stats: dict[str, dict[str, float]]) -> dict[str, Any]:
         """Analyze sequence patterns after RD@40% events"""
         results = {
             "query_type": "post_rd40_sequences",
@@ -134,8 +135,8 @@ class PriceRelativityEngine:
         
         return results
         
-    def _calculate_session_zones(self, nodes_df: pd.DataFrame, stats: Dict[str, float], 
-                               session_type: str) -> Dict[str, Any]:
+    def _calculate_session_zones(self, nodes_df: pd.DataFrame, stats: dict[str, float], 
+                               session_type: str) -> dict[str, Any]:
         """Calculate archaeological zones for a session"""
         if 'price' not in nodes_df.columns:
             return {}
@@ -174,8 +175,8 @@ class PriceRelativityEngine:
             
         return zone_analysis
         
-    def _detect_theory_b_events(self, nodes_df: pd.DataFrame, stats: Dict[str, float],
-                              zone_analysis: Dict[str, Any]) -> List[Dict[str, Any]]:
+    def _detect_theory_b_events(self, nodes_df: pd.DataFrame, stats: dict[str, float],
+                              zone_analysis: dict[str, Any]) -> list[dict[str, Any]]:
         """Detect Theory B temporal non-locality events"""
         theory_b_events = []
         
@@ -211,8 +212,8 @@ class PriceRelativityEngine:
                     
         return theory_b_events
         
-    def _detect_rd40_events(self, sessions: Dict[str, pd.DataFrame],
-                          session_stats: Dict[str, Dict[str, float]]) -> List[Dict[str, Any]]:
+    def _detect_rd40_events(self, sessions: dict[str, pd.DataFrame],
+                          session_stats: dict[str, dict[str, float]]) -> list[dict[str, Any]]:
         """Detect FPFVG redelivery events at 40% archaeological zones"""
         rd40_events = []
         
@@ -250,8 +251,8 @@ class PriceRelativityEngine:
                     
         return rd40_events
         
-    def _classify_sequence_path(self, nodes_df: pd.DataFrame, stats: Dict[str, float],
-                              event_index: int) -> Dict[str, Any]:
+    def _classify_sequence_path(self, nodes_df: pd.DataFrame, stats: dict[str, float],
+                              event_index: int) -> dict[str, Any]:
         """Classify the sequence path after RD@40% event: CONT/MR/ACCEL"""
         classification = {
             "path_type": "UNKNOWN",
@@ -304,7 +305,7 @@ class PriceRelativityEngine:
         
         return classification
 
-    def _parse_zone_criteria(self, question: str) -> Dict[str, Any]:
+    def _parse_zone_criteria(self, question: str) -> dict[str, Any]:
         """Parse archaeological zone criteria from question"""
         criteria = {
             "zones": [],
@@ -326,7 +327,7 @@ class PriceRelativityEngine:
 
         return criteria
 
-    def _parse_theory_b_criteria(self, question: str) -> Dict[str, Any]:
+    def _parse_theory_b_criteria(self, question: str) -> dict[str, Any]:
         """Parse Theory B criteria from question"""
         criteria = {
             "precision_threshold": 0.01,
@@ -381,7 +382,7 @@ class PriceRelativityEngine:
         return max(0.0, min(1.0, precision_score))
 
     def _extract_theory_b_characteristics(self, event: pd.Series, nodes_df: pd.DataFrame,
-                                        event_idx: int) -> Dict[str, Any]:
+                                        event_idx: int) -> dict[str, Any]:
         """Extract Theory B characteristics from event"""
         characteristics = {
             "energy_density": event.get('energy_density', 0.0),
@@ -409,10 +410,7 @@ class PriceRelativityEngine:
                 return True
 
         # Check for volume characteristics
-        if 'volume' in event.index and event['volume'] > nodes_df['volume'].quantile(0.8):
-            return True
-
-        return False
+        return bool("volume" in event.index and event["volume"] > nodes_df["volume"].quantile(0.8))
 
     def _calculate_redelivery_score(self, event: pd.Series, nodes_df: pd.DataFrame,
                                   event_idx: int) -> float:
@@ -434,7 +432,7 @@ class PriceRelativityEngine:
 
         return min(1.0, score)
 
-    def _extract_rd40_features(self, nodes_df: pd.DataFrame, event_idx: int) -> Dict[str, Any]:
+    def _extract_rd40_features(self, nodes_df: pd.DataFrame, event_idx: int) -> dict[str, Any]:
         """Extract relevant features for RD@40% event analysis"""
         if event_idx >= len(nodes_df):
             return {}
@@ -452,7 +450,7 @@ class PriceRelativityEngine:
 
         return features
 
-    def _calculate_path_probabilities(self, sequence_paths: Dict[str, List]) -> Dict[str, Any]:
+    def _calculate_path_probabilities(self, sequence_paths: dict[str, list]) -> dict[str, Any]:
         """Calculate path probabilities with confidence intervals"""
         total_events = sum(len(paths) for paths in sequence_paths.values())
 
@@ -488,15 +486,15 @@ class PriceRelativityEngine:
 
         return probabilities
 
-    def _detect_precision_events(self, nodes_df: pd.DataFrame, stats: Dict[str, float],
-                               criteria: Dict[str, Any]) -> List[Dict[str, Any]]:
+    def _detect_precision_events(self, nodes_df: pd.DataFrame, stats: dict[str, float],
+                               criteria: dict[str, Any]) -> list[dict[str, Any]]:
         """Detect precision events based on Theory B criteria"""
         precision_events = []
 
         if 'price' not in nodes_df.columns:
             return precision_events
 
-        precision_threshold = criteria.get("precision_threshold", 0.01)
+        criteria.get("precision_threshold", 0.01)
         session_range = stats.get('range', 0)
 
         if session_range == 0:
@@ -517,7 +515,7 @@ class PriceRelativityEngine:
         return precision_events
 
     def _analyze_non_locality_patterns(self, nodes_df: pd.DataFrame,
-                                     precision_events: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+                                     precision_events: list[dict[str, Any]]) -> list[dict[str, Any]]:
         """Analyze temporal non-locality patterns around precision events"""
         non_locality_patterns = []
 
@@ -551,7 +549,7 @@ class PriceRelativityEngine:
 
         return non_locality_patterns
 
-    def _calculate_temporal_correlations(self, precision_events: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def _calculate_temporal_correlations(self, precision_events: list[dict[str, Any]]) -> dict[str, Any]:
         """Calculate temporal correlations between precision events"""
         if len(precision_events) < 2:
             return {}
@@ -574,7 +572,7 @@ class PriceRelativityEngine:
 
         return correlations
 
-    def _generate_zone_insights(self, results: Dict[str, Any]) -> List[str]:
+    def _generate_zone_insights(self, results: dict[str, Any]) -> list[str]:
         """Generate insights from archaeological zone analysis"""
         insights = []
 
@@ -584,7 +582,7 @@ class PriceRelativityEngine:
         if zone_analysis:
             # Analyze zone activity
             total_events_by_zone = {}
-            for session_id, analysis in zone_analysis.items():
+            for _session_id, analysis in zone_analysis.items():
                 zone_events = analysis.get("zone_events", {})
                 for zone, count in zone_events.items():
                     total_events_by_zone[zone] = total_events_by_zone.get(zone, 0) + count
@@ -609,7 +607,7 @@ class PriceRelativityEngine:
 
         return insights
 
-    def _generate_theory_b_insights(self, results: Dict[str, Any]) -> List[str]:
+    def _generate_theory_b_insights(self, results: dict[str, Any]) -> list[str]:
         """Generate insights from Theory B pattern analysis"""
         insights = []
 
@@ -638,7 +636,7 @@ class PriceRelativityEngine:
 
         return insights
 
-    def _generate_rd40_insights(self, results: Dict[str, Any]) -> List[str]:
+    def _generate_rd40_insights(self, results: dict[str, Any]) -> list[str]:
         """Generate insights from RD@40% sequence analysis"""
         insights = []
 

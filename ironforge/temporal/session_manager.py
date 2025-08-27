@@ -3,13 +3,13 @@
 IRONFORGE Temporal Session Data Manager
 Handles session loading, caching, and data preprocessing for temporal analysis
 """
-import pandas as pd
-import numpy as np
 import glob
 import json
 from pathlib import Path
-from typing import Dict, List, Any, Optional, Tuple
-from datetime import datetime, timedelta
+from typing import Any
+
+import pandas as pd
+
 
 class SessionDataManager:
     """Manages session data loading, caching, and preprocessing for temporal analysis"""
@@ -40,11 +40,11 @@ class SessionDataManager:
             
         print(f"✅ Loaded {len(self.sessions)} sessions with price relativity calculations")
         
-    def _load_adapted_sessions(self, adapted_files: List[str]):
+    def _load_adapted_sessions(self, adapted_files: list[str]):
         """Load sessions from adapted JSON format"""
         for file_path in adapted_files:
             try:
-                with open(file_path, 'r') as f:
+                with open(file_path) as f:
                     session_data = json.load(f)
                 
                 # Extract session ID from filename
@@ -71,7 +71,7 @@ class SessionDataManager:
                 print(f"  ❌ Error loading {file_path}: {e}")
                 continue
                 
-    def _load_parquet_sessions(self, shard_paths: List[str]):
+    def _load_parquet_sessions(self, shard_paths: list[str]):
         """Load sessions from parquet shard format"""
         for shard_path in shard_paths:
             try:
@@ -118,21 +118,21 @@ class SessionDataManager:
             'event_count': len(nodes_df)
         }
         
-    def get_session_data(self, session_id: str) -> Optional[pd.DataFrame]:
+    def get_session_data(self, session_id: str) -> pd.DataFrame | None:
         """Get session data by ID"""
         if not isinstance(session_id, str) or not session_id.strip():
             raise ValueError("Session ID must be a non-empty string")
         return self.sessions.get(session_id)
         
-    def get_session_stats(self, session_id: str) -> Optional[Dict[str, float]]:
+    def get_session_stats(self, session_id: str) -> dict[str, float] | None:
         """Get session statistics by ID"""
         return self.session_stats.get(session_id)
         
-    def get_session_metadata(self, session_id: str) -> Optional[Dict[str, Any]]:
+    def get_session_metadata(self, session_id: str) -> dict[str, Any] | None:
         """Get session metadata by ID"""
         return self.metadata.get(session_id)
         
-    def list_sessions(self) -> List[str]:
+    def list_sessions(self) -> list[str]:
         """List all available sessions with type information"""
         session_list = []
         for session_id in sorted(self.sessions.keys()):
@@ -159,7 +159,7 @@ class SessionDataManager:
         else:
             return 'UNKNOWN'
             
-    def get_enhanced_session_info(self, session_id: str) -> Dict[str, Any]:
+    def get_enhanced_session_info(self, session_id: str) -> dict[str, Any]:
         """Get complete session information with price relativity analysis"""
         if not isinstance(session_id, str) or not session_id.strip():
             return {"error": "Session ID must be a non-empty string"}
@@ -173,7 +173,7 @@ class SessionDataManager:
         session_type = self._determine_session_type(session_id)
         
         # Calculate additional statistics
-        price_range = stats.get('range', 0)
+        stats.get('range', 0)
         event_count = len(nodes_df)
         
         # Time analysis
@@ -197,7 +197,7 @@ class SessionDataManager:
             }
         }
         
-    def validate_session_data(self, session_id: str) -> Dict[str, Any]:
+    def validate_session_data(self, session_id: str) -> dict[str, Any]:
         """Validate session data quality and completeness"""
         if session_id not in self.sessions:
             return {"valid": False, "error": f"Session {session_id} not found"}

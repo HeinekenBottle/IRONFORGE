@@ -2,14 +2,15 @@
 Test suite for Oracle Temporal Non-locality predictions
 """
 
-import pytest
-import torch
-import pandas as pd
-import networkx as nx
 from pathlib import Path
 
+import networkx as nx
+import pandas as pd
+import pytest
+import torch
+
+from ironforge.learning.enhanced_graph_builder import RichEdgeFeature, RichNodeFeature
 from ironforge.learning.tgat_discovery import IRONFORGEDiscovery
-from ironforge.learning.enhanced_graph_builder import RichNodeFeature, RichEdgeFeature
 from ironforge.sdk.app_config import OracleCfg
 
 

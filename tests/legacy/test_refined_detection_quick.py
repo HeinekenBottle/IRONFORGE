@@ -16,6 +16,7 @@ sys.path.append(str(Path(__file__).parent))
 import json
 
 from config import get_config
+
 from ironforge.analysis.refined_sweep_detector import RefinedSweepDetector
 
 # Configure logging
