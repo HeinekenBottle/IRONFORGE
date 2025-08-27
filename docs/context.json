@@ -1,4 +1,15 @@
 {
+  "version": "1.1.0",
+  "topics": {
+    "engines": ["run_discovery", "score_confluence", "validate_run", "build_minidash"],
+    "cli": ["discover-temporal", "score-session", "validate-run", "report-minimal", "status"],
+    "sdk": ["Config", "load_config", "materialize_run_dir", "LoaderCfg", "DataCfg"],
+    "reporting": ["build_minidash", "write_html", "write_json"],
+    "validation": ["validate_run", "validate_config"],
+    "integration": ["get_ironforge_container", "initialize_ironforge_lazy_loading"],
+    "data_engine": ["read_nodes_edges", "from_parquet", "igraph_to_pyg"],
+    "motifs": ["pattern analysis", "motif discovery", "confluence scoring"]
+  },
   "cli_commands": [
     "discover-temporal",
     "score-session",

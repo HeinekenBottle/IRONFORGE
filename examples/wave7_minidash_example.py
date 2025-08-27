@@ -1,4 +1,4 @@
-from ironforge.sdk.app_config import load_config
+from ironforge.api import load_config
 from ironforge.sdk.cli import cmd_report
 
 if __name__ == "__main__":

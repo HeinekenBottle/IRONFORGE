@@ -239,10 +239,7 @@ du -sh runs/ data/shards/
 ```bash
 # Verify entrypoints
 python -c "
-from ironforge.learning.discovery_pipeline import run_discovery
-from ironforge.confluence.scoring import score_confluence
-from ironforge.validation.runner import validate_run
-from ironforge.reporting.minidash import build_minidash
+from ironforge.api import run_discovery, score_confluence, validate_run, build_minidash
 print('✅ All entrypoints working')
 "
 ```

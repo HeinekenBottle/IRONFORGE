@@ -9,7 +9,7 @@ IRONFORGE learns temporal patterns within sessions, scores confluence, and rende
 
 Archaeological discovery engine that combines:
 - **Rule-based preprocessing**: Enhanced session adapter with event detection
-- **TGAT (single ML core)**: Temporal graph attention networks for pattern learning  
+- **TGAT (single ML core)**: Temporal graph attention networks for pattern learning
 - **Rule-based scoring**: Confluence analysis and validation rails
 - **Within-session learning**: No cross-session edges, preserves session boundaries
 
@@ -17,13 +17,13 @@ Archaeological discovery engine that combines:
 
 ### Events (6 types exactly)
 - **Expansion**: Market range extension
-- **Consolidation**: Range compression  
+- **Consolidation**: Range compression
 - **Retracement**: Partial reversal within trend
 - **Reversal**: Full directional change
 - **Liquidity Taken**: Order flow absorption
 - **Redelivery**: Return to prior levels
 
-### Edge Intents (4 types exactly)  
+### Edge Intents (4 types exactly)
 - **TEMPORAL_NEXT**: Sequential time progression
 - **MOVEMENT_TRANSITION**: Price movement relationships
 - **LIQ_LINK**: Liquidity flow connections
@@ -39,10 +39,21 @@ Archaeological discovery engine that combines:
 
 ### Entrypoints + CLI
 - **discovery** → `ironforge.learning.discovery_pipeline:run_discovery`
-- **confluence** → `ironforge.confluence.scoring:score_confluence`  
+- **confluence** → `ironforge.confluence.scoring:score_confluence`
 - **validation** → `ironforge.validation.runner:validate_run`
 - **reporting** → `ironforge.reporting.minidash:build_minidash`
 - **CLI**: `discover-temporal`, `score-session`, `validate-run`, `report-minimal`, `status`
+
+
+> Centralized API (recommended): import from `ironforge.api` for a stable, MCP-friendly surface.
+>
+> Example:
+>
+> ```python
+> from ironforge.api import run_discovery, score_confluence, validate_run, build_minidash
+> ```
+>
+> See docs/CONTEXT7_MCP.md for Context7 integration and doc standards.
 
 ## Quickstart
 
@@ -76,7 +87,7 @@ ironforge discover-temporal --oracle-enabled
 
 ### AUX (read-only context)
 - **aux/trajectories.parquet**: Session trajectory analysis
-- **aux/phase_stats.json**: Phase transition statistics  
+- **aux/phase_stats.json**: Phase transition statistics
 - **aux/chains.parquet**: Within-session chain analysis
 - **motifs/candidates.csv**: Pattern motif candidates
 - **motifs/cards/**: Individual motif cards and analysis
@@ -103,7 +114,7 @@ All adapters are **off by default** but documented:
 
 Automatic scale detection and normalization:
 - **0-1 normalized**: Standard confluence scoring
-- **0-100 normalized**: Percentage-based scoring  
+- **0-100 normalized**: Percentage-based scoring
 - **Threshold normalized**: Adaptive threshold scaling
 - **Variance watchdog**: Outlier detection and handling
 
@@ -126,7 +137,7 @@ Automatic scale detection and normalization:
 
 **Golden Invariants** (never change):
 - Event taxonomy: exactly 6 event types
-- Edge intents: exactly 4 intent types  
+- Edge intents: exactly 4 intent types
 - Feature dimensions: 51D nodes, 20D edges
 - HTF rule: last-closed only (no intra-candle)
 - Session boundaries: no cross-session edges
@@ -166,11 +177,13 @@ print(f'Node features: {len([c for c in nodes.column_names if c.startswith(\"f\"
 
 ## Documentation
 
-- **docs/flows.md**: Schema contracts and run order
-- **docs/taxonomy_v1.md**: Authoritative event and edge taxonomy  
-- **docs/operations.md**: Daily operations and A/B adapter usage
-- **docs/migrations/0.9-to-1.0.md**: Migration notes for 1.0
-- **REFACTOR_PLAN.md**: Repository cleanup and refactor details
+- **[docs/API_REFERENCE.md](docs/API_REFERENCE.md)**: Complete API documentation with examples
+- **[docs/CONTEXT7_MCP.md](docs/CONTEXT7_MCP.md)**: Context7 MCP integration and documentation standards
+- **[docs/flows.md](docs/flows.md)**: Schema contracts and run order
+- **[docs/taxonomy_v1.md](docs/taxonomy_v1.md)**: Authoritative event and edge taxonomy
+- **[docs/operations.md](docs/operations.md)**: Daily operations and A/B adapter usage
+- **[docs/migrations/0.9-to-1.0.md](docs/migrations/0.9-to-1.0.md)**: Migration notes for 1.0
+- **[REFACTOR_PLAN.md](REFACTOR_PLAN.md)**: Repository cleanup and refactor details
 
 ## Project State
 - Snapshot: `docs/ops/context/codex_state_2025-08-19.md`
