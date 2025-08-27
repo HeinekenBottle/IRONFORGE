@@ -3,8 +3,8 @@ import warnings
 
 import numpy as np
 
-from ironforge.data_engine import schemas
 from ironforge.converters.json_to_parquet import FeatureExtractor
+from ironforge.data_engine import schemas
 
 
 def test_feature_dims_without_htf():
@@ -39,10 +39,10 @@ def test_conversion_config_htf_default_off():
 
 
 def test_single_source_version():
-    import ironforge
+    from importlib import import_module
+
     from ironforge import __version__ as pkg_version
     from ironforge.reporting import __version__ as reporting_version
-    from importlib import import_module
 
     core_version = import_module("ironforge.__version__").__version__
     assert pkg_version == core_version

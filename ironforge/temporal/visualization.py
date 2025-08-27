@@ -3,13 +3,12 @@
 IRONFORGE Temporal Visualization Manager
 Display, plotting, and reporting functionality for temporal analysis
 """
-import pandas as pd
-import numpy as np
+from typing import Any
+
 import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 import seaborn as sns
-from typing import Dict, List, Any, Optional, Tuple
-from datetime import datetime, timedelta
-import json
 
 
 class VisualizationManager:
@@ -32,7 +31,7 @@ class VisualizationManager:
             # Continue without seaborn palette if not available
             pass
         
-    def display_query_results(self, results: Dict[str, Any]) -> None:
+    def display_query_results(self, results: dict[str, Any]) -> None:
         """Display query results in a formatted manner"""
         query_type = results.get("query_type", "unknown")
         
@@ -52,7 +51,7 @@ class VisualizationManager:
         else:
             self._display_generic_results(results)
             
-    def _display_temporal_sequence_results(self, results: Dict[str, Any]) -> None:
+    def _display_temporal_sequence_results(self, results: dict[str, Any]) -> None:
         """Display temporal sequence analysis results"""
         total_sessions = results.get("total_sessions", 0)
         matches = results.get("matches", [])
@@ -83,11 +82,11 @@ class VisualizationManager:
         # Display insights
         insights = results.get("insights", [])
         if insights:
-            print(f"\n💡 Key Insights:")
+            print("\n💡 Key Insights:")
             for insight in insights[:3]:
                 print(f"  • {insight}")
                 
-    def _display_archaeological_zone_results(self, results: Dict[str, Any]) -> None:
+    def _display_archaeological_zone_results(self, results: dict[str, Any]) -> None:
         """Display archaeological zone analysis results"""
         total_sessions = results.get("total_sessions", 0)
         zone_analysis = results.get("zone_analysis", {})
@@ -98,7 +97,7 @@ class VisualizationManager:
         
         # Zone distribution summary
         zone_counts = {}
-        for session_id, analysis in zone_analysis.items():
+        for _session_id, analysis in zone_analysis.items():
             zone_events = analysis.get("zone_events", {})
             for zone, count in zone_events.items():
                 zone_counts[zone] = zone_counts.get(zone, 0) + count
@@ -111,7 +110,7 @@ class VisualizationManager:
                 
         # Theory B event summary
         if theory_b_events:
-            print(f"\n⚡ Theory B Events by Zone:")
+            print("\n⚡ Theory B Events by Zone:")
             zone_theory_b = {}
             for event in theory_b_events:
                 zone = f"{event.get('zone_percentage', 0)}%"
@@ -120,13 +119,13 @@ class VisualizationManager:
             for zone, count in sorted(zone_theory_b.items()):
                 print(f"  • {zone} zone: {count} Theory B events")
                 
-    def _display_theory_b_results(self, results: Dict[str, Any]) -> None:
+    def _display_theory_b_results(self, results: dict[str, Any]) -> None:
         """Display Theory B pattern analysis results"""
         precision_events = results.get("precision_events", [])
         non_locality_patterns = results.get("non_locality_patterns", [])
         temporal_correlations = results.get("temporal_correlations", {})
         
-        print(f"⚡ Theory B Temporal Non-Locality Analysis")
+        print("⚡ Theory B Temporal Non-Locality Analysis")
         print(f"🎯 Precision Events: {len(precision_events)}")
         print(f"🌀 Non-Locality Patterns: {len(non_locality_patterns)}")
         
@@ -150,16 +149,16 @@ class VisualizationManager:
         if temporal_correlations:
             print("\n🕒 Temporal Correlations:")
             for correlation_type, value in temporal_correlations.items():
-                if isinstance(value, (int, float)):
+                if isinstance(value, int | float):
                     print(f"  • {correlation_type}: {value:.3f}")
                     
-    def _display_rd40_results(self, results: Dict[str, Any]) -> None:
+    def _display_rd40_results(self, results: dict[str, Any]) -> None:
         """Display RD@40% sequence analysis results"""
         rd40_events = results.get("rd40_events", [])
         sequence_paths = results.get("sequence_paths", {})
         path_probabilities = results.get("path_probabilities", {})
         
-        print(f"🎯 RD@40% Sequence Analysis")
+        print("🎯 RD@40% Sequence Analysis")
         print(f"📍 RD@40% Events Found: {len(rd40_events)}")
         
         # Path distribution
@@ -181,7 +180,7 @@ class VisualizationManager:
                 ci = prob_data.get("confidence_interval", [0, 0])
                 print(f"  • {path_type}: {prob:.1%} [{ci[0]:.1%} - {ci[1]:.1%}]")
                 
-    def _display_opening_pattern_results(self, results: Dict[str, Any]) -> None:
+    def _display_opening_pattern_results(self, results: dict[str, Any]) -> None:
         """Display opening pattern analysis results"""
         total_sessions = results.get("total_sessions", 0)
         opening_analysis = results.get("opening_analysis", {})
@@ -202,7 +201,7 @@ class VisualizationManager:
                     
         # Session type breakdown
         session_types = {}
-        for session_id, analysis in opening_analysis.items():
+        for _session_id, analysis in opening_analysis.items():
             session_type = analysis.get("session_type", "UNKNOWN")
             session_types[session_type] = session_types.get(session_type, 0) + 1
             
@@ -211,7 +210,7 @@ class VisualizationManager:
             for session_type, count in sorted(session_types.items()):
                 print(f"  • {session_type}: {count} sessions")
                 
-    def _display_generic_results(self, results: Dict[str, Any]) -> None:
+    def _display_generic_results(self, results: dict[str, Any]) -> None:
         """Display generic results for unknown query types"""
         print("📋 Analysis Results:")
         
@@ -227,7 +226,7 @@ class VisualizationManager:
             for insight in insights[:5]:
                 print(f"  • {insight}")
                 
-    def plot_temporal_sequence(self, results: Dict[str, Any], save_path: Optional[str] = None) -> None:
+    def plot_temporal_sequence(self, results: dict[str, Any], save_path: str | None = None) -> None:
         """Plot temporal sequence analysis results"""
         matches = results.get("matches", [])
         
@@ -297,7 +296,7 @@ class VisualizationManager:
         else:
             plt.show()
             
-    def plot_archaeological_zones(self, results: Dict[str, Any], save_path: Optional[str] = None) -> None:
+    def plot_archaeological_zones(self, results: dict[str, Any], save_path: str | None = None) -> None:
         """Plot archaeological zone analysis results"""
         zone_analysis = results.get("zone_analysis", {})
         theory_b_events = results.get("theory_b_events", [])
@@ -310,12 +309,12 @@ class VisualizationManager:
         zone_data = {"20%": [], "40%": [], "60%": [], "80%": []}
         session_ranges = []
         
-        for session_id, analysis in zone_analysis.items():
+        for _session_id, analysis in zone_analysis.items():
             zone_events = analysis.get("zone_events", {})
             session_range = analysis.get("session_range", 0)
             session_ranges.append(session_range)
             
-            for zone in zone_data.keys():
+            for zone in zone_data:
                 zone_data[zone].append(zone_events.get(zone, 0))
                 
         # Create plots
@@ -366,7 +365,7 @@ class VisualizationManager:
         # Add correlation values to heatmap
         for i in range(len(zones)):
             for j in range(len(zones)):
-                text = ax4.text(j, i, f'{correlation_matrix[i, j]:.2f}',
+                ax4.text(j, i, f'{correlation_matrix[i, j]:.2f}',
                               ha="center", va="center", color="black")
                               
         plt.colorbar(im, ax=ax4)

@@ -2,22 +2,19 @@ from __future__ import annotations
 
 import argparse
 import contextlib
-import importlib
 import json
-import pickle
-import warnings
 import sys
+import warnings
 from pathlib import Path
 
 import pandas as pd
 
 from ironforge.reporting.minidash import build_minidash
 
+from ..utils.common import get_legacy_entrypoint, maybe_import
 from .app_config import load_config, materialize_run_dir, validate_config
 from .io import glob_many, write_json
 from .oracle_commands import cmd_audit_oracle, cmd_train_oracle
-from ..utils.common import maybe_import, get_legacy_entrypoint
-
 
 # _maybe function moved to ironforge.utils.common.maybe_import
 
@@ -127,6 +124,7 @@ def cmd_report(cfg):
     if _os.getenv("IRONFORGE_WRITE_MANIFEST") == "1":
         try:
             import ironforge as _pkg
+
             from . import manifest as _mf
 
             _mf.write_for_run(
@@ -192,7 +190,7 @@ def cmd_prep_shards(
                     if shard_dir.exists():
                         meta_file = shard_dir / "meta.json"
                         if meta_file.exists():
-                            with open(meta_file, "r") as meta_f:
+                            with open(meta_file) as meta_f:
                                 metadata = json.load(meta_f)
                                 manifest_entry = {
                                     "shard_dir": str(shard_dir),

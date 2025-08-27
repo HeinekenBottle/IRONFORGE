@@ -1,17 +1,227 @@
 # IRONFORGE API Reference
-**Stable Public API (v1.0)**
+**Version 1.1.0 - Stable Public Interface**
 
-- discovery: `ironforge.learning.discovery_pipeline:run_discovery(shard_paths, out_dir, loader_cfg)`
-- confluence: `ironforge.confluence.scoring:score_confluence(cfg)`
-- validation: `ironforge.validation.runner:validate_run(cfg)`
-- reporting: `ironforge.reporting.minidash:build_minidash(activity_df, confluence_df, motifs, out_html, out_png, ...)`
-- sdk helpers: `ironforge.sdk.config`, `ironforge.sdk.app_config`, `ironforge.sdk.io`
+> **Centralized API (recommended)**: Import from `ironforge.api` for a stable, MCP-friendly surface.
+>
+> ```python
+> from ironforge.api import run_discovery, score_confluence, validate_run, build_minidash
+> from ironforge.api import Config, load_config, materialize_run_dir
+> ```
 
-CLI commands map to these entrypoints: `discover-temporal`, `score-session`, `validate-run`, `report-minimal`, `status`, and `prep-shards` (HTF off by default; add `--htf-context` to enable).
+## Quick Reference
+
+| Engine | Function | CLI Command |
+|--------|----------|-------------|
+| Discovery | `run_discovery` | `discover-temporal` |
+| Confluence | `score_confluence` | `score-session` |
+| Validation | `validate_run` | `validate-run` |
+| Reporting | `build_minidash` | `report-minimal` |
 
 ---
 
-**Complete API Documentation for Archaeological Discovery System**
+## Table of Contents
+
+- [Engines](#engines) - Core discovery, scoring, validation, and reporting functions
+- [CLI](#cli) - Command-line interface and automation
+- [SDK](#sdk) - Configuration, I/O utilities, and helpers
+- [Reporting](#reporting) - Dashboard generation and visualization
+- [Validation](#validation) - Quality gates and validation rails
+- [Integration](#integration) - Container system and lazy loading
+- [Data Engine](#data_engine) - Data processing and graph building
+- [Motifs](#motifs) - Pattern analysis and motif discovery
+
+---
+
+## Engines {#engines}
+
+Core archaeological discovery engines accessible via both API and CLI.
+
+### run_discovery
+
+```python
+from ironforge.api import run_discovery
+
+patterns = run_discovery(
+    shard_paths=["data/shards/NQ_M5/shard_0001"],
+    out_dir="runs/2025-01-15/patterns",
+    loader_cfg=LoaderCfg()
+)
+```
+
+**Parameters:**
+- `shard_paths` (Iterable[str]): Paths to shard directories containing nodes.parquet and edges.parquet
+- `out_dir` (str): Output directory for discovered patterns
+- `loader_cfg` (LoaderCfg): Configuration for TGAT loader settings
+
+**Returns:** List[str] - Paths to generated pattern files
+
+### score_confluence
+
+```python
+from ironforge.api import score_confluence
+
+scores_path = score_confluence(
+    pattern_paths=["patterns/shard_0001.parquet"],
+    out_dir="runs/2025-01-15/confluence",
+    weights=None,
+    threshold=65.0
+)
+```
+
+**Parameters:**
+- `pattern_paths` (Sequence[str]): Paths to pattern files from discovery
+- `out_dir` (str): Output directory for confluence scores
+- `weights` (Mapping[str, float] | None): Custom scoring weights
+- `threshold` (float): Confluence threshold (0-100)
+
+**Returns:** str - Path to confluence scores parquet file
+
+### validate_run
+
+```python
+from ironforge.api import validate_run
+
+results = validate_run(
+    run_dir="runs/2025-01-15",
+    config=None
+)
+```
+
+**Parameters:**
+- `run_dir` (str): Path to run directory containing artifacts
+- `config` (dict | None): Optional validation configuration
+
+**Returns:** Dict[str, Any] - Validation results and quality metrics
+
+### build_minidash
+
+```python
+from ironforge.api import build_minidash
+import pandas as pd
+
+out_html, out_png = build_minidash(
+    activity=pd.DataFrame(),
+    confluence=pd.read_parquet("confluence/scores.parquet"),
+    motifs=[],
+    out_html="minidash.html",
+    out_png="minidash.png"
+)
+```
+
+**Parameters:**
+- `activity` (pd.DataFrame): Session activity data
+- `confluence` (pd.DataFrame): Confluence scores from scoring engine
+- `motifs` (List[Dict[str, Any]]): Discovered motif patterns
+- `out_html` (str | Path): Output path for HTML dashboard
+- `out_png` (str | Path): Output path for PNG export
+
+**Returns:** Tuple[Path, Path] - Paths to generated HTML and PNG files
+
+---
+
+## CLI {#cli}
+
+Command-line interface for running engines and automation.
+
+### discover-temporal
+
+```bash
+python -m ironforge.sdk.cli discover-temporal --config configs/dev.yml
+```
+
+Runs the discovery engine (`run_discovery`) with configuration file.
+
+### score-session
+
+```bash
+python -m ironforge.sdk.cli score-session --config configs/dev.yml
+```
+
+Runs confluence scoring (`score_confluence`) on discovered patterns.
+
+### validate-run
+
+```bash
+python -m ironforge.sdk.cli validate-run --config configs/dev.yml
+```
+
+Validates run artifacts (`validate_run`) for quality and consistency.
+
+### report-minimal
+
+```bash
+python -m ironforge.sdk.cli report-minimal --config configs/dev.yml
+```
+
+Generates minidash report (`build_minidash`) with visualizations.
+
+### status
+
+```bash
+python -m ironforge.sdk.cli status --runs runs
+```
+
+Shows status of all runs in the specified directory.
+
+---
+
+## SDK {#sdk}
+
+Configuration management, I/O utilities, and helper functions.
+
+### Configuration
+
+```python
+from ironforge.api import Config, load_config, materialize_run_dir
+
+# Load configuration from YAML
+config = load_config("configs/dev.yml")
+
+# Create run directory with date
+run_dir = materialize_run_dir(config)
+
+# Validate configuration
+from ironforge.api import validate_config
+validate_config(config)
+```
+
+### Data Classes
+
+```python
+from ironforge.api import (
+    LoaderCfg, Paths, ConfluenceCfg, RunCfg,
+    DataCfg, OutputsCfg, WeightsCfg, ScoringCfg
+)
+
+# TGAT loader configuration
+loader = LoaderCfg(
+    fanouts=(10, 10),
+    batch_size=2048,
+    time_attr="t"
+)
+
+# Data source configuration
+data = DataCfg(
+    shards_glob="data/shards/*.parquet",
+    symbol="NQ",
+    timeframe="M5"
+)
+```
+
+### I/O Utilities
+
+```python
+from ironforge.api import write_json, write_html, glob_many
+
+# Write JSON with automatic directory creation
+write_json("output/results.json", {"status": "complete"})
+
+# Write HTML files
+write_html("output/report.html", "<html>...</html>")
+
+# Glob with Path objects
+shard_paths = glob_many("data/shards/*/nodes.parquet")
+```
 
 ---
 
@@ -28,8 +238,8 @@ from ironforge.integration.ironforge_container import initialize_ironforge_lazy_
 container = initialize_ironforge_lazy_loading()
 ```
 
-**Returns**: `IRONFORGEContainer` - Dependency injection container  
-**Performance**: <2s initialization time  
+**Returns**: `IRONFORGEContainer` - Dependency injection container
+**Performance**: <2s initialization time
 **Memory**: ~50MB base footprint
 
 #### `IRONFORGEContainer`
@@ -71,7 +281,7 @@ Convert JSON session to enhanced graph with semantic features.
 - **Semantic events**: FVG redelivery, expansion phases, consolidation
 - **Session anchoring**: Timing and market regime preservation
 
-**Performance**: <1s per session  
+**Performance**: <1s per session
 **Memory**: ~10MB per graph
 
 ##### `extract_semantic_features(session_data: dict) -> dict`
@@ -136,7 +346,7 @@ Discover archaeological patterns using TGAT temporal attention.
 ]
 ```
 
-**Performance**: <3s per session, 8-30 patterns typical  
+**Performance**: <3s per session, 8-30 patterns typical
 **Quality**: >87% authenticity threshold
 
 ##### `train_model(graphs: List[torch_geometric.data.Data]) -> None`
@@ -361,12 +571,12 @@ IRONFORGE_CONFIG = {
     'max_sessions_per_batch': 10,
     'discovery_timeout_seconds': 300,
     'enable_caching': True,
-    
+
     # Quality thresholds
     'pattern_confidence_threshold': 0.7,
     'authenticity_threshold': 87.0,
     'max_duplication_rate': 0.25,
-    
+
     # Performance settings
     'lazy_loading': True,
     'max_memory_mb': 1000,

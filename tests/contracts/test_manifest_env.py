@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 
 
 def test_report_manifest_helper_env(tmp_path, monkeypatch):

@@ -1105,7 +1105,7 @@ class EnhancedGraphBuilder:
         """
         try:
             # If already numeric, use modulo for time of day
-            if isinstance(timestamp, (int, float)):
+            if isinstance(timestamp, int | float):
                 return float(timestamp % 86400)
             
             # If string, parse HH:MM:SS format

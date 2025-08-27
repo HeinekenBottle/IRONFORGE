@@ -2,15 +2,13 @@
 
 from __future__ import annotations
 
-import json
-import warnings
 from pathlib import Path
 
 from ..constants import (
-    DEFAULT_MIN_SESSIONS,
+    DEFAULT_BATCH_SIZE,
     DEFAULT_EPOCHS,
     DEFAULT_LEARNING_RATE,
-    DEFAULT_BATCH_SIZE,
+    DEFAULT_MIN_SESSIONS,
     DEFAULT_PATIENCE,
     MIN_TRAINING_SESSIONS,
 )
@@ -29,7 +27,7 @@ def cmd_audit_oracle(
     """Audit Oracle training pipeline sessions"""
     from oracle.audit import OracleAuditor
     
-    print(f"🔍 Oracle Training Pipeline Audit")
+    print("🔍 Oracle Training Pipeline Audit")
     print(f"{'='*50}")
     print(f"Symbols: {', '.join(symbols)}")
     print(f"Timeframe: {timeframe}")
@@ -57,14 +55,14 @@ def cmd_audit_oracle(
         gap_analysis = auditor.generate_gap_analysis(audit_summary, min_sessions)
         
         # Print detailed results
-        print(f"\n📊 Audit Results")
+        print("\n📊 Audit Results")
         print(f"Sessions discovered: {audit_summary['sessions_discovered']}")
         print(f"Sessions processable: {audit_summary['audit_total']}")
         print(f"Success rate: {audit_summary['success_rate']:.1%}")
         
         # Error breakdown
         if any(count > 0 for code, count in audit_summary['error_breakdown'].items() if code != 'SUCCESS'):
-            print(f"\n❌ Error Breakdown:")
+            print("\n❌ Error Breakdown:")
             for error_code, count in audit_summary['error_breakdown'].items():
                 if count > 0 and error_code != 'SUCCESS':
                     description = auditor.ERROR_CODES.get(error_code, 'Unknown error')
@@ -73,12 +71,12 @@ def cmd_audit_oracle(
         # Gap analysis
         if gap_analysis['gap_exists']:
             print(f"\n⚠️  Coverage Gap: {gap_analysis['missing_count']} sessions missing")
-            print(f"🔧 Remediation Steps:")
+            print("🔧 Remediation Steps:")
             for step in gap_analysis['remediation_steps']:
                 print(f"  {step}")
             
             if gap_analysis.get('expected_missing_paths'):
-                print(f"\n📂 Expected Missing Shard Paths (examples):")
+                print("\n📂 Expected Missing Shard Paths (examples):")
                 for path in gap_analysis['expected_missing_paths'][:3]:
                     print(f"  {path}")
                 if len(gap_analysis['expected_missing_paths']) > 3:
@@ -120,10 +118,7 @@ def cmd_train_oracle(
     min_sessions: int = None,
 ):
     """Train Oracle temporal non-locality system"""
-    from datetime import datetime
     from pathlib import Path
-    import subprocess
-    import sys
     
     # Normalize timeframe: accept both "5" and "M5", convert to numeric
     tf_numeric = timeframe
@@ -138,7 +133,7 @@ def cmd_train_oracle(
         print(f"❌ Invalid timeframe: {timeframe}. Use '5' or 'M5'")
         return 1
     
-    print(f"🚀 Starting Oracle Training Pipeline")
+    print("🚀 Starting Oracle Training Pipeline")
     print(f"{'='*60}")
     print(f"Symbols: {', '.join(symbols)}")
     print(f"Timeframe: {tf_string} (numeric: {tf_numeric})")
@@ -155,7 +150,7 @@ def cmd_train_oracle(
     
     # Step 0: Audit preflight (mandatory for strict mode)
     if strict_mode:
-        print(f"\n🔍 Step 0: Running audit preflight...")
+        print("\n🔍 Step 0: Running audit preflight...")
         audit_result = cmd_audit_oracle(
             symbols, tf_string, from_date, to_date, 
             data_dir=data_dir, verbose=False, 
@@ -177,19 +172,18 @@ def cmd_train_oracle(
             return 1
         
         print(f"✅ Audit passed: {audit_total} sessions available")
-        expected_training_pairs = audit_total
     else:
-        expected_training_pairs = None
+        pass
     
     # Enforce real Parquet shard processing only
-    print(f"\n🔥 Real Data Processing Pipeline (Zero Compromises)")
+    print("\n🔥 Real Data Processing Pipeline (Zero Compromises)")
     
     # Validate minimum session requirements upfront
     from pathlib import Path
     shard_base = Path(data_dir) / f"{symbols[0]}_{tf_string}"
     if not shard_base.exists():
         print(f"❌ No shard directory found: {shard_base}")
-        print(f"💡 Run prep-shards first to convert enhanced sessions")
+        print("💡 Run prep-shards first to convert enhanced sessions")
         return 1
         
     available_shards = [d for d in shard_base.iterdir() if d.is_dir() and d.name.startswith("shard_")]
@@ -200,7 +194,7 @@ def cmd_train_oracle(
         print(f"💡 Add more sessions to {shard_base}")
         return 1
     # Step 1: Normalize sessions with date filtering
-    print(f"\n📊 Step 1: Normalizing Parquet shards...")
+    print("\n📊 Step 1: Normalizing Parquet shards...")
     normalized_file = output_path / "normalized_sessions.parquet"
     
     # Import normalizer directly instead of subprocess
@@ -224,7 +218,7 @@ def cmd_train_oracle(
             
         if len(sessions_df) < MIN_TRAINING_SESSIONS:
             print(f"❌ Insufficient sessions: {len(sessions_df)} < {MIN_TRAINING_SESSIONS} required")
-            print(f"💡 Expand date range or reduce quality threshold")
+            print("💡 Expand date range or reduce quality threshold")
             return 1
             
         sessions_df.to_parquet(normalized_file, index=False)
@@ -235,7 +229,7 @@ def cmd_train_oracle(
         return 1
     
     # Step 2: Build training pairs
-    print(f"\n🧠 Step 2: Building training embeddings...")
+    print("\n🧠 Step 2: Building training embeddings...")
     training_pairs_file = output_path / "training_pairs.parquet"
     
     try:
@@ -259,7 +253,7 @@ def cmd_train_oracle(
         )
         
         if training_pairs_df.empty:
-            print(f"❌ No training pairs generated")
+            print("❌ No training pairs generated")
             print(f"💡 Check Parquet shard availability in {data_dir}")
             return 1
             
@@ -277,7 +271,7 @@ def cmd_train_oracle(
         return 1
     
     # Step 3: Train Oracle model
-    print(f"\n🎯 Step 3: Training Oracle range head...")
+    print("\n🎯 Step 3: Training Oracle range head...")
     model_dir = output_path
     
     try:
@@ -320,7 +314,7 @@ def cmd_train_oracle(
         return 1
     
     # Step 4: Evaluate model
-    print(f"\n📈 Step 4: Evaluating trained model...")
+    print("\n📈 Step 4: Evaluating trained model...")
     
     try:
         from oracle.eval import OracleEvaluator
@@ -353,7 +347,7 @@ def cmd_train_oracle(
         return 1
     
     # Step 5: Runtime validation and final summary
-    print(f"\n🔍 Step 5: Final validation and cleanup...")
+    print("\n🔍 Step 5: Final validation and cleanup...")
     
     try:
         # Verify required artifacts exist
@@ -367,19 +361,19 @@ def cmd_train_oracle(
             print(f"❌ Missing artifacts: {missing_files}")
             return 1
             
-        print(f"✅ All required artifacts present")
+        print("✅ All required artifacts present")
         
     except Exception as e:
         print(f"❌ Final validation error: {e}")
         return 1
     
     # Final summary
-    print(f"\n🎉 Oracle Training Pipeline Completed!")
+    print("\n🎉 Oracle Training Pipeline Completed!")
     print(f"{'='*60}")
     print(f"📁 Model saved to: {model_dir}")
     print(f"📊 Sessions processed: {len(sessions_df)} → {len(training_pairs_df)} training pairs")
     print(f"📊 Metrics: MAE={center_mae:.3f}, RMSE={center_rmse:.3f}, MAPE={center_mape:.1f}%")
-    print(f"📋 Artifacts: weights.pt, scaler.pkl, training_manifest.json, metrics.json")
-    print(f"\n🔮 Oracle is now ready for temporal non-locality predictions!")
+    print("📋 Artifacts: weights.pt, scaler.pkl, training_manifest.json, metrics.json")
+    print("\n🔮 Oracle is now ready for temporal non-locality predictions!")
     
     return 0

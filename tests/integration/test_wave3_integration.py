@@ -339,10 +339,8 @@ def test_wave3_error_handling_integration(wave3_test_data):
     with patch(
         "ironforge.learning.discovery_pipeline.get_ironforge_container",
         side_effect=ImportError("TGAT components unavailable"),
-    ):
-
-        with pytest.raises(ImportError, match="Cannot import TGAT discovery components"):
-            pipeline.run_discovery()
+    ), pytest.raises(ImportError, match="Cannot import TGAT discovery components"):
+        pipeline.run_discovery()
 
     # Test with invalid data path
     invalid_pipeline = TemporalDiscoveryPipeline(data_path="/nonexistent/path")

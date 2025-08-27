@@ -5,10 +5,10 @@ from __future__ import annotations
 import importlib
 import warnings
 from pathlib import Path
-from typing import Any, Optional, Union
+from typing import Any
 
 
-def maybe_import(module_name: str, attribute_name: str) -> Optional[Any]:
+def maybe_import(module_name: str, attribute_name: str) -> Any | None:
     """
     Safely import an attribute from a module, returning None if import fails.
     
@@ -46,7 +46,7 @@ def normalize_timeframe(timeframe: str) -> tuple[str, str]:
     return tf_numeric, tf_string
 
 
-def ensure_directory(path: Union[str, Path]) -> Path:
+def ensure_directory(path: str | Path) -> Path:
     """
     Ensure a directory exists, creating it if necessary.
     
@@ -61,7 +61,7 @@ def ensure_directory(path: Union[str, Path]) -> Path:
     return path_obj
 
 
-def validate_path_exists(path: Union[str, Path], path_type: str = "path") -> Path:
+def validate_path_exists(path: str | Path, path_type: str = "path") -> Path:
     """
     Validate that a path exists and return Path object.
     
@@ -81,7 +81,7 @@ def validate_path_exists(path: Union[str, Path], path_type: str = "path") -> Pat
     return path_obj
 
 
-def get_legacy_entrypoint(module_paths: list[str], function_name: str, current_module: str) -> Optional[Any]:
+def get_legacy_entrypoint(module_paths: list[str], function_name: str, current_module: str) -> Any | None:
     """
     Get legacy entrypoint with deprecation warning.
     

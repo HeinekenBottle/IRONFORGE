@@ -6,6 +6,10 @@ Run the end-to-end pipeline and generate a minimal dashboard.
 pip install -e .[dev]
 ```
 
+> Tip: For programmatic use, prefer the centralized API `ironforge.api`.
+> See docs/CONTEXT7_MCP.md for MCP-friendly examples and conventions.
+
+
 ## Run Pipeline
 ```bash
 # Discover → Score → Validate → Report

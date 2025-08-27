@@ -7,14 +7,14 @@ Integrates Theory B temporal non-locality and session-aware price relativity
 This is the main interface that maintains backward compatibility while using
 the refactored modular architecture.
 """
-import pandas as pd
-import numpy as np
-from typing import Dict, List, Any, Optional, Tuple
-from datetime import datetime, timedelta
+from typing import Any
 
-from .session_manager import SessionDataManager
+import numpy as np
+import pandas as pd
+
 from .price_relativity import PriceRelativityEngine
 from .query_core import TemporalQueryCore
+from .session_manager import SessionDataManager
 from .visualization import VisualizationManager
 
 
@@ -48,7 +48,7 @@ class EnhancedTemporalQueryEngine:
         self.metadata = self.session_manager.metadata
         self.session_stats = self.session_manager.session_stats
         
-    def ask(self, question: str) -> Dict[str, Any]:
+    def ask(self, question: str) -> dict[str, Any]:
         """
         Ask a temporal question and get probabilistic answers with price relativity
         
@@ -56,11 +56,11 @@ class EnhancedTemporalQueryEngine:
         """
         return self.query_core.ask(question)
         
-    def get_enhanced_session_info(self, session_id: str) -> Dict[str, Any]:
+    def get_enhanced_session_info(self, session_id: str) -> dict[str, Any]:
         """Get complete session information with price relativity analysis"""
         return self.session_manager.get_enhanced_session_info(session_id)
         
-    def list_sessions(self) -> List[str]:
+    def list_sessions(self) -> list[str]:
         """List all available sessions with type information"""
         return self.session_manager.list_sessions()
         
@@ -68,13 +68,13 @@ class EnhancedTemporalQueryEngine:
     # ARCHAEOLOGICAL ZONE ANALYSIS METHODS
     # ================================================================================
     
-    def _analyze_archaeological_zones(self, question: str) -> Dict[str, Any]:
+    def _analyze_archaeological_zones(self, question: str) -> dict[str, Any]:
         """Analyze archaeological zone patterns and Theory B events"""
         return self.price_engine.analyze_archaeological_zones(
             question, self.sessions, self.session_stats
         )
         
-    def _analyze_theory_b_patterns(self, question: str) -> Dict[str, Any]:
+    def _analyze_theory_b_patterns(self, question: str) -> dict[str, Any]:
         """Analyze Theory B temporal non-locality patterns"""
         return self.price_engine.analyze_theory_b_patterns(
             question, self.sessions, self.session_stats
@@ -84,17 +84,17 @@ class EnhancedTemporalQueryEngine:
     # EXPERIMENT SET E: Post-RD@40% Sequence Analysis
     # ================================================================================
     
-    def _analyze_post_rd40_sequences(self, question: str) -> Dict[str, Any]:
+    def _analyze_post_rd40_sequences(self, question: str) -> dict[str, Any]:
         """Analyze sequence patterns after RD@40% events"""
         return self.price_engine.analyze_post_rd40_sequences(
             question, self.sessions, self.session_stats
         )
         
-    def _detect_rd40_events(self) -> List[Dict[str, Any]]:
+    def _detect_rd40_events(self) -> list[dict[str, Any]]:
         """Detect FPFVG redelivery events at 40% archaeological zones"""
         return self.price_engine._detect_rd40_events(self.sessions, self.session_stats)
         
-    def _classify_sequence_path(self, session_id: str, event_index: int) -> Dict[str, Any]:
+    def _classify_sequence_path(self, session_id: str, event_index: int) -> dict[str, Any]:
         """Classify the sequence path after RD@40% event: CONT/MR/ACCEL"""
         if session_id not in self.sessions or session_id not in self.session_stats:
             return {"error": f"Session {session_id} not found"}
@@ -108,23 +108,23 @@ class EnhancedTemporalQueryEngine:
     # TEMPORAL SEQUENCE ANALYSIS METHODS
     # ================================================================================
     
-    def _analyze_temporal_sequence(self, question: str) -> Dict[str, Any]:
+    def _analyze_temporal_sequence(self, question: str) -> dict[str, Any]:
         """Analyze what happens after specific events with price relativity"""
         return self.query_core._analyze_temporal_sequence(question)
         
-    def _analyze_opening_patterns(self, question: str) -> Dict[str, Any]:
+    def _analyze_opening_patterns(self, question: str) -> dict[str, Any]:
         """Analyze session opening patterns with price relativity"""
         return self.query_core._analyze_opening_patterns(question)
         
-    def _get_enhanced_event_context(self, event, session_type: str, session_stats: Dict[str, float],
-                                   nodes: pd.DataFrame, event_idx: int) -> Dict[str, Any]:
+    def _get_enhanced_event_context(self, event, session_type: str, session_stats: dict[str, float],
+                                   nodes: pd.DataFrame, event_idx: int) -> dict[str, Any]:
         """Get complete event context with temporal and price relativity"""
         return self.query_core._get_enhanced_event_context(
             event, session_type, session_stats, nodes, event_idx
         )
         
-    def _check_pattern_match(self, event_context: Dict[str, Any], pattern_key: str,
-                           nodes: pd.DataFrame, event_idx: int, time_window: int) -> Dict[str, Any]:
+    def _check_pattern_match(self, event_context: dict[str, Any], pattern_key: str,
+                           nodes: pd.DataFrame, event_idx: int, time_window: int) -> dict[str, Any]:
         """Check if event matches specified pattern with enhanced criteria"""
         return self.query_core._check_pattern_match(
             event_context, pattern_key, nodes, event_idx, time_window
@@ -134,7 +134,7 @@ class EnhancedTemporalQueryEngine:
     # PLACEHOLDER METHODS FOR ADDITIONAL ANALYSIS
     # ================================================================================
     
-    def _analyze_relative_positioning(self, question: str) -> Dict[str, Any]:
+    def _analyze_relative_positioning(self, question: str) -> dict[str, Any]:
         """Analyze relative positioning patterns"""
         results = {
             "query_type": "relative_positioning",
@@ -184,7 +184,7 @@ class EnhancedTemporalQueryEngine:
 
         return results
         
-    def _search_patterns(self, question: str) -> Dict[str, Any]:
+    def _search_patterns(self, question: str) -> dict[str, Any]:
         """Enhanced pattern search with archaeological zones"""
         results = {
             "query_type": "pattern_search",
@@ -219,7 +219,7 @@ class EnhancedTemporalQueryEngine:
         # Generate insights
         total_matches = len(results["pattern_matches"])
         if total_matches > 0:
-            session_count = len(set(match["session_id"] for match in results["pattern_matches"]))
+            session_count = len({match["session_id"] for match in results["pattern_matches"]})
             results["insights"] = [
                 f"Found {total_matches} pattern matches across {session_count} sessions",
                 f"Search criteria: {search_criteria}",
@@ -233,7 +233,7 @@ class EnhancedTemporalQueryEngine:
 
         return results
 
-    def _extract_search_criteria(self, question: str) -> Dict[str, Any]:
+    def _extract_search_criteria(self, question: str) -> dict[str, Any]:
         """Extract search criteria from question"""
         criteria = {
             "pattern_type": "general",
@@ -262,8 +262,8 @@ class EnhancedTemporalQueryEngine:
 
         return criteria
 
-    def _find_pattern_matches(self, nodes_df: pd.DataFrame, stats: Dict[str, float],
-                            criteria: Dict[str, Any]) -> List[Dict[str, Any]]:
+    def _find_pattern_matches(self, nodes_df: pd.DataFrame, stats: dict[str, float],
+                            criteria: dict[str, Any]) -> list[dict[str, Any]]:
         """Find pattern matches in session data"""
         matches = []
 
@@ -346,7 +346,7 @@ class EnhancedTemporalQueryEngine:
 
         return min(1.0, score)
         
-    def _analyze_liquidity_sweeps(self, question: str) -> Dict[str, Any]:
+    def _analyze_liquidity_sweeps(self, question: str) -> dict[str, Any]:
         """Analyze liquidity sweep patterns"""
         results = {
             "query_type": "liquidity_sweeps",
@@ -378,7 +378,7 @@ class EnhancedTemporalQueryEngine:
 
             # Generate insights
             total_sweeps = len(results["sweep_events"])
-            session_count = len(set(sweep["session_id"] for sweep in results["sweep_events"]))
+            session_count = len({sweep["session_id"] for sweep in results["sweep_events"]})
 
             results["insights"] = [
                 f"Detected {total_sweeps} liquidity sweep events across {session_count} sessions",
@@ -390,7 +390,7 @@ class EnhancedTemporalQueryEngine:
 
         return results
 
-    def _detect_liquidity_sweeps(self, nodes_df: pd.DataFrame, stats: Dict[str, float]) -> List[Dict[str, Any]]:
+    def _detect_liquidity_sweeps(self, nodes_df: pd.DataFrame, stats: dict[str, float]) -> list[dict[str, Any]]:
         """Detect liquidity sweep events in session data"""
         sweeps = []
 
@@ -477,7 +477,7 @@ class EnhancedTemporalQueryEngine:
 
         return min(strength, 1.0)
 
-    def _calculate_sweep_statistics(self, sweep_events: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def _calculate_sweep_statistics(self, sweep_events: list[dict[str, Any]]) -> dict[str, Any]:
         """Calculate statistics for liquidity sweep events"""
         if not sweep_events:
             return {}
@@ -503,7 +503,7 @@ class EnhancedTemporalQueryEngine:
             "strength_std": np.std(strengths) if strengths else 0
         }
         
-    def _analyze_htf_taps(self, question: str) -> Dict[str, Any]:
+    def _analyze_htf_taps(self, question: str) -> dict[str, Any]:
         """Analyze higher timeframe tap patterns"""
         return {
             "query_type": "htf_taps",
@@ -512,7 +512,7 @@ class EnhancedTemporalQueryEngine:
             "insights": ["HTF tap analysis available through visualization module"]
         }
         
-    def _analyze_fvg_follow_through(self, question: str) -> Dict[str, Any]:
+    def _analyze_fvg_follow_through(self, question: str) -> dict[str, Any]:
         """Analyze fair value gap follow-through patterns"""
         return {
             "query_type": "fvg_follow_through",
@@ -521,7 +521,7 @@ class EnhancedTemporalQueryEngine:
             "insights": ["FVG follow-through analysis available through visualization module"]
         }
         
-    def _analyze_event_chains(self, question: str) -> Dict[str, Any]:
+    def _analyze_event_chains(self, question: str) -> dict[str, Any]:
         """Analyze event chain patterns"""
         return {
             "query_type": "event_chains",
@@ -530,7 +530,7 @@ class EnhancedTemporalQueryEngine:
             "insights": ["Event chain analysis available through visualization module"]
         }
         
-    def _analyze_minute_hotspots(self, question: str) -> Dict[str, Any]:
+    def _analyze_minute_hotspots(self, question: str) -> dict[str, Any]:
         """Analyze minute-level hotspot patterns"""
         return {
             "query_type": "minute_hotspots",
@@ -539,7 +539,7 @@ class EnhancedTemporalQueryEngine:
             "insights": ["Minute hotspot analysis available through visualization module"]
         }
         
-    def _analyze_rd40_day_news_matrix(self, question: str) -> Dict[str, Any]:
+    def _analyze_rd40_day_news_matrix(self, question: str) -> dict[str, Any]:
         """Analyze RD@40% day news impact matrix"""
         return {
             "query_type": "rd40_news_matrix",
@@ -548,7 +548,7 @@ class EnhancedTemporalQueryEngine:
             "insights": ["RD@40% news matrix analysis available through visualization module"]
         }
         
-    def _analyze_f8_interactions(self, question: str) -> Dict[str, Any]:
+    def _analyze_f8_interactions(self, question: str) -> dict[str, Any]:
         """Analyze F8 feature interactions"""
         return {
             "query_type": "f8_interactions",
@@ -557,7 +557,7 @@ class EnhancedTemporalQueryEngine:
             "insights": ["F8 interaction analysis available through visualization module"]
         }
         
-    def _analyze_ml_predictions(self, question: str) -> Dict[str, Any]:
+    def _analyze_ml_predictions(self, question: str) -> dict[str, Any]:
         """Analyze machine learning predictions"""
         return {
             "query_type": "ml_predictions",
@@ -566,7 +566,7 @@ class EnhancedTemporalQueryEngine:
             "insights": ["ML prediction analysis available through specialized modules"]
         }
         
-    def _general_temporal_analysis(self, question: str) -> Dict[str, Any]:
+    def _general_temporal_analysis(self, question: str) -> dict[str, Any]:
         """General temporal analysis for unrecognized queries"""
         return {
             "query_type": "general_temporal",
@@ -589,11 +589,11 @@ class EnhancedTemporalQueryEngine:
     # VISUALIZATION METHODS
     # ================================================================================
     
-    def display_results(self, results: Dict[str, Any]) -> None:
+    def display_results(self, results: dict[str, Any]) -> None:
         """Display query results using the visualization manager"""
         self.visualization.display_query_results(results)
         
-    def plot_results(self, results: Dict[str, Any], save_path: Optional[str] = None) -> None:
+    def plot_results(self, results: dict[str, Any], save_path: str | None = None) -> None:
         """Plot query results using the visualization manager"""
         query_type = results.get("query_type", "")
         
@@ -608,17 +608,17 @@ class EnhancedTemporalQueryEngine:
     # UTILITY METHODS
     # ================================================================================
     
-    def validate_session(self, session_id: str) -> Dict[str, Any]:
+    def validate_session(self, session_id: str) -> dict[str, Any]:
         """Validate session data quality and completeness"""
         return self.session_manager.validate_session_data(session_id)
         
-    def get_session_statistics(self) -> Dict[str, Any]:
+    def get_session_statistics(self) -> dict[str, Any]:
         """Get overall statistics about loaded sessions"""
         total_sessions = len(self.sessions)
         total_events = sum(len(df) for df in self.sessions.values())
         
         session_types = {}
-        for session_id in self.sessions.keys():
+        for session_id in self.sessions:
             session_type = self._determine_session_type(session_id)
             session_types[session_type] = session_types.get(session_type, 0) + 1
             
