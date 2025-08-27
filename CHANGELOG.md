@@ -1,5 +1,35 @@
 # IRONFORGE Changelog
 
+## [2.0.0](https://github.com/HeinekenBottle/IRONFORGE/compare/v1.0.0...v2.0.0) (2025-08-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* None - 100% backward compatibility maintained
+
+### Features
+
+* 3 congruence deltas - oracle native to discovery ([5017c35](https://github.com/HeinekenBottle/IRONFORGE/commit/5017c35443a85d2b254da1a895957ad04a64a2b5))
+* **aux:** add Watchlist CSV and Run Comparator helpers (post-GA, no schema changes) ([597c205](https://github.com/HeinekenBottle/IRONFORGE/commit/597c205a14ca5f2b7da045e6933dd05f2a5f8573))
+* comprehensive refactor v1.1.0 - consolidate scripts, unify dependencies, overhaul documentation ([acf8200](https://github.com/HeinekenBottle/IRONFORGE/commit/acf82000c4926a12850384d0617dcb5074ec16a3))
+* Context7-guided performance audit - comprehensive optimization implementation ([8092428](https://github.com/HeinekenBottle/IRONFORGE/commit/8092428d025e3c9c48a0edd261bf94d0c98fb9ec))
+* Context7-guided translation layer audit with opt-in optimizations ([e59ec48](https://github.com/HeinekenBottle/IRONFORGE/commit/e59ec485b571a63099aebb26e2c93897131983bc))
+* Improve MCP alignment with stable imports and topic-oriented docs ([#46](https://github.com/HeinekenBottle/IRONFORGE/issues/46)) ([062d30e](https://github.com/HeinekenBottle/IRONFORGE/commit/062d30ed0fc5073251de2a77ee47f355d61bd729))
+* Oracle Temporal Non-locality predictions for early session range forecasting ([fd7ad50](https://github.com/HeinekenBottle/IRONFORGE/commit/fd7ad50060f7aa28e2c032fdcf0f24b125fcef69))
+* **oracle:** Oracle training CLI (Parquet-only, strict coverage) — v1.0.2-rc1 ([30b8ead](https://github.com/HeinekenBottle/IRONFORGE/commit/30b8eada717015f336ea26b72857737cf19d3e8a))
+* **packaging:** Oracle version wheel correctness + modern packaging migration ([9f0c85f](https://github.com/HeinekenBottle/IRONFORGE/commit/9f0c85f4f849ab5a7c9eeb431cac956a60d2710f))
+* Refactor Enhanced Temporal Query Engine + Oracle System into Modular Architecture ([#42](https://github.com/HeinekenBottle/IRONFORGE/issues/42)) ([30e620f](https://github.com/HeinekenBottle/IRONFORGE/commit/30e620f2d2589292f7225b9a11a899a8f534d39c))
+
+
+### Bug Fixes
+
+* Context7 audit compatibility improvements ([a7f57ab](https://github.com/HeinekenBottle/IRONFORGE/commit/a7f57ab811838e068ba8b81c662b09b11a9718c5))
+
+
+### Documentation
+
+* comprehensive Context7 release notes ([e4a79ee](https://github.com/HeinekenBottle/IRONFORGE/commit/e4a79eec9143b3a579daab7492934c9afb53cc5c))
+
 ## [1.0.0](https://github.com/HeinekenBottle/IRONFORGE/compare/v0.9.1...v1.0.0) (2025-08-21)
 
 
