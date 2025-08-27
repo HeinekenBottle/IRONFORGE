@@ -11,10 +11,11 @@ from .common import (
     truncate_string,
     validate_path_exists,
 )
+from .performance_monitor import PerformanceMonitor
 
 __all__ = [
     "maybe_import",
-    "normalize_timeframe", 
+    "normalize_timeframe",
     "ensure_directory",
     "validate_path_exists",
     "get_legacy_entrypoint",
@@ -22,4 +23,5 @@ __all__ = [
     "format_file_size",
     "truncate_string",
     "create_progress_indicator",
+    "PerformanceMonitor",
 ]

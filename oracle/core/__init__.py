@@ -34,6 +34,7 @@ from .constants import (
     
     # File patterns
     ORACLE_MODEL_FILES,
+    COMPILED_TF_PATTERNS,
     PARQUET_EXT,
     JSON_EXT,
     PICKLE_EXT,
@@ -125,6 +126,7 @@ __all__ = [
     'SESSION_TYPES',
     'QUALITY_LEVELS',
     'ORACLE_MODEL_FILES',
+    'COMPILED_TF_PATTERNS',
     'PARQUET_EXT',
     'JSON_EXT',
     'PICKLE_EXT',
