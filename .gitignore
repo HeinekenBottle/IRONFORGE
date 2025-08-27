@@ -56,3 +56,6 @@ dist/*.whl
 test_oracle_weights/
 test_runs/
 models/oracle/test*/.venv/
+.venv/
+__pycache__/
+*.pyc
