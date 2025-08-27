@@ -1,0 +1,401 @@
+name: COMPAT Mode Validation
+
+on:
+  push:
+    branches: [ main, feat/* ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run nightly at 3 AM UTC (after STRICT mode)
+    - cron: '0 3 * * *'
+
+env:
+  PYTHONPATH: ${{ github.workspace }}
+  IRONFORGE_RUNTIME_MODE: compat
+  IRONFORGE_ENABLE_AUDIT: true
+  IRONFORGE_AUDIT_FILE: audit_run_compat.json
+
+jobs:
+  compat-mode-validation:
+    name: COMPAT Mode Degraded Performance Validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 45  # Longer timeout for degraded performance
+    
+    strategy:
+      fail-fast: false  # Allow degraded scenarios to continue
+      matrix:
+        python-version: ["3.10", "3.11"]
+        degradation-scenario:
+          - name: "optimal"
+            pytorch-version: "2.2.2"
+            disable-cuda: false
+            mock-degradation: false
+          - name: "no-cuda"
+            pytorch-version: "2.2.2" 
+            disable-cuda: true
+            mock-degradation: false
+          - name: "mock-sdpa-missing"
+            pytorch-version: "2.2.2"
+            disable-cuda: false
+            mock-degradation: "sdpa"
+          - name: "mock-flash-missing"
+            pytorch-version: "2.2.2"
+            disable-cuda: false
+            mock-degradation: "flash"
+          - name: "legacy-pytorch"
+            pytorch-version: "1.13.1"
+            disable-cuda: false
+            mock-degradation: false
+        
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+        
+    - name: Install PyTorch ${{ matrix.degradation-scenario.pytorch-version }}
+      run: |
+        if [ "${{ matrix.degradation-scenario.disable-cuda }}" = "true" ]; then
+          # Install CPU-only PyTorch to simulate no CUDA
+          pip install torch==${{ matrix.degradation-scenario.pytorch-version }} --index-url https://download.pytorch.org/whl/cpu
+        else
+          # Install with CUDA support (but may not have CUDA runtime)
+          pip install torch==${{ matrix.degradation-scenario.pytorch-version }}
+        fi
+        
+    - name: Install Dependencies
+      run: |
+        pip install -e .[dev]
+        pip install pytest-timeout
+        
+    - name: Setup Degradation Scenario
+      env:
+        SCENARIO: ${{ matrix.degradation-scenario.name }}
+        MOCK_DEGRADATION: ${{ matrix.degradation-scenario.mock-degradation }}
+      run: |
+        echo "Setting up degradation scenario: $SCENARIO"
+        
+        if [ "$MOCK_DEGRADATION" = "sdpa" ]; then
+          # Create mock to simulate SDPA missing
+          echo "IRONFORGE_MOCK_SDPA_MISSING=true" >> $GITHUB_ENV
+        elif [ "$MOCK_DEGRADATION" = "flash" ]; then
+          # Create mock to simulate Flash Attention missing
+          echo "IRONFORGE_MOCK_FLASH_MISSING=true" >> $GITHUB_ENV
+        fi
+        
+    - name: Verify Degradation Scenario
+      run: |
+        python -c "
+        import torch
+        import os
+        
+        print(f'PyTorch version: {torch.__version__}')
+        print(f'CUDA available: {torch.cuda.is_available()}')
+        print(f'CUDA device count: {torch.cuda.device_count() if torch.cuda.is_available() else 0}')
+        
+        # Check expected degradation
+        scenario = '${{ matrix.degradation-scenario.name }}'
+        print(f'Degradation scenario: {scenario}')
+        
+        if scenario == 'no-cuda':
+            if torch.cuda.is_available():
+                print('WARNING: Expected no CUDA but CUDA is available')
+            else:
+                print('✅ No CUDA scenario confirmed')
+                
+        elif scenario == 'legacy-pytorch':
+            version_parts = torch.__version__.split('.')
+            major, minor = int(version_parts[0]), int(version_parts[1])
+            if major >= 2:
+                print('WARNING: Expected legacy PyTorch but got >= 2.0')
+            else:
+                print('✅ Legacy PyTorch scenario confirmed')
+        "
+        
+    - name: Create Golden Shards Dataset
+      run: |
+        # Create smaller dataset for COMPAT mode (faster testing)
+        mkdir -p data/compat_shards
+        python -c "
+        import pandas as pd
+        import numpy as np
+        from pathlib import Path
+        
+        # Create 10 mock session shards for COMPAT testing
+        for i in range(10):
+            # Mock session data with 45D features
+            n_events = np.random.randint(30, 100)  # Smaller for faster testing
+            
+            data = {
+                'session_id': [f'compat_session_{i:03d}'] * n_events,
+                'event_idx': list(range(n_events)),
+                'timestamp_et': pd.date_range('2024-01-01', periods=n_events, freq='1min'),
+                'price': 4500 + np.random.randn(n_events) * 10,
+            }
+            
+            # Add 45D feature columns (f0-f44)
+            for feat_idx in range(45):
+                data[f'f{feat_idx}'] = np.random.randn(n_events)
+                
+            df = pd.DataFrame(data)
+            shard_path = Path(f'data/compat_shards/session_{i:03d}.parquet')
+            df.to_parquet(shard_path, index=False)
+            
+        print(f'Created 10 compat shards in data/compat_shards/')
+        "
+        
+    - name: Run COMPAT Mode Tests
+      run: |
+        # Run runtime system tests for COMPAT mode
+        python -m pytest tests/unit/sdk/test_runtime_config.py::TestCompatModeIntegration \
+          --timeout=300 \
+          -v \
+          --tb=short \
+          --strict-markers
+          
+    - name: Run COMPAT Mode TGAT Validation  
+      env:
+        IRONFORGE_TIMEOUT: 900  # 15 minutes for degraded performance
+        SCENARIO: ${{ matrix.degradation-scenario.name }}
+      run: |
+        # Run TGAT discovery in COMPAT mode with degradation tolerance
+        python -c "
+        import logging
+        import json
+        import os
+        import numpy as np
+        from pathlib import Path
+        from unittest.mock import patch
+        from ironforge.sdk.runtime_config import initialize_runtime_system, AccelStatus
+        from ironforge.learning.dual_graph_config import TGATConfig
+        from ironforge.learning.runtime_optimized_tgat import create_runtime_optimized_tgat
+        
+        logging.basicConfig(level=logging.INFO)
+        
+        scenario = os.getenv('SCENARIO', 'unknown')
+        print(f'Running COMPAT mode scenario: {scenario}')
+        
+        # Apply mocking if needed
+        mock_sdpa_missing = os.getenv('IRONFORGE_MOCK_SDPA_MISSING') == 'true'
+        mock_flash_missing = os.getenv('IRONFORGE_MOCK_FLASH_MISSING') == 'true'
+        
+        patches = []
+        
+        if mock_sdpa_missing:
+            import ironforge.sdk.runtime_config
+            def mock_detect_sdpa():
+                return AccelStatus.MISSING
+            patches.append(patch.object(ironforge.sdk.runtime_config.AccelerationDetector, 'detect_sdpa', mock_detect_sdpa))
+            
+        if mock_flash_missing:
+            import ironforge.sdk.runtime_config
+            def mock_detect_flash():
+                return AccelStatus.MISSING
+            patches.append(patch.object(ironforge.sdk.runtime_config.AccelerationDetector, 'detect_flash_attention', mock_detect_flash))
+        
+        # Apply all patches
+        for p in patches:
+            p.start()
+            
+        try:
+            # Initialize COMPAT mode system
+            config, accel_state, enforcer = initialize_runtime_system()
+            print(f'Runtime mode: {config.mode}')
+            print(f'Acceleration state: {accel_state}')
+            
+            # COMPAT mode should allow degradation
+            if accel_state.is_degraded():
+                reasons = accel_state.get_degradation_reasons()
+                print(f'⚠️  COMPAT mode running with degradation (expected):')
+                for reason in reasons:
+                    print(f'  - {reason}')
+            else:
+                print('✅ COMPAT mode running with optimal acceleration')
+            
+            # Create TGAT engine (should not fail in COMPAT mode)
+            base_config = TGATConfig(input_dim=45, hidden_dim=44, num_heads=4)
+            tgat_engine = create_runtime_optimized_tgat(base_config, config)
+            
+            print('✅ COMPAT mode TGAT engine created successfully')
+            
+            # Create audit entry
+            audit_entry = enforcer.create_audit_entry(accel_state)
+            enforcer.save_audit_entry(audit_entry)
+            
+            print(f'✅ Audit entry saved: degraded={audit_entry.degraded}')
+            
+        finally:
+            # Stop all patches
+            for p in patches:
+                p.stop()
+        "
+        
+    - name: Validate COMPAT Mode Audit
+      env:
+        SCENARIO: ${{ matrix.degradation-scenario.name }}
+      run: |
+        # Check audit ledger and validate COMPAT mode behavior
+        python -c "
+        import json
+        import os
+        from pathlib import Path
+        
+        scenario = os.getenv('SCENARIO')
+        audit_path = Path('audit_run_compat.json')
+        
+        if not audit_path.exists():
+            print('❌ Audit ledger not created')
+            exit(1)
+            
+        with open(audit_path) as f:
+            data = json.load(f)
+            
+        # Validate format
+        if 'format_version' not in data or 'runs' not in data:
+            print('❌ Invalid audit ledger format')
+            exit(1)
+            
+        runs = data['runs']
+        if len(runs) == 0:
+            print('❌ No audit entries found')
+            exit(1)
+            
+        # Check latest entry
+        latest_run = runs[-1]
+        
+        if latest_run['mode'] != 'compat':
+            print(f\"❌ Expected COMPAT mode, got {latest_run['mode']}\")
+            exit(1)
+            
+        print(f'✅ COMPAT mode audit validation passed for scenario: {scenario}')
+        print(f\"Mode: {latest_run['mode']}, Degraded: {latest_run['degraded']}\")
+        print(f\"SDPA: {latest_run['sdpa']}, Flash: {latest_run['flash']}\")
+        print(f\"AMP: {latest_run['amp']}, CDC: {latest_run['cdc']}\")
+        
+        # Log degradation reasons if any
+        if latest_run['degraded']:
+            print('Degradation reasons:')
+            for reason in latest_run['reasons']:
+                print(f'  - {reason}')
+        
+        # Verify reasonable performance bounds (more lenient than STRICT)
+        max_wall_time = 900.0  # 15 minutes max for degraded performance
+        max_memory_gb = 12.0   # 12GB memory max (higher than STRICT)
+        
+        if latest_run['wall_time'] > max_wall_time:
+            print(f\"❌ Wall time {latest_run['wall_time']}s exceeds COMPAT limit {max_wall_time}s\")
+            exit(1)
+            
+        if latest_run['peak_mem'] > max_memory_gb:
+            print(f\"❌ Peak memory {latest_run['peak_mem']}GB exceeds COMPAT limit {max_memory_gb}GB\")
+            exit(1)
+            
+        print(f'✅ COMPAT mode performance within bounds')
+        print(f\"Wall time: {latest_run['wall_time']:.2f}s, Peak memory: {latest_run['peak_mem']:.2f}GB\")
+        "
+        
+    - name: Upload COMPAT Mode Artifacts
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: compat-mode-audit-${{ matrix.python-version }}-${{ matrix.degradation-scenario.name }}
+        path: |
+          audit_run_compat.json
+          *.log
+        retention-days: 30
+
+  compat-mode-comparison:
+    name: COMPAT vs STRICT Performance Comparison
+    needs: compat-mode-validation
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: Download All Artifacts
+      uses: actions/download-artifact@v3
+      
+    - name: Compare Performance Results
+      run: |
+        python3 -c "
+        import json
+        import glob
+        from pathlib import Path
+        
+        print('=== COMPAT vs STRICT Performance Comparison ===')
+        
+        # Find all audit files
+        audit_files = glob.glob('**/audit_run_*.json', recursive=True)
+        
+        compat_results = []
+        strict_results = []
+        
+        for audit_file in audit_files:
+            try:
+                with open(audit_file) as f:
+                    data = json.load(f)
+                    
+                if 'runs' in data and len(data['runs']) > 0:
+                    latest_run = data['runs'][-1]
+                    
+                    if latest_run['mode'] == 'compat':
+                        compat_results.append(latest_run)
+                    elif latest_run['mode'] == 'strict':
+                        strict_results.append(latest_run)
+                        
+            except Exception as e:
+                print(f'Warning: Could not parse {audit_file}: {e}')
+        
+        print(f'Found {len(compat_results)} COMPAT results, {len(strict_results)} STRICT results')
+        
+        if compat_results:
+            print('\n--- COMPAT Mode Results ---')
+            for i, result in enumerate(compat_results):
+                print(f'{i+1}. Degraded: {result[\"degraded\"]}, '
+                      f'Wall time: {result[\"wall_time\"]:.2f}s, '
+                      f'Memory: {result[\"peak_mem\"]:.2f}GB')
+                if result['degraded']:
+                    print(f'   Reasons: {result[\"reasons\"]}')
+        
+        if strict_results:
+            print('\n--- STRICT Mode Results ---')
+            for i, result in enumerate(strict_results):
+                print(f'{i+1}. Degraded: {result[\"degraded\"]}, '
+                      f'Wall time: {result[\"wall_time\"]:.2f}s, '
+                      f'Memory: {result[\"peak_mem\"]:.2f}GB')
+        
+        # Calculate averages if we have both
+        if compat_results and strict_results:
+            compat_avg_time = sum(r['wall_time'] for r in compat_results) / len(compat_results)
+            strict_avg_time = sum(r['wall_time'] for r in strict_results) / len(strict_results)
+            
+            print(f'\n--- Performance Summary ---')
+            print(f'COMPAT average wall time: {compat_avg_time:.2f}s')
+            print(f'STRICT average wall time: {strict_avg_time:.2f}s')
+            
+            if compat_avg_time > strict_avg_time:
+                slowdown = (compat_avg_time / strict_avg_time - 1) * 100
+                print(f'COMPAT mode is {slowdown:.1f}% slower than STRICT (expected)')
+            else:
+                print('COMPAT mode is not slower than STRICT (unexpected)')
+        "
+
+  compat-mode-summary:
+    name: COMPAT Mode Summary  
+    needs: [compat-mode-validation, compat-mode-comparison]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: Summary
+      run: |
+        if [ "${{ needs.compat-mode-validation.result }}" = "success" ]; then
+          echo "✅ All COMPAT mode validations passed"
+          echo "Degraded performance scenarios handled gracefully"
+        else
+          echo "❌ Some COMPAT mode validations failed"
+          echo "Check individual job logs for issues"
+          exit 1
+        fi

@@ -6,7 +6,7 @@ Temporal Graph Attention Network for market pattern archaeology
 import json
 import logging
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional, Callable
 
 import networkx as nx
 import numpy as np
@@ -16,6 +16,113 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 logger = logging.getLogger(__name__)
+
+# Import SDPA - fail fast if not available (no fallbacks allowed)
+import math
+from torch.nn.functional import scaled_dot_product_attention as sdpa
+_HAS_SDPA = True
+
+
+def graph_attention(q, k, v, *, edge_mask_bool=None, time_bias=None,
+                    dropout_p=0.0, is_causal=False, impl="sdpa", training=True):
+    """
+    Unified graph attention with masking and temporal bias support
+    
+    Args:
+        q,k,v: [B,H,L,D] query, key, value tensors
+        edge_mask_bool: [B,1,L,S] boolean mask where True = block attention
+        time_bias: [B,1,L,S] additive bias to attention logits (0 where none)
+        dropout_p: Dropout probability for attention weights
+        is_causal: Apply causal masking
+        impl: "sdpa" | "manual" - attention implementation
+        training: Whether model is in training mode
+        
+    Returns:
+        (out, attn_probs): Attention output and probabilities (None for SDPA)
+    """
+    B, H, L, D = q.shape
+    S = k.shape[-2]
+
+    # Build float mask for SDPA: 0 for allowed, -1e9 for blocked
+    attn_mask_float = None
+    if edge_mask_bool is not None:
+        attn_mask_float = edge_mask_bool.to(q.dtype) * (-1e9)
+
+    if time_bias is not None:
+        if attn_mask_float is None:
+            attn_mask_float = torch.zeros(B, 1, L, S, dtype=q.dtype, device=q.device)
+        attn_mask_float = attn_mask_float + time_bias
+
+    if impl == "sdpa":
+        out = sdpa(q, k, v,
+                   attn_mask=attn_mask_float,  # float mask works on PyTorch ≥2.0
+                   dropout_p=dropout_p if training else 0.0,
+                   is_causal=is_causal)
+        # Optional: recover attention for logging via manual softmax on a small probe batch if needed
+        return out, None
+
+    # Manual implementation for debugging/validation
+    scores = torch.matmul(q, k.transpose(-2, -1)) / math.sqrt(D)   # [B,H,L,S]
+    if time_bias is not None:
+        scores = scores + time_bias
+    if edge_mask_bool is not None:
+        scores = scores.masked_fill(edge_mask_bool, -1e9)
+    if is_causal:
+        causal = torch.ones(L, S, dtype=torch.bool, device=q.device).triu(1)
+        scores = scores.masked_fill(causal, -1e9)
+    attn = F.softmax(scores, dim=-1)
+    if training and dropout_p > 0:
+        attn = F.dropout(attn, p=dropout_p)
+    out = torch.matmul(attn, v)
+    return out, attn
+
+
+def build_edge_mask(edge_index, L, *, device, batch_ptr=None, allow_self=False):
+    """
+    Build edge mask from graph connectivity
+    
+    Args:
+        edge_index: [2,E] directed edge indices (u->v)
+        L: Number of nodes in graph
+        device: Target device for mask
+        batch_ptr: Optional list of (start,end) per session for block-diagonal masks
+        allow_self: Allow self-attention connections
+        
+    Returns:
+        mask: [B,1,L,L] boolean mask where True blocks attention
+    """
+    mask = torch.ones(1, 1, L, L, dtype=torch.bool, device=device)  # start fully blocked
+    u, v = edge_index
+    mask[0, 0, u, v] = False  # Allow attention along edges
+    if allow_self:
+        idx = torch.arange(L, device=device)
+        mask[0, 0, idx, idx] = False  # Allow self-attention
+    return mask
+
+
+def build_time_bias(dt_minutes, L, *, device, scale=0.1, buckets=None):
+    """
+    Build temporal bias from time differences
+    
+    Args:
+        dt_minutes: Dense [L,L] matrix of time differences (fill 0 where no edge)
+        L: Number of nodes
+        device: Target device for bias
+        scale: Scale parameter for smooth bias
+        buckets: List of (lo, hi, weight) tuples for bucketed bias
+        
+    Returns:
+        tb: [1,1,L,L] float bias tensor
+    """
+    tb = torch.zeros(1, 1, L, L, dtype=torch.float32, device=device)
+    if buckets:
+        for lo, hi, w in buckets:
+            m = (dt_minutes >= lo) & (dt_minutes <= hi)
+            tb[0, 0][m] += w
+    else:
+        # smooth preference for nearer neighbors
+        tb = -(torch.as_tensor(dt_minutes, device=device, dtype=torch.float32) / (scale + 1e-6)).sqrt().unsqueeze(0).unsqueeze(0)
+    return tb
 
 
 class TemporalAttentionLayer(nn.Module):
@@ -106,26 +213,217 @@ class TemporalAttentionLayer(nn.Module):
             return output, None
 
 
+class EnhancedTemporalAttentionLayer(nn.Module):
+    """
+    Enhanced Temporal Attention with Masked Attention and Temporal Bias
+    Optional TGAT patch for dual graph views with DAG constraints
+    """
+
+    def __init__(self, input_dim=45, hidden_dim=44, num_heads=4, cfg=None):
+        super().__init__()
+        self.input_dim = input_dim
+        self.hidden_dim = hidden_dim
+        self.num_heads = num_heads
+        self.head_dim = hidden_dim // num_heads
+        
+        # Use default config if none provided
+        if cfg is None:
+            from ironforge.learning.dual_graph_config import TGATConfig
+            cfg = TGATConfig()
+        
+        self.cfg = cfg
+
+        # Project 45D/53D (M1-enhanced) to 44D for multi-head processing
+        self.input_projection = nn.Linear(input_dim, hidden_dim)
+
+        # Multi-head attention components
+        self.query = nn.Linear(hidden_dim, hidden_dim)
+        self.key = nn.Linear(hidden_dim, hidden_dim)
+        self.value = nn.Linear(hidden_dim, hidden_dim)
+
+        # Enhanced temporal encoding with learnable parameters
+        self.temporal_encoding = nn.Sequential(
+            nn.Linear(1, hidden_dim // 4),
+            nn.ReLU(),
+            nn.Linear(hidden_dim // 4, hidden_dim)
+        )
+        
+        # Temporal bias network for enhanced temporal relationships
+        self.temporal_bias_network = nn.Sequential(
+            nn.Linear(2, hidden_dim // 2),  # 2D input: [dt_minutes, temporal_distance]
+            nn.ReLU(),
+            nn.Linear(hidden_dim // 2, num_heads),
+            nn.Tanh()  # Bounded bias values
+        )
+
+        # Output projection
+        self.output_projection = nn.Linear(hidden_dim, hidden_dim)
+
+        # Optional: Positional encoding for DAG structure
+        self.dag_positional_encoding = nn.Parameter(torch.randn(1, 1000, hidden_dim) * 0.02)  # Max 1000 nodes
+        
+        logger.info(f"Enhanced Temporal Attention: {input_dim}D -> {hidden_dim}D, {num_heads} heads, impl={cfg.attention_impl}, edge_mask={cfg.use_edge_mask}, time_bias={cfg.use_time_bias}")
+
+
+    def forward(self, node_features: torch.Tensor, edge_features: torch.Tensor = None, 
+                temporal_data: torch.Tensor = None, dag: nx.DiGraph = None, 
+                return_attn: bool = False) -> tuple[torch.Tensor, torch.Tensor | None]:
+        """
+        Enhanced forward pass with masked attention and temporal bias
+        
+        Args:
+            node_features: [N, input_dim] node feature tensor (45D or 53D for M1-enhanced)
+            edge_features: [E, 20] edge feature tensor (optional)
+            temporal_data: [N, N, 2] temporal relationship data [dt_minutes, temporal_distance]
+            dag: NetworkX DiGraph for causal masking (optional)
+            return_attn: bool, whether to return attention weights
+            
+        Returns:
+            attended_features: [N, 44] attended node features
+            attention_weights: [N, N] attention weights (if requested)
+        """
+        batch_size, seq_len = 1, node_features.size(0)  # Single graph processing
+        device = node_features.device
+
+        # Project input features
+        projected_features = self.input_projection(node_features)  # [N, 44]
+        
+        # Add DAG positional encoding if available
+        if seq_len <= self.dag_positional_encoding.size(1):
+            projected_features = projected_features + self.dag_positional_encoding[0, :seq_len, :]
+
+        # Generate Q, K, V
+        Q = self.query(projected_features).view(1, seq_len, self.num_heads, self.head_dim)  # [1, N, 4, 11]
+        K = self.key(projected_features).view(1, seq_len, self.num_heads, self.head_dim)    # [1, N, 4, 11]
+        V = self.value(projected_features).view(1, seq_len, self.num_heads, self.head_dim)  # [1, N, 4, 11]
+
+        # Create edge mask and temporal bias using new unified system
+        edge_mask = None
+        time_bias = None
+        
+        if self.cfg.use_edge_mask and dag is not None:
+            # Convert DAG to edge_index format for mask building
+            edges = list(dag.edges())
+            if edges:
+                edge_index = torch.tensor(edges, device=device).t()  # [2, E]
+                edge_mask = build_edge_mask(edge_index, seq_len, device=device, allow_self=True)
+        
+        if self.cfg.use_time_bias != "none" and temporal_data is not None:
+            # Use temporal data to build time bias
+            dt_minutes = temporal_data[:, :, 0]  # Extract dt_minutes from [N, N, 2]
+            
+            if self.cfg.use_time_bias == "bucket":
+                # Define buckets for different time ranges with different bias weights
+                buckets = [
+                    (0, 5, 0.2),      # 0-5 minutes: strong positive bias
+                    (5, 15, 0.1),     # 5-15 minutes: moderate positive bias  
+                    (15, 60, 0.0),    # 15-60 minutes: neutral
+                    (60, 240, -0.1),  # 1-4 hours: slight negative bias
+                ]
+                time_bias = build_time_bias(dt_minutes, seq_len, device=device, buckets=buckets)
+            elif self.cfg.use_time_bias == "rbf":
+                time_bias = build_time_bias(dt_minutes, seq_len, device=device, scale=0.1)
+        
+        # Reshape for attention: [1, N, H, D] -> [1, H, N, D] 
+        Q_t = Q.transpose(1, 2)  # [1, 4, N, 11]
+        K_t = K.transpose(1, 2)  # [1, 4, N, 11]
+        V_t = V.transpose(1, 2)  # [1, 4, N, 11]
+        
+        # Apply unified graph attention
+        attended, attention_weights = graph_attention(
+            Q_t, K_t, V_t,
+            edge_mask_bool=edge_mask,
+            time_bias=time_bias,
+            dropout_p=0.1,
+            is_causal=self.cfg.is_causal,
+            impl=self.cfg.attention_impl,
+            training=self.training
+        )
+        
+        # Reshape back: [1, H, N, D] -> [1, N, H, D]
+        attended = attended.transpose(1, 2)  # [1, N, 4, 11]
+
+        # Concatenate heads and project output
+        attended = attended.contiguous().view(seq_len, -1)  # [N, 44]
+        output = self.output_projection(attended)  # [N, 44]
+
+        # Return attention weights if requested (average across heads)
+        if return_attn and attention_weights is not None:
+            avg_attention = attention_weights.mean(dim=1).squeeze(0)  # [N, N]
+            return output, avg_attention
+        else:
+            return output, None
+
+
+def create_attention_layer(
+    input_dim: int = 45, 
+    hidden_dim: int = 44, 
+    num_heads: int = 4, 
+    enhanced: bool = False,
+    cfg=None
+) -> nn.Module:
+    """
+    Factory function to create appropriate attention layer
+    
+    Args:
+        input_dim: Input feature dimension (45D standard, 53D for M1-enhanced)
+        hidden_dim: Hidden dimension for attention processing
+        num_heads: Number of attention heads
+        enhanced: Use enhanced TGAT with masked attention and temporal bias
+        cfg: TGATConfig instance with attention settings
+        
+    Returns:
+        Appropriate attention layer instance
+    """
+    if enhanced:
+        logger.info("Creating Enhanced Temporal Attention Layer with DAG masking and temporal bias")
+        return EnhancedTemporalAttentionLayer(
+            input_dim=input_dim, 
+            hidden_dim=hidden_dim, 
+            num_heads=num_heads,
+            cfg=cfg
+        )
+    else:
+        logger.info("Creating Standard Temporal Attention Layer") 
+        return TemporalAttentionLayer(
+            input_dim=input_dim,
+            hidden_dim=hidden_dim,
+            num_heads=num_heads
+        )
+
+
 class IRONFORGEDiscovery(nn.Module):
     """
     IRONFORGE Discovery Engine using TGAT
     Archaeological pattern discovery through temporal graph attention
     """
 
-    def __init__(self, node_dim=45, edge_dim=20, hidden_dim=44, num_layers=2):
+    def __init__(self, node_dim=45, edge_dim=20, hidden_dim=44, num_layers=2, 
+                 enhanced_tgat=False, cfg=None):
         super().__init__()
         self.node_dim = node_dim
         self.edge_dim = edge_dim
         self.hidden_dim = hidden_dim
         self.num_layers = num_layers
+        self.enhanced_tgat = enhanced_tgat
 
-        # Temporal attention layers
-        self.attention_layers = nn.ModuleList(
-            [
-                TemporalAttentionLayer(node_dim if i == 0 else hidden_dim, hidden_dim)
-                for i in range(num_layers)
-            ]
-        )
+        # Use default config if none provided
+        if cfg is None:
+            from ironforge.learning.dual_graph_config import TGATConfig
+            cfg = TGATConfig()
+        self.cfg = cfg
+
+        # Temporal attention layers with optional enhancement
+        self.attention_layers = nn.ModuleList([
+            create_attention_layer(
+                input_dim=node_dim if i == 0 else hidden_dim,
+                hidden_dim=hidden_dim,
+                enhanced=enhanced_tgat,
+                cfg=cfg
+            ) for i in range(num_layers)
+        ])
+        
+        logger.info(f"IRONFORGE Discovery: {num_layers} layers, enhanced_tgat={enhanced_tgat}")
 
         # Edge processing network
         self.edge_processor = nn.Sequential(
@@ -246,12 +544,13 @@ class IRONFORGEDiscovery(nn.Module):
             logger.error(f"Failed to load calibrated Oracle weights: {e}")
             return False
 
-    def forward(self, graph: nx.Graph, return_attn: bool = False) -> dict[str, torch.Tensor]:
+    def forward(self, graph: nx.Graph, dag: nx.DiGraph = None, return_attn: bool = False) -> dict[str, torch.Tensor]:
         """
         Discover archaeological patterns in session graph
 
         Args:
             graph: NetworkX graph with rich features
+            dag: Optional DAG for enhanced TGAT masking (used when enhanced_tgat=True)
             return_attn: bool, whether to return attention weights (for oracle predictions)
 
         Returns:
@@ -293,10 +592,31 @@ class IRONFORGEDiscovery(nn.Module):
             current_features = node_features
             attention_weights = None
 
+            # Create temporal data for enhanced layers if needed
+            temporal_data = None
+            if self.enhanced_tgat and edges:
+                # Create [N, N, 2] temporal data matrix for enhanced layers
+                n_nodes = len(nodes)
+                temporal_data = torch.zeros((n_nodes, n_nodes, 2))
+                
+                for i, node_i in enumerate(nodes):
+                    for j, node_j in enumerate(nodes):
+                        if (node_i, node_j) in graph.edges:
+                            edge_data = graph.edges[node_i, node_j]
+                            temporal_data[i, j, 0] = edge_data.get('dt_minutes', 0)
+                            temporal_data[i, j, 1] = edge_data.get('temporal_distance', 0)
+
             for i, layer in enumerate(self.attention_layers):
-                current_features, attention_weights = layer(
-                    current_features, edge_features, temporal_distances, return_attn
-                )
+                if self.enhanced_tgat and hasattr(layer, 'create_dag_mask'):
+                    # Enhanced layer with DAG masking and temporal bias
+                    current_features, attention_weights = layer(
+                        current_features, edge_features, temporal_data, dag, return_attn
+                    )
+                else:
+                    # Standard layer (backwards compatibility)
+                    current_features, attention_weights = layer(
+                        current_features, edge_features, temporal_distances, return_attn
+                    )
                 logger.debug(f"Layer {i+1} output shape: {current_features.shape}")
 
             # Discover patterns

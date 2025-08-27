@@ -1,0 +1,123 @@
+{
+  "agent_role": "Event Orchestrator Agent",
+  "integration_summary": {
+    "sequence_agent_sequences": 3,
+    "classification_agent_events": 0,
+    "integration_timestamp": "2025-08-25T16:30:20.790578",
+    "cross_validation_score": 0.4
+  },
+  "cross_agent_validation": {
+    "limited_data_validation": {
+      "sequence_agent_confidence": 0.5,
+      "classification_agent_confidence": 0.3,
+      "cross_validation_score": 0.4,
+      "agreement_level": "limited",
+      "conflicting_signals": [
+        "insufficient_data"
+      ],
+      "integrated_confidence": 0.4
+    }
+  },
+  "integrated_sequences": [
+    {
+      "touch_info": {
+        "timestamp": "2025-07-25 14:35:00",
+        "price": 23162.25,
+        "archaeological_level": 23160.0
+      },
+      "sequence_metrics": {
+        "total_duration_minutes": 22,
+        "liquidity_events_count": 28,
+        "fvg_events_count": 36,
+        "displacement_events_count": 35,
+        "sequence_success_score": 1.1414141414141414
+      },
+      "classified_events": [],
+      "classification_summary": {
+        "total_events": 0
+      },
+      "integration_quality": {
+        "coverage_ratio": 0.0,
+        "confidence_alignment": 0.35858585858585856,
+        "integration_score": 0.17929292929292928,
+        "data_completeness": "low"
+      }
+    }
+  ],
+  "cascade_recipes": [
+    {
+      "recipe_name": "fvg_dominant_exploratory",
+      "trigger_condition": "40% archaeological zone interaction",
+      "event_sequence": [
+        {
+          "position": 1,
+          "event_type": "archaeological_touch",
+          "timing_minutes": 0,
+          "probability": 1.0
+        },
+        {
+          "position": 2,
+          "event_type": "liquidity",
+          "timing_minutes": 0.8,
+          "probability": 1.0
+        },
+        {
+          "position": 3,
+          "event_type": "fvg",
+          "timing_minutes": 0.6,
+          "probability": 1.0
+        },
+        {
+          "position": 4,
+          "event_type": "displacement",
+          "timing_minutes": 0.6,
+          "probability": 1.0
+        }
+      ],
+      "overall_probability": 1.0,
+      "timing_distribution": {
+        "cascade_duration": {
+          "mean": 22.0,
+          "std": 0.0,
+          "min": 22,
+          "max": 22,
+          "percentile_25": 22.0,
+          "percentile_75": 22.0
+        }
+      },
+      "confidence_interval": [
+        1.1414141414141414,
+        1.1414141414141414
+      ],
+      "success_criteria": {
+        "minimum_duration_minutes": 5,
+        "minimum_events_count": 2,
+        "high_success_threshold": 1.1414141414141414,
+        "key_indicators": [
+          "rapid_initial_displacement",
+          "sustained_directional_bias",
+          "multiple_event_types_present"
+        ]
+      },
+      "risk_factors": [
+        "inconsistent_agent_validation",
+        "insufficient_data"
+      ]
+    }
+  ],
+  "orchestration_methodology": {
+    "integration_approach": "cross_agent_validation_with_confidence_weighting",
+    "recipe_synthesis": "pattern_grouping_with_statistical_validation",
+    "thresholds": {
+      "minimum_agreement": 0.7,
+      "high_confidence": 0.85,
+      "recipe_probability": 0.6
+    },
+    "quality_metrics": [
+      "cross_validation_score",
+      "confidence_alignment",
+      "coverage_ratio",
+      "integration_score"
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "agent_role": "Event Orchestrator Agent",
+  "integration_summary": {
+    "sequence_agent_sequences": 5,
+    "classification_agent_events": 12,
+    "integration_timestamp": "2025-08-25T16:24:22.512286",
+    "cross_validation_score": 0.75
+  },
+  "cross_agent_validation": {
+    "SESSION_HIGH_SWEEP": {
+      "sequence_agent_confidence": 0.5,
+      "classification_agent_confidence": 0.75,
+      "cross_validation_score": 0.75,
+      "agreement_level": "moderate",
+      "conflicting_signals": [],
+      "integrated_confidence": 0.625
+    }
+  },
+  "integrated_sequences": [
+    {
+      "touch_info": {
+        "timestamp": null,
+        "price": null,
+        "archaeological_level": null
+      },
+      "sequence_metrics": {
+        "total_duration_minutes": 15,
+        "liquidity_events_count": null,
+        "fvg_events_count": null,
+        "displacement_events_count": null,
+        "sequence_success_score": 0.8
+      },
+      "classified_events": [
+        {
+          "primary_classification": "SESSION_HIGH_SWEEP"
+        }
+      ],
+      "classification_summary": {},
+      "integration_quality": {
+        "coverage_ratio": 0.0,
+        "confidence_alignment": 0.7,
+        "integration_score": 0.35,
+        "data_completeness": "low"
+      }
+    }
+  ],
+  "cascade_recipes": [],
+  "orchestration_methodology": {
+    "integration_approach": "cross_agent_validation_with_confidence_weighting",
+    "recipe_synthesis": "pattern_grouping_with_statistical_validation",
+    "thresholds": {
+      "minimum_agreement": 0.7,
+      "high_confidence": 0.85,
+      "recipe_probability": 0.6
+    },
+    "quality_metrics": [
+      "cross_validation_score",
+      "confidence_alignment",
+      "coverage_ratio",
+      "integration_score"
+    ]
+  }
+}
