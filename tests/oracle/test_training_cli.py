@@ -10,6 +10,7 @@ import shutil
 import tempfile
 from pathlib import Path
 from unittest import TestCase
+
 import pandas as pd
 
 from ironforge.sdk.cli import cmd_train_oracle
@@ -193,9 +194,10 @@ class TestOracleTrainingCLI(TestCase):
     
     def test_oracle_cli_argument_parsing(self):
         """Test Oracle CLI argument validation"""
-        from ironforge.sdk.cli import main
         import sys
         from io import StringIO
+
+        from ironforge.sdk.cli import main
         
         # Test with valid arguments
         valid_args = [
@@ -217,12 +219,12 @@ class TestOracleTrainingCLI(TestCase):
             
             # This should parse arguments without error
             # (but may fail later due to missing data)
-            result = main(valid_args)
+            main(valid_args)
             
-        except SystemExit as e:
+        except SystemExit:
             # ArgumentParser raises SystemExit on help/error
             pass
-        except Exception as e:
+        except Exception:
             # Expected for missing data in test environment
             pass
         finally:

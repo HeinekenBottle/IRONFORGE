@@ -22,9 +22,9 @@ Usage:
 
 # Import main classes for public API
 from .enhanced_temporal_query_engine import EnhancedTemporalQueryEngine
-from .session_manager import SessionDataManager
 from .price_relativity import PriceRelativityEngine
 from .query_core import TemporalQueryCore
+from .session_manager import SessionDataManager
 from .visualization import VisualizationManager
 
 # Maintain backward compatibility - the main class should be importable as before

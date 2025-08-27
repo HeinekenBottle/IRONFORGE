@@ -3,14 +3,16 @@
 IRONFORGE Temporal Query Core
 Core temporal querying logic and pattern matching for archaeological discovery
 """
-import pandas as pd
-import numpy as np
-from typing import Dict, List, Any, Optional, Tuple
-from datetime import datetime, timedelta
 import re
+from typing import Any
 
-from .session_manager import SessionDataManager
+import numpy as np
+import pandas as pd
+
 from .price_relativity import PriceRelativityEngine
+from .session_manager import SessionDataManager
+
+
 class TemporalQueryCore:
     """Core temporal analysis and pattern matching engine"""
     
@@ -19,7 +21,7 @@ class TemporalQueryCore:
         self.price_engine = price_engine
         # ML prediction and liquidity analysis handled internally
         
-    def ask(self, question: str) -> Dict[str, Any]:
+    def ask(self, question: str) -> dict[str, Any]:
         """Ask a temporal question and get probabilistic answers with price relativity"""
         print(f"\n🤔 Query: {question}")
         
@@ -63,7 +65,7 @@ class TemporalQueryCore:
         else:
             return self._general_temporal_analysis(question)
             
-    def _analyze_temporal_sequence(self, question: str) -> Dict[str, Any]:
+    def _analyze_temporal_sequence(self, question: str) -> dict[str, Any]:
         """Analyze what happens after specific events with price relativity"""
         results = {
             "query_type": "temporal_sequence_with_relativity",
@@ -114,7 +116,7 @@ class TemporalQueryCore:
         
         return results
         
-    def _analyze_opening_patterns(self, question: str) -> Dict[str, Any]:
+    def _analyze_opening_patterns(self, question: str) -> dict[str, Any]:
         """Analyze session opening patterns with price relativity"""
         results = {
             "query_type": "opening_patterns_with_relativity",
@@ -148,8 +150,8 @@ class TemporalQueryCore:
         return results
         
     def _get_enhanced_event_context(self, event: pd.Series, session_type: str, 
-                                  session_stats: Dict[str, float], nodes: pd.DataFrame, 
-                                  event_idx: int) -> Dict[str, Any]:
+                                  session_stats: dict[str, float], nodes: pd.DataFrame, 
+                                  event_idx: int) -> dict[str, Any]:
         """Get complete event context with temporal and price relativity"""
         context = {
             "session_type": session_type,
@@ -188,8 +190,8 @@ class TemporalQueryCore:
                 
         return context
         
-    def _check_pattern_match(self, event_context: Dict[str, Any], pattern_key: str,
-                           nodes: pd.DataFrame, event_idx: int, time_window: int) -> Dict[str, Any]:
+    def _check_pattern_match(self, event_context: dict[str, Any], pattern_key: str,
+                           nodes: pd.DataFrame, event_idx: int, time_window: int) -> dict[str, Any]:
         """Check if event matches specified pattern with enhanced criteria"""
         match_result = {
             "matches": False,
@@ -219,7 +221,7 @@ class TemporalQueryCore:
         return match_result
         
     def _analyze_subsequent_events(self, nodes: pd.DataFrame, start_idx: int, 
-                                 time_window: int, session_stats: Dict[str, float]) -> Dict[str, Any]:
+                                 time_window: int, session_stats: dict[str, float]) -> dict[str, Any]:
         """Analyze events that occur after the matched pattern"""
         subsequent_analysis = {
             "event_count": 0,
@@ -290,7 +292,7 @@ class TemporalQueryCore:
 
         return "general_pattern"
 
-    def _extract_opening_criteria(self, question: str) -> Dict[str, Any]:
+    def _extract_opening_criteria(self, question: str) -> dict[str, Any]:
         """Extract opening criteria from question"""
         criteria = {
             "pattern_type": "any",
@@ -323,7 +325,7 @@ class TemporalQueryCore:
         else:
             return 'UNKNOWN'
 
-    def _parse_pattern_criteria(self, pattern_key: str) -> List[Dict[str, Any]]:
+    def _parse_pattern_criteria(self, pattern_key: str) -> list[dict[str, Any]]:
         """Parse pattern criteria based on pattern key"""
         criteria_map = {
             "liquidity_sweep": [
@@ -350,7 +352,7 @@ class TemporalQueryCore:
 
         return criteria_map.get(pattern_key, [])
 
-    def _evaluate_criterion(self, event_context: Dict[str, Any], criterion: Dict[str, Any],
+    def _evaluate_criterion(self, event_context: dict[str, Any], criterion: dict[str, Any],
                           nodes: pd.DataFrame, event_idx: int) -> bool:
         """Evaluate a single pattern criterion"""
         criterion_type = criterion["type"]
@@ -382,7 +384,7 @@ class TemporalQueryCore:
 
         return False
 
-    def _calculate_sequence_probabilities(self, matches: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def _calculate_sequence_probabilities(self, matches: list[dict[str, Any]]) -> dict[str, Any]:
         """Calculate probabilities from sequence matches"""
         if not matches:
             return {}
@@ -417,7 +419,7 @@ class TemporalQueryCore:
 
         return probabilities
 
-    def _generate_sequence_insights(self, results: Dict[str, Any]) -> List[str]:
+    def _generate_sequence_insights(self, results: dict[str, Any]) -> list[str]:
         """Generate insights from sequence analysis"""
         insights = []
 
@@ -453,8 +455,8 @@ class TemporalQueryCore:
 
         return insights
 
-    def _analyze_session_opening(self, nodes_df: pd.DataFrame, session_stats: Dict[str, float],
-                               session_type: str, criteria: Dict[str, Any]) -> Dict[str, Any]:
+    def _analyze_session_opening(self, nodes_df: pd.DataFrame, session_stats: dict[str, float],
+                               session_type: str, criteria: dict[str, Any]) -> dict[str, Any]:
         """Analyze session opening pattern"""
         opening_analysis = {
             "session_type": session_type,
@@ -498,14 +500,14 @@ class TemporalQueryCore:
 
         return opening_analysis
 
-    def _calculate_opening_distribution(self, opening_analysis: Dict[str, Any]) -> Dict[str, Any]:
+    def _calculate_opening_distribution(self, opening_analysis: dict[str, Any]) -> dict[str, Any]:
         """Calculate opening pattern distribution"""
         distribution = {}
 
         pattern_counts = {}
         session_type_counts = {}
 
-        for session_id, analysis in opening_analysis.items():
+        for _session_id, analysis in opening_analysis.items():
             pattern_type = analysis.get("pattern_type", "unknown")
             session_type = analysis.get("session_type", "UNKNOWN")
 
@@ -525,7 +527,7 @@ class TemporalQueryCore:
 
         return distribution
 
-    def _generate_opening_insights(self, results: Dict[str, Any]) -> List[str]:
+    def _generate_opening_insights(self, results: dict[str, Any]) -> list[str]:
         """Generate insights from opening pattern analysis"""
         insights = []
 

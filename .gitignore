@@ -55,4 +55,4 @@ dist/*.whl
 # Test and temporary directories
 test_oracle_weights/
 test_runs/
-models/oracle/test*/
+models/oracle/test*/.venv/

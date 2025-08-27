@@ -1,12 +1,12 @@
 from __future__ import annotations
 
-from pathlib import Path
-import json
-import re
 import glob
+import json
 import platform
+import re
 import sys
 from datetime import datetime, timezone
+from pathlib import Path
 
 
 def _feat_dim(pq_path: str) -> int | None:
