@@ -1,0 +1,79 @@
+{
+  "audit_metadata": {
+    "timestamp": "20250826_165038",
+    "branch": "feat/c7-audit",
+    "runtime": "STRICT",
+    "context7_guided": true,
+    "duration_sec": 2.095072031021118,
+    "completed_at": "2025-08-26T16:50:40.613241"
+  },
+  "gate_results": {
+    "performance": {
+      "passed": true,
+      "ratio": 19.09979935052183,
+      "threshold": 1.4
+    },
+    "ram": {
+      "passed": true,
+      "usage": 0.015729427337646484,
+      "threshold": 0.7
+    },
+    "parity": {
+      "passed": true,
+      "max_difference": 2.964337452360229e-06,
+      "threshold": 0.0001
+    },
+    "lift": {
+      "passed": true,
+      "max_delta": 0.025784063373010403,
+      "threshold": 0.05
+    },
+    "overall": {
+      "passed": true,
+      "gates_checked": 4,
+      "gates_passed": 4
+    }
+  },
+  "performance_metrics": {},
+  "validation_results": {},
+  "golden_validation": {
+    "sessions_processed": 20,
+    "validation_passed": true,
+    "performance_metrics": {
+      "total_duration_sec": 2.0942628383636475,
+      "avg_session_duration": 0.10471314191818237,
+      "sessions_per_second": 9.549899675260916,
+      "peak_ram_gb": 0.25167083740234375,
+      "peak_ram_percent": 1.5729427337646484
+    },
+    "errors": []
+  },
+  "canary_validation": {
+    "sessions_processed": 50,
+    "validation_passed": true,
+    "performance_metrics": {
+      "total_duration_sec": 0.0003070831298828125,
+      "avg_session_duration": 6.14166259765625e-06,
+      "sessions_per_second": 162822.3602484472
+    },
+    "parity_metrics": {
+      "max_parity_difference": 2.964337452360229e-06,
+      "mean_parity_difference": 7.045109833085405e-07,
+      "max_lift_delta": 0.025784063373010403,
+      "mean_lift_delta": 0.008709389230103557,
+      "top_10_lift_deltas": [
+        0.025784063373010403,
+        0.021405677597801806,
+        0.019771042613095112,
+        0.018538272885364648,
+        0.0158648683682883,
+        0.01537089980905122,
+        0.014251292331763843,
+        0.014086899481689858,
+        0.012651254485847451,
+        0.012388638597867497
+      ]
+    },
+    "errors": []
+  }
+}

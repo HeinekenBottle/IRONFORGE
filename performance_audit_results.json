@@ -1,0 +1,128 @@
+{
+  "tgat_optimizations": {
+    "128": {
+      "baseline": "PerformanceMetrics(wall_time=0.00046508790110237895, peak_memory_mb=0.00074005126953125, gpu_memory_mb=0.0, flops=None)",
+      "amp_enabled": "PerformanceMetrics(wall_time=0.0013004495995119214, peak_memory_mb=0.0016183853149414062, gpu_memory_mb=0.0, flops=None)",
+      "flash_attention": "PerformanceMetrics(wall_time=0.0002429091022349894, peak_memory_mb=0.000396728515625, gpu_memory_mb=0.0, flops=None)",
+      "block_sparse_mask": "PerformanceMetrics(wall_time=0.00021876940154470504, peak_memory_mb=0.00060272216796875, gpu_memory_mb=0.0, flops=None)",
+      "time_bias_cached": "PerformanceMetrics(wall_time=0.0002860959037207067, peak_memory_mb=0.000518798828125, gpu_memory_mb=0.0, flops=None)",
+      "fp16_precision": "PerformanceMetrics(wall_time=0.003581236500758678, peak_memory_mb=0.000396728515625, gpu_memory_mb=0.0, flops=None)"
+    },
+    "256": {
+      "baseline": "PerformanceMetrics(wall_time=0.0037238802993670105, peak_memory_mb=0.000396728515625, gpu_memory_mb=0.0, flops=None)",
+      "amp_enabled": "PerformanceMetrics(wall_time=0.01004622810287401, peak_memory_mb=0.02945423126220703, gpu_memory_mb=0.0, flops=None)",
+      "flash_attention": "PerformanceMetrics(wall_time=0.0021133892005309463, peak_memory_mb=0.000396728515625, gpu_memory_mb=0.0, flops=None)",
+      "block_sparse_mask": "PerformanceMetrics(wall_time=0.00129867410287261, peak_memory_mb=0.00060272216796875, gpu_memory_mb=0.0, flops=None)",
+      "time_bias_cached": "PerformanceMetrics(wall_time=0.0013523422996513546, peak_memory_mb=0.00049591064453125, gpu_memory_mb=0.0, flops=None)",
+      "fp16_precision": "PerformanceMetrics(wall_time=0.012169739499222487, peak_memory_mb=0.000396728515625, gpu_memory_mb=0.0, flops=None)"
+    },
+    "512": {
+      "baseline": "PerformanceMetrics(wall_time=0.005831387295620516, peak_memory_mb=0.000457763671875, gpu_memory_mb=0.0, flops=None)",
+      "amp_enabled": "PerformanceMetrics(wall_time=0.024016996897989883, peak_memory_mb=0.02944660186767578, gpu_memory_mb=0.0, flops=None)",
+      "flash_attention": "PerformanceMetrics(wall_time=0.0156440154009033, peak_memory_mb=0.000457763671875, gpu_memory_mb=0.0, flops=None)",
+      "block_sparse_mask": "PerformanceMetrics(wall_time=0.006174089101841673, peak_memory_mb=0.00078582763671875, gpu_memory_mb=0.0, flops=None)",
+      "time_bias_cached": "PerformanceMetrics(wall_time=0.004219795600511134, peak_memory_mb=0.0005340576171875, gpu_memory_mb=0.0, flops=None)",
+      "fp16_precision": "PerformanceMetrics(wall_time=0.0471986147982534, peak_memory_mb=0.000457763671875, gpu_memory_mb=0.0, flops=None)"
+    }
+  },
+  "dag_optimizations": {
+    "128": {
+      "baseline_dag_construction": "PerformanceMetrics(wall_time=0.0012756512797204777, peak_memory_mb=0.04207420349121094, gpu_memory_mb=0.0, flops=None)",
+      "topological_generations": "PerformanceMetrics(wall_time=0.0004776928800856695, peak_memory_mb=0.0131072998046875, gpu_memory_mb=0.0, flops=None)",
+      "vectorized_edge_ops": "PerformanceMetrics(wall_time=5.052654014434665e-05, peak_memory_mb=0.05614471435546875, gpu_memory_mb=0.0, flops=None)",
+      "sparse_adjacency": "PerformanceMetrics(wall_time=0.005384217380196787, peak_memory_mb=2.2499513626098633, gpu_memory_mb=0.0, flops=None)"
+    },
+    "256": {
+      "baseline_dag_construction": "PerformanceMetrics(wall_time=0.0027619471395155413, peak_memory_mb=0.01727294921875, gpu_memory_mb=0.0, flops=None)",
+      "topological_generations": "PerformanceMetrics(wall_time=0.0014047021203441546, peak_memory_mb=0.03191375732421875, gpu_memory_mb=0.0, flops=None)",
+      "vectorized_edge_ops": "PerformanceMetrics(wall_time=0.00011293934017885477, peak_memory_mb=0.09862518310546875, gpu_memory_mb=0.0, flops=None)",
+      "sparse_adjacency": "PerformanceMetrics(wall_time=0.005002966900356114, peak_memory_mb=0.18110275268554688, gpu_memory_mb=0.0, flops=None)"
+    },
+    "512": {
+      "baseline_dag_construction": "PerformanceMetrics(wall_time=0.012990496339625679, peak_memory_mb=0.03255462646484375, gpu_memory_mb=0.0, flops=None)",
+      "topological_generations": "PerformanceMetrics(wall_time=0.006623316089971922, peak_memory_mb=0.0626068115234375, gpu_memory_mb=0.0, flops=None)",
+      "vectorized_edge_ops": "PerformanceMetrics(wall_time=0.00013873347954358904, peak_memory_mb=0.2058868408203125, gpu_memory_mb=0.0, flops=None)",
+      "sparse_adjacency": "PerformanceMetrics(wall_time=0.008761402409872972, peak_memory_mb=0.31378173828125, gpu_memory_mb=0.0, flops=None)"
+    }
+  },
+  "parquet_optimizations": {
+    "128": {
+      "baseline_parquet": "PerformanceMetrics(wall_time=0.12200978095643222, peak_memory_mb=0.46997928619384766, gpu_memory_mb=0.0, flops=None)",
+      "zstd_optimization": "PerformanceMetrics(wall_time=0.005066526005975902, peak_memory_mb=0.00444793701171875, gpu_memory_mb=0.0, flops=None)",
+      "content_defined_chunking": "PerformanceMetrics(wall_time=0.005085467011667788, peak_memory_mb=0.007010459899902344, gpu_memory_mb=0.0, flops=None)",
+      "optimized_row_groups": "PerformanceMetrics(wall_time=0.003994772967416793, peak_memory_mb=0.004425048828125, gpu_memory_mb=0.0, flops=None)",
+      "dtype_normalization": "PerformanceMetrics(wall_time=0.0077591799781657755, peak_memory_mb=0.021974563598632812, gpu_memory_mb=0.0, flops=None)"
+    },
+    "256": {
+      "baseline_parquet": "PerformanceMetrics(wall_time=0.0058483550092205405, peak_memory_mb=0.0044097900390625, gpu_memory_mb=0.0, flops=None)",
+      "zstd_optimization": "PerformanceMetrics(wall_time=0.0051809719880111516, peak_memory_mb=0.00439453125, gpu_memory_mb=0.0, flops=None)",
+      "content_defined_chunking": "PerformanceMetrics(wall_time=0.005364598007872701, peak_memory_mb=0.0065441131591796875, gpu_memory_mb=0.0, flops=None)",
+      "optimized_row_groups": "PerformanceMetrics(wall_time=0.004755955014843494, peak_memory_mb=0.00437164306640625, gpu_memory_mb=0.0, flops=None)",
+      "dtype_normalization": "PerformanceMetrics(wall_time=0.005666820972692221, peak_memory_mb=0.0044708251953125, gpu_memory_mb=0.0, flops=None)"
+    },
+    "512": {
+      "baseline_parquet": "PerformanceMetrics(wall_time=0.007445374969393015, peak_memory_mb=0.00435638427734375, gpu_memory_mb=0.0, flops=None)",
+      "zstd_optimization": "PerformanceMetrics(wall_time=0.013530223979614675, peak_memory_mb=0.0043487548828125, gpu_memory_mb=0.0, flops=None)",
+      "content_defined_chunking": "PerformanceMetrics(wall_time=0.01048854598775506, peak_memory_mb=0.0064449310302734375, gpu_memory_mb=0.0, flops=None)",
+      "optimized_row_groups": "PerformanceMetrics(wall_time=0.014265971025452018, peak_memory_mb=0.0043182373046875, gpu_memory_mb=0.0, flops=None)",
+      "dtype_normalization": "PerformanceMetrics(wall_time=0.007859174977056682, peak_memory_mb=0.00441741943359375, gpu_memory_mb=0.0, flops=None)"
+    }
+  },
+  "summary": {
+    "best_optimizations": [
+      {
+        "optimization": "flash_attention",
+        "size": 128,
+        "speedup": "1.91x",
+        "category": "TGAT"
+      },
+      {
+        "optimization": "block_sparse_mask",
+        "size": 128,
+        "speedup": "2.13x",
+        "category": "TGAT"
+      },
+      {
+        "optimization": "time_bias_cached",
+        "size": 128,
+        "speedup": "1.63x",
+        "category": "TGAT"
+      },
+      {
+        "optimization": "flash_attention",
+        "size": 256,
+        "speedup": "1.76x",
+        "category": "TGAT"
+      },
+      {
+        "optimization": "block_sparse_mask",
+        "size": 256,
+        "speedup": "2.87x",
+        "category": "TGAT"
+      },
+      {
+        "optimization": "time_bias_cached",
+        "size": 256,
+        "speedup": "2.75x",
+        "category": "TGAT"
+      },
+      {
+        "optimization": "time_bias_cached",
+        "size": 512,
+        "speedup": "1.38x",
+        "category": "TGAT"
+      }
+    ],
+    "performance_gains": {},
+    "memory_savings": {},
+    "recommendations": [
+      "Enable AMP (Automatic Mixed Precision) for TGAT attention - can provide 1.5-2x speedup",
+      "Use ZSTD compression level 3 for Parquet files - optimal balance of speed and compression",
+      "Set row group size to 10,000 for improved read performance",
+      "Enable content-defined chunking for better storage efficiency",
+      "Use topological_generations for DAG processing instead of full topological_sort",
+      "Cache time bias computations for repeated graph sizes",
+      "Consider FP16 precision for inference workloads on compatible hardware"
+    ]
+  }
+}
