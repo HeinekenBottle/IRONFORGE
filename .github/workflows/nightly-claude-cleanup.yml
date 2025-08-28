@@ -1,0 +1,89 @@
+name: Nightly Claude Code Cleanup
+
+on:
+  schedule:
+    # Run every night at 2 AM UTC (adjust timezone as needed)
+    - cron: '0 2 * * *'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  claude-cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: read
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Full history for proper analysis
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -e .[dev]
+
+      - name: Run Claude Code Cleanup
+        id: claude-cleanup
+        uses: anthropics/claude-code-action@beta
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+
+          # Cleanup instructions for Claude
+          direct_prompt: |
+            Perform comprehensive code cleanup on this repository while I'm asleep:
+
+            ## Code Quality Cleanup:
+            - Remove unused imports and variables
+            - Fix obvious bugs and logic errors
+            - Improve error handling and edge cases
+            - Add missing docstrings to public functions
+            - Standardize variable naming conventions
+
+            ## Performance Optimizations:
+            - Identify and fix performance bottlenecks
+            - Optimize slow algorithms where obvious
+            - Reduce memory usage in data processing
+            - Improve database query efficiency
+
+            ## Security & Best Practices:
+            - Fix any obvious security vulnerabilities
+            - Ensure proper input validation
+            - Remove hardcoded secrets or sensitive data
+            - Follow security best practices
+
+            ## Refactoring Opportunities:
+            - Break down overly complex functions
+            - Remove code duplication
+            - Improve class/method organization
+            - Enhance type hints and annotations
+
+            ## Testing & Documentation:
+            - Identify missing test coverage
+            - Fix broken or failing tests
+            - Update outdated documentation
+            - Add examples for complex functions
+
+            IMPORTANT: Only make changes you're highly confident about. Create a PR if making significant changes. Focus on mechanical improvements that are obviously correct.
+
+          # Allow Claude to run cleanup commands
+          allowed_tools: "Bash(make fmt),Bash(make lint),Bash(make type),Bash(pytest -q),Bash(python -m py_compile)"
+
+          # Custom instructions for this repository
+          custom_instructions: |
+            This is the IRONFORGE trading analysis platform. Follow these project conventions:
+            - Use Black formatting (line length 100)
+            - Follow Ruff linting rules
+            - Use snake_case for functions, PascalCase for classes
+            - Add type hints to all functions
+            - Write comprehensive docstrings
+            - Focus on the ironforge/ and iron_core/ directories
+            - Be conservative with changes to avoid breaking functionality

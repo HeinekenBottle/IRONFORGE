@@ -52,7 +52,7 @@ jobs:
       uses: actions/checkout@v4
       
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
         
@@ -298,7 +298,7 @@ jobs:
         "
         
     - name: Upload COMPAT Mode Artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: compat-mode-audit-${{ matrix.python-version }}-${{ matrix.degradation-scenario.name }}
@@ -315,7 +315,7 @@ jobs:
     
     steps:
     - name: Download All Artifacts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       
     - name: Compare Performance Results
       run: |
