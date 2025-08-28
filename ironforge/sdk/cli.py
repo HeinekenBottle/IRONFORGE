@@ -13,6 +13,7 @@ from ironforge.reporting.minidash import build_minidash
 
 from ..utils.common import get_legacy_entrypoint, maybe_import
 from .app_config import load_config, materialize_run_dir, validate_config
+from .discovery_adapter import discovery_config_adapter, validate_discovery_inputs
 from .io import glob_many, write_json
 from .oracle_commands import cmd_audit_oracle, cmd_train_oracle
 
@@ -20,7 +21,8 @@ from .oracle_commands import cmd_audit_oracle, cmd_train_oracle
 
 
 def cmd_discover(cfg):
-    # Canonical entrypoint
+    """Run discovery with proper contract adapter"""
+    # Import discovery function
     fn = maybe_import("ironforge.learning.discovery_pipeline", "run_discovery")
     if fn is None:
         # Legacy fallbacks
@@ -36,29 +38,73 @@ def cmd_discover(cfg):
         if fn is None:
             print("[discover] discovery engine not found; skipping (no-op).")
             return 0
-    return int(bool(fn(cfg)))
+    
+    try:
+        # Convert config to discovery pipeline parameters
+        shard_paths, out_dir, loader_cfg = discovery_config_adapter(cfg)
+
+        # Materialize run directory per documented layout and override adapter out_dir
+        run_dir_path = materialize_run_dir(cfg)
+        out_dir = str(run_dir_path)
+        
+        # Validate inputs meet discovery contract
+        if not validate_discovery_inputs(shard_paths, out_dir):
+            print("[discover] Input validation failed. Check shard directories and run prep-shards if needed.")
+            return 1
+        
+        # Run discovery with proper parameters
+        print(f"[discover] Running discovery on {len(shard_paths)} shards -> {out_dir}")
+        result = fn(shard_paths, out_dir, loader_cfg)
+        
+        if result:
+            print(f"[discover] Discovery completed: {len(result)} pattern files generated")
+            return 0
+        else:
+            print("[discover] Discovery completed with no results")
+            return 1
+            
+    except Exception as e:
+        print(f"[discover] Discovery failed: {e}")
+        return 1
 
 
 def cmd_score(cfg):
-    # Canonical entrypoint
-    fn = maybe_import("ironforge.confluence.scoring", "score_confluence")
-    if fn is None:
+    """Run confluence scoring against discovered patterns into run_dir/confluence.
+
+    Adapts configuration to scorer signature.
+    """
+    score = maybe_import("ironforge.confluence.scoring", "score_confluence")
+    if score is None:
         # Legacy fallbacks
         legacy_paths = [
             "ironforge.confluence.scorer",
-            "ironforge.metrics.confluence"
+            "ironforge.metrics.confluence",
         ]
-        legacy = get_legacy_entrypoint(
-            legacy_paths, 
-            "score_session", 
-            "ironforge.confluence.scoring"
-        )
+        legacy = get_legacy_entrypoint(legacy_paths, "score_session", "ironforge.confluence.scoring")
         if legacy is None:
             print("[score] scorer not found; skipping (no-op).")
             return 0
         legacy(cfg)
         return 0
-    fn(cfg)
+
+    run_dir = materialize_run_dir(cfg)
+    patterns_dir = run_dir / "patterns"
+    confluence_dir = run_dir / "confluence"
+    pattern_paths = glob_many(str(patterns_dir / "*.parquet"))
+
+    # Extract weights if available
+    weights = None
+    try:
+        w = getattr(cfg.scoring, "weights", None)
+        if w is not None:
+            weights = {k: float(v) for k, v in vars(w).items()}
+    except Exception:
+        weights = None
+
+    threshold = 65.0
+    # Invoke scorer
+    out_path = score(pattern_paths, str(confluence_dir), weights, threshold)
+    print(f"[score] wrote {out_path}")
     return 0
 
 
@@ -86,8 +132,12 @@ def _load_first_parquet(paths: list[Path], cols: list[str]) -> pd.DataFrame:
 
 def cmd_report(cfg):
     run_dir = materialize_run_dir(cfg)
+    # Load confluence scores (scores.parquet) and synthesize timestamps if absent
     conf_paths = glob_many(str(run_dir / "confluence" / "*.parquet"))
-    conf = _load_first_parquet(conf_paths, ["ts", "score"])
+    conf = _load_first_parquet(conf_paths, ["ts", "score"]).copy()
+    if not conf.empty and "ts" not in conf.columns:
+        # Synthesize a simple minute index for display only
+        conf["ts"] = pd.date_range("2025-01-01", periods=len(conf), freq="T")
     if conf.empty:
         conf = pd.DataFrame(
             {
@@ -96,8 +146,12 @@ def cmd_report(cfg):
             }
         )
     pat_paths = glob_many(str(run_dir / "patterns" / "*.parquet"))
-    act = _load_first_parquet(pat_paths, ["ts", "count"])
-    if act.empty:
+    act = _load_first_parquet(pat_paths, ["ts", "count"]).copy()
+    need_synth = (
+        act.empty or any(c not in act.columns for c in ("ts", "count"))
+    )
+    if need_synth:
+        # Derive simple activity from confluence timestamps
         g = conf.groupby(conf["ts"].astype("datetime64[m]")).size().reset_index(name="count")
         g.rename(columns={g.columns[0]: "ts"}, inplace=True)
         act = g

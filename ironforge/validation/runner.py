@@ -75,10 +75,20 @@ def _validate_embeddings(embeddings_dir: Path) -> dict[str, Any]:
             "message": "No attention data (rank proxy mode)",
         }
 
-    # Check for node embeddings
-    embeddings_file = embeddings_dir / "node_embeddings.parquet"
-    if embeddings_file.exists():
-        checks["node_embeddings"] = {"status": "pass", "file_size": embeddings_file.stat().st_size}
+    # Check for node embeddings (accept multiple per-session files)
+    embeddings_candidates = list(embeddings_dir.glob("node_embeddings*.parquet"))
+    if not embeddings_candidates:
+        # Backward-compatible filename
+        legacy_file = embeddings_dir / "node_embeddings.parquet"
+        if legacy_file.exists():
+            embeddings_candidates = [legacy_file]
+    if embeddings_candidates:
+        total_size = sum(f.stat().st_size for f in embeddings_candidates)
+        checks["node_embeddings"] = {
+            "status": "pass",
+            "files": [f.name for f in embeddings_candidates],
+            "total_size": total_size,
+        }
     else:
         checks["node_embeddings"] = {"status": "fail", "message": "Missing node embeddings"}
 

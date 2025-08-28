@@ -33,6 +33,9 @@ def run_discovery(shard_paths: Iterable[str], out_dir: str, loader_cfg) -> list[
         nodes, edges = read_nodes_edges(shard)
         g = from_parquet(nodes, edges)
         data = igraph_to_pyg(g)
+
+        # Use run layout subdirectories for each stage per docs
+        # out_dir is expected to be the run directory (runs/YYYY-MM-DD)
         _, patt_path = infer_shard_embeddings(data, out_dir, loader_cfg)
         outputs.append(patt_path)
     return outputs
