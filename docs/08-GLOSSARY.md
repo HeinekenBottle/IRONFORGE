@@ -28,6 +28,9 @@ Rule-based scoring system that evaluates the confluence of multiple factors to d
 
 ## 🔧 Technical Terms
 
+### BMAD (Bio-inspired Market Archaeological Discovery)
+Multi-agent coordination framework for systematic temporal pattern research. Uses 4-agent architecture (data-scientist, adjacent-possible-linker, knowledge-architect, scrum-master) to investigate market pattern evolution and transformation with scientific rigor.
+
 ### Data Contracts
 Golden invariants that never change in IRONFORGE:
 - **Events**: Exactly 6 types (Expansion, Consolidation, Retracement, Reversal, Liquidity Taken, Redelivery)
@@ -148,6 +151,9 @@ Different trading sessions (NY_PM, LONDON, ASIA) with distinct characteristics.
 
 ### Event Taxonomy
 Classification system for market events with exactly 6 types.
+
+### Temporal Metamorphosis
+The systematic transformation of market patterns from one phase to another (e.g., consolidation → mixed → expansion). First systematically detected by BMAD research framework with 7 distinct transformation pathways identified across 114 enhanced sessions.
 
 ### Temporal Non-locality
 Advanced concept where events position relative to final session range with temporal precision.

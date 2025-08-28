@@ -2,9 +2,9 @@
 # IRONFORGE Research Framework Compliance Report
 
 ## Summary
-- **Total Files Analyzed**: 82
-- **Compliant Files**: 66/82 (80.5%)
-- **Framework Adherence**: ✅ GOOD
+- **Total Files Analyzed**: 89
+- **Compliant Files**: 71/89 (79.8%)
+- **Framework Adherence**: ⚠️ NEEDS IMPROVEMENT
 
 ## Violations by Category
 
@@ -14,26 +14,26 @@
 - HARDCODED PERCENTAGE_ZONES: Found 'archaeological.*40' - Should use configuration parameter instead
 
 ### HARDCODED EVENT_FAMILIES
-- HARDCODED EVENT_FAMILIES: Found 'liquidity.*family' - Should use configuration parameter instead
+- HARDCODED EVENT_FAMILIES: Found 'expansion.*family' - Should use configuration parameter instead
 - HARDCODED EVENT_FAMILIES: Found 'hardcoded.*event.*type' - Should use configuration parameter instead
 - HARDCODED EVENT_FAMILIES: Found 'FVG.*family' - Should use configuration parameter instead
+- HARDCODED EVENT_FAMILIES: Found 'liquidity.*family' - Should use configuration parameter instead
 - HARDCODED EVENT_FAMILIES: Found 'liquidity family' - Should use configuration parameter instead
-- HARDCODED EVENT_FAMILIES: Found 'expansion.*family' - Should use configuration parameter instead
 - HARDCODED EVENT_FAMILIES: Found 'FVG family", "liquidity family' - Should use configuration parameter instead
 
 ### HARDCODED TEMPORAL_ASSUMPTIONS
-- HARDCODED TEMPORAL_ASSUMPTIONS: Found 'events.*know.*final' - Should use configuration parameter instead
-- HARDCODED TEMPORAL_ASSUMPTIONS: Found 'temporal.*non.*locality.*always' - Should use configuration parameter instead
 - HARDCODED TEMPORAL_ASSUMPTIONS: Found 'dimensional.*relationship.*fixed' - Should use configuration parameter instead
+- HARDCODED TEMPORAL_ASSUMPTIONS: Found 'temporal.*non.*locality.*always' - Should use configuration parameter instead
+- HARDCODED TEMPORAL_ASSUMPTIONS: Found 'events.*know.*final' - Should use configuration parameter instead
 
 ### HARDCODED PATTERN_HARDCODING
-- HARDCODED PATTERN_HARDCODING: Found 'if.*zone.*==.*40' - Should use configuration parameter instead
 - HARDCODED PATTERN_HARDCODING: Found 'archaeological.*level.*=.*40' - Should use configuration parameter instead
+- HARDCODED PATTERN_HARDCODING: Found 'if.*zone.*==.*40' - Should use configuration parameter instead
 
 ### ANTI-PATTERN
+- ANTI-PATTERN: Assumed temporal relationship - test hypothesis instead
 - ANTI-PATTERN: Assumed FVG behavior - let TGAT discover patterns
 - ANTI-PATTERN: Hardcoded archaeological logic - use configurable discovery
-- ANTI-PATTERN: Assumed temporal relationship - test hypothesis instead
 
 ### TGAT QUALITY GATES MISSING
 - TGAT QUALITY GATES MISSING: TGAT usage detected without authenticity thresholds - must enforce 87% quality standard
