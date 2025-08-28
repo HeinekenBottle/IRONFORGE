@@ -1,0 +1,111 @@
+# Augment ignore file - similar to .gitignore
+# This helps Augment focus on relevant code files
+
+# Dependencies
+node_modules/
+.pnpm-store/
+.yarn/
+.npm/
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# Logs
+*.log
+logs/
+.DS_Store
+
+# Cache directories
+.cache/
+.parcel-cache/
+.tmp/
+.temp/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Package manager files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Large media files
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.svg
+*.ico
+*.pdf
+*.zip
+*.tar.gz
+
+# Backup directories
+*-backup/
+*_backup/
+nvim-backups/
+
+# Local share directories
+.local/share/
+
+# Python specific
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+.conda/
+*.egg-info/
+dist/
+build/
+*.egg
+.coverage
+.pytest_cache/
+.tox/
+.cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Data files (if you have large datasets)
+*.parquet
+*.csv
+*.json
+data/
+*.pkl
+*.pickle
+
+# Documentation
+docs/_build/
+*.md
+!README.md
+
+# Test results
+test-results/
+performance_audit_results.json
