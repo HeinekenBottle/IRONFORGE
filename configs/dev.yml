@@ -1,8 +1,10 @@
 workspace: runs/{date}
 data:
-  shards_glob: "data/shards/*.parquet"
-  symbol: "ES"
-  timeframe: "1m"
+  shards_base: "data/shards"
+  symbol: "NQ"
+  timeframe: "M5"
+  # Discovery expects shard directories containing nodes.parquet and edges.parquet
+  # Format: data/shards/{symbol}_{timeframe}/session_*/nodes.parquet
 outputs:
   run_dir: "runs/{date}"
   overwrite: true

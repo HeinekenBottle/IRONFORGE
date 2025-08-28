@@ -137,11 +137,11 @@ def cmd_report(cfg):
     conf = _load_first_parquet(conf_paths, ["ts", "score"]).copy()
     if not conf.empty and "ts" not in conf.columns:
         # Synthesize a simple minute index for display only
-        conf["ts"] = pd.date_range("2025-01-01", periods=len(conf), freq="T")
+        conf["ts"] = pd.date_range("2025-01-01", periods=len(conf), freq="min")
     if conf.empty:
         conf = pd.DataFrame(
             {
-                "ts": pd.date_range("2025-01-01", periods=50, freq="T"),
+                "ts": pd.date_range("2025-01-01", periods=50, freq="min"),
                 "score": [min(99, i * 2 % 100) for i in range(50)],
             }
         )
@@ -152,7 +152,7 @@ def cmd_report(cfg):
     )
     if need_synth:
         # Derive simple activity from confluence timestamps
-        g = conf.groupby(conf["ts"].astype("datetime64[m]")).size().reset_index(name="count")
+        g = conf.groupby(conf["ts"].dt.floor("min")).size().reset_index(name="count")
         g.rename(columns={g.columns[0]: "ts"}, inplace=True)
         act = g
     motifs = []

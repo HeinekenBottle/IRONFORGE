@@ -39,8 +39,7 @@ def empirical_p_value(observed: float, background: Sequence[float], alternative:
         p = 2 * min(p_upper, p_lower)
         p = min(1.0, p)
     else:
-        raise ValueError("alternative must be 'greater', 'less', or 'two-sided'
-")
+        raise ValueError("alternative must be 'greater', 'less', or 'two-sided'")
     return float(p)
 
 

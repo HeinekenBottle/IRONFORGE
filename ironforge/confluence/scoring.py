@@ -24,7 +24,7 @@ def score_confluence(
 
     # Minimal scoring: assign uniform score = threshold
     scores = pd.DataFrame({
-        "pattern_path": list(pattern_paths),
+        "pattern_path": [str(p) for p in pattern_paths],  # Convert Path objects to strings
         "score": [float(threshold)] * len(pattern_paths),
     })
 

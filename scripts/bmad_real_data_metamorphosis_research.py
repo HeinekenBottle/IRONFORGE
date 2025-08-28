@@ -36,6 +36,20 @@ try:
 except Exception:
     _BMAD_AVAILABLE = False
 
+# Import SDK pieces for canonical pipeline (safe fallbacks inside CLI)
+try:
+    from ironforge.sdk.app_config import load_config as _if_load_config, validate_config as _if_validate_config
+    from ironforge.sdk.cli import (
+        cmd_prep_shards as _if_cmd_prep_shards,
+        cmd_discover as _if_cmd_discover,
+        cmd_score as _if_cmd_score,
+        cmd_validate as _if_cmd_validate,
+        cmd_report as _if_cmd_report,
+    )
+    _PIPELINE_AVAILABLE = True
+except Exception:
+    _PIPELINE_AVAILABLE = False
+
 # Add IRONFORGE to path
 sys.path.append("/Users/jack/IRONFORGE")
 
@@ -89,6 +103,132 @@ class RealDataMetamorphosisResearch:
         self.movement_metric = movement_metric
         
         self.logger.info("🧬 BMAD Real Data Metamorphosis Research initialized")
+
+    def _run_canonical_pipeline(self, cfg_path: str) -> Dict[str, Any]:
+        status = {"available": _PIPELINE_AVAILABLE, "ran": False, "errors": []}
+        if not _PIPELINE_AVAILABLE:
+            return status
+
+    def _load_shard_manifest(self, symbol: str, timeframe: str) -> List[Dict[str, Any]]:
+        """Load shard manifest entries if available."""
+        manifest_path = Path(f"data/shards/{symbol}_{timeframe}/manifest.jsonl")
+        entries: List[Dict[str, Any]] = []
+        if not manifest_path.exists():
+            return entries
+        try:
+            with open(manifest_path, "r") as f:
+                for line in f:
+                    line = line.strip()
+                    if not line:
+                        continue
+                    try:
+                        entries.append(json.loads(line))
+                    except Exception:
+                        continue
+        except Exception:
+            return []
+        return entries
+
+    def _scan_tgat_outputs(self) -> Dict[str, Any]:
+        """Scan runs/* for TGAT outputs (oracle_predictions, patterns, embeddings)."""
+        runs_dir = Path("runs")
+        metrics = {"avg_confidence": 0.0, "avg_pattern_density": 0.0, "avg_significance": 0.0, "files": []}
+        if not runs_dir.exists():
+            return metrics
+        try:
+            candidates = sorted([p for p in runs_dir.iterdir() if p.is_dir()], key=lambda p: p.stat().st_mtime, reverse=True)
+            try:
+                import pyarrow.parquet as pq  # type: ignore
+            except Exception:
+                return metrics
+            confs: List[float] = []
+            sigs: List[float] = []
+            densities: List[float] = []
+            files: List[str] = []
+            for run in candidates[:5]:
+                op = run / "oracle_predictions.parquet"
+                if op.exists():
+                    try:
+                        t = pq.read_table(op)
+                        if "confidence" in t.column_names:
+                            confs.extend([float(x) for x in t.column("confidence").to_pylist() if x is not None])
+                        files.append(str(op))
+                    except Exception:
+                        pass
+                pat = run / "patterns.parquet"
+                if pat.exists():
+                    try:
+                        t = pq.read_table(pat)
+                        if "significance_scores" in t.column_names:
+                            ss = t.column("significance_scores").to_pylist()
+                            for v in ss:
+                                try:
+                                    if isinstance(v, list) and v:
+                                        sigs.append(float(np.mean(v)))
+                                    elif v is not None:
+                                        sigs.append(float(v))
+                                except Exception:
+                                    continue
+                        if "pattern_scores" in t.column_names:
+                            ps = t.column("pattern_scores").to_pylist()
+                            for v in ps:
+                                try:
+                                    if isinstance(v, list) and v:
+                                        densities.append(float(np.mean([1.0 if x > 0.5 else 0.0 for x in v])))
+                                except Exception:
+                                    continue
+                        files.append(str(pat))
+                    except Exception:
+                        pass
+            metrics["avg_confidence"] = float(np.mean(confs)) if confs else 0.0
+            metrics["avg_significance"] = float(np.mean(sigs)) if sigs else 0.0
+            metrics["avg_pattern_density"] = float(np.mean(densities)) if densities else 0.0
+            metrics["files"] = files
+            return metrics
+        except Exception:
+            return metrics
+        try:
+            cfg = _if_load_config(cfg_path)
+            try:
+                _if_validate_config(cfg)
+            except Exception as e:
+                status["errors"].append(f"config invalid: {e}")
+            # Always prep shards from enhanced JSON when asked; use CLI helper already imported
+            try:
+                _ = _if_cmd_prep_shards(
+                    str(self.enhanced_data_dir / self.sessions_glob),
+                    getattr(cfg.data, "symbol", "NQ"),
+                    getattr(cfg.data, "timeframe", "M5"),
+                    "ET",
+                    "single",
+                    False,
+                    True,
+                    False,
+                )
+            except Exception as e:
+                status["errors"].append(f"prep_shards: {e}")
+            # Discover → Score → Validate → Report
+            try:
+                _if_cmd_discover(cfg)
+            except Exception as e:
+                status["errors"].append(f"discover: {e}")
+            try:
+                _if_cmd_score(cfg)
+            except Exception as e:
+                status["errors"].append(f"score: {e}")
+            try:
+                _if_cmd_validate(cfg)
+            except Exception as e:
+                status["errors"].append(f"validate: {e}")
+            try:
+                _if_cmd_report(cfg)
+            except Exception as e:
+                status["errors"].append(f"report: {e}")
+            status["ran"] = True
+            return status
+        except Exception as e:
+            status["errors"].append(str(e))
+            return status
 
     def create_research_configuration(self) -> Dict[str, Any]:
         """Create the research configuration for temporal pattern metamorphosis"""
@@ -382,6 +522,10 @@ class RealDataMetamorphosisResearch:
             fpfvg_feat = self._fpfvg_transition_features(
                 current_fpfvg_block, next_fpfvg_block
             )
+            # Event density change
+            cur_ev = current_session.get("event_analysis", {}).get("event_density", 0.0)
+            nxt_ev = next_session.get("event_analysis", {}).get("event_density", 0.0)
+            event_density_change = float(min(1.0, abs(nxt_ev - cur_ev)))
             
             # Normalize component deltas to [0,1] and compute weighted strength
             def _nz(x):
@@ -390,12 +534,52 @@ class RealDataMetamorphosisResearch:
             t_norm = float(min(1.0, abs(_nz(trend_change))))
             m_norm = float(min(1.0, _nz(movement_change)))
             f_norm = float(min(1.0, _nz(fpfvg_feat.get("delta_gap", 0.0)) / 10.0))
-            transformation_strength = (
-                v_norm * 0.25 +
-                t_norm * 0.25 +
-                m_norm * 0.35 +
-                (0.5 * fpfvg_change + 0.5 * f_norm) * 0.15
+            fi_norm = float(min(1.0, abs(_nz(fpfvg_feat.get("delta_interactions", 0.0))) / 10.0))
+            # Structural change from shards (if available)
+            def _struct_norm(a: Dict[str, Any], b: Dict[str, Any]) -> float:
+                a_s = a.get("shard_structure", {})
+                b_s = b.get("shard_structure", {})
+                if not a_s or not b_s:
+                    return 0.0
+                an = float(a_s.get("node_count", 0) or 0)
+                bn = float(b_s.get("node_count", 0) or 0)
+                ae = float(a_s.get("edge_count", 0) or 0)
+                be = float(b_s.get("edge_count", 0) or 0)
+                n_diff = abs(bn - an) / max(1.0, max(bn, an))
+                e_diff = abs(be - ae) / max(1.0, max(be, ae))
+                return float(min(1.0, 0.5 * (n_diff + e_diff)))
+            s_norm = _struct_norm(current_session, next_session)
+            
+            # Enhanced: Incorporate TGAT-grounded features for stronger signal
+            tgat_metrics = self._scan_tgat_outputs()
+            tgat_enhancement = 0.0
+            if tgat_metrics["files"]:  # TGAT outputs available
+                # Pattern density boost (higher density = more significant transformation)
+                pattern_density_boost = min(1.0, tgat_metrics["avg_pattern_density"] * 2.0)
+                # Significance boost (higher significance = more confident transformation)
+                significance_boost = min(1.0, tgat_metrics["avg_significance"])
+                # Confidence boost (higher confidence = more reliable transformation)
+                confidence_boost = min(1.0, tgat_metrics["avg_confidence"])
+                # Combined TGAT enhancement (weighted average)
+                tgat_enhancement = (
+                    pattern_density_boost * 0.4 +
+                    significance_boost * 0.35 +
+                    confidence_boost * 0.25
+                )
+                self.logger.info(f"   TGAT enhancement: {tgat_enhancement:.3f} (density={pattern_density_boost:.3f}, sig={significance_boost:.3f}, conf={confidence_boost:.3f})")
+            
+            # Original transformation strength with TGAT enhancement
+            base_transformation = (
+                v_norm * 0.15 +           # Reduced from 0.18 to make room for TGAT
+                t_norm * 0.15 +           # Reduced from 0.18
+                m_norm * 0.25 +           # Reduced from 0.28
+                (0.4 * fpfvg_change + 0.3 * f_norm + 0.3 * fi_norm) * 0.14 +  # Reduced from 0.16
+                s_norm * 0.10 +           # Reduced from 0.12
+                event_density_change * 0.06  # Reduced from 0.08
             )
+            
+            # Final transformation strength: base + TGAT enhancement
+            transformation_strength = min(1.0, base_transformation + (tgat_enhancement * 0.15))
             
             # Threshold selection: adaptive if enabled
             if self.adaptive_threshold_enabled:
@@ -945,6 +1129,13 @@ This research investigates how temporal patterns evolve and transform across dif
                 pipeline_status["prep_shards"] = False
                 pipeline_status["build_graphs"] = False
 
+            # Optional full canonical pipeline (discover → score → validate → report)
+            if getattr(self, "_run_pipeline", False):
+                self.logger.info("🏗️ Running canonical pipeline: discover → score → validate → report")
+                pipeline_status["canonical"] = self._run_canonical_pipeline(
+                    getattr(self, "_pipeline_cfg_path", "configs/dev.yml")
+                )
+
             # Phase 2: Load and analyze enhanced session data
             self.logger.info("📊 Phase 2: Loading and analyzing enhanced session data")
             session_files = list(self.enhanced_data_dir.glob(self.sessions_glob))
@@ -1213,6 +1404,8 @@ async def main():
     parser.add_argument("--prep-symbol", default="NQ")
     parser.add_argument("--prep-tf", default="M5")
     parser.add_argument("--prep-htf", choices=["on", "off"], default="off")
+    parser.add_argument("--pipeline", choices=["on", "off"], default="off")
+    parser.add_argument("--pipeline-config", default="configs/dev.yml")
     args = parser.parse_args()
 
     print("🧬 BMAD REAL DATA TEMPORAL PATTERN METAMORPHOSIS RESEARCH")
@@ -1247,6 +1440,9 @@ async def main():
             "graphs_out": "data/graphs",
             "preset": "standard",
         }
+    if args.pipeline == "on":
+        research._run_pipeline = True
+        research._pipeline_cfg_path = args.pipeline_config
 
     try:
         # Execute complete research

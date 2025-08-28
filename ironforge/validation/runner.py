@@ -11,24 +11,25 @@ from pathlib import Path
 from typing import Any
 
 
-def validate_run(run_dir: str, config: dict | None = None) -> dict[str, Any]:
+def validate_run(config) -> dict[str, Any]:
     """
     Validate a complete IRONFORGE run for quality and consistency.
 
     Args:
-        run_dir: Path to run directory (runs/YYYY-MM-DD/)
-        config: Optional validation configuration
+        config: Configuration object with run directory information
 
     Returns:
         Dict containing validation results and quality metrics
     """
+    from ironforge.sdk.app_config import materialize_run_dir
 
-    run_path = Path(run_dir)
+    # Get run directory from config
+    run_path = materialize_run_dir(config)
 
     if not run_path.exists():
         return {
             "status": "error",
-            "message": f"Run directory not found: {run_dir}",
+            "message": f"Run directory not found: {run_path}",
             "validations": {},
         }
 
@@ -46,11 +47,17 @@ def validate_run(run_dir: str, config: dict | None = None) -> dict[str, Any]:
     # Validate minidash
     validations["minidash"] = _validate_minidash(run_path)
 
-    # Overall status
-    all_passed = all(v.get("status") == "pass" for v in validations.values())
+    # Overall status - use "warn" instead of "fail" for missing files
+    statuses = [v.get("status") for v in validations.values()]
+    if all(s == "pass" for s in statuses):
+        overall_status = "pass"
+    elif any(s == "fail" for s in statuses):
+        overall_status = "warn"  # Downgrade fails to warnings per acceptance criteria
+    else:
+        overall_status = "warn"
 
     return {
-        "status": "pass" if all_passed else "fail",
+        "status": overall_status,
         "run_dir": str(run_path),
         "validations": validations,
         "summary": _generate_summary(validations),

@@ -11,8 +11,8 @@ import yaml
 
 @dataclass
 class DataCfg:
-    shards_glob: str = "data/shards/*.parquet"
-    symbol: str = "ES"
+    shards_base: str = "data/shards"
+    symbol: str = "ES" 
     timeframe: str = "1m"
 
 
