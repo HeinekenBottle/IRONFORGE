@@ -1,0 +1,3240 @@
+{
+  "research_metadata": {
+    "timestamp": "2025-08-28T17:00:08.946689",
+    "research_question": "How do temporal patterns evolve and transform across different market phases using real enhanced session data?",
+    "configuration": {
+      "research_question": "How do temporal patterns evolve and transform across different market phases using real enhanced session data?",
+      "hypothesis_parameters": {
+        "pattern_evolution_metrics": [
+          "transformation_strength",
+          "phase_adaptation",
+          "temporal_consistency"
+        ],
+        "metamorphosis_types": [
+          "gradual_evolution",
+          "sudden_transformation",
+          "phase_adaptation",
+          "pattern_dissolution"
+        ],
+        "temporal_windows": [
+          300,
+          900,
+          1800,
+          3600
+        ],
+        "evolution_sensitivity": [
+          0.3,
+          0.5,
+          0.7,
+          0.9
+        ],
+        "cross_phase_correlations": [
+          "strong",
+          "moderate",
+          "weak",
+          "inverse"
+        ]
+      },
+      "market_phases": {
+        "consolidation": {
+          "volatility_range": [
+            0.0,
+            0.3
+          ],
+          "trend_strength": [
+            -0.2,
+            0.2
+          ]
+        },
+        "expansion": {
+          "volatility_range": [
+            0.3,
+            0.7
+          ],
+          "trend_strength": [
+            0.3,
+            1.0
+          ]
+        },
+        "retracement": {
+          "volatility_range": [
+            0.2,
+            0.6
+          ],
+          "trend_strength": [
+            -0.5,
+            -0.2
+          ]
+        },
+        "reversal": {
+          "volatility_range": [
+            0.4,
+            1.0
+          ],
+          "trend_strength": [
+            -1.0,
+            -0.5
+          ]
+        },
+        "breakout": {
+          "volatility_range": [
+            0.6,
+            1.0
+          ],
+          "trend_strength": [
+            0.7,
+            1.0
+          ]
+        }
+      },
+      "metamorphosis_config": {
+        "evolution_tracking_window": 1800,
+        "transformation_threshold": 0.6,
+        "phase_transition_buffer": 300,
+        "pattern_stability_requirement": 0.7,
+        "metamorphosis_detection_sensitivity": 0.8
+      },
+      "bmad_agents": [
+        "data-scientist",
+        "adjacent-possible-linker",
+        "knowledge-architect",
+        "scrum-master"
+      ],
+      "statistical_config": {
+        "significance_threshold": 0.01,
+        "confidence_level": 0.95,
+        "validation_methods": [
+          "permutation_test",
+          "bootstrap_ci",
+          "cross_validation"
+        ],
+        "effect_size_metrics": [
+          "cohens_d",
+          "correlation_coefficient",
+          "transformation_strength"
+        ],
+        "multiple_testing_correction": "bonferroni"
+      },
+      "quality_gates": {
+        "pattern_evolution_authenticity": 0.87,
+        "metamorphosis_statistical_significance": 0.01,
+        "cross_phase_correlation_confidence": 0.9,
+        "temporal_consistency_threshold": 0.75,
+        "research_framework_compliance": 1.0
+      }
+    },
+    "execution_time_seconds": 0.133578,
+    "framework_compliance": {
+      "real_data_integration": true,
+      "multi_agent_coordination": true,
+      "statistical_rigor": true,
+      "research_agnostic": true,
+      "quality_gates": true,
+      "compliance_rate": 1.0
+    }
+  },
+  "pipeline_status": {
+    "canonical": {
+      "available": false,
+      "ran": false,
+      "errors": []
+    }
+  },
+  "session_analyses": [
+    {
+      "session_metadata": {
+        "session_type": "ny_pm",
+        "session_date": "2025-08-04",
+        "session_start": "13:30:00",
+        "session_end": "16:09:00",
+        "session_duration": 159,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_rel_NY_PM_Lvl-1_2025_08_04.json",
+      "phase_classification": "mixed",
+      "volatility": 1.0300066116994058,
+      "range_volatility": 0.28999233521942264,
+      "robust_volatility": 1.449065921994991,
+      "trend_strength": 0.0511447043622819,
+      "price_range": {
+        "min": 23241.25,
+        "max": 23308.75,
+        "range": 67.5,
+        "avg": 23276.477272727272
+      },
+      "movement_analysis": {
+        "total_movements": 22,
+        "movement_types": {
+          "other": 6,
+          "expansion": 8,
+          "reversal": 1,
+          "retracement": 5,
+          "consolidation": 2
+        },
+        "movement_diversity": 5
+      },
+      "event_analysis": {
+        "total_events": 17,
+        "event_types": {
+          "level_break": 1,
+          "support_test": 3,
+          "liquidity_sweep": 2,
+          "resistance_test": 3,
+          "trend_continuation": 2,
+          "price_gap": 3,
+          "volume_spike": 2,
+          "momentum_shift": 1
+        },
+        "event_density": 0.7727272727272727
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 7,
+        "gap_size": 5.0,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 22,
+        "price_volatility": 1.0300066116994058,
+        "trend_consistency": 0.0511447043622819,
+        "pattern_complexity": 0.22727272727272727
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "lunch",
+        "session_date": "2025-08-04",
+        "session_start": "12:00:00",
+        "session_end": "12:59:00",
+        "session_duration": 59,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_LUNCH_Lvl-1_2025_08_04.json",
+      "phase_classification": "mixed",
+      "volatility": 0.3654562960125916,
+      "range_volatility": 0.135393948639998,
+      "robust_volatility": 0.45436223385676433,
+      "trend_strength": 0.0,
+      "price_range": {
+        "min": 23248.0,
+        "max": 23279.5,
+        "range": 31.5,
+        "avg": 23265.4415625
+      },
+      "movement_analysis": {
+        "total_movements": 32,
+        "movement_types": {
+          "other": 4,
+          "retracement": 13,
+          "expansion": 15
+        },
+        "movement_diversity": 3
+      },
+      "event_analysis": {
+        "total_events": 11,
+        "event_types": {
+          "trend_continuation": 3,
+          "support_test": 3,
+          "resistance_test": 1,
+          "level_break": 2,
+          "consolidation_break": 1,
+          "price_gap": 1
+        },
+        "event_density": 0.34375
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 6,
+        "gap_size": 0.25,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 32,
+        "price_volatility": 0.3654562960125916,
+        "trend_consistency": 0.0,
+        "pattern_complexity": 0.09375
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "ny_am",
+        "session_date": "2025-08-04",
+        "session_start": "09:30:00",
+        "session_end": "11:59:00",
+        "session_duration": 149,
+        "transcription_source": "live_market_data",
+        "data_completeness": "extended_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_NY_AM_Lvl-1_2025_08_04.json",
+      "phase_classification": "mixed",
+      "volatility": 0.6536509732383895,
+      "range_volatility": 0.7828987820903269,
+      "robust_volatility": 0.6546046094554591,
+      "trend_strength": 0.14359687098828813,
+      "price_range": {
+        "min": 23088.75,
+        "max": 23270.5,
+        "range": 181.75,
+        "avg": 23215.006097560974
+      },
+      "movement_analysis": {
+        "total_movements": 82,
+        "movement_types": {
+          "other": 4,
+          "expansion": 38,
+          "retracement": 20,
+          "consolidation": 20
+        },
+        "movement_diversity": 4
+      },
+      "event_analysis": {
+        "total_events": 15,
+        "event_types": {
+          "price_gap": 4,
+          "volume_spike": 2,
+          "fvg_creation": 1,
+          "momentum_shift": 1,
+          "support_test": 2,
+          "level_break": 2,
+          "liquidity_sweep": 1,
+          "trend_continuation": 2
+        },
+        "event_density": 0.18292682926829268
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 9,
+        "gap_size": 15.75,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 82,
+        "price_volatility": 0.6536509732383895,
+        "trend_consistency": 0.14359687098828813,
+        "pattern_complexity": 0.04878048780487805
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "ny_pm",
+        "session_date": "2025-08-04",
+        "session_start": "13:30:00",
+        "session_end": "16:09:00",
+        "session_duration": 159,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_NY_PM_Lvl-1_2025_08_04.json",
+      "phase_classification": "mixed",
+      "volatility": 1.0300066116994058,
+      "range_volatility": 0.28999233521942264,
+      "robust_volatility": 1.449065921994991,
+      "trend_strength": 0.0511447043622819,
+      "price_range": {
+        "min": 23241.25,
+        "max": 23308.75,
+        "range": 67.5,
+        "avg": 23276.477272727272
+      },
+      "movement_analysis": {
+        "total_movements": 22,
+        "movement_types": {
+          "other": 6,
+          "expansion": 8,
+          "reversal": 1,
+          "retracement": 5,
+          "consolidation": 2
+        },
+        "movement_diversity": 5
+      },
+      "event_analysis": {
+        "total_events": 17,
+        "event_types": {
+          "level_break": 1,
+          "support_test": 3,
+          "liquidity_sweep": 2,
+          "resistance_test": 3,
+          "trend_continuation": 2,
+          "price_gap": 3,
+          "volume_spike": 2,
+          "momentum_shift": 1
+        },
+        "event_density": 0.7727272727272727
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 7,
+        "gap_size": 5.0,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 22,
+        "price_volatility": 1.0300066116994058,
+        "trend_consistency": 0.0511447043622819,
+        "pattern_complexity": 0.22727272727272727
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "ny_am",
+        "session_date": "2025-08-04",
+        "session_start": "09:30:00",
+        "session_end": "11:59:00",
+        "session_duration": 149,
+        "transcription_source": "live_market_data",
+        "data_completeness": "extended_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_rel_NY_AM_Lvl-1_2025_08_04.json",
+      "phase_classification": "mixed",
+      "volatility": 0.6536509732383895,
+      "range_volatility": 0.7828987820903269,
+      "robust_volatility": 0.6546046094554591,
+      "trend_strength": 0.14359687098828813,
+      "price_range": {
+        "min": 23088.75,
+        "max": 23270.5,
+        "range": 181.75,
+        "avg": 23215.006097560974
+      },
+      "movement_analysis": {
+        "total_movements": 82,
+        "movement_types": {
+          "other": 4,
+          "expansion": 38,
+          "retracement": 20,
+          "consolidation": 20
+        },
+        "movement_diversity": 4
+      },
+      "event_analysis": {
+        "total_events": 15,
+        "event_types": {
+          "price_gap": 4,
+          "volume_spike": 2,
+          "fvg_creation": 1,
+          "momentum_shift": 1,
+          "support_test": 2,
+          "level_break": 2,
+          "liquidity_sweep": 1,
+          "trend_continuation": 2
+        },
+        "event_density": 0.18292682926829268
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 9,
+        "gap_size": 15.75,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 82,
+        "price_volatility": 0.6536509732383895,
+        "trend_consistency": 0.14359687098828813,
+        "pattern_complexity": 0.04878048780487805
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "lunch",
+        "session_date": "2025-08-04",
+        "session_start": "12:00:00",
+        "session_end": "12:59:00",
+        "session_duration": 59,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_rel_LUNCH_Lvl-1_2025_08_04.json",
+      "phase_classification": "mixed",
+      "volatility": 0.3654562960125916,
+      "range_volatility": 0.135393948639998,
+      "robust_volatility": 0.45436223385676433,
+      "trend_strength": 0.0,
+      "price_range": {
+        "min": 23248.0,
+        "max": 23279.5,
+        "range": 31.5,
+        "avg": 23265.4415625
+      },
+      "movement_analysis": {
+        "total_movements": 32,
+        "movement_types": {
+          "other": 4,
+          "retracement": 13,
+          "expansion": 15
+        },
+        "movement_diversity": 3
+      },
+      "event_analysis": {
+        "total_events": 11,
+        "event_types": {
+          "trend_continuation": 3,
+          "support_test": 3,
+          "resistance_test": 1,
+          "level_break": 2,
+          "consolidation_break": 1,
+          "price_gap": 1
+        },
+        "event_density": 0.34375
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 6,
+        "gap_size": 0.25,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 32,
+        "price_volatility": 0.3654562960125916,
+        "trend_consistency": 0.0,
+        "pattern_complexity": 0.09375
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "asia",
+        "session_date": "2025-08-05",
+        "session_start": "19:00:00",
+        "session_end": "23:59:00",
+        "session_duration": 299,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed",
+        "actual_start_date": "2025-08-04"
+      },
+      "source_file": "enhanced_rel_ASIA_Lvl-1_2025_08_05.json",
+      "phase_classification": "mixed",
+      "volatility": 0.8062025808876118,
+      "range_volatility": 0.2731766263650797,
+      "robust_volatility": 0.8656131690416964,
+      "trend_strength": 0.02384021077524263,
+      "price_range": {
+        "min": 23310.75,
+        "max": 23374.5,
+        "range": 63.75,
+        "avg": 23336.55
+      },
+      "movement_analysis": {
+        "total_movements": 35,
+        "movement_types": {
+          "other": 9,
+          "expansion": 13,
+          "retracement": 6,
+          "consolidation": 6,
+          "reversal": 1
+        },
+        "movement_diversity": 5
+      },
+      "event_analysis": {
+        "total_events": 11,
+        "event_types": {
+          "price_gap": 1,
+          "level_break": 2,
+          "volume_spike": 2,
+          "fvg_creation": 2,
+          "trend_continuation": 1,
+          "consolidation_break": 1,
+          "liquidity_sweep": 1,
+          "momentum_shift": 1
+        },
+        "event_density": 0.3142857142857143
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 5,
+        "gap_size": 1.0,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 35,
+        "price_volatility": 0.8062025808876118,
+        "trend_consistency": 0.02384021077524263,
+        "pattern_complexity": 0.14285714285714285
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "premarket",
+        "session_date": "2025-08-05",
+        "session_start": "07:00:00",
+        "session_end": "09:29:00",
+        "session_duration": 149,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_PREMARKET_Lvl-1_2025_08_05.json",
+      "phase_classification": "mixed",
+      "volatility": 0.7793368961219043,
+      "range_volatility": 0.27810843478433606,
+      "robust_volatility": 0.7532834368090264,
+      "trend_strength": -0.05974456091703852,
+      "price_range": {
+        "min": 23339.25,
+        "max": 23404.25,
+        "range": 65.0,
+        "avg": 23372.178571428572
+      },
+      "movement_analysis": {
+        "total_movements": 35,
+        "movement_types": {
+          "other": 8,
+          "expansion": 11,
+          "consolidation": 8,
+          "reversal": 2,
+          "retracement": 6
+        },
+        "movement_diversity": 5
+      },
+      "event_analysis": {
+        "total_events": 13,
+        "event_types": {
+          "fvg_creation": 2,
+          "consolidation_break": 2,
+          "support_test": 1,
+          "volume_spike": 2,
+          "resistance_test": 2,
+          "momentum_shift": 3,
+          "price_gap": 1
+        },
+        "event_density": 0.37142857142857144
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 5,
+        "gap_size": 1.0,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 35,
+        "price_volatility": 0.7793368961219043,
+        "trend_consistency": 0.05974456091703852,
+        "pattern_complexity": 0.14285714285714285
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "ny_pm",
+        "session_date": "2025-08-05",
+        "session_start": "13:30:00",
+        "session_end": "16:09:00",
+        "session_duration": 159,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_rel_NY_PM_Lvl-1_2025_08_05.json",
+      "phase_classification": "mixed",
+      "volatility": 1.0601895653266602,
+      "range_volatility": 0.5909697379638744,
+      "robust_volatility": 0.7674496935812323,
+      "trend_strength": -0.04951593620825621,
+      "price_range": {
+        "min": 23115.0,
+        "max": 23252.0,
+        "range": 137.0,
+        "avg": 23182.23611111111
+      },
+      "movement_analysis": {
+        "total_movements": 54,
+        "movement_types": {
+          "other": 6,
+          "consolidation": 12,
+          "expansion": 21,
+          "retracement": 14,
+          "reversal": 1
+        },
+        "movement_diversity": 5
+      },
+      "event_analysis": {
+        "total_events": 11,
+        "event_types": {
+          "price_gap": 3,
+          "momentum_shift": 1,
+          "fvg_creation": 4,
+          "volume_spike": 1,
+          "support_test": 1,
+          "liquidity_sweep": 1
+        },
+        "event_density": 0.2037037037037037
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 2,
+        "gap_size": 0.75,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 54,
+        "price_volatility": 1.0601895653266602,
+        "trend_consistency": 0.04951593620825621,
+        "pattern_complexity": 0.09259259259259259
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "midnight",
+        "session_date": "2025-08-05",
+        "session_start": "00:00:00",
+        "session_end": "00:29:00",
+        "session_duration": 29,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed",
+        "session_name": "midnight_opening_range"
+      },
+      "source_file": "enhanced_rel_MIDNIGHT_Lvl-1_2025_08_05.json",
+      "phase_classification": "consolidation",
+      "volatility": 0.13963015824203895,
+      "range_volatility": 0.03641491583513325,
+      "robust_volatility": 0.22230663501187056,
+      "trend_strength": 0.038352278254633915,
+      "price_range": {
+        "min": 23337.0,
+        "max": 23345.5,
+        "range": 8.5,
+        "avg": 23342.083333333332
+      },
+      "movement_analysis": {
+        "total_movements": 15,
+        "movement_types": {
+          "other": 5,
+          "consolidation": 6,
+          "expansion": 4
+        },
+        "movement_diversity": 3
+      },
+      "event_analysis": {
+        "total_events": 12,
+        "event_types": {
+          "trend_continuation": 2,
+          "resistance_test": 1,
+          "consolidation_break": 1,
+          "fvg_creation": 2,
+          "liquidity_sweep": 2,
+          "support_test": 2,
+          "level_break": 1,
+          "volume_spike": 1
+        },
+        "event_density": 0.8
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 1,
+        "gap_size": 0.5,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 15,
+        "price_volatility": 0.13963015824203895,
+        "trend_consistency": 0.038352278254633915,
+        "pattern_complexity": 0.2
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "premarket",
+        "session_date": "2025-08-05",
+        "session_start": "07:00:00",
+        "session_end": "09:29:00",
+        "session_duration": 149,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_rel_PREMARKET_Lvl-1_2025_08_05.json",
+      "phase_classification": "mixed",
+      "volatility": 0.7793368961219043,
+      "range_volatility": 0.27810843478433606,
+      "robust_volatility": 0.7532834368090264,
+      "trend_strength": -0.05974456091703852,
+      "price_range": {
+        "min": 23339.25,
+        "max": 23404.25,
+        "range": 65.0,
+        "avg": 23372.178571428572
+      },
+      "movement_analysis": {
+        "total_movements": 35,
+        "movement_types": {
+          "other": 8,
+          "expansion": 11,
+          "consolidation": 8,
+          "reversal": 2,
+          "retracement": 6
+        },
+        "movement_diversity": 5
+      },
+      "event_analysis": {
+        "total_events": 13,
+        "event_types": {
+          "fvg_creation": 2,
+          "consolidation_break": 2,
+          "support_test": 1,
+          "volume_spike": 2,
+          "resistance_test": 2,
+          "momentum_shift": 3,
+          "price_gap": 1
+        },
+        "event_density": 0.37142857142857144
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 5,
+        "gap_size": 1.0,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 35,
+        "price_volatility": 0.7793368961219043,
+        "trend_consistency": 0.05974456091703852,
+        "pattern_complexity": 0.14285714285714285
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "london",
+        "session_date": "2025-08-05",
+        "session_start": "02:00:00",
+        "session_end": "04:59:00",
+        "session_duration": 179,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_rel_LONDON_Lvl-1_2025_08_05.json",
+      "phase_classification": "consolidation",
+      "volatility": 0.6112458378499684,
+      "range_volatility": 0.36285952573153923,
+      "robust_volatility": 0.6347793897930148,
+      "trend_strength": -0.058538384495681356,
+      "price_range": {
+        "min": 23312.5,
+        "max": 23397.25,
+        "range": 84.75,
+        "avg": 23356.145833333332
+      },
+      "movement_analysis": {
+        "total_movements": 36,
+        "movement_types": {
+          "other": 9,
+          "expansion": 10,
+          "retracement": 8,
+          "consolidation": 8,
+          "reversal": 1
+        },
+        "movement_diversity": 5
+      },
+      "event_analysis": {
+        "total_events": 14,
+        "event_types": {
+          "consolidation_break": 2,
+          "fvg_creation": 3,
+          "level_break": 1,
+          "volume_spike": 3,
+          "momentum_shift": 2,
+          "resistance_test": 2,
+          "trend_continuation": 1
+        },
+        "event_density": 0.3888888888888889
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 2,
+        "gap_size": 4.0,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 36,
+        "price_volatility": 0.6112458378499684,
+        "trend_consistency": 0.058538384495681356,
+        "pattern_complexity": 0.1388888888888889
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "ny_am",
+        "session_date": "2025-08-05",
+        "session_start": "09:30:00",
+        "session_end": "11:59:00",
+        "session_duration": 149,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_NY_AM_Lvl-1_2025_08_05.json",
+      "phase_classification": "mixed",
+      "volatility": 1.5260866400113053,
+      "range_volatility": 1.2189263827084285,
+      "robust_volatility": 1.751452229518826,
+      "trend_strength": -0.11499151275250404,
+      "price_range": {
+        "min": 23113.5,
+        "max": 23397.25,
+        "range": 283.75,
+        "avg": 23278.682291666668
+      },
+      "movement_analysis": {
+        "total_movements": 48,
+        "movement_types": {
+          "other": 11,
+          "expansion": 17,
+          "retracement": 10,
+          "consolidation": 9,
+          "reversal": 1
+        },
+        "movement_diversity": 5
+      },
+      "event_analysis": {
+        "total_events": 16,
+        "event_types": {
+          "support_test": 1,
+          "trend_continuation": 3,
+          "volume_spike": 3,
+          "fvg_creation": 2,
+          "price_gap": 1,
+          "consolidation_break": 4,
+          "resistance_test": 1,
+          "level_break": 1
+        },
+        "event_density": 0.3333333333333333
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 2,
+        "gap_size": 11.25,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 48,
+        "price_volatility": 1.5260866400113053,
+        "trend_consistency": 0.11499151275250404,
+        "pattern_complexity": 0.10416666666666667
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "lunch",
+        "session_date": "2025-08-05",
+        "session_start": "12:00:00",
+        "session_end": "12:59:00",
+        "session_duration": 59,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_LUNCH_Lvl-1_2025_08_05.json",
+      "phase_classification": "mixed",
+      "volatility": 0.9624068375280862,
+      "range_volatility": 0.38068016869847066,
+      "robust_volatility": 0.8154169213521243,
+      "trend_strength": 0.04622222004793849,
+      "price_range": {
+        "min": 23137.0,
+        "max": 23225.25,
+        "range": 88.25,
+        "avg": 23182.19
+      },
+      "movement_analysis": {
+        "total_movements": 25,
+        "movement_types": {
+          "other": 7,
+          "expansion": 8,
+          "retracement": 6,
+          "consolidation": 4
+        },
+        "movement_diversity": 4
+      },
+      "event_analysis": {
+        "total_events": 16,
+        "event_types": {
+          "volume_spike": 3,
+          "trend_continuation": 4,
+          "price_gap": 2,
+          "consolidation_break": 3,
+          "level_break": 1,
+          "support_test": 1,
+          "liquidity_sweep": 1,
+          "momentum_shift": 1
+        },
+        "event_density": 0.64
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 4,
+        "gap_size": 7.25,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 25,
+        "price_volatility": 0.9624068375280862,
+        "trend_consistency": 0.04622222004793849,
+        "pattern_complexity": 0.16
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "london",
+        "session_date": "2025-08-05",
+        "session_start": "02:00:00",
+        "session_end": "04:59:00",
+        "session_duration": 179,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_LONDON_Lvl-1_2025_08_05.json",
+      "phase_classification": "consolidation",
+      "volatility": 0.6112458378499684,
+      "range_volatility": 0.36285952573153923,
+      "robust_volatility": 0.6347793897930148,
+      "trend_strength": -0.058538384495681356,
+      "price_range": {
+        "min": 23312.5,
+        "max": 23397.25,
+        "range": 84.75,
+        "avg": 23356.145833333332
+      },
+      "movement_analysis": {
+        "total_movements": 36,
+        "movement_types": {
+          "other": 9,
+          "expansion": 10,
+          "retracement": 8,
+          "consolidation": 8,
+          "reversal": 1
+        },
+        "movement_diversity": 5
+      },
+      "event_analysis": {
+        "total_events": 14,
+        "event_types": {
+          "consolidation_break": 2,
+          "fvg_creation": 3,
+          "level_break": 1,
+          "volume_spike": 3,
+          "momentum_shift": 2,
+          "resistance_test": 2,
+          "trend_continuation": 1
+        },
+        "event_density": 0.3888888888888889
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 2,
+        "gap_size": 4.0,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 36,
+        "price_volatility": 0.6112458378499684,
+        "trend_consistency": 0.058538384495681356,
+        "pattern_complexity": 0.1388888888888889
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "ny_pm",
+        "session_date": "2025-08-05",
+        "session_start": "13:30:00",
+        "session_end": "16:09:00",
+        "session_duration": 159,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_NY_PM_Lvl-1_2025_08_05.json",
+      "phase_classification": "mixed",
+      "volatility": 1.0601895653266602,
+      "range_volatility": 0.5909697379638744,
+      "robust_volatility": 0.7674496935812323,
+      "trend_strength": -0.04951593620825621,
+      "price_range": {
+        "min": 23115.0,
+        "max": 23252.0,
+        "range": 137.0,
+        "avg": 23182.23611111111
+      },
+      "movement_analysis": {
+        "total_movements": 54,
+        "movement_types": {
+          "other": 6,
+          "consolidation": 12,
+          "expansion": 21,
+          "retracement": 14,
+          "reversal": 1
+        },
+        "movement_diversity": 5
+      },
+      "event_analysis": {
+        "total_events": 11,
+        "event_types": {
+          "price_gap": 3,
+          "momentum_shift": 1,
+          "fvg_creation": 4,
+          "volume_spike": 1,
+          "support_test": 1,
+          "liquidity_sweep": 1
+        },
+        "event_density": 0.2037037037037037
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 2,
+        "gap_size": 0.75,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 54,
+        "price_volatility": 1.0601895653266602,
+        "trend_consistency": 0.04951593620825621,
+        "pattern_complexity": 0.09259259259259259
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "midnight",
+        "session_date": "2025-08-05",
+        "session_start": "00:00:00",
+        "session_end": "00:29:00",
+        "session_duration": 29,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed",
+        "session_name": "midnight_opening_range"
+      },
+      "source_file": "enhanced_MIDNIGHT_Lvl-1_2025_08_05.json",
+      "phase_classification": "consolidation",
+      "volatility": 0.13963015824203895,
+      "range_volatility": 0.03641491583513325,
+      "robust_volatility": 0.22230663501187056,
+      "trend_strength": 0.038352278254633915,
+      "price_range": {
+        "min": 23337.0,
+        "max": 23345.5,
+        "range": 8.5,
+        "avg": 23342.083333333332
+      },
+      "movement_analysis": {
+        "total_movements": 15,
+        "movement_types": {
+          "other": 5,
+          "consolidation": 6,
+          "expansion": 4
+        },
+        "movement_diversity": 3
+      },
+      "event_analysis": {
+        "total_events": 12,
+        "event_types": {
+          "trend_continuation": 2,
+          "resistance_test": 1,
+          "consolidation_break": 1,
+          "fvg_creation": 2,
+          "liquidity_sweep": 2,
+          "support_test": 2,
+          "level_break": 1,
+          "volume_spike": 1
+        },
+        "event_density": 0.8
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 1,
+        "gap_size": 0.5,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 15,
+        "price_volatility": 0.13963015824203895,
+        "trend_consistency": 0.038352278254633915,
+        "pattern_complexity": 0.2
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "lunch",
+        "session_date": "2025-08-05",
+        "session_start": "12:00:00",
+        "session_end": "12:59:00",
+        "session_duration": 59,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_rel_LUNCH_Lvl-1_2025_08_05.json",
+      "phase_classification": "mixed",
+      "volatility": 0.9624068375280862,
+      "range_volatility": 0.38068016869847066,
+      "robust_volatility": 0.8154169213521243,
+      "trend_strength": 0.04622222004793849,
+      "price_range": {
+        "min": 23137.0,
+        "max": 23225.25,
+        "range": 88.25,
+        "avg": 23182.19
+      },
+      "movement_analysis": {
+        "total_movements": 25,
+        "movement_types": {
+          "other": 7,
+          "expansion": 8,
+          "retracement": 6,
+          "consolidation": 4
+        },
+        "movement_diversity": 4
+      },
+      "event_analysis": {
+        "total_events": 16,
+        "event_types": {
+          "volume_spike": 3,
+          "trend_continuation": 4,
+          "price_gap": 2,
+          "consolidation_break": 3,
+          "level_break": 1,
+          "support_test": 1,
+          "liquidity_sweep": 1,
+          "momentum_shift": 1
+        },
+        "event_density": 0.64
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 4,
+        "gap_size": 7.25,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 25,
+        "price_volatility": 0.9624068375280862,
+        "trend_consistency": 0.04622222004793849,
+        "pattern_complexity": 0.16
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "asia",
+        "session_date": "2025-08-05",
+        "session_start": "19:00:00",
+        "session_end": "23:59:00",
+        "session_duration": 299,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed",
+        "actual_start_date": "2025-08-04"
+      },
+      "source_file": "enhanced_ASIA_Lvl-1_2025_08_05.json",
+      "phase_classification": "mixed",
+      "volatility": 0.8062025808876118,
+      "range_volatility": 0.2731766263650797,
+      "robust_volatility": 0.8656131690416964,
+      "trend_strength": 0.02384021077524263,
+      "price_range": {
+        "min": 23310.75,
+        "max": 23374.5,
+        "range": 63.75,
+        "avg": 23336.55
+      },
+      "movement_analysis": {
+        "total_movements": 35,
+        "movement_types": {
+          "other": 9,
+          "expansion": 13,
+          "retracement": 6,
+          "consolidation": 6,
+          "reversal": 1
+        },
+        "movement_diversity": 5
+      },
+      "event_analysis": {
+        "total_events": 11,
+        "event_types": {
+          "price_gap": 1,
+          "level_break": 2,
+          "volume_spike": 2,
+          "fvg_creation": 2,
+          "trend_continuation": 1,
+          "consolidation_break": 1,
+          "liquidity_sweep": 1,
+          "momentum_shift": 1
+        },
+        "event_density": 0.3142857142857143
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 5,
+        "gap_size": 1.0,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 35,
+        "price_volatility": 0.8062025808876118,
+        "trend_consistency": 0.02384021077524263,
+        "pattern_complexity": 0.14285714285714285
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "ny_am",
+        "session_date": "2025-08-05",
+        "session_start": "09:30:00",
+        "session_end": "11:59:00",
+        "session_duration": 149,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_rel_NY_AM_Lvl-1_2025_08_05.json",
+      "phase_classification": "mixed",
+      "volatility": 1.5260866400113053,
+      "range_volatility": 1.2189263827084285,
+      "robust_volatility": 1.751452229518826,
+      "trend_strength": -0.11499151275250404,
+      "price_range": {
+        "min": 23113.5,
+        "max": 23397.25,
+        "range": 283.75,
+        "avg": 23278.682291666668
+      },
+      "movement_analysis": {
+        "total_movements": 48,
+        "movement_types": {
+          "other": 11,
+          "expansion": 17,
+          "retracement": 10,
+          "consolidation": 9,
+          "reversal": 1
+        },
+        "movement_diversity": 5
+      },
+      "event_analysis": {
+        "total_events": 16,
+        "event_types": {
+          "support_test": 1,
+          "trend_continuation": 3,
+          "volume_spike": 3,
+          "fvg_creation": 2,
+          "price_gap": 1,
+          "consolidation_break": 4,
+          "resistance_test": 1,
+          "level_break": 1
+        },
+        "event_density": 0.3333333333333333
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 2,
+        "gap_size": 11.25,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 48,
+        "price_volatility": 1.5260866400113053,
+        "trend_consistency": 0.11499151275250404,
+        "pattern_complexity": 0.10416666666666667
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "asia",
+        "session_date": "2025-08-06",
+        "session_start": "19:00:00",
+        "session_end": "23:59:00",
+        "session_duration": 299,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed",
+        "trading_day_note": "Asia session 19:00 ET Aug 5 = Aug 6 Asian markets"
+      },
+      "source_file": "enhanced_ASIA_Lvl-1_2025_08_06.json",
+      "phase_classification": "expansion",
+      "volatility": 0.915883672765681,
+      "range_volatility": 0.5202158192655602,
+      "robust_volatility": 0.625355654305232,
+      "trend_strength": 0.2566400919194891,
+      "price_range": {
+        "min": 23049.75,
+        "max": 23170.0,
+        "range": 120.25,
+        "avg": 23115.40625
+      },
+      "movement_analysis": {
+        "total_movements": 16,
+        "movement_types": {
+          "other": 5,
+          "expansion": 10,
+          "retracement": 1
+        },
+        "movement_diversity": 3
+      },
+      "event_analysis": {
+        "total_events": 15,
+        "event_types": {
+          "momentum_shift": 4,
+          "consolidation_break": 2,
+          "liquidity_sweep": 2,
+          "price_gap": 2,
+          "level_break": 1,
+          "volume_spike": 2,
+          "fvg_creation": 1,
+          "trend_continuation": 1
+        },
+        "event_density": 0.9375
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 9,
+        "gap_size": 1.25,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 16,
+        "price_volatility": 0.915883672765681,
+        "trend_consistency": 0.2566400919194891,
+        "pattern_complexity": 0.1875
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "lunch",
+        "session_date": "2025-08-06",
+        "session_start": "12:00:00",
+        "session_end": "12:59:00",
+        "session_duration": 59,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_rel_LUNCH_Lvl-1_2025_08_06.json",
+      "phase_classification": "mixed",
+      "volatility": 0.7920082646163148,
+      "range_volatility": 0.1872006589463195,
+      "robust_volatility": 0.840560910774406,
+      "trend_strength": 0.007023328056466987,
+      "price_range": {
+        "min": 23345.75,
+        "max": 23389.5,
+        "range": 43.75,
+        "avg": 23370.64423076923
+      },
+      "movement_analysis": {
+        "total_movements": 26,
+        "movement_types": {
+          "other": 5,
+          "expansion": 14,
+          "consolidation": 2,
+          "retracement": 5
+        },
+        "movement_diversity": 4
+      },
+      "event_analysis": {
+        "total_events": 16,
+        "event_types": {
+          "volume_spike": 4,
+          "fvg_creation": 4,
+          "liquidity_sweep": 2,
+          "trend_continuation": 1,
+          "support_test": 1,
+          "momentum_shift": 2,
+          "level_break": 1,
+          "consolidation_break": 1
+        },
+        "event_density": 0.6153846153846154
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 7,
+        "gap_size": 3.25,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 26,
+        "price_volatility": 0.7920082646163148,
+        "trend_consistency": 0.007023328056466987,
+        "pattern_complexity": 0.15384615384615385
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "nypm",
+        "session_date": "2025-08-06",
+        "session_start": "13:30:00",
+        "session_end": "16:09:00",
+        "session_duration": 159,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_rel_NYPM_Lvl-1_2025_08_06.json",
+      "phase_classification": "mixed",
+      "volatility": 0.6114611453937422,
+      "range_volatility": 0.34932538537961094,
+      "robust_volatility": 0.6335288273563439,
+      "trend_strength": 0.06891271688233112,
+      "price_range": {
+        "min": 23363.5,
+        "max": 23445.25,
+        "range": 81.75,
+        "avg": 23402.25
+      },
+      "movement_analysis": {
+        "total_movements": 37,
+        "movement_types": {
+          "other": 6,
+          "expansion": 18,
+          "consolidation": 6,
+          "retracement": 7
+        },
+        "movement_diversity": 4
+      },
+      "event_analysis": {
+        "total_events": 10,
+        "event_types": {
+          "price_gap": 1,
+          "consolidation_break": 1,
+          "trend_continuation": 2,
+          "momentum_shift": 3,
+          "fvg_creation": 1,
+          "level_break": 1,
+          "volume_spike": 1
+        },
+        "event_density": 0.2702702702702703
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 3,
+        "gap_size": 1.5,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 37,
+        "price_volatility": 0.6114611453937422,
+        "trend_consistency": 0.06891271688233112,
+        "pattern_complexity": 0.10810810810810811
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "midnight",
+        "session_date": "2025-08-06",
+        "session_start": "00:00:00",
+        "session_end": "00:29:00",
+        "session_duration": 29,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_MIDNIGHT_Lvl-1_2025_08_06.json",
+      "phase_classification": "consolidation",
+      "volatility": 0.2827501719253101,
+      "range_volatility": 0.057189718799231716,
+      "robust_volatility": 0.35195632000345295,
+      "trend_strength": -0.003469337326533643,
+      "price_range": {
+        "min": 23160.25,
+        "max": 23173.5,
+        "range": 13.25,
+        "avg": 23168.5
+      },
+      "movement_analysis": {
+        "total_movements": 12,
+        "movement_types": {
+          "other": 7,
+          "expansion": 3,
+          "retracement": 2
+        },
+        "movement_diversity": 3
+      },
+      "event_analysis": {
+        "total_events": 10,
+        "event_types": {
+          "support_test": 4,
+          "liquidity_sweep": 1,
+          "consolidation_break": 2,
+          "volume_spike": 1,
+          "price_gap": 1,
+          "fvg_creation": 1
+        },
+        "event_density": 0.8333333333333334
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 2,
+        "gap_size": 0.5,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 12,
+        "price_volatility": 0.2827501719253101,
+        "trend_consistency": 0.003469337326533643,
+        "pattern_complexity": 0.25
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "nyam",
+        "session_date": "2025-08-06",
+        "session_start": "09:30:00",
+        "session_end": "11:59:00",
+        "session_duration": 149,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_NYAM_Lvl-1_2025_08_06.json",
+      "phase_classification": "mixed",
+      "volatility": 1.993366837436557,
+      "range_volatility": 0.9761353571755794,
+      "robust_volatility": 2.1357626607213755,
+      "trend_strength": 0.09970929362784142,
+      "price_range": {
+        "min": 23148.5,
+        "max": 23375.5,
+        "range": 227.0,
+        "avg": 23254.971590909092
+      },
+      "movement_analysis": {
+        "total_movements": 44,
+        "movement_types": {
+          "other": 5,
+          "expansion": 21,
+          "retracement": 17,
+          "consolidation": 1
+        },
+        "movement_diversity": 4
+      },
+      "event_analysis": {
+        "total_events": 17,
+        "event_types": {
+          "price_gap": 5,
+          "level_break": 5,
+          "momentum_shift": 1,
+          "volume_spike": 1,
+          "trend_continuation": 2,
+          "support_test": 1,
+          "liquidity_sweep": 1,
+          "fvg_creation": 1
+        },
+        "event_density": 0.38636363636363635
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 7,
+        "gap_size": 9.5,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 44,
+        "price_volatility": 1.993366837436557,
+        "trend_consistency": 0.09970929362784142,
+        "pattern_complexity": 0.09090909090909091
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "lunch",
+        "session_date": "2025-08-06",
+        "session_start": "12:00:00",
+        "session_end": "12:59:00",
+        "session_duration": 59,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_LUNCH_Lvl-1_2025_08_06.json",
+      "phase_classification": "mixed",
+      "volatility": 0.7920082646163148,
+      "range_volatility": 0.1872006589463195,
+      "robust_volatility": 0.840560910774406,
+      "trend_strength": 0.007023328056466987,
+      "price_range": {
+        "min": 23345.75,
+        "max": 23389.5,
+        "range": 43.75,
+        "avg": 23370.64423076923
+      },
+      "movement_analysis": {
+        "total_movements": 26,
+        "movement_types": {
+          "other": 5,
+          "expansion": 14,
+          "consolidation": 2,
+          "retracement": 5
+        },
+        "movement_diversity": 4
+      },
+      "event_analysis": {
+        "total_events": 16,
+        "event_types": {
+          "volume_spike": 4,
+          "fvg_creation": 4,
+          "liquidity_sweep": 2,
+          "trend_continuation": 1,
+          "support_test": 1,
+          "momentum_shift": 2,
+          "level_break": 1,
+          "consolidation_break": 1
+        },
+        "event_density": 0.6153846153846154
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 7,
+        "gap_size": 3.25,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 26,
+        "price_volatility": 0.7920082646163148,
+        "trend_consistency": 0.007023328056466987,
+        "pattern_complexity": 0.15384615384615385
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "london",
+        "session_date": "2025-08-06",
+        "session_start": "02:00:00",
+        "session_end": "04:59:00",
+        "session_duration": 179,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_LONDON_Lvl-1_2025_08_06.json",
+      "phase_classification": "mixed",
+      "volatility": 0.8022213178282358,
+      "range_volatility": 0.306100766894309,
+      "robust_volatility": 0.9667750816320035,
+      "trend_strength": -0.04903935433931258,
+      "price_range": {
+        "min": 23156.0,
+        "max": 23227.0,
+        "range": 71.0,
+        "avg": 23194.97619047619
+      },
+      "movement_analysis": {
+        "total_movements": 21,
+        "movement_types": {
+          "other": 5,
+          "expansion": 9,
+          "retracement": 6,
+          "reversal": 1
+        },
+        "movement_diversity": 4
+      },
+      "event_analysis": {
+        "total_events": 10,
+        "event_types": {
+          "level_break": 2,
+          "trend_continuation": 3,
+          "liquidity_sweep": 1,
+          "momentum_shift": 2,
+          "consolidation_break": 1,
+          "fvg_creation": 1
+        },
+        "event_density": 0.47619047619047616
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 4,
+        "gap_size": 0.5,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 21,
+        "price_volatility": 0.8022213178282358,
+        "trend_consistency": 0.04903935433931258,
+        "pattern_complexity": 0.19047619047619047
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "premarket",
+        "session_date": "2025-08-06",
+        "session_start": "07:00:00",
+        "session_end": "09:29:00",
+        "session_duration": 149,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed",
+        "pre_session_events": "london_low_takeout_at_05:27"
+      },
+      "source_file": "enhanced_rel_PREMARKET_Lvl-1_2025_08_06.json",
+      "phase_classification": "mixed",
+      "volatility": 0.981626311601618,
+      "range_volatility": 0.2557754768985616,
+      "robust_volatility": 1.152038649265238,
+      "trend_strength": 0.048974246317874774,
+      "price_range": {
+        "min": 23137.5,
+        "max": 23196.75,
+        "range": 59.25,
+        "avg": 23164.847826086956
+      },
+      "movement_analysis": {
+        "total_movements": 23,
+        "movement_types": {
+          "other": 6,
+          "expansion": 11,
+          "retracement": 5,
+          "reversal": 1
+        },
+        "movement_diversity": 4
+      },
+      "event_analysis": {
+        "total_events": 10,
+        "event_types": {
+          "resistance_test": 1,
+          "consolidation_break": 1,
+          "liquidity_sweep": 1,
+          "volume_spike": 1,
+          "support_test": 1,
+          "trend_continuation": 2,
+          "momentum_shift": 1,
+          "fvg_creation": 1,
+          "level_break": 1
+        },
+        "event_density": 0.43478260869565216
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 8,
+        "gap_size": 7.0,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 23,
+        "price_volatility": 0.981626311601618,
+        "trend_consistency": 0.048974246317874774,
+        "pattern_complexity": 0.17391304347826086
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "london",
+        "session_date": "2025-08-06",
+        "session_start": "02:00:00",
+        "session_end": "04:59:00",
+        "session_duration": 179,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_rel_LONDON_Lvl-1_2025_08_06.json",
+      "phase_classification": "mixed",
+      "volatility": 0.8022213178282358,
+      "range_volatility": 0.306100766894309,
+      "robust_volatility": 0.9667750816320035,
+      "trend_strength": -0.04903935433931258,
+      "price_range": {
+        "min": 23156.0,
+        "max": 23227.0,
+        "range": 71.0,
+        "avg": 23194.97619047619
+      },
+      "movement_analysis": {
+        "total_movements": 21,
+        "movement_types": {
+          "other": 5,
+          "expansion": 9,
+          "retracement": 6,
+          "reversal": 1
+        },
+        "movement_diversity": 4
+      },
+      "event_analysis": {
+        "total_events": 10,
+        "event_types": {
+          "level_break": 2,
+          "trend_continuation": 3,
+          "liquidity_sweep": 1,
+          "momentum_shift": 2,
+          "consolidation_break": 1,
+          "fvg_creation": 1
+        },
+        "event_density": 0.47619047619047616
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 4,
+        "gap_size": 0.5,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 21,
+        "price_volatility": 0.8022213178282358,
+        "trend_consistency": 0.04903935433931258,
+        "pattern_complexity": 0.19047619047619047
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "nyam",
+        "session_date": "2025-08-06",
+        "session_start": "09:30:00",
+        "session_end": "11:59:00",
+        "session_duration": 149,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_rel_NYAM_Lvl-1_2025_08_06.json",
+      "phase_classification": "mixed",
+      "volatility": 1.993366837436557,
+      "range_volatility": 0.9761353571755794,
+      "robust_volatility": 2.1357626607213755,
+      "trend_strength": 0.09970929362784142,
+      "price_range": {
+        "min": 23148.5,
+        "max": 23375.5,
+        "range": 227.0,
+        "avg": 23254.971590909092
+      },
+      "movement_analysis": {
+        "total_movements": 44,
+        "movement_types": {
+          "other": 5,
+          "expansion": 21,
+          "retracement": 17,
+          "consolidation": 1
+        },
+        "movement_diversity": 4
+      },
+      "event_analysis": {
+        "total_events": 17,
+        "event_types": {
+          "price_gap": 5,
+          "level_break": 5,
+          "momentum_shift": 1,
+          "volume_spike": 1,
+          "trend_continuation": 2,
+          "support_test": 1,
+          "liquidity_sweep": 1,
+          "fvg_creation": 1
+        },
+        "event_density": 0.38636363636363635
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 7,
+        "gap_size": 9.5,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 44,
+        "price_volatility": 1.993366837436557,
+        "trend_consistency": 0.09970929362784142,
+        "pattern_complexity": 0.09090909090909091
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "midnight",
+        "session_date": "2025-08-06",
+        "session_start": "00:00:00",
+        "session_end": "00:29:00",
+        "session_duration": 29,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_rel_MIDNIGHT_Lvl-1_2025_08_06.json",
+      "phase_classification": "consolidation",
+      "volatility": 0.2827501719253101,
+      "range_volatility": 0.057189718799231716,
+      "robust_volatility": 0.35195632000345295,
+      "trend_strength": -0.003469337326533643,
+      "price_range": {
+        "min": 23160.25,
+        "max": 23173.5,
+        "range": 13.25,
+        "avg": 23168.5
+      },
+      "movement_analysis": {
+        "total_movements": 12,
+        "movement_types": {
+          "other": 7,
+          "expansion": 3,
+          "retracement": 2
+        },
+        "movement_diversity": 3
+      },
+      "event_analysis": {
+        "total_events": 10,
+        "event_types": {
+          "support_test": 4,
+          "liquidity_sweep": 1,
+          "consolidation_break": 2,
+          "volume_spike": 1,
+          "price_gap": 1,
+          "fvg_creation": 1
+        },
+        "event_density": 0.8333333333333334
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 2,
+        "gap_size": 0.5,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 12,
+        "price_volatility": 0.2827501719253101,
+        "trend_consistency": 0.003469337326533643,
+        "pattern_complexity": 0.25
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "nypm",
+        "session_date": "2025-08-06",
+        "session_start": "13:30:00",
+        "session_end": "16:09:00",
+        "session_duration": 159,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_NYPM_Lvl-1_2025_08_06.json",
+      "phase_classification": "mixed",
+      "volatility": 0.6114611453937422,
+      "range_volatility": 0.34932538537961094,
+      "robust_volatility": 0.6335288273563439,
+      "trend_strength": 0.06891271688233112,
+      "price_range": {
+        "min": 23363.5,
+        "max": 23445.25,
+        "range": 81.75,
+        "avg": 23402.25
+      },
+      "movement_analysis": {
+        "total_movements": 37,
+        "movement_types": {
+          "other": 6,
+          "expansion": 18,
+          "consolidation": 6,
+          "retracement": 7
+        },
+        "movement_diversity": 4
+      },
+      "event_analysis": {
+        "total_events": 10,
+        "event_types": {
+          "price_gap": 1,
+          "consolidation_break": 1,
+          "trend_continuation": 2,
+          "momentum_shift": 3,
+          "fvg_creation": 1,
+          "level_break": 1,
+          "volume_spike": 1
+        },
+        "event_density": 0.2702702702702703
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 3,
+        "gap_size": 1.5,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 37,
+        "price_volatility": 0.6114611453937422,
+        "trend_consistency": 0.06891271688233112,
+        "pattern_complexity": 0.10810810810810811
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "premarket",
+        "session_date": "2025-08-06",
+        "session_start": "07:00:00",
+        "session_end": "09:29:00",
+        "session_duration": 149,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed",
+        "pre_session_events": "london_low_takeout_at_05:27"
+      },
+      "source_file": "enhanced_PREMARKET_Lvl-1_2025_08_06.json",
+      "phase_classification": "mixed",
+      "volatility": 0.981626311601618,
+      "range_volatility": 0.2557754768985616,
+      "robust_volatility": 1.152038649265238,
+      "trend_strength": 0.048974246317874774,
+      "price_range": {
+        "min": 23137.5,
+        "max": 23196.75,
+        "range": 59.25,
+        "avg": 23164.847826086956
+      },
+      "movement_analysis": {
+        "total_movements": 23,
+        "movement_types": {
+          "other": 6,
+          "expansion": 11,
+          "retracement": 5,
+          "reversal": 1
+        },
+        "movement_diversity": 4
+      },
+      "event_analysis": {
+        "total_events": 10,
+        "event_types": {
+          "resistance_test": 1,
+          "consolidation_break": 1,
+          "liquidity_sweep": 1,
+          "volume_spike": 1,
+          "support_test": 1,
+          "trend_continuation": 2,
+          "momentum_shift": 1,
+          "fvg_creation": 1,
+          "level_break": 1
+        },
+        "event_density": 0.43478260869565216
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 8,
+        "gap_size": 7.0,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 23,
+        "price_volatility": 0.981626311601618,
+        "trend_consistency": 0.048974246317874774,
+        "pattern_complexity": 0.17391304347826086
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "asia",
+        "session_date": "2025-08-06",
+        "session_start": "19:00:00",
+        "session_end": "23:59:00",
+        "session_duration": 299,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed",
+        "trading_day_note": "Asia session 19:00 ET Aug 5 = Aug 6 Asian markets"
+      },
+      "source_file": "enhanced_rel_ASIA_Lvl-1_2025_08_06.json",
+      "phase_classification": "expansion",
+      "volatility": 0.915883672765681,
+      "range_volatility": 0.5202158192655602,
+      "robust_volatility": 0.625355654305232,
+      "trend_strength": 0.2566400919194891,
+      "price_range": {
+        "min": 23049.75,
+        "max": 23170.0,
+        "range": 120.25,
+        "avg": 23115.40625
+      },
+      "movement_analysis": {
+        "total_movements": 16,
+        "movement_types": {
+          "other": 5,
+          "expansion": 10,
+          "retracement": 1
+        },
+        "movement_diversity": 3
+      },
+      "event_analysis": {
+        "total_events": 15,
+        "event_types": {
+          "momentum_shift": 4,
+          "consolidation_break": 2,
+          "liquidity_sweep": 2,
+          "price_gap": 2,
+          "level_break": 1,
+          "volume_spike": 2,
+          "fvg_creation": 1,
+          "trend_continuation": 1
+        },
+        "event_density": 0.9375
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 9,
+        "gap_size": 1.25,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 16,
+        "price_volatility": 0.915883672765681,
+        "trend_consistency": 0.2566400919194891,
+        "pattern_complexity": 0.1875
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "midnight",
+        "session_date": "2025-08-07",
+        "session_start": "00:00:00",
+        "session_end": "00:29:00",
+        "session_duration": 29,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_MIDNIGHT_Lvl-1_2025_08_07.json",
+      "phase_classification": "mixed",
+      "volatility": 0.3239799436487993,
+      "range_volatility": 0.08087782234334977,
+      "robust_volatility": 0.3155512089638168,
+      "trend_strength": -0.1386879787002819,
+      "price_range": {
+        "min": 23480.25,
+        "max": 23499.25,
+        "range": 19.0,
+        "avg": 23492.225
+      },
+      "movement_analysis": {
+        "total_movements": 10,
+        "movement_types": {
+          "other": 2,
+          "expansion": 5,
+          "retracement": 2,
+          "reversal": 1
+        },
+        "movement_diversity": 4
+      },
+      "event_analysis": {
+        "total_events": 10,
+        "event_types": {
+          "momentum_shift": 1,
+          "volume_spike": 2,
+          "price_gap": 3,
+          "consolidation_break": 1,
+          "resistance_test": 1,
+          "support_test": 1,
+          "trend_continuation": 1
+        },
+        "event_density": 1.0
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 3,
+        "gap_size": 0.5,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 10,
+        "price_volatility": 0.3239799436487993,
+        "trend_consistency": 0.1386879787002819,
+        "pattern_complexity": 0.4
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "asia",
+        "session_date": "2025-08-07",
+        "session_start": "19:00:00",
+        "session_end": "23:59:00",
+        "session_duration": 299,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed",
+        "pre_session_events": "ny_pm_session_high_takeout_at_18:26"
+      },
+      "source_file": "enhanced_ASIA_Lvl-1_2025_08_07.json",
+      "phase_classification": "mixed",
+      "volatility": 0.5653989689526198,
+      "range_volatility": 0.28538455702167137,
+      "robust_volatility": 0.6788723582960519,
+      "trend_strength": 0.05601883135418106,
+      "price_range": {
+        "min": 23444.25,
+        "max": 23511.25,
+        "range": 67.0,
+        "avg": 23477.09375
+      },
+      "movement_analysis": {
+        "total_movements": 40,
+        "movement_types": {
+          "other": 4,
+          "expansion": 17,
+          "retracement": 11,
+          "consolidation": 7,
+          "reversal": 1
+        },
+        "movement_diversity": 5
+      },
+      "event_analysis": {
+        "total_events": 10,
+        "event_types": {
+          "volume_spike": 2,
+          "price_gap": 1,
+          "level_break": 1,
+          "trend_continuation": 2,
+          "resistance_test": 2,
+          "liquidity_sweep": 1,
+          "momentum_shift": 1
+        },
+        "event_density": 0.25
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 3,
+        "gap_size": 0.25,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 40,
+        "price_volatility": 0.5653989689526198,
+        "trend_consistency": 0.05601883135418106,
+        "pattern_complexity": 0.125
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "london",
+        "session_date": "2025-08-07",
+        "session_start": "02:00:00",
+        "session_end": "04:59:00",
+        "session_duration": 179,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_rel_LONDON_Lvl-1_2025_08_07.json",
+      "phase_classification": "mixed",
+      "volatility": 0.7022909413366643,
+      "range_volatility": 0.45735037320281346,
+      "robust_volatility": 0.630760617033015,
+      "trend_strength": 0.11557872969625148,
+      "price_range": {
+        "min": 23467.25,
+        "max": 23574.75,
+        "range": 107.5,
+        "avg": 23504.95512820513
+      },
+      "movement_analysis": {
+        "total_movements": 39,
+        "movement_types": {
+          "other": 6,
+          "expansion": 14,
+          "consolidation": 8,
+          "retracement": 10,
+          "reversal": 1
+        },
+        "movement_diversity": 5
+      },
+      "event_analysis": {
+        "total_events": 16,
+        "event_types": {
+          "consolidation_break": 2,
+          "fvg_creation": 2,
+          "level_break": 2,
+          "support_test": 4,
+          "liquidity_sweep": 3,
+          "price_gap": 2,
+          "trend_continuation": 1
+        },
+        "event_density": 0.41025641025641024
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 6,
+        "gap_size": 4.5,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 39,
+        "price_volatility": 0.7022909413366643,
+        "trend_consistency": 0.11557872969625148,
+        "pattern_complexity": 0.1282051282051282
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "premarket",
+        "session_date": "2025-08-07",
+        "session_start": "07:00:00",
+        "session_end": "09:29:00",
+        "session_duration": 149,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed",
+        "session_notes": "news_release_at_08:30"
+      },
+      "source_file": "enhanced_rel_PREMARKET_Lvl-1_2025_08_07.json",
+      "phase_classification": "mixed",
+      "volatility": 0.7061293633433962,
+      "range_volatility": 0.26798232777243525,
+      "robust_volatility": 0.83231074131371,
+      "trend_strength": -0.05416792683795639,
+      "price_range": {
+        "min": 23575.75,
+        "max": 23639.0,
+        "range": 63.25,
+        "avg": 23602.302631578947
+      },
+      "movement_analysis": {
+        "total_movements": 19,
+        "movement_types": {
+          "other": 3,
+          "expansion": 7,
+          "reversal": 2,
+          "consolidation": 4,
+          "retracement": 3
+        },
+        "movement_diversity": 5
+      },
+      "event_analysis": {
+        "total_events": 11,
+        "event_types": {
+          "volume_spike": 3,
+          "trend_continuation": 1,
+          "momentum_shift": 2,
+          "level_break": 1,
+          "support_test": 1,
+          "price_gap": 2,
+          "consolidation_break": 1
+        },
+        "event_density": 0.5789473684210527
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 2,
+        "gap_size": 4.0,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 19,
+        "price_volatility": 0.7061293633433962,
+        "trend_consistency": 0.05416792683795639,
+        "pattern_complexity": 0.2631578947368421
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "london",
+        "session_date": "2025-08-07",
+        "session_start": "02:00:00",
+        "session_end": "04:59:00",
+        "session_duration": 179,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "source_file": "enhanced_LONDON_Lvl-1_2025_08_07.json",
+      "phase_classification": "mixed",
+      "volatility": 0.7022909413366643,
+      "range_volatility": 0.45735037320281346,
+      "robust_volatility": 0.630760617033015,
+      "trend_strength": 0.11557872969625148,
+      "price_range": {
+        "min": 23467.25,
+        "max": 23574.75,
+        "range": 107.5,
+        "avg": 23504.95512820513
+      },
+      "movement_analysis": {
+        "total_movements": 39,
+        "movement_types": {
+          "other": 6,
+          "expansion": 14,
+          "consolidation": 8,
+          "retracement": 10,
+          "reversal": 1
+        },
+        "movement_diversity": 5
+      },
+      "event_analysis": {
+        "total_events": 16,
+        "event_types": {
+          "consolidation_break": 2,
+          "fvg_creation": 2,
+          "level_break": 2,
+          "support_test": 4,
+          "liquidity_sweep": 3,
+          "price_gap": 2,
+          "trend_continuation": 1
+        },
+        "event_density": 0.41025641025641024
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 6,
+        "gap_size": 4.5,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 39,
+        "price_volatility": 0.7022909413366643,
+        "trend_consistency": 0.11557872969625148,
+        "pattern_complexity": 0.1282051282051282
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "asia",
+        "session_date": "2025-08-07",
+        "session_start": "19:00:00",
+        "session_end": "23:59:00",
+        "session_duration": 299,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed",
+        "pre_session_events": "ny_pm_session_high_takeout_at_18:26"
+      },
+      "source_file": "enhanced_rel_ASIA_Lvl-1_2025_08_07.json",
+      "phase_classification": "mixed",
+      "volatility": 0.5653989689526198,
+      "range_volatility": 0.28538455702167137,
+      "robust_volatility": 0.6788723582960519,
+      "trend_strength": 0.05601883135418106,
+      "price_range": {
+        "min": 23444.25,
+        "max": 23511.25,
+        "range": 67.0,
+        "avg": 23477.09375
+      },
+      "movement_analysis": {
+        "total_movements": 40,
+        "movement_types": {
+          "other": 4,
+          "expansion": 17,
+          "retracement": 11,
+          "consolidation": 7,
+          "reversal": 1
+        },
+        "movement_diversity": 5
+      },
+      "event_analysis": {
+        "total_events": 10,
+        "event_types": {
+          "volume_spike": 2,
+          "price_gap": 1,
+          "level_break": 1,
+          "trend_continuation": 2,
+          "resistance_test": 2,
+          "liquidity_sweep": 1,
+          "momentum_shift": 1
+        },
+        "event_density": 0.25
+      },
+      "fpfvg_analysis": {
+        "fpfvg_present": true,
+        "interactions": 3,
+        "gap_size": 0.25,
+        "features": {
+          "delta_interactions": 0.0,
+          "delta_gap": 0.0,
+          "state_change": 0.0
+        }
+      },
+      "temporal_characteristics": {
+        "session_duration": 40,
+        "price_volatility": 0.5653989689526198,
+        "trend_consistency": 0.05601883135418106,
+        "pattern_complexity": 0.125
+      }
+    }
+  ],
+  "metamorphosis": {
+    "metamorphosis_patterns": {},
+    "phase_transitions": [
+      {
+        "transition": "consolidation_to_consolidation",
+        "transformation_strength": 0.0,
+        "session_pair": [
+          0,
+          1
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.29333459952517804,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "consolidation_to_consolidation",
+        "transformation_strength": 0.12198494418849531,
+        "session_pair": [
+          1,
+          2
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.29333459952517804,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "consolidation_to_consolidation",
+        "transformation_strength": 0.0,
+        "session_pair": [
+          2,
+          3
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.2677793448000518,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "consolidation_to_mixed",
+        "transformation_strength": 0.08817191159511112,
+        "session_pair": [
+          3,
+          4
+        ],
+        "phase_change": true,
+        "detected": false,
+        "detection_threshold": 0.2677793448000518,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_consolidation",
+        "transformation_strength": 0.08055622964032144,
+        "session_pair": [
+          4,
+          5
+        ],
+        "phase_change": true,
+        "detected": false,
+        "detection_threshold": 0.27973326813445726,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "consolidation_to_consolidation",
+        "transformation_strength": 0.0,
+        "session_pair": [
+          5,
+          6
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.31785502418022854,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "consolidation_to_mixed",
+        "transformation_strength": 0.05184135627849153,
+        "session_pair": [
+          6,
+          7
+        ],
+        "phase_change": true,
+        "detected": false,
+        "detection_threshold": 0.31785502418022854,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.0,
+        "session_pair": [
+          7,
+          8
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.3002159119387658,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.08367699281750876,
+        "session_pair": [
+          8,
+          9
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.3002159119387658,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.0,
+        "session_pair": [
+          9,
+          10
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.30561525540934137,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.05184403212243529,
+        "session_pair": [
+          10,
+          11
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.30561525540934137,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.0,
+        "session_pair": [
+          11,
+          12
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.3141563944092783,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.07774240004311586,
+        "session_pair": [
+          12,
+          13
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.3141563944092783,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.0,
+        "session_pair": [
+          13,
+          14
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.29554144930419596,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.07908425676535016,
+        "session_pair": [
+          14,
+          15
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.29554144930419596,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.08085287689911917,
+        "session_pair": [
+          15,
+          16
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.3072215032249688,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.0,
+        "session_pair": [
+          16,
+          17
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.2903068740198807,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.10928389447611053,
+        "session_pair": [
+          17,
+          18
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.2903068740198807,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.0,
+        "session_pair": [
+          18,
+          19
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.32314678344278236,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.10176610370692771,
+        "session_pair": [
+          19,
+          20
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.32314678344278236,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.0,
+        "session_pair": [
+          20,
+          21
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.31044553081991155,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.06974337844925312,
+        "session_pair": [
+          21,
+          22
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.31044553081991155,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.0,
+        "session_pair": [
+          22,
+          23
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.2865029335078515,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.07118483016501376,
+        "session_pair": [
+          23,
+          24
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.2865029335078515,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.0,
+        "session_pair": [
+          24,
+          25
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.3142312538202819,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.027644964172619274,
+        "session_pair": [
+          25,
+          26
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.3142312538202819,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.0,
+        "session_pair": [
+          26,
+          27
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.2818391828923853,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.03151898965213407,
+        "session_pair": [
+          27,
+          28
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.2818391828923853,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.0,
+        "session_pair": [
+          28,
+          29
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.3171905342844703,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.043804656548962116,
+        "session_pair": [
+          29,
+          30
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.3171905342844703,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.0,
+        "session_pair": [
+          30,
+          31
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.3031784120703852,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.04923088783164009,
+        "session_pair": [
+          31,
+          32
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.3031784120703852,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.0,
+        "session_pair": [
+          32,
+          33
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.2865299594373722,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.025973103711847086,
+        "session_pair": [
+          33,
+          34
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.2865299594373722,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.0,
+        "session_pair": [
+          34,
+          35
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.3072699118213397,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_expansion",
+        "transformation_strength": 0.11151545755895151,
+        "session_pair": [
+          35,
+          36
+        ],
+        "phase_change": true,
+        "detected": false,
+        "detection_threshold": 0.3072699118213397,
+        "persistence_ok": "True"
+      },
+      {
+        "transition": "expansion_to_expansion",
+        "transformation_strength": 0.0,
+        "session_pair": [
+          36,
+          37
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.2656303348145785,
+        "persistence_ok": "True"
+      },
+      {
+        "transition": "expansion_to_mixed",
+        "transformation_strength": 0.13149530283876762,
+        "session_pair": [
+          37,
+          38
+        ],
+        "phase_change": true,
+        "detected": false,
+        "detection_threshold": 0.2656303348145785,
+        "persistence_ok": "False"
+      },
+      {
+        "transition": "mixed_to_mixed",
+        "transformation_strength": 0.0,
+        "session_pair": [
+          38,
+          39
+        ],
+        "phase_change": false,
+        "detected": false,
+        "detection_threshold": 0.2964330853744408,
+        "persistence_ok": "False"
+      }
+    ],
+    "metamorphosis_summary": {
+      "total_patterns": 0,
+      "avg_transformation": 0,
+      "strong_transformations": 0,
+      "total_transitions": 39,
+      "phase_changes": 5
+    }
+  },
+  "statistical_validation": {
+    "validation_method": "comprehensive_statistical_analysis",
+    "significance_tests": {},
+    "confidence_intervals": {},
+    "effect_sizes": {},
+    "validation_summary": {
+      "total_tests": 0,
+      "significant_findings": 0,
+      "significance_rate": 0.0,
+      "validation_method": "empirical_background_analysis",
+      "quality_assessment": "high"
+    }
+  },
+  "quality_assessment": {
+    "gate_assessments": {},
+    "overall_quality": 0.2,
+    "quality_score": 0.2,
+    "gates_passed": 1,
+    "total_gates": 5,
+    "research_ready": false
+  }
+}

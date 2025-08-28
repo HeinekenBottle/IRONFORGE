@@ -1,0 +1,850 @@
+{
+  "best": {
+    "f1": -1.0,
+    "accuracy": -1.0,
+    "params": null,
+    "metrics": null
+  },
+  "tried": [
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.16,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.16,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.16,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.16,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.16,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.18,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.18,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.18,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.18,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.18,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.2,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.2,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.2,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.2,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.2,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.22,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.22,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.22,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.22,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.22,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.24,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.24,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.24,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.24,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.24,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.26,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.26,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.26,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.26,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.26,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.16,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.16,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.16,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.16,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.16,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.18,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.18,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.18,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.18,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.18,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.2,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.2,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.2,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.2,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.2,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.22,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.22,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.22,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.22,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.22,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.26,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.26,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.26,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.26,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.26,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.16,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.16,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.16,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.16,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.16,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.18,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.18,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.18,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.18,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.18,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.2,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.2,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.2,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.2,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.2,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.22,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.22,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.22,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.22,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.22,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.24,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.24,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.24,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.24,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.24,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.26,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.26,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.26,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.26,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.26,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.16,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.16,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.16,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.16,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.16,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.18,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.18,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.18,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.18,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.18,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.2,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.2,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.2,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.2,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.2,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.22,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.22,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.22,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.22,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.22,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.3,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.26,
+      "persistence_min": 0.1,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.26,
+      "persistence_min": 0.15,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.26,
+      "persistence_min": 0.2,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.26,
+      "persistence_min": 0.25,
+      "metrics": {}
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.26,
+      "persistence_min": 0.3,
+      "metrics": {}
+    }
+  ]
+}

@@ -39,8 +39,9 @@ class IRONFORGE:
         # Initialize logging
         self.logger = logging.getLogger('ironforge.orchestrator')
 
-        # Initialize lazy loading container
-        self.container = get_ironforge_container()
+        # Initialize lazy loading container with archaeological configuration
+        from ironforge.integration.ironforge_container import initialize_ironforge_lazy_loading
+        self.container = initialize_ironforge_lazy_loading(config=self.config)
 
         # Components will be loaded lazily on first access
         self._graph_builder = None
@@ -95,7 +96,7 @@ class IRONFORGE:
     def graduation_pipeline(self):
         """Lazy loading graduation pipeline"""
         if self._graduation_pipeline is None:
-            self._graduation_pipeline = PatternGraduation()
+            self._graduation_pipeline = self.container.get_pattern_graduation()
         return self._graduation_pipeline
         
     def process_sessions(self, session_files: list[str]) -> dict:
