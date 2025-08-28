@@ -410,9 +410,11 @@ class HTFContextProcessor:
         if len(events) < 2:
             return 0.0
 
-        prices = [float(e.get("price_level", 0)) for e in events]
-        volatility = sum(abs(prices[i] - prices[i - 1]) for i in range(1, len(prices)))
-        return volatility
+        prices = np.array([float(e.get("price_level", 0)) for e in events])
+        if len(prices) < 2:
+            return 0.0
+        volatility = np.sum(np.abs(np.diff(prices)))
+        return float(volatility)
 
     def _extract_event_features(
         self,

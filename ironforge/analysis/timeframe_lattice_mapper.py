@@ -16,8 +16,7 @@ class TimeframeLatticeMapper:
     """
 
     def __init__(self):
-        self.logger = logging.getLogger(__name__)
-        self.logger.info("Timeframe Lattice Mapper initialized")
+        logger.info("Timeframe Lattice Mapper initialized")
 
     def map_timeframe_patterns(self, session_data: dict[str, Any]) -> dict[str, Any]:
         """
@@ -31,7 +30,7 @@ class TimeframeLatticeMapper:
         """
         try:
             session_name = session_data.get("session_name", "unknown")
-            self.logger.info(f"Mapping timeframe patterns for {session_name}")
+            logger.info(f"Mapping timeframe patterns for {session_name}")
 
             # Placeholder implementation
             results = {
@@ -43,7 +42,7 @@ class TimeframeLatticeMapper:
             return results
 
         except Exception as e:
-            self.logger.error(f"Timeframe mapping failed: {e}")
+            logger.error(f"Timeframe mapping failed: {e}")
             return {"error": str(e)}
 
     def map_session_lattice(self, session_data: dict[str, Any]) -> dict[str, Any]:
@@ -188,7 +187,7 @@ class TimeframeLatticeMapper:
             return results
 
         except Exception as e:
-            self.logger.error(f"Lattice mapping failed for {session_name}: {e}")
+            logger.error(f"Lattice mapping failed for {session_name}: {e}")
             return {"error": str(e), "session_name": session_name}
 
     def _filter_events_by_timeframe(self, events: list[dict], timeframe: str) -> list[dict]:

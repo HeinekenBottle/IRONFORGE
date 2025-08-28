@@ -72,8 +72,7 @@ class DAGMotifMiner:
             random.seed(self.config.random_seed)
             np.random.seed(self.config.random_seed)
             
-        self.logger = logging.getLogger(__name__)
-        self.logger.info(f"DAG Motif Miner initialized: {self.config}")
+        logger.info(f"DAG Motif Miner initialized: {self.config}")
         
         # Pattern storage
         self.discovered_motifs: List[MotifResult] = []
@@ -91,17 +90,17 @@ class DAGMotifMiner:
             List of significant MotifResult objects
         """
         if not dags:
-            self.logger.warning("No DAGs provided for motif mining")
+            logger.warning("No DAGs provided for motif mining")
             return []
             
         session_names = session_names or [f"session_{i}" for i in range(len(dags))]
         
-        self.logger.info(f"Mining motifs from {len(dags)} DAGs")
+        logger.info(f"Mining motifs from {len(dags)} DAGs")
         
         # Step 1: Extract all subgraph patterns
         pattern_instances = self._extract_patterns(dags, session_names)
         
-        self.logger.info(f"Found {len(pattern_instances)} unique pattern types")
+        logger.info(f"Found {len(pattern_instances)} unique pattern types")
         
         # Step 2: Filter by minimum frequency
         frequent_patterns = {
@@ -109,17 +108,17 @@ class DAGMotifMiner:
             if len(instances) >= self.config.min_frequency
         }
         
-        self.logger.info(f"Filtered to {len(frequent_patterns)} frequent patterns")
+        logger.info(f"Filtered to {len(frequent_patterns)} frequent patterns")
         
         # Step 3: Generate null models and test significance
         significant_motifs = []
         
         for i, (pattern_id, instances) in enumerate(frequent_patterns.items()):
             if i >= self.config.max_motifs:
-                self.logger.info(f"Reached max motifs limit ({self.config.max_motifs})")
+                logger.info(f"Reached max motifs limit ({self.config.max_motifs})")
                 break
                 
-            self.logger.debug(f"Testing pattern {i+1}/{len(frequent_patterns)}: {pattern_id}")
+            logger.debug(f"Testing pattern {i+1}/{len(frequent_patterns)}: {pattern_id}")
             
             motif_result = self._test_motif_significance(
                 pattern_id, instances, dags, session_names
@@ -132,7 +131,7 @@ class DAGMotifMiner:
         significant_motifs.sort(key=lambda x: x.lift, reverse=True)
         
         self.discovered_motifs = significant_motifs
-        self.logger.info(f"Discovered {len(significant_motifs)} significant motifs")
+        logger.info(f"Discovered {len(significant_motifs)} significant motifs")
         
         return significant_motifs
         
@@ -302,7 +301,7 @@ class DAGMotifMiner:
             instances=instances
         )
         
-        self.logger.debug(
+        logger.debug(
             f"Motif {pattern_id}: freq={observed_freq}, lift={lift:.2f}, "
             f"p={p_value:.4f}, class={classification}"
         )
@@ -487,7 +486,7 @@ class DAGMotifMiner:
     def save_results(self, output_path: Path, format: str = 'both'):
         """Save motif mining results to disk"""
         if not self.discovered_motifs:
-            self.logger.warning("No motifs to save")
+            logger.warning("No motifs to save")
             return
             
         output_path = Path(output_path)
@@ -521,12 +520,12 @@ class DAGMotifMiner:
         if format in ['parquet', 'both']:
             parquet_path = output_path / 'motifs.parquet'
             results_df.to_parquet(parquet_path, compression='zstd')
-            self.logger.info(f"Saved motif results to {parquet_path}")
+            logger.info(f"Saved motif results to {parquet_path}")
             
         if format in ['csv', 'both']:
             csv_path = output_path / 'motifs.csv'
             results_df.to_csv(csv_path, index=False)
-            self.logger.info(f"Saved motif results to {csv_path}")
+            logger.info(f"Saved motif results to {csv_path}")
             
         # Save detailed patterns as pickle for further analysis
         patterns_path = output_path / 'motif_patterns.pkl'
@@ -537,7 +536,7 @@ class DAGMotifMiner:
         # Generate summary markdown
         self._generate_summary_markdown(output_path / 'motif_summary.md')
         
-        self.logger.info(f"Saved {len(self.discovered_motifs)} motifs to {output_path}")
+        logger.info(f"Saved {len(self.discovered_motifs)} motifs to {output_path}")
         
     def _generate_summary_markdown(self, output_path: Path):
         """Generate human-readable summary in markdown format"""
@@ -585,7 +584,7 @@ class DAGMotifMiner:
         with open(output_path, 'w') as f:
             f.write(summary)
             
-        self.logger.info(f"Generated summary: {output_path}")
+        logger.info(f"Generated summary: {output_path}")
 
 
 def mine_dag_motifs(

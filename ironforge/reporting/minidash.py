@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Any
 
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 
 
@@ -28,7 +29,7 @@ def build_minidash(
         confluence = pd.DataFrame(
             {
                 "ts": activity["ts"],
-                "score": [min(99, i * 10) for i in range(len(activity))],
+                "score": np.minimum(99, np.arange(len(activity)) * 10),
             }
         )
 

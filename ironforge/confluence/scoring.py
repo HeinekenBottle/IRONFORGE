@@ -12,10 +12,20 @@ def score_confluence(
     _weights: Mapping[str, float] | None,
     threshold: float,
 ) -> str:
-    """Stub confluence scorer.
+    """Development stub for confluence scorer.
 
-    Creates a simple dataframe with scores and writes it to a parquet file.
-    Returns the path to the written parquet.
+    TODO: Implement actual confluence scoring algorithm.
+    
+    Currently creates a simple dataframe with uniform scores for development/testing.
+    
+    Args:
+        pattern_paths: List of pattern file paths to score
+        out_dir: Output directory for results
+        _weights: Weight mapping (currently unused)
+        threshold: Score threshold value to use for all patterns
+        
+    Returns:
+        Path to the written parquet file containing scores
     """
     scores = pd.DataFrame({"pattern": pattern_paths, "score": [threshold] * len(pattern_paths)})
     out_path = Path(out_dir) / "confluence_scores.parquet"
