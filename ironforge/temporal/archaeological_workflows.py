@@ -607,3 +607,172 @@ class ArchaeologicalOracleWorkflow:
                 else 0.0,
             },
         }
+
+
+# Archaeological Zone Scoring Helpers for DAG Edge Weighting
+# Following BMAD protocols with research-agnostic configuration
+
+
+@dataclass
+class ArchaeologicalZone:
+    """Archaeological zone definition with configurable parameters"""
+    
+    percentage: float  # Zone percentage (0.236, 0.382, 0.40, 0.618, etc.)
+    level: float       # Price level within session range
+    significance: float = 1.0  # Zone significance weight
+    influence_radius: float = 0.05  # Influence radius as percentage of range
+
+
+def compute_archaeological_zones(
+    session_range: Dict[str, float], 
+    zone_percentages: List[float] = None
+) -> List[ArchaeologicalZone]:
+    """
+    Compute archaeological zones per session using configurable zone percentages
+    against final session range (last-closed HTF only).
+    
+    Args:
+        session_range: Dictionary with 'high' and 'low' price levels
+        zone_percentages: List of zone percentages (research-agnostic)
+        
+    Returns:
+        List of ArchaeologicalZone objects
+    """
+    if zone_percentages is None:
+        zone_percentages = [0.236, 0.382, 0.40, 0.618]
+    
+    if 'high' not in session_range or 'low' not in session_range:
+        logger.warning("Session range missing 'high' or 'low' keys")
+        return []
+    
+    range_size = session_range['high'] - session_range['low']
+    if range_size <= 0:
+        logger.warning("Invalid session range: range_size <= 0")
+        return []
+    
+    zones = []
+    for percentage in zone_percentages:
+        zone_level = session_range['low'] + (range_size * percentage)
+        
+        # Calculate significance based on proximity to key levels
+        significance = 1.0
+        if abs(percentage - 0.40) < 0.05:  # Near 40% archaeological zone
+            significance = 1.2
+        elif percentage in [0.236, 0.382, 0.618, 0.786]:  # Fibonacci levels
+            significance = 1.1
+            
+        zone = ArchaeologicalZone(
+            percentage=percentage,
+            level=zone_level,
+            significance=significance,
+            influence_radius=0.05  # 5% of range influence radius
+        )
+        zones.append(zone)
+    
+    return zones
+
+
+def compute_archaeological_zone_score(
+    entity: Union[Dict[str, Any], float], 
+    zones: List[ArchaeologicalZone],
+    session_range: Dict[str, float]
+) -> float:
+    """
+    Compute archaeological zone score for an entity (node/edge) -> float in [0,1].
+    Distance-to-zone center with overlap decay.
+    
+    Args:
+        entity: Either a dict with 'price' key or a float price level
+        zones: List of archaeological zones
+        session_range: Session range for normalization
+        
+    Returns:
+        Zone score in [0,1] where 1.0 = maximum archaeological influence
+    """
+    # Extract price from entity
+    if isinstance(entity, dict):
+        price = entity.get('price', entity.get('level', 0.0))
+    elif isinstance(entity, (int, float)):
+        price = float(entity)
+    else:
+        logger.warning(f"Unknown entity type: {type(entity)}")
+        return 0.0
+    
+    if not zones:
+        return 0.0
+    
+    range_size = session_range.get('high', 0) - session_range.get('low', 0)
+    if range_size <= 0:
+        return 0.0
+    
+    max_score = 0.0
+    total_weighted_score = 0.0
+    total_weight = 0.0
+    
+    for zone in zones:
+        # Calculate distance from price to zone center
+        distance_to_zone = abs(price - zone.level)
+        
+        # Normalize distance by influence radius
+        influence_radius_points = range_size * zone.influence_radius
+        if influence_radius_points <= 0:
+            continue
+            
+        normalized_distance = distance_to_zone / influence_radius_points
+        
+        # Calculate zone influence with exponential decay
+        if normalized_distance <= 1.0:
+            # Within influence radius - use exponential decay
+            zone_influence = np.exp(-2.0 * normalized_distance)  # Decay factor = 2.0
+        else:
+            # Outside influence radius - minimal influence
+            zone_influence = 0.1 * np.exp(-0.5 * (normalized_distance - 1.0))
+        
+        # Weight by zone significance
+        weighted_influence = zone_influence * zone.significance
+        
+        total_weighted_score += weighted_influence
+        total_weight += zone.significance
+        max_score = max(max_score, weighted_influence)
+    
+    if total_weight > 0:
+        # Use combination of max score and average weighted score
+        average_weighted_score = total_weighted_score / total_weight
+        final_score = 0.7 * max_score + 0.3 * average_weighted_score
+    else:
+        final_score = 0.0
+    
+    # Ensure score is in [0,1] range
+    return min(1.0, max(0.0, final_score))
+
+
+def compute_edge_archaeological_zone_score(
+    source_entity: Union[Dict[str, Any], float],
+    target_entity: Union[Dict[str, Any], float], 
+    zones: List[ArchaeologicalZone],
+    session_range: Dict[str, float]
+) -> float:
+    """
+    Compute archaeological zone score for DAG edges based on both endpoints.
+    
+    Args:
+        source_entity: Source node/entity
+        target_entity: Target node/entity  
+        zones: List of archaeological zones
+        session_range: Session range for normalization
+        
+    Returns:
+        Combined zone score for the edge in [0,1]
+    """
+    source_score = compute_archaeological_zone_score(source_entity, zones, session_range)
+    target_score = compute_archaeological_zone_score(target_entity, zones, session_range)
+    
+    # Combine source and target scores
+    # Use geometric mean to ensure both endpoints contribute
+    if source_score > 0 and target_score > 0:
+        combined_score = np.sqrt(source_score * target_score)
+    else:
+        # Use arithmetic mean if one endpoint has zero score
+        combined_score = 0.5 * (source_score + target_score)
+    
+    return min(1.0, max(0.0, combined_score))

@@ -17,6 +17,11 @@ from networkx.algorithms.dag import is_directed_acyclic_graph, topological_sort
 from .enhanced_graph_builder import EnhancedGraphBuilder, RichNodeFeature, RichEdgeFeature
 from .m1_event_detector import M1EventDetector, M1Event
 from .cross_scale_edge_builder import CrossScaleEdgeBuilder
+from ..temporal.archaeological_workflows import (
+    compute_archaeological_zones, 
+    compute_edge_archaeological_zone_score,
+    ArchaeologicalZone
+)
 
 logger = logging.getLogger(__name__)
 
@@ -66,7 +71,13 @@ class DAGGraphBuilder(EnhancedGraphBuilder):
             'dt_min_minutes': 1,       # Minimum time delta (minutes)
             'dt_max_minutes': 120,     # Maximum time delta (minutes) 
             'enabled': True,           # DAG construction enabled
-            'predicate': 'WINDOW_KNN'  # Connection strategy
+            'predicate': 'WINDOW_KNN',  # Connection strategy
+            'causality_weights': {     # Enhanced Archaeological DAG Weighting config
+                'archaeological_zone_influence': 0.85  # Archaeological zone influence factor
+            },
+            'features': {
+                'enable_archaeological_zone_weighting': False  # Flag-gated feature (default safe)
+            }
         }
         
         # Initialize M1 components for dual graph views
@@ -205,7 +216,7 @@ class DAGGraphBuilder(EnhancedGraphBuilder):
                 
                 # Check time window constraints
                 if dt_min <= dt_seconds <= dt_max:
-                    weight = self._calculate_edge_weight(src_event, dst_event, dt_seconds)
+                    weight = self._calculate_edge_weight(src_event, dst_event, dt_seconds, sorted_events)
                     
                     edge_data = {
                         'dt_minutes': dt_seconds / 60.0,
@@ -223,9 +234,10 @@ class DAGGraphBuilder(EnhancedGraphBuilder):
                     
         return edges
         
-    def _calculate_edge_weight(self, src_event: dict, dst_event: dict, dt_seconds: float) -> float:
+    def _calculate_edge_weight(self, src_event: dict, dst_event: dict, dt_seconds: float, sorted_events: List[dict]) -> float:
         """
         Calculate edge weight based on temporal proximity and event similarity
+        Enhanced with archaeological zone weighting when enabled
         Higher weight = stronger causal relationship
         """
         # Temporal proximity component (closer in time = higher weight)
@@ -245,14 +257,19 @@ class DAGGraphBuilder(EnhancedGraphBuilder):
         price_diff = abs(dst_price - src_price) if src_price > 0 else float('inf')
         price_weight = 1.0 / (1.0 + price_diff / max(src_price, 1.0))  # Normalized price proximity
         
-        # Combined weight (temporal=0.5, causality=0.3, price=0.2)
-        total_weight = (
+        # Combined base weight (temporal=0.5, causality=0.3, price=0.2)
+        base_weight = (
             0.5 * temporal_weight +
             0.3 * causality_weight +
             0.2 * price_weight
         )
         
-        return max(0.1, min(1.0, total_weight))  # Clamp to [0.1, 1.0]
+        # Apply archaeological zone weighting if enabled (flag-gated)
+        final_weight = self._apply_archaeological_zone_weighting(
+            base_weight, src_event, dst_event, sorted_events
+        )
+        
+        return max(0.1, min(1.0, final_weight))  # Clamp to [0.1, 1.0]
         
     def _calculate_ict_causality(self, src_type: str, dst_type: str) -> float:
         """
@@ -283,6 +300,109 @@ class DAGGraphBuilder(EnhancedGraphBuilder):
         # Default neutral causality
         return 0.3
         
+    def _apply_archaeological_zone_weighting(
+        self, 
+        base_weight: float, 
+        src_event: dict, 
+        dst_event: dict, 
+        sorted_events: List[dict]
+    ) -> float:
+        """
+        Apply archaeological zone weighting to edge strength (flag-gated feature).
+        Multiply edge strength by archaeological zone factor when feature is enabled.
+        
+        Args:
+            base_weight: Base edge weight before zone weighting
+            src_event: Source event data
+            dst_event: Target event data  
+            sorted_events: All events in session for range calculation
+            
+        Returns:
+            Enhanced weight with archaeological zone influence
+        """
+        # Check if archaeological zone weighting is enabled (flag-gated)
+        features_config = self.dag_config.get('features', {})
+        zone_weighting_enabled = features_config.get('enable_archaeological_zone_weighting', False)
+        
+        if not zone_weighting_enabled:
+            # Feature disabled - return base weight unchanged (safe default)
+            return base_weight
+            
+        # Extract archaeological configuration
+        causality_weights = self.dag_config.get('causality_weights', {})
+        zone_influence = causality_weights.get('archaeological_zone_influence', 0.85)
+        
+        if zone_influence <= 0:
+            # Weight disabled (zone_influence=0) - return base weight
+            return base_weight
+            
+        # Calculate session range from sorted events (last-closed HTF only)
+        session_range = self._calculate_session_range(sorted_events)
+        if not session_range:
+            # No valid session range - return base weight
+            return base_weight
+            
+        # Get zone percentages from archaeological config (research-agnostic)
+        # Check both archaeological config and fallback to defaults
+        archaeological_config = self.dag_config.get('archaeological', {})
+        zone_percentages = archaeological_config.get('zone_percentages', [0.236, 0.382, 0.40, 0.618])
+        
+        # Compute archaeological zones for this session
+        archaeological_zones = compute_archaeological_zones(session_range, zone_percentages)
+        
+        if not archaeological_zones:
+            # No valid zones computed - return base weight
+            return base_weight
+            
+        # Compute zone score for the edge (both endpoints)
+        zone_score = compute_edge_archaeological_zone_score(
+            src_event, dst_event, archaeological_zones, session_range
+        )
+        
+        # Apply zone influence: edge_strength *= zone_score ** archaeological_zone_influence
+        zone_factor = zone_score ** zone_influence
+        enhanced_weight = base_weight * zone_factor
+        
+        self.logger.debug(f"Archaeological zone weighting: base={base_weight:.3f}, zone_score={zone_score:.3f}, "
+                         f"influence={zone_influence:.2f}, enhanced={enhanced_weight:.3f}")
+        
+        return enhanced_weight
+    
+    def _calculate_session_range(self, sorted_events: List[dict]) -> Dict[str, float]:
+        """
+        Calculate final session range from sorted events (last-closed HTF only).
+        
+        Args:
+            sorted_events: Events sorted by (timestamp, seq_idx)
+            
+        Returns:
+            Dictionary with 'high' and 'low' keys or empty dict if invalid
+        """
+        if not sorted_events:
+            return {}
+            
+        # Extract all valid prices from events
+        prices = []
+        for event in sorted_events:
+            price = event.get('price', 0)
+            if price > 0:  # Valid price
+                prices.append(price)
+                
+        if len(prices) < 2:
+            # Need at least 2 prices for a range
+            return {}
+            
+        session_high = max(prices)
+        session_low = min(prices)
+        
+        if session_high <= session_low:
+            # Invalid range
+            return {}
+            
+        return {
+            'high': session_high,
+            'low': session_low
+        }
     def _create_dag_edge_feature(self, src_event: dict, dst_event: dict, edge_data: dict) -> DAGEdgeFeature:
         """Create 20D DAG edge feature from event pair"""
         feature = DAGEdgeFeature()
