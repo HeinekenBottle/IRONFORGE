@@ -6,7 +6,9 @@ Enhanced with Performance Monitor for Sprint 2 tracking
 import json
 import logging
 import os
-import pickle
+import pyarrow as pa
+import pyarrow.parquet as pq
+import pandas as pd
 from datetime import datetime
 from pathlib import Path
 
@@ -143,8 +145,8 @@ class IRONFORGE:
                 # Preserve graph with session metadata (including time patterns)
                 graph_with_metadata = graph.copy()
                 graph_with_metadata['session_metadata'] = session_metadata
-                pickle_path = self._preserve_graph(graph_with_metadata, session_file)
-                results['graphs_preserved'].append(pickle_path)
+                parquet_path = self._preserve_graph(graph_with_metadata, session_file)
+                results['graphs_preserved'].append(parquet_path)
                 
                 print(f"✅ Processed {Path(session_file).name}: {graph.get('metadata', {}).get('total_nodes', 0)} nodes")
                 
@@ -211,19 +213,19 @@ class IRONFORGE:
         Preserve complete graph data
         
         Returns:
-            str: Path to the saved pickle file
+            str: Path to the saved parquet file
         """
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         filename = os.path.basename(source_file).replace('.json', '')
         
         output_path = os.path.join(
             self.graphs_path,
-            f"{filename}_graph_{timestamp}.pkl"
+            f"{filename}_graph_{timestamp}"
         )
         
-        # Create pickle-serialized version (handles complex Python objects)
+        # Create Parquet-serialized version (IRONFORGE standard)
         try:
-            success = self._safe_pickle_dump(graph, output_path, filename)
+            success = self._safe_parquet_dump(graph, output_path, filename)
             if not success:
                 # NO SILENT ERRORS: Log preservation failure as ERROR, not warning
                 import logging
@@ -497,13 +499,51 @@ class IRONFORGE:
         
         return constant_mask
     
-    def _safe_pickle_dump(self, graph, output_path: str, filename: str) -> bool:
-        """Pickle graphs with proper memory management - NO CHUNKED WORKAROUNDS"""
+    def _safe_parquet_dump(self, graph, output_path: str, filename: str) -> bool:
+        """Save graphs as Parquet format - IRONFORGE standard (NO PICKLE)"""
         try:
-            # Proper tensor serialization for archaeological graphs
-            with open(output_path, 'wb') as f:
-                pickle.dump(graph, f, protocol=pickle.HIGHEST_PROTOCOL)
-            return True
+            # Create directory if needed
+            os.makedirs(output_path, exist_ok=True)
+            
+            # Extract graph components for Parquet serialization
+            if hasattr(graph, 'x') and hasattr(graph, 'edge_index'):
+                # PyTorch Geometric graph
+                nodes_df = pd.DataFrame(graph.x.detach().cpu().numpy())
+                edges_df = pd.DataFrame(graph.edge_index.detach().cpu().numpy().T, columns=['source', 'target'])
+                
+                # Add edge features if available
+                if hasattr(graph, 'edge_attr') and graph.edge_attr is not None:
+                    edge_features_df = pd.DataFrame(graph.edge_attr.detach().cpu().numpy())
+                    edges_df = pd.concat([edges_df, edge_features_df], axis=1)
+                
+                # Add metadata if available
+                metadata = {}
+                if hasattr(graph, 'metadata'):
+                    metadata = graph.metadata
+                elif hasattr(graph, '__dict__'):
+                    # Extract serializable metadata
+                    for key, value in graph.__dict__.items():
+                        if key not in ['x', 'edge_index', 'edge_attr'] and isinstance(value, (str, int, float, bool, list)):
+                            metadata[key] = value
+                
+                # Save components as Parquet
+                nodes_path = os.path.join(output_path, 'nodes.parquet')
+                edges_path = os.path.join(output_path, 'edges.parquet')
+                metadata_path = os.path.join(output_path, 'metadata.json')
+                
+                # Use ZSTD compression for performance (IRONFORGE standard)
+                pq.write_table(pa.Table.from_pandas(nodes_df), nodes_path, compression='zstd')
+                pq.write_table(pa.Table.from_pandas(edges_df), edges_path, compression='zstd')
+                
+                # Save metadata as JSON
+                with open(metadata_path, 'w') as f:
+                    json.dump(metadata, f, indent=2)
+                
+                return True
+            else:
+                # Fallback for other graph formats
+                raise ValueError(f"Unsupported graph type: {type(graph)}")
+                
         except Exception as e:
             # NO SILENT ERRORS: Fail explicitly to expose root cause
             import logging
@@ -511,8 +551,8 @@ class IRONFORGE:
             logger.error(f"GRAPH PRESERVATION FAILED: {filename}: {e}")
             logger.error(f"Output path: {output_path}")
             logger.error("ROOT CAUSE ANALYSIS REQUIRED:")
-            logger.error("1. Check graph structure for memory leaks")
-            logger.error("2. Verify tensor cleanup in graph builder")
+            logger.error("1. Check graph structure compatibility with Parquet format")
+            logger.error("2. Verify tensor extraction and conversion")
             logger.error("3. Check disk space and permissions")
             logger.error("4. NO FALLBACKS: Fix the root cause")
             raise RuntimeError(f"Graph preservation failed for {filename}: {e}") from e

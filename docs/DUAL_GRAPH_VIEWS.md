@@ -158,8 +158,14 @@ data/graphs/
 │   └── motifs_summary.json
 └── enhanced_NQ_2025-01-15_AM/       # Per-session results
     ├── metadata.json                # Session metadata
-    ├── temporal_graph.pkl           # Undirected temporal graph
-    ├── dag_graph.pkl               # Directed acyclic graph
+    ├── temporal_graph/             # Undirected temporal graph (Parquet)
+    │   ├── nodes.parquet           # Node features and embeddings
+    │   ├── edges.parquet           # Edge connectivity and features
+    │   └── metadata.json           # Graph metadata
+    ├── dag_graph/                  # Directed acyclic graph (Parquet)
+    │   ├── nodes.parquet           # Node features with causal ordering
+    │   ├── edges.parquet           # Edge features with causal strengths
+    │   └── metadata.json           # DAG metadata and topology
     └── edges_dag.parquet           # Optimized edge storage
 ```
 

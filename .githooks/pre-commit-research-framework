@@ -1,0 +1,119 @@
+#!/bin/bash
+set -e
+
+# IRONFORGE Research Framework Pre-Commit Hook
+# Automatically enforces research-agnostic methodology
+
+echo "🔍 IRONFORGE Research Framework Validation"
+echo "==========================================="
+
+# Get list of staged Python files
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(py)$' | grep -v __pycache__ || true)
+
+if [ -z "$STAGED_FILES" ]; then
+    echo "✅ No Python files to validate"
+    exit 0
+fi
+
+echo "📁 Validating staged files:"
+for file in $STAGED_FILES; do
+    echo "   - $file"
+done
+
+# Run research framework validator
+echo ""
+echo "🤖 Running research framework validator..."
+
+if [ -f ".ironforge/research_framework_validator.py" ]; then
+    python3 .ironforge/research_framework_validator.py --directory . 2>/dev/null || {
+        echo "❌ RESEARCH FRAMEWORK VIOLATIONS DETECTED"
+        echo ""
+        echo "Your commit contains research methodology violations."
+        echo "Please fix these issues before committing:"
+        echo ""
+        echo "1. Run: python .ironforge/research_framework_validator.py"
+        echo "2. Review the compliance report"
+        echo "3. Fix hardcoded assumptions and add agent coordination"
+        echo "4. Ensure statistical validation and quality gates"
+        echo ""
+        echo "See: .ironforge/TEAM_RESEARCH_FRAMEWORK_GUIDE.md"
+        exit 1
+    }
+else
+    echo "⚠️  Research framework validator not found - skipping validation"
+fi
+
+# Check for specific anti-patterns in staged files
+echo ""
+echo "🔍 Checking for research anti-patterns..."
+
+VIOLATIONS_FOUND=false
+
+for file in $STAGED_FILES; do
+    if [ -f "$file" ]; then
+        
+        # Check for hardcoded zone assumptions
+        if grep -iq "zone_percentage.*=.*0\.4\|40%.*zone\|archaeological.*40" "$file"; then
+            echo "❌ $file: Hardcoded 40% zone assumption detected"
+            echo "   Use configurable percentage_levels instead"
+            VIOLATIONS_FOUND=true
+        fi
+        
+        # Check for hardcoded event families
+        if grep -iq "FVG.*family\|liquidity.*family\|expansion.*family" "$file"; then
+            echo "❌ $file: Hardcoded event family assumption detected"  
+            echo "   Let TGAT discover patterns without assumptions"
+            VIOLATIONS_FOUND=true
+        fi
+        
+        # Check for temporal non-locality assumptions
+        if grep -iq "temporal.*non.*locality.*=.*true\|events.*know.*final" "$file"; then
+            echo "❌ $file: Hardcoded temporal relationship assumption detected"
+            echo "   Test as hypothesis parameter instead"
+            VIOLATIONS_FOUND=true
+        fi
+        
+        # Check for missing statistical validation
+        if grep -iq "discover.*pattern\|find.*pattern" "$file" && ! grep -iq "significance\|p.*value\|confidence.*interval\|statistical" "$file"; then
+            echo "⚠️  $file: Pattern discovery without statistical validation"
+            echo "   Consider adding significance testing"
+        fi
+        
+        # Check for TGAT usage without quality gates
+        if grep -iq "tgat\|discovery" "$file" && ! grep -iq "authenticity\|quality.*threshold\|0\.87" "$file"; then
+            echo "⚠️  $file: TGAT usage without quality gates"
+            echo "   Consider enforcing 87% authenticity threshold"
+        fi
+        
+        # Check for complex research without agent coordination
+        if grep -iq "hypothesis.*test\|statistical.*analysis\|cross.*session" "$file" && ! grep -iq "agent\|data.*scientist\|knowledge.*architect" "$file"; then
+            echo "⚠️  $file: Complex research without agent coordination"
+            echo "   Consider using data-scientist or knowledge-architect agents"
+        fi
+        
+    fi
+done
+
+if [ "$VIOLATIONS_FOUND" = true ]; then
+    echo ""
+    echo "❌ COMMIT BLOCKED: Research framework violations detected"
+    echo ""
+    echo "Quick fixes:"
+    echo "1. Replace hardcoded assumptions with configuration parameters"
+    echo "2. Use research templates: .ironforge/research_templates/"
+    echo "3. Add agent coordination for complex research"
+    echo "4. Include statistical validation and quality gates"
+    echo ""
+    echo "Team guide: .ironforge/TEAM_RESEARCH_FRAMEWORK_GUIDE.md"
+    echo ""
+    exit 1
+fi
+
+echo ""
+echo "✅ Research framework validation passed"
+echo "✅ No hardcoded assumptions detected"
+echo "✅ Configuration-driven methodology enforced"
+echo ""
+echo "🎯 Commit approved - research follows IRONFORGE framework standards"
+
+exit 0

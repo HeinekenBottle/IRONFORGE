@@ -31,7 +31,7 @@ Raw Sessions → Audit → Normalize → Build Embeddings → Train → Evaluate
 ### Files Generated
 
 - `weights.pt` - Trained range_head parameters
-- `scaler.pkl` - Target normalization (StandardScaler) 
+- `scaler.parquet` - Target normalization (StandardScaler in Parquet format) 
 - `training_manifest.json` - Complete training metadata and validation
 - `metrics.json` - Comprehensive evaluation results
 
@@ -269,7 +269,7 @@ early_expansion_cnt, early_retracement_cnt, early_reversal_cnt, first_seq
 ```
 models/oracle/v1.0.2/
 ├── weights.pt                 # Trained range_head parameters
-├── scaler.pkl                # StandardScaler for target normalization  
+├── scaler.parquet            # StandardScaler for target normalization  
 ├── training_manifest.json    # Complete training metadata
 ├── metrics.json              # Evaluation results
 ├── audit_report.json         # Data quality report

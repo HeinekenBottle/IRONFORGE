@@ -304,7 +304,7 @@ export IRONFORGE_SESSION_DATA_PATH=/custom/sessions/path
 
 ### File Naming Conventions
 - **Session Files**: `enhanced_rel_SESSION_Lvl-1_DATE.json`
-- **Graph Storage**: `SESSION_graph_TIMESTAMP.pkl`
+- **Graph Storage**: `SESSION_graph_TIMESTAMP/` (Parquet format with nodes.parquet, edges.parquet, metadata.json)
 - **Discovery Results**: `discovery_session_N_discoveries.json`
 - **Reports**: `COMPONENT_results_TIMESTAMP.json`
 
