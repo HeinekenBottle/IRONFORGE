@@ -180,7 +180,7 @@ class PriceRelativityEngine:
         """Detect Theory B temporal non-locality events"""
         theory_b_events = []
         
-        if 'price' not in nodes_df.columns or 'timestamp' in nodes_df.columns:
+        if 'price' not in nodes_df.columns or 'timestamp' not in nodes_df.columns:
             return theory_b_events
             
         # Look for precision events at archaeological zones
