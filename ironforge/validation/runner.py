@@ -10,6 +10,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from .framework import ValidationCheck, ValidationResult
+
 
 def validate_run(run_dir: str, config: dict | None = None) -> dict[str, Any]:
     """
@@ -32,19 +34,19 @@ def validate_run(run_dir: str, config: dict | None = None) -> dict[str, Any]:
             "validations": {},
         }
 
-    validations = {}
+    validations: dict[str, dict[str, Any]] = {}
 
     # Validate embeddings
-    validations["embeddings"] = _validate_embeddings(run_path / "embeddings")
+    validations["embeddings"] = _as_dict(_validate_embeddings(run_path / "embeddings"))
 
     # Validate patterns
-    validations["patterns"] = _validate_patterns(run_path / "patterns")
+    validations["patterns"] = _as_dict(_validate_patterns(run_path / "patterns"))
 
     # Validate confluence
-    validations["confluence"] = _validate_confluence(run_path / "confluence")
+    validations["confluence"] = _as_dict(_validate_confluence(run_path / "confluence"))
 
     # Validate minidash
-    validations["minidash"] = _validate_minidash(run_path)
+    validations["minidash"] = _as_dict(_validate_minidash(run_path))
 
     # Overall status
     all_passed = all(v.get("status") == "pass" for v in validations.values())
@@ -57,77 +59,118 @@ def validate_run(run_dir: str, config: dict | None = None) -> dict[str, Any]:
     }
 
 
-def _validate_embeddings(embeddings_dir: Path) -> dict[str, Any]:
+def _validate_embeddings(embeddings_dir: Path) -> ValidationResult:
     """Validate TGAT embeddings output"""
 
     if not embeddings_dir.exists():
-        return {"status": "fail", "message": "Embeddings directory missing"}
+        checks = {
+            "missing": ValidationCheck(
+                name="embeddings_dir",
+                status="fail",
+                message="Embeddings directory missing",
+            )
+        }
+        return ValidationResult(status="fail", checks=checks)
 
-    checks = {}
+    checks: dict[str, ValidationCheck] = {}
 
     # Check for attention data
     attention_file = embeddings_dir / "attention_topk.parquet"
     if attention_file.exists():
-        checks["attention_data"] = {"status": "pass", "file_size": attention_file.stat().st_size}
+        checks["attention_data"] = ValidationCheck(
+            name="attention_data",
+            status="pass",
+            data={"file_size": attention_file.stat().st_size},
+        )
     else:
-        checks["attention_data"] = {
-            "status": "warning",
-            "message": "No attention data (rank proxy mode)",
-        }
+        checks["attention_data"] = ValidationCheck(
+            name="attention_data",
+            status="warning",
+            message="No attention data (rank proxy mode)",
+        )
 
     # Check for node embeddings
     embeddings_file = embeddings_dir / "node_embeddings.parquet"
     if embeddings_file.exists():
-        checks["node_embeddings"] = {"status": "pass", "file_size": embeddings_file.stat().st_size}
+        checks["node_embeddings"] = ValidationCheck(
+            name="node_embeddings",
+            status="pass",
+            data={"file_size": embeddings_file.stat().st_size},
+        )
     else:
-        checks["node_embeddings"] = {"status": "fail", "message": "Missing node embeddings"}
+        checks["node_embeddings"] = ValidationCheck(
+            name="node_embeddings",
+            status="fail",
+            message="Missing node embeddings",
+        )
 
-    overall_status = (
-        "pass" if all(c.get("status") == "pass" for c in checks.values()) else "warning"
-    )
-
-    return {"status": overall_status, "checks": checks}
+    overall_status = "pass" if all(c.status == "pass" for c in checks.values()) else "warning"
+    return ValidationResult(status=overall_status, checks=checks)
 
 
-def _validate_patterns(patterns_dir: Path) -> dict[str, Any]:
+def _validate_patterns(patterns_dir: Path) -> ValidationResult:
     """Validate discovered patterns"""
 
     if not patterns_dir.exists():
-        return {"status": "fail", "message": "Patterns directory missing"}
+        checks = {
+            "missing": ValidationCheck(
+                name="patterns_dir",
+                status="fail",
+                message="Patterns directory missing",
+            )
+        }
+        return ValidationResult(status="fail", checks=checks)
 
-    checks = {}
+    checks: dict[str, ValidationCheck] = {}
 
     # Check for pattern files
     pattern_files = list(patterns_dir.glob("*.parquet"))
     if pattern_files:
-        checks["pattern_files"] = {
-            "status": "pass",
-            "count": len(pattern_files),
-            "files": [f.name for f in pattern_files],
-        }
+        checks["pattern_files"] = ValidationCheck(
+            name="pattern_files",
+            status="pass",
+            data={"count": len(pattern_files), "files": [f.name for f in pattern_files]},
+        )
     else:
-        checks["pattern_files"] = {"status": "fail", "message": "No pattern files found"}
+        checks["pattern_files"] = ValidationCheck(
+            name="pattern_files",
+            status="fail",
+            message="No pattern files found",
+        )
 
-    return {
-        "status": "pass" if checks.get("pattern_files", {}).get("status") == "pass" else "fail",
-        "checks": checks,
-    }
+    overall = "pass" if checks["pattern_files"].status == "pass" else "fail"
+    return ValidationResult(status=overall, checks=checks)
 
 
-def _validate_confluence(confluence_dir: Path) -> dict[str, Any]:
+def _validate_confluence(confluence_dir: Path) -> ValidationResult:
     """Validate confluence scoring results"""
 
     if not confluence_dir.exists():
-        return {"status": "fail", "message": "Confluence directory missing"}
+        checks = {
+            "missing": ValidationCheck(
+                name="confluence_dir",
+                status="fail",
+                message="Confluence directory missing",
+            )
+        }
+        return ValidationResult(status="fail", checks=checks)
 
-    checks = {}
+    checks: dict[str, ValidationCheck] = {}
 
     # Check scores file
     scores_file = confluence_dir / "scores.parquet"
     if scores_file.exists():
-        checks["scores"] = {"status": "pass", "file_size": scores_file.stat().st_size}
+        checks["scores"] = ValidationCheck(
+            name="scores",
+            status="pass",
+            data={"file_size": scores_file.stat().st_size},
+        )
     else:
-        checks["scores"] = {"status": "fail", "message": "Missing confluence scores"}
+        checks["scores"] = ValidationCheck(
+            name="scores",
+            status="fail",
+            message="Missing confluence scores",
+        )
 
     # Check stats file
     stats_file = confluence_dir / "stats.json"
@@ -141,50 +184,76 @@ def _validate_confluence(confluence_dir: Path) -> dict[str, Any]:
             missing_fields = [f for f in required_fields if f not in stats]
 
             if missing_fields:
-                checks["stats"] = {
-                    "status": "warning",
-                    "message": f"Missing fields: {missing_fields}",
-                    "data": stats,
-                }
+                checks["stats"] = ValidationCheck(
+                    name="stats",
+                    status="warning",
+                    message=f"Missing fields: {missing_fields}",
+                    data=stats,
+                )
             else:
-                checks["stats"] = {
-                    "status": "pass",
-                    "scale_type": stats.get("scale_type"),
-                    "health_status": stats.get("health_status"),
-                }
+                checks["stats"] = ValidationCheck(
+                    name="stats",
+                    status="pass",
+                    data={
+                        "scale_type": stats.get("scale_type"),
+                        "health_status": stats.get("health_status"),
+                    },
+                )
 
         except Exception as e:
-            checks["stats"] = {"status": "fail", "message": f"Invalid stats.json: {e}"}
+            checks["stats"] = ValidationCheck(
+                name="stats",
+                status="fail",
+                message=f"Invalid stats.json: {e}",
+            )
     else:
-        checks["stats"] = {"status": "fail", "message": "Missing stats.json"}
+        checks["stats"] = ValidationCheck(
+            name="stats",
+            status="fail",
+            message="Missing stats.json",
+        )
 
-    overall_status = "pass" if all(c.get("status") == "pass" for c in checks.values()) else "fail"
+    overall_status = "pass" if all(c.status == "pass" for c in checks.values()) else "fail"
+    return ValidationResult(status=overall_status, checks=checks)
 
-    return {"status": overall_status, "checks": checks}
 
-
-def _validate_minidash(run_dir: Path) -> dict[str, Any]:
+def _validate_minidash(run_dir: Path) -> ValidationResult:
     """Validate minidash output"""
 
-    checks = {}
+    checks: dict[str, ValidationCheck] = {}
 
     # Check HTML dashboard
     html_file = run_dir / "minidash.html"
     if html_file.exists():
-        checks["html"] = {"status": "pass", "file_size": html_file.stat().st_size}
+        checks["html"] = ValidationCheck(
+            name="html",
+            status="pass",
+            data={"file_size": html_file.stat().st_size},
+        )
     else:
-        checks["html"] = {"status": "fail", "message": "Missing minidash.html"}
+        checks["html"] = ValidationCheck(
+            name="html",
+            status="fail",
+            message="Missing minidash.html",
+        )
 
     # Check PNG export (optional)
     png_file = run_dir / "minidash.png"
     if png_file.exists():
-        checks["png"] = {"status": "pass", "file_size": png_file.stat().st_size}
+        checks["png"] = ValidationCheck(
+            name="png",
+            status="pass",
+            data={"file_size": png_file.stat().st_size},
+        )
     else:
-        checks["png"] = {"status": "warning", "message": "No PNG export"}
+        checks["png"] = ValidationCheck(
+            name="png",
+            status="warning",
+            message="No PNG export",
+        )
 
-    overall_status = "pass" if checks.get("html", {}).get("status") == "pass" else "fail"
-
-    return {"status": overall_status, "checks": checks}
+    overall_status = "pass" if checks["html"].status == "pass" else "fail"
+    return ValidationResult(status=overall_status, checks=checks)
 
 
 def _generate_summary(validations: dict[str, Any]) -> dict[str, Any]:
@@ -239,3 +308,9 @@ def main():
 
 if __name__ == "__main__":
     exit(main())
+
+
+def _as_dict(res: ValidationResult | dict[str, Any]) -> dict[str, Any]:
+    if isinstance(res, ValidationResult):
+        return res.to_dict()
+    return res
