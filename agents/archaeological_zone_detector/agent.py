@@ -47,6 +47,7 @@ from ironforge.integration.ironforge_container import get_ironforge_container
 from ironforge.contracts.validators import ContractViolationError
 
 # Import agent-specific modules
+from ..base import PlanningBackedAgent
 from .ironforge_config import ArchaeologicalConfig
 from .tools import (
     ZoneAnalyzer,
@@ -87,7 +88,7 @@ class ArchaeologicalAnalysis:
     enhanced_features: Optional[torch.Tensor] = None
 
 
-class ArchaeologicalZoneDetector:
+class ArchaeologicalZoneDetector(PlanningBackedAgent):
     """
     IRONFORGE Archaeological Zone Detection Agent
     
@@ -104,9 +105,11 @@ class ArchaeologicalZoneDetector:
     def __init__(
         self,
         config: Optional[ArchaeologicalConfig] = None,
-        container: Optional[Any] = None
+        container: Optional[Any] = None,
+        agent_name: str = "archaeological_zone_detector"
     ):
         """Initialize archaeological zone detector with IRONFORGE integration"""
+        super().__init__(agent_name=agent_name)
         self.config = config or ArchaeologicalConfig()
         self.container = container or get_ironforge_container()
         
@@ -125,6 +128,106 @@ class ArchaeologicalZoneDetector:
         self.discovery_engine = None
         
         logger.info("Archaeological Zone Detector initialized for IRONFORGE integration")
+    
+    async def execute_primary_function(self, session_data: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Execute primary archaeological zone detection using planning context.
+        
+        Args:
+            session_data: Session data containing event information and optional enhanced graphs
+            
+        Returns:
+            Dict containing zone detection results and recommendations
+        """
+        results = {
+            "zones_detected": [],
+            "dimensional_analysis": {},
+            "temporal_echoes": {},
+            "performance_metrics": {},
+            "authenticity_scores": [],
+            "recommendations": []
+        }
+        
+        try:
+            # Get behavior and dependencies from planning context
+            behavior = await self.get_behavior_from_planning()
+            dependencies = await self.get_dependencies_from_planning()
+            
+            # Extract configuration from planning context
+            anchor_percentage = float(dependencies.get("DIMENSIONAL_ANCHOR_PERCENTAGE", "0.40"))
+            authenticity_threshold = float(dependencies.get("AUTHENTICITY_THRESHOLD", "87.0"))
+            precision_target = float(dependencies.get("PRECISION_TARGET", "7.55"))
+            
+            # Extract session data components
+            current_session_df = session_data.get("current_session")
+            previous_session_df = session_data.get("previous_session")
+            enhanced_graph = session_data.get("enhanced_graph")
+            
+            if current_session_df is None:
+                results["status"] = "ERROR"
+                results["message"] = "No current session data provided"
+                return results
+            
+            # Perform archaeological zone detection
+            archaeological_analysis = self.detect_archaeological_zones(
+                current_session_df,
+                previous_session_data=previous_session_df,
+                enhanced_graph=enhanced_graph
+            )
+            
+            # Extract results
+            results["zones_detected"] = [
+                {
+                    "anchor_point": zone.anchor_point,
+                    "zone_range": zone.zone_range,
+                    "confidence": zone.confidence,
+                    "authenticity_score": zone.authenticity_score,
+                    "precision_score": zone.precision_score,
+                    "theory_b_alignment": zone.theory_b_alignment
+                }
+                for zone in archaeological_analysis.archaeological_zones
+            ]
+            
+            results["dimensional_analysis"] = archaeological_analysis.dimensional_analysis
+            results["temporal_echoes"] = archaeological_analysis.temporal_echoes
+            results["performance_metrics"] = archaeological_analysis.performance_metrics
+            results["authenticity_scores"] = [zone.authenticity_score for zone in archaeological_analysis.archaeological_zones]
+            
+            # Generate recommendations based on behavior and results
+            if behavior.get("RECOMMEND_OPTIMIZATIONS", True):
+                recommendations = []
+                
+                # Check authenticity scores
+                low_auth_zones = [z for z in archaeological_analysis.archaeological_zones if z.authenticity_score < authenticity_threshold]
+                if low_auth_zones:
+                    recommendations.append(f"Consider refining {len(low_auth_zones)} zones below {authenticity_threshold}% authenticity threshold")
+                
+                # Check precision scores
+                low_precision_zones = [z for z in archaeological_analysis.archaeological_zones if z.precision_score < precision_target]
+                if low_precision_zones:
+                    recommendations.append(f"Enhance precision for {len(low_precision_zones)} zones below {precision_target} target")
+                
+                # Check Theory B alignment
+                non_aligned_zones = [z for z in archaeological_analysis.archaeological_zones if not z.theory_b_alignment]
+                if non_aligned_zones:
+                    recommendations.append(f"Review Theory B positioning for {len(non_aligned_zones)} non-aligned zones")
+                
+                results["recommendations"] = recommendations
+            
+            # Performance assessment
+            processing_time = archaeological_analysis.performance_metrics.get("detection_time", 0.0)
+            if processing_time > 3.0:
+                results["recommendations"].append("Consider optimization for sub-3s processing requirement")
+            
+            results["status"] = "SUCCESS"
+            results["message"] = f"Detected {len(archaeological_analysis.archaeological_zones)} archaeological zones with average {sum(results['authenticity_scores'])/len(results['authenticity_scores']) if results['authenticity_scores'] else 0:.1f}% authenticity"
+            
+        except Exception as e:
+            results["status"] = "ERROR"
+            results["message"] = f"Archaeological zone detection failed: {str(e)}"
+            results["recommendations"].append("Check session data format and archaeological zone detector configuration")
+        
+        return results
     
     def initialize_ironforge_components(self) -> None:
         """Lazy initialization of IRONFORGE components for session independence"""

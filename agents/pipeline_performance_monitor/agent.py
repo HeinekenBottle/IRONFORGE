@@ -43,6 +43,7 @@ from ironforge.sdk.app_config import Config, load_config
 from ironforge.utils.performance_monitor import PerformanceMonitor
 from ironforge.monitoring.performance_tracker import get_performance_tracker
 
+from ..base import PlanningBackedAgent
 from .ironforge_config import IRONFORGEPerformanceConfig, StageThresholds
 from .tools import PerformanceAnalysisTools, OptimizationRecommender
 from .contracts import PerformanceContractValidator
@@ -93,7 +94,7 @@ class PipelineHealthStatus:
     last_assessment: datetime = field(default_factory=datetime.now)
 
 
-class PipelinePerformanceMonitorAgent:
+class PipelinePerformanceMonitorAgent(PlanningBackedAgent):
     """
     Elite IRONFORGE Pipeline Performance Monitor Agent
     
@@ -102,7 +103,8 @@ class PipelinePerformanceMonitorAgent:
     and automated optimization recommendations.
     """
     
-    def __init__(self, config: Optional[IRONFORGEPerformanceConfig] = None):
+    def __init__(self, config: Optional[IRONFORGEPerformanceConfig] = None, agent_name: str = "pipeline_performance_monitor"):
+        super().__init__(agent_name=agent_name)
         self.config = config or IRONFORGEPerformanceConfig()
         self.logger = logging.getLogger(f"{__name__}.{self.__class__.__name__}")
         
@@ -664,6 +666,137 @@ class PipelinePerformanceMonitorAgent:
         self.logger.info(f"Current Memory: {system['current_memory_mb']:.1f}MB")
         
         self.logger.info("\n" + "=" * 70)
+
+    async def execute_primary_function(self, monitoring_config: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Execute primary pipeline performance monitoring using planning context.
+        
+        Args:
+            monitoring_config: Dict containing pipeline configuration and monitoring parameters
+            
+        Returns:
+            Dict containing performance monitoring results and recommendations
+        """
+        results = {
+            "pipeline_health": {},
+            "stage_performance": {},
+            "system_metrics": {},
+            "optimization_opportunities": [],
+            "alerts_triggered": [],
+            "recommendations": []
+        }
+        
+        try:
+            # Get behavior and dependencies from planning context
+            behavior = await self.get_behavior_from_planning()
+            dependencies = await self.get_dependencies_from_planning()
+            
+            # Extract configuration from planning context
+            enable_background_monitoring = dependencies.get("ENABLE_BACKGROUND_MONITORING", "true").lower() == "true"
+            enable_alerts = dependencies.get("ENABLE_PERFORMANCE_ALERTS", "true").lower() == "true"
+            monitor_full_pipeline = dependencies.get("MONITOR_FULL_PIPELINE_RUN", "false").lower() == "true"
+            
+            # Extract monitoring parameters
+            config_path = monitoring_config.get("config_path")
+            session_count = monitoring_config.get("session_count", 1)
+            target_stages = monitoring_config.get("target_stages", ["discovery", "confluence", "validation", "reporting"])
+            
+            # Initialize monitoring if not already active
+            if not self.monitoring_active and enable_background_monitoring:
+                await self.initialize()
+            
+            # Monitor full pipeline run if requested
+            if monitor_full_pipeline and config_path:
+                pipeline_results = await self.monitor_full_pipeline_run(config_path)
+                results["full_pipeline_results"] = pipeline_results
+                
+                # Extract key metrics from pipeline results
+                if "overall_metrics" in pipeline_results:
+                    overall = pipeline_results["overall_metrics"]
+                    results["pipeline_health"]["total_processing_time"] = overall.get("total_processing_time", 0.0)
+                    results["pipeline_health"]["time_compliance"] = overall.get("time_compliance", False)
+                    results["pipeline_health"]["memory_compliance"] = overall.get("memory_compliance", False)
+                
+                # Extract stage performance
+                if "stages" in pipeline_results:
+                    for stage_name, stage_result in pipeline_results["stages"].items():
+                        if stage_name in self.stage_metrics:
+                            stage_perf = self.stage_metrics[stage_name]
+                            results["stage_performance"][stage_name] = {
+                                "success": stage_result.get("success", False),
+                                "average_time": stage_perf.get_average_time(),
+                                "compliance_rate": stage_perf.get_compliance_rate(
+                                    getattr(self.config.stage_thresholds, f"{stage_name.lower()}_seconds")
+                                ),
+                                "error_count": stage_perf.error_count
+                            }
+            
+            # Get current performance summary
+            performance_summary = self.get_performance_summary()
+            results["pipeline_health"] = performance_summary["pipeline_health"]
+            results["stage_performance"] = performance_summary["stage_performance"]
+            results["system_metrics"] = performance_summary["system_performance"]
+            
+            # Generate optimization opportunities
+            if behavior.get("PROVIDE_OPTIMIZATION_RECOMMENDATIONS", True):
+                results["optimization_opportunities"] = performance_summary["optimization_recommendations"]
+            
+            # Generate recommendations based on current health
+            if behavior.get("PROVIDE_HEALTH_RECOMMENDATIONS", True):
+                recommendations = []
+                
+                # Pipeline health recommendations
+                health_status = results["pipeline_health"]["status"]
+                if health_status == "RED":
+                    recommendations.append("CRITICAL: Pipeline health is RED. Immediate attention required")
+                elif health_status == "YELLOW":
+                    recommendations.append("WARNING: Pipeline health is YELLOW. Consider performance tuning")
+                
+                # Stage performance recommendations
+                for stage_name, stage_perf in results["stage_performance"].items():
+                    compliance = stage_perf.get("compliance_rate", 1.0)
+                    if compliance < 0.8:
+                        recommendations.append(f"Stage {stage_name} compliance low ({compliance:.1%}). Review performance bottlenecks")
+                    
+                    if stage_perf.get("error_count", 0) > 0:
+                        recommendations.append(f"Stage {stage_name} has {stage_perf['error_count']} errors. Investigate error sources")
+                
+                # Memory usage recommendations
+                current_memory = results["system_metrics"]["current_memory_mb"]
+                if current_memory > self.config.memory_limit_mb * 0.8:
+                    recommendations.append(f"Memory usage high ({current_memory:.1f}MB). Consider memory optimization")
+                
+                # Container initialization recommendations
+                if not results["system_metrics"]["container_initialized"]:
+                    recommendations.append("Container system not initialized. Performance may be suboptimal")
+                elif results["system_metrics"].get("container_init_time", 0) > 2.0:
+                    recommendations.append("Container initialization slow. Consider lazy loading optimization")
+                
+                results["recommendations"] = recommendations
+            
+            # Handle alerts if enabled
+            if enable_alerts:
+                # Check for recent alerts based on current health
+                active_issues = results["pipeline_health"].get("active_issues", [])
+                results["alerts_triggered"] = active_issues
+                
+                if active_issues:
+                    for issue in active_issues:
+                        results["recommendations"].append(f"Alert: {issue}")
+            
+            # Success metrics
+            total_stages_monitored = len([s for s in results["stage_performance"].values() if s.get("success", False)])
+            health_score = results["pipeline_health"].get("overall_score", 0.0)
+            
+            results["status"] = "SUCCESS"
+            results["message"] = f"Monitored {total_stages_monitored} pipeline stages with {health_score:.1%} health score"
+            
+        except Exception as e:
+            results["status"] = "ERROR"
+            results["message"] = f"Pipeline performance monitoring failed: {str(e)}"
+            results["recommendations"].append("Check monitoring configuration and system resources")
+        
+        return results
 
 
 def create_pipeline_monitor(config_path: Optional[str] = None) -> PipelinePerformanceMonitorAgent:
