@@ -10,11 +10,50 @@ outputs:
   overwrite: true
 scoring:
   weights:
-    cluster_z: 0.30
-    htf_prox: 0.25
-    structure: 0.20
-    cycle: 0.15
-    precursor: 0.10
+    cluster_z: 0.30      # TGAT pattern significance base score
+    htf_prox: 0.25       # BMAD metamorphosis strength (21.3%-23.7%)
+    structure: 0.20      # Archaeological zone influence (0.85 factor)
+    cycle: 0.15          # Pattern complexity and diversity bonus
+    precursor: 0.10      # Pattern confidence threshold
+
+  # Enhanced Archaeological DAG Weighting (Feature Flag)
+  # Default: false (disabled for backward compatibility)
+  # When enabled, provides advanced DAG topology analysis for pattern scoring
+  dag:
+    features:
+      enable_archaeological_zone_weighting: false
+      topology_analysis: true
+      centrality_analysis: true
+      flow_analysis: true
+      clustering_analysis: true
+      zone_influence_radius: 3.0
+      temporal_decay_factor: 0.8
+      centrality_boost_factor: 1.2
+      flow_amplification: 1.1
+      zone_detection_threshold: 0.7
+      zone_significance_weight: 0.3
+      inter_zone_penalty: 0.1
+  bmad:
+    # BMAD Temporal Metamorphosis Research Configuration
+    archaeological_influence: 0.85    # Archaeological zone influence factor
+    metamorphosis_threshold: 0.213    # Minimum strength for metamorphosis detection (21.3%)
+    strong_metamorphosis_threshold: 0.237  # Strong metamorphosis threshold (23.7%)
+    phase_multipliers:
+      PREASIA: 1.1       # Pre-Asia sessions show highest transformation rates
+      ASIA: 1.05         # Asia sessions show strong metamorphosis
+      LONDON: 1.0        # London sessions baseline
+      NY: 0.95           # NY sessions more stable patterns
+      LUNCH: 0.9         # Lunch sessions lowest metamorphosis
+      MIDNIGHT: 0.92     # Midnight sessions moderate activity
+      NYAM: 0.98         # NY AM sessions moderate metamorphosis
+      NYPM: 0.97         # NY PM sessions moderate metamorphosis
+      PREMARKET: 1.02    # Pre-market sessions elevated activity
+    # Quality gates from BMAD research
+    quality_gates:
+      pattern_evolution_authenticity: 0.25   # Target >25% (currently 21.7%)
+      statistical_significance: 0.05         # Target p<0.05 (currently p=0.089)
+      cross_phase_confidence: 0.60          # Target >60% ✅ (currently 68.7%)
+      framework_compliance: 1.0             # Target 100% ✅
 reporting:
   minidash:
     out_html: "minidash.html"
