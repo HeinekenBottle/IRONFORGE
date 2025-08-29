@@ -59,3 +59,17 @@ models/oracle/test*/.venv/
 .venv/
 __pycache__/
 *.pyc
+
+# Prevent root directory clutter
+/*.py
+!orchestrator.py
+!config.py
+!setup.py
+!__init__.py
+
+# Temporary files
+*.tmp
+*.temp
+*_temp.py
+*_test.py
+

@@ -111,10 +111,10 @@ MIN_MODEL_ACCURACY = 0.5
 LOG_FORMAT = "[%(levelname)s] %(name)s: %(message)s"
 LOG_DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
 
-# Schema Validation
+# Schema Validation - Updated to match IRONFORGE constants
 ORACLE_PREDICTION_SCHEMA_COLUMNS = [
     'run_dir', 'session_date', 'pct_seen', 'n_events',
-    'pred_low', 'pred_high', 'center', 'half_range', 'confidence',
+    'pred_low', 'pred_high', 'pred_center', 'pred_half_range', 'confidence',
     'pattern_id', 'start_ts', 'end_ts',
     'early_expansion_cnt', 'early_retracement_cnt', 'early_reversal_cnt', 'first_seq'
 ]

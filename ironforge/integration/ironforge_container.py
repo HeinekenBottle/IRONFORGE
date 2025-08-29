@@ -16,8 +16,9 @@ class IRONFORGEContainer:
     No state is shared between sessions.
     """
 
-    def __init__(self):
+    def __init__(self, config=None):
         self.iron_container = IRONContainer()
+        self.config = config  # Store config for component initialization
         # REMOVED: self._components = {} to ensure session independence
         logger.info("IRONFORGE Container initialized")
 
@@ -52,7 +53,12 @@ class IRONFORGEContainer:
         try:
             from ironforge.synthesis.pattern_graduation import PatternGraduation
 
-            instance = PatternGraduation()
+            # Pass archaeological config if available
+            archaeological_config = None
+            if self.config and hasattr(self.config, 'archaeological'):
+                archaeological_config = self.config.archaeological
+            
+            instance = PatternGraduation(archaeological_config=archaeological_config)
             logger.debug("Pattern Graduation created (fresh instance)")
             return instance
         except ImportError as e:
@@ -73,8 +79,13 @@ def get_ironforge_container():
     return _ironforge_container
 
 
-def initialize_ironforge_lazy_loading():
+def initialize_ironforge_lazy_loading(config=None):
     """Initialize IRONFORGE lazy loading system"""
-    container = get_ironforge_container()
+    global _ironforge_container
+    if config is not None:
+        # Reinitialize container with config
+        _ironforge_container = IRONFORGEContainer(config)
+    else:
+        _ironforge_container = get_ironforge_container()
     logger.info("IRONFORGE lazy loading initialized")
-    return container
+    return _ironforge_container

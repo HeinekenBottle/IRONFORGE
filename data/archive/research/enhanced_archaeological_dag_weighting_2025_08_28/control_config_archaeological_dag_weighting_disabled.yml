@@ -1,0 +1,39 @@
+workspace: runs/{date}
+data:
+  shards_base: "data/shards"
+  symbol: "NQ"
+  timeframe: "M5"
+  # Discovery expects shard directories containing nodes.parquet and edges.parquet
+  # Format: data/shards/{symbol}_{timeframe}/session_*/nodes.parquet
+outputs:
+  run_dir: "runs/{date}"
+  overwrite: true
+  
+# Enhanced Archaeological DAG Weighting Configuration
+# Flag-gated feature with safe defaults (disabled by default)
+dag:
+  causality_weights:
+    archaeological_zone_influence: 0.85   # Archaeological zone influence factor [0.65, 0.75, 0.85, 0.95]
+  features:
+    enable_archaeological_zone_weighting: false  # SAFE DEFAULT: Feature disabled initially
+
+# Archaeological zone configuration (research-agnostic)
+archaeological:
+  zone_percentages: [0.236, 0.382, 0.40, 0.618]  # Configurable zone percentages
+
+scoring:
+  weights:
+    cluster_z: 0.30
+    htf_prox: 0.25
+    structure: 0.20
+    cycle: 0.15
+    precursor: 0.10
+reporting:
+  minidash:
+    out_html: "minidash.html"
+    out_png:  "minidash.png"
+    width: 1200
+    height: 700
+validation:
+  folds: 5
+  purge_bars: 20

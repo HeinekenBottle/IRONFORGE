@@ -1,0 +1,1581 @@
+{
+  "best": {
+    "f1": 0.4,
+    "accuracy": 0.8112554112554113,
+    "params": {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.1
+    },
+    "metrics": {
+      "accuracy": 0.8112554112554113,
+      "precision": 1.0,
+      "recall": 0.2533333333333333,
+      "fpr": 0.0,
+      "f1": 0.4
+    }
+  },
+  "tried": [
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.16,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.7926406926406926,
+        "precision": 0.8333333333333334,
+        "recall": 0.2533333333333333,
+        "fpr": 0.025,
+        "f1": 0.3793650793650794
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.16,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.754978354978355,
+        "precision": 0.2,
+        "recall": 0.04,
+        "fpr": 0.0,
+        "f1": 0.06666666666666668
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.16,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.16,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.16,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.18,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.7926406926406926,
+        "precision": 0.8333333333333334,
+        "recall": 0.2533333333333333,
+        "fpr": 0.025,
+        "f1": 0.3793650793650794
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.18,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.754978354978355,
+        "precision": 0.2,
+        "recall": 0.04,
+        "fpr": 0.0,
+        "f1": 0.06666666666666668
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.18,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.18,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.18,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.2,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.8021645021645021,
+        "precision": 0.9333333333333333,
+        "recall": 0.2533333333333333,
+        "fpr": 0.0125,
+        "f1": 0.3888888888888889
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.2,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.754978354978355,
+        "precision": 0.2,
+        "recall": 0.04,
+        "fpr": 0.0,
+        "f1": 0.06666666666666668
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.2,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.2,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.2,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.22,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.8017316017316019,
+        "precision": 1.0,
+        "recall": 0.22000000000000003,
+        "fpr": 0.0,
+        "f1": 0.3571428571428571
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.22,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.754978354978355,
+        "precision": 0.2,
+        "recall": 0.04,
+        "fpr": 0.0,
+        "f1": 0.06666666666666668
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.22,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.22,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.22,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.24,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.7735930735930735,
+        "precision": 0.6,
+        "recall": 0.10666666666666666,
+        "fpr": 0.0,
+        "f1": 0.18095238095238095
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.24,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.24,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.24,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.24,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.26,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.7735930735930735,
+        "precision": 0.6,
+        "recall": 0.10666666666666666,
+        "fpr": 0.0,
+        "f1": 0.18095238095238095
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.26,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.26,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.26,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": true,
+      "base_threshold": 0.26,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.16,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.7926406926406926,
+        "precision": 0.8333333333333334,
+        "recall": 0.2533333333333333,
+        "fpr": 0.025,
+        "f1": 0.3793650793650794
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.16,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.754978354978355,
+        "precision": 0.2,
+        "recall": 0.04,
+        "fpr": 0.0,
+        "f1": 0.06666666666666668
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.16,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.16,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.16,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.18,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.7926406926406926,
+        "precision": 0.8333333333333334,
+        "recall": 0.2533333333333333,
+        "fpr": 0.025,
+        "f1": 0.3793650793650794
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.18,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.754978354978355,
+        "precision": 0.2,
+        "recall": 0.04,
+        "fpr": 0.0,
+        "f1": 0.06666666666666668
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.18,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.18,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.18,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.2,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.7926406926406926,
+        "precision": 0.8333333333333334,
+        "recall": 0.2533333333333333,
+        "fpr": 0.025,
+        "f1": 0.3793650793650794
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.2,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.754978354978355,
+        "precision": 0.2,
+        "recall": 0.04,
+        "fpr": 0.0,
+        "f1": 0.06666666666666668
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.2,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.2,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.2,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.22,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.7926406926406926,
+        "precision": 0.8333333333333334,
+        "recall": 0.2533333333333333,
+        "fpr": 0.025,
+        "f1": 0.3793650793650794
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.22,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.754978354978355,
+        "precision": 0.2,
+        "recall": 0.04,
+        "fpr": 0.0,
+        "f1": 0.06666666666666668
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.22,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.22,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.22,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.7926406926406926,
+        "precision": 0.8333333333333334,
+        "recall": 0.2533333333333333,
+        "fpr": 0.025,
+        "f1": 0.3793650793650794
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.754978354978355,
+        "precision": 0.2,
+        "recall": 0.04,
+        "fpr": 0.0,
+        "f1": 0.06666666666666668
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.26,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.7926406926406926,
+        "precision": 0.8333333333333334,
+        "recall": 0.2533333333333333,
+        "fpr": 0.025,
+        "f1": 0.3793650793650794
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.26,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.754978354978355,
+        "precision": 0.2,
+        "recall": 0.04,
+        "fpr": 0.0,
+        "f1": 0.06666666666666668
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.26,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.26,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "jsd",
+      "adaptive": false,
+      "base_threshold": 0.26,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.16,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.7735930735930735,
+        "precision": 0.6,
+        "recall": 0.10666666666666666,
+        "fpr": 0.0,
+        "f1": 0.18095238095238095
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.16,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.16,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.16,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.16,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.18,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.7735930735930735,
+        "precision": 0.6,
+        "recall": 0.10666666666666666,
+        "fpr": 0.0,
+        "f1": 0.18095238095238095
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.18,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.18,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.18,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.18,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.2,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.7735930735930735,
+        "precision": 0.6,
+        "recall": 0.10666666666666666,
+        "fpr": 0.0,
+        "f1": 0.18095238095238095
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.2,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.2,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.2,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.2,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.22,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.7735930735930735,
+        "precision": 0.6,
+        "recall": 0.10666666666666666,
+        "fpr": 0.0,
+        "f1": 0.18095238095238095
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.22,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.22,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.22,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.22,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.24,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.7735930735930735,
+        "precision": 0.6,
+        "recall": 0.10666666666666666,
+        "fpr": 0.0,
+        "f1": 0.18095238095238095
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.24,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.24,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.24,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.24,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.26,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.7735930735930735,
+        "precision": 0.6,
+        "recall": 0.10666666666666666,
+        "fpr": 0.0,
+        "f1": 0.18095238095238095
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.26,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.26,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.26,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": true,
+      "base_threshold": 0.26,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.16,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.7926406926406926,
+        "precision": 0.8333333333333334,
+        "recall": 0.2533333333333333,
+        "fpr": 0.025,
+        "f1": 0.3793650793650794
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.16,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.754978354978355,
+        "precision": 0.2,
+        "recall": 0.04,
+        "fpr": 0.0,
+        "f1": 0.06666666666666668
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.16,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.16,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.16,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.18,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.7926406926406926,
+        "precision": 0.8333333333333334,
+        "recall": 0.2533333333333333,
+        "fpr": 0.025,
+        "f1": 0.3793650793650794
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.18,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.754978354978355,
+        "precision": 0.2,
+        "recall": 0.04,
+        "fpr": 0.0,
+        "f1": 0.06666666666666668
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.18,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.18,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.18,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.2,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.7926406926406926,
+        "precision": 0.8333333333333334,
+        "recall": 0.2533333333333333,
+        "fpr": 0.025,
+        "f1": 0.3793650793650794
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.2,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.754978354978355,
+        "precision": 0.2,
+        "recall": 0.04,
+        "fpr": 0.0,
+        "f1": 0.06666666666666668
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.2,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.2,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.2,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.22,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.8021645021645021,
+        "precision": 0.9333333333333333,
+        "recall": 0.2533333333333333,
+        "fpr": 0.0125,
+        "f1": 0.3888888888888889
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.22,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.754978354978355,
+        "precision": 0.2,
+        "recall": 0.04,
+        "fpr": 0.0,
+        "f1": 0.06666666666666668
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.22,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.22,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.22,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.8112554112554113,
+        "precision": 1.0,
+        "recall": 0.2533333333333333,
+        "fpr": 0.0,
+        "f1": 0.4
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.754978354978355,
+        "precision": 0.2,
+        "recall": 0.04,
+        "fpr": 0.0,
+        "f1": 0.06666666666666668
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.24,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.26,
+      "persistence_min": 0.1,
+      "metrics": {
+        "accuracy": 0.7735930735930735,
+        "precision": 0.6,
+        "recall": 0.10666666666666666,
+        "fpr": 0.0,
+        "f1": 0.18095238095238095
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.26,
+      "persistence_min": 0.15,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.26,
+      "persistence_min": 0.2,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.26,
+      "persistence_min": 0.25,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    },
+    {
+      "movement_metric": "diff",
+      "adaptive": false,
+      "base_threshold": 0.26,
+      "persistence_min": 0.3,
+      "metrics": {
+        "accuracy": 0.7454545454545455,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fpr": 0.0,
+        "f1": 0.0
+      }
+    }
+  ]
+}

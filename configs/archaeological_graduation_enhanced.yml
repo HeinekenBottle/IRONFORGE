@@ -1,0 +1,41 @@
+workspace: runs/{date}
+data:
+  shards_base: "data/shards"
+  symbol: "NQ"
+  timeframe: "M5"
+  # Discovery expects shard directories containing nodes.parquet and edges.parquet
+  # Format: data/shards/{symbol}_{timeframe}/session_*/nodes.parquet
+outputs:
+  run_dir: "runs/{date}"
+  overwrite: true
+scoring:
+  weights:
+    cluster_z: 0.30
+    htf_prox: 0.25
+    structure: 0.20
+    cycle: 0.15
+    precursor: 0.10
+reporting:
+  minidash:
+    out_html: "minidash.html"
+    out_png:  "minidash.png"
+    width: 1200
+    height: 700
+validation:
+  folds: 5
+  purge_bars: 20
+
+# NEW: Archaeological Zone Significance for Pattern Graduation
+# Priority 1 integration pathway: Archaeological Influence Injection at Pattern Graduation level
+archaeological:
+  enabled: true  # Enable archaeological graduation enhancement
+  zone_percentages: [0.236, 0.382, 0.40, 0.618, 0.786]  # Archaeological zones to analyze
+  zone_influence_weight: 0.10  # Weight for archaeological_zone_significance in graduation (10%)
+  significance_threshold: 0.75  # Minimum zone significance to apply boost (patterns above this get enhanced)
+
+# Integration Notes:
+# - This bridges archaeological DAG weighting and confluence scoring at pattern graduation
+# - Patterns discovered near high-significance archaeological zones (40% zones) achieve higher graduation scores
+# - Maintains 87% authenticity threshold and golden invariants
+# - Backward compatible: works with feature disabled (enabled: false)
+# - Expected outcome: Enhanced authenticity scores beyond current 92.3/100 baseline

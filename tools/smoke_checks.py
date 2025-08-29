@@ -130,7 +130,7 @@ def check_shard_dimensions():
         edges_file = Path(sample_shard) / "edges.parquet"
         if edges_file.exists():
             edges_table = pq.read_table(str(edges_file))
-            edge_features = [col for col in edges_table.column_names if col.startswith('e')]
+            edge_features = [col for col in edges_table.column_names if col.startswith('e') and col[1:].isdigit()]
             print(f"  Edge features: {len(edge_features)} (expected: 20)")
             
             if len(edge_features) != 20:

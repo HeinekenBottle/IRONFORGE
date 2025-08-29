@@ -184,7 +184,7 @@ def test_oracle_sidecar_exists_when_enabled():
         
         required_columns = [
             "run_dir", "session_date", "pct_seen", "n_events",
-            "pred_low", "pred_high", "center", "half_range", "confidence", 
+            "pred_low", "pred_high", "pred_center", "pred_half_range", "confidence",
             "pattern_id", "start_ts", "end_ts",
             "early_expansion_cnt", "early_retracement_cnt", "early_reversal_cnt", "first_seq"
         ]
@@ -204,8 +204,8 @@ def test_oracle_sidecar_exists_when_enabled():
             "n_events": 4,
             "pred_low": 100.0,
             "pred_high": 200.0,
-            "center": 150.0,
-            "half_range": 50.0,
+            "pred_center": 150.0,
+            "pred_half_range": 50.0,
             "confidence": 0.8,
             "pattern_id": "pattern_001",
             "start_ts": "2025-08-19T14:30:00",
