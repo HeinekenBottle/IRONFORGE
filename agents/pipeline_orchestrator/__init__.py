@@ -1,3 +1,3 @@
-from .agent import PipelineOrchestrator
+from .agent import PipelineOrchestratorAgent, create_pipeline_orchestrator
 
-__all__ = ["PipelineOrchestrator"]
+__all__ = ["PipelineOrchestratorAgent", "create_pipeline_orchestrator"]
