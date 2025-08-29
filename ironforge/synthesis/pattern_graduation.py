@@ -5,9 +5,15 @@ Pattern Graduation System
 
 import logging
 from datetime import datetime
-from typing import Any
+from typing import Any, Optional
 
 import numpy as np
+
+from ironforge.temporal.archaeological_workflows import (
+    compute_archaeological_zones,
+    compute_archaeological_zone_score,
+    ArchaeologicalZone
+)
 
 logger = logging.getLogger(__name__)
 
@@ -17,10 +23,15 @@ class PatternGraduation:
     Validation system ensuring discovered patterns exceed 87% baseline accuracy
     """
 
-    def __init__(self, baseline_accuracy: float = 0.87):
+    def __init__(self, baseline_accuracy: float = 0.87, archaeological_config: Optional[Any] = None):
         self.baseline_accuracy = baseline_accuracy
+        self.archaeological_config = archaeological_config
         # REMOVED: self.validation_history = [] to ensure session independence
-        logger.info(f"Pattern Graduation initialized with {baseline_accuracy*100}% threshold")
+        
+        if archaeological_config and archaeological_config.enabled:
+            logger.info(f"Pattern Graduation initialized with {baseline_accuracy*100}% threshold and archaeological zone enhancement")
+        else:
+            logger.info(f"Pattern Graduation initialized with {baseline_accuracy*100}% threshold")
 
     def validate_patterns(self, discovered_patterns: dict[str, Any]) -> dict[str, Any]:
         """
@@ -85,13 +96,17 @@ class PatternGraduation:
         patterns.get("raw_results", {})
 
         if not significant_patterns:
-            return {
+            base_metrics = {
                 "pattern_confidence": 0.0,
                 "significance_score": 0.0,
                 "attention_coherence": 0.0,
                 "pattern_consistency": 0.0,
                 "archaeological_value": 0.0,
             }
+            # Add archaeological zone significance if enabled
+            if self.archaeological_config and self.archaeological_config.enabled:
+                base_metrics["archaeological_zone_significance"] = 0.0
+            return base_metrics
 
         # Pattern confidence - average of highest pattern scores
         pattern_scores = []
@@ -120,13 +135,26 @@ class PatternGraduation:
         # Archaeological value - session-level quality metrics
         archaeological_value = session_metrics.get("average_significance", 0.0)
 
-        return {
+        # Calculate archaeological zone significance if enabled
+        archaeological_zone_significance = 0.0
+        if self.archaeological_config and self.archaeological_config.enabled:
+            archaeological_zone_significance = self._calculate_archaeological_zone_significance(
+                significant_patterns, session_metrics, patterns
+            )
+
+        base_metrics = {
             "pattern_confidence": pattern_confidence,
             "significance_score": significance_score,
             "attention_coherence": attention_coherence,
             "pattern_consistency": pattern_consistency,
             "archaeological_value": archaeological_value,
         }
+        
+        # Add archaeological zone significance if enabled
+        if self.archaeological_config and self.archaeological_config.enabled:
+            base_metrics["archaeological_zone_significance"] = archaeological_zone_significance
+            
+        return base_metrics
 
     def _calculate_pattern_consistency(self, patterns: list[dict[str, Any]]) -> float:
         """Calculate consistency metric across similar pattern types"""
@@ -156,17 +184,163 @@ class PatternGraduation:
 
         return np.mean(consistencies) if consistencies else 1.0
 
+    def _calculate_archaeological_zone_significance(
+        self, 
+        significant_patterns: list[dict[str, Any]], 
+        session_metrics: dict[str, Any], 
+        patterns: dict[str, Any]
+    ) -> float:
+        """
+        Calculate archaeological zone significance for pattern graduation.
+        
+        This method bridges the gap between archaeological DAG weighting and confluence scoring
+        by incorporating archaeological zone influence into pattern graduation assessment.
+        
+        Args:
+            significant_patterns: List of discovered patterns with their positions and scores
+            session_metrics: Session-level metrics including range information
+            patterns: Full patterns dictionary with raw results and context
+            
+        Returns:
+            Archaeological zone significance score in [0,1] range
+        """
+        try:
+            # Extract session range for archaeological zone computation
+            session_range = session_metrics.get("session_range")
+            if not session_range:
+                # Try to extract from patterns or default to zero significance
+                session_data = patterns.get("session_data", {})
+                session_range = session_data.get("session_range")
+                
+            if not session_range or not all(k in session_range for k in ["high", "low"]):
+                logger.warning("No valid session range found for archaeological zone calculation")
+                return 0.0
+
+            # Compute archaeological zones for the session
+            archaeological_zones = compute_archaeological_zones(
+                session_range, 
+                self.archaeological_config.zone_percentages
+            )
+            
+            if not archaeological_zones:
+                logger.warning("No archaeological zones computed")
+                return 0.0
+
+            # Calculate zone significance for each pattern
+            pattern_zone_scores = []
+            for pattern in significant_patterns:
+                # Extract pattern position/level information
+                pattern_level = self._extract_pattern_level(pattern)
+                if pattern_level is None:
+                    continue
+                    
+                # Calculate archaeological zone score for this pattern
+                zone_score = compute_archaeological_zone_score(
+                    pattern_level, archaeological_zones, session_range
+                )
+                
+                # Weight by pattern's own significance
+                pattern_significance = pattern.get("archaeological_significance", 0.5)
+                weighted_zone_score = zone_score * pattern_significance
+                
+                pattern_zone_scores.append(weighted_zone_score)
+
+            if not pattern_zone_scores:
+                return 0.0
+
+            # Calculate overall archaeological zone significance
+            avg_zone_score = np.mean(pattern_zone_scores)
+            max_zone_score = np.max(pattern_zone_scores)
+            
+            # Combine average and maximum for balanced assessment
+            combined_score = 0.6 * avg_zone_score + 0.4 * max_zone_score
+            
+            # Apply significance threshold boost
+            if combined_score >= self.archaeological_config.significance_threshold:
+                # Boost patterns that exceed significance threshold
+                boost_factor = 1.0 + (0.2 * (combined_score - self.archaeological_config.significance_threshold))
+                combined_score = min(1.0, combined_score * boost_factor)
+            
+            logger.debug(
+                f"Archaeological zone significance: {combined_score:.3f} "
+                f"(avg: {avg_zone_score:.3f}, max: {max_zone_score:.3f})"
+            )
+            
+            return combined_score
+            
+        except Exception as e:
+            logger.error(f"Failed to calculate archaeological zone significance: {e}")
+            return 0.0
+
+    def _extract_pattern_level(self, pattern: dict[str, Any]) -> Optional[float]:
+        """
+        Extract price level from pattern for archaeological zone analysis.
+        
+        Tries multiple approaches to get pattern position:
+        1. Direct 'level' or 'price' fields
+        2. Pattern centroid from event positions
+        3. Average of pattern bounds
+        """
+        # Direct level extraction
+        if "level" in pattern:
+            return float(pattern["level"])
+        if "price" in pattern:
+            return float(pattern["price"])
+            
+        # Try to extract from pattern events or nodes
+        events = pattern.get("events", [])
+        if events:
+            prices = []
+            for event in events:
+                if isinstance(event, dict):
+                    if "price" in event:
+                        prices.append(float(event["price"]))
+                    elif "level" in event:
+                        prices.append(float(event["level"]))
+            if prices:
+                return np.mean(prices)
+        
+        # Try pattern bounds
+        high = pattern.get("high")
+        low = pattern.get("low") 
+        if high is not None and low is not None:
+            return (float(high) + float(low)) / 2.0
+            
+        # Try centroid or center
+        centroid = pattern.get("centroid")
+        center = pattern.get("center")
+        if centroid is not None:
+            return float(centroid)
+        if center is not None:
+            return float(center)
+        
+        logger.debug(f"Could not extract price level from pattern: {pattern.keys()}")
+        return None
+
     def _apply_graduation_criteria(self, validation_metrics: dict[str, float]) -> dict[str, Any]:
         """Apply graduation criteria and determine final status"""
 
         # Weight validation metrics for overall score
-        weights = {
-            "pattern_confidence": 0.3,
-            "significance_score": 0.25,
-            "attention_coherence": 0.2,
-            "pattern_consistency": 0.15,
-            "archaeological_value": 0.1,
-        }
+        # Adjust weights based on archaeological zone enhancement
+        if self.archaeological_config and self.archaeological_config.enabled:
+            # Reduce existing weights proportionally to accommodate archaeological_zone_significance
+            weights = {
+                "pattern_confidence": 0.25,      # Reduced from 0.30
+                "significance_score": 0.25,     # Maintained
+                "attention_coherence": 0.15,    # Reduced from 0.20  
+                "pattern_consistency": 0.15,    # Maintained
+                "archaeological_value": 0.10,   # Maintained
+                "archaeological_zone_significance": self.archaeological_config.zone_influence_weight  # NEW: 0.10
+            }
+        else:
+            # Original weights when archaeological enhancement is disabled
+            weights = {
+                "pattern_confidence": 0.3,
+                "significance_score": 0.25,
+                "attention_coherence": 0.2,
+                "pattern_consistency": 0.15,
+                "archaeological_value": 0.1,
+            }
 
         # Calculate weighted graduation score
         graduation_score = sum(

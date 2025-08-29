@@ -21,7 +21,7 @@ def build_minidash(
     if activity.empty:
         activity = pd.DataFrame(
             {
-                "ts": pd.date_range("2025-01-01", periods=10, freq="T"),
+                "ts": pd.date_range("2025-01-01", periods=10, freq="min"),
                 "count": list(range(10)),
             }
         )

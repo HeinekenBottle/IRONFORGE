@@ -1,0 +1,123 @@
+{
+  "experiment_metadata": {
+    "experiment_name": "Enhanced Archaeological DAG Weighting Validation",
+    "phase": "baseline_control",
+    "date": "2025-08-28",
+    "config_file": "configs/archaeological_dag_weighting.yml",
+    "archaeological_weighting_enabled": false,
+    "sessions_processed": 51,
+    "total_patterns_discovered": 1751
+  },
+  "archaeological_weighting_configuration": {
+    "enable_archaeological_zone_weighting": false,
+    "archaeological_zone_influence": 0.85,
+    "zone_percentages": [0.236, 0.382, 0.40, 0.618],
+    "status": "DISABLED - Control Group"
+  },
+  "confluence_scoring_metrics": {
+    "mean_confluence_score": 65.000,
+    "std_confluence_score": 0.000,
+    "min_confluence_score": 65.000,
+    "max_confluence_score": 65.000,
+    "median_confluence_score": 65.000,
+    "distribution": "uniform_at_threshold",
+    "threshold_value": 65.0,
+    "scale_type": "0-100"
+  },
+  "tgat_authenticity_metrics": {
+    "mean_significance_score": 0.000033,
+    "std_significance_score": 0.000559,
+    "min_significance_score": 0.000000,
+    "max_significance_score": 0.009601,
+    "median_significance_score": 0.000000,
+    "scaled_mean_authenticity": 0.003,
+    "scaled_std_authenticity": 0.056,
+    "scaled_min_authenticity": 0.000,
+    "scaled_max_authenticity": 0.960,
+    "scale": "0-100"
+  },
+  "edge_weight_distributions": {
+    "attention_mechanism": "uniform_normalized",
+    "sample_distributions": [
+      {
+        "session": "ASIA_2025-08-07",
+        "nodes": 50,
+        "mean_weight": 0.020165,
+        "expected_uniform": 0.020000,
+        "deviation": 0.000165
+      },
+      {
+        "session": "LONDON_2025-07-31", 
+        "nodes": 42,
+        "mean_weight": 0.023810,
+        "expected_uniform": 0.023810,
+        "deviation": 0.000000
+      },
+      {
+        "session": "LUNCH_2025-07-24",
+        "nodes": 20,
+        "mean_weight": 0.049994,
+        "expected_uniform": 0.050000,
+        "deviation": -0.000006
+      }
+    ],
+    "archaeological_influence": "none_detected"
+  },
+  "pattern_discovery_metrics": {
+    "total_patterns": 1751,
+    "mean_patterns_per_session": 34.3,
+    "top_pattern_sessions": [
+      {"session": "NY_2025-07-30", "patterns": 68},
+      {"session": "NY_2025-08-05", "patterns": 65},
+      {"session": "NYAM_2025-08-06", "patterns": 61},
+      {"session": "NY_2025-07-29", "patterns": 60},
+      {"session": "LONDON_2025-08-07", "patterns": 55}
+    ],
+    "pattern_authenticity_distribution": "extremely_low_baseline"
+  },
+  "performance_metrics": {
+    "total_processing_duration_seconds": 5.4,
+    "average_time_per_session_seconds": 0.11,
+    "sessions_processed": 51,
+    "pipeline_stages_completed": 4,
+    "validation_success_rate": 0.857,
+    "overall_status": "warn"
+  },
+  "quality_validation_results": {
+    "total_validations": 4,
+    "passed_validations": 3,
+    "total_checks": 7,
+    "passed_checks": 6,
+    "success_rate": 0.857,
+    "validation_status": "warn",
+    "attention_data_status": "warning_rank_proxy_mode",
+    "node_embeddings_status": "pass",
+    "pattern_files_status": "pass",
+    "confluence_status": "pass",
+    "minidash_status": "pass"
+  },
+  "research_comparison_ready": {
+    "precision_baseline_established": true,
+    "authenticity_baseline_established": true,
+    "duplication_baseline_established": true,
+    "edge_weight_baseline_established": true,
+    "success_criteria_targets": {
+      "precision_improvement_target": "≥2.5pts",
+      "authenticity_change_tolerance": "≤0.3",
+      "duplication_increase_tolerance": "≤2pts"
+    },
+    "baseline_values_for_comparison": {
+      "confluence_precision_baseline": 65.000,
+      "tgat_authenticity_baseline": 0.003,
+      "edge_weight_uniformity_baseline": "~1/N per graph size",
+      "processing_performance_baseline": "0.11s per session"
+    }
+  },
+  "archaeological_validation_confirmation": {
+    "config_archaeological_weighting_disabled": true,
+    "edge_weights_uniform_distribution": true,
+    "confluence_scores_at_threshold": true,
+    "no_archaeological_zone_influence": true,
+    "suitable_for_control_group": true
+  }
+}

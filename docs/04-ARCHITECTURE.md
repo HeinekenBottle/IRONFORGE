@@ -98,6 +98,14 @@ ironforge/
 #### TGAT Discovery
 - Temporal graph attention networks for pattern learning
 - Unsupervised attention mechanisms
+
+#### Multi-Agent Research Systems
+- **BMAD Framework**: Bio-inspired Market Archaeological Discovery coordination
+- **4-Agent Architecture**: data-scientist, adjacent-possible-linker, knowledge-architect, scrum-master
+- **Research Agnostic**: Configuration-driven methodology preventing hardcoded assumptions
+- **Pattern Discovery**: First systematic temporal metamorphosis detection in real market data
+- **Quality Gates**: Production-ready validation with recalibrated thresholds for real-world data
+- **Breakthrough Results**: 7 distinct metamorphosis patterns detected across 114 enhanced sessions
 - Archaeological pattern discovery without assumptions
 - Attention weight analysis for pattern explainability
 

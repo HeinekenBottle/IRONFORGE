@@ -11,8 +11,8 @@ import yaml
 
 @dataclass
 class DataCfg:
-    shards_glob: str = "data/shards/*.parquet"
-    symbol: str = "ES"
+    shards_base: str = "data/shards"
+    symbol: str = "ES" 
     timeframe: str = "1m"
 
 
@@ -56,6 +56,15 @@ class ValidationCfg:
 
 
 @dataclass
+class ArchaeologicalCfg:
+    """Archaeological zone significance configuration for pattern graduation"""
+    enabled: bool = False  # Feature flag for archaeological graduation enhancement
+    zone_percentages: list[float] = field(default_factory=lambda: [0.236, 0.382, 0.40, 0.618, 0.786])
+    zone_influence_weight: float = 0.10  # Weight for archaeological_zone_significance in graduation
+    significance_threshold: float = 0.75  # Minimum zone significance to apply boost
+
+
+@dataclass
 class OracleCfg:
     enabled: bool = False  # Disabled by default
     early_pct: float = 0.20  # Must be in (0, 0.5]
@@ -71,6 +80,7 @@ class Config:
     reporting: ReportingCfg = field(default_factory=ReportingCfg)
     validation: ValidationCfg = field(default_factory=ValidationCfg)
     oracle: OracleCfg = field(default_factory=OracleCfg)
+    archaeological: ArchaeologicalCfg = field(default_factory=ArchaeologicalCfg)
 
 
 def _coerce(value: str) -> Any:

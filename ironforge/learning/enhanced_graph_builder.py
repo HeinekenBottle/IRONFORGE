@@ -96,6 +96,26 @@ class EnhancedGraphBuilder:
             # Extract session metadata
             session_name = session_data.get("session_name", "unknown")
             events = session_data.get("events", [])
+            
+            # Enhanced session data fallback: handle session_liquidity_events
+            if not events:
+                events = session_data.get("session_liquidity_events", [])
+                if events:
+                    # Normalize enhanced session event field names
+                    normalized_events = []
+                    for event in events:
+                        normalized_event = {
+                            "timestamp": event.get("timestamp"),
+                            "price": event.get("price_level", 0.0),
+                            "event_type": event.get("event_type", "unknown"),
+                            "intensity": event.get("intensity", 0.0),
+                            "impact_duration": event.get("impact_duration", 0),
+                            # Keep original data as well
+                            **event
+                        }
+                        normalized_events.append(normalized_event)
+                    events = normalized_events
+                    self.logger.info(f"Using session_liquidity_events as fallback: {len(events)} normalized events found")
 
             # Extract session context for calculations
             session_context = self._extract_session_context(session_data, events)

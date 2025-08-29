@@ -23,6 +23,14 @@ from __future__ import annotations
 
 from ironforge.confluence.scoring import score_confluence
 
+# BMAD Integration (temporarily disabled due to syntax issues)
+# from ironforge.coordination.bmad_integration import (
+#     get_bmad_integration,
+#     coordinate_bmad_analysis,
+#     initialize_bmad_integration,
+#     shutdown_bmad_integration
+# )
+
 # Optional: integration exports for advanced users
 from ironforge.integration.ironforge_container import (
     get_ironforge_container,
@@ -64,6 +72,11 @@ __all__ = [
     "score_confluence",
     "validate_run",
     "build_minidash",
+    # BMAD Integration (temporarily disabled)
+    # "get_bmad_integration",
+    # "coordinate_bmad_analysis", 
+    # "initialize_bmad_integration",
+    # "shutdown_bmad_integration",
     # SDK helpers
     "LoaderCfg",
     "Paths",

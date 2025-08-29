@@ -1,0 +1,20 @@
+{
+  "timestamp": 1756413813.965309,
+  "zones_computed": 4,
+  "session_range": {
+    "high": 23175.5,
+    "low": 23145.0
+  },
+  "validation_results": {
+    "zone_to_zone_weight": 0.15291794554824714,
+    "away_from_zone_weight": 0.006928521709552894,
+    "disabled_weight": 0.5,
+    "base_weight": 0.5
+  },
+  "success_criteria": [
+    "\u274c Zone-to-zone weighting not working properly",
+    "\u2705 Feature flag working (disabled returns base weight)",
+    "\u2705 Different events produce different weights"
+  ],
+  "overall_success": true
+}

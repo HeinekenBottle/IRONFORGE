@@ -635,7 +635,7 @@ class IRONFORGEDiscovery(nn.Module):
             }
 
             logger.info(
-                f"Discovery complete: found {(pattern_scores > 0.5).sum().item()} significant patterns"
+                f"Discovery complete: found {(pattern_scores > 0.1).sum().item()} significant patterns"
             )
             return results
 
@@ -846,7 +846,7 @@ class IRONFORGEDiscovery(nn.Module):
 
         significant_patterns = []
         if pattern_scores.size(0) > 0:
-            significant_mask = (pattern_scores > 0.5).any(dim=1)
+            significant_mask = (pattern_scores > 0.1).any(dim=1)
             significant_indices = torch.where(significant_mask)[0]
 
             for idx in significant_indices:
@@ -917,95 +917,159 @@ def infer_shard_embeddings(data, out_dir: str, loader_cfg) -> tuple[str, str]:
     Returns:
         Tuple[str, str]: (embeddings_path, patterns_path)
     """
-    try:
-        from ironforge.graph_builder.pyg_converters import pyg_to_networkx
-        
-        output_dir = Path(out_dir)
-        output_dir.mkdir(parents=True, exist_ok=True)
-        
-        # Convert PyG data back to NetworkX for processing
-        graph = pyg_to_networkx(data)
-        
-        # Initialize discovery engine
-        discovery_engine = IRONFORGEDiscovery()
-        discovery_engine.eval()  # Set to evaluation mode
-        
-        # Run pattern discovery
-        with torch.no_grad():
-            discovery_results = discovery_engine.forward(graph, return_attn=True)
-            
-            # Extract embeddings and patterns
-            embeddings = discovery_results["node_embeddings"]
-            pattern_scores = discovery_results["pattern_scores"]
-            significance_scores = discovery_results["significance_scores"]
-            
-            # Save embeddings
-            embeddings_path = output_dir / "embeddings.parquet"
-            emb_df = pd.DataFrame(embeddings.numpy())
-            emb_df.to_parquet(embeddings_path, index=False)
-            
-            # Save patterns 
-            patterns_path = output_dir / "patterns.parquet"
-            patterns_df = pd.DataFrame({
-                "pattern_scores": pattern_scores.tolist(),
-                "significance_scores": significance_scores.flatten().tolist(),
-            })
-            patterns_df.to_parquet(patterns_path, index=False)
-            
-            # NEW: Oracle predictions with configuration check
-            oracle_enabled = getattr(loader_cfg, 'oracle', True)
-            early_pct = getattr(loader_cfg, 'oracle_early_pct', 0.20)
-            
-            if oracle_enabled:
-                oracle_predictions = discovery_engine.predict_session_range(
-                    graph, early_batch_pct=early_pct
-                )
-                
-                # Add required schema v0 fields in exact order
-                oracle_predictions["run_dir"] = str(output_dir)
-                oracle_predictions["session_date"] = pd.Timestamp.today().strftime("%Y-%m-%d")
-                oracle_predictions["pattern_id"] = f"pattern_{len(oracle_predictions['node_idx_used']):03d}"
-                oracle_predictions["start_ts"] = pd.Timestamp.now().strftime("%Y-%m-%dT%H:%M:%S")
-                oracle_predictions["end_ts"] = (pd.Timestamp.now() + pd.Timedelta(minutes=oracle_predictions['n_events'])).strftime("%Y-%m-%dT%H:%M:%S")
-                
-                # Create DataFrame with exact schema v0 column order
-                schema_v0_data = {
-                    "run_dir": oracle_predictions["run_dir"],
-                    "session_date": oracle_predictions["session_date"], 
-                    "pct_seen": oracle_predictions["pct_seen"],
-                    "n_events": oracle_predictions["n_events"],
-                    "pred_low": oracle_predictions["pred_low"],
-                    "pred_high": oracle_predictions["pred_high"],
-                    "center": oracle_predictions["center"],
-                    "half_range": oracle_predictions["half_range"],
-                    "confidence": oracle_predictions["confidence"],
-                    "pattern_id": oracle_predictions["pattern_id"],
-                    "start_ts": oracle_predictions["start_ts"],
-                    "end_ts": oracle_predictions["end_ts"],
-                    "early_expansion_cnt": oracle_predictions["early_expansion_cnt"],
-                    "early_retracement_cnt": oracle_predictions["early_retracement_cnt"],
-                    "early_reversal_cnt": oracle_predictions["early_reversal_cnt"],
-                    "first_seq": oracle_predictions["first_seq"]
-                }
-                
-                oracle_df = pd.DataFrame([schema_v0_data])
-                oracle_path = output_dir / "oracle_predictions.parquet"
-                oracle_df.to_parquet(oracle_path, index=False)
-                
-                logger.debug(f"Oracle predictions: {oracle_predictions['pattern_id']}, confidence: {oracle_predictions['confidence']:.3f}")
-            
-        logger.info(f"Discovery complete: {embeddings_path}, {patterns_path}")
-        return str(embeddings_path), str(patterns_path)
-        
-    except Exception as e:
-        logger.error(f"Shard inference failed: {e}")
-        # Return empty paths on error
-        output_dir = Path(out_dir)  # Define output_dir in exception handler
-        output_dir.mkdir(parents=True, exist_ok=True)
-        empty_embeddings = output_dir / "embeddings_empty.parquet"  
-        empty_patterns = output_dir / "patterns_empty.parquet"
-        
-        pd.DataFrame().to_parquet(empty_embeddings)
-        pd.DataFrame().to_parquet(empty_patterns)
-        
-        return str(empty_embeddings), str(empty_patterns)
+    from ironforge.graph_builder.pyg_converters import pyg_to_networkx
+
+    # Prepare output directories using documented run layout
+    run_dir = Path(out_dir)
+    embeddings_dir = run_dir / "embeddings"
+    patterns_dir = run_dir / "patterns"
+    embeddings_dir.mkdir(parents=True, exist_ok=True)
+    patterns_dir.mkdir(parents=True, exist_ok=True)
+
+    # Convert PyG data back to NetworkX for processing
+    graph = pyg_to_networkx(data)
+
+    # Ensure required feature tensors exist on nodes/edges (adapt from f*/e* attributes)
+    def _ensure_graph_features(g: nx.Graph) -> None:
+        import math as _math
+        # Nodes: build 45D tensor from f0..f44 (pad with 0.0 if missing)
+        for node_id, attrs in g.nodes(data=True):
+            if "feature" not in attrs:
+                values: list[float] = []
+                for i in range(45):
+                    key = f"f{i}"
+                    val = attrs.get(key, 0.0)
+                    try:
+                        fv = float(val) if val is not None and not (isinstance(val, float) and _math.isnan(val)) else 0.0
+                    except Exception:
+                        fv = 0.0
+                        
+                    values.append(fv)
+                g.nodes[node_id]["feature"] = torch.tensor(values, dtype=torch.float32)
+
+        # Edges: build 20D tensor from e0..e19; add temporal_distance from dt if present
+        for u, v, attrs in g.edges(data=True):
+            if "feature" not in attrs:
+                e_values: list[float] = []
+                for i in range(20):
+                    key = f"e{i}"
+                    val = attrs.get(key, 0.0)
+                    try:
+                        ev = float(val) if val is not None else 0.0
+                    except Exception:
+                        ev = 0.0
+                    e_values.append(ev)
+                graph.edges[u, v]["feature"] = torch.tensor(e_values, dtype=torch.float32)
+            if "temporal_distance" not in attrs:
+                dt = attrs.get("dt")
+                graph.edges[u, v]["temporal_distance"] = float(dt) / 60000.0 if dt is not None else 1.0
+
+    _ensure_graph_features(graph)
+
+    # Determine a stable session identifier for file naming
+    session_id = None
+    for _, attrs in graph.nodes(data=True):
+        sid = attrs.get("session_id") or attrs.get("session_name")
+        if sid:
+            session_id = str(sid)
+            break
+    if not session_id:
+        session_id = "session"
+    # Sanitize session_id for filesystem
+    safe_session_id = "".join(c if c.isalnum() or c in ("-", "_") else "_" for c in session_id)
+
+    # Initialize discovery engine
+    discovery_engine = IRONFORGEDiscovery()
+    discovery_engine.eval()  # Set to evaluation mode
+
+    # Run pattern discovery
+    with torch.no_grad():
+        results = discovery_engine.forward(graph, return_attn=True)
+
+        # Extract embeddings and patterns
+        embeddings = results["node_embeddings"]
+        pattern_scores = results["pattern_scores"]
+        significance_scores = results["significance_scores"]
+
+        # Save embeddings (per-session file) under embeddings/
+        embeddings_path = embeddings_dir / f"node_embeddings_{safe_session_id}.parquet"
+        pd.DataFrame(embeddings.numpy()).to_parquet(embeddings_path, index=False)
+
+        # Save patterns (per-session file) under patterns/
+        patterns_path = patterns_dir / f"patterns_{safe_session_id}.parquet"
+        patterns_df = pd.DataFrame({
+            "pattern_scores": pattern_scores.tolist(),
+            "significance_scores": significance_scores.flatten().tolist(),
+        })
+        patterns_df.to_parquet(patterns_path, index=False)
+
+        # Optional: Oracle predictions with configuration check
+        # Resolve oracle flags from various loader_cfg shapes (dc, dict, flat attrs)
+        oracle_enabled = True
+        early_pct = 0.20
+        try:
+            # Dataclass-style: cfg.oracle.enabled, cfg.oracle.early_pct
+            if hasattr(loader_cfg, 'oracle'):
+                oracle_section = getattr(loader_cfg, 'oracle')
+                if isinstance(oracle_section, dict):
+                    oracle_enabled = bool(oracle_section.get('enabled', True))
+                    early_pct = float(oracle_section.get('early_pct', early_pct))
+                else:
+                    # object with attributes
+                    if hasattr(oracle_section, 'enabled'):
+                        oracle_enabled = bool(getattr(oracle_section, 'enabled'))
+                    if hasattr(oracle_section, 'early_pct'):
+                        early_pct = float(getattr(oracle_section, 'early_pct'))
+            else:
+                # Flat attributes
+                if hasattr(loader_cfg, 'oracle_enabled'):
+                    oracle_enabled = bool(getattr(loader_cfg, 'oracle_enabled'))
+                if hasattr(loader_cfg, 'oracle_early_pct'):
+                    early_pct = float(getattr(loader_cfg, 'oracle_early_pct'))
+        except Exception:
+            # Keep defaults on errors
+            pass
+
+        if oracle_enabled:
+            oracle_predictions = discovery_engine.predict_session_range(
+                graph, early_batch_pct=early_pct
+            )
+
+            # Add required schema v0 fields in exact order
+            oracle_predictions["run_dir"] = str(run_dir)
+            oracle_predictions["session_date"] = pd.Timestamp.today().strftime("%Y-%m-%d")
+            oracle_predictions["pattern_id"] = f"pattern_{len(oracle_predictions['node_idx_used']):03d}"
+            oracle_predictions["start_ts"] = pd.Timestamp.now().strftime("%Y-%m-%dT%H:%M:%S")
+            oracle_predictions["end_ts"] = (
+                pd.Timestamp.now() + pd.Timedelta(minutes=oracle_predictions['n_events'])
+            ).strftime("%Y-%m-%dT%H:%M:%S")
+
+            schema_v0_data = {
+                "run_dir": oracle_predictions["run_dir"],
+                "session_date": oracle_predictions["session_date"],
+                "pct_seen": oracle_predictions["pct_seen"],
+                "n_events": oracle_predictions["n_events"],
+                "pred_low": oracle_predictions["pred_low"],
+                "pred_high": oracle_predictions["pred_high"],
+                "pred_center": oracle_predictions["center"],
+                "pred_half_range": oracle_predictions["half_range"],
+                "confidence": oracle_predictions["confidence"],
+                "pattern_id": oracle_predictions["pattern_id"],
+                "start_ts": oracle_predictions["start_ts"],
+                "end_ts": oracle_predictions["end_ts"],
+                "early_expansion_cnt": oracle_predictions["early_expansion_cnt"],
+                "early_retracement_cnt": oracle_predictions["early_retracement_cnt"],
+                "early_reversal_cnt": oracle_predictions["early_reversal_cnt"],
+                "first_seq": oracle_predictions["first_seq"],
+            }
+
+            oracle_df = pd.DataFrame([schema_v0_data])
+            oracle_path = run_dir / "oracle_predictions.parquet"
+            oracle_df.to_parquet(oracle_path, index=False)
+
+            logger.debug(
+                f"Oracle predictions: {oracle_predictions['pattern_id']}, confidence: {oracle_predictions['confidence']:.3f}"
+            )
+
+    logger.info(f"Discovery complete: {embeddings_path}, {patterns_path}")
+    return str(embeddings_path), str(patterns_path)

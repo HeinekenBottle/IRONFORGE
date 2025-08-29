@@ -1,0 +1,382 @@
+{
+  "research_metadata": {
+    "timestamp": "2025-08-28T16:03:48.584833",
+    "research_question": "How do temporal patterns evolve and transform across different market phases using real enhanced session data?",
+    "configuration": {
+      "research_question": "How do temporal patterns evolve and transform across different market phases using real enhanced session data?",
+      "hypothesis_parameters": {
+        "pattern_evolution_metrics": [
+          "transformation_strength",
+          "phase_adaptation",
+          "temporal_consistency"
+        ],
+        "metamorphosis_types": [
+          "gradual_evolution",
+          "sudden_transformation",
+          "phase_adaptation",
+          "pattern_dissolution"
+        ],
+        "temporal_windows": [
+          300,
+          900,
+          1800,
+          3600
+        ],
+        "evolution_sensitivity": [
+          0.3,
+          0.5,
+          0.7,
+          0.9
+        ],
+        "cross_phase_correlations": [
+          "strong",
+          "moderate",
+          "weak",
+          "inverse"
+        ]
+      },
+      "market_phases": {
+        "consolidation": {
+          "volatility_range": [
+            0.0,
+            0.3
+          ],
+          "trend_strength": [
+            -0.2,
+            0.2
+          ]
+        },
+        "expansion": {
+          "volatility_range": [
+            0.3,
+            0.7
+          ],
+          "trend_strength": [
+            0.3,
+            1.0
+          ]
+        },
+        "retracement": {
+          "volatility_range": [
+            0.2,
+            0.6
+          ],
+          "trend_strength": [
+            -0.5,
+            -0.2
+          ]
+        },
+        "reversal": {
+          "volatility_range": [
+            0.4,
+            1.0
+          ],
+          "trend_strength": [
+            -1.0,
+            -0.5
+          ]
+        },
+        "breakout": {
+          "volatility_range": [
+            0.6,
+            1.0
+          ],
+          "trend_strength": [
+            0.7,
+            1.0
+          ]
+        }
+      },
+      "metamorphosis_config": {
+        "evolution_tracking_window": 1800,
+        "transformation_threshold": 0.6,
+        "phase_transition_buffer": 300,
+        "pattern_stability_requirement": 0.7,
+        "metamorphosis_detection_sensitivity": 0.8
+      },
+      "bmad_agents": [
+        "data-scientist",
+        "adjacent-possible-linker",
+        "knowledge-architect",
+        "scrum-master"
+      ],
+      "statistical_config": {
+        "significance_threshold": 0.01,
+        "confidence_level": 0.95,
+        "validation_methods": [
+          "permutation_test",
+          "bootstrap_ci",
+          "cross_validation"
+        ],
+        "effect_size_metrics": [
+          "cohens_d",
+          "correlation_coefficient",
+          "transformation_strength"
+        ],
+        "multiple_testing_correction": "bonferroni"
+      },
+      "quality_gates": {
+        "pattern_evolution_authenticity": 0.87,
+        "metamorphosis_statistical_significance": 0.01,
+        "cross_phase_correlation_confidence": 0.9,
+        "temporal_consistency_threshold": 0.75,
+        "research_framework_compliance": 1.0
+      }
+    },
+    "execution_time_seconds": 0.015716,
+    "framework_compliance": {
+      "real_data_integration": true,
+      "multi_agent_coordination": true,
+      "statistical_rigor": true,
+      "research_agnostic": true,
+      "quality_gates": true,
+      "compliance_rate": 1.0
+    }
+  },
+  "session_analyses": [
+    {
+      "session_metadata": {
+        "session_type": "midnight",
+        "session_date": "2025-08-07",
+        "session_start": "00:00:00",
+        "session_end": "00:29:00",
+        "session_duration": 29,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "phase_classification": "mixed",
+      "volatility": 0.0003239799436487993,
+      "trend_strength": -0.1386879787002819,
+      "price_range": {
+        "min": 23480.25,
+        "max": 23499.25,
+        "range": 19.0
+      },
+      "event_analysis": {
+        "total_events": 0,
+        "event_types": {},
+        "event_density": 0.0
+      },
+      "temporal_characteristics": {
+        "session_duration": 10,
+        "price_volatility": 0.0003239799436487993,
+        "trend_consistency": 0.1386879787002819
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "asia",
+        "session_date": "2025-08-06",
+        "session_start": "19:00:00",
+        "session_end": "23:59:00",
+        "session_duration": 299,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed",
+        "trading_day_note": "Asia session 19:00 ET Aug 5 = Aug 6 Asian markets"
+      },
+      "phase_classification": "mixed",
+      "volatility": 0.000915883672765681,
+      "trend_strength": 0.2566400919194891,
+      "price_range": {
+        "min": 23049.75,
+        "max": 23170.0,
+        "range": 120.25
+      },
+      "event_analysis": {
+        "total_events": 0,
+        "event_types": {},
+        "event_density": 0.0
+      },
+      "temporal_characteristics": {
+        "session_duration": 16,
+        "price_volatility": 0.000915883672765681,
+        "trend_consistency": 0.2566400919194891
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "asia",
+        "session_date": "2025-08-05",
+        "session_start": "19:00:00",
+        "session_end": "23:59:00",
+        "session_duration": 299,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed",
+        "actual_start_date": "2025-08-04"
+      },
+      "phase_classification": "mixed",
+      "volatility": 0.0008062025808876118,
+      "trend_strength": 0.02384021077524263,
+      "price_range": {
+        "min": 23310.75,
+        "max": 23374.5,
+        "range": 63.75
+      },
+      "event_analysis": {
+        "total_events": 0,
+        "event_types": {},
+        "event_density": 0.0
+      },
+      "temporal_characteristics": {
+        "session_duration": 35,
+        "price_volatility": 0.0008062025808876118,
+        "trend_consistency": 0.02384021077524263
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "premarket",
+        "session_date": "2025-07-30",
+        "session_start": "07:00:00",
+        "session_end": "09:29:00",
+        "session_duration": 149,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "phase_classification": "mixed",
+      "volatility": 0.0009786833357505519,
+      "trend_strength": -0.07764443204667332,
+      "price_range": {
+        "min": 23470.5,
+        "max": 23522.0,
+        "range": 51.5
+      },
+      "event_analysis": {
+        "total_events": 0,
+        "event_types": {},
+        "event_density": 0.0
+      },
+      "temporal_characteristics": {
+        "session_duration": 22,
+        "price_volatility": 0.0009786833357505519,
+        "trend_consistency": 0.07764443204667332
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "premarket",
+        "session_date": "2025-08-05",
+        "session_start": "07:00:00",
+        "session_end": "09:29:00",
+        "session_duration": 149,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "phase_classification": "mixed",
+      "volatility": 0.0007793368961219043,
+      "trend_strength": -0.05974456091703852,
+      "price_range": {
+        "min": 23339.25,
+        "max": 23404.25,
+        "range": 65.0
+      },
+      "event_analysis": {
+        "total_events": 0,
+        "event_types": {},
+        "event_density": 0.0
+      },
+      "temporal_characteristics": {
+        "session_duration": 35,
+        "price_volatility": 0.0007793368961219043,
+        "trend_consistency": 0.05974456091703852
+      }
+    },
+    {
+      "session_metadata": {
+        "session_type": "london",
+        "session_date": "2025-07-30",
+        "session_start": "02:00:00",
+        "session_end": "04:59:00",
+        "session_duration": 179,
+        "transcription_source": "live_market_data",
+        "data_completeness": "complete_session",
+        "timezone": "ET",
+        "session_status": "completed"
+      },
+      "phase_classification": "mixed",
+      "volatility": 0.0009209693345745305,
+      "trend_strength": -0.028131972459874106,
+      "price_range": {
+        "min": 23462.25,
+        "max": 23512.5,
+        "range": 50.25
+      },
+      "event_analysis": {
+        "total_events": 0,
+        "event_types": {},
+        "event_density": 0.0
+      },
+      "temporal_characteristics": {
+        "session_duration": 24,
+        "price_volatility": 0.0009209693345745305,
+        "trend_consistency": 0.028131972459874106
+      }
+    }
+  ],
+  "metamorphosis": {
+    "metamorphosis_patterns": {},
+    "phase_transitions": [],
+    "metamorphosis_summary": {
+      "total_patterns": 0,
+      "avg_transformation": 0,
+      "strong_transformations": 0
+    }
+  },
+  "statistical_validation": {
+    "validation_method": "comprehensive_statistical_analysis",
+    "significance_tests": {},
+    "confidence_intervals": {},
+    "effect_sizes": {},
+    "validation_summary": {
+      "total_tests": 0,
+      "significant_findings": 0,
+      "significance_rate": 0.0,
+      "validation_method": "transformation_strength_analysis",
+      "quality_assessment": "high"
+    }
+  },
+  "quality_assessment": {
+    "gate_assessments": {
+      "pattern_evolution_authenticity": {
+        "score": 0.0,
+        "threshold": 0.87,
+        "passed": false
+      },
+      "metamorphosis_statistical_significance": {
+        "score": 1.0,
+        "threshold": 0.01,
+        "passed": false
+      },
+      "cross_phase_correlation_confidence": {
+        "score": 0.0,
+        "threshold": 0.9,
+        "passed": false
+      },
+      "temporal_consistency_threshold": {
+        "score": 0.09744820780309993,
+        "threshold": 0.75,
+        "passed": "False"
+      },
+      "research_framework_compliance": {
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      }
+    },
+    "overall_quality": 0.2,
+    "quality_score": 0.2,
+    "gates_passed": 1,
+    "total_gates": 5,
+    "research_ready": false
+  }
+}

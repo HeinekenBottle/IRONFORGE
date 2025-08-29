@@ -19,4 +19,13 @@ def write_html(path: str | Path, html: str) -> None:
 
 
 def glob_many(glob: str) -> list[Path]:
-    return list(Path().glob(glob))
+    """Glob files, handling both relative and absolute paths."""
+    glob_path = Path(glob)
+    if glob_path.is_absolute():
+        # For absolute paths, use the parent directory and pattern
+        parent = glob_path.parent
+        pattern = glob_path.name
+        return list(parent.glob(pattern))
+    else:
+        # For relative paths, use current directory
+        return list(Path().glob(glob))
