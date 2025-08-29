@@ -595,16 +595,28 @@ class IRONFORGEDiscovery(nn.Module):
             # Create temporal data for enhanced layers if needed
             temporal_data = None
             if self.enhanced_tgat and edges:
-                # Create [N, N, 2] temporal data matrix for enhanced layers
+                # Create [N, N, 2] temporal data matrix for enhanced layers (O(E) scatter)
                 n_nodes = len(nodes)
-                temporal_data = torch.zeros((n_nodes, n_nodes, 2))
-                
-                for i, node_i in enumerate(nodes):
-                    for j, node_j in enumerate(nodes):
-                        if (node_i, node_j) in graph.edges:
-                            edge_data = graph.edges[node_i, node_j]
-                            temporal_data[i, j, 0] = edge_data.get('dt_minutes', 0)
-                            temporal_data[i, j, 1] = edge_data.get('temporal_distance', 0)
+                temporal_data = torch.zeros((n_nodes, n_nodes, 2), dtype=torch.float32)
+
+                node_to_idx = {node: idx for idx, node in enumerate(nodes)}
+                src_idx: list[int] = []
+                dst_idx: list[int] = []
+                dt_vals: list[float] = []
+                td_vals: list[float] = []
+
+                for (u, v) in edges:
+                    src_idx.append(node_to_idx[u])
+                    dst_idx.append(node_to_idx[v])
+                    edge_data = graph.edges[u, v]
+                    dt_vals.append(float(edge_data.get('dt_minutes', 0.0)))
+                    td_vals.append(float(edge_data.get('temporal_distance', 0.0)))
+
+                if src_idx:
+                    si = torch.tensor(src_idx, dtype=torch.long)
+                    di = torch.tensor(dst_idx, dtype=torch.long)
+                    temporal_data[si, di, 0] = torch.tensor(dt_vals, dtype=torch.float32)
+                    temporal_data[si, di, 1] = torch.tensor(td_vals, dtype=torch.float32)
 
             for i, layer in enumerate(self.attention_layers):
                 if self.enhanced_tgat and hasattr(layer, 'create_dag_mask'):
