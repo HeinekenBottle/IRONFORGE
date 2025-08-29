@@ -104,6 +104,7 @@ class EnhancedSessionAdapter:
                 "original_type": original_type,
                 "magnitude": magnitude,
                 "timestamp": movement.get("timestamp"),
+                "price_level": movement.get("price_level"),
                 "event_family": self._determine_event_family(mapped_type),
                 "archaeological_significance": self._estimate_archaeological_significance(mapped_type, magnitude),
             }
@@ -119,6 +120,7 @@ class EnhancedSessionAdapter:
                 "original_type": original_type,
                 "magnitude": magnitude,
                 "timestamp": liq.get("timestamp"),
+                "price_level": liq.get("price_level"),
                 "event_family": self._determine_event_family(mapped_type),
                 "archaeological_significance": self._estimate_archaeological_significance(mapped_type, magnitude),
             }
@@ -219,7 +221,7 @@ class EnhancedSessionAdapter:
                 # within 5% of session range around target
                 tolerance = 0.05 * s_range
                 if abs(float(price_level) - float(target)) <= tolerance:
-                    magnitude = ev.get("magnitude", 0.0)
+                    magnitude = float(ev.get("magnitude", 1.0))
                     boost = 1.0
                     dimensional_destiny = False
                     theory_b_validated = False
