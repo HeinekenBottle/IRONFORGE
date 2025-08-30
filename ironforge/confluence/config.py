@@ -29,6 +29,9 @@ class ConfluenceWeights:
     dag_flow_weight: float = 0.0
     dag_clustering_weight: float = 0.0
     
+    # Hierarchical coherence weighting (HDBSCAN-enhanced temporal clustering)
+    hierarchical_coherence_weight: float = 0.0
+    
     def __post_init__(self):
         """Validate weights sum to 1.0."""
         total = (
@@ -40,7 +43,8 @@ class ConfluenceWeights:
             self.dag_topology_weight +
             self.dag_centrality_weight +
             self.dag_flow_weight +
-            self.dag_clustering_weight
+            self.dag_clustering_weight +
+            self.hierarchical_coherence_weight
         )
         
         if abs(total - 1.0) > 0.001:
@@ -59,6 +63,16 @@ class DAGWeightingConfig:
     centrality_analysis: bool = True
     flow_analysis: bool = True
     clustering_analysis: bool = True
+    
+    # Hierarchical clustering parameters
+    enable_hierarchical_coherence: bool = False
+    hierarchical_min_cluster_size: int = 20
+    hierarchical_min_samples: int = 8
+    hierarchical_time_scales: list = None  # [5, 15, 30] minutes by default
+    
+    def __post_init__(self):
+        if self.hierarchical_time_scales is None:
+            self.hierarchical_time_scales = [5, 15, 30]
     
     # DAG weighting parameters
     zone_influence_radius: float = 3.0
@@ -198,7 +212,8 @@ def validate_weights(weights: Dict[str, float]) -> bool:
     known_keys = {
         'temporal_coherence', 'pattern_strength', 'archaeological_significance',
         'session_context', 'discovery_confidence', 'dag_topology_weight',
-        'dag_centrality_weight', 'dag_flow_weight', 'dag_clustering_weight'
+        'dag_centrality_weight', 'dag_flow_weight', 'dag_clustering_weight',
+        'hierarchical_coherence_weight'
     }
     
     unknown_keys = set(weights.keys()) - known_keys
@@ -230,6 +245,7 @@ def get_default_weights(enable_dag_weighting: bool = False) -> Dict[str, float]:
             'dag_centrality_weight': 0.07,
             'dag_flow_weight': 0.03,
             'dag_clustering_weight': 0.02,
+            'hierarchical_coherence_weight': 0.0,
         }
     else:
         # Standard weights (backward compatible)
@@ -293,6 +309,7 @@ def export_confluence_config(config: ConfluenceConfig) -> Dict[str, Any]:
             'dag_centrality_weight': config.weights.dag_centrality_weight,
             'dag_flow_weight': config.weights.dag_flow_weight,
             'dag_clustering_weight': config.weights.dag_clustering_weight,
+            'hierarchical_coherence_weight': config.weights.hierarchical_coherence_weight,
         },
         'dag': {
             'features': {
