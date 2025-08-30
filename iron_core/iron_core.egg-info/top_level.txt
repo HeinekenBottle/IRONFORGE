@@ -1,4 +1,0 @@
-integration
-mathematical
-performance
-validation

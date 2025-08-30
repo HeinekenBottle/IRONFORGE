@@ -18,9 +18,7 @@ import torch
 from config import get_config
 
 # Lazy loading imports to resolve timeout issues
-from ironforge.integration.ironforge_container import get_ironforge_container
 from ironforge.learning.simple_event_clustering import analyze_time_patterns
-from ironforge.synthesis.pattern_graduation import PatternGraduation
 
 
 class IRONFORGE:

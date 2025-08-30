@@ -1,0 +1,104 @@
+{
+  "cleanup_plan": {
+    "phase_1_low_risk": {
+      "description": "Safe cleanup with minimal impact",
+      "priority": 1,
+      "estimated_time": "1-2 hours",
+      "tasks": [
+        {
+          "task": "Remove unused imports in non-core modules",
+          "files_affected": "~50 files",
+          "risk": "very_low",
+          "validation": "import test + basic functionality"
+        },
+        {
+          "task": "Clean up test files with unused imports",
+          "files_affected": "test files only",
+          "risk": "very_low", 
+          "validation": "pytest runs successfully"
+        },
+        {
+          "task": "Remove commented-out code blocks >6 months old",
+          "files_affected": "various",
+          "risk": "very_low",
+          "validation": "git history check"
+        }
+      ]
+    },
+    "phase_2_medium_risk": {
+      "description": "Configuration and feature flag cleanup",
+      "priority": 2,
+      "estimated_time": "2-3 hours",
+      "tasks": [
+        {
+          "task": "Evaluate archaeological DAG weighting feature flag",
+          "files_affected": "configs/dev.yml, confluence/config.py",
+          "risk": "low",
+          "validation": "full pipeline test",
+          "notes": "Only 2 usage files found, mostly test/analysis code"
+        },
+        {
+          "task": "Clean up deprecated configuration parameters",
+          "files_affected": "configs/*.yml, runtime_config.py",
+          "risk": "medium",
+          "validation": "configuration loading test"
+        },
+        {
+          "task": "Consolidate duplicate agent configurations",
+          "files_affected": "agents/*/ironforge_config.py",
+          "risk": "low",
+          "validation": "agent functionality test"
+        }
+      ]
+    },
+    "phase_3_test_optimization": {
+      "description": "Test suite optimization",
+      "priority": 3,
+      "estimated_time": "1-2 hours",
+      "tasks": [
+        {
+          "task": "Remove duplicate test fixtures",
+          "files_affected": "tests/*/conftest.py",
+          "risk": "low",
+          "validation": "full test suite"
+        },
+        {
+          "task": "Consolidate similar test cases",
+          "files_affected": "various test files",
+          "risk": "medium",
+          "validation": "test coverage maintained >95%"
+        },
+        {
+          "task": "Remove obsolete test utilities",
+          "files_affected": "test helper modules",
+          "risk": "low",
+          "validation": "test suite runs"
+        }
+      ]
+    }
+  },
+  "protected_components": [
+    "ironforge/constants.py (Golden Invariants)",
+    "ironforge/learning/ (TGAT models)",
+    "ironforge/synthesis/ (Pattern graduation)",
+    "ironforge/validation/ (Quality gates)",
+    "ironforge/utilities/ (Core utilities)",
+    "runs/ directories (Archaeological data)",
+    "data/ directories (Enhanced sessions)",
+    "models/ directories (Trained models)",
+    "configs/ directories (Pipeline configs)"
+  ],
+  "validation_gates": [
+    "python -c 'import ironforge; print(\"✅ Import successful\")'",
+    "python scripts/run_quality_gates.py --contracts-only",
+    "python -m ironforge.sdk.cli discover-temporal --config configs/dev.yml",
+    "pytest tests/contracts/ -v",
+    "pytest tests/performance/ -v -m 'not slow'"
+  ],
+  "rollback_plan": {
+    "git_tags": "Create tag before each phase",
+    "backup_configs": "Backup all config files before changes",
+    "validation_checkpoints": "Run validation after every 10 changes",
+    "emergency_rollback": "git reset --hard <tag> if critical failure"
+  }
+}

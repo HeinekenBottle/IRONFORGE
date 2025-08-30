@@ -82,21 +82,21 @@ def get_quality_gates() -> List[QualityGate]:
         # Contract Tests - Critical
         QualityGate(
             name="Golden Invariants Validation",
-            command=["python", "-m", "pytest", "tests/contracts/test_golden_invariants.py", "-v"],
+            command=["python3", "-m", "pytest", "tests/contracts/test_golden_invariants.py", "-v"],
             description="Validate Golden Invariants: 6 event types, 4 edge intents, feature dimensions",
             critical=True
         ),
-        
+
         QualityGate(
             name="HTF Compliance Tests",
-            command=["python", "-m", "pytest", "tests/contracts/test_htf_compliance.py", "-v"],
+            command=["python3", "-m", "pytest", "tests/contracts/test_htf_compliance.py", "-v"],
             description="Validate HTF compliance: last-closed only, no intra-candle violations",
             critical=True
         ),
-        
+
         QualityGate(
             name="Confluence Configuration Tests",
-            command=["python", "-m", "pytest", "tests/contracts/test_confluence_config.py", "-v"],
+            command=["python3", "-m", "pytest", "tests/contracts/test_confluence_config.py", "-v"],
             description="Validate confluence scoring configuration and DAG weighting feature flag",
             critical=True
         ),
@@ -104,14 +104,14 @@ def get_quality_gates() -> List[QualityGate]:
         # Performance Tests - Critical
         QualityGate(
             name="Performance Budget Gates",
-            command=["python", "-m", "pytest", "tests/performance/test_performance_gates.py", "-v", "-m", "not slow"],
+            command=["python3", "-m", "pytest", "tests/performance/test_performance_gates.py", "-v", "-m", "not slow"],
             description="Validate performance gates: <3s session, <180s pipeline, <100MB memory",
             critical=True
         ),
-        
+
         QualityGate(
             name="Import Performance Tests",
-            command=["python", "-m", "pytest", "tests/performance/test_import_performance.py", "-v"],
+            command=["python3", "-m", "pytest", "tests/performance/test_import_performance.py", "-v"],
             description="Validate import performance and lazy loading: <2s initialization",
             critical=True
         ),
@@ -119,14 +119,14 @@ def get_quality_gates() -> List[QualityGate]:
         # Integration Tests - Important but not critical
         QualityGate(
             name="Reporting Pipeline Tests",
-            command=["python", "-m", "pytest", "tests/integration/test_reporting.py", "-v"],
+            command=["python3", "-m", "pytest", "tests/integration/test_reporting.py", "-v"],
             description="Validate reporting pipeline: minidash generation, PNG export",
             critical=False
         ),
-        
+
         QualityGate(
             name="Oracle Integration Tests",
-            command=["python", "-m", "pytest", "tests/integration/test_oracle_integration.py", "-v"],
+            command=["python3", "-m", "pytest", "tests/integration/test_oracle_integration.py", "-v"],
             description="Validate Oracle integration: 16-column schema, sidecar integration",
             critical=False
         ),
@@ -156,14 +156,14 @@ def get_quality_gates() -> List[QualityGate]:
         # System Validation - Critical
         QualityGate(
             name="Package Build Test",
-            command=["python", "-m", "build"],
+            command=["python3", "-m", "build"],
             description="Validate package can be built successfully",
             critical=True
         ),
-        
+
         QualityGate(
             name="Import Smoke Test",
-            command=["python", "-c", "import ironforge; from ironforge.api import run_discovery; print('✅ Import successful')"],
+            command=["python3", "-c", "import ironforge; from ironforge.api import run_discovery; print('✅ Import successful')"],
             description="Validate package can be imported successfully",
             critical=True
         ),

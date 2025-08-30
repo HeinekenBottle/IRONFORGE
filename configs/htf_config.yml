@@ -70,32 +70,10 @@ observability:
   min_feature_coverage: 0.5       # Alert if coverage drops below 50%
   max_anomaly_rate: 0.1            # Alert if anomaly rate exceeds 10%
 
-# Development and Testing
+# Development and Testing (simplified)
 development:
-  # A/B Testing
   enable_baseline_comparison: true  # Keep 45D baseline for comparison
-  baseline_sample_rate: 0.1       # Sample 10% for baseline comparison
-  
-  # Debugging
   verbose_htf_logging: false       # Detailed HTF processing logs
-  save_intermediate_results: false # Save HTF bars and statistics
-  
-  # Performance profiling
-  profile_htf_performance: false   # Profile HTF feature extraction
-
-# CI/CD Configuration
-ci:
-  # Smoke test settings
-  smoke_test_sample_size: 5        # Number of sessions to test
-  required_feature_count: 58       # 51 features + 7 metadata
-  required_htf_features: 6         # f45-f50
-  
-  # Nightly checks
-  enable_nightly_validation: true  # Run nightly HTF validation
-  dry_run_timeout_seconds: 120    # Timeout for prep-shards dry run
-  
-  # Golden sample validation
-  enforce_golden_sample: true      # Enforce 51 node + 20 edge columns
   
 # Runtime Configuration
 runtime:
