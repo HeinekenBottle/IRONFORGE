@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/HeinekenBottle/IRONFORGE/compare/v2.1.0...v2.1.1) (2025-08-30)
+
+
+### Bug Fixes
+
+* re-add allowed_bots configuration for Cursor bot workflow compatibility ([4066e9e](https://github.com/HeinekenBottle/IRONFORGE/commit/4066e9e166f71ca698571ea58bfd09559b04f33e))
+
 ## [2.1.0](https://github.com/HeinekenBottle/IRONFORGE/compare/v2.0.0...v2.1.0) (2025-08-30)
 
 
