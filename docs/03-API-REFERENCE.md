@@ -19,44 +19,54 @@ Complete API reference for IRONFORGE's stable public interface. All functions ar
 ```python
 from ironforge.api import (
     run_discovery, score_confluence, validate_run, build_minidash,
-    Config, load_config, materialize_run_dir
+    LoaderCfg, Paths, RunCfg, Config, load_config, materialize_run_dir
 )
 ```
 
 ### Core Pipeline
 ```python
-# Complete pipeline in 4 steps
-config = load_config('configs/dev.yml')
-discovery_results = run_discovery(config)
-confluence_results = score_confluence(config)
-validation_results = validate_run(config)
-dashboard = build_minidash(config)
+# Discovery → Confluence → Validation → Reporting
+patterns = run_discovery(
+    shard_paths=["data/shards/NQ_5m/shard_2024-12-15"],
+    out_dir="runs/2025-01-15/NQ_5m",
+    loader_cfg=LoaderCfg(fanouts=(10, 10), batch_size=2048),
+)
+
+scores_path = score_confluence(
+    pattern_paths=patterns,
+    out_dir="runs/2025-01-15/NQ_5m/confluence",
+    _weights=None,
+    threshold=65.0,
+)
+
+run_cfg = RunCfg(paths=Paths(shards_dir="data/shards/NQ_5m", out_dir="runs/2025-01-15/NQ_5m"))
+validation = validate_run(run_cfg)
 ```
 
 ## 🔧 Core Engines
 
 ### Discovery Engine
 
-#### `run_discovery(config: Config) -> Dict[str, Any]`
-Runs TGAT-based pattern discovery from enhanced session graphs.
+#### `run_discovery(shard_paths: Iterable[str], out_dir: str, loader_cfg: LoaderCfg) -> list[str]`
+Run TGAT-based pattern discovery over shard directories and write outputs to a run directory.
 
 **Parameters:**
-- `config`: Configuration object with data paths and discovery settings
+- `shard_paths`: Iterable of shard directories containing `nodes.parquet` and `edges.parquet`
+- `out_dir`: Output directory for run artifacts (embeddings/, patterns/)
+- `loader_cfg`: Loader configuration (fanouts, batch size, etc.)
 
 **Returns:**
-- `Dict[str, Any]`: Discovery results with patterns, embeddings, and metadata
+- `list[str]`: Pattern parquet file paths for each processed shard
 
 **Example:**
 ```python
-from ironforge.api import run_discovery, load_config
+from ironforge.api import run_discovery, LoaderCfg
 
-config = load_config('configs/dev.yml')
-results = run_discovery(config)
-
-# Access results
-patterns = results['patterns']
-embeddings = results['embeddings']
-attention_weights = results['attention_weights']
+patterns = run_discovery(
+    shard_paths=["data/shards/NQ_5m/shard_2024-12-15"],
+    out_dir="runs/2025-01-15/NQ_5m",
+    loader_cfg=LoaderCfg(fanouts=(10, 10), batch_size=2048),
+)
 ```
 
 **CLI Equivalent:**
@@ -66,26 +76,23 @@ python -m ironforge.sdk.cli discover-temporal --config configs/dev.yml
 
 ### Confluence Engine
 
-#### `score_confluence(config: Config) -> Dict[str, Any]`
-Runs rule-based confluence scoring and validation.
+#### `score_confluence(pattern_paths: Sequence[str], out_dir: str, _weights: Mapping[str, float] | None, threshold: float, hierarchical_config: dict | None = None) -> str`
+Run BMAD‑enhanced confluence scoring over discovered pattern files.
 
 **Parameters:**
-- `config`: Configuration object with scoring weights and validation settings
+- `pattern_paths`: List of pattern parquet paths
+- `out_dir`: Output directory for confluence artifacts
+- `_weights`: Optional weights mapping for scoring
+- `threshold`: Score threshold (0–100)
+- `hierarchical_config`: Optional dict enabling hierarchical coherence analysis
 
 **Returns:**
-- `Dict[str, Any]`: Confluence scores, statistics, and validation results
+- `str`: Path to `scores.parquet`
 
 **Example:**
 ```python
-from ironforge.api import score_confluence, load_config
-
-config = load_config('configs/dev.yml')
-results = score_confluence(config)
-
-# Access results
-scores = results['confluence_scores']
-statistics = results['statistics']
-validation = results['validation_results']
+from ironforge.api import score_confluence
+scores_path = score_confluence(patterns, out_dir="runs/2025-01-15/NQ_5m/confluence", _weights=None, threshold=65.0)
 ```
 
 **CLI Equivalent:**
@@ -95,14 +102,14 @@ python -m ironforge.sdk.cli score-session --config configs/dev.yml
 
 ### Validation Engine
 
-#### `validate_run(config: Config) -> Dict[str, Any]`
+#### `validate_run(config) -> dict`
 Runs quality gates and validation rails.
 
 **Parameters:**
 - `config`: Configuration object with validation settings
 
 **Returns:**
-- `Dict[str, Any]`: Validation results, quality metrics, and compliance status
+- `dict`: Validation results, quality metrics, and compliance status
 
 **Example:**
 ```python
@@ -124,26 +131,27 @@ python -m ironforge.sdk.cli validate-run --config configs/dev.yml
 
 ### Reporting Engine
 
-#### `build_minidash(config: Config) -> Dict[str, Any]`
-Generates interactive HTML dashboards with PNG export.
+#### `build_minidash(activity: pd.DataFrame, confluence: pd.DataFrame, motifs: list[dict], out_html, out_png, width=1200, height=700, htf_regime_data=None) -> (Path, Path)`
+Generate a minimal dashboard from activity and confluence time series.
 
 **Parameters:**
-- `config`: Configuration object with reporting settings
+- `activity`: DataFrame with columns `ts`, `count`
+- `confluence`: DataFrame with columns `ts`, `score`
+- `motifs`: List of motif dicts for tabular display
+- `out_html`, `out_png`: Output file paths
+- `width`, `height`: Figure size in pixels
+- `htf_regime_data`: Optional HTF regime context
 
 **Returns:**
-- `Dict[str, Any]`: Dashboard generation results and file paths
+- `(Path, Path)`: Paths to `(html, png)`
 
 **Example:**
 ```python
-from ironforge.api import build_minidash, load_config
-
-config = load_config('configs/dev.yml')
-results = build_minidash(config)
-
-# Access results
-html_path = results['html_path']
-png_path = results['png_path']
-dashboard_url = results['dashboard_url']
+import pandas as pd
+from ironforge.api import build_minidash
+activity = pd.DataFrame({"ts": pd.date_range("2025-01-01", periods=10, freq="min"), "count": range(10)})
+confluence_df = pd.DataFrame({"ts": activity["ts"], "score": range(0, 100, 10)})
+build_minidash(activity, confluence_df, motifs=[], out_html="runs/2025-01-15/minidash.html", out_png="runs/2025-01-15/minidash.png")
 ```
 
 **CLI Equivalent:**

@@ -69,18 +69,46 @@ open runs/$(date +%F)/minidash.html
 
 ### Programmatic Usage
 ```python
-from ironforge.api import run_discovery, score_confluence, validate_run, build_minidash
-from ironforge.api import Config, load_config
+from ironforge.api import (
+    run_discovery, score_confluence, validate_run, build_minidash,
+    LoaderCfg, Paths, RunCfg
+)
 
-# Load configuration
-config = load_config('configs/dev.yml')
+# 1) Discovery: provide shard directories, output dir, and loader configuration
+patterns = run_discovery(
+    shard_paths=["data/shards/NQ_5m/shard_2024-12-15"],
+    out_dir="runs/2025-01-15/NQ_5m",
+    loader_cfg=LoaderCfg(fanouts=(10, 10), batch_size=2048),
+)
 
-# Run complete pipeline
-discovery_results = run_discovery(config)
-confluence_results = score_confluence(config)
-validation_results = validate_run(config)
-dashboard = build_minidash(config)
+# 2) Confluence: score produced patterns with optional weights and threshold
+scores_path = score_confluence(
+    pattern_paths=patterns,
+    out_dir="runs/2025-01-15/NQ_5m/confluence",
+    _weights=None,
+    threshold=65.0,
+)
+
+# 3) Validation: high-level run validation using config
+run_cfg = RunCfg(paths=Paths(shards_dir="data/shards/NQ_5m", out_dir="runs/2025-01-15/NQ_5m"))
+validation = validate_run(run_cfg)
+
+# 4) Reporting: build a minimal dashboard from dataframes (illustrative)
+import pandas as pd
+activity = pd.DataFrame({"ts": pd.date_range("2025-01-01", periods=10, freq="min"), "count": range(10)})
+confluence_df = pd.DataFrame({"ts": activity["ts"], "score": range(0, 100, 10)})
+build_minidash(activity, confluence_df, motifs=[], out_html="runs/2025-01-15/minidash.html", out_png="runs/2025-01-15/minidash.png")
 ```
+
+### Golden Invariants
+
+The following data contracts are invariant and must be preserved across the system:
+- Events: 6
+- Edge intents: 4
+- Node features: 45D (default) / 51D (HTF ON)
+- Edge features: 20D
+- HTF sampling: last‑closed only
+- Session isolation: enforced
 
 ## 📋 Documentation Standards
 
