@@ -13,6 +13,7 @@
 - **[04-ARCHITECTURE.md](04-ARCHITECTURE.md)** - Complete system design and components
 - **[05-DEPLOYMENT.md](05-DEPLOYMENT.md)** - Production deployment and monitoring
 - **[06-TROUBLESHOOTING.md](06-TROUBLESHOOTING.md)** - Common issues and solutions
+ - **[AGENTS_OVERVIEW.md](AGENTS_OVERVIEW.md)** - Multi‑agent system overview and links
 
 ### 📚 Reference & Support
 - **[07-CHANGELOG.md](07-CHANGELOG.md)** - Version history and breaking changes

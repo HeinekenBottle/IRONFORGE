@@ -6,6 +6,8 @@
 
 IRONFORGE is a sophisticated archaeological discovery system that uncovers hidden patterns in financial market data using advanced temporal graph attention networks (TGAT) and semantic feature analysis.
 
+> Invariants (must always hold): Events=6; Intents=4; Node features=45D (default) / 51D (HTF ON); Edge features=20D; HTF sampling=last‑closed; Session isolation=enforced.
+
 ## 📋 Table of Contents
 - [System Overview](#system-overview)
 - [Architectural Principles](#architectural-principles)
@@ -92,7 +94,7 @@ ironforge/
 #### Enhanced Graph Builder
 - Transforms JSON sessions into 45D/20D TGAT-compatible graphs
 - Maintains temporal causality through (timestamp, seq_idx) ordering
-- Supports both 45D and 53D feature dimensions
+- Supports both 45D and 51D feature dimensions
 - Preserves session isolation and archaeological principles
 
 #### TGAT Discovery
