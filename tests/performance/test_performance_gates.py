@@ -88,14 +88,7 @@ def sample_shard_paths():
     return [str(p) for p in shard_paths]
 
 
-@pytest.fixture
-def test_config():
-    """Get test configuration."""
-    config_path = Path("configs/dev.yml")
-    if not config_path.exists():
-        pytest.skip("Test configuration not available")
-    
-    return load_config(str(config_path))
+# test_config fixture now provided by tests/conftest.py
 
 
 class TestInitializationPerformance:

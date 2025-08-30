@@ -19,14 +19,7 @@ from ironforge.reporting.minidash import build_minidash
 from ironforge.sdk.app_config import load_config, materialize_run_dir
 
 
-@pytest.fixture
-def test_config():
-    """Get test configuration."""
-    config_path = Path("configs/dev.yml")
-    if not config_path.exists():
-        pytest.skip("Test configuration not available")
-    
-    return load_config(str(config_path))
+# test_config fixture now provided by tests/conftest.py
 
 
 @pytest.fixture

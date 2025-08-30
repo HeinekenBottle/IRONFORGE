@@ -1,2 +1,0 @@
-[console_scripts]
-iron-core-test = iron_core.validation:test_installation

@@ -23,13 +23,7 @@ from __future__ import annotations
 
 from ironforge.confluence.scoring import score_confluence
 
-# BMAD Integration (temporarily disabled due to syntax issues)
-# from ironforge.coordination.bmad_integration import (
-#     get_bmad_integration,
-#     coordinate_bmad_analysis,
-#     initialize_bmad_integration,
-#     shutdown_bmad_integration
-# )
+# BMAD Integration removed - no longer needed
 
 # Optional: integration exports for advanced users
 from ironforge.integration.ironforge_container import (
