@@ -88,9 +88,9 @@ class FeatureAdapter:
             Tensor of shape [N, node_dim] with node features
         """
         feature_cols = [f"f{i}" for i in range(self.node_dim)]
-        # Select, coerce to numeric, replace invalids with 0, and convert in a vectorized path
+        # Align columns, insert missing with 0.0, coerce to numeric, replace invalids with 0.0
         features_df = (
-            nodes_df[feature_cols]
+            nodes_df.reindex(columns=feature_cols, fill_value=0.0)
             .apply(pd.to_numeric, errors="coerce")
             .fillna(0.0)
         )
@@ -109,7 +109,7 @@ class FeatureAdapter:
         """
         feature_cols = [f"e{i}" for i in range(self.edge_dim)]
         features_df = (
-            edges_df[feature_cols]
+            edges_df.reindex(columns=feature_cols, fill_value=0.0)
             .apply(pd.to_numeric, errors="coerce")
             .fillna(0.0)
         )
