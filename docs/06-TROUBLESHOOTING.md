@@ -22,7 +22,7 @@ Common issues, solutions, and debugging techniques for IRONFORGE.
 # Check Python version
 python --version
 
-# Should be 3.9 or higher
+# Should be 3.10 or higher
 # If not, upgrade Python or use pyenv
 ```
 
@@ -65,7 +65,8 @@ cp configs/dev.yml configs/local.yml
 python -c "from ironforge.api import load_config, validate_config; config = load_config('configs/dev.yml'); print('Valid' if validate_config(config) else 'Invalid')"
 
 # Check configuration syntax
-python -m ironforge.sdk.cli validate-config --config configs/dev.yml
+# Validate config in Python
+python -c "from ironforge.api import load_config, validate_config; cfg=load_config('configs/dev.yml'); validate_config(cfg); print('✅ Valid')"
 ```
 
 ### Data Issues
@@ -159,8 +160,8 @@ for session in sessions:
 # Check processing time
 time python -m ironforge.sdk.cli discover-temporal --config configs/dev.yml
 
-# Increase timeout
-python -m ironforge.sdk.cli discover-temporal --config configs/dev.yml --timeout 300
+# If running via shell wrapper, use shell-level timeouts (e.g., GNU timeout)
+timeout 300s python -m ironforge.sdk.cli discover-temporal --config configs/dev.yml || echo "timed out"
 ```
 
 ## 🔧 Configuration Issues

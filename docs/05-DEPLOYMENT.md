@@ -16,7 +16,7 @@ Complete guide for deploying IRONFORGE in production environments, including con
 ## 🚀 Production Setup
 
 ### Prerequisites
-- Python 3.9+
+- Python 3.10+
 - 8GB+ RAM
 - 100GB+ storage
 - Network access to data sources
@@ -80,44 +80,27 @@ logging:
 
 ### Environment Variables
 ```bash
-# Set environment variables
+# Linux/macOS
 export IRONFORGE_ENV=production
 export IRONFORGE_CONFIG=/etc/ironforge/production.yml
 export IRONFORGE_LOG_LEVEL=INFO
 export IRONFORGE_DATA_PATH=/data/ironforge
 ```
+```powershell
+# Windows PowerShell
+$env:IRONFORGE_ENV="production"
+$env:IRONFORGE_CONFIG="C:\\ironforge\\production.yml"
+$env:IRONFORGE_LOG_LEVEL="INFO"
+$env:IRONFORGE_DATA_PATH="C:\\ironforge"
+```
 
 ## 📊 Monitoring
-
-### Health Checks
-```bash
-# System health check
-python -m ironforge.sdk.cli health-check --config configs/production.yml
-
-# Performance monitoring
-python -m ironforge.sdk.cli monitor --config configs/production.yml
-```
 
 ### Key Metrics
 - **Processing Time**: <180 seconds for full discovery
 - **Memory Usage**: <100MB total footprint
 - **Quality Scores**: >87% authenticity threshold
 - **Error Rate**: <1% processing failures
-
-### Logging
-```python
-import logging
-from ironforge.api import load_config
-
-# Configure logging
-config = load_config('configs/production.yml')
-logging.basicConfig(
-    level=config.logging.level,
-    filename=config.logging.file,
-    maxBytes=config.logging.max_size,
-    backupCount=config.logging.backup_count
-)
-```
 
 ## 🔧 Maintenance
 
@@ -126,82 +109,25 @@ logging.basicConfig(
 # Run daily discovery
 python -m ironforge.sdk.cli discover-temporal --config configs/production.yml
 
-# Check system health
-python -m ironforge.sdk.cli health-check --config configs/production.yml
-
-# Clean old runs (optional)
-python -m ironforge.sdk.cli cleanup --runs /data/ironforge/runs --days 30
+# Generate minimal report
+python -m ironforge.sdk.cli report-minimal --config configs/production.yml
 ```
 
 ### Weekly Maintenance
 ```bash
-# Full system validation
-python -m ironforge.sdk.cli validate-system --config configs/production.yml
-
-# Performance analysis
-python -m ironforge.sdk.cli analyze-performance --config configs/production.yml
-
-# Update documentation
-python -m ironforge.sdk.cli update-docs --config configs/production.yml
+# Validation sweep
+python -m ironforge.sdk.cli validate-run --config configs/production.yml
 ```
 
 ### Monthly Maintenance
 ```bash
-# Archive old data
-python -m ironforge.sdk.cli archive --source /data/ironforge/runs --target /archive/ironforge
-
-# System optimization
-python -m ironforge.sdk.cli optimize --config configs/production.yml
-
-# Security audit
-python -m ironforge.sdk.cli security-audit --config configs/production.yml
+# Archive old run artifacts (example procedure)
+find /data/ironforge/runs -type d -mtime +90 -print
 ```
 
 ## 🚨 Troubleshooting
 
-### Common Issues
-
-#### Performance Issues
-```bash
-# Check system resources
-python -m ironforge.sdk.cli system-info
-
-# Analyze performance bottlenecks
-python -m ironforge.sdk.cli analyze-performance --config configs/production.yml
-
-# Optimize configuration
-python -m ironforge.sdk.cli optimize-config --config configs/production.yml
-```
-
-#### Memory Issues
-```bash
-# Check memory usage
-python -m ironforge.sdk.cli memory-check
-
-# Reduce memory footprint
-python -m ironforge.sdk.cli reduce-memory --config configs/production.yml
-```
-
-#### Data Issues
-```bash
-# Validate data integrity
-python -m ironforge.sdk.cli validate-data --config configs/production.yml
-
-# Check data format
-python -m ironforge.sdk.cli check-data-format --config configs/production.yml
-```
-
-### Error Recovery
-```bash
-# Recover from failed runs
-python -m ironforge.sdk.cli recover --run-id <run-id>
-
-# Reset system state
-python -m ironforge.sdk.cli reset --config configs/production.yml
-
-# Emergency shutdown
-python -m ironforge.sdk.cli emergency-stop
-```
+See [06-TROUBLESHOOTING.md](06-TROUBLESHOOTING.md) for detailed guidance.
 
 ## 🔗 Related Documentation
 - [Quickstart Guide](01-QUICKSTART.md) - Getting started

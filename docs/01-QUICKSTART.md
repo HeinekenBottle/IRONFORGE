@@ -15,7 +15,7 @@ Get IRONFORGE running in 5 minutes. This guide covers installation, first discov
 ## 🚀 Installation
 
 ### Prerequisites
-- Python 3.9+
+- Python 3.10+
 - Git
 
 ### Install IRONFORGE
@@ -51,7 +51,14 @@ python -m ironforge.sdk.cli validate-run      --config configs/dev.yml
 python -m ironforge.sdk.cli report-minimal    --config configs/dev.yml
 
 # Open dashboard
+# macOS (Terminal)
 open runs/$(date +%F)/minidash.html
+
+# Linux
+xdg-open runs/$(date +%F)/minidash.html
+
+# Windows (PowerShell)
+Start-Process "runs/$(Get-Date -Format yyyy-MM-dd)/minidash.html"
 ```
 
 ### Check Results
