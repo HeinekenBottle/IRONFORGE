@@ -8,6 +8,7 @@ Handles both 45D (standard) and 51D (HTF-enabled) node features as defined in co
 
 import logging
 import math
+import numpy as np
 from typing import Any, Dict, List, Optional, Tuple
 
 import networkx as nx
@@ -87,25 +88,14 @@ class FeatureAdapter:
             Tensor of shape [N, node_dim] with node features
         """
         feature_cols = [f"f{i}" for i in range(self.node_dim)]
-        
-        # Extract feature values, handling NaN/None
-        feature_values = []
-        for _, row in nodes_df.iterrows():
-            node_features = []
-            for col in feature_cols:
-                val = row.get(col, 0.0)
-                try:
-                    # Handle NaN, None, and invalid values
-                    if val is None or (isinstance(val, float) and math.isnan(val)):
-                        fv = 0.0
-                    else:
-                        fv = float(val)
-                except (ValueError, TypeError):
-                    fv = 0.0
-                node_features.append(fv)
-            feature_values.append(node_features)
-        
-        return torch.tensor(feature_values, dtype=torch.float32)
+        # Align columns, insert missing with 0.0, coerce to numeric, replace invalids with 0.0
+        features_df = (
+            nodes_df.reindex(columns=feature_cols, fill_value=0.0)
+            .apply(pd.to_numeric, errors="coerce")
+            .fillna(0.0)
+        )
+        features_np = features_df.to_numpy(dtype=np.float32, copy=False)
+        return torch.from_numpy(features_np)
     
     def extract_edge_features(self, edges_df: pd.DataFrame) -> torch.Tensor:
         """
@@ -118,25 +108,13 @@ class FeatureAdapter:
             Tensor of shape [E, edge_dim] with edge features
         """
         feature_cols = [f"e{i}" for i in range(self.edge_dim)]
-        
-        # Extract feature values, handling NaN/None
-        feature_values = []
-        for _, row in edges_df.iterrows():
-            edge_features = []
-            for col in feature_cols:
-                val = row.get(col, 0.0)
-                try:
-                    # Handle NaN, None, and invalid values
-                    if val is None or (isinstance(val, float) and math.isnan(val)):
-                        ev = 0.0
-                    else:
-                        ev = float(val)
-                except (ValueError, TypeError):
-                    ev = 0.0
-                edge_features.append(ev)
-            feature_values.append(edge_features)
-        
-        return torch.tensor(feature_values, dtype=torch.float32)
+        features_df = (
+            edges_df.reindex(columns=feature_cols, fill_value=0.0)
+            .apply(pd.to_numeric, errors="coerce")
+            .fillna(0.0)
+        )
+        features_np = features_df.to_numpy(dtype=np.float32, copy=False)
+        return torch.from_numpy(features_np)
     
     def adapt_shard_to_graph(
         self, 

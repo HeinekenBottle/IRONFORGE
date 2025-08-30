@@ -588,6 +588,14 @@ class IRONFORGEDiscovery(nn.Module):
 
             logger.info(f"Processing graph: {len(nodes)} nodes, {len(edges)} edges")
 
+            # Optional CUDA path with AMP
+            use_cuda = torch.cuda.is_available()
+            device = torch.device('cuda') if use_cuda else torch.device('cpu')
+
+            node_features = node_features.to(device, non_blocking=False)
+            edge_features = edge_features.to(device, non_blocking=False) if edge_features.numel() > 0 else edge_features
+            temporal_distances = temporal_distances.to(device, non_blocking=False) if temporal_distances.numel() > 0 else temporal_distances
+
             # Apply temporal attention layers
             current_features = node_features
             attention_weights = None
@@ -595,28 +603,57 @@ class IRONFORGEDiscovery(nn.Module):
             # Create temporal data for enhanced layers if needed
             temporal_data = None
             if self.enhanced_tgat and edges:
-                # Create [N, N, 2] temporal data matrix for enhanced layers
+                # Create [N, N, 2] temporal data matrix for enhanced layers (O(E) scatter)
                 n_nodes = len(nodes)
-                temporal_data = torch.zeros((n_nodes, n_nodes, 2))
-                
-                for i, node_i in enumerate(nodes):
-                    for j, node_j in enumerate(nodes):
-                        if (node_i, node_j) in graph.edges:
-                            edge_data = graph.edges[node_i, node_j]
-                            temporal_data[i, j, 0] = edge_data.get('dt_minutes', 0)
-                            temporal_data[i, j, 1] = edge_data.get('temporal_distance', 0)
+                temporal_data = torch.zeros((n_nodes, n_nodes, 2), dtype=torch.float32, device=device)
+
+                node_to_idx = {node: idx for idx, node in enumerate(nodes)}
+                src_idx: list[int] = []
+                dst_idx: list[int] = []
+                dt_vals: list[float] = []
+                td_vals: list[float] = []
+
+                for (u, v) in edges:
+                    src_idx.append(node_to_idx[u])
+                    dst_idx.append(node_to_idx[v])
+                    edge_data = graph.edges[u, v]
+                    dt_vals.append(float(edge_data.get('dt_minutes', 0.0)))
+                    td_vals.append(float(edge_data.get('temporal_distance', 0.0)))
+
+                if src_idx:
+                    si = torch.tensor(src_idx, dtype=torch.long, device=device)
+                    di = torch.tensor(dst_idx, dtype=torch.long, device=device)
+                    temporal_data[si, di, 0] = torch.tensor(dt_vals, dtype=torch.float32, device=device)
+                    temporal_data[si, di, 1] = torch.tensor(td_vals, dtype=torch.float32, device=device)
 
             for i, layer in enumerate(self.attention_layers):
-                if self.enhanced_tgat and hasattr(layer, 'create_dag_mask'):
-                    # Enhanced layer with DAG masking and temporal bias
-                    current_features, attention_weights = layer(
-                        current_features, edge_features, temporal_data, dag, return_attn
-                    )
+                if use_cuda:
+                    try:
+                        from torch.cuda.amp import autocast
+                    except Exception:
+                        autocast = None
                 else:
-                    # Standard layer (backwards compatibility)
-                    current_features, attention_weights = layer(
-                        current_features, edge_features, temporal_distances, return_attn
-                    )
+                    autocast = None
+
+                if autocast is not None:
+                    with autocast():
+                        if self.enhanced_tgat and hasattr(layer, 'create_dag_mask'):
+                            current_features, attention_weights = layer(
+                                current_features, edge_features, temporal_data, dag, return_attn
+                            )
+                        else:
+                            current_features, attention_weights = layer(
+                                current_features, edge_features, temporal_distances, return_attn
+                            )
+                else:
+                    if self.enhanced_tgat and hasattr(layer, 'create_dag_mask'):
+                        current_features, attention_weights = layer(
+                            current_features, edge_features, temporal_data, dag, return_attn
+                        )
+                    else:
+                        current_features, attention_weights = layer(
+                            current_features, edge_features, temporal_distances, return_attn
+                        )
                 logger.debug(f"Layer {i+1} output shape: {current_features.shape}")
 
             # Discover patterns
@@ -626,11 +663,12 @@ class IRONFORGEDiscovery(nn.Module):
             significance_scores = self.significance_scorer(current_features)  # [N, 1]
 
             # Prepare results
+            # Ensure tensors are on CPU for downstream serialization
             results = {
-                "pattern_scores": pattern_scores,
-                "attention_weights": attention_weights,
-                "significance_scores": significance_scores,
-                "node_embeddings": current_features,
+                "pattern_scores": pattern_scores.detach().cpu(),
+                "attention_weights": attention_weights.detach().cpu() if isinstance(attention_weights, torch.Tensor) else attention_weights,
+                "significance_scores": significance_scores.detach().cpu(),
+                "node_embeddings": current_features.detach().cpu(),
                 "session_name": nodes[0] if nodes else "unknown",
             }
 
