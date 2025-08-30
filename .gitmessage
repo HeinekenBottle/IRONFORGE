@@ -1,0 +1,15 @@
+# Conventional Commit Template
+# feat: add new feature
+# fix: fix a bug  
+# docs: update documentation
+# style: formatting changes
+# refactor: code refactoring
+# perf: performance improvements
+# test: add/update tests
+# chore: maintenance tasks
+# 
+# Examples:
+# feat: implement archaeological zone detection
+# fix: resolve session boundary validation
+# docs: update IRONFORGE pipeline documentation
+# refactor: enhance TGAT discovery performance
